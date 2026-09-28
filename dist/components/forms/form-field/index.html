@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Form Field documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Form Field - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/forms/form-field/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Form Field - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Form Field documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/forms/form-field/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+  <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+  <span class="docs-breadcrumb__separator">/</span>
+  <span class="docs-breadcrumb__current">Forms</span>
+  <span class="docs-breadcrumb__separator">/</span>
+  <span class="docs-breadcrumb__current">Form Field</span>
+</nav>
+
+        <h1>Form Field</h1>
+        <p class="docs-subtitle">Form Field is a wrapper component that combines a label, input control, help text, and validation messages into a cohesive unit.</p>
+
+        <div class="zak-docs-section">
+            <h2>Basic Form Field</h2>
+            <p>A simple form field with label and input.</p>
+
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="ff-basic">Full Name</label>
+                        <input type="text" id="ff-basic" class="zak-input" placeholder="Enter your full name">
+                        <span class="zak-form-text">Please enter your first and last name.</span>
+                    </div>
+                </form>
+            </div>
+
+            <div class="docs-code-block">
+                <div class="docs-code-block__header">
+                    <span class="docs-code-block__lang">HTML</span>
+                    <button class="docs-copy-btn">Copy</button>
+                </div>
+                <pre><code class="language-html">&lt;div class="zak-form-group"&gt;
+  &lt;label class="zak-form-label" for="name"&gt;Full Name&lt;/label&gt;
+  &lt;input type="text" id="name" class="zak-input" placeholder="Enter your full name"&gt;
+  &lt;span class="zak-form-text"&gt;Please enter your first and last name.&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Field Variants</h2>
+            <p>Apply border-style variants to the input control with <code>zak-input--filled</code>, <code>zak-input--outlined</code>, <code>zak-input--underline</code>, and <code>zak-input--ghost</code>. All variants work inside a <code>.zak-form-group</code>.</p>
+
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="ff-var-filled">Filled</label>
+                        <input type="text" id="ff-var-filled" class="zak-input zak-input--filled" placeholder="Filled field">
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="ff-var-outlined">Outlined</label>
+                        <input type="text" id="ff-var-outlined" class="zak-input zak-input--outlined" placeholder="Outlined field">
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="ff-var-underline">Underline</label>
+                        <input type="text" id="ff-var-underline" class="zak-input zak-input--underline" placeholder="Underline field">
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="ff-var-ghost">Ghost</label>
+                        <input type="text" id="ff-var-ghost" class="zak-input zak-input--ghost" placeholder="Ghost field">
+                    </div>
+                </form>
+            </div>
+
+            <div class="docs-code-block">
+                <div class="docs-code-block__header">
+                    <span class="docs-code-block__lang">HTML</span>
+                    <button class="docs-copy-btn">Copy</button>
+                </div>
+                <pre><code class="language-html">&lt;div class="zak-form-group"&gt;
+  &lt;label class="zak-form-label" for="name"&gt;Filled&lt;/label&gt;
+  &lt;input type="text" id="name" class="zak-input zak-input--filled" placeholder="Filled field"&gt;
+&lt;/div&gt;
+
+&lt;div class="zak-form-group"&gt;
+  &lt;label class="zak-form-label" for="name"&gt;Outlined&lt;/label&gt;
+  &lt;input type="text" id="name" class="zak-input zak-input--outlined" placeholder="Outlined field"&gt;
+&lt;/div&gt;
+
+&lt;div class="zak-form-group"&gt;
+  &lt;label class="zak-form-label" for="name"&gt;Underline&lt;/label&gt;
+  &lt;input type="text" id="name" class="zak-input zak-input--underline" placeholder="Underline field"&gt;
+&lt;/div&gt;
+
+&lt;div class="zak-form-group"&gt;
+  &lt;label class="zak-form-label" for="name"&gt;Ghost&lt;/label&gt;
+  &lt;input type="text" id="name" class="zak-input zak-input--ghost" placeholder="Ghost field"&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Required Indicator</h2>
+            <p>Add a required asterisk to indicate mandatory fields.</p>
+
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label zak-form-label-required" for="ff-required">Email Address</label>
+                        <input type="email" id="ff-required" class="zak-input" placeholder="you@example.com" required>
+                        <span class="zak-form-text">We'll never share your email.</span>
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="ff-optional">Phone Number</label>
+                        <input type="tel" id="ff-optional" class="zak-input" placeholder="(555) 123-4567">
+                        <span class="zak-form-text">Optional - for SMS notifications.</span>
+                    </div>
+                </form>
+            </div>
+
+            <div class="docs-code-block">
+                <div class="docs-code-block__header">
+                    <span class="docs-code-block__lang">HTML</span>
+                    <button class="docs-copy-btn">Copy</button>
+                </div>
+                <pre><code class="language-html">&lt;div class="zak-form-group"&gt;
+  &lt;label class="zak-form-label zak-form-label-required" for="email"&gt;Email Address&lt;/label&gt;
+  &lt;input type="email" id="email" class="zak-input" placeholder="you@example.com" required&gt;
+  &lt;span class="zak-form-text"&gt;We'll never share your email.&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class="zak-form-group"&gt;
+  &lt;label class="zak-form-label" for="phone"&gt;Phone Number&lt;/label&gt;
+  &lt;input type="tel" id="phone" class="zak-input" placeholder="(555) 123-4567"&gt;
+  &lt;span class="zak-form-text"&gt;Optional - for SMS notifications.&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Error State</h2>
+            <p>Show validation errors with the danger state class.</p>
+
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label zak-form-label-required" for="ff-error-email">Email Address</label>
+                        <input type="email" id="ff-error-email" class="zak-input zak-form-control-danger" value="not-an-email" aria-invalid="true" aria-describedby="ff-error-email-msg">
+                        <span class="zak-form-text zak-text-danger" id="ff-error-email-msg">Please enter a valid email address.</span>
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label zak-form-label-required" for="ff-error-pass">Password</label>
+                        <input type="password" id="ff-error-pass" class="zak-input zak-form-control-danger" value="123" aria-invalid="true" aria-describedby="ff-error-pass-msg">
+                        <span class="zak-form-text zak-text-danger" id="ff-error-pass-msg">Password must be at least 8 characters long.</span>
+                    </div>
+                </form>
+            </div>
+
+            <div class="docs-code-block">
+                <div class="docs-code-block__header">
+                    <span class="docs-code-block__lang">HTML</span>
+                    <button class="docs-copy-btn">Copy</button>
+                </div>
+                <pre><code class="language-html">&lt;div class="zak-form-group"&gt;
+  &lt;label class="zak-form-label zak-form-label-required" for="email"&gt;Email Address&lt;/label&gt;
+  &lt;input type="email" id="email"
+    class="zak-input zak-form-control-danger"
+    value="not-an-email"
+    aria-invalid="true"
+    aria-describedby="email-error"&gt;
+  &lt;span class="zak-form-text zak-text-danger" id="email-error"&gt;
+    Please enter a valid email address.
+  &lt;/span&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Success State</h2>
+            <p>Show successful validation with the success state class.</p>
+
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label zak-form-label-required" for="ff-success-user">Username</label>
+                        <input type="text" id="ff-success-user" class="zak-input zak-form-control-success" value="johndoe" aria-describedby="ff-success-user-msg">
+                        <span class="zak-form-text zak-text-success" id="ff-success-user-msg">Username is available!</span>
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label zak-form-label-required" for="ff-success-email">Email</label>
+                        <input type="email" id="ff-success-email" class="zak-input zak-form-control-success" value="john@example.com" aria-describedby="ff-success-email-msg">
+                        <span class="zak-form-text zak-text-success" id="ff-success-email-msg">Email address is valid.</span>
+                    </div>
+                </form>
+            </div>
+
+            <div class="docs-code-block">
+                <div class="docs-code-block__header">
+                    <span class="docs-code-block__lang">HTML</span>
+                    <button class="docs-copy-btn">Copy</button>
+                </div>
+                <pre><code class="language-html">&lt;div class="zak-form-group"&gt;
+  &lt;label class="zak-form-label zak-form-label-required" for="username"&gt;Username&lt;/label&gt;
+  &lt;input type="text" id="username"
+    class="zak-input zak-form-control-success"
+    value="johndoe"
+    aria-describedby="username-msg"&gt;
+  &lt;span class="zak-form-text zak-text-success" id="username-msg"&gt;
+    Username is available!
+  &lt;/span&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Complete Form Field</h2>
+            <p>A full-featured form field with all elements.</p>
+
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label zak-form-label-required" for="ff-complete">Bio</label>
+                        <textarea id="ff-complete" class="zak-textarea" rows="3" placeholder="Tell us about yourself..." aria-describedby="ff-complete-help"></textarea>
+                        <span class="zak-form-text" id="ff-complete-help">Maximum 200 characters. HTML is not allowed.</span>
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="ff-select">Country</label>
+                        <select id="ff-select" class="zak-select">
+                            <option value="">Select a country</option>
+                            <option value="us">United States</option>
+                            <option value="uk">United Kingdom</option>
+                            <option value="ca">Canada</option>
+                            <option value="au">Australia</option>
+                        </select>
+                        <span class="zak-form-text">Choose your country of residence.</span>
+                    </div>
+                    <div class="zak-form-group">
+                        <button type="submit" class="zak-btn zak-btn-primary">Save Profile</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="docs-code-block">
+                <div class="docs-code-block__header">
+                    <span class="docs-code-block__lang">HTML</span>
+                    <button class="docs-copy-btn">Copy</button>
+                </div>
+                <pre><code class="language-html">&lt;div class="zak-form-group"&gt;
+  &lt;label class="zak-form-label zak-form-label-required" for="bio"&gt;Bio&lt;/label&gt;
+  &lt;textarea id="bio" class="zak-textarea" rows="3"
+    placeholder="Tell us about yourself..."
+    aria-describedby="bio-help"&gt;&lt;/textarea&gt;
+  &lt;span class="zak-form-text" id="bio-help"&gt;
+    Maximum 200 characters. HTML is not allowed.
+  &lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class="zak-form-group"&gt;
+  &lt;label class="zak-form-label" for="country"&gt;Country&lt;/label&gt;
+  &lt;select id="country" class="zak-select"&gt;
+    &lt;option value=""&gt;Select a country&lt;/option&gt;
+    &lt;option value="us"&gt;United States&lt;/option&gt;
+    &lt;option value="uk"&gt;United Kingdom&lt;/option&gt;
+  &lt;/select&gt;
+  &lt;span class="zak-form-text"&gt;Choose your country of residence.&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.zak-form-group</code></td><td>Wrapper for label + input + help text</td></tr>
+                        <tr><td><code>.zak-form-label</code></td><td>Field label</td></tr>
+                        <tr><td><code>.zak-form-label-required</code></td><td>Label with required asterisk</td></tr>
+                        <tr><td><code>.zak-form-text</code></td><td>Help text or validation message</td></tr>
+                        <tr><td><code>.zak-form-control-success</code></td><td>Success state on input</td></tr>
+                        <tr><td><code>.zak-form-control-danger</code></td><td>Error state on input</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Every form field must have a visible <code>&lt;label&gt;</code> associated with the input via <code>for</code>/<code>id</code>.</li>
+                <li>Use <code>aria-describedby</code> to link help text or error messages to the input.</li>
+                <li>Set <code>aria-invalid="true"</code> when the field has a validation error.</li>
+                <li>Use <code>aria-required="true"</code> on required inputs.</li>
+                <li>Error messages should be announced by screen readers — use <code>role="alert"</code> for dynamic errors.</li>
+            </ul>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body>
+</html>

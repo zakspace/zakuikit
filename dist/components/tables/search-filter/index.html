@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Search Filter documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Search Filter - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/tables/search-filter/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Search Filter - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Search Filter documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/tables/search-filter/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Advanced</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Search Filter</span>
+                </nav>
+        <h1>Search Filter</h1>
+        <p class="docs-subtitle">Search Filter combines a search input with filter chips, category filters, date ranges, and sort options. Active filters are shown as removable chips with a count badge.</p>
+
+        <div class="zak-docs-section">
+            <h2>Search with Filter Chips</h2>
+            <p>Active filters display as removable chips below the search bar.</p>
+
+            <div class="docs-preview">
+                <div id="sf-chips" style="max-width: 40rem;">
+                    <div style="display: flex; gap: 0.5rem; margin-bottom: 0.75rem;">
+                        <div class="zak-input-group" style="flex: 1;">
+                            <span class="zak-input-group-text">
+                                <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                            </span>
+                            <input type="text" class="zak-input" placeholder="Search items..." id="sf-chips-input">
+                        </div>
+                        <select class="zak-select" id="sf-chips-category" style="max-width: 12rem;">
+                            <option value="">All Categories</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="clothing">Clothing</option>
+                            <option value="home">Home</option>
+                        </select>
+                    </div>
+                    <div class="zak-filter-chips" id="sf-chips-active" style="display: flex; flex-wrap: wrap; gap: 0.375rem; margin-bottom: 0.75rem; min-height: 1.5rem;"></div>
+                    <div class="zak-table-wrapper">
+                        <table class="zak-table zak-table-sm" id="sf-chips-table">
+                            <thead><tr><th>Item</th><th>Category</th><th>Price</th></tr></thead>
+                            <tbody>
+                                <tr data-category="electronics"><td>Wireless Mouse</td><td>Electronics</td><td>$29</td></tr>
+                                <tr data-category="electronics"><td>Mechanical Keyboard</td><td>Electronics</td><td>$119</td></tr>
+                                <tr data-category="clothing"><td>Cotton T-Shirt</td><td>Clothing</td><td>$24</td></tr>
+                                <tr data-category="clothing"><td>Denim Jacket</td><td>Clothing</td><td>$89</td></tr>
+                                <tr data-category="home"><td>Ceramic Vase</td><td>Home</td><td>$45</td></tr>
+                                <tr data-category="home"><td>Table Lamp</td><td>Home</td><td>$67</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Category Filters</h2>
+            <p>Toggle buttons for filtering by category.</p>
+
+            <div class="docs-preview">
+                <div id="sf-category" style="max-width: 40rem;">
+                    <div style="display: flex; gap: 0.375rem; margin-bottom: 1rem; flex-wrap: wrap;">
+                        <button class="zak-btn zak-btn-sm zak-btn-primary sf-cat-btn" data-cat="all">All</button>
+                        <button class="zak-btn zak-btn-sm zak-btn-outline sf-cat-btn" data-cat="design">Design</button>
+                        <button class="zak-btn zak-btn-sm zak-btn-outline sf-cat-btn" data-cat="dev">Development</button>
+                        <button class="zak-btn zak-btn-sm zak-btn-outline sf-cat-btn" data-cat="marketing">Marketing</button>
+                    </div>
+                    <div id="sf-category-chips" style="display: flex; flex-wrap: wrap; gap: 0.375rem; margin-bottom: 0.75rem;"></div>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.75rem;" id="sf-category-grid">
+                        <div class="zak-card" data-cat="design"><div class="zak-card-body" style="padding: 0.75rem;"><div style="font-size: 0.75rem; color: var(--zak-text-muted); margin-bottom: 0.25rem;">Design</div><div style="font-weight: 600;">UI Kit</div></div></div>
+                        <div class="zak-card" data-cat="dev"><div class="zak-card-body" style="padding: 0.75rem;"><div style="font-size: 0.75rem; color: var(--zak-text-muted); margin-bottom: 0.25rem;">Development</div><div style="font-weight: 600;">Component Library</div></div></div>
+                        <div class="zak-card" data-cat="marketing"><div class="zak-card-body" style="padding: 0.75rem;"><div style="font-size: 0.75rem; color: var(--zak-text-muted); margin-bottom: 0.25rem;">Marketing</div><div style="font-weight: 600;">Landing Page</div></div></div>
+                        <div class="zak-card" data-cat="design"><div class="zak-card-body" style="padding: 0.75rem;"><div style="font-size: 0.75rem; color: var(--zak-text-muted); margin-bottom: 0.25rem;">Design</div><div style="font-weight: 600;">Icon Pack</div></div></div>
+                        <div class="zak-card" data-cat="dev"><div class="zak-card-body" style="padding: 0.75rem;"><div style="font-size: 0.75rem; color: var(--zak-text-muted); margin-bottom: 0.25rem;">Development</div><div style="font-weight: 600;">API Gateway</div></div></div>
+                        <div class="zak-card" data-cat="marketing"><div class="zak-card-body" style="padding: 0.75rem;"><div style="font-size: 0.75rem; color: var(--zak-text-muted); margin-bottom: 0.25rem;">Marketing</div><div style="font-weight: 600;">Email Template</div></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Date Range &amp; Sort</h2>
+            <p>Combine date range inputs and sort dropdowns with active filter count.</p>
+
+            <div class="docs-preview">
+                <div id="sf-datesort" style="max-width: 40rem;">
+                    <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: flex-end; margin-bottom: 1rem;">
+                        <div class="zak-form-group" style="margin: 0;">
+                            <label class="zak-form-label" style="font-size: 0.75rem;">From</label>
+                            <input type="date" class="zak-input zak-input-sm" id="sf-date-from">
+                        </div>
+                        <div class="zak-form-group" style="margin: 0;">
+                            <label class="zak-form-label" style="font-size: 0.75rem;">To</label>
+                            <input type="date" class="zak-input zak-input-sm" id="sf-date-to">
+                        </div>
+                        <div class="zak-form-group" style="margin: 0;">
+                            <label class="zak-form-label" style="font-size: 0.75rem;">Sort</label>
+                            <select class="zak-select zak-input-sm" id="sf-sort" style="min-width: 120px;">
+                                <option value="">None</option>
+                                <option value="date-asc">Date (oldest)</option>
+                                <option value="date-desc">Date (newest)</option>
+                                <option value="name-asc">Name (A-Z)</option>
+                            </select>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <span class="zak-badge" id="sf-filter-count" style="display: none;">0</span>
+                            <button class="zak-btn zak-btn-sm zak-btn-soft" id="sf-clear-all" style="display: none;" onclick="clearAllSF()">Clear All</button>
+                        </div>
+                    </div>
+                    <div id="sf-datesort-chips" style="display: flex; flex-wrap: wrap; gap: 0.375rem; margin-bottom: 0.75rem;"></div>
+                    <div style="padding: 1rem; background: var(--zak-bg-muted); border-radius: var(--zak-radius-md); font-size: 0.875rem; color: var(--zak-text-muted);" id="sf-datesort-result">Results will appear here when filters are applied.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Demo JavaScript</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span>JavaScript</span><button class="docs-copy-btn">Copy</button></div><pre><code>// Chips search filter
+(function () {
+  var input = document.getElementById('sf-chips-input');
+  var catSelect = document.getElementById('sf-chips-category');
+  var chipsContainer = document.getElementById('sf-chips-active');
+  var rows = document.querySelectorAll('#sf-chips-table tbody tr');
+  var activeFilters = { search: '', category: '' };
+
+  function renderChips() {
+    chipsContainer.innerHTML = '';
+    if (activeFilters.search) addChip('Search: ' + activeFilters.search, 'search');
+    if (activeFilters.category) addChip('Category: ' + activeFilters.category, 'category');
+  }
+
+  function addChip(label, key) {
+    var chip = document.createElement('span');
+    chip.className = 'zak-badge';
+    chip.style.cssText = 'display:inline-flex;align-items:center;gap:4px;cursor:pointer;';
+    chip.innerHTML = label + ' &lt;button style="background:none;border:none;cursor:pointer;padding:0;font-size:1rem;line-height:1;color:var(--zak-text-muted);"&gt;&amp;times;&lt;/button&gt;';
+    chip.querySelector('button').addEventListener('click', function () {
+      activeFilters[key] = '';
+      if (key === 'search') input.value = '';
+      if (key === 'category') catSelect.value = '';
+      applySF();
+    });
+    chipsContainer.appendChild(chip);
+  }
+
+  function applySF() {
+    rows.forEach(function (row) {
+      var matchSearch = !activeFilters.search || row.textContent.toLowerCase().indexOf(activeFilters.search) !== -1;
+      var matchCat = !activeFilters.category || row.dataset.category === activeFilters.category;
+      row.style.display = matchSearch && matchCat ? '' : 'none';
+    });
+    renderChips();
+  }
+
+  input.addEventListener('input', function () { activeFilters.search = input.value.toLowerCase(); applySF(); });
+  catSelect.addEventListener('change', function () { activeFilters.category = catSelect.value; applySF(); });
+})();
+
+// Category filter buttons
+(function () {
+  var buttons = document.querySelectorAll('.sf-cat-btn');
+  var cards = document.querySelectorAll('#sf-category-grid .zak-card');
+  var chipsContainer = document.getElementById('sf-category-chips');
+  var currentCat = 'all';
+
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      buttons.forEach(function (b) { b.className = 'zak-btn zak-btn-sm zak-btn-outline sf-cat-btn'; });
+      btn.className = 'zak-btn zak-btn-sm zak-btn-primary sf-cat-btn';
+      currentCat = btn.dataset.cat;
+      cards.forEach(function (card) {
+        card.style.display = (currentCat === 'all' || card.dataset.cat === currentCat) ? '' : 'none';
+      });
+      chipsContainer.innerHTML = '';
+      if (currentCat !== 'all') {
+        var chip = document.createElement('span');
+        chip.className = 'zak-badge';
+        chip.style.cssText = 'display:inline-flex;align-items:center;gap:4px;cursor:pointer;';
+        chip.innerHTML = currentCat + ' &lt;button style="background:none;border:none;cursor:pointer;font-size:1rem;line-height:1;color:var(--zak-text-muted);"&gt;&amp;times;&lt;/button&gt;';
+        chip.querySelector('button').addEventListener('click', function () { buttons[0].click(); });
+        chipsContainer.appendChild(chip);
+      }
+    });
+  });
+})();
+
+// Date range & sort filter
+(function () {
+  var fromInput = document.getElementById('sf-date-from');
+  var toInput = document.getElementById('sf-date-to');
+  var sortSelect = document.getElementById('sf-sort');
+  var chipsContainer = document.getElementById('sf-datesort-chips');
+  var countBadge = document.getElementById('sf-filter-count');
+  var clearBtn = document.getElementById('sf-clear-all');
+  var result = document.getElementById('sf-datesort-result');
+
+  function updateSF() {
+    var count = 0;
+    chipsContainer.innerHTML = '';
+    if (fromInput.value) { addSFChip('From: ' + fromInput.value); count++; }
+    if (toInput.value) { addSFChip('To: ' + toInput.value); count++; }
+    if (sortSelect.value) { addSFChip('Sort: ' + sortSelect.options[sortSelect.selectedIndex].text); count++; }
+    countBadge.textContent = count;
+    countBadge.style.display = count ? 'inline-flex' : 'none';
+    clearBtn.style.display = count ? '' : 'none';
+    result.textContent = count ? count + ' filter(s) active — results filtered.' : 'Results will appear here when filters are applied.';
+  }
+
+  function addSFChip(label) {
+    var chip = document.createElement('span');
+    chip.className = 'zak-badge';
+    chip.style.cssText = 'display:inline-flex;align-items:center;gap:4px;cursor:pointer;';
+    chip.innerHTML = label + ' &lt;button style="background:none;border:none;cursor:pointer;font-size:1rem;line-height:1;color:var(--zak-text-muted);"&gt;&amp;times;&lt;/button&gt;';
+    chip.querySelector('button').addEventListener('click', function () {
+      if (label.startsWith('From')) fromInput.value = '';
+      if (label.startsWith('To')) toInput.value = '';
+      if (label.startsWith('Sort')) sortSelect.value = '';
+      updateSF();
+    });
+    chipsContainer.appendChild(chip);
+  }
+
+  fromInput.addEventListener('change', updateSF);
+  toInput.addEventListener('change', updateSF);
+  sortSelect.addEventListener('change', updateSF);
+  window.clearAllSF = function () { fromInput.value = ''; toInput.value = ''; sortSelect.value = ''; updateSF(); };
+})();</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead><tr><th>Class</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>.zak-filter-chips</code></td><td>Container for active filter chips</td></tr>
+                        <tr><td><code>.zak-badge</code></td><td>Individual filter chip</td></tr>
+                        <tr><td><code>.zak-input-group</code></td><td>Search input with icon</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    <script>/* ZAK_DEMO_LIVE */</script>
+<script>
+(function(){try{
+// Chips search filter
+(function () {
+  var input = document.getElementById('sf-chips-input');
+  var catSelect = document.getElementById('sf-chips-category');
+  var chipsContainer = document.getElementById('sf-chips-active');
+  var rows = document.querySelectorAll('#sf-chips-table tbody tr');
+  var activeFilters = { search: '', category: '' };
+
+  function renderChips() {
+    chipsContainer.innerHTML = '';
+    if (activeFilters.search) addChip('Search: ' + activeFilters.search, 'search');
+    if (activeFilters.category) addChip('Category: ' + activeFilters.category, 'category');
+  }
+
+  function addChip(label, key) {
+    var chip = document.createElement('span');
+    chip.className = 'zak-badge';
+    chip.style.cssText = 'display:inline-flex;align-items:center;gap:4px;cursor:pointer;';
+    chip.innerHTML = label + ' <button style="background:none;border:none;cursor:pointer;padding:0;font-size:1rem;line-height:1;color:var(--zak-text-muted);">&times;</button>';
+    chip.querySelector('button').addEventListener('click', function () {
+      activeFilters[key] = '';
+      if (key === 'search') input.value = '';
+      if (key === 'category') catSelect.value = '';
+      applySF();
+    });
+    chipsContainer.appendChild(chip);
+  }
+
+  function applySF() {
+    rows.forEach(function (row) {
+      var matchSearch = !activeFilters.search || row.textContent.toLowerCase().indexOf(activeFilters.search) !== -1;
+      var matchCat = !activeFilters.category || row.dataset.category === activeFilters.category;
+      row.style.display = matchSearch && matchCat ? '' : 'none';
+    });
+    renderChips();
+  }
+
+  input.addEventListener('input', function () { activeFilters.search = input.value.toLowerCase(); applySF(); });
+  catSelect.addEventListener('change', function () { activeFilters.category = catSelect.value; applySF(); });
+})();
+
+// Category filter buttons
+(function () {
+  var buttons = document.querySelectorAll('.sf-cat-btn');
+  var cards = document.querySelectorAll('#sf-category-grid .zak-card');
+  var chipsContainer = document.getElementById('sf-category-chips');
+  var currentCat = 'all';
+
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      buttons.forEach(function (b) { b.className = 'zak-btn zak-btn-sm zak-btn-outline sf-cat-btn'; });
+      btn.className = 'zak-btn zak-btn-sm zak-btn-primary sf-cat-btn';
+      currentCat = btn.dataset.cat;
+      cards.forEach(function (card) {
+        card.style.display = (currentCat === 'all' || card.dataset.cat === currentCat) ? '' : 'none';
+      });
+      chipsContainer.innerHTML = '';
+      if (currentCat !== 'all') {
+        var chip = document.createElement('span');
+        chip.className = 'zak-badge';
+        chip.style.cssText = 'display:inline-flex;align-items:center;gap:4px;cursor:pointer;';
+        chip.innerHTML = currentCat + ' <button style="background:none;border:none;cursor:pointer;font-size:1rem;line-height:1;color:var(--zak-text-muted);">&times;</button>';
+        chip.querySelector('button').addEventListener('click', function () { buttons[0].click(); });
+        chipsContainer.appendChild(chip);
+      }
+    });
+  });
+})();
+
+// Date range & sort filter
+(function () {
+  var fromInput = document.getElementById('sf-date-from');
+  var toInput = document.getElementById('sf-date-to');
+  var sortSelect = document.getElementById('sf-sort');
+  var chipsContainer = document.getElementById('sf-datesort-chips');
+  var countBadge = document.getElementById('sf-filter-count');
+  var clearBtn = document.getElementById('sf-clear-all');
+  var result = document.getElementById('sf-datesort-result');
+
+  function updateSF() {
+    var count = 0;
+    chipsContainer.innerHTML = '';
+    if (fromInput.value) { addSFChip('From: ' + fromInput.value); count++; }
+    if (toInput.value) { addSFChip('To: ' + toInput.value); count++; }
+    if (sortSelect.value) { addSFChip('Sort: ' + sortSelect.options[sortSelect.selectedIndex].text); count++; }
+    countBadge.textContent = count;
+    countBadge.style.display = count ? 'inline-flex' : 'none';
+    clearBtn.style.display = count ? '' : 'none';
+    result.textContent = count ? count + ' filter(s) active — results filtered.' : 'Results will appear here when filters are applied.';
+  }
+
+  function addSFChip(label) {
+    var chip = document.createElement('span');
+    chip.className = 'zak-badge';
+    chip.style.cssText = 'display:inline-flex;align-items:center;gap:4px;cursor:pointer;';
+    chip.innerHTML = label + ' <button style="background:none;border:none;cursor:pointer;font-size:1rem;line-height:1;color:var(--zak-text-muted);">&times;</button>';
+    chip.querySelector('button').addEventListener('click', function () {
+      if (label.startsWith('From')) fromInput.value = '';
+      if (label.startsWith('To')) toInput.value = '';
+      if (label.startsWith('Sort')) sortSelect.value = '';
+      updateSF();
+    });
+    chipsContainer.appendChild(chip);
+  }
+
+  fromInput.addEventListener('change', updateSF);
+  toInput.addEventListener('change', updateSF);
+  sortSelect.addEventListener('change', updateSF);
+  window.clearAllSF = function () { fromInput.value = ''; toInput.value = ''; sortSelect.value = ''; updateSF(); };
+})();
+}catch(e){console.warn("zak-demo",e);}})();
+</script>
+</body>
+</html>

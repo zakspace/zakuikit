@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Audio documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Audio - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/media/audio/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Audio - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Audio documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/media/audio/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Media</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Audio</span>
+                </nav>
+        <h1>Audio</h1>
+        <p class="docs-subtitle">Audio embeds HTML5 audio players with custom styling, playlist support, and visual mock waveforms.</p>
+
+        <div class="zak-docs-section">
+            <h2>Basic Audio Player</h2>
+            <p>A simple audio element using the native controls.</p>
+
+            <div class="docs-preview">
+                <div style="max-width: 500px; padding: 1rem; border: 1px solid var(--zak-border); border-radius: 0.5rem; background: var(--zak-surface);">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                        <div style="display: flex; width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, #4f46e5, #7c3aed); align-items: center; justify-content: center;">
+                            <svg style="width: 18px; height: 18px; color: white;" viewBox="0 0 24 24" fill="currentColor"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                        </div>
+                        <div>
+                            <div style="font-weight: 600; font-size: 0.875rem;">Ambient Waves</div>
+                            <div style="font-size: 0.75rem; color: var(--zak-text-muted);">ZAK Studio</div>
+                        </div>
+                    </div>
+                    <audio controls style="width: 100%; height: 40px;"></audio>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--zak-text-muted); margin-top: 0.5rem;">
+                        <span>0:00</span><span>3:45</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;audio class="zak-audio" controls&gt;
+  &lt;source src="track.mp3" type="audio/mpeg"&gt;
+&lt;/audio&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Custom Styled Audio Player</h2>
+            <p>An audio player with custom-styled controls, track info, and a progress bar.</p>
+
+            <div class="docs-preview">
+                <div style="max-width: 500px; padding: 1.25rem; border-radius: 0.75rem; background: linear-gradient(135deg, #1e293b, #334155); color: white;">
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div style="width: 56px; height: 56px; border-radius: 0.5rem; background: linear-gradient(135deg, #ec4899, #f472b6); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <svg style="width: 24px; height: 24px; color: white;" viewBox="0 0 24 24" fill="currentColor"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="font-weight: 600;">Midnight City</div>
+                            <div style="font-size: 0.75rem; color: rgba(255,255,255,0.6);">Electro-pop Playlist</div>
+                        </div>
+                        <svg style="width: 24px; height: 24px; color: white; cursor: pointer;" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-top: 1rem;">
+                        <span style="font-size: 0.75rem; color: rgba(255,255,255,0.7);">1:12</span>
+                        <div style="flex: 1; height: 4px; background: rgba(255,255,255,0.2); border-radius: 2px; position: relative;">
+                            <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 38%; background: #ec4899; border-radius: 2px;"></div>
+                        </div>
+                        <span style="font-size: 0.75rem; color: rgba(255,255,255,0.7);">3:20</span>
+                    </div>
+                    <div style="display: flex; justify-content: center; gap: 1.5rem; align-items: center; margin-top: 0.75rem;">
+                        <svg style="width: 20px; height: 20px; color: rgba(255,255,255,0.7); cursor: pointer;" viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm9.5 12a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zM10 8.5a2.5 2.5 0 1 1 5 0 2.5 2.5 0 0 1-5 0z"/></svg>
+                        <svg style="width: 32px; height: 32px; color: white; cursor: pointer;" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                        <svg style="width: 20px; height: 20px; color: rgba(255,255,255,0.7); cursor: pointer;" viewBox="0 0 24 24" fill="currentColor"><path d="M16 18h2V6h-2zM6 6v12l8-6z"/></svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-audio-custom"&gt;
+  &lt;div class="zak-audio-artwork"&gt;&lt;svg&gt;...&lt;/svg&gt;&lt;/div&gt;
+  &lt;div class="zak-audio-info"&gt;
+    &lt;strong&gt;Midnight City&lt;/strong&gt;
+    &lt;span&gt;Electro-pop Playlist&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;button class="zak-audio-play" aria-label="Play"&gt;&lt;/button&gt;
+  &lt;div class="zak-audio-progress"&gt;&lt;div class="zak-audio-progress-bar"&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;span class="zak-audio-time"&gt;1:12&lt;/span&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Audio with Playlist</h2>
+            <p>Display a list of tracks with the ability to select and play each.</p>
+
+            <div class="docs-preview">
+                <div style="max-width: 500px; border: 1px solid var(--zak-border); border-radius: 0.75rem; overflow: hidden; background: var(--zak-surface);">
+                    <div style="padding: 1rem; border-bottom: 1px solid var(--zak-border); background: linear-gradient(135deg, #0369a1, #4f46e5); color: white;">
+                        <div style="font-weight: 700;">Focus Mix</div>
+                        <div style="font-size: 0.75rem; ">12 tracks &middot; 44 min</div>
+                    </div>
+                    <ul style="list-style: none; margin: 0; padding: 0;">
+                        <li style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; border-bottom: 1px solid var(--zak-border); background: rgba(99,102,241,0.08);">
+                            <span style="width: 24px; height: 24px; border-radius: 50%; background: #4f46e5; color: white; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; flex-shrink: 0;">
+                                <svg style="width: 12px; height: 12px;" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                            </span>
+                            <div style="flex: 1;">
+                                <div style="font-size: 0.875rem; font-weight: 600;">Deep Focus</div>
+                                <div style="font-size: 0.75rem; color: var(--zak-text-muted);">Now Playing</div>
+                            </div>
+                            <span style="font-size: 0.75rem; color: var(--zak-text-muted);">4:02</span>
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; border-bottom: 1px solid var(--zak-border);">
+                            <span style="width: 24px; height: 24px; border-radius: 50%; background: #e2e8f0; color: #475569; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; flex-shrink: 0;">2</span>
+                            <div style="flex: 1;">
+                                <div style="font-size: 0.875rem; font-weight: 600;">Calm Waters</div>
+                                <div style="font-size: 0.75rem; color: var(--zak-text-muted);">3:48</div>
+                            </div>
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; border-bottom: 1px solid var(--zak-border);">
+                            <span style="width: 24px; height: 24px; border-radius: 50%; background: #e2e8f0; color: #475569; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; flex-shrink: 0;">3</span>
+                            <div style="flex: 1;">
+                                <div style="font-size: 0.875rem; font-weight: 600;">Morning Light</div>
+                                <div style="font-size: 0.75rem; color: var(--zak-text-muted);">5:12</div>
+                            </div>
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem;">
+                            <span style="width: 24px; height: 24px; border-radius: 50%; background: #e2e8f0; color: #475569; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; flex-shrink: 0;">4</span>
+                            <div style="flex: 1;">
+                                <div style="font-size: 0.875rem; font-weight: 600;">Star Field</div>
+                                <div style="font-size: 0.75rem; color: var(--zak-text-muted);">6:05</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-audio-playlist"&gt;
+  &lt;div class="zak-audio-playlist-header"&gt;Focus Mix&lt;/div&gt;
+  &lt;ul class="zak-audio-playlist-tracklist"&gt;
+    &lt;li class="zak-audio-track is-active"&gt;
+      &lt;button class="zak-audio-track-btn"&gt;&lt;/button&gt;
+      &lt;div&gt;&lt;strong&gt;Deep Focus&lt;/strong&gt;&lt;span&gt;4:02&lt;/span&gt;&lt;/div&gt;
+    &lt;/li&gt;
+    ...
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre></div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span>JS</span><button class="docs-copy-btn">Copy</button></div><pre><code>document.querySelectorAll('.zak-audio-track').forEach((track) => {
+  track.querySelector('.zak-audio-track-btn').addEventListener('click', () => {
+    document.querySelectorAll('.zak-audio-track').forEach((t) => t.classList.remove('is-active'));
+    track.classList.add('is-active');
+  });
+});</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Waveform Visualization (Mock)</h2>
+            <p>A visual waveform representing audio peaks. Animate or replace with real audio analyser data as needed.</p>
+
+            <div class="docs-preview">
+                <div style="max-width: 500px; padding: 1.25rem; border-radius: 0.75rem; background: #0f172a; color: white;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                        <div style="font-weight: 600; font-size: 0.875rem;">Solar Flare</div>
+                        <span class="zak-badge zak-badge-success">Playing</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 3px; height: 64px;" id="waveform">
+                        <div style="flex: 1; height: 30%; background: #ec4899; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 60%; background: #ec4899; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 45%; background: #ec4899; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 80%; background: #ec4899; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 50%; background: #ec4899; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 70%; background: #ec4899; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 35%; background: #ec4899; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 85%; background: #ec4899; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 55%; background: #ec4899; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 65%; background: #ec4899; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 40%; background: #ec4899; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 75%; background: #ec4899; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 50%; background: #ec4899; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 60%; background: #ec4899; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 30%; background: #ec4899; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 70%; background: #ec4899; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 45%; background: #ec4899; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 80%; background: #ec4899; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 55%; background: #ec4899; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 65%; background: #ec4899; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 40%; background: #ec4899; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 75%; background: #ec4899; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 50%; background: #ec4899; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 60%; background: #ec4899; border-radius: 2px;"></div>
+                        <div style="flex: 1; height: 35%; background: #ec4899; border-radius: 2px;"></div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: rgba(255,255,255,0.6); margin-top: 0.75rem;">
+                        <span>0:14</span><span>2:30</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-audio-waveform" aria-hidden="true"&gt;
+  &lt;div class="zak-audio-waveform-bar" style="height:30%;"&gt;&lt;/div&gt;
+  &lt;div class="zak-audio-waveform-bar" style="height:60%;"&gt;&lt;/div&gt;
+  &lt;div class="zak-audio-waveform-bar" style="height:45%;"&gt;&lt;/div&gt;
+  ...
+&lt;/div&gt;</code></pre></div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span>JS</span><button class="docs-copy-btn">Copy</button></div><pre><code>// Animate bars with the Web Audio API for a live visualisation:
+const bars = document.querySelectorAll('.zak-audio-waveform-bar');
+function updateBars(dataArray) {
+  bars.forEach((bar, i) => {
+    bar.style.height = (dataArray[i] / 255) * 100 + '%';
+  });
+}
+// Call updateBars inside an AnalyserNode 'requestAnimationFrame' loop.</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.zak-audio</code></td><td>Base audio element</td></tr>
+                        <tr><td><code>.zak-audio-custom</code></td><td>Custom-styled player container</td></tr>
+                        <tr><td><code>.zak-audio-artwork</code></td><td>Artwork/cover thumbnail</td></tr>
+                        <tr><td><code>.zak-audio-info</code></td><td>Track title and subtitle</td></tr>
+                        <tr><td><code>.zak-audio-play</code></td><td>Play/pause button</td></tr>
+                        <tr><td><code>.zak-audio-progress</code></td><td>Progress bar track</td></tr>
+                        <tr><td><code>.zak-audio-progress-bar</code></td><td>Filled progress segment</td></tr>
+                        <tr><td><code>.zak-audio-playlist</code></td><td>Playlist container</td></tr>
+                        <tr><td><code>.zak-audio-playlist-tracklist</code></td><td>Track list</td></tr>
+                        <tr><td><code>.zak-audio-track</code></td><td>Individual track row</td></tr>
+                        <tr><td><code>.zak-audio-waveform</code></td><td>Waveform visualization container</td></tr>
+                        <tr><td><code>.zak-audio-waveform-bar</code></td><td>Single waveform bar</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Each audio element benefits from a <code>&lt;track kind="captions"&gt;</code> or a visible transcript for dialogue.</li>
+                <li>Custom play/pause buttons need <code>aria-label</code> and toggle between "Play" and "Pause".</li>
+                <li>The currently playing playlist item should be announced with <code>aria-current="true"</code>.</li>
+                <li>Waveform visualizations should be <code>aria-hidden="true"</code> since they provide no distinct audio info.</li>
+                <li>Never autoplay audio; users must be able to control volume and pause at any time.</li>
+            </ul>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script>
+        (function() {
+            const bars = document.querySelectorAll('#waveform div');
+            if (bars.length) {
+                setInterval(() => {
+                    bars.forEach((bar) => {
+                        bar.style.height = (20 + Math.random() * 65) + '%';
+                    });
+                }, 400);
+            }
+        })();
+    </script>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body></html>

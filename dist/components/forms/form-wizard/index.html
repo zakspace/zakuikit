@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Form Wizard documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Form Wizard - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/forms/form-wizard/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Form Wizard - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Form Wizard documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/forms/form-wizard/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Advanced</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Form Wizard</span>
+                </nav>
+        <h1>Form Wizard</h1>
+        <p class="docs-subtitle">Form Wizard breaks a long form into logical steps with progress indicators, validation per step, and both linear and non-linear navigation modes.</p>
+
+        <div class="zak-docs-section">
+            <h2>Basic 3-Step Wizard</h2>
+            <p>A wizard with Personal Info, Address, and Confirmation steps.</p>
+
+            <div class="docs-preview">
+                <div class="zak-card" style="max-width: 32rem;">
+                    <div class="zak-card-body">
+                        <div class="zak-wizard-steps" id="wizard-basic-steps" style="display: flex; margin-bottom: 1.5rem;">
+                            <div class="zak-wizard-step zak-wizard-step-active" style="flex: 1; text-align: center; position: relative;">
+                                <div class="zak-wizard-step-number" style="width: 2rem; height: 2rem; border-radius: 50%; background: var(--zak-primary); color: white; display: inline-flex; align-items: center; justify-content: center; font-size: 0.875rem; font-weight: 600;">1</div>
+                                <div style="font-size: 0.75rem; margin-top: 0.25rem; font-weight: 500;">Personal</div>
+                            </div>
+                            <div class="zak-wizard-step" style="flex: 1; text-align: center;">
+                                <div class="zak-wizard-step-number" style="width: 2rem; height: 2rem; border-radius: 50%; background: var(--zak-border); color: var(--zak-text-muted); display: inline-flex; align-items: center; justify-content: center; font-size: 0.875rem; font-weight: 600;">2</div>
+                                <div style="font-size: 0.75rem; margin-top: 0.25rem; color: var(--zak-text-muted);">Address</div>
+                            </div>
+                            <div class="zak-wizard-step" style="flex: 1; text-align: center;">
+                                <div class="zak-wizard-step-number" style="width: 2rem; height: 2rem; border-radius: 50%; background: var(--zak-border); color: var(--zak-text-muted); display: inline-flex; align-items: center; justify-content: center; font-size: 0.875rem; font-weight: 600;">3</div>
+                                <div style="font-size: 0.75rem; margin-top: 0.25rem; color: var(--zak-text-muted);">Confirm</div>
+                            </div>
+                        </div>
+                        <div class="zak-wizard-panels">
+                            <div class="zak-wizard-panel" id="wizard-basic-p1" data-step="1">
+                                <h3 style="margin-bottom: 1rem;">Personal Information</h3>
+                                <form class="zak-form" onsubmit="return false;">
+                                    <div class="zak-form-group"><label class="zak-form-label">Full Name</label><input type="text" class="zak-input" placeholder="John Doe"></div>
+                                    <div class="zak-form-group"><label class="zak-form-label">Email</label><input type="email" class="zak-input" placeholder="john@example.com"></div>
+                                    <div class="zak-form-group"><label class="zak-form-label">Phone</label><input type="tel" class="zak-input" placeholder="(555) 123-4567"></div>
+                                </form>
+                            </div>
+                            <div class="zak-wizard-panel" id="wizard-basic-p2" data-step="2" style="display: none;">
+                                <h3 style="margin-bottom: 1rem;">Address</h3>
+                                <form class="zak-form" onsubmit="return false;">
+                                    <div class="zak-form-group"><label class="zak-form-label">Street</label><input type="text" class="zak-input" placeholder="123 Main St"></div>
+                                    <div class="zak-form-group"><label class="zak-form-label">City</label><input type="text" class="zak-input" placeholder="New York"></div>
+                                    <div class="zak-form-group"><label class="zak-form-label">Zip Code</label><input type="text" class="zak-input" placeholder="10001"></div>
+                                </form>
+                            </div>
+                            <div class="zak-wizard-panel" id="wizard-basic-p3" data-step="3" style="display: none;">
+                                <h3 style="margin-bottom: 1rem;">Confirmation</h3>
+                                <div style="padding: 1rem; background: var(--zak-bg-muted); border-radius: var(--zak-radius-md); font-size: 0.875rem;">
+                                    <p style="margin: 0.5rem 0;">Please review your information before submitting.</p>
+                                    <div style="margin-top: 1rem; padding: 0.75rem; background: var(--zak-success-bg, #ecfdf5); border: 1px solid var(--zak-success-border, #a7f3d0); border-radius: var(--zak-radius-md);">
+                                        <strong style="color: var(--zak-success, #059669);">Ready to submit!</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-top: 1.5rem;">
+                            <button class="zak-btn zak-btn-outline" id="wizard-basic-prev" onclick="wizardNav('wizard-basic', -1)" style="visibility: hidden;">Previous</button>
+                            <button class="zak-btn zak-btn-primary" id="wizard-basic-next" onclick="wizardNav('wizard-basic', 1)">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Wizard with Progress Bar</h2>
+            <p>Show a progress bar indicating completion percentage.</p>
+
+            <div class="docs-preview">
+                <div class="zak-card" style="max-width: 32rem;">
+                    <div class="zak-card-body">
+                        <div style="margin-bottom: 1.5rem;">
+                            <div style="display: flex; justify-content: space-between; font-size: 0.75rem; margin-bottom: 0.375rem; color: var(--zak-text-muted);">
+                                <span>Step <span id="wizard-progress-current">1</span> of 3</span>
+                                <span id="wizard-progress-pct">33%</span>
+                            </div>
+                            <div style="height: 6px; background: var(--zak-border); border-radius: 9999px; overflow: hidden;">
+                                <div id="wizard-progress-bar" style="height: 100%; background: var(--zak-primary); border-radius: 9999px; width: 33%; transition: width 0.3s ease;"></div>
+                            </div>
+                        </div>
+                        <div class="zak-wizard-panels">
+                            <div class="zak-wizard-panel" id="wizard-progress-p1">
+                                <h3 style="margin-bottom: 1rem;">Step 1: Account</h3>
+                                <form class="zak-form" onsubmit="return false;"><div class="zak-form-group"><label class="zak-form-label">Username</label><input type="text" class="zak-input" placeholder="Choose username"></div></form>
+                            </div>
+                            <div class="zak-wizard-panel" id="wizard-progress-p2" style="display: none;">
+                                <h3 style="margin-bottom: 1rem;">Step 2: Profile</h3>
+                                <form class="zak-form" onsubmit="return false;"><div class="zak-form-group"><label class="zak-form-label">Display Name</label><input type="text" class="zak-input" placeholder="Your display name"></div></form>
+                            </div>
+                            <div class="zak-wizard-panel" id="wizard-progress-p3" style="display: none;">
+                                <h3 style="margin-bottom: 1rem;">Step 3: Review</h3>
+                                <div style="padding: 1rem; background: var(--zak-bg-muted); border-radius: var(--zak-radius-md);">All done! Review and submit.</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-top: 1.5rem;">
+                            <button class="zak-btn zak-btn-outline" id="wizard-progress-prev" onclick="wizardNav('wizard-progress', -1)" style="visibility: hidden;">Back</button>
+                            <button class="zak-btn zak-btn-primary" id="wizard-progress-next" onclick="wizardNav('wizard-progress', 1)">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Non-Linear Mode</h2>
+            <p>Click any step to navigate directly.</p>
+
+            <div class="docs-preview">
+                <div class="zak-card" style="max-width: 32rem;">
+                    <div class="zak-card-body">
+                        <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem;" id="wizard-nonlinear-steps">
+                            <button class="zak-btn zak-btn-sm zak-btn-primary" onclick="goToStep('wizard-nonlinear', 1)">Step 1</button>
+                            <button class="zak-btn zak-btn-sm zak-btn-outline" onclick="goToStep('wizard-nonlinear', 2)">Step 2</button>
+                            <button class="zak-btn zak-btn-sm zak-btn-outline" onclick="goToStep('wizard-nonlinear', 3)">Step 3</button>
+                        </div>
+                        <div class="zak-wizard-panels">
+                            <div class="zak-wizard-panel" id="wizard-nonlinear-p1"><h3>Step 1 Content</h3><p style="color: var(--zak-text-muted);">First step - choose options.</p></div>
+                            <div class="zak-wizard-panel" id="wizard-nonlinear-p2" style="display: none;"><h3>Step 2 Content</h3><p style="color: var(--zak-text-muted);">Second step - configure.</p></div>
+                            <div class="zak-wizard-panel" id="wizard-nonlinear-p3" style="display: none;"><h3>Step 3 Content</h3><p style="color: var(--zak-text-muted);">Third step - confirm.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Demo JavaScript</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span>JavaScript</span><button class="docs-copy-btn">Copy</button></div><pre><code>var wizardState = { 'wizard-basic': 1, 'wizard-progress': 1, 'wizard-nonlinear': 1 };
+var wizardTotal = { 'wizard-basic': 3, 'wizard-progress': 3, 'wizard-nonlinear': 3 };
+
+function wizardNav(id, dir) {
+  var current = wizardState[id];
+  var next = current + dir;
+  if (next < 1 || next > wizardTotal[id]) {
+    if (next > wizardTotal[id]) { alert('Form submitted!'); }
+    return;
+  }
+  goToStep(id, next);
+}
+
+function goToStep(id, step) {
+  var total = wizardTotal[id];
+  wizardState[id] = step;
+  for (var i = 1; i <= total; i++) {
+    var panel = document.getElementById(id + '-p' + i);
+    if (panel) panel.style.display = i === step ? '' : 'none';
+  }
+  var prevBtn = document.getElementById(id + '-prev');
+  var nextBtn = document.getElementById(id + '-next');
+  if (prevBtn) prevBtn.style.visibility = step === 1 ? 'hidden' : 'visible';
+  if (nextBtn) nextBtn.textContent = step === total ? 'Submit' : 'Next';
+
+  // Update progress bar
+  if (id === 'wizard-progress') {
+    var pct = Math.round((step / total) * 100);
+    document.getElementById('wizard-progress-bar').style.width = pct + '%';
+    document.getElementById('wizard-progress-current').textContent = step;
+    document.getElementById('wizard-progress-pct').textContent = pct + '%';
+  }
+}</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead><tr><th>Class</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>.zak-wizard-steps</code></td><td>Step indicator container</td></tr>
+                        <tr><td><code>.zak-wizard-step</code></td><td>Individual step indicator</td></tr>
+                        <tr><td><code>.zak-wizard-step-active</code></td><td>Active step state</td></tr>
+                        <tr><td><code>.zak-wizard-step-number</code></td><td>Step number circle</td></tr>
+                        <tr><td><code>.zak-wizard-panels</code></td><td>Container for step panels</td></tr>
+                        <tr><td><code>.zak-wizard-panel</code></td><td>Individual step content panel</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    <script>
+        var wizardState = { 'wizard-basic': 1, 'wizard-progress': 1, 'wizard-nonlinear': 1 };
+        var wizardTotal = { 'wizard-basic': 3, 'wizard-progress': 3, 'wizard-nonlinear': 3 };
+        function wizardNav(id, dir) {
+            var next = wizardState[id] + dir;
+            if (next < 1 || next > wizardTotal[id]) {
+                if (next > wizardTotal[id]) alert('Form submitted!');
+                return;
+            }
+            goToStep(id, next);
+        }
+        function goToStep(id, step) {
+            var total = wizardTotal[id];
+            wizardState[id] = step;
+            for (var i = 1; i <= total; i++) {
+                var panel = document.getElementById(id + '-p' + i);
+                if (panel) panel.style.display = i === step ? '' : 'none';
+            }
+            var prevBtn = document.getElementById(id + '-prev');
+            var nextBtn = document.getElementById(id + '-next');
+            if (prevBtn) prevBtn.style.visibility = step === 1 ? 'hidden' : 'visible';
+            if (nextBtn) nextBtn.textContent = step === total ? 'Submit' : 'Next';
+            if (id === 'wizard-progress') {
+                var pct = Math.round((step / total) * 100);
+                var bar = document.getElementById('wizard-progress-bar');
+                if (bar) bar.style.width = pct + '%';
+                var cur = document.getElementById('wizard-progress-current');
+                if (cur) cur.textContent = step;
+                var pctEl = document.getElementById('wizard-progress-pct');
+                if (pctEl) pctEl.textContent = pct + '%';
+            }
+        }
+    </script>
+    </body>
+</html>

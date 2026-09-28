@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Result documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Result - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/feedback/result/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Result - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Result documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/feedback/result/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Feedback</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Result</span>
+                </nav>
+        <h1>Result</h1>
+        <p class="docs-subtitle">Result pages summarize the outcome of a completed action — a payment, a form submit, or a system error — with clear next steps.</p>
+
+        <section class="zak-docs-section">
+            <h2>Success Result</h2>
+            <p>A positive outcome with action buttons for next steps.</p>
+            <div class="docs-preview">
+                <div style="width:100%;max-width:28rem;border:1px solid var(--zak-border);border-radius:var(--zak-radius-xl);">
+                    <div class="zak-result zak-result-success">
+                        <span class="zak-result-icon">
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:4rem;height:4rem;"><circle cx="12" cy="12" r="10"/><path d="M8 12l2.5 2.5L16 9"/></svg>
+                        </span>
+                        <h2 class="zak-result-title">Payment successful</h2>
+                        <p class="zak-result-text">Your invoice has been paid. A receipt has been sent to your email.</p>
+                        <div class="zak-result-actions">
+                            <button class="zak-btn zak-btn-primary">View Invoice</button>
+                            <button class="zak-btn zak-btn-outline-primary">Back to Dashboard</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-result zak-result-success"&gt;
+    &lt;span class="zak-result-icon"&gt;
+        &lt;svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:4rem;height:4rem;"&gt;
+            &lt;circle cx="12" cy="12" r="10"/&gt;&lt;path d="M8 12l2.5 2.5L16 9"/&gt;
+        &lt;/svg&gt;
+    &lt;/span&gt;
+    &lt;h2 class="zak-result-title"&gt;Payment successful&lt;/h2&gt;
+    &lt;p class="zak-result-text"&gt;Your invoice has been paid.&lt;/p&gt;
+    &lt;div class="zak-result-actions"&gt;
+        &lt;button class="zak-btn zak-btn-primary"&gt;View Invoice&lt;/button&gt;
+        &lt;button class="zak-btn zak-btn-outline-primary"&gt;Back to Dashboard&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Error Result</h2>
+            <p>Communicate failure and the recovery path.</p>
+            <div class="docs-preview">
+                <div style="width:100%;max-width:28rem;border:1px solid var(--zak-border);border-radius:var(--zak-radius-xl);">
+                    <div class="zak-result zak-result-danger">
+                        <span class="zak-result-icon">
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:4rem;height:4rem;"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
+                        </span>
+                        <h2 class="zak-result-title">Payment failed</h2>
+                        <p class="zak-result-text">We couldn't process your payment. Check your details and try again.</p>
+                        <div class="zak-result-actions">
+                            <button class="zak-btn zak-btn-danger">Retry Payment</button>
+                            <button class="zak-btn zak-btn-outline-primary">Contact Support</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-result zak-result-danger"&gt;
+    &lt;span class="zak-result-icon"&gt;
+        &lt;svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:4rem;height:4rem;"&gt;
+            &lt;circle cx="12" cy="12" r="10"/&gt;&lt;path d="M15 9l-6 6M9 9l6 6"/&gt;
+        &lt;/svg&gt;
+    &lt;/span&gt;
+    &lt;h2 class="zak-result-title"&gt;Payment failed&lt;/h2&gt;
+    &lt;p class="zak-result-text"&gt;We couldn't process your payment.&lt;/p&gt;
+    &lt;div class="zak-result-actions"&gt;
+        &lt;button class="zak-btn zak-btn-danger"&gt;Retry Payment&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Warning Result</h2>
+            <p>Flag something that needs the user's attention.</p>
+            <div class="docs-preview">
+                <div style="width:100%;max-width:28rem;border:1px solid var(--zak-border);border-radius:var(--zak-radius-xl);">
+                    <div class="zak-result zak-result-warning">
+                        <span class="zak-result-icon">
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:4rem;height:4rem;"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+                        </span>
+                        <h2 class="zak-result-title">Approval pending</h2>
+                        <p class="zak-result-text">Your request is awaiting review by your manager. You'll be notified once approved.</p>
+                        <div class="zak-result-actions">
+                            <button class="zak-btn zak-btn-warning">View Request</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-result zak-result-warning"&gt;
+    &lt;span class="zak-result-icon"&gt;
+        &lt;svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:4rem;height:4rem;"&gt;
+            &lt;path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/&gt;&lt;path d="M12 9v4M12 17h.01"/&gt;
+        &lt;/svg&gt;
+    &lt;/span&gt;
+    &lt;h2 class="zak-result-title"&gt;Approval pending&lt;/h2&gt;
+    &lt;p class="zak-result-text"&gt;Your request is awaiting review.&lt;/p&gt;
+    &lt;div class="zak-result-actions"&gt;
+        &lt;button class="zak-btn zak-btn-warning"&gt;View Request&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Info Result</h2>
+            <p>Share informational outcomes.</p>
+            <div class="docs-preview">
+                <div style="width:100%;max-width:28rem;border:1px solid var(--zak-border);border-radius:var(--zak-radius-xl);">
+                    <div class="zak-result">
+                        <span class="zak-result-icon" style="color:var(--zak-color-info);">
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:4rem;height:4rem;"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                        </span>
+                        <h2 class="zak-result-title">Invitation sent</h2>
+                        <p class="zak-result-text">We've emailed an invitation to the workspace. It expires in 7 days.</p>
+                        <div class="zak-result-actions">
+                            <button class="zak-btn zak-btn-info">Manage Members</button>
+                            <button class="zak-btn zak-btn-outline-primary">Copy Invite Link</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-result"&gt;
+    &lt;span class="zak-result-icon" style="color:var(--zak-color-info);"&gt;
+        &lt;svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:4rem;height:4rem;"&gt;
+            &lt;circle cx="12" cy="12" r="10"/&gt;&lt;path d="M12 16v-4M12 8h.01"/&gt;
+        &lt;/svg&gt;
+    &lt;/span&gt;
+    &lt;h2 class="zak-result-title"&gt;Invitation sent&lt;/h2&gt;
+    &lt;p class="zak-result-text"&gt;We've emailed an invitation to the workspace.&lt;/p&gt;
+    &lt;div class="zak-result-actions"&gt;
+        &lt;button class="zak-btn zak-btn-info"&gt;Manage Members&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Result with Icon</h2>
+            <p>Swap the built-in color emphasis for a custom icon treatment.</p>
+            <div class="docs-preview">
+                <div style="width:100%;max-width:28rem;border:1px solid var(--zak-border);border-radius:var(--zak-radius-xl);">
+                    <div class="zak-result">
+                        <span style="width:4rem;height:4rem;border-radius:var(--zak-radius-full);background:var(--zak-success-100);color:var(--zak-color-success);display:flex;align-items:center;justify-content:center;">
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:2rem;height:2rem;"><path d="M20 6L9 17l-5-5"/></svg>
+                        </span>
+                        <h2 class="zak-result-title">Account verified</h2>
+                        <p class="zak-result-text">Your email address has been confirmed. Welcome aboard!</p>
+                        <div class="zak-result-actions">
+                            <button class="zak-btn zak-btn-primary">Get Started</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-result"&gt;
+    &lt;span style="width:4rem;height:4rem;border-radius:50%;background:var(--zak-success-100);
+         color:var(--zak-color-success);display:flex;align-items:center;justify-content:center;"&gt;
+        &lt;svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;&lt;path d="M20 6L9 17l-5-5"/&gt;&lt;/svg&gt;
+    &lt;/span&gt;
+    &lt;h2 class="zak-result-title"&gt;Account verified&lt;/h2&gt;
+    &lt;p class="zak-result-text"&gt;Your email address has been confirmed.&lt;/p&gt;
+    &lt;div class="zak-result-actions"&gt;
+        &lt;button class="zak-btn zak-btn-primary"&gt;Get Started&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Result with Title and Description</h2>
+            <p>Title and description provide the core message; keep them concise.</p>
+            <div class="docs-preview">
+                <div style="width:100%;max-width:28rem;border:1px solid var(--zak-border);border-radius:var(--zak-radius-xl);">
+                    <div class="zak-result zak-result-success">
+                        <span class="zak-result-icon">
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:4rem;height:4rem;"><path d="M20 6L9 17l-5-5"/></svg>
+                        </span>
+                        <h2 class="zak-result-title">Feedback submitted</h2>
+                        <p class="zak-result-text">Thanks for sharing your thoughts. Your input helps us improve ZAKUIKit for everyone.</p>
+                        <div class="zak-result-actions">
+                            <button class="zak-btn zak-btn-outline-primary">Back to Home</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-result zak-result-success"&gt;
+    &lt;span class="zak-result-icon"&gt;...&lt;/svg&gt;&lt;/span&gt;
+    &lt;h2 class="zak-result-title"&gt;Feedback submitted&lt;/h2&gt;
+    &lt;p class="zak-result-text"&gt;Thanks for sharing your thoughts.&lt;/p&gt;
+    &lt;div class="zak-result-actions"&gt;
+        &lt;button class="zak-btn zak-btn-outline-primary"&gt;Back to Home&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Result with Action Buttons</h2>
+            <p>Primary and secondary actions give the user a clear exit path.</p>
+            <div class="docs-preview">
+                <div style="width:100%;max-width:28rem;border:1px solid var(--zak-border);border-radius:var(--zak-radius-xl);">
+                    <div class="zak-result zak-result-danger">
+                        <span class="zak-result-icon">
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:4rem;height:4rem;"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
+                        </span>
+                        <h2 class="zak-result-title">Access denied</h2>
+                        <p class="zak-result-text">You don't have permission to view this page.</p>
+                        <div class="zak-result-actions">
+                            <button class="zak-btn zak-btn-primary">Request Access</button>
+                            <button class="zak-btn zak-btn-soft-primary">Go Back</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-result zak-result-danger"&gt;
+    &lt;span class="zak-result-icon"&gt;...&lt;/svg&gt;&lt;/span&gt;
+    &lt;h2 class="zak-result-title"&gt;Access denied&lt;/h2&gt;
+    &lt;p class="zak-result-text"&gt;You don't have permission to view this page.&lt;/p&gt;
+    &lt;div class="zak-result-actions"&gt;
+        &lt;button class="zak-btn zak-btn-primary"&gt;Request Access&lt;/button&gt;
+        &lt;button class="zak-btn zak-btn-soft-primary"&gt;Go Back&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>404 Page Result</h2>
+            <p>A friendly 404 built from the result component.</p>
+            <div class="docs-preview">
+                <div style="width:100%;max-width:28rem;border:1px solid var(--zak-border);border-radius:var(--zak-radius-xl);">
+                    <div class="zak-result">
+                        <span class="zak-result-icon" style="color:var(--zak-text-subtle);">
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:4rem;height:4rem;"><circle cx="12" cy="12" r="10"/><path d="M9 10h.01M15 10h.01M9 15c1 1 2 1.5 3 1.5s2-.5 3-1.5"/></svg>
+                        </span>
+                        <h2 class="zak-result-title">404 - Page not found</h2>
+                        <p class="zak-result-text">The page you're looking for doesn't exist or has been moved.</p>
+                        <div class="zak-result-actions">
+                            <button class="zak-btn zak-btn-primary">Back to Home</button>
+                            <button class="zak-btn zak-btn-outline-primary">Report an issue</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-result"&gt;
+    &lt;span class="zak-result-icon"&gt;...&lt;/svg&gt;&lt;/span&gt;
+    &lt;h2 class="zak-result-title"&gt;404 - Page not found&lt;/h2&gt;
+    &lt;p class="zak-result-text"&gt;The page you're looking for doesn't exist.&lt;/p&gt;
+    &lt;div class="zak-result-actions"&gt;
+        &lt;button class="zak-btn zak-btn-primary"&gt;Back to Home&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>CSS Classes &amp; Variables</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>.zak-result           /* Centered column container */
+.zak-result-success    /* Success icon color */
+.zak-result-warning    /* Warning icon color */
+.zak-result-danger     /* Danger icon color */
+.zak-result-icon       /* Large icon */
+.zak-result-title      /* Result heading */
+.zak-result-text       /* Supporting description */
+.zak-result-actions    /* Action button row */</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Use a proper heading level that matches the page structure (<code>&lt;h1&gt;</code> for a standalone result page).</li>
+                <li>Decorative icons should be <code>aria-hidden="true"</code>.</li>
+                <li>Announce dynamic result outcomes with <code>aria-live="polite"</code> when inserted after actions.</li>
+                <li>Do not rely on color alone — always pair the icon with text copy.</li>
+            </ul>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-result zak-result-success" role="status" aria-live="polite"&gt;
+    &lt;span class="zak-result-icon" aria-hidden="true"&gt;...&lt;/svg&gt;&lt;/span&gt;
+    &lt;h1 class="zak-result-title"&gt;Payment successful&lt;/h1&gt;
+    &lt;p class="zak-result-text"&gt;A receipt has been emailed to you.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body></html>

@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Modal documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Modal - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/overlays/modal/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Modal - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Modal documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/overlays/modal/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Overlays</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Modal</span>
+                </nav>
+        <h1>Modal</h1>
+        <p class="docs-subtitle">Modals present critical content and actions in a focused overlay while blocking interaction with the page beneath.</p>
+
+        <section class="zak-docs-section">
+            <h2>Basic Modal</h2>
+            <p>Open a modal with the <code>data-zak-modal</code> attribute on any trigger. Close it with <code>data-zak-modal-close</code> buttons or by clicking the backdrop. Press <kbd>Escape</kbd> to dismiss.</p>
+            <div class="docs-preview">
+                <button class="zak-btn zak-btn-primary" data-zak-modal="#basicModal">Open Modal</button>
+                <div class="zak-modal" id="basicModal" role="dialog" aria-modal="true" aria-labelledby="basicModalTitle">
+                    <div class="zak-modal-dialog">
+                        <div class="zak-modal-content">
+                            <div class="zak-modal-header">
+                                <h3 class="zak-modal-title" id="basicModalTitle">Modal Title</h3>
+                                <button type="button" class="zak-modal-close" data-zak-modal-close aria-label="Close">&times;</button>
+                            </div>
+                            <div class="zak-modal-body">
+                                <p style="margin:0; font-size:14px; color:var(--zak-text-muted);">This is a basic modal. It has a header, body and a close button in the top-right corner.</p>
+                            </div>
+                            <div class="zak-modal-footer">
+                                <button class="zak-btn zak-btn-secondary" data-zak-modal-close>Cancel</button>
+                                <button class="zak-btn zak-btn-primary" data-zak-modal-close>Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;button class="zak-btn zak-btn-primary" data-zak-modal="#basicModal"&gt;Open Modal&lt;/button&gt;
+
+&lt;div class="zak-modal" id="basicModal" role="dialog" aria-modal="true" aria-labelledby="basicModalTitle"&gt;
+    &lt;div class="zak-modal-dialog"&gt;
+        &lt;div class="zak-modal-content"&gt;
+            &lt;div class="zak-modal-header"&gt;
+                &lt;h3 class="zak-modal-title" id="basicModalTitle"&gt;Modal Title&lt;/h3&gt;
+                &lt;button type="button" class="zak-modal-close" data-zak-modal-close aria-label="Close"&gt;&amp;times;&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class="zak-modal-body"&gt;
+                &lt;p style="margin:0; font-size:14px; color:var(--zak-text-muted);"&gt;This is a basic modal.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="zak-modal-footer"&gt;
+                &lt;button class="zak-btn zak-btn-secondary" data-zak-modal-close&gt;Cancel&lt;/button&gt;
+                &lt;button class="zak-btn zak-btn-primary" data-zak-modal-close&gt;Save changes&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Modal Sizes</h2>
+            <p>Use <code>.zak-modal-sm</code>, <code>.zak-modal-lg</code>, <code>.zak-modal-xl</code> or <code>.zak-modal-fullscreen</code> on the dialog to change the size. The default (no class) is medium.</p>
+            <div class="docs-preview">
+                <div style="display:flex; flex-wrap:wrap; gap:0.5rem; align-items:center;">
+                    <button class="zak-btn zak-btn-outline-primary" data-zak-modal="#sizeSm">Small</button>
+                    <button class="zak-btn zak-btn-outline-primary" data-zak-modal="#sizeMd">Medium</button>
+                    <button class="zak-btn zak-btn-outline-primary" data-zak-modal="#sizeLg">Large</button>
+                    <button class="zak-btn zak-btn-outline-primary" data-zak-modal="#sizeXl">Extra Large</button>
+                </div>
+                <div class="zak-modal" id="sizeSm" role="dialog" aria-modal="true">
+                    <div class="zak-modal-dialog zak-modal-sm">
+                        <div class="zak-modal-content">
+                            <div class="zak-modal-header"><h3 class="zak-modal-title">Small Modal</h3><button type="button" class="zak-modal-close" data-zak-modal-close aria-label="Close">&times;</button></div>
+                            <div class="zak-modal-body"><p style="margin:0; font-size:14px; color:var(--zak-text-muted);">A compact modal for short confirmations.</p></div>
+                            <div class="zak-modal-footer"><button class="zak-btn zak-btn-secondary" data-zak-modal-close>Close</button></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="zak-modal" id="sizeMd" role="dialog" aria-modal="true">
+                    <div class="zak-modal-dialog">
+                        <div class="zak-modal-content">
+                            <div class="zak-modal-header"><h3 class="zak-modal-title">Medium Modal</h3><button type="button" class="zak-modal-close" data-zak-modal-close aria-label="Close">&times;</button></div>
+                            <div class="zak-modal-body"><p style="margin:0; font-size:14px; color:var(--zak-text-muted);">The default modal size, good for most use cases.</p></div>
+                            <div class="zak-modal-footer"><button class="zak-btn zak-btn-primary" data-zak-modal-close>Got it</button></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="zak-modal" id="sizeLg" role="dialog" aria-modal="true">
+                    <div class="zak-modal-dialog zak-modal-lg">
+                        <div class="zak-modal-content">
+                            <div class="zak-modal-header"><h3 class="zak-modal-title">Large Modal</h3><button type="button" class="zak-modal-close" data-zak-modal-close aria-label="Close">&times;</button></div>
+                            <div class="zak-modal-body"><p style="margin:0; font-size:14px; color:var(--zak-text-muted);">A wider modal for content-rich dialogs such as settings panels.</p></div>
+                            <div class="zak-modal-footer"><button class="zak-btn zak-btn-secondary" data-zak-modal-close>Cancel</button><button class="zak-btn zak-btn-primary" data-zak-modal-close>OK</button></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="zak-modal" id="sizeXl" role="dialog" aria-modal="true">
+                    <div class="zak-modal-dialog zak-modal-xl">
+                        <div class="zak-modal-content">
+                            <div class="zak-modal-header"><h3 class="zak-modal-title">Extra Large Modal</h3><button type="button" class="zak-modal-close" data-zak-modal-close aria-label="Close">&times;</button></div>
+                            <div class="zak-modal-body"><p style="margin:0; font-size:14px; color:var(--zak-text-muted);">Use the extra large size for dashboards, editors and reports.</p></div>
+                            <div class="zak-modal-footer"><button class="zak-btn zak-btn-primary" data-zak-modal-close>Close</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-modal-dialog zak-modal-sm"&gt; &lt;!-- Small: 24rem --&gt;
+&lt;div class="zak-modal-dialog"&gt;                     &lt;!-- Medium: 32rem (default) --&gt;
+&lt;div class="zak-modal-dialog zak-modal-lg"&gt;        &lt;!-- Large: 48rem --&gt;
+&lt;div class="zak-modal-dialog zak-modal-xl"&gt;        &lt;!-- Extra large: 64rem --&gt;
+&lt;div class="zak-modal-dialog zak-modal-fullscreen"&gt; &lt;!-- Fullscreen --&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Modal with Close Button</h2>
+            <p>The <code>.zak-modal-close</code> button in the header dismisses the modal. Any element with <code>data-zak-modal-close</code> inside the modal will close it.</p>
+            <div class="docs-preview">
+                <button class="zak-btn zak-btn-primary" data-zak-modal="#closeModal">Open Modal</button>
+                <div class="zak-modal" id="closeModal" role="dialog" aria-modal="true">
+                    <div class="zak-modal-dialog">
+                        <div class="zak-modal-content">
+                            <div class="zak-modal-header">
+                                <h3 class="zak-modal-title">Dismissible Modal</h3>
+                                <button type="button" class="zak-modal-close" data-zak-modal-close aria-label="Close">
+                                    <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:1.25rem; height:1.25rem;"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                                </button>
+                            </div>
+                            <div class="zak-modal-body">
+                                <p style="margin:0; font-size:14px; color:var(--zak-text-muted);">Click the <strong>X</strong>, press Escape, or click the backdrop to close this modal.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Modal with Form</h2>
+            <p>Forms inside modals use the standard ZAKUIKit form classes. The library focuses the first focusable element when the modal opens.</p>
+            <div class="docs-preview">
+                <button class="zak-btn zak-btn-primary" data-zak-modal="#formModal">Open Form Modal</button>
+                <div class="zak-modal" id="formModal" role="dialog" aria-modal="true">
+                    <div class="zak-modal-dialog">
+                        <div class="zak-modal-content">
+                            <div class="zak-modal-header"><h3 class="zak-modal-title">Create Account</h3><button type="button" class="zak-modal-close" data-zak-modal-close aria-label="Close">&times;</button></div>
+                            <div class="zak-modal-body">
+                                <form class="zak-form" id="createAccountForm">
+                                    <div class="zak-form-group">
+                                        <label class="zak-form-label" for="accName">Full name</label>
+                                        <input type="text" id="accName" class="zak-input" placeholder="Ada Lovelace">
+                                    </div>
+                                    <div class="zak-form-group">
+                                        <label class="zak-form-label" for="accEmail">Email address</label>
+                                        <input type="email" id="accEmail" class="zak-input" placeholder="ada@example.com">
+                                    </div>
+                                    <div class="zak-form-group">
+                                        <label class="zak-form-label" for="accRole">Role</label>
+                                        <select id="accRole" class="zak-select">
+                                            <option>Engineer</option>
+                                            <option>Designer</option>
+                                            <option>Product Manager</option>
+                                        </select>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="zak-modal-footer">
+                                <button class="zak-btn zak-btn-secondary" data-zak-modal-close>Cancel</button>
+                                <button class="zak-btn zak-btn-primary" type="submit" form="createAccountForm">Create account</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-modal" id="formModal" role="dialog" aria-modal="true"&gt;
+    &lt;div class="zak-modal-dialog"&gt;
+        &lt;div class="zak-modal-content"&gt;
+            &lt;div class="zak-modal-header"&gt;
+                &lt;h3 class="zak-modal-title"&gt;Create Account&lt;/h3&gt;
+                &lt;button type="button" class="zak-modal-close" data-zak-modal-close aria-label="Close"&gt;&amp;times;&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class="zak-modal-body"&gt;
+                &lt;form class="zak-form"&gt;
+                    &lt;div class="zak-form-group"&gt;
+                        &lt;label class="zak-form-label" for="accEmail"&gt;Email address&lt;/label&gt;
+                        &lt;input type="email" id="accEmail" class="zak-input" placeholder="ada@example.com"&gt;
+                    &lt;/div&gt;
+                &lt;/form&gt;
+            &lt;/div&gt;
+            &lt;div class="zak-modal-footer"&gt;
+                &lt;button class="zak-btn zak-btn-secondary" data-zak-modal-close&gt;Cancel&lt;/button&gt;
+                &lt;button class="zak-btn zak-btn-primary" type="submit"&gt;Create account&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Centered Modal</h2>
+            <p>Modals are vertically and horizontally centered by default. The dialog has a subtle <code>scale + translateY</code> entrance animation.</p>
+            <div class="docs-preview">
+                <button class="zak-btn zak-btn-primary" data-zak-modal="#centeredModal">Open Modal</button>
+                <div class="zak-modal" id="centeredModal" role="dialog" aria-modal="true">
+                    <div class="zak-modal-dialog">
+                        <div class="zak-modal-content">
+                            <div class="zak-modal-header">
+                                <h3 class="zak-modal-title">Centered</h3>
+                                <button type="button" class="zak-modal-close" data-zak-modal-close aria-label="Close">&times;</button>
+                            </div>
+                            <div class="zak-modal-body">
+                                <p style="margin:0; font-size:14px; color:var(--zak-text-muted);">This modal is perfectly centered on the viewport. To pin it to the top instead, add <code>align-items: flex-start</code> to the <code>.zak-modal</code> element.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Scrollable Modal</h2>
+            <p>When the body content grows taller than the viewport, the modal body scrolls independently while the header and footer stay fixed.</p>
+            <div class="docs-preview">
+                <button class="zak-btn zak-btn-primary" data-zak-modal="#scrollModal">Open Modal</button>
+                <div class="zak-modal" id="scrollModal" role="dialog" aria-modal="true">
+                    <div class="zak-modal-dialog">
+                        <div class="zak-modal-content">
+                            <div class="zak-modal-header">
+                                <h3 class="zak-modal-title">Terms &amp; Conditions</h3>
+                                <button type="button" class="zak-modal-close" data-zak-modal-close aria-label="Close">&times;</button>
+                            </div>
+                            <div class="zak-modal-body">
+                                <p style="font-size:14px; color:var(--zak-text-muted);">1. By accessing this service you agree to these terms. Any violation may result in suspension of your account. We may update these terms at any time, and continued use implies acceptance.</p>
+                                <p style="font-size:14px; color:var(--zak-text-muted);">2. You are responsible for safeguarding your credentials. We are not liable for unauthorized access that results from your failure to keep login details secure.</p>
+                                <p style="font-size:14px; color:var(--zak-text-muted);">3. We collect usage data to improve the product. Your data is processed in accordance with our privacy policy, which you should review carefully before continuing.</p>
+                                <p style="font-size:14px; color:var(--zak-text-muted);">4. You may cancel your subscription at any time from the billing dashboard. Refunds are issued on a pro-rata basis for the unused portion of your billing period.</p>
+                                <p style="font-size:14px; color:var(--zak-text-muted);">5. These terms are governed by the laws of the jurisdiction in which we are incorporated, and any disputes will be resolved through binding arbitration.</p>
+                                <p style="font-size:14px; color:var(--zak-text-muted);">6. Nothing in these terms limits liability for fraud, death or personal injury caused by negligence, or any matter which cannot be limited by law.</p>
+                            </div>
+                            <div class="zak-modal-footer">
+                                <button class="zak-btn zak-btn-secondary" data-zak-modal-close>Decline</button>
+                                <button class="zak-btn zak-btn-primary" data-zak-modal-close>Accept</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Fullscreen Modal</h2>
+            <p>The <code>.zak-modal-fullscreen</code> class makes the dialog fill the entire viewport. It removes the border radius and the outer padding.</p>
+            <div class="docs-preview">
+                <button class="zak-btn zak-btn-primary" data-zak-modal="#fullModal">Open Modal</button>
+                <div class="zak-modal" id="fullModal" role="dialog" aria-modal="true">
+                    <div class="zak-modal-dialog zak-modal-fullscreen">
+                        <div class="zak-modal-content">
+                            <div class="zak-modal-header">
+                                <h3 class="zak-modal-title">Fullscreen Editor</h3>
+                                <button type="button" class="zak-modal-close" data-zak-modal-close aria-label="Close">&times;</button>
+                            </div>
+                            <div class="zak-modal-body">
+                                <div class="zak-card zak-card-bordered" style="max-width: 100%; height: 100%; min-height: 300px;">
+                                    <div class="zak-card-body"><p style="margin:0; font-size:14px; color:var(--zak-text-muted);">A fullscreen modal is useful for immersive tasks like writing, diagramming or reviewing media.</p></div>
+                                </div>
+                            </div>
+                            <div class="zak-modal-footer"><button class="zak-btn zak-btn-primary" data-zak-modal-close>Done</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Static Backdrop</h2>
+            <p>A static backdrop keeps the modal open when you click outside, forcing the user to interact with the dialog itself. The demo below replaces the backdrop after opening so clicks on it are ignored.</p>
+            <div class="docs-preview">
+                <button class="zak-btn zak-btn-primary" id="staticBackdropBtn">Open Modal</button>
+                <div class="zak-modal" id="staticModal" role="dialog" aria-modal="true">
+                    <div class="zak-modal-dialog">
+                        <div class="zak-modal-content">
+                            <div class="zak-modal-header">
+                                <h3 class="zak-modal-title">Important Notice</h3>
+                                <button type="button" class="zak-modal-close" data-zak-modal-close aria-label="Close">&times;</button>
+                            </div>
+                            <div class="zak-modal-body">
+                                <p style="margin:0; font-size:14px; color:var(--zak-text-muted);">This modal cannot be dismissed by clicking the backdrop. Use the close button or press Escape.</p>
+                            </div>
+                            <div class="zak-modal-footer"><button class="zak-btn zak-btn-primary" data-zak-modal-close>I understand</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>CSS Classes &amp; Variables</h2>
+            <p>The modal is controlled through these CSS custom properties and classes.</p>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>/* CSS Variables */
+--zak-z-backdrop: 1040;
+--zak-z-modal:    1050;
+--zak-backdrop-bg: rgba(15, 23, 42, 0.5);
+
+/* Class Summary */
+.zak-modal             /* Full-screen flex container (hidden by default) */
+.zak-modal-active      /* Added by JS to show the modal */
+.zak-modal-backdrop    /* Fading backdrop behind the dialog */
+.zak-modal-dialog      /* Centered width container (32rem default) */
+.zak-modal-content     /* Surface panel with radius, border and shadow */
+.zak-modal-header      /* Title bar with border */
+.zak-modal-title       /* Typography for the header title */
+.zak-modal-close       /* Ghost close button */
+.zak-modal-body        /* Scrollable content area */
+.zak-modal-footer      /* Action row with border */
+.zak-modal-sm          /* 24rem  */
+.zak-modal-lg          /* 48rem  */
+.zak-modal-xl          /* 64rem  */
+.zak-modal-fullscreen  /* 100vw x 100vh, radius 0 */</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>JavaScript</h2>
+            <p>The data attributes wire up automatically on DOM ready. Programmatic control is also available.</p>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>// Data attributes (automatic)
+//   data-zak-modal="#id"       open the modal
+//   data-zak-modal-close       close the closest .zak-modal
+
+// Programmatic API
+zak.modal.open('#myModal');     // open by selector
+zak.modal.close('#myModal');    // close by selector or element
+zak.modal.toggle('#myModal');   // toggle
+
+// Events
+document.querySelector('.zak-modal').addEventListener('zak:open', function (e) {
+    console.log('Modal opened');
+});
+document.querySelector('.zak-modal').addEventListener('zak:close', function (e) {
+    console.log('Modal closed');
+});
+
+// Static backdrop example used in this page
+document.getElementById('staticBackdropBtn').addEventListener('click', function () {
+    zak.modal.open('#staticModal');
+    var modal = document.getElementById('staticModal');
+    var backdrop = modal._backdrop;
+    if (backdrop) {
+        var fresh = backdrop.cloneNode(true);   // clone has no close listener
+        backdrop.parentNode.replaceChild(fresh, backdrop);
+        modal._backdrop = fresh;
+    }
+});</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <p>Follow these best practices when building modals.</p>
+            <ul>
+                <li>Add <code>role="dialog"</code> and <code>aria-modal="true"</code> to the <code>.zak-modal</code> container.</li>
+                <li>Tie the title to the dialog with <code>aria-labelledby="#titleId"</code> (and optionally <code>aria-describedby</code> for a description).</li>
+                <li>The library contains a focus trap: focus cycles inside the modal and returns to the trigger on close.</li>
+                <li>Pressing <kbd>Escape</kbd> closes the modal and restores page scroll.</li>
+                <li>Give the close button an <code>aria-label="Close"</code> so screen readers announce it instead of reading the <code>&times;</code> character.</li>
+                <li>Lock body scroll while the modal is open (the library sets <code>overflow: hidden</code> on the body).</li>
+                <li>Delay any focus-sensitive content with <code>inert</code> on the page behind the modal when possible.</li>
+            </ul>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-modal" id="a11yModal" role="dialog" aria-modal="true"
+     aria-labelledby="a11yTitle" aria-describedby="a11yDesc"&gt;
+    &lt;div class="zak-modal-dialog"&gt;
+        &lt;div class="zak-modal-content"&gt;
+            &lt;div class="zak-modal-header"&gt;
+                &lt;h3 class="zak-modal-title" id="a11yTitle"&gt;Accessible Modal&lt;/h3&gt;
+                &lt;button type="button" class="zak-modal-close" data-zak-modal-close aria-label="Close"&gt;&amp;times;&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class="zak-modal-body"&gt;
+                &lt;p id="a11yDesc"&gt;Descriptive text that explains the dialog purpose.&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    <script>
+        (function () {
+            var btn = document.getElementById('staticBackdropBtn');
+            if (!btn) return;
+            btn.addEventListener('click', function () {
+                zak.modal.open('#staticModal');
+                var modal = document.getElementById('staticModal');
+                var backdrop = modal._backdrop;
+                if (backdrop) {
+                    var fresh = backdrop.cloneNode(true);
+                    backdrop.parentNode.replaceChild(fresh, backdrop);
+                    modal._backdrop = fresh;
+                }
+            });
+        })();
+    </script>
+    </body></html>

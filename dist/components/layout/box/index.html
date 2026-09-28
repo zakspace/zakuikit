@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Box documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Box - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/layout/box/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Box - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Box documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/layout/box/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main">
+        <div class="docs-content">
+            <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Layout</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Box</span>
+                </nav>
+            <h1>Box</h1>
+            <p class="docs-subtitle">A generic container component for applying padding, margin, borders, shadows, backgrounds, and sizing utilities.</p>
+
+            <section class="zak-docs-section">
+                <h2>Basic Box</h2>
+                <p>Use <code>.zak-box</code> as a simple container with default padding.</p>
+                <div class="docs-preview">
+                    <div class="zak-box" style="background:var(--zak-primary-light);border:1px dashed var(--zak-primary);border-radius:var(--zak-radius);color:var(--zak-primary);text-align:center;">
+                        This is a basic .zak-box with default padding
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-box"&gt;
+  Basic box content
+&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Box Padding</h2>
+                <p>Control padding with size modifiers from <code>.zak-box-sm</code> to <code>.zak-box-xl</code>.</p>
+                <div class="docs-preview">
+                    <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:flex-start;">
+                        <div class="zak-box zak-box-sm" style="background:var(--zak-primary-light);border:1px dashed var(--zak-primary);border-radius:var(--zak-radius);color:var(--zak-primary);text-align:center;font-size:0.875rem;">box-sm</div>
+                        <div class="zak-box zak-box-md" style="background:var(--zak-secondary-light);border:1px dashed var(--zak-secondary);border-radius:var(--zak-radius);color:var(--zak-secondary);text-align:center;font-size:0.875rem;">box-md</div>
+                        <div class="zak-box zak-box-lg" style="background:var(--zak-success-light);border:1px dashed var(--zak-success);border-radius:var(--zak-radius);color:var(--zak-success);text-align:center;font-size:0.875rem;">box-lg</div>
+                        <div class="zak-box zak-box-xl" style="background:var(--zak-warning-light);border:1px dashed var(--zak-warning);border-radius:var(--zak-radius);color:var(--zak-warning-dark,var(--zak-warning));text-align:center;font-size:0.875rem;">box-xl</div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-box zak-box-sm"&gt;Small padding&lt;/div&gt;
+&lt;div class="zak-box zak-box-md"&gt;Medium padding&lt;/div&gt;
+&lt;div class="zak-box zak-box-lg"&gt;Large padding&lt;/div&gt;
+&lt;div class="zak-box zak-box-xl"&gt;Extra large padding&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Box with Border</h2>
+                <p>Add borders using <code>.zak-box-bordered</code> or individual border utilities.</p>
+                <div class="docs-preview">
+                    <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+                        <div class="zak-box zak-box-bordered" style="border-radius:var(--zak-radius);text-align:center;">Bordered box</div>
+                        <div class="zak-box" style="border:2px solid var(--zak-primary);border-radius:var(--zak-radius);text-align:center;color:var(--zak-primary);">Custom border</div>
+                        <div class="zak-box" style="border:1px dashed var(--zak-secondary);border-radius:var(--zak-radius);text-align:center;color:var(--zak-secondary);">Dashed border</div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-box zak-box-bordered"&gt;Bordered&lt;/div&gt;
+&lt;div class="zak-box" style="border: 2px solid var(--zak-primary)"&gt;Custom&lt;/div&gt;
+&lt;div class="zak-box" style="border: 1px dashed var(--zak-secondary)"&gt;Dashed&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Box with Shadow</h2>
+                <p>Apply shadow effects with shadow utility classes.</p>
+                <div class="docs-preview">
+                    <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
+                        <div class="zak-box zak-shadow-sm" style="border-radius:var(--zak-radius);text-align:center;padding:1.5rem;">shadow-sm</div>
+                        <div class="zak-box zak-shadow" style="border-radius:var(--zak-radius);text-align:center;padding:1.5rem;">shadow</div>
+                        <div class="zak-box zak-shadow-lg" style="border-radius:var(--zak-radius);text-align:center;padding:1.5rem;">shadow-lg</div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-box zak-shadow-sm"&gt;Small shadow&lt;/div&gt;
+&lt;div class="zak-box zak-shadow"&gt;Default shadow&lt;/div&gt;
+&lt;div class="zak-box zak-shadow-lg"&gt;Large shadow&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Box with Background</h2>
+                <p>Apply background colors for visual emphasis.</p>
+                <div class="docs-preview">
+                    <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+                        <div class="zak-box" style="background:var(--zak-primary-light);border-radius:var(--zak-radius);text-align:center;padding:1rem 1.5rem;color:var(--zak-primary);font-size:0.875rem;">Primary bg</div>
+                        <div class="zak-box" style="background:var(--zak-secondary-light);border-radius:var(--zak-radius);text-align:center;padding:1rem 1.5rem;color:var(--zak-secondary);font-size:0.875rem;">Secondary bg</div>
+                        <div class="zak-box" style="background:var(--zak-success-light);border-radius:var(--zak-radius);text-align:center;padding:1rem 1.5rem;color:var(--zak-success);font-size:0.875rem;">Success bg</div>
+                        <div class="zak-box" style="background:var(--zak-danger-light);border-radius:var(--zak-radius);text-align:center;padding:1rem 1.5rem;color:var(--zak-danger);font-size:0.875rem;">Danger bg</div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-box" style="background: var(--zak-primary-light)"&gt;Primary&lt;/div&gt;
+&lt;div class="zak-box" style="background: var(--zak-success-light)"&gt;Success&lt;/div&gt;
+&lt;div class="zak-box" style="background: var(--zak-danger-light)"&gt;Danger&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Box Sizing</h2>
+                <p>Control width and height with sizing utilities.</p>
+                <div class="docs-preview">
+                    <div class="zak-box zak-box-bordered" style="width:75%;border-radius:var(--zak-radius);text-align:center;margin-bottom:0.5rem;">Width: 75%</div>
+                    <div class="zak-box zak-box-bordered" style="width:50%;border-radius:var(--zak-radius);text-align:center;margin-bottom:0.5rem;">Width: 50%</div>
+                    <div class="zak-box zak-box-bordered" style="width:25%;border-radius:var(--zak-radius);text-align:center;">Width: 25%</div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-box" style="width: 75%"&gt;75% width&lt;/div&gt;
+&lt;div class="zak-box" style="width: 50%"&gt;50% width&lt;/div&gt;
+&lt;div class="zak-box" style="width: 25%"&gt;25% width&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Interactive Boxes</h2>
+                <p>Add hover effects and transitions for interactive elements.</p>
+                <div class="docs-preview">
+                    <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+                        <div class="zak-box zak-box-bordered zak-hover-shadow" style="border-radius:var(--zak-radius);text-align:center;padding:1.5rem 2rem;cursor:pointer;transition:all 0.2s;">Hover shadow</div>
+                        <div class="zak-box zak-box-bordered zak-hover-scale" style="border-radius:var(--zak-radius);text-align:center;padding:1.5rem 2rem;cursor:pointer;transition:all 0.2s;">Hover scale</div>
+                        <div class="zak-box" style="border-radius:var(--zak-radius);text-align:center;padding:1.5rem 2rem;cursor:pointer;background:var(--zak-primary);color:white;transition:all 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Hover opacity</div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-box zak-box-bordered zak-hover-shadow"&gt;Hover shadow&lt;/div&gt;
+&lt;div class="zak-box zak-box-bordered zak-hover-scale"&gt;Hover scale&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>CSS Reference</h2>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>.zak-box { padding: 1rem; }
+.zak-box-sm { padding: 0.5rem; }
+.zak-box-md { padding: 1rem; }
+.zak-box-lg { padding: 1.5rem; }
+.zak-box-xl { padding: 2rem; }
+.zak-box-bordered { border: 1px solid var(--zak-border); }
+.zak-shadow-sm { box-shadow: var(--zak-shadow-sm); }
+.zak-shadow { box-shadow: var(--zak-shadow); }
+.zak-shadow-lg { box-shadow: var(--zak-shadow-lg); }</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Accessibility</h2>
+                <ul>
+                    <li>Box is a generic container — ensure semantic HTML inside for screen readers</li>
+                    <li>Interactive boxes should have <code>role="button"</code> and keyboard support if they trigger actions</li>
+                    <li>Maintain sufficient color contrast when using background colors</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body>
+</html>

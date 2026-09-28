@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Button Group documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Button Group - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/buttons/button-group/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Button Group - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Button Group documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/buttons/button-group/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main">
+        <div class="docs-content">
+            <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Buttons</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Button Group</span>
+                </nav>
+
+            <h1>Button Group</h1>
+            <p class="docs-subtitle">Button groups combine multiple buttons into a single cohesive unit. They are useful for related actions like text formatting or toggle options.</p>
+
+            <section class="zak-docs-section">
+                <h2>Basic Group</h2>
+                <p>Group related buttons together with connected borders.</p>
+                <div class="docs-preview">
+                    <div class="zak-btn-group">
+                        <button class="zak-btn zak-btn-outline-primary">Left</button>
+                        <button class="zak-btn zak-btn-outline-primary">Center</button>
+                        <button class="zak-btn zak-btn-outline-primary">Right</button>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-btn-group"&gt;
+    &lt;button class="zak-btn zak-btn-outline-primary"&gt;Left&lt;/button&gt;
+    &lt;button class="zak-btn zak-btn-outline-primary"&gt;Center&lt;/button&gt;
+    &lt;button class="zak-btn zak-btn-outline-primary"&gt;Right&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Toolbar</h2>
+                <p>Multiple button groups can be placed in a toolbar container.</p>
+                <div class="docs-preview">
+                    <div class="zak-btn-toolbar" style="display: flex; gap: 1rem; align-items: center;">
+                        <div class="zak-btn-group">
+                            <button class="zak-btn zak-btn-outline-secondary">
+                                <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                            </button>
+                            <button class="zak-btn zak-btn-outline-secondary">
+                                <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>
+                            </button>
+                        </div>
+                        <div class="zak-btn-group">
+                            <button class="zak-btn zak-btn-outline-primary">Bold</button>
+                            <button class="zak-btn zak-btn-outline-primary">Italic</button>
+                            <button class="zak-btn zak-btn-outline-primary">Underline</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-btn-toolbar" style="display: flex; gap: 1rem; align-items: center;"&gt;
+    &lt;div class="zak-btn-group"&gt;
+        &lt;button class="zak-btn zak-btn-outline-secondary"&gt;Edit icon&lt;/button&gt;
+        &lt;button class="zak-btn zak-btn-outline-secondary"&gt;Delete icon&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="zak-btn-group"&gt;
+        &lt;button class="zak-btn zak-btn-outline-primary"&gt;Bold&lt;/button&gt;
+        &lt;button class="zak-btn zak-btn-outline-primary"&gt;Italic&lt;/button&gt;
+        &lt;button class="zak-btn zak-btn-outline-primary"&gt;Underline&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Vertical Group</h2>
+                <p>Arrange buttons vertically using the vertical modifier.</p>
+                <div class="docs-preview">
+                    <div class="zak-btn-group-vertical">
+                        <button class="zak-btn zak-btn-outline-primary">Up</button>
+                        <button class="zak-btn zak-btn-outline-primary">Middle</button>
+                        <button class="zak-btn zak-btn-outline-primary">Down</button>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-btn-group-vertical"&gt;
+    &lt;button class="zak-btn zak-btn-outline-primary"&gt;Up&lt;/button&gt;
+    &lt;button class="zak-btn zak-btn-outline-primary"&gt;Middle&lt;/button&gt;
+    &lt;button class="zak-btn zak-btn-outline-primary"&gt;Down&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>With Dropdown</h2>
+                <p>Combine a button group with a dropdown for split actions.</p>
+                <div class="docs-preview">
+                    <div class="zak-btn-group">
+                        <button class="zak-btn zak-btn-primary">Action</button>
+                        <button class="zak-btn zak-btn-primary dropdown-toggle" aria-label="More options" aria-expanded="false">
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-btn-group"&gt;
+    &lt;button class="zak-btn zak-btn-primary"&gt;Action&lt;/button&gt;
+    &lt;button class="zak-btn zak-btn-primary dropdown-toggle" aria-label="More options" aria-expanded="false"&gt;
+        &lt;svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;
+    &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Sizing</h2>
+                <p>Button groups inherit size from their child buttons.</p>
+                <div class="docs-preview">
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <div class="zak-btn-group">
+                            <button class="zak-btn zak-btn-outline-primary zak-btn-sm">Small</button>
+                            <button class="zak-btn zak-btn-outline-primary zak-btn-sm">Small</button>
+                            <button class="zak-btn zak-btn-outline-primary zak-btn-sm">Small</button>
+                        </div>
+                        <div class="zak-btn-group">
+                            <button class="zak-btn zak-btn-outline-primary">Default</button>
+                            <button class="zak-btn zak-btn-outline-primary">Default</button>
+                            <button class="zak-btn zak-btn-outline-primary">Default</button>
+                        </div>
+                        <div class="zak-btn-group">
+                            <button class="zak-btn zak-btn-outline-primary zak-btn-lg">Large</button>
+                            <button class="zak-btn zak-btn-outline-primary zak-btn-lg">Large</button>
+                            <button class="zak-btn zak-btn-outline-primary zak-btn-lg">Large</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;!-- Small --&gt;
+&lt;div class="zak-btn-group"&gt;
+    &lt;button class="zak-btn zak-btn-outline-primary zak-btn-sm"&gt;Small&lt;/button&gt;
+    &lt;button class="zak-btn zak-btn-outline-primary zak-btn-sm"&gt;Small&lt;/button&gt;
+    &lt;button class="zak-btn zak-btn-outline-primary zak-btn-sm"&gt;Small&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;!-- Default --&gt;
+&lt;div class="zak-btn-group"&gt;
+    &lt;button class="zak-btn zak-btn-outline-primary"&gt;Default&lt;/button&gt;
+    &lt;button class="zak-btn zak-btn-outline-primary"&gt;Default&lt;/button&gt;
+    &lt;button class="zak-btn zak-btn-outline-primary"&gt;Default&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;!-- Large --&gt;
+&lt;div class="zak-btn-group"&gt;
+    &lt;button class="zak-btn zak-btn-outline-primary zak-btn-lg"&gt;Large&lt;/button&gt;
+    &lt;button class="zak-btn zak-btn-outline-primary zak-btn-lg"&gt;Large&lt;/button&gt;
+    &lt;button class="zak-btn zak-btn-outline-primary zak-btn-lg"&gt;Large&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>CSS Classes</h2>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>/* Button Group */
+.zak-btn-group              /* Horizontal button group */
+.zak-btn-group-vertical     /* Vertical button group */
+
+/* The group removes borders between adjacent buttons */
+/* First button: no right border */
+/* Last button: no left border */
+/* Middle buttons: no left or right border */
+
+/* Toolbar */
+.zak-btn-toolbar            /* Container for multiple button groups */</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Accessibility</h2>
+                <ul>
+                    <li>Use <code>role="group"</code> and <code>aria-label</code> on the group container to describe the purpose.</li>
+                    <li>For toggle button groups, use <code>aria-pressed</code> on each button to indicate state.</li>
+                    <li>Ensure each button within the group remains individually focusable via keyboard.</li>
+                </ul>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-btn-group" role="group" aria-label="Text alignment"&gt;
+    &lt;button class="zak-btn zak-btn-outline-primary" aria-pressed="true"&gt;Left&lt;/button&gt;
+    &lt;button class="zak-btn zak-btn-outline-primary" aria-pressed="false"&gt;Center&lt;/button&gt;
+    &lt;button class="zak-btn zak-btn-outline-primary" aria-pressed="false"&gt;Right&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body>
+</html>

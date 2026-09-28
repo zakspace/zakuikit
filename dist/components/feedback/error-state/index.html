@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Error State documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Error State - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/feedback/error-state/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Error State - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Error State documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/feedback/error-state/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Loading-States</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Error State</span>
+                </nav>
+        <h1>Error State</h1>
+        <p class="docs-subtitle">Communicates that something went wrong and provides recovery actions.</p>
+
+        <h2>Error with Icon</h2>
+        <p>A simple error display with an icon.</p>
+        <div class="docs-preview">
+            <div class="docs-preview">
+                <div class="zak-error-state">
+                    <div class="zak-error-state-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:48px;height:48px"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                    </div>
+                    <h3 class="zak-error-state-title">Something went wrong</h3>
+                    <p class="zak-error-state-text">An unexpected error occurred. Please try again.</p>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-error-state"&gt;
+    &lt;div class="zak-error-state-icon"&gt;
+        &lt;svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"&gt;
+            &lt;circle cx="12" cy="12" r="10"/&gt;
+            &lt;line x1="15" y1="9" x2="9" y2="15"/&gt;
+            &lt;line x1="9" y1="9" x2="15" y2="15"/&gt;
+        &lt;/svg&gt;
+    &lt;/div&gt;
+    &lt;h3 class="zak-error-state-title"&gt;Something went wrong&lt;/h3&gt;
+    &lt;p class="zak-error-state-text"&gt;An unexpected error occurred. Please try again.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <h2>Error with Title and Description</h2>
+        <p>Detailed error information with a description.</p>
+        <div class="docs-preview">
+            <div class="docs-preview">
+                <div class="zak-error-state">
+                    <div class="zak-error-state-icon zak-error-state-icon-warning">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:48px;height:48px"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                    </div>
+                    <h3 class="zak-error-state-title">Failed to load data</h3>
+                    <p class="zak-error-state-text">The server returned an error while fetching your dashboard data. This might be due to a temporary issue.</p>
+                    <p class="zak-error-state-code">Error: 500 Internal Server Error</p>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-error-state"&gt;
+    &lt;div class="zak-error-state-icon zak-error-state-icon-warning"&gt;
+        &lt;svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"&gt;
+            &lt;path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/&gt;
+            &lt;line x1="12" y1="9" x2="12" y2="13"/&gt;&lt;line x1="12" y1="17" x2="12.01" y2="17"/&gt;
+        &lt;/svg&gt;
+    &lt;/div&gt;
+    &lt;h3 class="zak-error-state-title"&gt;Failed to load data&lt;/h3&gt;
+    &lt;p class="zak-error-state-text"&gt;The server returned an error while fetching your dashboard data.&lt;/p&gt;
+    &lt;p class="zak-error-state-code"&gt;Error: 500 Internal Server Error&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <h2>Error with Retry Button</h2>
+        <p>Include a retry button to let users attempt recovery.</p>
+        <div class="docs-preview">
+            <div class="docs-preview">
+                <div class="zak-error-state">
+                    <div class="zak-error-state-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:48px;height:48px"><path d="M23 4v6h-6"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg>
+                    </div>
+                    <h3 class="zak-error-state-title">Connection lost</h3>
+                    <p class="zak-error-state-text">Unable to connect to the server. Check your internet connection and try again.</p>
+                    <button class="zak-btn zak-btn-primary" onclick="this.innerHTML='<div class=\'zak-spinner zak-spinner-sm\'></div> Retrying...';setTimeout(()=>this.innerHTML='Retry',2000)">
+                        <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:1rem;height:1rem"><path d="M23 4v6h-6"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg>
+                        Retry
+                    </button>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-error-state"&gt;
+    &lt;div class="zak-error-state-icon"&gt;
+        &lt;svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"&gt;
+            &lt;path d="M23 4v6h-6"/&gt;
+            &lt;path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/&gt;
+        &lt;/svg&gt;
+    &lt;/div&gt;
+    &lt;h3 class="zak-error-state-title"&gt;Connection lost&lt;/h3&gt;
+    &lt;p class="zak-error-state-text"&gt;Unable to connect to the server.&lt;/p&gt;
+    &lt;button class="zak-btn zak-btn-primary"&gt;Retry&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <h2>404 Error</h2>
+        <p>Page not found error state.</p>
+        <div class="docs-preview">
+            <div class="docs-preview">
+                <div class="zak-error-state">
+                    <div class="zak-error-state-code-large">404</div>
+                    <h3 class="zak-error-state-title">Page not found</h3>
+                    <p class="zak-error-state-text">The page you're looking for doesn't exist or has been moved.</p>
+                    <div class="zak-error-state-actions">
+                        <button class="zak-btn zak-btn-primary">Go Home</button>
+                        <button class="zak-btn zak-btn-outline">Contact Support</button>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-error-state"&gt;
+    &lt;div class="zak-error-state-code-large"&gt;404&lt;/div&gt;
+    &lt;h3 class="zak-error-state-title"&gt;Page not found&lt;/h3&gt;
+    &lt;p class="zak-error-state-text"&gt;The page you're looking for doesn't exist or has been moved.&lt;/p&gt;
+    &lt;div class="zak-error-state-actions"&gt;
+        &lt;button class="zak-btn zak-btn-primary"&gt;Go Home&lt;/button&gt;
+        &lt;button class="zak-btn zak-btn-outline"&gt;Contact Support&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <h2>500 Error</h2>
+        <p>Server error state.</p>
+        <div class="docs-preview">
+            <div class="docs-preview">
+                <div class="zak-error-state">
+                    <div class="zak-error-state-code-large">500</div>
+                    <h3 class="zak-error-state-title">Server error</h3>
+                    <p class="zak-error-state-text">Something went wrong on our end. Our team has been notified and is working on a fix.</p>
+                    <button class="zak-btn zak-btn-primary">Try Again</button>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-error-state"&gt;
+    &lt;div class="zak-error-state-code-large"&gt;500&lt;/div&gt;
+    &lt;h3 class="zak-error-state-title"&gt;Server error&lt;/h3&gt;
+    &lt;p class="zak-error-state-text"&gt;Something went wrong on our end.&lt;/p&gt;
+    &lt;button class="zak-btn zak-btn-primary"&gt;Try Again&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <h2>Network Error</h2>
+        <p>Network connectivity error state.</p>
+        <div class="docs-preview">
+            <div class="docs-preview">
+                <div class="zak-error-state">
+                    <div class="zak-error-state-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:48px;height:48px"><line x1="1" y1="1" x2="23" y2="23"/><path d="M16.72 11.06A10.94 10.94 0 0119 12.55"/><path d="M5 12.55a10.94 10.94 0 015.17-2.39"/><path d="M10.71 5.05A16 16 0 0122.56 9"/><path d="M1.42 9a15.91 15.91 0 014.7-2.88"/><path d="M8.53 16.11a6 6 0 016.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+                    </div>
+                    <h3 class="zak-error-state-title">Network error</h3>
+                    <p class="zak-error-state-text">Could not connect to the network. Please check your internet connection and try again.</p>
+                    <button class="zak-btn zak-btn-primary">Check Connection</button>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-error-state"&gt;
+    &lt;div class="zak-error-state-icon"&gt;
+        &lt;svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"&gt;
+            &lt;line x1="1" y1="1" x2="23" y2="23"/&gt;
+            &lt;path d="M16.72 11.06A10.94 10.94 0 0119 12.55"/&gt;
+            &lt;path d="M5 12.55a10.94 10.94 0 015.17-2.39"/&gt;
+            &lt;path d="M10.71 5.05A16 16 0 0122.56 9"/&gt;
+            &lt;path d="M1.42 9a15.91 15.91 0 014.7-2.88"/&gt;
+            &lt;path d="M8.53 16.11a6 6 0 016.95 0"/&gt;
+            &lt;line x1="12" y1="20" x2="12.01" y2="20"/&gt;
+        &lt;/svg&gt;
+    &lt;/div&gt;
+    &lt;h3 class="zak-error-state-title"&gt;Network error&lt;/h3&gt;
+    &lt;p class="zak-error-state-text"&gt;Could not connect to the network.&lt;/p&gt;
+    &lt;button class="zak-btn zak-btn-primary"&gt;Check Connection&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <h2>Error with Illustration</h2>
+        <p>Decorative illustration alongside error messaging.</p>
+        <div class="docs-preview">
+            <div class="docs-preview">
+                <div class="zak-error-state">
+                    <div class="zak-error-state-illustration">
+                        <div style="width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,var(--zak-danger-light),var(--zak-warning-light));display:flex;align-items:center;justify-content:center">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--zak-danger)" stroke-width="1.5" style="width:56px;height:56px"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="zak-error-state-title">Upload failed</h3>
+                    <p class="zak-error-state-text">Your file couldn't be uploaded. Make sure the file is under 10MB and in a supported format.</p>
+                    <button class="zak-btn zak-btn-primary">Try Again</button>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-error-state"&gt;
+    &lt;div class="zak-error-state-illustration"&gt;
+        &lt;div style="width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,var(--zak-danger-light),var(--zak-warning-light));display:flex;align-items:center;justify-content:center"&gt;
+            &lt;svg viewBox="0 0 24 24" fill="none" stroke="var(--zak-danger)" stroke-width="1.5"&gt;
+                &lt;circle cx="12" cy="12" r="10"/&gt;
+                &lt;line x1="15" y1="9" x2="9" y2="15"/&gt;&lt;line x1="9" y1="9" x2="15" y2="15"/&gt;
+            &lt;/svg&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;h3 class="zak-error-state-title"&gt;Upload failed&lt;/h3&gt;
+    &lt;p class="zak-error-state-text"&gt;Your file couldn't be uploaded.&lt;/p&gt;
+    &lt;button class="zak-btn zak-btn-primary"&gt;Try Again&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body></html>

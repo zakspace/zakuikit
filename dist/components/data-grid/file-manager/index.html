@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit File Manager documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>File Manager - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/data-grid/file-manager/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="File Manager - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit File Manager documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/data-grid/file-manager/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Enterprise</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">File Manager</span>
+                </nav>
+        <h1>File Manager</h1>
+        <p class="docs-subtitle">A full file browser interface with breadcrumb navigation, grid/list views, sidebar tree, file operations, and sort controls.</p>
+
+        <div class="zak-docs-section">
+            <h2>File Manager</h2>
+            <p>A complete file management interface with breadcrumb path, view toggles, sidebar navigation, and file operations toolbar.</p>
+
+            <div class="docs-preview">
+                <div style="border:1px solid var(--zak-border-color);border-radius:var(--zak-radius-lg);overflow:hidden;display:flex;min-height:500px;">
+                    <div id="fm-sidebar" style="width:220px;border-right:1px solid var(--zak-border-color);background:var(--zak-surface-1);padding:var(--zak-space-3);flex-shrink:0;">
+                        <button class="zak-btn zak-btn-primary" style="width:100%;margin-bottom:var(--zak-space-4);">
+                            <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            New Upload
+                        </button>
+                        <div style="margin-bottom:var(--zak-space-3);">
+                            <div class="fm-nav-item fm-nav-active" data-path="recent" style="display:flex;align-items:center;gap:var(--zak-space-2);padding:var(--zak-space-2);border-radius:var(--zak-radius);cursor:pointer;font-size:var(--zak-font-size-sm);">
+                                <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                Recent
+                            </div>
+                            <div class="fm-nav-item" data-path="starred" style="display:flex;align-items:center;gap:var(--zak-space-2);padding:var(--zak-space-2);border-radius:var(--zak-radius);cursor:pointer;font-size:var(--zak-font-size-sm);">
+                                <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                Starred
+                            </div>
+                            <div class="fm-nav-item" data-path="trash" style="display:flex;align-items:center;gap:var(--zak-space-2);padding:var(--zak-space-2);border-radius:var(--zak-radius);cursor:pointer;font-size:var(--zak-font-size-sm);">
+                                <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                                Trash
+                            </div>
+                        </div>
+                        <div style="border-top:1px solid var(--zak-border-color);padding-top:var(--zak-space-3);">
+                            <div style="font-size:var(--zak-font-size-xs);font-weight:600;color:var(--zak-text-muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:var(--zak-space-2);padding:0 var(--zak-space-2);">Folders</div>
+                            <div class="fm-tree-item fm-nav-active" data-path="Documents" style="display:flex;align-items:center;gap:var(--zak-space-2);padding:var(--zak-space-2);border-radius:var(--zak-radius);cursor:pointer;font-size:var(--zak-font-size-sm);">
+                                <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="var(--zak-warning)" stroke="var(--zak-warning)" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                                Documents
+                            </div>
+                            <div class="fm-tree-item" data-path="Images" style="display:flex;align-items:center;gap:var(--zak-space-2);padding:var(--zak-space-2) var(--zak-space-2) var(--zak-space-2) var(--zak-space-5);border-radius:var(--zak-radius);cursor:pointer;font-size:var(--zak-font-size-sm);">
+                                <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="var(--zak-warning)" stroke="var(--zak-warning)" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                                Images
+                            </div>
+                            <div class="fm-tree-item" data-path="Projects" style="display:flex;align-items:center;gap:var(--zak-space-2);padding:var(--zak-space-2) var(--zak-space-2) var(--zak-space-2) var(--zak-space-5);border-radius:var(--zak-radius);cursor:pointer;font-size:var(--zak-font-size-sm);">
+                                <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="var(--zak-warning)" stroke="var(--zak-warning)" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                                Projects
+                            </div>
+                            <div class="fm-tree-item" data-path="Shared" style="display:flex;align-items:center;gap:var(--zak-space-2);padding:var(--zak-space-2) var(--zak-space-2) var(--zak-space-2) var(--zak-space-5);border-radius:var(--zak-radius);cursor:pointer;font-size:var(--zak-font-size-sm);">
+                                <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="var(--zak-warning)" stroke="var(--zak-warning)" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                                Shared
+                            </div>
+                        </div>
+                    </div>
+                    <div style="flex:1;display:flex;flex-direction:column;min-width:0;">
+                        <div style="display:flex;align-items:center;justify-content:space-between;padding:var(--zak-space-3) var(--zak-space-4);border-bottom:1px solid var(--zak-border-color);flex-wrap:wrap;gap:var(--zak-space-2);">
+                            <div style="display:flex;align-items:center;gap:var(--zak-space-2);flex-wrap:wrap;">
+                                <nav class="zak-breadcrumb" style="margin:0;" id="fm-breadcrumb">
+                                    <a href="#" style="cursor:pointer;">Home</a> &gt; <span>Documents</span>
+                                </nav>
+                            </div>
+                            <div style="display:flex;align-items:center;gap:var(--zak-space-2);">
+                                <input type="text" class="zak-input zak-input-sm" placeholder="Search files..." style="width:180px;" id="fm-search">
+                                <select class="zak-select zak-select-sm" id="fm-sort" style="width:130px;">
+                                    <option value="name">Name</option>
+                                    <option value="date">Date</option>
+                                    <option value="size">Size</option>
+                                    <option value="type">Type</option>
+                                </select>
+                                <div style="display:flex;border:1px solid var(--zak-border-color);border-radius:var(--zak-radius);overflow:hidden;">
+                                    <button class="zak-btn zak-btn-soft zak-btn-sm fm-view-btn fm-view-active" data-view="grid" title="Grid view" style="border-radius:0;">
+                                        <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                                    </button>
+                                    <button class="zak-btn zak-btn-soft zak-btn-sm fm-view-btn" data-view="list" title="List view" style="border-radius:0;border-left:1px solid var(--zak-border-color);">
+                                        <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                                    </button>
+                                </div>
+                                <button class="zak-btn zak-btn-outline zak-btn-sm" id="fm-new-folder">
+                                    <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                                    New Folder
+                                </button>
+                            </div>
+                        </div>
+                        <div id="fm-content" style="flex:1;padding:var(--zak-space-4);overflow-y:auto;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div style="display:flex;min-height:500px;"&gt;
+  &lt;div class="fm-sidebar"&gt;
+    &lt;div class="fm-nav-item"&gt;Recent&lt;/div&gt;
+    &lt;div class="fm-nav-item"&gt;Starred&lt;/div&gt;
+    &lt;div class="fm-nav-item"&gt;Trash&lt;/div&gt;
+    &lt;div class="fm-tree-item"&gt;Documents&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="fm-main"&gt;
+    &lt;nav class="zak-breadcrumb"&gt;Home &gt; Documents&lt;/nav&gt;
+    &lt;div id="fm-content"&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Features</h2>
+            <ul>
+                <li><strong>Breadcrumb Navigation</strong> &mdash; Click path segments to navigate up.</li>
+                <li><strong>Grid/List Views</strong> &mdash; Toggle between thumbnail grid and detailed list.</li>
+                <li><strong>Sidebar Tree</strong> &mdash; Quick access to Recent, Starred, Trash, and folder tree.</li>
+                <li><strong>File Operations</strong> &mdash; New folder, upload, sort, and search controls.</li>
+                <li><strong>File Icons</strong> &mdash; SVG icons for folders and file types.</li>
+                <li><strong>Sort Options</strong> &mdash; Sort by name, date, size, or type.</li>
+            </ul>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead><tr><th>Class</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>.zak-breadcrumb</code></td><td>Breadcrumb path navigation</td></tr>
+                        <tr><td><code>.zak-btn zak-btn-primary</code></td><td>Upload button</td></tr>
+                        <tr><td><code>.zak-btn zak-btn-outline zak-btn-sm</code></td><td>New Folder button</td></tr>
+                        <tr><td><code>.zak-input zak-input-sm</code></td><td>Search files input</td></tr>
+                        <tr><td><code>.zak-select zak-select-sm</code></td><td>Sort dropdown</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    <script>
+    (function(){
+        var files={
+            'Documents':[
+                {name:'Q4 Report.pdf',type:'pdf',size:'2.4 MB',modified:'2024-12-15',starred:false},
+                {name:'Budget 2025.xlsx',type:'excel',size:'1.1 MB',modified:'2024-12-10',starred:true},
+                {name:'Meeting Notes.docx',type:'word',size:'156 KB',modified:'2024-12-18',starred:false},
+                {name:'Presentation.pptx',type:'powerpoint',size:'8.7 MB',modified:'2024-12-05',starred:false},
+                {name:'Contract Draft.pdf',type:'pdf',size:'420 KB',modified:'2024-12-12',starred:true},
+                {name:'Proposal.docx',type:'word',size:'89 KB',modified:'2024-12-14',starred:false},
+                {name:'Data Export.csv',type:'csv',size:'3.2 MB',modified:'2024-12-17',starred:false},
+                {name:'Folder',type:'folder',size:'--',modified:'2024-12-01',starred:false}
+            ],
+            'Images':[
+                {name:'Logo.png',type:'image',size:'245 KB',modified:'2024-11-20',starred:true},
+                {name:'Banner.jpg',type:'image',size:'1.8 MB',modified:'2024-12-01',starred:false},
+                {name:'Screenshot.png',type:'image',size:'890 KB',modified:'2024-12-15',starred:false},
+                {name:'Team Photo.jpg',type:'image',size:'3.4 MB',modified:'2024-11-30',starred:false}
+            ],
+            'Projects':[
+                {name:'ZakUIKit',type:'folder',size:'--',modified:'2024-12-18',starred:true},
+                {name:'Mobile App',type:'folder',size:'--',modified:'2024-12-10',starred:false},
+                {name:'API Docs',type:'folder',size:'--',modified:'2024-12-15',starred:false},
+                {name:'Roadmap.md',type:'markdown',size:'12 KB',modified:'2024-12-12',starred:false}
+            ],
+            'Shared':[
+                {name:'Shared Report.pdf',type:'pdf',size:'1.5 MB',modified:'2024-12-14',starred:false},
+                {name:'Team Assets.zip',type:'zip',size:'45 MB',modified:'2024-12-08',starred:true}
+            ]
+        };
+        var currentPath='Documents', currentView='grid';
+        var content=document.getElementById('fm-content');
+        var search=document.getElementById('fm-search');
+        var sort=document.getElementById('fm-sort');
+
+        var fileIcons={
+            folder:'<svg class="zak-icon" viewBox="0 0 24 24" fill="var(--zak-warning)" stroke="var(--zak-warning)" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>',
+            pdf:'<svg class="zak-icon" viewBox="0 0 24 24" fill="var(--zak-danger)" stroke="var(--zak-danger)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>',
+            excel:'<svg class="zak-icon" viewBox="0 0 24 24" fill="var(--zak-success)" stroke="var(--zak-success)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>',
+            word:'<svg class="zak-icon" viewBox="0 0 24 24" fill="var(--zak-primary)" stroke="var(--zak-primary)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>',
+            powerpoint:'<svg class="zak-icon" viewBox="0 0 24 24" fill="var(--zak-warning)" stroke="var(--zak-warning)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>',
+            image:'<svg class="zak-icon" viewBox="0 0 24 24" fill="var(--zak-info)" stroke="var(--zak-info)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>',
+            csv:'<svg class="zak-icon" viewBox="0 0 24 24" fill="var(--zak-success)" stroke="var(--zak-success)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>',
+            markdown:'<svg class="zak-icon" viewBox="0 0 24 24" fill="var(--zak-text-muted)" stroke="var(--zak-text-muted)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>',
+            zip:'<svg class="zak-icon" viewBox="0 0 24 24" fill="var(--zak-text-muted)" stroke="var(--zak-text-muted)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>'
+        };
+
+        function getFiles(){
+            var list=(files[currentPath]||[]).slice();
+            var q=search.value.toLowerCase();
+            if(q) list=list.filter(function(f){return f.name.toLowerCase().indexOf(q)!==-1;});
+            var sortKey=sort.value;
+            list.sort(function(a,b){
+                if(sortKey==='name') return a.name.localeCompare(b.name);
+                if(sortKey==='date') return b.modified.localeCompare(a.modified);
+                if(sortKey==='size') return a.size.localeCompare(b.size);
+                if(sortKey==='type') return a.type.localeCompare(b.type);
+                return 0;
+            });
+            return list;
+        }
+        function render(){
+            var list=getFiles();
+            if(currentView==='grid'){
+                content.innerHTML='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:var(--zak-space-3);">'+list.map(function(f){
+                    return '<div class="fm-file-card" data-name="'+f.name+'" style="border:1px solid var(--zak-border-color);border-radius:var(--zak-radius);padding:var(--zak-space-3);text-align:center;cursor:pointer;transition:all 0.15s;background:var(--zak-surface-1);" onmouseover="this.style.borderColor=\'var(--zak-primary)\'" onmouseout="this.style.borderColor=\'var(--zak-border-color)\'">'
+                        +'<div style="margin-bottom:var(--zak-space-2);">'+fileIcons[f.type]+'</div>'
+                        +'<div style="font-size:var(--zak-font-size-sm);font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">'+f.name+'</div>'
+                        +'<div style="font-size:var(--zak-font-size-xs);color:var(--zak-text-muted);margin-top:2px;">'+f.size+'</div>'
+                        +'</div>';
+                }).join('')+'</div>';
+            } else {
+                content.innerHTML='<table class="zak-table zak-table-hover" style="margin:0;"><thead><tr>'
+                    +'<th style="width:30px;"></th><th>Name</th><th style="width:80px;">Size</th><th style="width:100px;">Modified</th><th style="width:50px;"></th>'
+                    +'</tr></thead><tbody>'+list.map(function(f){
+                    return '<tr class="fm-file-row" data-name="'+f.name+'" style="cursor:pointer;">'
+                        +'<td style="width:30px;">'+fileIcons[f.type]+'</td>'
+                        +'<td style="font-weight:500;">'+f.name+'</td>'
+                        +'<td style="color:var(--zak-text-muted);font-size:var(--zak-font-size-sm);">'+f.size+'</td>'
+                        +'<td style="color:var(--zak-text-muted);font-size:var(--zak-font-size-sm);">'+f.modified+'</td>'
+                        +'<td>'+(f.starred?'<svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="var(--zak-warning)" stroke="var(--zak-warning)" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>':'')+'</td>'
+                        +'</tr>';
+                }).join('')+'</tbody></table>';
+            }
+            document.querySelectorAll('.fm-file-card').forEach(function(card){
+                card.addEventListener('dblclick',function(){
+                    var f=list.find(function(x){return x.name===card.dataset.name;});
+                    if(f&&f.type==='folder') navigate(card.dataset.name);
+                });
+            });
+        }
+        function navigate(path){
+            if(!files[path]) return;
+            currentPath=path;
+            document.getElementById('fm-breadcrumb').innerHTML='<a href="#" onclick="return false;" style="cursor:pointer;">Home</a> &gt; <span>'+path+'</span>';
+            document.querySelectorAll('.fm-tree-item').forEach(function(t){
+                t.classList.toggle('fm-nav-active',t.dataset.path===path);
+            });
+            search.value='';
+            render();
+        }
+        document.querySelectorAll('.fm-view-btn').forEach(function(btn){
+            btn.addEventListener('click',function(){
+                document.querySelectorAll('.fm-view-btn').forEach(function(b){b.classList.remove('fm-view-active');b.style.background='';});
+                btn.classList.add('fm-view-active');
+                btn.style.background='var(--zak-primary-50,var(--zak-primary-bg))';
+                currentView=btn.dataset.view;
+                render();
+            });
+        });
+        document.querySelectorAll('.fm-tree-item').forEach(function(item){
+            item.addEventListener('click',function(){navigate(item.dataset.path);});
+        });
+        document.querySelectorAll('.fm-nav-item').forEach(function(item){
+            item.addEventListener('click',function(){
+                document.querySelectorAll('.fm-nav-item').forEach(function(n){n.classList.remove('fm-nav-active');n.style.background='';});
+                item.classList.add('fm-nav-active');
+                item.style.background='var(--zak-primary-50,var(--zak-primary-bg))';
+            });
+        });
+        search.addEventListener('input',render);
+        sort.addEventListener('change',render);
+        document.querySelector('.fm-view-btn[data-view="grid"]').style.background='var(--zak-primary-50,var(--zak-primary-bg))';
+        render();
+    })();
+    </script>
+</body></html>

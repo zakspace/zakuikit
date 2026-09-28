@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Context Menu documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Context Menu - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/overlays/context-menu/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Context Menu - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Context Menu documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/overlays/context-menu/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Overlays</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Context Menu</span>
+                </nav>
+        <h1>Context Menu</h1>
+        <p class="docs-subtitle">Context menus appear at the pointer on right-click, listing actions relevant to the element under the cursor. Right-click any of the targets below.</p>
+
+        <section class="zak-docs-section">
+            <h2>Basic Context Menu</h2>
+            <p>Mark a target with <code>data-zak-contextmenu="#id"</code>. The menu is positioned at the cursor, clamped to the viewport, and closes on click, <kbd>Escape</kbd> or scroll.</p>
+            <div class="docs-preview">
+                <div class="ctx-target" data-zak-contextmenu="#cmBasic" id="cmTargetBasic">Right-click anywhere here</div>
+                <div class="zak-context-menu" id="cmBasic">
+                    <button class="zak-menu-item">Rename</button>
+                    <button class="zak-menu-item">Duplicate</button>
+                    <button class="zak-menu-item">Copy link</button>
+                    <hr class="zak-menu-divider">
+                    <button class="zak-menu-item is-danger">Delete</button>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="ctx-target" data-zak-contextmenu="#cmBasic"&gt;Right-click anywhere here&lt;/div&gt;
+
+&lt;div class="zak-context-menu" id="cmBasic"&gt;
+    &lt;button class="zak-menu-item"&gt;Rename&lt;/button&gt;
+    &lt;button class="zak-menu-item"&gt;Duplicate&lt;/button&gt;
+    &lt;button class="zak-menu-item"&gt;Copy link&lt;/button&gt;
+    &lt;hr class="zak-menu-divider"&gt;
+    &lt;button class="zak-menu-item is-danger"&gt;Delete&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Context Menu with Icons</h2>
+            <p>Pair items with inline SVG icons to speed up scanning. Keep icons consistent and muted.</p>
+            <div class="docs-preview">
+                <div class="ctx-target" data-zak-contextmenu="#cmIcons">Right-click the card</div>
+                <div class="zak-context-menu" id="cmIcons">
+                    <button class="zak-menu-item"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>Edit</button>
+                    <button class="zak-menu-item"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>Duplicate</button>
+                    <button class="zak-menu-item"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>Copy link</button>
+                    <hr class="zak-menu-divider">
+                    <button class="zak-menu-item"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/><path d="M18 9l-6 6M12 9l6 6"/></svg>Archive</button>
+                    <button class="zak-menu-item is-danger"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg>Delete</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Context Menu with Divider</h2>
+            <p>Use <code>.zak-menu-divider</code> to group destructive or low-frequency actions away from primary ones.</p>
+            <div class="docs-preview">
+                <div class="ctx-target" data-zak-contextmenu="#cmDivider">Right-click a file row</div>
+                <div class="zak-context-menu" id="cmDivider">
+                    <div class="zak-menu-header">Open</div>
+                    <button class="zak-menu-item">Preview</button>
+                    <button class="zak-menu-item">In new tab</button>
+                    <hr class="zak-menu-divider">
+                    <div class="zak-menu-header">Actions</div>
+                    <button class="zak-menu-item">Download</button>
+                    <button class="zak-menu-item">Share…</button>
+                    <button class="zak-menu-item">Move to…</button>
+                    <hr class="zak-menu-divider">
+                    <button class="zak-menu-item is-danger">Remove from project</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Disabled Items</h2>
+            <p><code>.is-disabled</code> renders non-interactive items for unavailable actions.</p>
+            <div class="docs-preview">
+                <div class="ctx-target" data-zak-contextmenu="#cmDisabled">Right-click the message</div>
+                <div class="zak-context-menu" id="cmDisabled">
+                    <button class="zak-menu-item">Reply</button>
+                    <button class="zak-menu-item">Forward</button>
+                    <button class="zak-menu-item">Flag</button>
+                    <button class="zak-menu-item is-disabled">Translate (not available)</button>
+                    <hr class="zak-menu-divider">
+                    <button class="zak-menu-item is-danger">Delete thread</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Dynamic Label from Target</h2>
+            <p>Show the actioned object in a header or mutate items before opening by listening to the <code>zak:open</code> event — e.g. &ldquo;Rename <em>Draft v3</em>&rdquo;.</p>
+            <div class="docs-preview">
+                <div class="ctx-target" data-zak-contextmenu="#cmDynamic" id="cmTargetDynamic">Right-click <strong>&ldquo;Draft v3&rdquo;</strong></div>
+                <div class="zak-context-menu" id="cmDynamic">
+                    <div class="zak-menu-header" id="cmDynamicLabel">Actions</div>
+                    <button class="zak-menu-item">Rename &ldquo;Draft v3&rdquo;</button>
+                    <button class="zak-menu-item">Duplicate</button>
+                    <hr class="zak-menu-divider">
+                    <button class="zak-menu-item is-danger">Delete</button>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>var menu = document.getElementById('cmDynamic');
+menu.addEventListener('zak:open', function () {
+    document.getElementById('cmDynamicLabel').textContent = 'Actions for Draft v3';
+});</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>CSS Classes &amp; Variables</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>/* Class Summary */
+.zak-context-menu             /* Floating menu, fixed at pointer */
+.zak-context-menu-active      /* Added by JS to show */
+.zak-menu-header              /* Group label */
+.zak-menu-item                /* Row action */
+.zak-menu-item.is-danger      /* Destructive action */
+.zak-menu-item.is-disabled    /* Unavailable action */
+.zak-menu-divider             /* Separator line */
+
+/* Variables used */
+--zak-surface                 /* Menu background */
+--zak-border                  /* Menu border */
+--zak-shadow-lg               /* Menu shadow */
+--zak-z-context-menu          /* Above all other overlays */</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>JavaScript</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>// Data attributes (automatic)
+//   data-zak-contextmenu="#id"    open menu at pointer on right-click
+
+// Programmatic API
+zak.contextMenu.open('#myMenu', { x: 120, y: 80 });
+zak.contextMenu.close('#myMenu');
+
+// Events on the menu element
+menu.addEventListener('zak:open', function (e) {
+    console.log(e.detail.x, e.detail.y);   // pointer position
+});
+menu.addEventListener('zak:close', function () {});
+menu.addEventListener('zak:select', function (e) {
+    console.log('Chose', e.detail.value);
+});
+
+// Global handlers are attached once; the nearest
+// [data-zak-contextmenu] target wires automatically.</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Context menus are discoverable from keyboard: focus a target and press <kbd>Shift</kbd>+<kbd>F10</kbd> or the Menu key to open it.</li>
+                <li>The menu uses <code>role="menu"</code> with <code>menuitem</code> items; arrow keys move, <kbd>Enter</kbd>/<kbd>Space</kbd> selects, <kbd>Escape</kbd> closes.</li>
+                <li>Provide <code>aria-haspopup="menu"</code> on targets (applied automatically).</li>
+                <li>Never hide regular page controls behind right-click only — always mirror context menu actions in the UI.</li>
+                <li>The menu stays within the viewport; on small screens it clamps to the edges.</li>
+            </ul>
+        </section>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body></html>

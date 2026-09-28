@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>(function () { try { var t = localStorage.getItem('zak-docs-theme') || 'system'; if (t === 'system') { t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light'; } document.documentElement.setAttribute('data-theme', t); } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); } })();</script>
+  <meta name="description"
+    content="ZAKUIKit Grid documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+  <meta name="theme-color" content="#2563eb">
+  <title>Grid - ZAKUIKit</title>
+  <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/layout/grid/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ZAKUIKit">
+  <meta property="og:title" content="Grid - ZAKUIKit">
+  <meta property="og:description"
+    content="ZAKUIKit Grid documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+  <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/layout/grid/">
+  <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="../../../../dist/css/zak.css">
+  <link rel="stylesheet" href="../../../../css/zak-docs.css">
+  <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+  <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+  <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+  <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+  <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+
+<body>
+  <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12" />
+        <line x1="3" y1="6" x2="21" y2="6" />
+        <line x1="3" y1="18" x2="21" y2="18" />
+      </svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+  <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+  <main class="docs-main">
+    <div class="docs-content">
+      <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+        <span class="docs-breadcrumb__separator">/</span>
+        <span class="docs-breadcrumb__current">Layout</span>
+        <span class="docs-breadcrumb__separator">/</span>
+        <span class="docs-breadcrumb__current">Grid</span>
+      </nav>
+
+      <h1>Grid</h1>
+      <p class="docs-subtitle">CSS Grid-based layout system for creating two-dimensional grid layouts with auto-fit,
+        named areas, and responsive column control.</p>
+
+      <!-- Basic Grid -->
+      <section class="zak-docs-section">
+        <h2>Basic Grid</h2>
+        <p>Use <code>.zak-grid</code> with <code>.zak-grid-item</code> children and <code>grid-template-columns</code>
+          to define columns.</p>
+        <div class="docs-preview">
+          <div class="zak-grid" style="grid-template-columns: repeat(3, 1fr); gap: 1rem;">
+            <div class="zak-grid-item">Grid Item 1</div>
+            <div class="zak-grid-item">Grid Item 2</div>
+            <div class="zak-grid-item">Grid Item 3</div>
+            <div class="zak-grid-item">Grid Item 4</div>
+            <div class="zak-grid-item">Grid Item 5</div>
+            <div class="zak-grid-item">Grid Item 6</div>
+          </div>
+        </div>
+        <div class="docs-code-block">
+          <div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button
+              class="docs-copy-btn">Copy</button></div>
+          <pre><code>&lt;div class="zak-grid" style="grid-template-columns: repeat(3, 1fr); gap: 1rem;"&gt;
+  &lt;div class="zak-grid-item"&gt;Item 1&lt;/div&gt;
+  &lt;div class="zak-grid-item"&gt;Item 2&lt;/div&gt;
+  &lt;div class="zak-grid-item"&gt;Item 3&lt;/div&gt;
+  &lt;div class="zak-grid-item"&gt;Item 4&lt;/div&gt;
+  &lt;div class="zak-grid-item"&gt;Item 5&lt;/div&gt;
+  &lt;div class="zak-grid-item"&gt;Item 6&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- Auto-fit Grid -->
+      <section class="zak-docs-section">
+        <h2>Auto-fit Grid</h2>
+        <p>Use <code>auto-fit</code> or <code>auto-fill</code> with <code>minmax()</code> to create responsive grids
+          that automatically adjust the number of columns based on available space.</p>
+        <div class="docs-preview">
+          <div class="zak-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+            <div class="zak-grid-item">
+              Auto-fit 1</div>
+            <div class="zak-grid-item">
+              Auto-fit 2</div>
+            <div class="zak-grid-item">
+              Auto-fit 3</div>
+            <div class="zak-grid-item">
+              Auto-fit 4</div>
+            <div class="zak-grid-item">
+              Auto-fit 5</div>
+          </div>
+        </div>
+        <div class="docs-code-block">
+          <div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button
+              class="docs-copy-btn">Copy</button></div>
+          <pre><code>&lt;div class="zak-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;"&gt;
+  &lt;div class="zak-grid-item"&gt;Auto-fit Item&lt;/div&gt;
+  &lt;div class="zak-grid-item"&gt;Auto-fit Item&lt;/div&gt;
+  &lt;div class="zak-grid-item"&gt;Auto-fit Item&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- Grid Gaps -->
+      <section class="zak-docs-section">
+        <h2>Grid Gaps</h2>
+        <p>Use gap utilities to control spacing between grid items.</p>
+        <div class="docs-preview">
+          <div class="zak-grid zak-gap-sm" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="zak-grid-item">
+              gap-sm</div>
+            <div class="zak-grid-item">
+              gap-sm</div>
+            <div class="zak-grid-item">
+              gap-sm</div>
+          </div>
+        </div>
+        <div class="docs-preview" style="margin-top: 1rem;">
+          <div class="zak-grid zak-gap-lg" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="zak-grid-item">
+              gap-lg</div>
+            <div class="zak-grid-item">
+              gap-lg</div>
+            <div class="zak-grid-item">
+              gap-lg</div>
+          </div>
+        </div>
+        <div class="docs-code-block">
+          <div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button
+              class="docs-copy-btn">Copy</button></div>
+          <pre><code>&lt;div class="zak-grid zak-gap-sm" style="grid-template-columns: repeat(3, 1fr);"&gt;...&lt;/div&gt;
+&lt;div class="zak-grid zak-gap-lg" style="grid-template-columns: repeat(3, 1fr);"&gt;...&lt;/div&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- Grid Areas -->
+      <section class="zak-docs-section">
+        <h2>Grid Areas</h2>
+        <p>Use named grid areas with <code>grid-template-areas</code> for complex layouts with semantic naming.</p>
+        <div class="docs-preview">
+          <div class="zak-grid"
+            style="grid-template-areas: 'header header header' 'sidebar main main' 'footer footer footer'; grid-template-columns: 200px 1fr 1fr; grid-template-rows: auto 1fr auto; gap: 0.5rem; min-height: 250px;">
+            <div class="zak-grid-item zak-bg-primary zak-color-white" style="grid-area: header; ">
+              Header</div>
+            <div
+              class="zak-grid-item zak-bg-secondary-light zak-border zak-border-dashed zak-border-secondary zak-color-secondary"
+              style="grid-area: sidebar;">
+              Sidebar</div>
+            <div class="zak-grid-item zak-bg-surface-alt zak-border zak-border-dashed zak-border-border"
+              style="grid-area: main; ">
+              Main Content</div>
+            <div class="zak-grid-item zak-bg-text-muted zak-color-white" style="grid-area: footer; ">
+              Footer</div>
+          </div>
+        </div>
+        <div class="docs-code-block">
+          <div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button
+              class="docs-copy-btn">Copy</button></div>
+          <pre><code>&lt;div class="zak-grid" style="
+  grid-template-areas:
+    'header header header'
+    'sidebar main main'
+    'footer footer footer';
+  grid-template-columns: 200px 1fr 1fr;
+  grid-template-rows: auto 1fr auto;
+  gap: 0.5rem;
+"&gt;
+  &lt;div class="zak-grid-item" style="grid-area: header"&gt;Header&lt;/div&gt;
+  &lt;div class="zak-grid-item" style="grid-area: sidebar"&gt;Sidebar&lt;/div&gt;
+  &lt;div class="zak-grid-item" style="grid-area: main"&gt;Main Content&lt;/div&gt;
+  &lt;div class="zak-grid-item" style="grid-area: footer"&gt;Footer&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- Responsive Grid -->
+      <section class="zak-docs-section">
+        <h2>Responsive Grid</h2>
+        <p>Combine grid utilities with responsive classes to create grids that adapt across breakpoints.</p>
+        <div class="docs-preview">
+          <div class="zak-grid zak-grid-cols-1 zak-grid-cols-sm-2 zak-grid-cols-md-3 zak-grid-cols-lg-4"
+            style="gap: 1rem;">
+            <div class="zak-grid-item">
+              1 / sm:2 / md:3 / lg:4</div>
+            <div class="zak-grid-item">
+              1 / sm:2 / md:3 / lg:4</div>
+            <div class="zak-grid-item">
+              1 / sm:2 / md:3 / lg:4</div>
+            <div class="zak-grid-item">
+              1 / sm:2 / md:3 / lg:4</div>
+          </div>
+        </div>
+        <div class="docs-code-block">
+          <div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button
+              class="docs-copy-btn">Copy</button></div>
+          <pre><code>&lt;div class="zak-grid zak-grid-cols-1 zak-grid-cols-sm-2 zak-grid-cols-md-3 zak-grid-cols-lg-4" style="gap: 1rem;"&gt;
+  &lt;div class="zak-grid-item"&gt;Item&lt;/div&gt;
+  &lt;div class="zak-grid-item"&gt;Item&lt;/div&gt;
+  &lt;div class="zak-grid-item"&gt;Item&lt;/div&gt;
+  &lt;div class="zak-grid-item"&gt;Item&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- Grid Alignment -->
+      <section class="zak-docs-section">
+        <h2>Grid Alignment</h2>
+        <p>Control alignment of grid items using <code>place-items</code> and <code>place-content</code> utilities.</p>
+        <div class="docs-preview">
+          <p style="font-size: 0.875rem; font-weight: 600; margin-bottom: 0.5rem;">place-items: center</p>
+          <div class="zak-grid"
+            style="grid-template-columns: repeat(3, 1fr); place-items: center; gap: 1rem; min-height: 150px;">
+            <div class="zak-grid-item">
+              Centered</div>
+            <div class="zak-grid-item">
+              Tall</div>
+            <div class="zak-grid-item">
+              Centered</div>
+          </div>
+        </div>
+        <div class="docs-code-block">
+          <div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button
+              class="docs-copy-btn">Copy</button></div>
+          <pre><code>&lt;div class="zak-grid zak-place-items-center" style="grid-template-columns: repeat(3, 1fr); min-height: 150px;"&gt;
+  &lt;div class="zak-grid-item"&gt;Centered&lt;/div&gt;
+  &lt;div class="zak-grid-item"&gt;Centered&lt;/div&gt;
+  &lt;div class="zak-grid-item"&gt;Centered&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- CSS Reference -->
+      <section class="zak-docs-section">
+        <h2>CSS Reference</h2>
+        <div class="docs-code-block">
+          <div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button
+              class="docs-copy-btn">Copy</button></div>
+          <pre><code>.zak-grid {
+  display: grid;
+}
+
+.zak-grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
+.zak-grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.zak-grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+.zak-grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+.zak-grid-cols-6 { grid-template-columns: repeat(6, 1fr); }
+.zak-grid-cols-12 { grid-template-columns: repeat(12, 1fr); }
+
+.zak-gap-sm { gap: 0.5rem; }
+.zak-gap-md { gap: 1rem; }
+.zak-gap-lg { gap: 1.5rem; }
+.zak-gap-xl { gap: 2rem; }
+
+.zak-place-items-center { place-items: center; }
+.zak-place-items-start { place-items: start; }
+.zak-place-items-end { place-items: end; }
+.zak-place-content-center { place-content: center; }</code></pre>
+        </div>
+      </section>
+
+      <!-- Accessibility -->
+      <section class="zak-docs-section">
+        <h2>Accessibility</h2>
+        <ul>
+          <li>CSS Grid maintains DOM order for screen readers — visual reordering with
+            <code>grid-auto-flow: dense</code> can break reading order
+          </li>
+          <li>Ensure grid items contain meaningful content that reads logically without CSS</li>
+          <li>Use semantic HTML elements within grid areas (e.g., <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>,
+            <code>&lt;main&gt;</code>)
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
+  <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..."
+          aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+  <script src="../../../../dist/js/zak.js"></script>
+  <script src="../../../../js/docs.js"></script>
+</body>
+
+</html>

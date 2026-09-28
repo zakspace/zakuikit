@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Snackbar documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Snackbar - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/feedback/snackbar/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Snackbar - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Snackbar documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/feedback/snackbar/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Feedback</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Snackbar</span>
+                </nav>
+        <h1>Snackbar</h1>
+        <p class="docs-subtitle">Snackbars are brief, transient messages that surface at the bottom of the screen after user-triggered actions.</p>
+
+        <section class="zak-docs-section">
+            <h2>JavaScript API</h2>
+            <p>Create and dismiss snackbars programmatically with the framework's <code>zak.snackbar.show(message, options)</code>.</p>
+            <div class="docs-preview" style="gap: 0.75rem; flex-wrap: wrap;">
+                <button type="button" class="zak-btn zak-btn-primary" data-zsnack-demo="basic">Show Snackbar</button>
+                <button type="button" class="zak-btn zak-btn-outline-primary" data-zsnack-demo="action">With Action</button>
+                <button type="button" class="zak-btn zak-btn-outline-danger" data-zsnack-demo="error">Error Style</button>
+            </div>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    document.querySelectorAll('[data-zsnack-demo]').forEach(function(btn) {
+                        btn.addEventListener('click', function() {
+                            var kind = btn.getAttribute('data-zsnack-demo');
+                            if (kind === 'action') {
+                                zak.snackbar.show('Message sent', { action: { label: 'Undo', onClick: function() { zak.snackbar.show('Undone'); } } });
+                            } else if (kind === 'error') {
+                                zak.snackbar.show('Could not save changes', { type: 'error', duration: 5000 });
+                            } else {
+                                zak.snackbar.show('Hello from ZAKUIKit');
+                            }
+                        });
+                    });
+                });
+            </script>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Basic Snackbar</h2>
+            <p>The default snackbar is a dark pill anchored at the bottom-center. It is shown in a static position for the preview.</p>
+            <div class="docs-preview">
+                <div class="zak-snackbar" style="position:static;transform:none;">
+                    File deleted
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-snackbar"&gt;
+    File deleted
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Snackbar with Action Button</h2>
+            <p>Add an action such as "Undo" or "Retry" using <code>.zak-snackbar-action</code>.</p>
+            <div class="docs-preview">
+                <div class="zak-snackbar" style="position:static;transform:none;">
+                    Message sent
+                    <button class="zak-snackbar-action">Undo</button>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-snackbar"&gt;
+    Message sent
+    &lt;button class="zak-snackbar-action"&gt;Undo&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Snackbar with Close</h2>
+            <p>Use <code>.zak-snackbar-close</code> to let users dismiss the snackbar manually.</p>
+            <div class="docs-preview">
+                <div class="zak-snackbar" id="snackbar-close-demo" style="position:static;transform:none;">
+                    New update available
+                    <button class="zak-snackbar-close" aria-label="Dismiss">&times;</button>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-snackbar"&gt;
+    New update available
+    &lt;button class="zak-snackbar-close" aria-label="Dismiss"&gt;&amp;times;&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+document.querySelectorAll('.zak-snackbar-close').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        this.closest('.zak-snackbar').remove();
+    });
+});
+&lt;/script&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Snackbar Positions</h2>
+            <p>The default position is bottom-center. Override with positioning utilities for other placements.</p>
+            <div class="docs-preview">
+                <div class="zak-stack" style="width:100%;">
+                    <div class="zak-snackbar" style="position:static;transform:none;">Bottom center (default)</div>
+                    <div class="zak-snackbar" style="position:static;transform:none;left:auto;right:1rem;bottom:1rem;inset-inline-start:auto;">Bottom end</div>
+                    <div class="zak-snackbar" style="position:static;transform:none;left:1rem;inset-inline-start:1rem;bottom:1rem;">Bottom start</div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>/* Bottom center (default) */
+.zak-snackbar { bottom: 1.5rem; left: 50%; transform: translateX(-50%); }
+
+/* Bottom end */
+.zak-snackbar { bottom: 1rem; inset-inline-end: 1rem; transform: none; }
+
+/* Bottom start */
+.zak-snackbar { bottom: 1rem; inset-inline-start: 1rem; transform: none; }</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Auto-Dismiss</h2>
+            <p>Snackbars commonly disappear after a few seconds. The demo below triggers one that removes itself after 4 seconds.</p>
+            <div class="docs-preview">
+                <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+                    <button class="zak-btn zak-btn-primary" onclick="zakSnackbar.show(4000)">Show Auto-Dismiss Snackbar</button>
+                    <button class="zak-btn zak-btn-outline-primary" onclick="zakSnackbar.show(0)">Show Persistent Snackbar</button>
+                </div>
+                <div id="snackbar-demo-root"></div>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Snackbar with Icon</h2>
+            <p>Lead with an icon to reinforce the message.</p>
+            <div class="docs-preview">
+                <div class="zak-snackbar" style="position:static;transform:none;">
+                    <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                    Changes synced
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-snackbar"&gt;
+    &lt;svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;&lt;path d="M20 6L9 17l-5-5"/&gt;&lt;/svg&gt;
+    Changes synced
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>JavaScript</h2>
+            <p>A small helper to show and hide snackbars with optional auto-dismiss.</p>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>var zakSnackbar = {
+    show: function (message, duration, actionText, onAction) {
+        var existing = document.querySelector('.zak-snackbar');
+        if (existing) existing.remove();
+
+        var el = document.createElement('div');
+        el.className = 'zak-snackbar';
+        el.setAttribute('role', 'status');
+        el.textContent = message || '';
+
+        if (actionText) {
+            var action = document.createElement('button');
+            action.className = 'zak-snackbar-action';
+            action.textContent = actionText;
+            action.addEventListener('click', function () {
+                el.remove();
+                if (onAction) onAction();
+            });
+            el.appendChild(action);
+        }
+
+        var close = document.createElement('button');
+        close.className = 'zak-snackbar-close';
+        close.setAttribute('aria-label', 'Dismiss');
+        close.textContent = '\u00d7';
+        close.addEventListener('click', function () { el.remove(); });
+        el.appendChild(close);
+
+        document.body.appendChild(el);
+
+        if (duration > 0) {
+            setTimeout(function () { el.remove(); }, duration);
+        }
+        return el;
+    }
+};</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>CSS Classes &amp; Variables</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>.zak-snackbar          /* Base snackbar (fixed, bottom-center) */
+.zak-snackbar-action   /* Action button */
+.zak-snackbar-close    /* Dismiss button */
+.zak-snackbar-enter / .zak-snackbar-enter-active  /* Enter animation */</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Use <code>role="status"</code> for snackbars that do not require immediate action.</li>
+                <li>Keep snackbar text short and action labels explicit (e.g., "Undo", "Retry").</li>
+                <li>Allow dismissal via keyboard; the close and action buttons must be focusable.</li>
+                <li>Auto-dismissing snackbars should not expire while they contain focus.</li>
+            </ul>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-snackbar" role="status"&gt;
+    Message sent
+    &lt;button class="zak-snackbar-action"&gt;Undo&lt;/button&gt;
+    &lt;button class="zak-snackbar-close" aria-label="Dismiss"&gt;&amp;times;&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    <script>
+        var zakSnackbar = {
+            show: function (duration) {
+                var existing = document.querySelector('.zak-snackbar');
+                if (existing) existing.remove();
+                var el = document.createElement('div');
+                el.className = 'zak-snackbar';
+                el.setAttribute('role', 'status');
+                el.textContent = duration ? 'This snackbar auto-dismisses.' : 'This snackbar stays until dismissed.';
+                var action = document.createElement('button');
+                action.className = 'zak-snackbar-action';
+                action.textContent = 'Dismiss';
+                action.addEventListener('click', function () { el.remove(); });
+                el.appendChild(action);
+                var close = document.createElement('button');
+                close.className = 'zak-snackbar-close';
+                close.setAttribute('aria-label', 'Dismiss');
+                close.textContent = '\u00d7';
+                close.addEventListener('click', function () { el.remove(); });
+                el.appendChild(close);
+                document.body.appendChild(el);
+                if (duration > 0) {
+                    setTimeout(function () { if (el.parentNode) el.remove(); }, duration);
+                }
+            }
+        };
+        document.querySelectorAll('.zak-snackbar-close').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var sb = this.closest('.zak-snackbar');
+                if (sb) sb.remove();
+            });
+        });
+    </script>
+</body></html>

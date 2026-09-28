@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Stat documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Stat - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/data-display/stat/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Stat - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Stat documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/data-display/stat/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Data-Display</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Stat</span>
+                </nav>
+        <h1>Stat</h1>
+        <p class="docs-subtitle">Stat components surface key metrics — label, value, and optional change indicator, icon, or sparkline.</p>
+
+        <div class="zak-docs-section">
+            <h2>Basic Stat</h2>
+            <p>Use <code>.zak-stat</code> with <code>.zak-stat-label</code> and <code>.zak-stat-value</code>.</p>
+
+            <div class="docs-preview">
+                <div class="zak-grid zak-grid-cols-3" style="gap: var(--zak-space-4);">
+                    <div class="zak-stat">
+                        <div class="zak-stat-label">Total revenue</div>
+                        <div class="zak-stat-value">$48,920</div>
+                    </div>
+                    <div class="zak-stat">
+                        <div class="zak-stat-label">Active users</div>
+                        <div class="zak-stat-value">8,240</div>
+                    </div>
+                    <div class="zak-stat">
+                        <div class="zak-stat-label">Conversion</div>
+                        <div class="zak-stat-value">3.4%</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-stat"&gt;
+  &lt;div class="zak-stat-label"&gt;Total revenue&lt;/div&gt;
+  &lt;div class="zak-stat-value"&gt;$48,920&lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Stat with Icon</h2>
+            <p>Place an icon on the trailing edge for scannable dashboards.</p>
+
+            <div class="docs-preview">
+                <div class="zak-grid zak-grid-cols-3" style="gap: var(--zak-space-4);">
+                    <div class="zak-stat">
+                        <div class="zak-stat-label">New orders</div>
+                        <div class="zak-stat-value zak-stat-value-primary">
+                            <span>1,284</span>
+                            <svg class="zak-icon zak-text-primary" style="width: 1.5rem; height: 1.5rem;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                        </div>
+                    </div>
+                    <div class="zak-stat">
+                        <div class="zak-stat-label">Refunds</div>
+                        <div class="zak-stat-value zak-stat-value-danger">
+                            <span>32</span>
+                            <svg class="zak-icon zak-text-danger" style="width: 1.5rem; height: 1.5rem;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+                        </div>
+                    </div>
+                    <div class="zak-stat">
+                        <div class="zak-stat-label">Pending reviews</div>
+                        <div class="zak-stat-value zak-stat-value-warning">
+                            <span>7</span>
+                            <svg class="zak-icon zak-text-warning" style="width: 1.5rem; height: 1.5rem;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-stat"&gt;
+  &lt;div class="zak-stat-label"&gt;New orders&lt;/div&gt;
+  &lt;div class="zak-stat-value zak-stat-value-primary"&gt;
+    &lt;span&gt;1,284&lt;/span&gt;
+    &lt;svg class="zak-icon"&gt;...&lt;/svg&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Trend Indicators</h2>
+            <p>Show a change vs the previous period with <code>.zak-stat-change</code> plus <code>zak-stat-change-up</code>/<code>zak-stat-change-down</code>.</p>
+
+            <div class="docs-preview">
+                <div class="zak-grid zak-grid-cols-3" style="gap: var(--zak-space-4);">
+                    <div class="zak-stat">
+                        <div class="zak-stat-label">MRR</div>
+                        <div class="zak-stat-value">$12,400</div>
+                        <div class="zak-stat-change zak-stat-change-up">↑ 12.4% vs last month</div>
+                    </div>
+                    <div class="zak-stat">
+                        <div class="zak-stat-label">Bounce rate</div>
+                        <div class="zak-stat-value">34.2%</div>
+                        <div class="zak-stat-change zak-stat-change-down">↓ 2.1% vs last month</div>
+                    </div>
+                    <div class="zak-stat">
+                        <div class="zak-stat-label">Avg. session</div>
+                        <div class="zak-stat-value">4m 32s</div>
+                        <div class="zak-stat-change zak-stat-change-up">↑ 18s vs last week</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-stat"&gt;
+  &lt;div class="zak-stat-label"&gt;MRR&lt;/div&gt;
+  &lt;div class="zak-stat-value"&gt;$12,400&lt;/div&gt;
+  &lt;div class="zak-stat-change zak-stat-change-up"&gt;↑ 12.4% vs last month&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Negative trend --&gt;
+&lt;div class="zak-stat-change zak-stat-change-down"&gt;↓ 2.1% vs last month&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Card Variants</h2>
+            <p>Embed stats in cards with horizontal and colored accent styles.</p>
+
+            <div class="docs-preview">
+                <div class="zak-grid zak-grid-cols-3" style="gap: var(--zak-space-4);">
+                    <div class="zak-card" style="padding: var(--zak-space-5);">
+                        <div class="zak-stat">
+                            <div class="zak-stat-label">Sessions</div>
+                            <div class="zak-stat-value">102,930</div>
+                            <div class="zak-stat-change zak-stat-change-up">↑ 8.2%</div>
+                        </div>
+                    </div>
+                    <div class="zak-card" style="padding: var(--zak-space-5); border-top: 3px solid var(--zak-color-primary);">
+                        <div class="zak-stat">
+                            <div class="zak-stat-label">Signups</div>
+                            <div class="zak-stat-value zak-stat-value-primary">3,408</div>
+                            <div class="zak-stat-change zak-stat-change-up">↑ 24%</div>
+                        </div>
+                    </div>
+                    <div class="zak-card" style="padding: var(--zak-space-5);">
+                        <div class="zak-stat" style="text-align: center;">
+                            <div class="zak-stat-label">Avg. rating</div>
+                            <div class="zak-stat-value">4.8</div>
+                            <div class="zak-rating" style="justify-content: center; --zak-rating-color: var(--zak-color-warning);">
+                                <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                                <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                                <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                                <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                                <span class="zak-rating-star zak-rating-star-half"><svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-card" style="padding: var(--zak-space-5);"&gt;
+  &lt;div class="zak-stat"&gt;
+    &lt;div class="zak-stat-label"&gt;Sessions&lt;/div&gt;
+    &lt;div class="zak-stat-value"&gt;102,930&lt;/div&gt;
+    &lt;div class="zak-stat-change zak-stat-change-up"&gt;↑ 8.2%&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Sparkline</h2>
+            <p>Pair a value with an inline SVG mini-chart as a visual trend.</p>
+
+            <div class="docs-preview">
+                <div class="zak-grid zak-grid-cols-3" style="gap: var(--zak-space-4);">
+                    <div class="zak-card" style="padding: var(--zak-space-5);">
+                        <div class="zak-stat">
+                            <div class="zak-stat-label">Page views</div>
+                            <div class="zak-stat-value">1.2M</div>
+                            <div class="zak-stat-change zak-stat-change-up">↑ 15.8%</div>
+                            <svg viewBox="0 0 120 40" style="width: 100%; height: 3rem; margin-top: var(--zak-space-3);" aria-hidden="true">
+                                <polyline points="0,32 15,28 30,30 45,22 60,25 75,16 90,18 105,10 120,8" fill="none" stroke="var(--zak-color-primary)" stroke-width="2"/>
+                                <polyline points="0,32 15,28 30,30 45,22 60,25 75,16 90,18 105,10 120,8" fill="url(#spark-gradient-up)" stroke="none"/>
+                                <defs>
+                                    <linearGradient id="spark-gradient-up" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="var(--zak-color-primary)" stop-opacity="0.25"/>
+                                        <stop offset="100%" stop-color="var(--zak-color-primary)" stop-opacity="0"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="zak-card" style="padding: var(--zak-space-5);">
+                        <div class="zak-stat">
+                            <div class="zak-stat-label">Support tickets</div>
+                            <div class="zak-stat-value">214</div>
+                            <div class="zak-stat-change zak-stat-change-down">↓ 9.3%</div>
+                            <svg viewBox="0 0 120 40" style="width: 100%; height: 3rem; margin-top: var(--zak-space-3);" aria-hidden="true">
+                                <polyline points="0,10 15,14 30,12 45,18 60,20 75,26 90,24 105,30 120,34" fill="none" stroke="var(--zak-color-danger)" stroke-width="2"/>
+                                <polyline points="0,10 15,14 30,12 45,18 60,20 75,26 90,24 105,30 120,34" fill="url(#spark-gradient-down)" stroke="none"/>
+                                <defs>
+                                    <linearGradient id="spark-gradient-down" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="var(--zak-color-danger)" stop-opacity="0.25"/>
+                                        <stop offset="100%" stop-color="var(--zak-color-danger)" stop-opacity="0"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="zak-card" style="padding: var(--zak-space-5);">
+                        <div class="zak-stat">
+                            <div class="zak-stat-label">Net revenue</div>
+                            <div class="zak-stat-value zak-stat-value-primary">$96,120</div>
+                            <div class="zak-stat-change zak-stat-change-up">↑ 21.4%</div>
+                            <svg viewBox="0 0 120 40" style="width: 100%; height: 3rem; margin-top: var(--zak-space-3);" aria-hidden="true">
+                                <polyline points="0,30 15,26 30,28 45,20 60,18 75,22 90,12 105,10 120,6" fill="none" stroke="var(--zak-color-primary)" stroke-width="2"/>
+                                <polyline points="0,30 15,26 30,28 45,20 60,18 75,22 90,12 105,10 120,6" fill="url(#spark-gradient-net)" stroke="none"/>
+                                <defs>
+                                    <linearGradient id="spark-gradient-net" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="var(--zak-color-primary)" stop-opacity="0.25"/>
+                                        <stop offset="100%" stop-color="var(--zak-color-primary)" stop-opacity="0"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-stat"&gt;
+  &lt;div class="zak-stat-label"&gt;Page views&lt;/div&gt;
+  &lt;div class="zak-stat-value"&gt;1.2M&lt;/div&gt;
+  &lt;div class="zak-stat-change zak-stat-change-up"&gt;↑ 15.8%&lt;/div&gt;
+  &lt;svg viewBox="0 0 120 40" aria-hidden="true"&gt;
+    &lt;polyline points="0,32 ... 120,8" fill="none"
+      stroke="var(--zak-color-primary)" stroke-width="2"/&gt;
+  &lt;/svg&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Stat Grid</h2>
+            <p>Combine stats in a responsive grid row for a dashboard band.</p>
+
+            <div class="docs-preview">
+                <div class="zak-card" style="padding: var(--zak-space-5);">
+                    <div class="zak-grid zak-grid-cols-3" style="gap: var(--zak-space-6);">
+                        <div class="zak-stat">
+                            <div class="zak-stat-label">Net promoter</div>
+                            <div class="zak-stat-value">64</div>
+                            <div class="zak-stat-help">Excellent range</div>
+                        </div>
+                        <div class="zak-stat">
+                            <div class="zak-stat-label">Churn</div>
+                            <div class="zak-stat-value zak-stat-value-success">1.8%</div>
+                            <div class="zak-stat-help">Below 2% target</div>
+                        </div>
+                        <div class="zak-stat">
+                            <div class="zak-stat-label">LTV / CAC</div>
+                            <div class="zak-stat-value">4.6x</div>
+                            <div class="zak-stat-help">Healthy unit economics</div>
+                        </div>
+                        <div class="zak-stat">
+                            <div class="zak-stat-label">Gross margin</div>
+                            <div class="zak-stat-value">71%</div>
+                            <div class="zak-stat-help">+2 pts this quarter</div>
+                        </div>
+                        <div class="zak-stat">
+                            <div class="zak-stat-label">Active deals</div>
+                            <div class="zak-stat-value">48</div>
+                            <div class="zak-stat-help">Pipeline $1.2M</div>
+                        </div>
+                        <div class="zak-stat">
+                            <div class="zak-stat-label">SLA compliance</div>
+                            <div class="zak-stat-value zak-stat-value-success">99.4%</div>
+                            <div class="zak-stat-help">Target 99.0%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-card" style="padding: var(--zak-space-5);"&gt;
+  &lt;div class="zak-grid zak-grid-cols-3"&gt;
+    &lt;div class="zak-stat"&gt;
+      &lt;div class="zak-stat-label"&gt;Churn&lt;/div&gt;
+      &lt;div class="zak-stat-value zak-stat-value-success"&gt;1.8%&lt;/div&gt;
+      &lt;div class="zak-stat-help"&gt;Below 2% target&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.zak-stat</code></td><td>Container for a metric block</td></tr>
+                        <tr><td><code>.zak-stat-label</code></td><td>Muted label above the value</td></tr>
+                        <tr><td><code>.zak-stat-value</code></td><td>Primary metric display</td></tr>
+                        <tr><td><code>.zak-stat-value-primary</code></td><td>Tinted value (success/danger/warning also exist)</td></tr>
+                        <tr><td><code>.zak-stat-change</code></td><td>Change vs previous period</td></tr>
+                        <tr><td><code>.zak-stat-change-up</code></td><td>Positive trend highlight</td></tr>
+                        <tr><td><code>.zak-stat-change-down</code></td><td>Negative trend highlight</td></tr>
+                        <tr><td><code>.zak-stat-help</code></td><td>Helper/context line below the value</td></tr>
+                        <tr><td><code>.zak-grid</code> <code>.zak-grid-cols-3</code></td><td>Responsive stat grid</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Each stat needs a visible label; use <code>aria-label</code> if the visual label is icon-only.</li>
+                <li>Never convey the change direction by color alone — keep the ↑/↓ arrows in the markup.</li>
+                <li>Sparklines are decorative: add <code>aria-hidden="true"</code> and rely on the numeric value for meaning.</li>
+                <li>Order stats to match their source data when used inside a table-like band.</li>
+                <li>Use native number formatting (e.g. <code>Intl.NumberFormat</code>) rather than hard-coded commas where possible.</li>
+            </ul>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body></html>

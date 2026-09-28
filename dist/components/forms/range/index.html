@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Range documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Range - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/forms/range/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Range - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Range documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/forms/range/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+  <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+  <span class="docs-breadcrumb__separator">/</span>
+  <span class="docs-breadcrumb__current">Forms</span>
+  <span class="docs-breadcrumb__separator">/</span>
+  <span class="docs-breadcrumb__current">Range</span>
+</nav>
+        <h1>Range</h1>
+        <p class="docs-subtitle">Range sliders let users select a value from a continuous range. They are ideal for volume, brightness, price filters, and similar controls.</p>
+
+        <div class="zak-docs-section">
+            <h2>Basic Range</h2>
+            <p>A simple range slider with min, max, and step values.</p>
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="rng-basic">Volume</label>
+                        <input type="range" id="rng-basic" class="zak-range" min="0" max="100" value="50">
+                        <span class="zak-form-text">50</span>
+                    </div>
+                </form>
+            </div>
+            <div class="docs-code-block">
+                <div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div>
+                <pre><code class="language-html">&lt;input type="range" class="zak-range" min="0" max="100" value="50"&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Range with Labels</h2>
+            <p>Display the current value and min/max labels.</p>
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="rng-label">Price Range</label>
+                        <div class="zak-range-labels">
+                            <span class="zak-range-label-min">$0</span>
+                            <input type="range" id="rng-label" class="zak-range" min="0" max="500" value="150" oninput="document.getElementById('rng-label-val').textContent = '$' + this.value">
+                            <span class="zak-range-label-max">$500</span>
+                        </div>
+                        <span class="zak-form-text">Selected: <strong id="rng-label-val">$150</strong></span>
+                    </div>
+                </form>
+            </div>
+            <div class="docs-code-block">
+                <div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div>
+                <pre><code class="language-html">&lt;div class="zak-range-labels"&gt;
+  &lt;span class="zak-range-label-min"&gt;$0&lt;/span&gt;
+  &lt;input type="range" class="zak-range" min="0" max="500" value="150"
+    oninput="document.getElementById('val').textContent = '$' + this.value"&gt;
+  &lt;span class="zak-range-label-max"&gt;$500&lt;/span&gt;
+&lt;/div&gt;
+&lt;span class="zak-form-text"&gt;Selected: &lt;strong id="val"&gt;$150&lt;/strong&gt;&lt;/span&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>With Marks / Steps</h2>
+            <p>Display step marks along the range track.</p>
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="rng-steps">Rating</label>
+                        <input type="range" id="rng-steps" class="zak-range zak-range-steps" min="0" max="5" step="1" value="3" oninput="document.getElementById('rng-steps-val').textContent = this.value + ' stars'">
+                        <div class="zak-range-marks">
+                            <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                        </div>
+                        <span class="zak-form-text" id="rng-steps-val">3 stars</span>
+                    </div>
+                </form>
+            </div>
+            <div class="docs-code-block">
+                <div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div>
+                <pre><code class="language-html">&lt;input type="range" class="zak-range zak-range-steps" min="0" max="5" step="1" value="3"&gt;
+&lt;div class="zak-range-marks"&gt;
+  &lt;span&gt;0&lt;/span&gt;&lt;span&gt;1&lt;/span&gt;&lt;span&gt;2&lt;/span&gt;&lt;span&gt;3&lt;/span&gt;&lt;span&gt;4&lt;/span&gt;&lt;span&gt;5&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Custom Styled</h2>
+            <p>Range with color customization.</p>
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label">Primary</label>
+                        <input type="range" class="zak-range zak-range-primary" min="0" max="100" value="60">
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label">Success</label>
+                        <input type="range" class="zak-range zak-range-success" min="0" max="100" value="75">
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label">Danger</label>
+                        <input type="range" class="zak-range zak-range-danger" min="0" max="100" value="30">
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label">Warning</label>
+                        <input type="range" class="zak-range zak-range-warning" min="0" max="100" value="45">
+                    </div>
+                </form>
+            </div>
+            <div class="docs-code-block">
+                <div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div>
+                <pre><code class="language-html">&lt;input type="range" class="zak-range zak-range-primary" min="0" max="100" value="60"&gt;
+&lt;input type="range" class="zak-range zak-range-success" min="0" max="100" value="75"&gt;
+&lt;input type="range" class="zak-range zak-range-danger" min="0" max="100" value="30"&gt;
+&lt;input type="range" class="zak-range zak-range-warning" min="0" max="100" value="45"&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Disabled</h2>
+            <p>Non-interactive disabled state.</p>
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label">Disabled Range</label>
+                        <input type="range" class="zak-range" min="0" max="100" value="50" disabled>
+                    </div>
+                </form>
+            </div>
+            <div class="docs-code-block">
+                <div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div>
+                <pre><code class="language-html">&lt;input type="range" class="zak-range" min="0" max="100" value="50" disabled&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>JS Demo</h2>
+            <p>Interactive range with live value display and progress fill.</p>
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="rng-demo">Brightness</label>
+                        <div class="zak-input-group">
+                            <span class="zak-input-group-text">
+                                <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                            </span>
+                            <input type="range" id="rng-demo" class="zak-range zak-range-primary" min="0" max="100" value="70" oninput="document.getElementById('rng-demo-val').textContent = this.value + '%'">
+                            <span class="zak-input-group-text" id="rng-demo-val" style="min-width:3rem;text-align:center;">70%</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="docs-code-block">
+                <div class="docs-code-block__header"><span>HTML + JS</span><button class="docs-copy-btn">Copy</button></div>
+                <pre><code class="language-html">&lt;div class="zak-input-group"&gt;
+  &lt;span class="zak-input-group-text"&gt;☀&lt;/span&gt;
+  &lt;input type="range" class="zak-range zak-range-primary" min="0" max="100" value="70"
+    oninput="document.getElementById('val').textContent = this.value + '%'"&gt;
+  &lt;span class="zak-input-group-text" id="val"&gt;70%&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead><tr><th>Class</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>.zak-range</code></td><td>Base range slider</td></tr>
+                        <tr><td><code>.zak-range-steps</code></td><td>With step marks</td></tr>
+                        <tr><td><code>.zak-range-primary</code></td><td>Primary color</td></tr>
+                        <tr><td><code>.zak-range-success</code></td><td>Success color</td></tr>
+                        <tr><td><code>.zak-range-danger</code></td><td>Danger color</td></tr>
+                        <tr><td><code>.zak-range-warning</code></td><td>Warning color</td></tr>
+                        <tr><td><code>.zak-range-labels</code></td><td>Container with min/max labels</td></tr>
+                        <tr><td><code>.zak-range-marks</code></td><td>Step marks display</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Every range input must have an associated <code>&lt;label&gt;</code>.</li>
+                <li>Use <code>aria-valuemin</code>, <code>aria-valuemax</code>, and <code>aria-valuenow</code> for custom ranges.</li>
+                <li>Provide an <code>aria-label</code> or visible label to describe the control.</li>
+                <li>Ensure keyboard support: arrow keys to increment/decrement.</li>
+                <li>Announce value changes to screen readers with <code>aria-live</code> regions.</li>
+            </ul>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script></body>
+</html>

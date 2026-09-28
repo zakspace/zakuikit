@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Slider documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Slider - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/media/slider/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Slider - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Slider documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/media/slider/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Media</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Slider</span>
+                </nav>
+        <h1>Slider</h1>
+        <p class="docs-subtitle">Slider allows users to select a value or range from a continuous scale. Supports single and dual handles, marks, labels, and vertical orientation.</p>
+
+        <div class="zak-docs-section">
+            <h2>Basic Range Slider</h2>
+            <p>A simple horizontal slider with a configurable min and max.</p>
+
+            <div class="docs-preview">
+                <div style="max-width:400px; padding:0.5rem 0;">
+                    <label class="zak-label" style="display:block; margin:0 0 .5rem;">Volume <span class="zak-badge zak-badge-primary" id="sliderBasicText">50</span></label>
+                    <div class="zak-slider" data-zak-slider data-zak-slider-min="0" data-zak-slider-max="100" data-zak-slider-step="1" value="50" id="sliderBasic"></div>
+                </div>
+                <script>(function(){var s=document.getElementById('sliderBasic');if(s){s.addEventListener('zak:change',function(e){(document.getElementById('sliderBasicText')||{}).textContent=e.detail.value;});}})();</script>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;label class="zak-label" for="sliderBasic"&gt;Volume&lt;/label&gt;
+&lt;input type="range" class="zak-range" id="sliderBasic" min="0" max="100" value="50"&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Slider with Value Display</h2>
+            <p>Show the current value alongside the slider, updating live as the handle moves.</p>
+
+            <div class="docs-preview">
+                <div style="max-width: 400px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                        <label class="zak-label" for="sliderValue" style="margin: 0;">Opacity</label>
+                        <span class="zak-badge zak-badge-primary" id="sliderValueText">50%</span>
+                    </div>
+                    <input type="range" id="sliderValue" class="zak-range" min="0" max="100" value="50" oninput="document.getElementById('sliderValueText').textContent = this.value + '%';">
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-slider"&gt;
+  &lt;label class="zak-label" for="sliderValue"&gt;Opacity&lt;/label&gt;
+  &lt;span class="zak-badge zak-badge-primary"&gt;50%&lt;/span&gt;
+  &lt;input type="range" class="zak-range" id="sliderValue" min="0" max="100" value="50"&gt;
+&lt;/div&gt;</code></pre></div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span>JS</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;!-- Update the badge as the value changes --&gt;
+const slider = document.getElementById('sliderValue');
+const badge  = document.getElementById('sliderValueText');
+slider.addEventListener('input', () => {
+  badge.textContent = slider.value + '%';
+});</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Slider with Marks / Steps</h2>
+            <p>Snap the handle to predefined steps and optionally show tick marks.</p>
+
+            <div class="docs-preview">
+                <div style="max-width: 400px;">
+                    <label class="zak-label" for="sliderSteps">Rating</label>
+                    <input type="range" id="sliderSteps" class="zak-range" min="1" max="10" step="1" value="5">
+                    <div style="display: flex; justify-content: space-between; color: var(--zak-text-muted); font-size: 0.75rem; margin-top: 0.25rem;">
+                        <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;label class="zak-label" for="sliderSteps"&gt;Rating&lt;/label&gt;
+&lt;input type="range" class="zak-range" id="sliderSteps" min="1" max="10" step="1" value="5"&gt;
+&lt;div class="zak-slider-marks"&gt;
+  &lt;span&gt;1&lt;/span&gt;&lt;span&gt;2&lt;/span&gt;...
+  &lt;span&gt;10&lt;/span&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Vertical Slider</h2>
+            <p>A vertically oriented slider using the <code>orient</code> attribute.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; gap: 2rem; align-items: center; justify-content: center; height: 220px;">
+                    <div style="text-align: center;">
+                        <label class="zak-label" for="sliderVertical" style="display:block; margin-bottom:0.75rem;">Volume</label>
+                        <input type="range" id="sliderVertical" class="zak-range" min="0" max="100" value="60" orient="vertical" style="height: 160px; writing-mode: vertical-ltr;">
+                    </div>
+                    <div style="text-align: center;">
+                        <label class="zak-label" for="sliderVertical2" style="display:block; margin-bottom:0.75rem;">Treble</label>
+                        <input type="range" id="sliderVertical2" class="zak-range" min="0" max="100" value="35" orient="vertical" style="height: 160px; writing-mode: vertical-ltr;">
+                    </div>
+                    <div style="text-align: center;">
+                        <label class="zak-label" for="sliderVertical3" style="display:block; margin-bottom:0.75rem;">Bass</label>
+                        <input type="range" id="sliderVertical3" class="zak-range" min="0" max="100" value="80" orient="vertical" style="height: 160px; writing-mode: vertical-ltr;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;label class="zak-label" for="sliderVertical"&gt;Volume&lt;/label&gt;
+&lt;input type="range" class="zak-range" id="sliderVertical"
+       min="0" max="100" value="60"
+       orient="vertical" style="writing-mode: vertical-ltr;"&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Slider with Labels</h2>
+            <p>Add min and max labels at the ends of the slider.</p>
+
+            <div class="docs-preview">
+                <div style="max-width: 400px;">
+                    <label class="zak-label" for="sliderLabels">Temperature</label>
+                    <input type="range" id="sliderLabels" class="zak-range" min="-10" max="40" value="15">
+                    <div style="display: flex; justify-content: space-between; color: var(--zak-text-muted); font-size: 0.75rem; margin-top: 0.25rem;" aria-hidden="true">
+                        <span>Cold</span><span>Warm</span><span>Hot</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;label class="zak-label" for="sliderLabels"&gt;Temperature&lt;/label&gt;
+&lt;input type="range" class="zak-range" id="sliderLabels" min="-10" max="40" value="15"&gt;
+&lt;div class="zak-slider-labels"&gt;
+  &lt;span&gt;Cold&lt;/span&gt;&lt;span&gt;Warm&lt;/span&gt;&lt;span&gt;Hot&lt;/span&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Dual-Range Slider</h2>
+            <p>Two handles to select a range between a lower and upper bound.</p>
+
+            <div class="docs-preview">
+                <div style="max-width:420px; padding:1rem 1.5rem; border:1px solid var(--zak-border); border-radius:.5rem;">
+                    <div style="display:flex; justify-content:space-between; margin-bottom:.75rem;">
+                        <span class="zak-label" style="margin:0;">Budget (min)</span>
+                        <span class="zak-label" style="margin:0;">Max</span>
+                    </div>
+                    <div class="zak-slider" data-zak-slider data-zak-slider-range data-zak-slider-min="0" data-zak-slider-max="2000" data-zak-slider-step="50" id="dualSlider" style="margin:1.25rem 0;"></div>
+                    <div style="display:flex; justify-content:space-between;">
+                        <span class="zak-badge zak-badge-primary" id="dualMinText">$0</span>
+                        <span class="zak-badge zak-badge-primary" id="dualMaxText">$2,000</span>
+                    </div>
+                </div>
+                <script>(function(){var s=document.getElementById('dualSlider');if(s){s.addEventListener('zak:change',function(e){var v=e.detail.values;if(v&&v.length===2){(document.getElementById('dualMinText')||{}).textContent='$'+v[0];(document.getElementById('dualMaxText')||{}).textContent='$'+v[1];}});}})();</script>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-range-dual"&gt;
+  &lt;div class="zak-range-dual-track"&gt;&lt;/div&gt;
+  &lt;div class="zak-range-dual-fill"&gt;&lt;/div&gt;
+  &lt;div class="zak-range-dual-handle zak-range-dual-handle-min"&gt;&lt;/div&gt;
+  &lt;div class="zak-range-dual-handle zak-range-dual-handle-max"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span>JS</span><button class="docs-copy-btn">Copy</button></div><pre><code>const track = document.getElementById('dualTrack');
+const min   = document.getElementById('dualMin');
+const max   = document.getElementById('dualMax');
+const minT  = document.getElementById('dualMinText');
+const maxT  = document.getElementById('dualMaxText');
+const container = track.parentElement;
+let dragging = null;
+
+function update() {
+  const r = container.getBoundingClientRect();
+  const minPct = Math.max(0, Math.min(50, ((min.offsetLeft) / r.width) * 100));
+  const maxPct = Math.max(50, Math.min(100, ((max.offsetLeft + 20) / r.width) * 100));
+  track.style.left = minPct + '%';
+  track.style.right = (100 - maxPct) + '%';
+  minT.textContent = '$' + Math.round(minPct * 20);
+  maxT.textContent = '$' + Math.round(maxPct * 20);
+}</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.zak-range</code></td><td>Base range input styling</td></tr>
+                        <tr><td><code>.zak-slider</code></td><td>Slider wrapper with label</td></tr>
+                        <tr><td><code>.zak-slider-marks</code></td><td>Step tick marks row</td></tr>
+                        <tr><td><code>.zak-slider-labels</code></td><td>Min/max label row</td></tr>
+                        <tr><td><code>.zak-range-dual</code></td><td>Dual-range container</td></tr>
+                        <tr><td><code>.zak-range-dual-track</code></td><td>Base track</td></tr>
+                        <tr><td><code>.zak-range-dual-fill</code></td><td>Highlighted segment</td></tr>
+                        <tr><td><code>.zak-range-dual-handle</code></td><td>Draggable handle</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Range inputs are natively focusable and keyboard-operable via arrow keys.</li>
+                <li>Provide a <code>&lt;label&gt;</code> linked via <code>for</code> / <code>id</code> for each slider.</li>
+                <li>Use <code>aria-valuetext</code> to provide human-readable values (e.g., "$500").</li>
+                <li>For dual-range sliders, mark each handle with <code>role="slider"</code>, <code>aria-valuemin</code>, <code>aria-valuemax</code>, and distinct labels.</li>
+                <li>Ensure vertical sliders remain horizontally scrollable-friendly on touch devices.</li>
+            </ul>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+</body></html>

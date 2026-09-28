@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Table documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Table - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/tables/table/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Table - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Table documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/tables/table/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Tables &amp; DataGrid</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Table</span>
+                </nav>
+        <h1>Table</h1>
+        <p class="docs-subtitle">Tables present tabular data in a clean, scannable layout. Combine variants such as striped, hover, bordered, small and dark to suit your content.</p>
+
+        <div class="zak-docs-section">
+            <h2>Basic Table</h2>
+            <p>Use <code>.zak-table</code> directly on the <code>&lt;table&gt;</code> element.</p>
+
+            <div class="docs-preview">
+                <div class="zak-table-wrapper">
+                    <table class="zak-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>Janet Fox</td><td>Product Designer</td><td><span class="zak-badge zak-badge-success">Active</span></td></tr>
+                            <tr><td>2</td><td>Mark Kim</td><td>Frontend Engineer</td><td><span class="zak-badge">Away</span></td></tr>
+                            <tr><td>3</td><td>Sara Reyes</td><td>Data Analyst</td><td><span class="zak-badge zak-badge-danger">Inactive</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;table class="zak-table"&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;#&lt;/th&gt;
+      &lt;th&gt;Name&lt;/th&gt;
+      &lt;th&gt;Role&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;Janet Fox&lt;/td&gt;&lt;td&gt;Product Designer&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Striped Table</h2>
+            <p>Add <code>.zak-table-striped</code> for alternating row backgrounds.</p>
+
+            <div class="docs-preview">
+                <div class="zak-table-wrapper">
+                    <table class="zak-table zak-table-striped">
+                        <thead>
+                            <tr><th>Invoice</th><th>Client</th><th>Amount</th><th>Date</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>#1024</td><td>Acme Corp</td><td>$1,200.00</td><td>Mar 1</td></tr>
+                            <tr><td>#1025</td><td>Globex Inc</td><td>$840.00</td><td>Mar 3</td></tr>
+                            <tr><td>#1026</td><td>Initech</td><td>$2,310.00</td><td>Mar 5</td></tr>
+                            <tr><td>#1027</td><td>Umbrella LLC</td><td>$430.00</td><td>Mar 8</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;table class="zak-table zak-table-striped"&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;&lt;th&gt;Invoice&lt;/th&gt;&lt;th&gt;Client&lt;/th&gt;&lt;th&gt;Amount&lt;/th&gt;&lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;#1024&lt;/td&gt;&lt;td&gt;Acme Corp&lt;/td&gt;&lt;td&gt;$1,200.00&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Hover Table</h2>
+            <p>Add <code>.zak-table-hover</code> for row hover highlights.</p>
+
+            <div class="docs-preview">
+                <div class="zak-table-wrapper">
+                    <table class="zak-table zak-table-hover">
+                        <thead>
+                            <tr><th>Trainer</th><th>Specialty</th><th>Rating</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Alex Stone</td><td>Strength</td><td>4.9</td></tr>
+                            <tr><td>Mia Chen</td><td>Cardio</td><td>4.7</td></tr>
+                            <tr><td>Leo Brooks</td><td>Yoga</td><td>4.8</td></tr>
+                            <tr><td>Rosa Diaz</td><td>Pilates</td><td>4.6</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;table class="zak-table zak-table-hover"&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;&lt;th&gt;Trainer&lt;/th&gt;&lt;th&gt;Specialty&lt;/th&gt;&lt;th&gt;Rating&lt;/th&gt;&lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;Alex Stone&lt;/td&gt;&lt;td&gt;Strength&lt;/td&gt;&lt;td&gt;4.9&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Bordered Table</h2>
+            <p>Add <code>.zak-table-bordered</code> to outline every cell.</p>
+
+            <div class="docs-preview">
+                <div class="zak-table-wrapper">
+                    <table class="zak-table zak-table-bordered">
+                        <thead>
+                            <tr><th>Language</th><th>Level</th><th>Users</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>JavaScript</td><td>Advanced</td><td>12.4k</td></tr>
+                            <tr><td>Python</td><td>Intermediate</td><td>9.1k</td></tr>
+                            <tr><td>Rust</td><td>Beginner</td><td>2.3k</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;table class="zak-table zak-table-bordered"&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;&lt;th&gt;Language&lt;/th&gt;&lt;th&gt;Level&lt;/th&gt;&lt;th&gt;Users&lt;/th&gt;&lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;JavaScript&lt;/td&gt;&lt;td&gt;Advanced&lt;/td&gt;&lt;td&gt;12.4k&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Small Table</h2>
+            <p>Add <code>.zak-table-sm</code> to tighten padding for dense layouts.</p>
+
+            <div class="docs-preview">
+                <div class="zak-table-wrapper">
+                    <table class="zak-table zak-table-sm">
+                        <thead>
+                            <tr><th>Commit</th><th>Author</th><th>Time</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>fix(forms): align select caret</td><td>jun</td><td>2m ago</td></tr>
+                            <tr><td>feat(table): add striped variant</td><td>maya</td><td>1h ago</td></tr>
+                            <tr><td>docs(chip): close interaction</td><td>zak</td><td>3h ago</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;table class="zak-table zak-table-sm"&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;&lt;th&gt;Commit&lt;/th&gt;&lt;th&gt;Author&lt;/th&gt;&lt;th&gt;Time&lt;/th&gt;&lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;feat(table): add striped variant&lt;/td&gt;&lt;td&gt;maya&lt;/td&gt;&lt;td&gt;1h ago&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Dark Table</h2>
+            <p>Add <code>.zak-table-dark</code> for inverted styling. Light foreground colors are applied automatically, so badges placed in a dark table should use solid variants.</p>
+
+            <div class="docs-preview">
+                <div class="zak-table-wrapper">
+                    <table class="zak-table zak-table-dark">
+                        <thead>
+                            <tr><th>Service</th><th>Region</th><th>Latency</th><th>Status</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>API Gateway</td><td>us-east-1</td><td>42ms</td><td><span class="zak-badge zak-badge-success">Operational</span></td></tr>
+                            <tr><td>Object Store</td><td>eu-west-1</td><td>58ms</td><td><span class="zak-badge zak-badge-success">Operational</span></td></tr>
+                            <tr><td>Queue Service</td><td>ap-south-1</td><td>120ms</td><td><span class="zak-badge zak-badge-warning">Degraded</span></td></tr>
+                            <tr><td>Search Cluster</td><td>us-west-2</td><td>—</td><td><span class="zak-badge zak-badge-danger">Offline</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;table class="zak-table zak-table-dark"&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;&lt;th&gt;Service&lt;/th&gt;&lt;th&gt;Region&lt;/th&gt;&lt;th&gt;Status&lt;/th&gt;&lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;API Gateway&lt;/td&gt;&lt;td&gt;us-east-1&lt;/td&gt;&lt;td&gt;
+      &lt;span class="zak-badge zak-badge-success"&gt;Operational&lt;/span&gt;
+    &lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Responsive Table</h2>
+            <p>Wrap any table in <code>.zak-table-wrapper</code> to enable horizontal scrolling on small screens.</p>
+
+            <div class="docs-preview">
+                <div class="zak-table-wrapper">
+                    <table class="zak-table" style="min-width: 42rem;">
+                        <thead>
+                            <tr><th>#</th><th>Product</th><th>Category</th><th>Price</th><th>Stock</th><th>SKU</th><th>Supplier</th><th>Last Updated</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>Wireless Mouse</td><td>Accessories</td><td>$29</td><td>142</td><td>WM-204</td><td>Apex Supply Co.</td><td>Mar 8</td></tr>
+                            <tr><td>2</td><td>USB-C Hub</td><td>Accessories</td><td>$49</td><td>67</td><td>UH-118</td><td>Northwind Traders</td><td>Mar 7</td></tr>
+                            <tr><td>3</td><td>27" Monitor</td><td>Displays</td><td>$329</td><td>23</td><td>MN-27Q</td><td>Apex Supply Co.</td><td>Mar 6</td></tr>
+                            <tr><td>4</td><td>Mechanical Keyboard</td><td>Input</td><td>$119</td><td>0</td><td>KB-87T</td><td>Electro Importers</td><td>Mar 4</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-table-wrapper"&gt;
+  &lt;table class="zak-table"&gt;
+    &lt;thead&gt;&lt;tr&gt;&lt;th&gt;#&lt;/th&gt;&lt;th&gt;Product&lt;/th&gt;&lt;th&gt;Price&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+    &lt;tbody&gt;&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;Wireless Mouse&lt;/td&gt;&lt;td&gt;$29&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Head Variants</h2>
+            <p>Send <code>&lt;thead&gt;</code> to dark mode with <code>.zak-table-head-dark</code>.</p>
+
+            <div class="docs-preview">
+                <div class="zak-table-wrapper">
+                    <table class="zak-table">
+                        <thead class="zak-table-head-dark">
+                            <tr><th>Metric</th><th>Value</th><th>Change</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Active users</td><td>8,240</td><td><span class="zak-text-success">↑ 12.4%</span></td></tr>
+                            <tr><td>New signups</td><td>1,030</td><td><span class="zak-text-success">↑ 8.1%</span></td></tr>
+                            <tr><td>Churn</td><td>3.2%</td><td><span class="zak-text-danger">↓ 0.4%</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;table class="zak-table"&gt;
+  &lt;thead class="zak-table-head-dark"&gt;
+    &lt;tr&gt;&lt;th&gt;Metric&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;th&gt;Change&lt;/th&gt;&lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;Active users&lt;/td&gt;&lt;td&gt;8,240&lt;/td&gt;&lt;td&gt;↑ 12.4%&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Table Footer and Caption</h2>
+            <p>Add a <code>&lt;tfoot&gt;</code> for totals and a <code>&lt;caption&gt;</code> for context.</p>
+
+            <div class="docs-preview">
+                <div class="zak-table-wrapper">
+                    <table class="zak-table">
+                        <caption style="caption-side: top; text-align: left; padding-bottom: 0.5rem; color: var(--zak-text-muted);">Q1 Revenue Summary</caption>
+                        <thead>
+                            <tr><th>Region</th><th>Q1 Revenue</th><th>Target</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>North America</td><td>$84,200</td><td>$80,000</td></tr>
+                            <tr><td>EMEA</td><td>$61,750</td><td>$65,000</td></tr>
+                            <tr><td>APAC</td><td>$48,900</td><td>$50,000</td></tr>
+                        </tbody>
+                        <tfoot>
+                            <tr><th style="text-align: left;">Total</th><th>$194,850</th><th>$195,000</th></tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;table class="zak-table"&gt;
+  &lt;caption&gt;Q1 Revenue Summary&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;&lt;th&gt;Region&lt;/th&gt;&lt;th&gt;Q1 Revenue&lt;/th&gt;&lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;North America&lt;/td&gt;&lt;td&gt;$84,200&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;&lt;th&gt;Total&lt;/th&gt;&lt;th&gt;$194,850&lt;/th&gt;&lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.zak-table</code></td><td>Base table styles with clean cell spacing</td></tr>
+                        <tr><td><code>.zak-table-striped</code></td><td>Alternating row backgrounds</td></tr>
+                        <tr><td><code>.zak-table-hover</code></td><td>Row highlight on hover</td></tr>
+                        <tr><td><code>.zak-table-bordered</code></td><td>Borders between all cells</td></tr>
+                        <tr><td><code>.zak-table-sm</code></td><td>Compact padding for dense data</td></tr>
+                        <tr><td><code>.zak-table-dark</code></td><td>Inverted (dark) table colors</td></tr>
+                        <tr><td><code>.zak-table-head-dark</code></td><td>Dark header only</td></tr>
+                        <tr><td><code>.zak-table-wrapper</code></td><td>Responsive horizontal-scroll container</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Use real <code>&lt;table&gt;</code>, <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, and <code>&lt;th&gt;</code> semantics — never build tables from grids.</li>
+                <li>Associate each <code>&lt;th&gt;</code> with its column data, and use <code>scope="col"</code> / <code>scope="row"</code> where rows have headers.</li>
+                <li>Provide a <code>&lt;caption&gt;</code> summarizing the table content for screen reader users.</li>
+                <li>Do not rely on color alone (stripes, dark variant) — keep badges and text labels alongside any color hint.</li>
+                <li>For interactive rows (click to open a record), add a keyboard-reachable mechanism and <code>aria-current</code> on the active row.</li>
+            </ul>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body></html>

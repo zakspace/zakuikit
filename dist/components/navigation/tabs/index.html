@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Tabs documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Tabs - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/navigation/tabs/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Tabs - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Tabs documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/navigation/tabs/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main">
+        <div class="docs-content">
+            <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Navigation</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Tabs</span>
+                </nav>
+
+            <h1>Tabs</h1>
+            <p class="docs-subtitle">Tabs organize content into multiple panels where only one panel is visible at a time. They help users switch between different views or sections without leaving the page.</p>
+
+            <section class="zak-docs-section">
+                <h2>Basic Tabs</h2>
+                <p>A simple tab interface with clickable tabs and content panels.</p>
+                <div class="docs-preview">
+                    <div class="zak-tabs" id="demo-tabs-basic">
+                        <div class="zak-tabs-list" role="tablist">
+                            <button class="zak-tab active" role="tab" aria-selected="true" aria-controls="panel-tab1" onclick="switchTab('demo-tabs-basic', 0)">Tab 1</button>
+                            <button class="zak-tab" role="tab" aria-selected="false" aria-controls="panel-tab2" onclick="switchTab('demo-tabs-basic', 1)">Tab 2</button>
+                            <button class="zak-tab" role="tab" aria-selected="false" aria-controls="panel-tab3" onclick="switchTab('demo-tabs-basic', 2)">Tab 3</button>
+                        </div>
+                        <div class="zak-tab-panels">
+                            <div class="zak-tab-panel active" role="tabpanel" id="panel-tab1">
+                                <p style="margin:0;">Content for Tab 1. This panel is currently active and visible.</p>
+                            </div>
+                            <div class="zak-tab-panel" role="tabpanel" id="panel-tab2" hidden>
+                                <p style="margin:0;">Content for Tab 2. Click the tab to switch to this panel.</p>
+                            </div>
+                            <div class="zak-tab-panel" role="tabpanel" id="panel-tab3" hidden>
+                                <p style="margin:0;">Content for Tab 3. Each tab can contain different content.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-tabs"&gt;
+    &lt;div class="zak-tabs-list" role="tablist"&gt;
+        &lt;button class="zak-tab active" role="tab" aria-selected="true" aria-controls="panel1"&gt;Tab 1&lt;/button&gt;
+        &lt;button class="zak-tab" role="tab" aria-selected="false" aria-controls="panel2"&gt;Tab 2&lt;/button&gt;
+        &lt;button class="zak-tab" role="tab" aria-selected="false" aria-controls="panel3"&gt;Tab 3&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="zak-tab-panels"&gt;
+        &lt;div class="zak-tab-panel active" role="tabpanel" id="panel1"&gt;Content 1&lt;/div&gt;
+        &lt;div class="zak-tab-panel" role="tabpanel" id="panel2" hidden&gt;Content 2&lt;/div&gt;
+        &lt;div class="zak-tab-panel" role="tabpanel" id="panel3" hidden&gt;Content 3&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Tabs with Icons</h2>
+                <p>Add icons alongside tab labels for visual context.</p>
+                <div class="docs-preview">
+                    <div class="zak-tabs" id="demo-tabs-icons">
+                        <div class="zak-tabs-list" role="tablist">
+                            <button class="zak-tab active" role="tab" onclick="switchTab('demo-tabs-icons', 0)">
+                                <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                General
+                            </button>
+                            <button class="zak-tab" role="tab" onclick="switchTab('demo-tabs-icons', 1)">
+                                <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33"/></svg>
+                                Settings
+                            </button>
+                            <button class="zak-tab" role="tab" onclick="switchTab('demo-tabs-icons', 2)">
+                                <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+                                Notifications
+                            </button>
+                        </div>
+                        <div class="zak-tab-panels">
+                            <div class="zak-tab-panel active"><p style="margin:0;">General settings content</p></div>
+                            <div class="zak-tab-panel" hidden><p style="margin:0;">Settings panel content</p></div>
+                            <div class="zak-tab-panel" hidden><p style="margin:0;">Notification preferences</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;button class="zak-tab active" role="tab"&gt;
+    &lt;svg class="zak-icon" viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
+    General
+&lt;/button&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Tabs with Badges</h2>
+                <p>Show counts or status badges on tab labels.</p>
+                <div class="docs-preview">
+                    <div class="zak-tabs" id="demo-tabs-badges">
+                        <div class="zak-tabs-list" role="tablist">
+                            <button class="zak-tab active" role="tab" onclick="switchTab('demo-tabs-badges', 0)">Active <span class="zak-badge zak-badge-primary" style="margin-left: 4px;">4</span></button>
+                            <button class="zak-tab" role="tab" onclick="switchTab('demo-tabs-badges', 1)">Pending <span class="zak-badge zak-badge-warning" style="margin-left: 4px;">12</span></button>
+                            <button class="zak-tab" role="tab" onclick="switchTab('demo-tabs-badges', 2)">Closed <span class="zak-badge zak-badge-secondary" style="margin-left: 4px;">98</span></button>
+                        </div>
+                        <div class="zak-tab-panels">
+                            <div class="zak-tab-panel active"><p style="margin:0;">4 active items</p></div>
+                            <div class="zak-tab-panel" hidden><p style="margin:0;">12 pending items</p></div>
+                            <div class="zak-tab-panel" hidden><p style="margin:0;">98 closed items</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;button class="zak-tab active" role="tab"&gt;
+    Active &lt;span class="zak-badge zak-badge-primary"&gt;4&lt;/span&gt;
+&lt;/button&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Pill Tabs</h2>
+                <p>Use the pill variant for rounded, button-like tab styling.</p>
+                <div class="docs-preview">
+                    <div class="zak-tabs zak-tabs-pills" id="demo-tabs-pills">
+                        <div class="zak-tabs-list" role="tablist">
+                            <button class="zak-tab active" role="tab" onclick="switchTab('demo-tabs-pills', 0)">All</button>
+                            <button class="zak-tab" role="tab" onclick="switchTab('demo-tabs-pills', 1)">Active</button>
+                            <button class="zak-tab" role="tab" onclick="switchTab('demo-tabs-pills', 2)">Inactive</button>
+                        </div>
+                        <div class="zak-tab-panels">
+                            <div class="zak-tab-panel active"><p style="margin:0;">All items view</p></div>
+                            <div class="zak-tab-panel" hidden><p style="margin:0;">Active items only</p></div>
+                            <div class="zak-tab-panel" hidden><p style="margin:0;">Inactive items only</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-tabs zak-tabs-pills"&gt;
+    &lt;div class="zak-tabs-list" role="tablist"&gt;
+        &lt;button class="zak-tab active" role="tab"&gt;All&lt;/button&gt;
+        &lt;button class="zak-tab" role="tab"&gt;Active&lt;/button&gt;
+        &lt;button class="zak-tab" role="tab"&gt;Inactive&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Vertical Tabs</h2>
+                <p>Tabs arranged vertically for side-by-side layout with content.</p>
+                <div class="docs-preview">
+                    <div class="zak-tabs zak-tabs-vertical" id="demo-tabs-vertical" style="min-height: 160px;">
+                        <div class="zak-tabs-list" role="tablist">
+                            <button class="zak-tab active" role="tab" onclick="switchTab('demo-tabs-vertical', 0)">Profile</button>
+                            <button class="zak-tab" role="tab" onclick="switchTab('demo-tabs-vertical', 1)">Security</button>
+                            <button class="zak-tab" role="tab" onclick="switchTab('demo-tabs-vertical', 2)">Billing</button>
+                        </div>
+                        <div class="zak-tab-panels">
+                            <div class="zak-tab-panel active"><p style="margin:0;">Manage your profile information including name, email, and avatar.</p></div>
+                            <div class="zak-tab-panel" hidden><p style="margin:0;">Configure your password, two-factor authentication, and login sessions.</p></div>
+                            <div class="zak-tab-panel" hidden><p style="margin:0;">View your subscription plan, invoices, and payment methods.</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-tabs zak-tabs-vertical"&gt;
+    &lt;div class="zak-tabs-list" role="tablist"&gt;
+        &lt;button class="zak-tab active" role="tab"&gt;Profile&lt;/button&gt;
+        &lt;button class="zak-tab" role="tab"&gt;Security&lt;/button&gt;
+        &lt;button class="zak-tab" role="tab"&gt;Billing&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="zak-tab-panels"&gt;
+        &lt;div class="zak-tab-panel active"&gt;Profile content&lt;/div&gt;
+        &lt;div class="zak-tab-panel" hidden&gt;Security content&lt;/div&gt;
+        &lt;div class="zak-tab-panel" hidden&gt;Billing content&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Justified Tabs</h2>
+                <p>Tabs that fill the full width of their container evenly.</p>
+                <div class="docs-preview">
+                    <div class="zak-tabs zak-tabs-justified" id="demo-tabs-justified">
+                        <div class="zak-tabs-list" role="tablist">
+                            <button class="zak-tab active" role="tab" onclick="switchTab('demo-tabs-justified', 0)">Tab 1</button>
+                            <button class="zak-tab" role="tab" onclick="switchTab('demo-tabs-justified', 1)">Tab 2</button>
+                            <button class="zak-tab" role="tab" onclick="switchTab('demo-tabs-justified', 2)">Tab 3</button>
+                        </div>
+                        <div class="zak-tab-panels">
+                            <div class="zak-tab-panel active"><p style="margin:0;">Justified tab content 1</p></div>
+                            <div class="zak-tab-panel" hidden><p style="margin:0;">Justified tab content 2</p></div>
+                            <div class="zak-tab-panel" hidden><p style="margin:0;">Justified tab content 3</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-tabs zak-tabs-justified"&gt;
+    &lt;div class="zak-tabs-list" role="tablist"&gt;
+        &lt;button class="zak-tab active" role="tab"&gt;Tab 1&lt;/button&gt;
+        &lt;button class="zak-tab" role="tab"&gt;Tab 2&lt;/button&gt;
+        &lt;button class="zak-tab" role="tab"&gt;Tab 3&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Tabs with Dropdown</h2>
+                <p>Add a dropdown action button alongside tabs.</p>
+                <div class="docs-preview">
+                    <div class="zak-tabs" id="demo-tabs-dropdown">
+                        <div class="zak-tabs-list" role="tablist">
+                            <button class="zak-tab active" role="tab" onclick="switchTab('demo-tabs-dropdown', 0)">Overview</button>
+                            <button class="zak-tab" role="tab" onclick="switchTab('demo-tabs-dropdown', 1)">Analytics</button>
+                            <div style="margin-left: auto; position: relative;">
+                                <button class="zak-btn zak-btn-sm zak-btn-soft" onclick="this.nextElementSibling.classList.toggle('visible')" style="font-size: 1.25rem; line-height: 1;">&#8942;</button>
+                                <ul class="zak-dropdown-menu" style="min-width: 160px;">
+                                    <li><a href="#" class="zak-dropdown-item">Export</a></li>
+                                    <li><a href="#" class="zak-dropdown-item">Settings</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="zak-tab-panels">
+                            <div class="zak-tab-panel active"><p style="margin:0;">Overview content</p></div>
+                            <div class="zak-tab-panel" hidden><p style="margin:0;">Analytics content</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-tabs-list" role="tablist"&gt;
+    &lt;button class="zak-tab active" role="tab"&gt;Overview&lt;/button&gt;
+    &lt;button class="zak-tab" role="tab"&gt;Analytics&lt;/button&gt;
+    &lt;div style="margin-left: auto;"&gt;
+        &lt;button class="zak-btn zak-btn-sm zak-btn-soft"&gt;&#8942;&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Tabs with Panels</h2>
+                <p>Tabs can be combined with bordered panel containers.</p>
+                <div class="docs-preview">
+                    <div class="zak-tabs zak-tabs-bordered" id="demo-tabs-panels">
+                        <div class="zak-tabs-list" role="tablist">
+                            <button class="zak-tab active" role="tab" onclick="switchTab('demo-tabs-panels', 0)">Tab 1</button>
+                            <button class="zak-tab" role="tab" onclick="switchTab('demo-tabs-panels', 1)">Tab 2</button>
+                            <button class="zak-tab" role="tab" onclick="switchTab('demo-tabs-panels', 2)">Tab 3</button>
+                        </div>
+                        <div class="zak-tab-panels" style="border: 1px solid var(--zak-border-color); border-radius: 0 0 0.375rem 0.375rem; padding: 1rem;">
+                            <div class="zak-tab-panel active"><p style="margin:0;">Bordered panel content 1</p></div>
+                            <div class="zak-tab-panel" hidden><p style="margin:0;">Bordered panel content 2</p></div>
+                            <div class="zak-tab-panel" hidden><p style="margin:0;">Bordered panel content 3</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-tabs zak-tabs-bordered"&gt;
+    &lt;div class="zak-tabs-list" role="tablist"&gt;
+        &lt;button class="zak-tab active" role="tab"&gt;Tab 1&lt;/button&gt;
+        &lt;button class="zak-tab" role="tab"&gt;Tab 2&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="zak-tab-panels"&gt;
+        &lt;div class="zak-tab-panel active"&gt;Content 1&lt;/div&gt;
+        &lt;div class="zak-tab-panel" hidden&gt;Content 2&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>CSS Classes</h2>
+                <p>Tab styles are controlled through these CSS classes.</p>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>/* Tabs Container */
+.zak-tabs                    /* Base tabs */
+.zak-tabs-pills              /* Pill/rounded variant */
+.zak-tabs-vertical           /* Vertical layout */
+.zak-tabs-justified          /* Full-width tabs */
+.zak-tabs-bordered           /* Bordered panel container */
+
+/* Tabs List */
+.zak-tabs-list               /* Tab button container */
+
+/* Individual Tab */
+.zak-tab                     /* Base tab button */
+.zak-tab.active              /* Active tab */
+
+/* Panels */
+.zak-tab-panels              /* Panel container */
+.zak-tab-panel               /* Individual panel */
+.zak-tab-panel.active        /* Active/visible panel */</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>JavaScript</h2>
+                <p>Handle tab switching with JavaScript.</p>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>function switchTab(tabsId, index) {
+    const tabs = document.getElementById(tabsId);
+    const tabButtons = tabs.querySelectorAll('.zak-tab');
+    const tabPanels = tabs.querySelectorAll('.zak-tab-panel');
+
+    tabButtons.forEach((btn, i) =&gt; {
+        btn.classList.toggle('active', i === index);
+        btn.setAttribute('aria-selected', i === index);
+    });
+
+    tabPanels.forEach((panel, i) =&gt; {
+        panel.classList.toggle('active', i === index);
+        panel.hidden = i !== index;
+    });
+}
+
+// Keyboard navigation for tabs
+document.querySelectorAll('.zak-tabs-list').forEach(list =&gt; {
+    list.addEventListener('keydown', function(e) {
+        const tabs = Array.from(this.querySelectorAll('.zak-tab'));
+        const currentIndex = tabs.indexOf(document.activeElement);
+        let newIndex = currentIndex;
+
+        if (e.key === 'ArrowRight') newIndex = (currentIndex + 1) % tabs.length;
+        if (e.key === 'ArrowLeft') newIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+        if (e.key === 'Home') newIndex = 0;
+        if (e.key === 'End') newIndex = tabs.length - 1;
+
+        if (newIndex !== currentIndex) {
+            e.preventDefault();
+            tabs[newIndex].focus();
+            tabs[newIndex].click();
+        }
+    });
+});</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Accessibility</h2>
+                <p>Follow these accessibility best practices when using tabs.</p>
+                <ul>
+                    <li>Use <code>role="tablist"</code> on the tab container, <code>role="tab"</code> on each tab, and <code>role="tabpanel"</code> on each panel.</li>
+                    <li>Set <code>aria-selected="true"</code> on the active tab and <code>"false"</code> on inactive tabs.</li>
+                    <li>Use <code>aria-controls</code> to link each tab to its panel, and <code>aria-labelledby</code> on panels linking back to their tab.</li>
+                    <li>Use <code>hidden</code> attribute on inactive panels instead of CSS-only hiding.</li>
+                    <li>Support keyboard navigation with arrow keys, Home, and End.</li>
+                    <li>Use <code>tabindex="0"</code> on the active tab and <code>tabindex="-1"</code> on inactive tabs.</li>
+                </ul>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-tabs"&gt;
+    &lt;div class="zak-tabs-list" role="tablist"&gt;
+        &lt;button class="zak-tab active" role="tab" id="tab-1" aria-selected="true" aria-controls="panel-1" tabindex="0"&gt;Tab 1&lt;/button&gt;
+        &lt;button class="zak-tab" role="tab" id="tab-2" aria-selected="false" aria-controls="panel-2" tabindex="-1"&gt;Tab 2&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="zak-tab-panels"&gt;
+        &lt;div class="zak-tab-panel active" role="tabpanel" id="panel-1" aria-labelledby="tab-1"&gt;Content 1&lt;/div&gt;
+        &lt;div class="zak-tab-panel" role="tabpanel" id="panel-2" aria-labelledby="tab-2" hidden&gt;Content 2&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script>
+        // Demo: switch the active tab and its panel
+        function switchTab(tabsId, index) {
+            var tabs = document.getElementById(tabsId);
+            var tabButtons = tabs.querySelectorAll('.zak-tab');
+            var tabPanels = tabs.querySelectorAll('.zak-tab-panel');
+
+            tabButtons.forEach(function (btn, i) {
+                btn.classList.toggle('active', i === index);
+                btn.setAttribute('aria-selected', i === index);
+            });
+
+            tabPanels.forEach(function (panel, i) {
+                panel.classList.toggle('active', i === index);
+                panel.hidden = i !== index;
+            });
+        }
+    </script>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body>
+</html>

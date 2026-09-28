@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function () { try { var t = localStorage.getItem('zak-docs-theme') || 'system'; if (t === 'system') { t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light'; } document.documentElement.setAttribute('data-theme', t); } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); } })();</script>
+    <meta name="description"
+        content="ZAKUIKit Typography documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Typography - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/foundations/typography/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Typography - ZAKUIKit">
+    <meta property="og:description"
+        content="ZAKUIKit Typography documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/foundations/typography/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="docs-header">
+        <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12" />
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+        </button>
+        <a href="../../../../index.html" class="docs-header__logo">
+            <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+            <span>ZAKUIKit</span>
+        </a>
+        <nav class="docs-header__nav" aria-label="Primary navigation">
+            <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+            <a href="../../../../components.html"
+                class="docs-header__link docs-header__link--active">Components</a>
+            <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+            <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+            <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+        </nav>
+        <div class="docs-header__actions">
+            <div class="docs-header__search-btn-wrap">
+                <button type="button" class="docs-header__search-btn" aria-label="Open search">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                    <span>Search docs...</span>
+                    <kbd>?K</kbd>
+                </button>
+            </div>
+            <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+    <div class="docs-sidebar-overlay"></div>
+
+    <!-- Main Content -->
+    <main class="docs-main">
+        <div class="docs-content">
+
+            <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                <span class="docs-breadcrumb__separator">/</span>
+                <span class="docs-breadcrumb__current">Foundations</span>
+                <span class="docs-breadcrumb__separator">/</span>
+                <span class="docs-breadcrumb__current">Typography</span>
+            </nav>
+
+            <div class="docs-component-header">
+                <h1>Typography</h1>
+                <p class="docs-component-header__description">A consistent type system with headings, body text, font
+                    weight utilities, alignment, truncation, lists, blockquotes, code, and display headings.</p>
+            </div>
+
+            <section id="headings">
+                <h2>Headings</h2>
+                <p>ZAKUIKit provides styled heading tags <code>h1</code> through <code>h6</code>, plus matching
+                    <code>.zak-h1</code>–<code>.zak-h6</code> classes that can be applied to any element.</p>
+                <div class="docs-preview">
+                    <div class="docs-preview__toolbar">
+                        <span>Headings</span>
+                        <div class="docs-preview__toolbar-actions">
+                        </div>
+                    </div>
+                    <div class="docs-preview__area" style="flex-direction:column; align-items:flex-start; gap:0;">
+                        <h1>Heading 1</h1>
+                        <h2>Heading 2</h2>
+                        <h3>Heading 3</h3>
+                        <h4>Heading 4</h4>
+                        <h5>Heading 5</h5>
+                        <h6>Heading 6</h6>
+                    </div>
+                </div>
+                <div class="docs-code-block">
+                    <div class="docs-code-block__header">
+                        <span class="docs-code-block__lang">html</span>
+                        <button class="docs-copy-btn"><svg class="docs-copy-btn__icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg><span class="docs-copy-btn__text">Copy</span></button>
+                    </div>
+                    <pre><code class="language-html">&lt;h1&gt;Heading 1&lt;/h1&gt;
+&lt;h2&gt;Heading 2&lt;/h2&gt;
+&lt;h3&gt;Heading 3&lt;/h3&gt;
+&lt;h4&gt;Heading 4&lt;/h4&gt;
+&lt;h5&gt;Heading 5&lt;/h5&gt;
+&lt;h6&gt;Heading 6&lt;/h6&gt;
+
+&lt;!-- Classes can be applied to any element --&gt;
+&lt;span class="zak-h3"&gt;Faux heading&lt;/span&gt;</code></pre>
+                </div>
+            </section>
+
+            <section id="body-text">
+                <h2>Body Text</h2>
+                <p>Standard paragraphs, lead text, small text, and inline text elements.</p>
+                <div class="docs-preview">
+                    <div class="docs-preview__toolbar">
+                        <span>Body text</span>
+                        <div class="docs-preview__toolbar-actions">
+                        </div>
+                    </div>
+                    <div class="docs-preview__area" style="flex-direction:column; align-items:flex-start;">
+                        <p class="zak-lead">This is lead text. It draws attention to the opening line or summary of a
+                            section.</p>
+                        <p>This is standard body text. It is used for most content across the interface and uses the
+                            default font size, line-height, and color.</p>
+                        <p><small>This is small text</small>, and this is <strong>bold text</strong>, <em>italic
+                                text</em>, and <mark>highlighted text</mark>.</p>
+                        <p>Inline code: <code>npm install</code>, keyboard input: <kbd>Ctrl+C</kbd>, and a <a
+                                href="#">link</a>.</p>
+                    </div>
+                </div>
+                <div class="docs-code-block">
+                    <div class="docs-code-block__header">
+                        <span class="docs-code-block__lang">html</span>
+                        <button class="docs-copy-btn"><svg class="docs-copy-btn__icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg><span class="docs-copy-btn__text">Copy</span></button>
+                    </div>
+                    <pre><code class="language-html">&lt;p class="zak-lead"&gt;Lead text&lt;/p&gt;
+&lt;p&gt;Body text&lt;/p&gt;
+&lt;p&gt;&lt;small&gt;Small text&lt;/small&gt; &lt;strong&gt;Bold&lt;/strong&gt; &lt;em&gt;Italic&lt;/em&gt; &lt;code&gt;code&lt;/code&gt; &lt;kbd&gt;kbd&lt;/kbd&gt;&lt;/p&gt;
+
+&lt;!-- Font size utilities --&gt;
+.zak-fs-xs .zak-fs-sm .zak-fs-base .zak-fs-lg
+.zak-fs-xl .zak-fs-2xl .zak-fs-3xl .zak-fs-4xl .zak-fs-5xl</code></pre>
+                </div>
+            </section>
+
+            <section id="font-weights">
+                <h2>Font Weights</h2>
+                <p>Control font weight with utility classes from lightweight to extra bold.</p>
+                <div class="docs-preview">
+                    <div class="docs-preview__toolbar">
+                        <span>Weights</span>
+                        <div class="docs-preview__toolbar-actions">
+                        </div>
+                    </div>
+                    <div class="docs-preview__area" style="flex-direction:column; align-items:flex-start; gap:8px;">
+                        <span class="zak-fw-light" style="font-size:1.25rem;">Light (300)</span>
+                        <span class="zak-fw-normal" style="font-size:1.25rem;">Normal (400)</span>
+                        <span class="zak-fw-medium" style="font-size:1.25rem;">Medium (500)</span>
+                        <span class="zak-fw-semibold" style="font-size:1.25rem;">Semibold (600)</span>
+                        <span class="zak-fw-bold" style="font-size:1.25rem;">Bold (700)</span>
+                    </div>
+                </div>
+                <div class="docs-code-block">
+                    <div class="docs-code-block__header">
+                        <span class="docs-code-block__lang">css</span>
+                        <button class="docs-copy-btn"><svg class="docs-copy-btn__icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg><span class="docs-copy-btn__text">Copy</span></button>
+                    </div>
+                    <pre><code class="language-css">/* Utility classes */
+.zak-fw-light     { font-weight: 300; }
+.zak-fw-normal    { font-weight: 400; }
+.zak-fw-medium    { font-weight: 500; }
+.zak-fw-semibold  { font-weight: 600; }
+.zak-fw-bold      { font-weight: 700; }
+
+/* Font family */
+.zak-font-sans  .zak-font-serif  .zak-font-mono
+
+/* Line heights */
+.zak-lh-none .zak-lh-tight .zak-lh-snug .zak-lh-normal
+.zak-lh-relaxed .zak-lh-loose
+
+/* Letter spacing */
+.zak-tracking-tight .zak-tracking-wide .zak-tracking-wider .zak-tracking-widest</code></pre>
+                </div>
+            </section>
+
+            <section id="alignment">
+                <h2>Text Alignment</h2>
+                <p>Align text with left, center, right, and justify utilities.</p>
+                <div class="docs-preview">
+                    <div class="docs-preview__toolbar">
+                        <span>Alignment</span>
+                        <div class="docs-preview__toolbar-actions">
+                        </div>
+                    </div>
+                    <div class="docs-preview__area" style="flex-direction:column; align-items:stretch;">
+                        <p class="zak-text-start">Left-aligned text (zak-text-start).</p>
+                        <p class="zak-text-center">Center-aligned text (zak-text-center).</p>
+                        <p class="zak-text-end">Right-aligned text (zak-text-end).</p>
+                        <p class="zak-text-justify">Justified text (zak-text-justify). Justified text stretches to fill
+                            both the left and right margins, which can improve readability in narrow columns but may
+                            create uneven spacing between words.</p>
+                    </div>
+                </div>
+                <div class="docs-code-block">
+                    <div class="docs-code-block__header">
+                        <span class="docs-code-block__lang">html</span>
+                        <button class="docs-copy-btn"><svg class="docs-copy-btn__icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg><span class="docs-copy-btn__text">Copy</span></button>
+                    </div>
+                    <pre><code class="language-html">&lt;p class="zak-text-start"&gt;Left&lt;/p&gt;
+&lt;p class="zak-text-center"&gt;Center&lt;/p&gt;
+&lt;p class="zak-text-end"&gt;Right&lt;/p&gt;
+&lt;p class="zak-text-justify"&gt;Justify&lt;/p&gt;</code></pre>
+                </div>
+            </section>
+
+            <section id="transform">
+                <h2>Text Transformation</h2>
+                <p>Change text case with transform utilities.</p>
+                <div class="docs-preview">
+                    <div class="docs-preview__toolbar">
+                        <span>Transformation</span>
+                        <div class="docs-preview__toolbar-actions">
+                        </div>
+                    </div>
+                    <div class="docs-preview__area" style="flex-direction:column; align-items:flex-start; gap:8px;">
+                        <span class="zak-uppercase">Uppercase text</span>
+                        <span class="zak-lowercase">LOWERCASE TEXT</span>
+                        <span class="zak-capitalize">capitalize each word</span>
+                    </div>
+                </div>
+                <div class="docs-code-block">
+                    <div class="docs-code-block__header">
+                        <span class="docs-code-block__lang">html</span>
+                        <button class="docs-copy-btn"><svg class="docs-copy-btn__icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg><span class="docs-copy-btn__text">Copy</span></button>
+                    </div>
+                    <pre><code class="language-html">&lt;span class="zak-uppercase"&gt;UPPERCASE&lt;/span&gt;
+&lt;span class="zak-lowercase"&gt;lowercase&lt;/span&gt;
+&lt;span class="zak-capitalize"&gt;Capitalize&lt;/span&gt;
+
+&lt;!-- Also available --&gt;
+.zak-text-decoration-none .zak-text-underline .zak-text-line-through</code></pre>
+                </div>
+            </section>
+
+            <section id="truncation">
+                <h2>Text Truncation</h2>
+                <p>Truncate single-line text with <code>zak-text-truncate</code>, or control wrapping with
+                    <code>zak-text-break</code> and <code>zak-text-nowrap</code>.</p>
+                <div class="docs-preview">
+                    <div class="docs-preview__toolbar">
+                        <span>Truncation</span>
+                        <div class="docs-preview__toolbar-actions">
+                        </div>
+                    </div>
+                    <div class="docs-preview__area" style="flex-direction:column; align-items:stretch;">
+                        <div
+                            style="max-width:320px; padding:8px; border:1px solid var(--docs-border); border-radius:var(--docs-radius);">
+                            <p class="zak-text-truncate">This is a very long line of text that will be truncated to a
+                                single line with an ellipsis at the end.</p>
+                        </div>
+                        <div style="max-width:320px; padding:8px;">
+                            <p class="zak-text-break">
+                                ThisIsAVeryLongUnbrokenStringWithoutSpacesThatWillBeBrokenToPreventOverflowingItsContainingBox
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-block">
+                    <div class="docs-code-block__header">
+                        <span class="docs-code-block__lang">html</span>
+                        <button class="docs-copy-btn"><svg class="docs-copy-btn__icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg><span class="docs-copy-btn__text">Copy</span></button>
+                    </div>
+                    <pre><code class="language-html">&lt;!-- Single-line truncation --&gt;
+&lt;p class="zak-text-truncate"&gt;Long text that gets clipped...&lt;/p&gt;
+
+&lt;!-- Multi-line / wrapping --&gt;
+&lt;p class="zak-text-wrap"&gt;Normal wrapping&lt;/p&gt;
+&lt;p class="zak-text-nowrap"&gt;No wrapping&lt;/p&gt;
+&lt;p class="zak-text-break"&gt;Breaks long words&lt;/p&gt;</code></pre>
+                </div>
+            </section>
+
+            <section id="lists">
+                <h2>Lists</h2>
+                <p>Styled ordered, unordered, and description lists.</p>
+                <div class="docs-preview">
+                    <div class="docs-preview__toolbar">
+                        <span>Lists</span>
+                        <div class="docs-preview__toolbar-actions">
+                        </div>
+                    </div>
+                    <div class="docs-preview__area" style="flex-direction:row; align-items:flex-start; gap:24px;">
+                        <ul class="zak-list-disc">
+                            <li>First item</li>
+                            <li>Second item</li>
+                            <li>Third item</li>
+                        </ul>
+                        <ol class="zak-list-decimal">
+                            <li>First step</li>
+                            <li>Second step</li>
+                            <li>Third step</li>
+                        </ol>
+                        <dl style="min-width:160px;">
+                            <dt class="zak-fw-semibold">Coffee</dt>
+                            <dd>Hot brewed beverage</dd>
+                            <dt class="zak-fw-semibold">Tea</dt>
+                            <dd>Infused leaf drink</dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="docs-code-block">
+                    <div class="docs-code-block__header">
+                        <span class="docs-code-block__lang">html</span>
+                        <button class="docs-copy-btn"><svg class="docs-copy-btn__icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg><span class="docs-copy-btn__text">Copy</span></button>
+                    </div>
+                    <pre><code class="language-html">&lt;ul class="zak-list-disc"&gt;...&lt;/ul&gt;      &lt;!-- bullet list --&gt;
+&lt;ol class="zak-list-decimal"&gt;...&lt;/ol&gt;  &lt;!-- numbered list --&gt;
+&lt;ul class="zak-list-circle"&gt;...&lt;/ul&gt;
+&lt;ul class="zak-list-square"&gt;...&lt;/ul&gt;
+&lt;ul class="zak-list-inside"&gt;...&lt;/ul&gt; &lt;!-- markers inside --&gt;</code></pre>
+                </div>
+            </section>
+
+            <section id="blockquotes">
+                <h2>Blockquotes</h2>
+                <p>Styled blockquotes for citations and featured quotes.</p>
+                <div class="docs-preview">
+                    <div class="docs-preview__toolbar">
+                        <span>Blockquote</span>
+                        <div class="docs-preview__toolbar-actions">
+                        </div>
+                    </div>
+                    <div class="docs-preview__area" style="flex-direction:column; align-items:stretch;">
+                        <blockquote class="zak-blockquote">
+                            "Design is not just what it looks like and feels like. Design is how it works."
+                            <footer style="margin-top:8px; font-style:normal; font-size:0.875em;"
+                                class="zak-text-muted">— Steve Jobs</footer>
+                        </blockquote>
+                    </div>
+                </div>
+                <div class="docs-code-block">
+                    <div class="docs-code-block__header">
+                        <span class="docs-code-block__lang">html</span>
+                        <button class="docs-copy-btn"><svg class="docs-copy-btn__icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg><span class="docs-copy-btn__text">Copy</span></button>
+                    </div>
+                    <pre><code class="language-html">&lt;blockquote class="zak-blockquote"&gt;
+  "Design is how it works."
+  &lt;footer class="zak-text-muted"&gt;— Steve Jobs&lt;/footer&gt;
+&lt;/blockquote&gt;</code></pre>
+                </div>
+            </section>
+
+            <section id="code">
+                <h2>Code</h2>
+                <p>Inline code and pre-formatted code blocks.</p>
+                <div class="docs-preview">
+                    <div class="docs-preview__toolbar">
+                        <span>Code</span>
+                        <div class="docs-preview__toolbar-actions">
+                        </div>
+                    </div>
+                    <div class="docs-preview__area" style="flex-direction:column; align-items:stretch;">
+                        <p>Use <code>inline code</code> for short snippets, and <code>&lt;pre&gt;</code> blocks for
+                            multi-line examples.</p>
+                        <pre style="margin:0;">&lt;div class="zak-container"&gt;
+  &lt;h1&gt;Hello, ZAKUIKit!&lt;/h1&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+                <div class="docs-code-block">
+                    <div class="docs-code-block__header">
+                        <span class="docs-code-block__lang">html</span>
+                        <button class="docs-copy-btn"><svg class="docs-copy-btn__icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg><span class="docs-copy-btn__text">Copy</span></button>
+                    </div>
+                    <pre><code class="language-html">&lt;p&gt;Inline &lt;code&gt;code&lt;/code&gt; snippet&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&lt;div class="zak-container"&gt;...&lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;</code></pre>
+                </div>
+            </section>
+
+            <section id="display-headings">
+                <h2>Display Headings</h2>
+                <p>Large, attention-grabbing display headings for hero sections and landing pages.</p>
+                <div class="docs-preview">
+                    <div class="docs-preview__toolbar">
+                        <span>Display</span>
+                        <div class="docs-preview__toolbar-actions">
+                        </div>
+                    </div>
+                    <div class="docs-preview__area" style="flex-direction:column; align-items:flex-start; gap:4px;">
+                        <div class="zak-display-1">Display 1</div>
+                        <div class="zak-display-2">Display 2</div>
+                        <div class="zak-display-3">Display 3</div>
+                        <div class="zak-display-4">Display 4</div>
+                        <div class="zak-display-5">Display 5</div>
+                        <div class="zak-display-6">Display 6</div>
+                    </div>
+                </div>
+                <div class="docs-code-block">
+                    <div class="docs-code-block__header">
+                        <span class="docs-code-block__lang">html</span>
+                        <button class="docs-copy-btn"><svg class="docs-copy-btn__icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg><span class="docs-copy-btn__text">Copy</span></button>
+                    </div>
+                    <pre><code class="language-html">&lt;h1 class="zak-display-1"&gt;Display Heading&lt;/h1&gt;
+&lt;h2 class="zak-display-3"&gt;Sub Display&lt;/h2&gt;
+
+&lt;!-- Sizes: display-1 (4rem) through display-6 (1.5rem) --&gt;
+.zak-display-1 .zak-display-2 .zak-display-3 .zak-display-4
+.zak-display-5 .zak-display-6</code></pre>
+                </div>
+            </section>
+
+            <section id="accessibility">
+                <h2>Accessibility</h2>
+                <ul class="zak-list-disc">
+                    <li>Always use the correct semantic heading level (<code>h1</code>–<code>h6</code>) to reflect the
+                        document structure; <code>zak-h*</code> classes are for visual matching only.</li>
+                    <li>Maintain a minimum text contrast of <strong>4.5:1</strong> against the background.</li>
+                    <li>When truncating text, consider providing a title attribute or the full text for screen readers.
+                    </li>
+                    <li>Do not use bold or italic formatting (<code>b</code>, <code>strong</code>, <code>em</code>)
+                        purely for visual style — reserve them for their semantic meaning.</li>
+                    <li>Line height should be at least 1.5 for body text to improve readability.</li>
+                </ul>
+            </section>
+
+        </div>
+    </main>
+    <!-- Search Overlay -->
+    <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+        <div class="docs-search">
+            <div class="docs-search__input-wrap">
+                <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+                <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..."
+                    aria-label="Search">
+                <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+            </div>
+            <div class="docs-search__results"></div>
+            <div class="docs-search__footer">
+                <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+                <span>Press <kbd>ESC</kbd> to close</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+</body>
+
+</html>

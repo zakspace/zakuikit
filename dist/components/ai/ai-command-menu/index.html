@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit AI Command Menu documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>AI Command Menu - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/ai/ai-command-menu/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="AI Command Menu - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit AI Command Menu documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/ai/ai-command-menu/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Ai</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">AI Command Menu</span>
+                </nav>
+        <h1>AI Command Menu</h1>
+        <p class="docs-subtitle">Command palette overlay with AI commands, categories, keyboard shortcuts, search filtering, and recent commands.</p>
+
+        <section class="zak-docs-section">
+            <h2>Command Menu</h2>
+            <p>Full command palette with search, categorized commands, and keyboard shortcuts. Click the button to open.</p>
+            <div class="docs-preview">
+                <button class="zak-ai-btn zak-ai-btn-primary zak-ai-btn-md" onclick="document.getElementById('cmd-demo').classList.add('show')" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;border:none;padding:0.5rem 1.125rem;border-radius:0.75rem;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:0.5rem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M18 3a3 3 0 00-3 3v12a3 3 0 003 3 3 3 0 003-3 3 3 0 00-3-3H6a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3V6a3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3h12a3 3 0 003-3 3 3 0 00-3-3z"/></svg>Open Command Menu <kbd style="background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.3);border-radius:0.25rem;padding:0.0625rem 0.375rem;font-size:0.6875rem">âŒ˜K</kbd></button>
+            </div>
+
+            <div class="zak-ai-cmd-overlay" id="cmd-demo">
+                <div class="zak-ai-cmd-modal">
+                    <div class="zak-ai-cmd-search">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                        <input type="text" id="cmd-input-demo" placeholder="Type a command or search..." autocomplete="off">
+                        <kbd>ESC</kbd>
+                    </div>
+                    <div class="zak-ai-cmd-list" id="cmd-list-demo">
+                        <div class="zak-ai-cmd-recent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Recent</div>
+                        <div class="zak-ai-cmd-item" data-search="generate code">
+                            <div class="zak-ai-cmd-item-icon ai"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></div>
+                            <span class="zak-ai-cmd-item-text">Generate Code</span>
+                            <span class="zak-ai-cmd-item-desc">— Create code from description</span>
+                            <div class="zak-ai-cmd-item-shortcut"><kbd>âŒ˜</kbd><kbd>G</kbd></div>
+                        </div>
+                        <div class="zak-ai-cmd-category">AI</div>
+                        <div class="zak-ai-cmd-item" data-search="summarize">
+                            <div class="zak-ai-cmd-item-icon ai"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></div>
+                            <span class="zak-ai-cmd-item-text">Summarize Selection</span>
+                            <div class="zak-ai-cmd-item-shortcut"><kbd>âŒ˜</kbd><kbd>S</kbd></div>
+                        </div>
+                        <div class="zak-ai-cmd-item" data-search="improve rewrite">
+                            <div class="zak-ai-cmd-item-icon ai"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></div>
+                            <span class="zak-ai-cmd-item-text">Improve Writing</span>
+                            <div class="zak-ai-cmd-item-shortcut"><kbd>âŒ˜</kbd><kbd>I</kbd></div>
+                        </div>
+                        <div class="zak-ai-cmd-item" data-search="fix debug">
+                            <div class="zak-ai-cmd-item-icon ai"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></div>
+                            <span class="zak-ai-cmd-item-text">Fix Errors</span>
+                            <div class="zak-ai-cmd-item-shortcut"><kbd>âŒ˜</kbd><kbd>F</kbd></div>
+                        </div>
+                        <div class="zak-ai-cmd-item" data-search="explain">
+                            <div class="zak-ai-cmd-item-icon ai"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></div>
+                            <span class="zak-ai-cmd-item-text">Explain Code</span>
+                            <div class="zak-ai-cmd-item-shortcut"><kbd>âŒ˜</kbd><kbd>E</kbd></div>
+                        </div>
+                        <div class="zak-ai-cmd-category">Actions</div>
+                        <div class="zak-ai-cmd-item" data-search="copy">
+                            <div class="zak-ai-cmd-item-icon action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></div>
+                            <span class="zak-ai-cmd-item-text">Copy to Clipboard</span>
+                            <div class="zak-ai-cmd-item-shortcut"><kbd>âŒ˜</kbd><kbd>C</kbd></div>
+                        </div>
+                        <div class="zak-ai-cmd-item" data-search="export">
+                            <div class="zak-ai-cmd-item-icon action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></div>
+                            <span class="zak-ai-cmd-item-text">Export as Markdown</span>
+                            <div class="zak-ai-cmd-item-shortcut"><kbd>âŒ˜</kbd><kbd>â‡§</kbd><kbd>E</kbd></div>
+                        </div>
+                        <div class="zak-ai-cmd-category">Navigation</div>
+                        <div class="zak-ai-cmd-item" data-search="new conversation chat">
+                            <div class="zak-ai-cmd-item-icon nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
+                            <span class="zak-ai-cmd-item-text">New Conversation</span>
+                            <div class="zak-ai-cmd-item-shortcut"><kbd>âŒ˜</kbd><kbd>N</kbd></div>
+                        </div>
+                        <div class="zak-ai-cmd-item" data-search="history">
+                            <div class="zak-ai-cmd-item-icon nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+                            <span class="zak-ai-cmd-item-text">View History</span>
+                            <div class="zak-ai-cmd-item-shortcut"><kbd>âŒ˜</kbd><kbd>H</kbd></div>
+                        </div>
+                        <div class="zak-ai-cmd-item" data-search="settings preferences">
+                            <div class="zak-ai-cmd-item-icon nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div>
+                            <span class="zak-ai-cmd-item-text">Settings</span>
+                            <div class="zak-ai-cmd-item-shortcut"><kbd>âŒ˜</kbd><kbd>,</kbd></div>
+                        </div>
+                    </div>
+                    <div class="zak-ai-cmd-footer">
+                        <span><kbd>â†‘</kbd><kbd>â†“</kbd> Navigate</span>
+                        <span><kbd>â†µ</kbd> Select</span>
+                        <span><kbd>ESC</kbd> Close</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-ai-cmd-overlay" id="cmd-menu"&gt;
+    &lt;div class="zak-ai-cmd-modal"&gt;
+        &lt;div class="zak-ai-cmd-search"&gt;
+            &lt;svg&gt;...search icon...&lt;/svg&gt;
+            &lt;input type="text" placeholder="Type a command or search..."&gt;
+            &lt;kbd&gt;ESC&lt;/kbd&gt;
+        &lt;/div&gt;
+        &lt;div class="zak-ai-cmd-list"&gt;
+            &lt;div class="zak-ai-cmd-category"&gt;AI&lt;/div&gt;
+            &lt;div class="zak-ai-cmd-item" data-search="generate"&gt;
+                &lt;div class="zak-ai-cmd-item-icon ai"&gt;âœ¦&lt;/div&gt;
+                &lt;span class="zak-ai-cmd-item-text"&gt;Generate Code&lt;/span&gt;
+                &lt;div class="zak-ai-cmd-item-shortcut"&gt;
+                    &lt;kbd&gt;âŒ˜&lt;/kbd&gt;&lt;kbd&gt;G&lt;/kbd&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="zak-ai-cmd-category"&gt;Actions&lt;/div&gt;
+            &lt;div class="zak-ai-cmd-item"&gt;...&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="zak-ai-cmd-footer"&gt;
+            &lt;span&gt;&lt;kbd&gt;â†‘â†“&lt;/kbd&gt; Navigate&lt;/span&gt;
+            &lt;span&gt;&lt;kbd&gt;â†µ&lt;/kbd&gt; Select&lt;/span&gt;
+            &lt;span&gt;&lt;kbd&gt;ESC&lt;/kbd&gt; Close&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>CSS Classes</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>.zak-ai-cmd-overlay          /* Full-screen backdrop */
+.zak-ai-cmd-modal            /* Command palette modal */
+.zak-ai-cmd-search           /* Search input row */
+.zak-ai-cmd-list             /* Scrollable command list */
+.zak-ai-cmd-category         /* Category heading */
+.zak-ai-cmd-item             /* Individual command row */
+.zak-ai-cmd-item.active      /* Keyboard-focused item */
+.zak-ai-cmd-item-icon        /* Command icon */
+.zak-ai-cmd-item-icon.ai     /* AI icon (purple) */
+.zak-ai-cmd-item-icon.action /* Action icon (green) */
+.zak-ai-cmd-item-icon.nav    /* Navigation icon (amber) */
+.zak-ai-cmd-item-text        /* Command label */
+.zak-ai-cmd-item-desc        /* Command description */
+.zak-ai-cmd-item-shortcut    /* Keyboard shortcut keys */
+.zak-ai-cmd-footer           /* Footer with navigation hints */
+.zak-ai-cmd-recent           /* Recent commands label */</code></pre>
+        </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>JavaScript</h2>
+            <p>Keyboard shortcut to open, search filtering, and keyboard navigation.</p>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>const overlay = document.getElementById('cmd-demo');
+const input = document.getElementById('cmd-input-demo');
+const list = document.getElementById('cmd-list-demo');
+const items = list?.querySelectorAll('.zak-ai-cmd-item') || [];
+let activeIndex = 0;
+
+// Open with Cmd+K / Ctrl+K
+document.addEventListener('keydown', e =&gt; {
+    if ((e.metaKey || e.ctrlKey) &amp;&amp; e.key === 'k') {
+        e.preventDefault();
+        overlay?.classList.toggle('show');
+        if (overlay?.classList.contains('show')) input?.focus();
+    }
+    if (e.key === 'Escape') overlay?.classList.remove('show');
+});
+
+// Close on backdrop click
+overlay?.addEventListener('click', e =&gt; {
+    if (e.target === overlay) overlay.classList.remove('show');
+});
+
+// Search filtering
+input?.addEventListener('input', function() {
+    const query = this.value.toLowerCase();
+    items.forEach(item =&gt; {
+        const search = (item.dataset.search || item.textContent).toLowerCase();
+        item.style.display = search.includes(query) ? '' : 'none';
+    });
+    activeIndex = 0;
+    updateActive();
+});
+
+// Keyboard navigation
+input?.addEventListener('keydown', function(e) {
+    const visible = [...items].filter(i =&gt; i.style.display !== 'none');
+    if (e.key === 'ArrowDown') { activeIndex = Math.min(activeIndex + 1, visible.length - 1); updateActive(); }
+    if (e.key === 'ArrowUp') { activeIndex = Math.max(activeIndex - 1, 0); updateActive(); }
+    if (e.key === 'Enter' &amp;&amp; visible[activeIndex]) visible[activeIndex].click();
+});
+
+function updateActive() {
+    const visible = [...items].filter(i =&gt; i.style.display !== 'none');
+    items.forEach(i =&gt; i.classList.remove('active'));
+    if (visible[activeIndex]) visible[activeIndex].classList.add('active');
+}
+
+// Close on item click
+items.forEach(item =&gt; {
+    item.addEventListener('click', () =&gt; {
+        overlay?.classList.remove('show');
+        console.log('Selected:', item.querySelector('.zak-ai-cmd-item-text')?.textContent);
+    });
+});</code></pre>
+        </div>
+        </section>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body>
+</html>

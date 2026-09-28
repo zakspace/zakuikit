@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Rating documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Rating - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/data-display/rating/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Rating - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Rating documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/data-display/rating/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Data-Display</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Rating</span>
+                </nav>
+        <h1>Rating</h1>
+        <p class="docs-subtitle">Ratings let users view or select a score. Star icons support full and half values, sizes, labels, counts, and alternative symbols like hearts or thumbs.</p>
+
+        <div class="zak-docs-section">
+            <h2>Basic Rating</h2>
+            <p>Build with <code>.zak-rating</code> and <code>.zak-rating-star</code>. Use <code>zak-rating-star-filled</code> for active stars.</p>
+
+            <div class="docs-preview">
+                <div class="zak-rating" style="max-width: 12rem; margin: 0 auto;">
+                    <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                    <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                    <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                    <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                    <span class="zak-rating-star"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-rating"&gt;
+  &lt;span class="zak-rating-star zak-rating-star-filled"&gt;
+    &lt;svg class="zak-icon"&gt;...&lt;/svg&gt;
+  &lt;/span&gt;
+  &lt;span class="zak-rating-star"&gt;
+    &lt;svg class="zak-icon"&gt;...&lt;/svg&gt;
+  &lt;/span&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Half Stars</h2>
+            <p>Use <code>zak-rating-star-half</code> to render a partial star (overlay clip).</p>
+
+            <div class="docs-preview">
+                <div class="zak-rating" style="max-width: 12rem; margin: 0 auto;">
+                    <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                    <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                    <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                    <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                    <span class="zak-rating-star zak-rating-star-half"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                </div>
+                <p style="margin-top: var(--zak-space-4); font-size: var(--zak-font-size-sm);">4.5 out of 5</p>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;span class="zak-rating-star zak-rating-star-half"&gt;
+  &lt;svg class="zak-icon"&gt;...&lt;/svg&gt;
+&lt;/span&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Rating with Count and Label</h2>
+            <p>Append a rating count and optional label text.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; flex-direction: column; align-items: center; gap: var(--zak-space-3);">
+                    <div class="zak-rating" style="max-width: 14rem;">
+                        <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                        <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                        <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                        <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                        <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                    </div>
+                    <span class="zak-rating-label">5.0 · 327 reviews</span>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-rating"&gt;... stars ...&lt;/div&gt;
+&lt;span class="zak-rating-label"&gt;5.0 · 327 reviews&lt;/span&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Read-Only Rating</h2>
+            <p>Same markup, no interactive roles — perfect for review summaries.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; align-items: center; gap: var(--zak-space-3); justify-content: center;">
+                    <div class="zak-rating">
+                        <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                        <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                        <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                        <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                        <span class="zak-rating-star"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                    </div>
+                    <span class="zak-rating-label" aria-label="Rated 4 out of 5">4.0</span>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-rating" aria-label="Rated 4 out of 5"&gt;
+  &lt;span class="zak-rating-star zak-rating-star-filled"&gt;...&lt;/span&gt;
+  &lt;span class="zak-rating-star"&gt;...&lt;/span&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Rating Sizes</h2>
+            <p>Scale with <code>zak-rating-sm</code> and <code>zak-rating-lg</code>, or bump the icon width/height inline.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; flex-direction: column; align-items: center; gap: var(--zak-space-4);">
+                    <div class="zak-rating zak-rating-sm">
+                        <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                        <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                        <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                        <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                        <span class="zak-rating-star zak-rating-star-half"><svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                    </div>
+                    <div class="zak-rating">
+                        <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                        <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                        <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                        <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                        <span class="zak-rating-star"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                    </div>
+                    <div class="zak-rating zak-rating-lg">
+                        <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon" viewBox="0 0 24 24" style="width: 2rem; height: 2rem;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                        <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon" viewBox="0 0 24 24" style="width: 2rem; height: 2rem;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                        <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon" viewBox="0 0 24 24" style="width: 2rem; height: 2rem;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                        <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon" viewBox="0 0 24 24" style="width: 2rem; height: 2rem;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                        <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon" viewBox="0 0 24 24" style="width: 2rem; height: 2rem;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-rating zak-rating-sm"&gt;...&lt;/div&gt;
+&lt;div class="zak-rating"&gt;...&lt;/div&gt;
+&lt;div class="zak-rating zak-rating-lg"&gt;
+  &lt;svg class="zak-icon" style="width: 2rem; height: 2rem;"&gt;...&lt;/svg&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Hearts and Thumbs</h2>
+            <p>Swap the star icon for hearts or thumbs for different sentiment styles.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; flex-direction: column; align-items: center; gap: var(--zak-space-4);">
+                    <div class="zak-rating" style="--zak-rating-color: var(--zak-color-danger);">
+                        <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+                        <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+                        <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+                        <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+                        <span class="zak-rating-star"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+                    </div>
+                    <span class="zak-rating-label">48 likes</span>
+                    <div class="zak-rating" style="--zak-rating-color: var(--zak-color-primary);">
+                        <span class="zak-rating-star zak-rating-star-filled"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg></span>
+                        <span class="zak-rating-star"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg></span>
+                        <span class="zak-rating-star"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg></span>
+                        <span class="zak-rating-star"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg></span>
+                        <span class="zak-rating-star"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg></span>
+                    </div>
+                    <span class="zak-rating-label">1 of 5 helpful</span>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-rating" style="--zak-rating-color: var(--zak-color-danger);"&gt;
+  &lt;span class="zak-rating-star zak-rating-star-filled"&gt;
+    &lt;svg class="zak-icon"&gt;...&lt;/svg&gt; &lt;!-- heart path --&gt;
+  &lt;/span&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Interactive Rating</h2>
+            <p>Make stars clickable with a radio-group role. The demo below is wired via <code>data-interactive-rating</code>.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; flex-direction: column; align-items: center; gap: var(--zak-space-3);">
+                    <div class="zak-rating" role="radiogroup" aria-label="Rate your experience" data-interactive-rating>
+                        <span class="zak-rating-star" role="radio" tabindex="0" data-value="1"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                        <span class="zak-rating-star" role="radio" tabindex="-1" data-value="2"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                        <span class="zak-rating-star" role="radio" tabindex="-1" data-value="3"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                        <span class="zak-rating-star" role="radio" tabindex="-1" data-value="4"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                        <span class="zak-rating-star" role="radio" tabindex="-1" data-value="5"><svg class="zak-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                    </div>
+                    <span class="zak-rating-label" data-rating-feedback>Click a star to rate</span>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-rating" role="radiogroup" data-interactive-rating&gt;
+  &lt;span class="zak-rating-star" role="radio" tabindex="0" data-value="1"&gt;...&lt;/span&gt;
+  &lt;span class="zak-rating-star" role="radio" tabindex="-1" data-value="2"&gt;...&lt;/span&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Demo JavaScript</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span>JavaScript</span><button class="docs-copy-btn">Copy</button></div><pre><code>document.querySelectorAll('[data-interactive-rating]').forEach(function (group) {
+  var stars = Array.prototype.slice.call(group.querySelectorAll('[role="radio"]'));
+  function paint(value) {
+    stars.forEach(function (s, i) {
+      s.classList.toggle('zak-rating-star-filled', i &lt; value);
+      s.setAttribute('tabindex', i === value - 1 ? '0' : '-1');
+      s.setAttribute('aria-checked', i &lt; value ? 'true' : 'false');
+    });
+  }
+  stars.forEach(function (star) {
+    star.addEventListener('click', function () {
+      paint(Number(star.dataset.value));
+    });
+    star.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {
+        var next = Math.min(5, Number(star.dataset.value) + 1);
+        paint(next);
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {
+        var prev = Math.max(1, Number(star.dataset.value) - 1);
+        paint(prev);
+      } else if (e.key === 'Home') {
+        paint(1);
+      } else if (e.key === 'End') {
+        paint(5);
+      }
+    });
+  });
+});</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.zak-rating</code></td><td>Container — reads <code>--zak-rating-color</code></td></tr>
+                        <tr><td><code>.zak-rating-star</code></td><td>Single icon (outline by default)</td></tr>
+                        <tr><td><code>.zak-rating-star-filled</code></td><td>Active/filled icon</td></tr>
+                        <tr><td><code>.zak-rating-star-half</code></td><td>Half-filled icon</td></tr>
+                        <tr><td><code>.zak-rating-sm</code> / <code>.zak-rating-lg</code></td><td>Small / large icon sizes</td></tr>
+                        <tr><td><code>.zak-rating-label</code></td><td>Text label (value + count)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Read-only ratings: keep the icon group <code>aria-hidden</code> and expose the numeric score as text.</li>
+                <li>Interactive ratings: use <code>role="radiogroup"</code>/<code>role="radio"</code> with <code>aria-checked</code> and keyboard support (arrows, Home/End).</li>
+                <li>Pair stars with a visible numeric label rather than relying on glyph alone.</li>
+                <li>Announce the selected value with a live region on change.</li>
+                <li>Don't use color alone to signal filled vs unfilled; the outline/fill contrast carries meaning.</li>
+            </ul>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    <script>
+        document.querySelectorAll('[data-interactive-rating]').forEach(function (group) {
+            var stars = Array.prototype.slice.call(group.querySelectorAll('[role="radio"]'));
+            var feedback = document.querySelector('[data-rating-feedback]');
+            function paint(value) {
+                stars.forEach(function (s, i) {
+                    s.classList.toggle('zak-rating-star-filled', i < value);
+                    s.setAttribute('tabindex', i === value - 1 ? '0' : '-1');
+                    s.setAttribute('aria-checked', i < value ? 'true' : 'false');
+                });
+                if (feedback) {
+                    var labels = ['Poor', 'Fair', 'Good', 'Very good', 'Excellent'];
+                    feedback.textContent = labels[value - 1] + ' (' + value + ' of 5)';
+                }
+            }
+            stars.forEach(function (star) {
+                star.addEventListener('click', function () {
+                    paint(Number(star.dataset.value));
+                });
+                star.addEventListener('keydown', function (e) {
+                    var current = Number(star.dataset.value);
+                    if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {
+                        paint(Math.min(5, current + 1));
+                    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {
+                        paint(Math.max(1, current - 1));
+                    } else if (e.key === 'Home') {
+                        paint(1);
+                    } else if (e.key === 'End') {
+                        paint(5);
+                    }
+                });
+            });
+        });
+    </script>
+</body></html>

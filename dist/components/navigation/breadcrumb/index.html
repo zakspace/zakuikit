@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Breadcrumb documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Breadcrumb - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/navigation/breadcrumb/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Breadcrumb - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Breadcrumb documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/navigation/breadcrumb/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main">
+        <div class="docs-content">
+            <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Navigation</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Breadcrumb</span>
+                </nav>
+
+            <h1>Breadcrumb</h1>
+            <p class="docs-subtitle">Breadcrumbs show the current page's location within a navigational hierarchy, helping users understand where they are and navigate back to parent pages.</p>
+
+            <section class="zak-docs-section">
+                <h2>Basic Breadcrumb</h2>
+                <p>A simple breadcrumb with clickable links and a current page indicator.</p>
+                <div class="docs-preview">
+                    <nav class="zak-breadcrumb" aria-label="Breadcrumb">
+                        <ol class="zak-breadcrumb-list">
+                            <li class="zak-breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="zak-breadcrumb-item"><a href="#">Products</a></li>
+                            <li class="zak-breadcrumb-item"><a href="#">Electronics</a></li>
+                            <li class="zak-breadcrumb-item" aria-current="page">Headphones</li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;nav class="zak-breadcrumb" aria-label="Breadcrumb"&gt;
+    &lt;ol class="zak-breadcrumb-list"&gt;
+        &lt;li class="zak-breadcrumb-item"&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="zak-breadcrumb-item"&gt;&lt;a href="#"&gt;Products&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="zak-breadcrumb-item"&gt;&lt;a href="#"&gt;Electronics&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="zak-breadcrumb-item" aria-current="page"&gt;Headphones&lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Breadcrumb with Icons</h2>
+                <p>Add icons to breadcrumb items for visual context.</p>
+                <div class="docs-preview">
+                    <nav class="zak-breadcrumb" aria-label="Breadcrumb with icons">
+                        <ol class="zak-breadcrumb-list">
+                            <li class="zak-breadcrumb-item">
+                                <a href="#">
+                                    <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+                                    Home
+                                </a>
+                            </li>
+                            <li class="zak-breadcrumb-item">
+                                <a href="#">
+                                    <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                                    Projects
+                                </a>
+                            </li>
+                            <li class="zak-breadcrumb-item" aria-current="page">
+                                <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 17.5 3 6V3h3l11.5 11.5"/><path d="M13 19l6-6"/><path d="M16 16l4 4"/><path d="M19 21l2-2"/></svg>
+                                Redesign
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;li class="zak-breadcrumb-item"&gt;
+    &lt;a href="#"&gt;
+        &lt;svg class="zak-icon" viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
+        Home
+    &lt;/a&gt;
+&lt;/li&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Breadcrumb with Links</h2>
+                <p>All items except the last are links to parent pages.</p>
+                <div class="docs-preview">
+                    <nav class="zak-breadcrumb" aria-label="Breadcrumb with links">
+                        <ol class="zak-breadcrumb-list">
+                            <li class="zak-breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="zak-breadcrumb-item"><a href="#">Library</a></li>
+                            <li class="zak-breadcrumb-item"><a href="#">Data</a></li>
+                            <li class="zak-breadcrumb-item"><a href="#">Reports</a></li>
+                            <li class="zak-breadcrumb-item" aria-current="page">Q4 2025</li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;ol class="zak-breadcrumb-list"&gt;
+    &lt;li class="zak-breadcrumb-item"&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="zak-breadcrumb-item"&gt;&lt;a href="#"&gt;Library&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="zak-breadcrumb-item"&gt;&lt;a href="#"&gt;Data&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="zak-breadcrumb-item"&gt;&lt;a href="#"&gt;Reports&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="zak-breadcrumb-item" aria-current="page"&gt;Q4 2025&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Breadcrumb with Active/Current Item</h2>
+                <p>The last item is styled differently to indicate the current page.</p>
+                <div class="docs-preview">
+                    <nav class="zak-breadcrumb" aria-label="Breadcrumb current">
+                        <ol class="zak-breadcrumb-list">
+                            <li class="zak-breadcrumb-item"><a href="#">Dashboard</a></li>
+                            <li class="zak-breadcrumb-item"><a href="#">Users</a></li>
+                            <li class="zak-breadcrumb-item" aria-current="page">User Profile</li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;li class="zak-breadcrumb-item" aria-current="page"&gt;User Profile&lt;/li&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Breadcrumb with Separators</h2>
+                <p>Customize the separator between breadcrumb items.</p>
+                <div class="docs-preview">
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <div>
+                            <div style="font-size: 0.75rem; color: var(--docs-text-muted); margin-bottom: 0.25rem;">Slash separator (default)</div>
+                            <nav class="zak-breadcrumb" aria-label="Slash separator">
+                                <ol class="zak-breadcrumb-list">
+                                    <li class="zak-breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="zak-breadcrumb-item"><a href="#">Docs</a></li>
+                                    <li class="zak-breadcrumb-item" aria-current="page">Breadcrumb</li>
+                                </ol>
+                            </nav>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.75rem; color: var(--docs-text-muted); margin-bottom: 0.25rem;">Chevron separator</div>
+                            <nav class="zak-breadcrumb zak-breadcrumb-chevron" aria-label="Chevron separator">
+                                <ol class="zak-breadcrumb-list">
+                                    <li class="zak-breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="zak-breadcrumb-item"><a href="#">Docs</a></li>
+                                    <li class="zak-breadcrumb-item" aria-current="page">Breadcrumb</li>
+                                </ol>
+                            </nav>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.75rem; color: var(--docs-text-muted); margin-bottom: 0.25rem;">Arrow separator</div>
+                            <nav class="zak-breadcrumb zak-breadcrumb-arrow" aria-label="Arrow separator">
+                                <ol class="zak-breadcrumb-list">
+                                    <li class="zak-breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="zak-breadcrumb-item"><a href="#">Docs</a></li>
+                                    <li class="zak-breadcrumb-item" aria-current="page">Breadcrumb</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;!-- Slash (default) --&gt;
+&lt;nav class="zak-breadcrumb"&gt;...&lt;/nav&gt;
+
+&lt;!-- Chevron --&gt;
+&lt;nav class="zak-breadcrumb zak-breadcrumb-chevron"&gt;...&lt;/nav&gt;
+
+&lt;!-- Arrow --&gt;
+&lt;nav class="zak-breadcrumb zak-breadcrumb-arrow"&gt;...&lt;/nav&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Responsive Breadcrumb</h2>
+                <p>Breadcrumbs collapse middle items on smaller screens with an ellipsis.</p>
+                <div class="docs-preview">
+                    <nav class="zak-breadcrumb zak-breadcrumb-responsive" aria-label="Responsive breadcrumb">
+                        <ol class="zak-breadcrumb-list">
+                            <li class="zak-breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="zak-breadcrumb-item" style="display: none;"><a href="#">Company</a></li>
+                            <li class="zak-breadcrumb-item"><a href="#">...</a></li>
+                            <li class="zak-breadcrumb-item"><a href="#">Department</a></li>
+                            <li class="zak-breadcrumb-item"><a href="#">Team</a></li>
+                            <li class="zak-breadcrumb-item" aria-current="page">Project Settings</li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;nav class="zak-breadcrumb zak-breadcrumb-responsive"&gt;
+    &lt;ol class="zak-breadcrumb-list"&gt;
+        &lt;li class="zak-breadcrumb-item"&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="zak-breadcrumb-item" style="display: none;"&gt;&lt;a href="#"&gt;Company&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="zak-breadcrumb-item"&gt;&lt;a href="#"&gt;...&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="zak-breadcrumb-item"&gt;&lt;a href="#"&gt;Department&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="zak-breadcrumb-item" aria-current="page"&gt;Project Settings&lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>CSS Classes</h2>
+                <p>Breadcrumb styles are controlled through these CSS classes.</p>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>/* Breadcrumb Container */
+.zak-breadcrumb                    /* Base breadcrumb */
+.zak-breadcrumb-chevron            /* Chevron separators */
+.zak-breadcrumb-arrow              /* Arrow separators */
+.zak-breadcrumb-responsive         /* Responsive collapse */
+
+/* Breadcrumb Parts */
+.zak-breadcrumb-list               /* Ordered list container */
+.zak-breadcrumb-item               /* List item */
+
+/* States */
+.zak-breadcrumb-item a             /* Clickable link */
+.zak-breadcrumb-item[aria-current] /* Current page (no link) */</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>JavaScript</h2>
+                <p>Handle responsive breadcrumb collapse with JavaScript.</p>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>// Responsive breadcrumb: collapse middle items on small screens
+function updateBreadcrumb() {
+    document.querySelectorAll('.zak-breadcrumb-responsive .zak-breadcrumb-list').forEach(list =&gt; {
+        const items = list.querySelectorAll('.zak-breadcrumb-item');
+        const isSmall = window.innerWidth &lt; 640;
+        items.forEach((item, i) =&gt; {
+            if (i &gt; 0 &amp;&amp; i &lt; items.length - 2) {
+                item.style.display = isSmall ? 'none' : '';
+            }
+        });
+        // Show/hide ellipsis
+        const ellipsis = list.querySelector('.zak-breadcrumb-ellipsis');
+        if (ellipsis) {
+            ellipsis.style.display = isSmall ? '' : 'none';
+        }
+    });
+}
+
+window.addEventListener('resize', updateBreadcrumb);
+updateBreadcrumb();</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Accessibility</h2>
+                <p>Follow these accessibility best practices when using breadcrumbs.</p>
+                <ul>
+                    <li>Use <code>&lt;nav&gt;</code> with <code>aria-label="Breadcrumb"</code> to identify the navigation.</li>
+                    <li>Use an ordered list <code>&lt;ol&gt;</code> to convey the hierarchical structure.</li>
+                    <li>Mark the current page with <code>aria-current="page"</code>.</li>
+                    <li>Don't separate the <code>&lt;ol&gt;</code> from the <code>&lt;nav&gt;</code> with <code>aria-labelledby</code> or similar.</li>
+                    <li>Separators should be hidden from screen readers with <code>aria-hidden="true"</code>.</li>
+                    <li>Ensure link text is descriptive enough to be meaningful out of context.</li>
+                </ul>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;nav aria-label="Breadcrumb"&gt;
+    &lt;ol class="zak-breadcrumb-list"&gt;
+        &lt;li class="zak-breadcrumb-item"&gt;
+            &lt;a href="#"&gt;Home&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class="zak-breadcrumb-item"&gt;
+            &lt;span aria-hidden="true"&gt;/&lt;/span&gt;
+            &lt;a href="#"&gt;Products&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class="zak-breadcrumb-item"&gt;
+            &lt;span aria-hidden="true"&gt;/&lt;/span&gt;
+            &lt;span aria-current="page"&gt;Headphones&lt;/span&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body>
+</html>

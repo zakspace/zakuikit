@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Tooltip documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Tooltip - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/overlays/tooltip/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Tooltip - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Tooltip documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/overlays/tooltip/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Overlays</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Tooltip</span>
+                </nav>
+        <h1>Tooltip</h1>
+        <p class="docs-subtitle">Tooltips deliver short, contextual labels on hover or focus. They are non-interactive, purely informational overlays.</p>
+
+        <section class="zak-docs-section">
+            <h2>Basic Tooltip</h2>
+            <p>Add <code>data-zak-tooltip="text"</code> to any element. The tooltip appears on hover and focus, and hides on mouse-out and <kbd>Escape</kbd>.</p>
+            <div class="docs-preview">
+                <div class="tt-triggers">
+                    <span style="position:relative;"><button class="zak-btn zak-btn-primary" data-zak-tooltip="Saves your changelog">Save</button></span>
+                    <span style="position:relative;"><button class="zak-btn zak-btn-secondary" data-zak-tooltip="Delete this entry permanently">Delete</button></span>
+                    <span style="position:relative;"><input type="text" class="zak-input" data-zak-tooltip="Enter at least 8 characters" placeholder="Password"></span>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;button class="zak-btn zak-btn-primary" data-zak-tooltip="Saves your changelog"&gt;Save&lt;/button&gt;
+
+&lt;input type="text" class="zak-input" data-zak-tooltip="Enter at least 8 characters"&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Tooltip Placements</h2>
+            <p>Use <code>data-zak-tooltip-placement</code> with <code>top</code>, <code>bottom</code>, <code>left</code> or <code>right</code> (default <code>top</code>). The tooltip auto-flips when it would clip the viewport.</p>
+            <div class="docs-preview">
+                <div class="tt-triggers">
+                    <span style="position:relative;"><button class="zak-btn zak-btn-outline-primary" data-zak-tooltip="Top placement" data-zak-tooltip-placement="top">Top</button></span>
+                    <span style="position:relative;"><button class="zak-btn zak-btn-outline-primary" data-zak-tooltip="Bottom placement" data-zak-tooltip-placement="bottom">Bottom</button></span>
+                    <span style="position:relative;"><button class="zak-btn zak-btn-outline-primary" data-zak-tooltip="Left placement" data-zak-tooltip-placement="left">Left</button></span>
+                    <span style="position:relative;"><button class="zak-btn zak-btn-outline-primary" data-zak-tooltip="Right placement" data-zak-tooltip-placement="right">Right</button></span>
+                </div>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Tooltip with Arrow</h2>
+            <p>The arrow points at the trigger. It comes from the popover utility layer, and can be disabled by removing the generated <code>.zak-tooltip-arrow</code> element.</p>
+            <div class="docs-preview">
+                <div class="tt-triggers">
+                    <span style="position:relative;"><span class="zak-badge zak-badge-info" data-zak-tooltip="3 new mentions" data-zak-tooltip-placement="bottom">Notifications</span></span>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;span class="zak-badge zak-badge-info"
+      data-zak-tooltip="3 new mentions"
+      data-zak-tooltip-placement="bottom"&gt;Notifications&lt;/span&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Rich Tooltip</h2>
+            <p>Keep to one or two lines of plain text. If you need more content, reach for a <a href="../popover/index.html" style="color:var(--zak-color-primary);">Popover</a> instead.</p>
+            <div class="docs-preview">
+                <div class="tt-triggers">
+                    <span style="position:relative;"><button class="zak-btn zak-btn-success" data-zak-tooltip="Deploys to the production branch">Release</button></span>
+                </div>
+                <p style="margin:20px 0 0; font-size:13px; color:var(--zak-text-muted, #64748b);">For interactive content such as links, buttons or forms use a popover to satisfy keyboard and screen-reader expectations.</p>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Disable Pointer Events</h2>
+            <p>Tooltips never capture pointer events (<code>pointer-events: none</code>). Hovering the label itself won&rsquo;t keep it open, and it never blocks clicks under it.</p>
+            <div class="docs-preview">
+                <div class="tt-triggers">
+                    <span style="position:relative;"><button class="zak-btn zak-btn-danger" data-zak-tooltip="You can still click anything beneath this text">Try me</button></span>
+                </div>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>CSS Classes &amp; Variables</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>/* Class Summary */
+.zak-tooltip           /* Floating label (hidden until active) */
+.zak-tooltip-active    /* Added by JS to show */
+.zak-tooltip-arrow     /* JS-generated directional arrow */
+
+/* Variables used */
+--zak-tooltip-bg       /* Default dark background */
+--zak-tooltip-text     /* Label text color */
+--zak-z-tooltip        /* Highest overlay z-index */
+--zak-shadow-md        /* Soft floating shadow */</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>JavaScript</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>// Data attributes (automatic)
+//   data-zak-tooltip="text"         content to display
+//   data-zak-tooltip-placement      "top" | "bottom" | "left" | "right"
+
+// Programmatic API
+zak.tooltip.show(el, { text: 'Copied!', placement: 'top' });
+zak.tooltip.hide(el);
+
+// Show while copying values
+button.addEventListener('click', function () {
+    zak.tooltip.show(button, { text: 'Copied to clipboard' });
+    setTimeout(function () { zak.tooltip.hide(button); }, 1500);
+});</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Tooltips are informational only — never put critical instructions or required actions inside one.</li>
+                <li>The framework wires <code>aria-describedby</code> to the tooltip element so screen readers announce it.</li>
+                <li>Tooltips trigger on focus as well as hover, satisfying keyboard users.</li>
+                <li>Keep the text under ~120 characters; long tooltips become annoying.</li>
+                <li>Use <code>role="tooltip"</code> semantics (already applied) — never add focusable content inside.</li>
+            </ul>
+        </section>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body></html>

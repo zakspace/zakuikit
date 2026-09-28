@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function () { try { var t = localStorage.getItem('zak-docs-theme') || 'system'; if (t === 'system') { t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light'; } document.documentElement.setAttribute('data-theme', t); } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); } })();</script>
+    <meta name="description"
+        content="ZAKUIKit Spacing documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Spacing - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/foundations/spacing/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Spacing - ZAKUIKit">
+    <meta property="og:description"
+        content="ZAKUIKit Spacing documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/foundations/spacing/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="docs-header">
+        <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12" />
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+        </button>
+        <a href="../../../../index.html" class="docs-header__logo">
+            <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+            <span>ZAKUIKit</span>
+        </a>
+        <nav class="docs-header__nav" aria-label="Primary navigation">
+            <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+            <a href="../../../../components.html"
+                class="docs-header__link docs-header__link--active">Components</a>
+            <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+            <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+            <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+        </nav>
+        <div class="docs-header__actions">
+            <div class="docs-header__search-btn-wrap">
+                <button type="button" class="docs-header__search-btn" aria-label="Open search">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                    <span>Search docs...</span>
+                    <kbd>?K</kbd>
+                </button>
+            </div>
+            <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+    <div class="docs-sidebar-overlay"></div>
+
+    <!-- Main Content -->
+    <main class="docs-main">
+        <div class="docs-content">
+
+            <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                <span class="docs-breadcrumb__separator">/</span>
+                <span class="docs-breadcrumb__current">Foundations</span>
+                <span class="docs-breadcrumb__separator">/</span>
+                <span class="docs-breadcrumb__current">Spacing</span>
+            </nav>
+
+            <div class="docs-component-header">
+                <h1>Spacing</h1>
+                <p class="docs-component-header__description">A consistent spacing scale from 0 to 12 (plus 16, 20, 24,
+                    28, 32) applied with margin and padding utilities in any direction.</p>
+            </div>
+
+            <section id="visual-scale">
+                <h2>Visual Scale</h2>
+                <p>The spacing scale is based on a 0.25rem (4px) base. Each step increments by 4px until 1rem, then
+                    scales up for larger gaps.</p>
+                <div class="docs-preview">
+                    <div class="docs-preview__toolbar">
+                        <span>Spacing scale</span>
+                        <div class="docs-preview__toolbar-actions">
+                        </div>
+                    </div>
+                    <div class="docs-preview__area" id="docsSpacingScale"
+                        style="flex-direction:column; align-items:flex-start; gap:16px;"></div>
+                </div>
+                <div class="docs-code-block">
+                    <div class="docs-code-block__header">
+                        <span class="docs-code-block__lang">css</span>
+                        <button class="docs-copy-btn"><svg class="docs-copy-btn__icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg><span class="docs-copy-btn__text">Copy</span></button>
+                    </div>
+                    <pre><code class="language-css">--zak-space-0:   0;
+--zak-space-0-5: 0.125rem;  /* 2px  */
+--zak-space-1:   0.25rem;   /* 4px  */
+--zak-space-1-5: 0.375rem;  /* 6px  */
+--zak-space-2:   0.5rem;    /* 8px  */
+--zak-space-3:   0.75rem;   /* 12px */
+--zak-space-4:   1rem;      /* 16px */
+--zak-space-5:   1.25rem;   /* 20px */
+--zak-space-6:   1.5rem;    /* 24px */
+--zak-space-8:   2rem;      /* 32px */
+--zak-space-10:  2.5rem;    /* 40px */
+--zak-space-12:  3rem;      /* 48px */
+--zak-space-16:  4rem;      /* 64px */</code></pre>
+                </div>
+            </section>
+
+            <section id="margin">
+                <h2>Margin</h2>
+                <p>Apply margin in all directions, horizontal (<code>mx</code>), vertical (<code>my</code>), or
+                    individually with <code>mt</code>, <code>mr</code>, <code>mb</code>, <code>ml</code>.</p>
+                <div class="docs-preview">
+                    <div class="docs-preview__toolbar">
+                        <span>Margin utilities</span>
+                        <div class="docs-preview__toolbar-actions">
+                        </div>
+                    </div>
+                    <div class="docs-preview__area"
+                        style="flex-direction:column; align-items:flex-start; gap:8px; padding:16px;">
+                        <div style="background:rgba(59,130,246,0.1); padding:4px;">
+                            <div class="zak-bg-primary"
+                                style="padding:4px 8px; color:#fff; font-size:12px; border-radius:4px;">zak-m-4</div>
+                            (inside)
+                        </div>
+                        <div class="zak-p-2"
+                            style="border:1px dashed var(--docs-border); width:100%; font-size:12px; color:var(--docs-text-muted);">
+                            Container with .zak-p-2 (8px padding)
+                        </div>
+                        <div class="zak-mx-auto"
+                            style="border:1px solid var(--docs-border); border-radius:var(--docs-radius); padding:8px 16px; width:fit-content;">
+                            zak-mx-auto (centered)</div>
+                    </div>
+                </div>
+                <div class="docs-code-block">
+                    <div class="docs-code-block__header">
+                        <span class="docs-code-block__lang">css</span>
+                        <button class="docs-copy-btn"><svg class="docs-copy-btn__icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg><span class="docs-copy-btn__text">Copy</span></button>
+                    </div>
+                    <pre><code class="language-css">/* All directions */
+.zak-m-0  .zak-m-1  .zak-m-2  .zak-m-3  .zak-m-4  .zak-m-5
+.zak-m-6  .zak-m-8  .zak-m-10 .zak-m-12 .zak-m-auto
+
+/* Individual sides */
+.zak-mt-0 .zak-mt-1 .zak-mt-2 .zak-mt-3 .zak-mt-4 .zak-mt-5  /* top */
+.zak-mr-0 .zak-mr-1 .zak-mr-2 .zak-mr-3 .zak-mr-4 .zak-mr-5  /* right */
+.zak-mb-0 .zak-mb-1 .zak-mb-2 .zak-mb-3 .zak-mb-4 .zak-mb-5  /* bottom */
+.zak-ml-0 .zak-ml-1 .zak-ml-2 .zak-ml-3 .zak-ml-4 .zak-ml-5  /* left */
+
+/* Axis */
+.zak-mx-0 .zak-mx-1 ... .zak-mx-5 .zak-mx-auto  /* left + right */
+.zak-my-0 .zak-my-1 ... .zak-my-5 .zak-my-auto  /* top + bottom */</code></pre>
+                </div>
+            </section>
+
+            <section id="padding">
+                <h2>Padding</h2>
+                <p>Padding utilities mirror the margin system with a <code>p</code> prefix.</p>
+                <div class="docs-preview">
+                    <div class="docs-preview__toolbar">
+                        <span>Padding utilities</span>
+                        <div class="docs-preview__toolbar-actions">
+                        </div>
+                    </div>
+                    <div class="docs-preview__area"
+                        style="flex-direction:row; align-items:center; gap:12px; flex-wrap:wrap;">
+                        <div class="zak-p-1" style="background:var(--docs-accent-light); border-radius:4px;">p-1
+                            <small>(4px)</small></div>
+                        <div class="zak-p-2" style="background:var(--docs-accent-light); border-radius:4px;">p-2
+                            <small>(8px)</small></div>
+                        <div class="zak-p-3" style="background:var(--docs-accent-light); border-radius:4px;">p-3
+                            <small>(12px)</small></div>
+                        <div class="zak-p-4" style="background:var(--docs-accent-light); border-radius:4px;">p-4
+                            <small>(16px)</small></div>
+                        <div class="zak-p-5" style="background:var(--docs-accent-light); border-radius:4px;">p-5
+                            <small>(20px)</small></div>
+                    </div>
+                </div>
+                <div class="docs-code-block">
+                    <div class="docs-code-block__header">
+                        <span class="docs-code-block__lang">css</span>
+                        <button class="docs-copy-btn"><svg class="docs-copy-btn__icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg><span class="docs-copy-btn__text">Copy</span></button>
+                    </div>
+                    <pre><code class="language-css">/* All directions */
+.zak-p-0 .zak-p-1 .zak-p-2 .zak-p-3 .zak-p-4 .zak-p-5
+.zak-p-6 .zak-p-8 .zak-p-10 .zak-p-12
+
+/* Individual sides */
+.zak-pt-0 ... .zak-pt-8   /* top    */
+.zak-pr-0 ... .zak-pr-6   /* right  */
+.zak-pb-0 ... .zak-pb-8   /* bottom */
+.zak-pl-0 ... .zak-pl-6   /* left   */
+
+/* Axis */
+.zak-px-0 ... .zak-px-8   /* left + right */
+.zak-py-0 ... .zak-py-8   /* top + bottom */</code></pre>
+                </div>
+            </section>
+
+            <section id="auto">
+                <h2>Auto</h2>
+                <p>Use <code>auto</code> margins to center elements along an axis.</p>
+                <div class="docs-preview">
+                    <div class="docs-preview__toolbar">
+                        <span>Auto margins</span>
+                        <div class="docs-preview__toolbar-actions">
+                        </div>
+                    </div>
+                    <div class="docs-preview__area" style="flex-direction:column; align-items:stretch; gap:8px;">
+                        <div class="zak-bg-primary zak-text-inverse zak-p-2 zak-mx-auto"
+                            style="width:120px; text-align:center; border-radius:4px;">mx-auto</div>
+                        <div class="zak-d-flex"
+                            style="height:50px; border:1px dashed var(--docs-border); border-radius:4px;">
+                            <div class="zak-bg-success zak-text-inverse zak-p-2 zak-my-auto"
+                                style="width:120px; text-align:center; border-radius:4px;">my-auto</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-block">
+                    <div class="docs-code-block__header">
+                        <span class="docs-code-block__lang">html</span>
+                        <button class="docs-copy-btn"><svg class="docs-copy-btn__icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg><span class="docs-copy-btn__text">Copy</span></button>
+                    </div>
+                    <pre><code class="language-html">&lt;!-- Center horizontally --&gt;
+&lt;div class="zak-mx-auto" style="width:120px;"&gt;block&lt;/div&gt;
+
+&lt;!-- Center vertically (needs a flex container) --&gt;
+&lt;div class="zak-d-flex"&gt;
+  &lt;div class="zak-my-auto"&gt;item&lt;/div&gt;
+&lt;/div&gt;
+
+::available: .zak-m-auto .zak-mx-auto .zak-my-auto .zak-mt-auto
+            .zak-mr-auto .zak-mb-auto .zak-ml-auto</code></pre>
+                </div>
+            </section>
+
+            <section id="negative">
+                <h2>Negative Margin</h2>
+                <p>Pull elements outward with negative margin utilities. These use a <code>m</code> prefix followed by
+                    the size (e.g. <code>m-n3</code> = -0.75rem).</p>
+                <div class="docs-preview">
+                    <div class="docs-preview__toolbar">
+                        <span>Negative margins</span>
+                        <div class="docs-preview__toolbar-actions">
+                        </div>
+                    </div>
+                    <div class="docs-preview__area"
+                        style="flex-direction:column; align-items:flex-start; gap:0; padding:24px;">
+                        <div
+                            style="position:relative; width:100%; border:1px solid var(--docs-border); border-radius:4px; padding:12px;">
+                            Parent container
+                            <div class="zak-bg-danger zak-text-inverse"
+                                style="width:120px; padding:8px 12px; margin-left:-24px; border-radius:4px; font-size:12px;">
+                                ml-n4 (-16px)</div>
+                        </div>
+                        <small class="zak-text-muted" style="margin-top:8px;">Common for creating full-bleed or
+                            overlapping layouts.</small>
+                    </div>
+                </div>
+                <div class="docs-code-block">
+                    <div class="docs-code-block__header">
+                        <span class="docs-code-block__lang">css</span>
+                        <button class="docs-copy-btn"><svg class="docs-copy-btn__icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg><span class="docs-copy-btn__text">Copy</span></button>
+                    </div>
+                    <pre><code class="language-css">/* Overlap an element outside the parent, e.g. -16px */
+.zak-ml-n4 { margin-left: -1rem; }
+.zak-mt-n3 { margin-top: -0.75rem; }
+
+/* Common negative utilities:
+   .zak-m-n1 ... .zak-m-n5
+   .zak-mx-n1 ... .zak-mx-n5
+   .zak-my-n1 ... .zak-my-n5
+   .zak-mt-n1 ... .zak-mt-n5
+   .zak-mb-n1 ... .zak-mb-n5
+   .zak-ml-n1 ... .zak-ml-n5
+   .zak-mr-n1 ... .zak-mr-n5 */</code></pre>
+                </div>
+            </section>
+
+            <section id="use-cases">
+                <h2>Usage Examples</h2>
+                <p>A few real-world spacing patterns using the utility classes.</p>
+                <div class="docs-preview">
+                    <div class="docs-preview__toolbar">
+                        <span>Card with spacing</span>
+                        <div class="docs-preview__toolbar-actions">
+                        </div>
+                    </div>
+                    <div class="docs-preview__area" style="flex-direction:column; align-items:stretch;">
+                        <div class="zak-border" style="border-radius:var(--docs-radius-lg);">
+                            <div class="zak-p-4">
+                                <h3 class="zak-h5 zak-mb-2">Card title</h3>
+                                <p class="zak-text-muted zak-mb-4" style="font-size:0.9rem;">Card content with proper
+                                    padding and vertical rhythm.</p>
+                                <div class="zak-d-flex zak-justify-between zak-items-center">
+                                    <span class="zak-text-subtle" style="font-size:0.8rem;">Last updated 2m ago</span>
+                                    <div class="zak-hstack-2">
+                                        <button class="zak-btn zak-btn-sm zak-btn-outline-secondary">Cancel</button>
+                                        <button class="zak-btn zak-btn-sm zak-btn-primary">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-block">
+                    <div class="docs-code-block__header">
+                        <span class="docs-code-block__lang">html</span>
+                        <button class="docs-copy-btn"><svg class="docs-copy-btn__icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg><span class="docs-copy-btn__text">Copy</span></button>
+                    </div>
+                    <pre><code class="language-html">&lt;div class="zak-border"&gt;
+  &lt;div class="zak-p-4"&gt;
+    &lt;h3 class="zak-h5 zak-mb-2"&gt;Card title&lt;/h3&gt;
+    &lt;p class="zak-text-muted zak-mb-4"&gt;Content&lt;/p&gt;
+    &lt;div class="zak-d-flex zak-justify-between zak-items-center"&gt;
+      &lt;span class="zak-text-subtle"&gt;meta&lt;/span&gt;
+      &lt;div class="zak-hstack-2"&gt;
+        &lt;button class="zak-btn zak-btn-sm"&gt;Cancel&lt;/button&gt;
+        &lt;button class="zak-btn zak-btn-sm zak-btn-primary"&gt;Save&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section id="accessibility">
+                <h2>Accessibility</h2>
+                <ul class="zak-list-disc">
+                    <li>Prefer spacing utilities over adding extra empty elements — it keeps the document structure
+                        clean for assistive technology.</li>
+                    <li>Use <code>auto</code> margins and flexible layouts instead of hard-coded pixel offsets where
+                        possible.</li>
+                    <li>Negative margins can cause content to overflow; ensure adequate spacing so focus or text is
+                        never clipped.</li>
+                    <li>Maintain a consistent spatial rhythm (e.g. 8px grid) to reduce cognitive load and improve
+                        scanability.</li>
+                </ul>
+            </section>
+
+            <script>
+                (function () {
+                    var scale = [
+                        ['--zak-space-1', '0.25rem', '4px'],
+                        ['--zak-space-2', '0.5rem', '8px'],
+                        ['--zak-space-3', '0.75rem', '12px'],
+                        ['--zak-space-4', '1rem', '16px'],
+                        ['--zak-space-5', '1.25rem', '20px'],
+                        ['--zak-space-6', '1.5rem', '24px'],
+                        ['--zak-space-8', '2rem', '32px'],
+                        ['--zak-space-10', '2.5rem', '40px'],
+                        ['--zak-space-12', '3rem', '48px']
+                    ];
+                    var host = document.getElementById('docsSpacingScale');
+                    var html = '';
+                    scale.forEach(function (row, i) {
+                        html += '<div style="display:flex; align-items:center; gap:12px; width:100%;">' +
+                            '<span style="font-family:var(--docs-font-mono); font-size:11px; width:120px; color:var(--docs-text-muted);">' + row[0] + '</span>' +
+                            '<div style="background:var(--docs-accent); height:20px; width:' + (36 + (i + 1) * 22) + 'px; border-radius:3px;"></div>' +
+                            '<span style="font-size:11px; color:var(--docs-text-muted);">' + row[1] + ' / ' + row[2] + '</span></div>';
+                    });
+                    host.innerHTML = html;
+                })();
+            </script>
+
+        </div>
+    </main>
+    <!-- Search Overlay -->
+    <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+        <div class="docs-search">
+            <div class="docs-search__input-wrap">
+                <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+                <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..."
+                    aria-label="Search">
+                <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+            </div>
+            <div class="docs-search__results"></div>
+            <div class="docs-search__footer">
+                <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+                <span>Press <kbd>ESC</kbd> to close</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+</body>
+
+</html>

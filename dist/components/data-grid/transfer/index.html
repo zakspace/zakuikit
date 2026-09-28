@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Transfer documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Transfer - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/data-grid/transfer/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Transfer - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Transfer documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/data-grid/transfer/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Advanced</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Transfer</span>
+                </nav>
+        <h1>Transfer</h1>
+        <p class="docs-subtitle">Transfer (dual list box) moves items between two lists. Useful for selecting subsets, managing permissions, or assigning roles.</p>
+
+        <div class="zak-docs-section">
+            <h2>Basic Transfer</h2>
+            <p>Select items and move them between source and target lists.</p>
+
+            <div class="docs-preview">
+                <div class="zak-transfer" id="transfer-basic" style="display: flex; align-items: flex-start; gap: 0.75rem; max-width: 36rem;">
+                    <div class="zak-transfer-panel" style="flex: 1; border: 1px solid var(--zak-border); border-radius: var(--zak-radius-md); overflow: hidden;">
+                        <div style="padding: 0.5rem 0.75rem; background: var(--zak-bg-muted); border-bottom: 1px solid var(--zak-border); font-weight: 600; font-size: 0.875rem;">Source</div>
+                        <div class="zak-transfer-list" style="max-height: 14rem; overflow-y: auto; padding: 0.25rem 0;" data-panel="source">
+                            <label style="display: flex; align-items: center; gap: 0.5rem; padding: 0.375rem 0.75rem; cursor: pointer; font-size: 0.875rem;" onmouseover="this.style.background='var(--zak-bg-hover)'" onmouseout="this.style.background=''"><input type="checkbox" class="zak-checkbox" value="apple"> Apple</label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; padding: 0.375rem 0.75rem; cursor: pointer; font-size: 0.875rem;" onmouseover="this.style.background='var(--zak-bg-hover)'" onmouseout="this.style.background=''"><input type="checkbox" class="zak-checkbox" value="banana"> Banana</label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; padding: 0.375rem 0.75rem; cursor: pointer; font-size: 0.875rem;" onmouseover="this.style.background='var(--zak-bg-hover)'" onmouseout="this.style.background=''"><input type="checkbox" class="zak-checkbox" value="cherry"> Cherry</label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; padding: 0.375rem 0.75rem; cursor: pointer; font-size: 0.875rem;" onmouseover="this.style.background='var(--zak-bg-hover)'" onmouseout="this.style.background=''"><input type="checkbox" class="zak-checkbox" value="date"> Date</label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; padding: 0.375rem 0.75rem; cursor: pointer; font-size: 0.875rem;" onmouseover="this.style.background='var(--zak-bg-hover)'" onmouseout="this.style.background=''"><input type="checkbox" class="zak-checkbox" value="elderberry"> Elderberry</label>
+                        </div>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 0.375rem; padding-top: 1.5rem;">
+                        <button class="zak-btn zak-btn-sm zak-btn-outline" onclick="transferItems('transfer-basic', 'right')" aria-label="Move right">
+                            <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </button>
+                        <button class="zak-btn zak-btn-sm zak-btn-outline" onclick="transferItems('transfer-basic', 'left')" aria-label="Move left">
+                            <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                        </button>
+                    </div>
+                    <div class="zak-transfer-panel" style="flex: 1; border: 1px solid var(--zak-border); border-radius: var(--zak-radius-md); overflow: hidden;">
+                        <div style="padding: 0.5rem 0.75rem; background: var(--zak-bg-muted); border-bottom: 1px solid var(--zak-border); font-weight: 600; font-size: 0.875rem;">Target</div>
+                        <div class="zak-transfer-list" style="max-height: 14rem; overflow-y: auto; padding: 0.25rem 0;" data-panel="target"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>With Search</h2>
+            <p>Filter items in each panel using search inputs.</p>
+
+            <div class="docs-preview">
+                <div class="zak-transfer" id="transfer-search" style="display: flex; align-items: flex-start; gap: 0.75rem; max-width: 36rem;">
+                    <div class="zak-transfer-panel" style="flex: 1; border: 1px solid var(--zak-border); border-radius: var(--zak-radius-md); overflow: hidden;">
+                        <div style="padding: 0.5rem; border-bottom: 1px solid var(--zak-border);"><input type="text" class="zak-input zak-input-sm" placeholder="Search..." oninput="filterTransferList(this, 'transfer-search', 'source')" style="width: 100%;"></div>
+                        <div class="zak-transfer-list" style="max-height: 12rem; overflow-y: auto; padding: 0.25rem 0;" data-panel="source">
+                            <label style="display: flex; align-items: center; gap: 0.5rem; padding: 0.375rem 0.75rem; cursor: pointer; font-size: 0.875rem;"><input type="checkbox" class="zak-checkbox" value="react"> React</label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; padding: 0.375rem 0.75rem; cursor: pointer; font-size: 0.875rem;"><input type="checkbox" class="zak-checkbox" value="vue"> Vue</label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; padding: 0.375rem 0.75rem; cursor: pointer; font-size: 0.875rem;"><input type="checkbox" class="zak-checkbox" value="angular"> Angular</label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; padding: 0.375rem 0.75rem; cursor: pointer; font-size: 0.875rem;"><input type="checkbox" class="zak-checkbox" value="svelte"> Svelte</label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; padding: 0.375rem 0.75rem; cursor: pointer; font-size: 0.875rem;"><input type="checkbox" class="zak-checkbox" value="solid"> Solid</label>
+                        </div>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 0.375rem; padding-top: 1.5rem;">
+                        <button class="zak-btn zak-btn-sm zak-btn-outline" onclick="transferItems('transfer-search', 'right')"><svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+                        <button class="zak-btn zak-btn-sm zak-btn-outline" onclick="transferItems('transfer-search', 'left')"><svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+                    </div>
+                    <div class="zak-transfer-panel" style="flex: 1; border: 1px solid var(--zak-border); border-radius: var(--zak-radius-md); overflow: hidden;">
+                        <div style="padding: 0.5rem; border-bottom: 1px solid var(--zak-border);"><input type="text" class="zak-input zak-input-sm" placeholder="Search..." oninput="filterTransferList(this, 'transfer-search', 'target')" style="width: 100%;"></div>
+                        <div class="zak-transfer-list" style="max-height: 12rem; overflow-y: auto; padding: 0.25rem 0;" data-panel="target"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Select All</h2>
+            <p>Checkbox in header to select/deselect all visible items.</p>
+
+            <div class="docs-preview">
+                <div class="zak-transfer" id="transfer-selectall" style="display: flex; align-items: flex-start; gap: 0.75rem; max-width: 36rem;">
+                    <div class="zak-transfer-panel" style="flex: 1; border: 1px solid var(--zak-border); border-radius: var(--zak-radius-md); overflow: hidden;">
+                        <div style="padding: 0.5rem 0.75rem; background: var(--zak-bg-muted); border-bottom: 1px solid var(--zak-border); font-size: 0.875rem; display: flex; align-items: center; gap: 0.5rem;"><input type="checkbox" class="zak-checkbox" id="sa-source" onchange="toggleAll(this, 'transfer-selectall', 'source')"><span>Source</span></div>
+                        <div class="zak-transfer-list" style="max-height: 12rem; overflow-y: auto; padding: 0.25rem 0;" data-panel="source">
+                            <label style="display: flex; align-items: center; gap: 0.5rem; padding: 0.375rem 0.75rem; cursor: pointer; font-size: 0.875rem;"><input type="checkbox" class="zak-checkbox transfer-check" value="red"> Red</label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; padding: 0.375rem 0.75rem; cursor: pointer; font-size: 0.875rem;"><input type="checkbox" class="zak-checkbox transfer-check" value="blue"> Blue</label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; padding: 0.375rem 0.75rem; cursor: pointer; font-size: 0.875rem;"><input type="checkbox" class="zak-checkbox transfer-check" value="green"> Green</label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; padding: 0.375rem 0.75rem; cursor: pointer; font-size: 0.875rem;"><input type="checkbox" class="zak-checkbox transfer-check" value="yellow"> Yellow</label>
+                        </div>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 0.375rem; padding-top: 1.5rem;">
+                        <button class="zak-btn zak-btn-sm zak-btn-outline" onclick="transferItems('transfer-selectall', 'right')"><svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+                        <button class="zak-btn zak-btn-sm zak-btn-outline" onclick="transferItems('transfer-selectall', 'left')"><svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+                    </div>
+                    <div class="zak-transfer-panel" style="flex: 1; border: 1px solid var(--zak-border); border-radius: var(--zak-radius-md); overflow: hidden;">
+                        <div style="padding: 0.5rem 0.75rem; background: var(--zak-bg-muted); border-bottom: 1px solid var(--zak-border); font-weight: 600; font-size: 0.875rem;">Target</div>
+                        <div class="zak-transfer-list" style="max-height: 12rem; overflow-y: auto; padding: 0.25rem 0;" data-panel="target"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Disabled Items</h2>
+            <p>Gray out items that cannot be transferred.</p>
+
+            <div class="docs-preview">
+                <div class="zak-transfer" id="transfer-disabled" style="display: flex; align-items: flex-start; gap: 0.75rem; max-width: 36rem;">
+                    <div class="zak-transfer-panel" style="flex: 1; border: 1px solid var(--zak-border); border-radius: var(--zak-radius-md); overflow: hidden;">
+                        <div style="padding: 0.5rem 0.75rem; background: var(--zak-bg-muted); border-bottom: 1px solid var(--zak-border); font-weight: 600; font-size: 0.875rem;">Source</div>
+                        <div class="zak-transfer-list" style="max-height: 12rem; overflow-y: auto; padding: 0.25rem 0;" data-panel="source">
+                            <label style="display: flex; align-items: center; gap: 0.5rem; padding: 0.375rem 0.75rem; cursor: pointer; font-size: 0.875rem;"><input type="checkbox" class="zak-checkbox" value="admin"> Admin</label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; padding: 0.375rem 0.75rem; font-size: 0.875rem; opacity: 0.5;"><input type="checkbox" class="zak-checkbox" value="superadmin" disabled> Super Admin (locked)</label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; padding: 0.375rem 0.75rem; cursor: pointer; font-size: 0.875rem;"><input type="checkbox" class="zak-checkbox" value="editor"> Editor</label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; padding: 0.375rem 0.75rem; cursor: pointer; font-size: 0.875rem;"><input type="checkbox" class="zak-checkbox" value="viewer"> Viewer</label>
+                        </div>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 0.375rem; padding-top: 1.5rem;">
+                        <button class="zak-btn zak-btn-sm zak-btn-outline" onclick="transferItems('transfer-disabled', 'right')"><svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+                        <button class="zak-btn zak-btn-sm zak-btn-outline" onclick="transferItems('transfer-disabled', 'left')"><svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+                    </div>
+                    <div class="zak-transfer-panel" style="flex: 1; border: 1px solid var(--zak-border); border-radius: var(--zak-radius-md); overflow: hidden;">
+                        <div style="padding: 0.5rem 0.75rem; background: var(--zak-bg-muted); border-bottom: 1px solid var(--zak-border); font-weight: 600; font-size: 0.875rem;">Target</div>
+                        <div class="zak-transfer-list" style="max-height: 12rem; overflow-y: auto; padding: 0.25rem 0;" data-panel="target"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Demo JavaScript</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span>JavaScript</span><button class="docs-copy-btn">Copy</button></div><pre><code>function transferItems(transferId, direction) {
+  var transfer = document.getElementById(transferId);
+  var sourceList = transfer.querySelector('[data-panel="source"]');
+  var targetList = transfer.querySelector('[data-panel="target"]');
+  var fromList = direction === 'right' ? sourceList : targetList;
+  var toList = direction === 'right' ? targetList : sourceList;
+  fromList.querySelectorAll('.zak-checkbox:checked').forEach(function (cb) {
+    if (cb.disabled) return;
+    var label = cb.closest('label');
+    var clone = label.cloneNode(true);
+    clone.querySelector('input').checked = false;
+    label.remove();
+    toList.appendChild(clone);
+  });
+}
+
+function filterTransferList(input, transferId, panel) {
+  var list = document.querySelector('#' + transferId + ' [data-panel="' + panel + '"]');
+  var q = input.value.toLowerCase();
+  list.querySelectorAll('label').forEach(function (label) {
+    label.style.display = label.textContent.toLowerCase().indexOf(q) !== -1 ? '' : 'none';
+  });
+}
+
+function toggleAll(checkbox, transferId, panel) {
+  var list = document.querySelector('#' + transferId + ' [data-panel="' + panel + '"]');
+  list.querySelectorAll('.zak-checkbox').forEach(function (cb) { cb.checked = checkbox.checked; });
+}</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead><tr><th>Class</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>.zak-transfer</code></td><td>Transfer container (flex layout)</td></tr>
+                        <tr><td><code>.zak-transfer-panel</code></td><td>Single list panel</td></tr>
+                        <tr><td><code>.zak-transfer-list</code></td><td>Scrollable items list</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    <script>/* ZAK_DEMO_LIVE */
+function transferItems(transferId, direction) {
+  var transfer = document.getElementById(transferId);
+  var sourceList = transfer.querySelector('[data-panel="source"]');
+  var targetList = transfer.querySelector('[data-panel="target"]');
+  var fromList = direction === 'right' ? sourceList : targetList;
+  var toList = direction === 'right' ? targetList : sourceList;
+  fromList.querySelectorAll('.zak-checkbox:checked').forEach(function (cb) {
+    if (cb.disabled) return;
+    var label = cb.closest('label');
+    var clone = label.cloneNode(true);
+    clone.querySelector('input').checked = false;
+    label.remove();
+    toList.appendChild(clone);
+  });
+}
+
+function filterTransferList(input, transferId, panel) {
+  var list = document.querySelector('#' + transferId + ' [data-panel="' + panel + '"]');
+  var q = input.value.toLowerCase();
+  list.querySelectorAll('label').forEach(function (label) {
+    label.style.display = label.textContent.toLowerCase().indexOf(q) !== -1 ? '' : 'none';
+  });
+}
+
+function toggleAll(checkbox, transferId, panel) {
+  var list = document.querySelector('#' + transferId + ' [data-panel="' + panel + '"]');
+  list.querySelectorAll('.zak-checkbox').forEach(function (cb) { cb.checked = checkbox.checked; });
+}
+</script>
+</body>
+</html>

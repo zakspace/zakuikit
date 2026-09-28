@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Cascader documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Cascader - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/pickers/cascader/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Cascader - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Cascader documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/pickers/cascader/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Advanced</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Cascader</span>
+                </nav>
+        <h1>Cascader</h1>
+        <p class="docs-subtitle">Cascader presents a hierarchical selection interface where choosing a parent option reveals its children in adjacent panels. Ideal for navigation menus, location pickers, and category selection.</p>
+
+        <div class="zak-docs-section">
+            <h2>Basic Cascader</h2>
+            <p>Click to open panels, navigate through hierarchy levels.</p>
+
+            <div class="docs-preview">
+                <div style="position: relative; max-width: 32rem;">
+                    <input type="text" class="zak-input" placeholder="Select location..." data-zak-cascader='[{"label":"Zhejiang","value":"zj","children":[{"label":"Hangzhou","value":"hz","children":[{"label":"West Lake","value":"wl"},{"label":"Lingyin","value":"li"}]},{"label":"Ningbo","value":"nb"}]},{"label":"Jiangsu","value":"js","children":[{"label":"Nanjing","value":"nj"},{"label":"Suzhou","value":"sz"}]},{"label":"Guangdong","value":"gd","children":[{"label":"Guangzhou","value":"gz"},{"label":"Shenzhen","value":"sz"}]},{"label":"Anhui","value":"ah","children":[{"label":"Hefei","value":"hf"},{"label":"Huangshan","value":"hs"}]}]' data-zak-cascader-placeholder="Select location..." readonly>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-cascader" style="position: relative;"&gt;
+  &lt;input type="text" class="zak-input" placeholder="Select location..." readonly style="cursor: pointer;"&gt;
+  &lt;div class="zak-cascader-panel" style="position: absolute; top: 100%; left: 0; display: flex; flex-direction: row;"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Hover Trigger</h2>
+            <p>Open sub-panels on hover instead of click.</p>
+
+            <div class="docs-preview">
+                <div class="zak-cascader" id="cascader-hover" style="position: relative; max-width: 32rem;">
+                    <input type="text" class="zak-input" placeholder="Hover to expand..." id="cascader-hover-input" readonly style="cursor: pointer;">
+                    <div class="zak-cascader-panel" id="cascader-hover-panel" style="display: none; position: absolute; top: 100%; left: 0; background: var(--zak-bg); border: 1px solid var(--zak-border); border-radius: var(--zak-radius-md); box-shadow: var(--zak-shadow-lg); z-index: 50; flex-direction: row; margin-top: 2px; overflow: hidden;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Default Value</h2>
+            <p>Pre-select a value on initialization.</p>
+
+            <div class="docs-preview">
+                <div class="zak-cascader" id="cascader-default" style="position: relative; max-width: 32rem;">
+                    <input type="text" class="zak-input" id="cascader-default-input" readonly style="cursor: pointer;" value="China / Sichuan / Chengdu">
+                    <div class="zak-cascader-panel" id="cascader-default-panel" style="display: none; position: absolute; top: 100%; left: 0; background: var(--zak-bg); border: 1px solid var(--zak-border); border-radius: var(--zak-radius-md); box-shadow: var(--zak-shadow-lg); z-index: 50; flex-direction: row; margin-top: 2px; overflow: hidden;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Disabled Options</h2>
+            <p>Some options can be disabled and cannot be selected.</p>
+
+            <div class="docs-preview">
+                <div class="zak-cascader" id="cascader-disabled" style="position: relative; max-width: 32rem;">
+                    <input type="text" class="zak-input" placeholder="Select category..." id="cascader-disabled-input" readonly style="cursor: pointer;">
+                    <div class="zak-cascader-panel" id="cascader-disabled-panel" style="display: none; position: absolute; top: 100%; left: 0; background: var(--zak-bg); border: 1px solid var(--zak-border); border-radius: var(--zak-radius-md); box-shadow: var(--zak-shadow-lg); z-index: 50; flex-direction: row; margin-top: 2px; overflow: hidden;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Demo JavaScript</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span>JavaScript</span><button class="docs-copy-btn">Copy</button></div><pre><code>var locations = [
+  { label: 'USA', value: 'usa', children: [
+    { label: 'California', value: 'ca', children: [
+      { label: 'Los Angeles', value: 'la' },
+      { label: 'San Francisco', value: 'sf' }
+    ]},
+    { label: 'New York', value: 'ny', children: [
+      { label: 'New York City', value: 'nyc' },
+      { label: 'Buffalo', value: 'buf' }
+    ]}
+  ]},
+  { label: 'China', value: 'china', children: [
+    { label: 'Sichuan', value: 'sc', children: [
+      { label: 'Chengdu', value: 'cd' },
+      { label: 'Mianyang', value: 'my' }
+    ]},
+    { label: 'Beijing', value: 'bj', children: [
+      { label: 'Dongcheng', value: 'dc' }
+    ]}
+  ]}
+];
+
+var categories = [
+  { label: 'Electronics', value: 'electronics', children: [
+    { label: 'Computers', value: 'computers', children: [
+      { label: 'Laptops', value: 'laptops' },
+      { label: 'Desktops', value: 'desktops', disabled: true }
+    ]},
+    { label: 'Phones', value: 'phones' }
+  ]},
+  { label: 'Clothing', value: 'clothing', disabled: true, children: [
+    { label: 'Men', value: 'men' },
+    { label: 'Women', value: 'women' }
+  ]}
+];
+
+function initCascader(id, data, opts) {
+  opts = opts || {};
+  var container = document.getElementById(id);
+  var input = container.querySelector('input');
+  var panel = container.querySelector('.zak-cascader-panel');
+  var path = [];
+
+  function renderPanel(items, level) {
+    var col = document.createElement('div');
+    col.style.cssText = 'min-width: 160px; max-height: 200px; overflow-y: auto; border-right: 1px solid var(--zak-border); padding: 0.25rem 0;';
+    items.forEach(function (item) {
+      var el = document.createElement('div');
+      var hasChildren = item.children &amp;&amp; item.children.length;
+      el.style.cssText = 'padding: 0.5rem 1rem; cursor: ' + (item.disabled ? 'not-allowed' : 'pointer') + '; display: flex; justify-content: space-between; align-items: center; font-size: 0.875rem;' + (item.disabled ? ' opacity: 0.5;' : '') + (path[level] === item.label ? ' background: var(--zak-bg-hover);' : '');
+      el.textContent = item.label;
+      if (hasChildren) {
+        var arrow = document.createElement('span');
+        arrow.style.cssText = 'color: var(--zak-text-muted); font-size: 0.75rem;';
+        arrow.textContent = '›';
+        el.appendChild(arrow);
+      }
+      if (item.disabled) {
+        el.style.color = 'var(--zak-text-muted)';
+      }
+      col.appendChild(el);
+      if (!item.disabled) {
+        (opts.trigger === 'hover' ? el.addEventListener('mouseover', handleItem) : el.addEventListener('click', handleItem));
+      }
+      function handleItem() {
+        path = path.slice(0, level);
+        path[level] = item.label;
+        while (panel.children.length > level + 1) panel.removeChild(panel.lastChild);
+        if (hasChildren) renderPanel(item.children, level + 1);
+        else { input.value = path.join(' / '); panel.style.display = 'none'; }
+      }
+    });
+    panel.appendChild(col);
+  }
+
+  input.addEventListener('click', function () {
+    panel.style.display = panel.style.display === 'none' ? 'flex' : 'none';
+    if (panel.style.display === 'flex') { panel.innerHTML = ''; renderPanel(data, 0); }
+  });
+  document.addEventListener('click', function (e) { if (!e.target.closest('#' + id)) panel.style.display = 'none'; });
+}
+
+initCascader('cascader-basic', locations);
+initCascader('cascader-hover', locations, { trigger: 'hover' });
+initCascader('cascader-default', locations);
+initCascader('cascader-disabled', categories);</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead><tr><th>Class</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>.zak-cascader</code></td><td>Cascader container (position: relative)</td></tr>
+                        <tr><td><code>.zak-cascader-panel</code></td><td>Multi-column dropdown panel</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    <script>/* ZAK_DEMO_LIVE */</script>
+<script>
+(function(){try{
+var locations = [
+  { label: 'USA', value: 'usa', children: [
+    { label: 'California', value: 'ca', children: [
+      { label: 'Los Angeles', value: 'la' },
+      { label: 'San Francisco', value: 'sf' }
+    ]},
+    { label: 'New York', value: 'ny', children: [
+      { label: 'New York City', value: 'nyc' },
+      { label: 'Buffalo', value: 'buf' }
+    ]}
+  ]},
+  { label: 'China', value: 'china', children: [
+    { label: 'Sichuan', value: 'sc', children: [
+      { label: 'Chengdu', value: 'cd' },
+      { label: 'Mianyang', value: 'my' }
+    ]},
+    { label: 'Beijing', value: 'bj', children: [
+      { label: 'Dongcheng', value: 'dc' }
+    ]}
+  ]}
+];
+
+var categories = [
+  { label: 'Electronics', value: 'electronics', children: [
+    { label: 'Computers', value: 'computers', children: [
+      { label: 'Laptops', value: 'laptops' },
+      { label: 'Desktops', value: 'desktops', disabled: true }
+    ]},
+    { label: 'Phones', value: 'phones' }
+  ]},
+  { label: 'Clothing', value: 'clothing', disabled: true, children: [
+    { label: 'Men', value: 'men' },
+    { label: 'Women', value: 'women' }
+  ]}
+];
+
+function initCascader(id, data, opts) {
+  opts = opts || {};
+  var container = document.getElementById(id);
+  var input = container.querySelector('input');
+  var panel = container.querySelector('.zak-cascader-panel');
+  var path = [];
+
+  function renderPanel(items, level) {
+    var col = document.createElement('div');
+    col.style.cssText = 'min-width: 160px; max-height: 200px; overflow-y: auto; border-right: 1px solid var(--zak-border); padding: 0.25rem 0;';
+    items.forEach(function (item) {
+      var el = document.createElement('div');
+      var hasChildren = item.children && item.children.length;
+      el.style.cssText = 'padding: 0.5rem 1rem; cursor: ' + (item.disabled ? 'not-allowed' : 'pointer') + '; display: flex; justify-content: space-between; align-items: center; font-size: 0.875rem;' + (item.disabled ? ' opacity: 0.5;' : '') + (path[level] === item.label ? ' background: var(--zak-bg-hover);' : '');
+      el.textContent = item.label;
+      if (hasChildren) {
+        var arrow = document.createElement('span');
+        arrow.style.cssText = 'color: var(--zak-text-muted); font-size: 0.75rem;';
+        arrow.textContent = '›';
+        el.appendChild(arrow);
+      }
+      if (item.disabled) {
+        el.style.color = 'var(--zak-text-muted)';
+      }
+      col.appendChild(el);
+      if (!item.disabled) {
+        (opts.trigger === 'hover' ? el.addEventListener('mouseover', handleItem) : el.addEventListener('click', handleItem));
+      }
+      function handleItem() {
+        path = path.slice(0, level);
+        path[level] = item.label;
+        while (panel.children.length > level + 1) panel.removeChild(panel.lastChild);
+        if (hasChildren) renderPanel(item.children, level + 1);
+        else { input.value = path.join(' / '); panel.style.display = 'none'; }
+      }
+    });
+    panel.appendChild(col);
+  }
+
+  input.addEventListener('click', function () {
+    panel.style.display = panel.style.display === 'none' ? 'flex' : 'none';
+    if (panel.style.display === 'flex') { panel.innerHTML = ''; renderPanel(data, 0); }
+  });
+  document.addEventListener('click', function (e) { if (!e.target.closest('#' + id)) panel.style.display = 'none'; });
+}
+
+initCascader('cascader-hover', locations, { trigger: 'hover' });
+initCascader('cascader-default', locations);
+initCascader('cascader-disabled', categories);
+}catch(e){console.warn("zak-demo",e);}})();
+</script>
+</body>
+</html>

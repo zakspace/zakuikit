@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Date Time Picker documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Date Time Picker - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/pickers/date-time-picker/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Date Time Picker - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Date Time Picker documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/pickers/date-time-picker/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Pickers</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Date Time Picker</span>
+                </nav>
+        <h1>Date Time Picker</h1>
+        <p class="docs-subtitle">The Date Time Picker combines the Calendar and the Time Picker in one popup. Choose a day, then set hours and minutes using the spinners, and confirm with <em>Apply</em>.</p>
+
+        <section class="zak-docs-section">
+            <h2>Basic Date Time Picker</h2>
+            <p>Click the field, pick a day, adjust the time and press <em>Apply</em>. <em>Clear</em> resets the selection and <em>Now</em> snaps to the current instant.</p>
+            <div class="docs-preview">
+                <div id="datetimePicker1" class="zak-datetime-picker"></div>
+                <p class="zak-event-log" id="datetimeLog1">Nothing selected yet.</p>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-datetime-picker"&gt;
+    &lt;button type="button" class="zak-datetime-field"&gt;
+        &lt;span class="zak-datetime-value"&gt;Pick date &amp;amp; time&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;div class="zak-datetime-popup"&gt;
+        &lt;div class="zak-calendar"&gt;  &lt;!-- month grid --&gt; &lt;/div&gt;
+        &lt;hr class="zak-datetime-divider"&gt;
+        &lt;div class="zak-datetime-time"&gt;  &lt;!-- hour + minute spinners --&gt; &lt;/div&gt;
+        &lt;div class="zak-datetime-footer"&gt;
+            &lt;button class="zak-btn zak-btn-sm"&gt;Clear&lt;/button&gt;
+            &lt;button class="zak-btn zak-btn-primary zak-btn-sm"&gt;Apply&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Two Fields, One Intent</h2>
+            <p>For forms, keep two hidden inputs (<code>date</code> + <code>time</code>) and rebuild the full value from them. This mirrors how Date Picker and Time Picker submit independently.</p>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;input type="hidden" name="scheduled_at"&gt;
+
+&lt;script&gt;
+    function commit(d, h, m) {
+        var pad = function (n) { return ('0' + n).slice(-2); };
+        var iso = d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) +
+                  'T' + pad(h) + ':' + pad(m);
+        form.scheduled_at.value = iso;      // "2026-09-08T14:30"
+        field.textContent = short(d, h, m);
+    }
+&lt;/script&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Minute Stepping</h2>
+            <p>Minutes step by five in both columns, matching the standalone Time Picker convention. Hours wrap 0&ndash;23.</p>
+            <div class="docs-preview">
+                <div style="display:flex; gap:16px; align-items:center;">
+                    <div class="zak-datetime-time" style="padding:12px; border:1px solid var(--zak-border,#e2e8f0); border-radius:12px;">
+                        <div class="zak-timepicker-column">
+                            <button type="button" class="zak-timepicker-spin-up">&#9650;</button>
+                            <span class="zak-timepicker-hour">14</span>
+                            <button type="button" class="zak-timepicker-spin-down">&#9660;</button>
+                        </div>
+                        <span class="zak-timepicker-separator">:</span>
+                        <div class="zak-timepicker-column">
+                            <button type="button" class="zak-timepicker-spin-up">&#9650;</button>
+                            <span class="zak-timepicker-minute">30</span>
+                            <button type="button" class="zak-timepicker-spin-down">&#9660;</button>
+                        </div>
+                    </div>
+                    <span style="font-size:14px; color:var(--zak-text-muted,#64748b);">14:30 &rarr; 14:35 &rarr; 14:40...</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>CSS Classes</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>// Date Time Picker composition:
+.zak-datetime-picker    /* Relative wrapper (field + popup) */
+.zak-datetime-field     /* Readable trigger */
+.zak-datetime-popup     /* Popup holding calendar + time */
+.zak-datetime-divider   /* Rule between date and time */
+.zak-datetime-time      /* Spinner assembly */
+.zak-datetime-footer    /* Clear / Apply action row */
+
+// Reused primitives:
+.zak-calendar, .zak-calendar-day, .zak-calendar-day.zak-selected ...
+.zak-timepicker-column, .zak-timepicker-spin-up/down,
+.zak-timepicker-hour/minute, .zak-timepicker-separator ...
+.zak-btn, .zak-btn-primary, .zak-btn-sm
+
+// Toggle class:
+.zak-datetime-popup-active   /* Shows the popup */</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>JavaScript</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>// No library module — compose the Calendar and Time helpers:
+
+var state = { date: null, hour: 9, min: 0 };
+
+function drawCalendar() { /* build .zak-calendar grid (see Calendar) */ }
+function drawTime() {
+    // re-read state.hour / state.min into the spinners
+}
+
+cal.addEventListener('click', function (e) {
+    var day = e.target.closest('.zak-calendar-day');
+    if (!day || day.classList.contains('zak-outside')) return;
+    state.date = new Date(day.getAttribute('data-date'));
+    drawCalendar(); drawTime();
+});
+
+function bump(spin, value, max, wrap) {      // clamp to range
+    value += spin;
+    if (value &lt; 0) value = wrap ? max : 0;
+    if (value &gt; max) value = wrap ? 0 : max;
+    return value;
+}
+
+applyBtn.onclick = function () { commit(state.date, state.hour, state.min); };</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>The trigger is a <code>&lt;button&gt;</code>; days and spinner arrows are buttons too, so everything is focusable.</li>
+                <li>Announce the committed value with an <code>aria-live</code> region rather than only updating the field text.</li>
+                <li>Group the two hidden values under one label (e.g. <em>Scheduled at</em>) so the date+time reads as a unit.</li>
+                <li>Let <kbd>Esc</kbd> or backdrop click cancel so a half-finished selection never submits.</li>
+            </ul>
+        </section>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body></html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit AI Response documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>AI Response - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/ai/ai-response/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="AI Response - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit AI Response documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/ai/ai-response/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Ai</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">AI Response</span>
+                </nav>
+        <h1>AI Response</h1>
+        <p class="docs-subtitle">Rich AI response block with markdown rendering, source citations, copy button, feedback actions, and token count.</p>
+
+        <section class="zak-docs-section">
+            <h2>Full Response with Markdown</h2>
+            <p>Complete AI response with headers, lists, code blocks, and citations.</p>
+            <div class="docs-preview">
+                <div style="max-width:680px;width:100%">
+                    <div class="zak-ai-response">
+                        <div class="zak-ai-response-header">
+                            <div class="zak-ai-response-avatar"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></div>
+                            <span class="zak-ai-response-model">ZAK AI &middot; GPT-4</span>
+                        </div>
+                        <h2>Understanding React Server Components</h2>
+                        <p><strong>React Server Components (RSC)</strong> are a new type of component that runs exclusively on the server. They allow you to write components that have access to the server environment directly.<sup>1</sup></p>
+                        <h3>Key Benefits</h3>
+                        <ul>
+                            <li><strong>Zero client-side JavaScript</strong> — Server components don't add to your bundle size</li>
+                            <li><strong>Direct backend access</strong> — Query databases, read files, access secrets</li>
+                            <li><strong>Automatic code splitting</strong> — Client components are automatically code-split</li>
+                        </ul>
+                        <h3>Example</h3>
+                        <pre><code>// This component runs on the server only
+async function ProductList() {
+  const products = await db.query('SELECT * FROM products');
+  return (
+    &lt;ul&gt;
+      {products.map(p =&gt; (
+        &lt;li key={p.id}&gt;{p.name} - ${p.price}&lt;/li&gt;
+      ))}
+    &lt;/ul&gt;
+  );
+}</code></pre>
+                        <blockquote>Server Components cannot use hooks like <code>useState</code> or <code>useEffect</code>. Use client components for interactive UI.</blockquote>
+                        <div class="zak-ai-response-sources">
+                            <div class="zak-ai-response-sources-title">Sources</div>
+                            <div class="zak-ai-response-source"><span class="zak-ai-response-source-num">1</span><a href="#">React Docs: Server Components</a><span>— react.dev</span></div>
+                            <div class="zak-ai-response-source"><span class="zak-ai-response-source-num">2</span><a href="#">Next.js: Server Components Guide</a><span>— nextjs.org</span></div>
+                        </div>
+                        <div class="zak-ai-response-footer">
+                            <div class="zak-ai-response-actions">
+                                <button class="zak-copy-response"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>Copy</button>
+                                <button><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 4v6h6M23 20v-6h-6"/><path d="M20.49 9A9 9 0 005.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 013.51 15"/></svg>Regenerate</button>
+                            </div>
+                            <div style="display:flex;align-items:center;gap:0.75rem">
+                                <div class="zak-ai-response-tokens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>342 tokens</div>
+                                <div class="zak-ai-response-feedback">
+                                    <button class="zak-feedback-up" title="Helpful"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 00-3-3l-4 9v11h11.28a2 2 0 002-1.7l1.38-9a2 2 0 00-2-2.3H14zM7 22H4a2 2 0 01-2-2v-7a2 2 0 012-2h3"/></svg></button>
+                                    <button class="zak-feedback-down" title="Not helpful"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 15v4a3 3 0 003 3l4-9V2H5.72a2 2 0 00-2 1.7l-1.38 9a2 2 0 002 2.3H10zM17 2h3a2 2 0 012 2v7a2 2 0 01-2 2h-3"/></svg></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-ai-response"&gt;
+    &lt;div class="zak-ai-response-header"&gt;
+        &lt;div class="zak-ai-response-avatar"&gt;âœ¦&lt;/div&gt;
+        &lt;span class="zak-ai-response-model"&gt;ZAK AI &amp;middot; GPT-4&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;h2&gt;Title&lt;/h2&gt;
+    &lt;p&gt;Content with &lt;sup&gt;1&lt;/sup&gt; citation.&lt;/p&gt;
+    &lt;ul&gt;&lt;li&gt;Benefit one&lt;/li&gt;&lt;/ul&gt;
+    &lt;pre&gt;&lt;code&gt;Code example&lt;/code&gt;&lt;/pre&gt;
+    &lt;blockquote&gt;Important note&lt;/blockquote&gt;
+    &lt;div class="zak-ai-response-sources"&gt;...&lt;/div&gt;
+    &lt;div class="zak-ai-response-footer"&gt;
+        &lt;div class="zak-ai-response-actions"&gt;
+            &lt;button&gt;Copy&lt;/button&gt;
+            &lt;button&gt;Regenerate&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class="zak-ai-response-feedback"&gt;
+            &lt;button&gt;ðŸ‘&lt;/button&gt;
+            &lt;button&gt;ðŸ‘Ž&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>CSS Classes</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>.zak-ai-response               /* Main response container */
+.zak-ai-response-header        /* Avatar + model name header */
+.zak-ai-response-avatar        /* AI avatar icon */
+.zak-ai-response-model         /* Model name text */
+.zak-ai-response h2            /* Response heading */
+.zak-ai-response p             /* Response paragraph */
+.zak-ai-response pre           /* Code block */
+.zak-ai-response code          /* Inline code */
+.zak-ai-response blockquote    /* Blockquote callout */
+.zak-ai-response-sources       /* Source citations container */
+.zak-ai-response-sources-title /* "Sources" heading */
+.zak-ai-response-source        /* Individual source row */
+.zak-ai-response-source-num    /* Citation number badge */
+.zak-ai-response-footer        /* Actions + feedback bar */
+.zak-ai-response-actions       /* Copy/Regenerate buttons */
+.zak-ai-response-tokens        /* Token count display */
+.zak-ai-response-feedback      /* Thumbs up/down buttons */</code></pre>
+        </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>JavaScript</h2>
+            <p>Copy response and toggle feedback.</p>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>// Copy response content
+document.querySelectorAll('.zak-copy-response').forEach(btn =&gt; {
+    btn.addEventListener('click', function() {
+        const response = this.closest('.zak-ai-response');
+        const text = response.querySelector('p, h2, ul, pre')
+            .closest('.zak-ai-response').textContent.trim();
+        navigator.clipboard.writeText(text);
+        this.innerHTML = 'âœ“ Copied';
+        setTimeout(() =&gt; this.innerHTML = 'ðŸ“‹ Copy', 2000);
+    });
+});
+
+// Feedback toggle
+document.querySelectorAll('.zak-ai-response-feedback button').forEach(btn =&gt; {
+    btn.addEventListener('click', function() {
+        const sibling = this.parentElement.querySelector(
+            this.classList.contains('zak-feedback-up') ? '.zak-feedback-down' : '.zak-feedback-up'
+        );
+        sibling?.classList.remove('active');
+        this.classList.toggle('active');
+    });
+});</code></pre>
+        </div>
+        </section>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    <script>
+        document.querySelectorAll('.zak-copy-response').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var response = this.closest('.zak-ai-response');
+                var source = response && response.querySelector('p, h2, ul, pre');
+                var text = source ? source.textContent.trim() : (response ? response.textContent.trim() : '');
+                if (navigator.clipboard) navigator.clipboard.writeText(text);
+                var original = this.innerHTML;
+                var self = this;
+                this.textContent = 'Copied';
+                setTimeout(function () { self.innerHTML = original; }, 2000);
+            });
+        });
+        document.querySelectorAll('.zak-ai-response-feedback button').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var sibling = this.parentElement.querySelector(
+                    this.classList.contains('zak-feedback-up') ? '.zak-feedback-down' : '.zak-feedback-up'
+                );
+                if (sibling) sibling.classList.remove('active');
+                this.classList.toggle('active');
+            });
+        });
+    </script>
+    </body>
+</html>

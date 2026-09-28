@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Filter Panel documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Filter Panel - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/data-visualization/filter-panel/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Filter Panel - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Filter Panel documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/data-visualization/filter-panel/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Data-Visualization</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Filter Panel</span>
+                </nav>
+        <h1>Filter Panel</h1>
+        <p class="docs-subtitle">Filter Panel is a sidebar-style filter interface with collapsible sections, count badges, range sliders, and apply/clear actions. Ideal for e-commerce product filtering and dashboard sidebar filtering.</p>
+
+        <div class="zak-docs-section">
+            <h2>Sidebar Filter Panel</h2>
+            <p>Collapsible filter sections with checkboxes, counts, and range sliders.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                    <div class="zak-card" style="width: 280px; flex-shrink: 0;">
+                        <div style="padding: 1rem 1.25rem; border-bottom: 1px solid var(--zak-border); display: flex; justify-content: space-between; align-items: center;">
+                            <h3 style="margin: 0; font-size: 1rem;">Filters</h3>
+                            <button class="zak-btn zak-btn-soft zak-btn-sm" onclick="clearFP()" style="font-size: 0.8125rem;">Clear All</button>
+                        </div>
+                        <div class="zak-card-body" style="padding: 0;">
+
+                            <!-- Category Section -->
+                            <div class="fp-section" style="border-bottom: 1px solid var(--zak-border);">
+                                <button class="fp-section-toggle" onclick="toggleFPSection(this)" style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 0.875rem 1.25rem; background: none; border: none; cursor: pointer; font-weight: 600; font-size: 0.875rem; text-align: left;">
+                                    Category <span style="color: var(--zak-text-muted); transition: transform 0.2s;">▼</span>
+                                </button>
+                                <div class="fp-section-content" style="padding: 0 1.25rem 0.875rem;">
+                                    <label style="display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0; cursor: pointer; font-size: 0.8125rem;"><input type="checkbox" class="zak-checkbox fp-filter" data-filter="category" value="electronics" onchange="updateFP()"> Electronics <span class="zak-badge" style="margin-left: auto; font-size: 0.6875rem;">24</span></label>
+                                    <label style="display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0; cursor: pointer; font-size: 0.8125rem;"><input type="checkbox" class="zak-checkbox fp-filter" data-filter="category" value="clothing" onchange="updateFP()"> Clothing <span class="zak-badge" style="margin-left: auto; font-size: 0.6875rem;">18</span></label>
+                                    <label style="display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0; cursor: pointer; font-size: 0.8125rem;"><input type="checkbox" class="zak-checkbox fp-filter" data-filter="category" value="home" onchange="updateFP()"> Home & Garden <span class="zak-badge" style="margin-left: auto; font-size: 0.6875rem;">12</span></label>
+                                    <label style="display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0; cursor: pointer; font-size: 0.8125rem;"><input type="checkbox" class="zak-checkbox fp-filter" data-filter="category" value="sports" onchange="updateFP()"> Sports <span class="zak-badge" style="margin-left: auto; font-size: 0.6875rem;">9</span></label>
+                                </div>
+                            </div>
+
+                            <!-- Price Range Section -->
+                            <div class="fp-section" style="border-bottom: 1px solid var(--zak-border);">
+                                <button class="fp-section-toggle" onclick="toggleFPSection(this)" style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 0.875rem 1.25rem; background: none; border: none; cursor: pointer; font-weight: 600; font-size: 0.875rem; text-align: left;">
+                                    Price Range <span style="color: var(--zak-text-muted); transition: transform 0.2s;">▼</span>
+                                </button>
+                                <div class="fp-section-content" style="padding: 0 1.25rem 0.875rem;">
+                                    <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.75rem;">
+                                        <input type="number" class="zak-input zak-input-sm" placeholder="Min" id="fp-price-min" style="flex: 1;" oninput="updateFP()">
+                                        <span style="color: var(--zak-text-muted);">—</span>
+                                        <input type="number" class="zak-input zak-input-sm" placeholder="Max" id="fp-price-max" style="flex: 1;" oninput="updateFP()">
+                                    </div>
+                                    <div style="position: relative; height: 4px; background: var(--zak-border); border-radius: 2px; margin-bottom: 0.5rem;">
+                                        <div style="position: absolute; left: 10%; right: 30%; height: 100%; background: var(--zak-primary); border-radius: 2px;"></div>
+                                        <input type="range" min="0" max="500" value="50" style="position: absolute; top: -6px; left: 0; width: 100%; appearance: none; background: transparent; pointer-events: none;" id="fp-range-min">
+                                        <input type="range" min="0" max="500" value="350" style="position: absolute; top: -6px; left: 0; width: 100%; appearance: none; background: transparent; pointer-events: none;" id="fp-range-max">
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--zak-text-muted);">
+                                        <span>$0</span><span>$500</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Rating Section -->
+                            <div class="fp-section" style="border-bottom: 1px solid var(--zak-border);">
+                                <button class="fp-section-toggle" onclick="toggleFPSection(this)" style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 0.875rem 1.25rem; background: none; border: none; cursor: pointer; font-weight: 600; font-size: 0.875rem; text-align: left;">
+                                    Rating <span style="color: var(--zak-text-muted); transition: transform 0.2s;">▼</span>
+                                </button>
+                                <div class="fp-section-content" style="padding: 0 1.25rem 0.875rem;">
+                                    <label style="display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0; cursor: pointer; font-size: 0.8125rem;"><input type="radio" class="zak-radio fp-filter" name="fp-rating" value="5" onchange="updateFP()"> ★★★★★ <span style="color: var(--zak-text-muted); font-size: 0.75rem;">(23)</span></label>
+                                    <label style="display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0; cursor: pointer; font-size: 0.8125rem;"><input type="radio" class="zak-radio fp-filter" name="fp-rating" value="4" onchange="updateFP()"> ★★★★ <span style="color: var(--zak-text-muted); font-size: 0.75rem;">(45)</span></label>
+                                    <label style="display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0; cursor: pointer; font-size: 0.8125rem;"><input type="radio" class="zak-radio fp-filter" name="fp-rating" value="3" onchange="updateFP()"> ★★★ <span style="color: var(--zak-text-muted); font-size: 0.75rem;">(12)</span></label>
+                                </div>
+                            </div>
+
+                            <!-- Availability Section -->
+                            <div class="fp-section">
+                                <button class="fp-section-toggle" onclick="toggleFPSection(this)" style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 0.875rem 1.25rem; background: none; border: none; cursor: pointer; font-weight: 600; font-size: 0.875rem; text-align: left;">
+                                    Availability <span style="color: var(--zak-text-muted); transition: transform 0.2s;">▼</span>
+                                </button>
+                                <div class="fp-section-content" style="padding: 0 1.25rem 0.875rem;">
+                                    <label style="display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0; cursor: pointer; font-size: 0.8125rem;"><input type="checkbox" class="zak-checkbox fp-filter" data-filter="avail" value="instock" onchange="updateFP()"> In Stock <span class="zak-badge zak-badge-success" style="margin-left: auto; font-size: 0.6875rem;">58</span></label>
+                                    <label style="display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0; cursor: pointer; font-size: 0.8125rem;"><input type="checkbox" class="zak-checkbox fp-filter" data-filter="avail" value="preorder" onchange="updateFP()"> Pre-order <span class="zak-badge zak-badge-warning" style="margin-left: auto; font-size: 0.6875rem;">7</span></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding: 1rem 1.25rem; border-top: 1px solid var(--zak-border); display: flex; gap: 0.5rem;">
+                            <button class="zak-btn zak-btn-primary zak-btn-sm" style="flex: 1;" onclick="applyFP()">Apply Filters</button>
+                            <button class="zak-btn zak-btn-outline zak-btn-sm" onclick="clearFP()">Reset</button>
+                        </div>
+                    </div>
+
+                    <div style="flex: 1; min-width: 300px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <div style="font-size: 0.875rem; color: var(--zak-text-muted);"><span id="fp-result-count">63</span> products found</div>
+                            <div class="zak-filter-chips" id="fp-summary" style="display: flex; flex-wrap: wrap; gap: 0.375rem;"></div>
+                        </div>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 0.75rem;" id="fp-products">
+                            <div class="zak-card" data-cat="electronics" data-price="29"><div class="zak-card-body" style="padding: 0.75rem;"><div style="font-size: 0.6875rem; color: var(--zak-text-muted);">Electronics</div><div style="font-weight: 600;">Mouse</div><div style="font-size: 0.875rem; margin-top: 0.25rem;">$29</div></div></div>
+                            <div class="zak-card" data-cat="electronics" data-price="119"><div class="zak-card-body" style="padding: 0.75rem;"><div style="font-size: 0.6875rem; color: var(--zak-text-muted);">Electronics</div><div style="font-weight: 600;">Keyboard</div><div style="font-size: 0.875rem; margin-top: 0.25rem;">$119</div></div></div>
+                            <div class="zak-card" data-cat="clothing" data-price="24"><div class="zak-card-body" style="padding: 0.75rem;"><div style="font-size: 0.6875rem; color: var(--zak-text-muted);">Clothing</div><div style="font-weight: 600;">T-Shirt</div><div style="font-size: 0.875rem; margin-top: 0.25rem;">$24</div></div></div>
+                            <div class="zak-card" data-cat="home" data-price="45"><div class="zak-card-body" style="padding: 0.75rem;"><div style="font-size: 0.6875rem; color: var(--zak-text-muted);">Home</div><div style="font-weight: 600;">Vase</div><div style="font-size: 0.875rem; margin-top: 0.25rem;">$45</div></div></div>
+                            <div class="zak-card" data-cat="sports" data-price="89"><div class="zak-card-body" style="padding: 0.75rem;"><div style="font-size: 0.6875rem; color: var(--zak-text-muted);">Sports</div><div style="font-weight: 600;">Yoga Mat</div><div style="font-size: 0.875rem; margin-top: 0.25rem;">$89</div></div></div>
+                            <div class="zak-card" data-cat="electronics" data-price="329"><div class="zak-card-body" style="padding: 0.75rem;"><div style="font-size: 0.6875rem; color: var(--zak-text-muted);">Electronics</div><div style="font-weight: 600;">Monitor</div><div style="font-size: 0.875rem; margin-top: 0.25rem;">$329</div></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Demo JavaScript</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span>JavaScript</span><button class="docs-copy-btn">Copy</button></div><pre><code>function toggleFPSection(btn) {
+  var content = btn.parentElement.querySelector('.fp-section-content');
+  var arrow = btn.querySelector('span:last-child');
+  var isHidden = content.style.display === 'none';
+  content.style.display = isHidden ? '' : 'none';
+  arrow.style.transform = isHidden ? '' : 'rotate(-90deg)';
+}
+
+function updateFP() {
+  var summary = document.getElementById('fp-summary');
+  var count = 0;
+  summary.innerHTML = '';
+  document.querySelectorAll('.fp-filter:checked').forEach(function (cb) {
+    count++;
+    var label = cb.closest('label').textContent.trim().split('\n')[0].trim();
+    var chip = document.createElement('span');
+    chip.className = 'zak-badge';
+    chip.style.cssText = 'display:inline-flex;align-items:center;gap:4px;cursor:pointer;font-size:0.75rem;';
+    chip.innerHTML = label + ' &lt;button style="background:none;border:none;cursor:pointer;padding:0;font-size:0.875rem;line-height:1;color:var(--zak-text-muted);"&gt;&amp;times;&lt;/button&gt;';
+    chip.querySelector('button').addEventListener('click', function () { cb.checked = false; updateFP(); });
+    summary.appendChild(chip);
+  });
+  document.getElementById('fp-result-count').textContent = Math.max(63 - count * 8, 3);
+}
+
+function applyFP() { updateFP(); }
+function clearFP() {
+  document.querySelectorAll('.fp-filter').forEach(function (cb) { cb.checked = false; });
+  document.getElementById('fp-price-min').value = '';
+  document.getElementById('fp-price-max').value = '';
+  updateFP();
+}</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead><tr><th>Class</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>.fp-section</code></td><td>Collapsible filter section</td></tr>
+                        <tr><td><code>.fp-section-toggle</code></td><td>Section header toggle button</td></tr>
+                        <tr><td><code>.fp-section-content</code></td><td>Collapsible content area</td></tr>
+                        <tr><td><code>.fp-filter</code></td><td>Filter input (checkbox/radio)</td></tr>
+                        <tr><td><code>.zak-filter-chips</code></td><td>Active filter summary chips</td></tr>
+                        <tr><td><code>.zak-badge</code></td><td>Count badge in filter options</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    <script>/* ZAK_DEMO_LIVE */
+function toggleFPSection(btn) {
+  var content = btn.parentElement.querySelector('.fp-section-content');
+  var arrow = btn.querySelector('span:last-child');
+  var isHidden = content.style.display === 'none';
+  content.style.display = isHidden ? '' : 'none';
+  arrow.style.transform = isHidden ? '' : 'rotate(-90deg)';
+}
+
+function updateFP() {
+  var summary = document.getElementById('fp-summary');
+  var count = 0;
+  summary.innerHTML = '';
+  document.querySelectorAll('.fp-filter:checked').forEach(function (cb) {
+    count++;
+    var label = cb.closest('label').textContent.trim().split('\n')[0].trim();
+    var chip = document.createElement('span');
+    chip.className = 'zak-badge';
+    chip.style.cssText = 'display:inline-flex;align-items:center;gap:4px;cursor:pointer;font-size:0.75rem;';
+    chip.innerHTML = label + ' <button style="background:none;border:none;cursor:pointer;padding:0;font-size:0.875rem;line-height:1;color:var(--zak-text-muted);">&times;</button>';
+    chip.querySelector('button').addEventListener('click', function () { cb.checked = false; updateFP(); });
+    summary.appendChild(chip);
+  });
+  document.getElementById('fp-result-count').textContent = Math.max(63 - count * 8, 3);
+}
+
+function applyFP() { updateFP(); }
+function clearFP() {
+  document.querySelectorAll('.fp-filter').forEach(function (cb) { cb.checked = false; });
+  document.getElementById('fp-price-min').value = '';
+  document.getElementById('fp-price-max').value = '';
+  updateFP();
+}
+</script>
+</body>
+</html>

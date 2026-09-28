@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Video documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Video - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/media/video/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Video - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Video documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/media/video/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Media</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Video</span>
+                </nav>
+        <h1>Video</h1>
+        <p class="docs-subtitle">Video embeds HTML5 video players with support for posters, native controls, responsive aspect ratios, captions, and card integration.</p>
+
+        <div class="zak-docs-section">
+            <h2>Basic Video Player</h2>
+            <p>A minimal video element without explicit controls.</p>
+
+            <div class="docs-preview">
+                <div style="max-width: 500px;">
+                    <video class="zak-video" controls preload="none" poster="../image-preview/images/photo-3.svg" style="width: 100%; display: block;">
+                        <source src="video.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;video class="zak-video" src="video.mp4"&gt;&lt;/video&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Video with Poster</h2>
+            <p>Show a poster image before the video begins playing.</p>
+
+            <div class="docs-preview">
+                <div style="max-width: 500px; border-radius: 0.5rem; overflow: hidden; position: relative;">
+                    <video class="zak-video" controls preload="none" poster="../image-preview/images/photo-2.svg" style="width: 100%; display: block;">
+                        <source src="video.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;video class="zak-video" controls poster="poster.jpg"&gt;
+  &lt;source src="video.mp4" type="video/mp4"&gt;
+&lt;/video&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Video with Controls</h2>
+            <p>Enable native browser playback controls including play/pause, volume, and fullscreen.</p>
+
+            <div class="docs-preview">
+                <div style="max-width: 500px; border-radius: 0.5rem; overflow: hidden; border: 1px solid var(--zak-border);">
+                    <video class="zak-video" controls preload="none" poster="../image-preview/images/photo-1.svg" style="width: 100%; display: block;">
+                        <source src="video.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;video class="zak-video" controls&gt;
+  &lt;source src="video.mp4" type="video/mp4"&gt;
+&lt;/video&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Responsive Video (16:9)</h2>
+            <p>A video that scales to its container while maintaining the 16:9 aspect ratio.</p>
+
+            <div class="docs-preview">
+                <div class="zak-video-responsive zak-video-16by9" style="max-width: 500px; border-radius: 0.5rem; overflow: hidden;">
+                    <video controls preload="none" poster="../image-preview/images/photo-3.svg">
+                        <source src="video.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-video-responsive zak-video-16by9"&gt;
+  &lt;video controls&gt;
+    &lt;source src="video.mp4" type="video/mp4"&gt;
+  &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;!-- Also available: .zak-video-4by3, .zak-video-1by1, .zak-video-21by9 --&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Video with Caption</h2>
+            <p>Add closed captions using a WebVTT track and display a caption below.</p>
+
+            <div class="docs-preview">
+                <div style="max-width: 500px; border-radius: 0.5rem; overflow: hidden; border: 1px solid var(--zak-border);">
+                    <video class="zak-video" controls preload="none" poster="../image-preview/images/photo-2.svg" style="width: 100%; display: block;">
+                        <source src="video.mp4" type="video/mp4">
+                        <track src="subtitles.vtt" kind="captions" srclang="en" label="English">
+                    </video>
+                    <div style="padding: 0.75rem 1rem; background: var(--zak-surface); border-top: 1px solid var(--zak-border);">
+                        <div style="font-weight: 600; font-size: 0.875rem;">Documentary: Life in the Ocean</div>
+                        <div style="font-size: 0.75rem; color: var(--zak-text-muted); margin-top: 0.25rem;">A look at marine ecosystems, 2024</div>
+                    </div>
+                    <div style="padding: 0.25rem 1rem 0.5rem; background: var(--zak-surface);">
+                        <button class="zak-badge zak-badge-primary" style="cursor: pointer;">CC Subtitles</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;video class="zak-video" controls&gt;
+  &lt;source src="video.mp4" type="video/mp4"&gt;
+  &lt;track src="subtitles.vtt" kind="captions" srclang="en" label="English"&gt;
+&lt;/video&gt;
+&lt;figcaption class="zak-video-caption"&gt;
+  &lt;strong&gt;Documentary&lt;/strong&gt; A look at marine ecosystems
+&lt;/figcaption&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Video in Card</h2>
+            <p>Embed a video within a card component for a media-rich content block.</p>
+
+            <div class="docs-preview">
+                <div class="zak-card" style="max-width: 420px; overflow: hidden;">
+                    <video class="zak-video" controls preload="none" poster="../image-preview/images/photo-1.svg" style="width: 100%; display: block; border-radius: 0;">
+                        <source src="video.mp4" type="video/mp4">
+                    </video>
+                    <div class="zak-card-body">
+                        <h3 class="zak-card-title">Product Launch Video</h3>
+                        <p class="zak-card-text">Watch our latest product announcement and see the new features in action.</p>
+                        <button class="zak-btn zak-btn-primary zak-btn-sm">Watch Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-card"&gt;
+  &lt;video class="zak-video" controls&gt;
+    &lt;source src="video.mp4" type="video/mp4"&gt;
+  &lt;/video&gt;
+  &lt;div class="zak-card-body"&gt;
+    &lt;h3 class="zak-card-title"&gt;Product Launch Video&lt;/h3&gt;
+    &lt;p class="zak-card-text"&gt;Watch our latest announcement...&lt;/p&gt;
+    &lt;button class="zak-btn zak-btn-primary zak-btn-sm"&gt;Watch Now&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.zak-video</code></td><td>Base video element</td></tr>
+                        <tr><td><code>.zak-video-responsive</code></td><td>Maintains aspect ratio wrapper</td></tr>
+                        <tr><td><code>.zak-video-16by9</code></td><td>16:9 aspect ratio</td></tr>
+                        <tr><td><code>.zak-video-4by3</code></td><td>4:3 aspect ratio</td></tr>
+                        <tr><td><code>.zak-video-1by1</code></td><td>1:1 aspect ratio</td></tr>
+                        <tr><td><code>.zak-video-21by9</code></td><td>21:9 aspect ratio</td></tr>
+                        <tr><td><code>.zak-video-caption</code></td><td>Caption below video</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Provide a <code>&lt;track kind="captions"&gt;</code> for spoken dialogue so content is accessible.</li>
+                <li>Include a visible text transcript as an alternative for users who cannot watch.</li>
+                <li>Support keyboard: play/pause with Space, seek with arrow keys, and Escape to exit fullscreen.</li>
+                <li>Never autoplay video with sound; if autoplay is used, mute and show a visible play button.</li>
+                <li>Ensure custom control buttons have <code>aria-label</code> describing their function.</li>
+            </ul>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body></html>

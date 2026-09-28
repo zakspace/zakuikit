@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Input Group documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Input Group - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/forms/input-group/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Input Group - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Input Group documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/forms/input-group/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+  <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+  <span class="docs-breadcrumb__separator">/</span>
+  <span class="docs-breadcrumb__current">Forms</span>
+  <span class="docs-breadcrumb__separator">/</span>
+  <span class="docs-breadcrumb__current">Input Group</span>
+</nav>
+
+        <h1>Input Group</h1>
+        <p class="docs-subtitle">Input groups extend form inputs by prepending or appending text, buttons, icons, and dropdowns to create richer input experiences.</p>
+
+        <div class="zak-docs-section">
+            <h2>Text Addons</h2>
+            <p>Prepend or append static text to inputs.</p>
+
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="ig-prepend">Username</label>
+                        <div class="zak-input-group">
+                            <span class="zak-input-group-text">@</span>
+                            <input type="text" id="ig-prepend" class="zak-input" placeholder="username">
+                        </div>
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="ig-append">Price</label>
+                        <div class="zak-input-group">
+                            <input type="number" id="ig-append" class="zak-input" placeholder="0.00">
+                            <span class="zak-input-group-text">.00</span>
+                        </div>
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="ig-both">Domain</label>
+                        <div class="zak-input-group">
+                            <span class="zak-input-group-text">https://</span>
+                            <input type="text" id="ig-both" class="zak-input" placeholder="example.com">
+                            <span class="zak-input-group-text">.com</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="docs-code-block">
+                <div class="docs-code-block__header">
+                    <span class="docs-code-block__lang">HTML</span>
+                    <button class="docs-copy-btn">Copy</button>
+                </div>
+                <pre><code class="language-html">&lt;div class="zak-input-group"&gt;
+  &lt;span class="zak-input-group-text"&gt;@&lt;/span&gt;
+  &lt;input type="text" class="zak-input" placeholder="username"&gt;
+&lt;/div&gt;
+
+&lt;div class="zak-input-group"&gt;
+  &lt;input type="number" class="zak-input" placeholder="0.00"&gt;
+  &lt;span class="zak-input-group-text"&gt;.00&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class="zak-input-group"&gt;
+  &lt;span class="zak-input-group-text"&gt;https://&lt;/span&gt;
+  &lt;input type="text" class="zak-input" placeholder="example.com"&gt;
+  &lt;span class="zak-input-group-text"&gt;.com&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Button Addons</h2>
+            <p>Attach buttons to inputs for actions.</p>
+
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="ig-btn-append">Search</label>
+                        <div class="zak-input-group">
+                            <input type="search" id="ig-btn-append" class="zak-input" placeholder="Search...">
+                            <button type="submit" class="zak-btn zak-btn-primary">Search</button>
+                        </div>
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="ig-btn-prepend">Subscribe</label>
+                        <div class="zak-input-group">
+                            <button type="button" class="zak-btn zak-btn-outline">Subscribe</button>
+                            <input type="email" id="ig-btn-prepend" class="zak-input" placeholder="your@email.com">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="docs-code-block">
+                <div class="docs-code-block__header">
+                    <span class="docs-code-block__lang">HTML</span>
+                    <button class="docs-copy-btn">Copy</button>
+                </div>
+                <pre><code class="language-html">&lt;div class="zak-input-group"&gt;
+  &lt;input type="search" class="zak-input" placeholder="Search..."&gt;
+  &lt;button type="submit" class="zak-btn zak-btn-primary"&gt;Search&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class="zak-input-group"&gt;
+  &lt;button type="button" class="zak-btn zak-btn-outline"&gt;Subscribe&lt;/button&gt;
+  &lt;input type="email" class="zak-input" placeholder="your@email.com"&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Icon Addons</h2>
+            <p>Use icons in input groups for visual context.</p>
+
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="ig-icon-1">Email</label>
+                        <div class="zak-input-group">
+                            <span class="zak-input-group-text">
+                                <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                            </span>
+                            <input type="email" id="ig-icon-1" class="zak-input" placeholder="you@example.com">
+                        </div>
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="ig-icon-2">Password</label>
+                        <div class="zak-input-group">
+                            <span class="zak-input-group-text">
+                                <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                            </span>
+                            <input type="password" id="ig-icon-2" class="zak-input" placeholder="Enter password">
+                            <button type="button" class="zak-btn zak-btn-soft zak-btn-icon">
+                                <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="docs-code-block">
+                <div class="docs-code-block__header">
+                    <span class="docs-code-block__lang">HTML</span>
+                    <button class="docs-copy-btn">Copy</button>
+                </div>
+                <pre><code class="language-html">&lt;div class="zak-input-group"&gt;
+  &lt;span class="zak-input-group-text"&gt;
+    &lt;svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;
+      &lt;rect width="20" height="16" x="2" y="4" rx="2"/&gt;&lt;path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/&gt;
+    &lt;/svg&gt;
+  &lt;/span&gt;
+  &lt;input type="email" class="zak-input" placeholder="you@example.com"&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Multiple Addons</h2>
+            <p>Combine multiple addons on both sides.</p>
+
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="ig-multi">Amount</label>
+                        <div class="zak-input-group">
+                            <span class="zak-input-group-text">
+                                <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                            </span>
+                            <input type="number" id="ig-multi" class="zak-input" placeholder="0.00">
+                            <span class="zak-input-group-text">USD</span>
+                            <button type="button" class="zak-btn zak-btn-outline">Convert</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="docs-code-block">
+                <div class="docs-code-block__header">
+                    <span class="docs-code-block__lang">HTML</span>
+                    <button class="docs-copy-btn">Copy</button>
+                </div>
+                <pre><code class="language-html">&lt;div class="zak-input-group"&gt;
+  &lt;span class="zak-input-group-text"&gt;$&lt;/span&gt;
+  &lt;input type="number" class="zak-input" placeholder="0.00"&gt;
+  &lt;span class="zak-input-group-text"&gt;USD&lt;/span&gt;
+  &lt;button type="button" class="zak-btn zak-btn-outline"&gt;Convert&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Sizing</h2>
+            <p>Input groups support small and large sizes.</p>
+
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label">Small</label>
+                        <div class="zak-input-group zak-input-group-sm">
+                            <span class="zak-input-group-text">SM</span>
+                            <input type="text" class="zak-input" placeholder="Small input group">
+                        </div>
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label">Default</label>
+                        <div class="zak-input-group">
+                            <span class="zak-input-group-text">Default</span>
+                            <input type="text" class="zak-input" placeholder="Default input group">
+                        </div>
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label">Large</label>
+                        <div class="zak-input-group zak-input-group-lg">
+                            <span class="zak-input-group-text">LG</span>
+                            <input type="text" class="zak-input" placeholder="Large input group">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="docs-code-block">
+                <div class="docs-code-block__header">
+                    <span class="docs-code-block__lang">HTML</span>
+                    <button class="docs-copy-btn">Copy</button>
+                </div>
+                <pre><code class="language-html">&lt;div class="zak-input-group zak-input-group-sm"&gt;
+  &lt;span class="zak-input-group-text"&gt;SM&lt;/span&gt;
+  &lt;input type="text" class="zak-input" placeholder="Small"&gt;
+&lt;/div&gt;
+
+&lt;div class="zak-input-group"&gt;
+  &lt;span class="zak-input-group-text"&gt;Default&lt;/span&gt;
+  &lt;input type="text" class="zak-input" placeholder="Default"&gt;
+&lt;/div&gt;
+
+&lt;div class="zak-input-group zak-input-group-lg"&gt;
+  &lt;span class="zak-input-group-text"&gt;LG&lt;/span&gt;
+  &lt;input type="text" class="zak-input" placeholder="Large"&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.zak-input-group</code></td><td>Base input group container</td></tr>
+                        <tr><td><code>.zak-input-group-sm</code></td><td>Small size</td></tr>
+                        <tr><td><code>.zak-input-group-lg</code></td><td>Large size</td></tr>
+                        <tr><td><code>.zak-input-group-text</code></td><td>Addon text element</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Ensure the input within the group still has an associated <code>&lt;label&gt;</code>.</li>
+                <li>Addons should not interfere with keyboard navigation through the input.</li>
+                <li>Use <code>aria-label</code> on icon-only buttons within input groups.</li>
+                <li>Form validation messages should be linked to the input via <code>aria-describedby</code>.</li>
+            </ul>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body>
+</html>

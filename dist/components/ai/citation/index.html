@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Citation documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Citation - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/ai/citation/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Citation - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Citation documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/ai/citation/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Ai</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Citation</span>
+                </nav>
+        <h1>Citation</h1>
+        <p class="docs-subtitle">Inline superscript citations, citation blocks with source info, hover previews, and numbered reference lists for AI responses.</p>
+
+        <section class="zak-docs-section">
+            <h2>Inline Superscript</h2>
+            <p>Superscript citation numbers within text.</p>
+            <div class="docs-preview">
+                <div style="max-width:600px;width:100%">
+                    <p style="font-size:0.9375rem;line-height:1.7;color:var(--zak-text,#1a1a2e);margin:0">
+                        React Server Components allow you to write components that run exclusively on the server.<a class="zak-ai-cite" href="#cite-1">[1]</a> They provide direct backend access and automatic code splitting.<a class="zak-ai-cite" href="#cite-2">[2]</a> This architecture is ideal for content-heavy applications.<a class="zak-ai-cite" href="#cite-3">[3]</a>
+                    </p>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>React Server Components allow you to write components that run exclusively on the server.
+&lt;a class="zak-ai-cite" href="#cite-1"&gt;[1]&lt;/a&gt;
+
+They provide direct backend access and automatic code splitting.
+&lt;a class="zak-ai-cite" href="#cite-2"&gt;[2]&lt;/a&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Citation Block</h2>
+            <p>Full citation block with title, URL, and snippet.</p>
+            <div class="docs-preview">
+                <div style="max-width:600px;width:100%">
+                    <div class="zak-ai-cite-list">
+                        <div class="zak-ai-cite-block" id="cite-1">
+                            <div class="zak-ai-cite-block-num">1</div>
+                            <div class="zak-ai-cite-block-body">
+                                <div class="zak-ai-cite-block-title"><a href="#">React Docs: Server Components</a></div>
+                                <div class="zak-ai-cite-block-url">react.dev/learn/server-components</div>
+                                <div class="zak-ai-cite-block-snippet">Server Components are a new type of component that runs exclusively on the server. They allow you to access backend resources directly.</div>
+                            </div>
+                        </div>
+                        <div class="zak-ai-cite-block" id="cite-2">
+                            <div class="zak-ai-cite-block-num">2</div>
+                            <div class="zak-ai-cite-block-body">
+                                <div class="zak-ai-cite-block-title"><a href="#">Next.js: App Router Documentation</a></div>
+                                <div class="zak-ai-cite-block-url">nextjs.org/docs/app/building-your-application</div>
+                                <div class="zak-ai-cite-block-snippet">The App Router supports React Server Components by default, providing automatic code splitting and server-side rendering.</div>
+                            </div>
+                        </div>
+                        <div class="zak-ai-cite-block" id="cite-3">
+                            <div class="zak-ai-cite-block-num">3</div>
+                            <div class="zak-ai-cite-block-body">
+                                <div class="zak-ai-cite-block-title"><a href="#">Vercel: RSC Performance Guide</a></div>
+                                <div class="zak-ai-cite-block-url">vercel.com/blog/react-server-components</div>
+                                <div class="zak-ai-cite-block-snippet">Content-heavy applications benefit most from RSC as they can eliminate client-side JavaScript for static content rendering.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-ai-cite-list"&gt;
+    &lt;div class="zak-ai-cite-block" id="cite-1"&gt;
+        &lt;div class="zak-ai-cite-block-num"&gt;1&lt;/div&gt;
+        &lt;div class="zak-ai-cite-block-body"&gt;
+            &lt;div class="zak-ai-cite-block-title"&gt;
+                &lt;a href="#"&gt;React Docs: Server Components&lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div class="zak-ai-cite-block-url"&gt;react.dev/learn/server-components&lt;/div&gt;
+            &lt;div class="zak-ai-cite-block-snippet"&gt;
+                Server Components are a new type of component...
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Hover Preview</h2>
+            <p>Inline citation that shows a preview popup on hover.</p>
+            <div class="docs-preview">
+                <div style="max-width:600px;width:100%">
+                    <p style="font-size:0.9375rem;line-height:1.7;color:var(--zak-text,#1a1a2e);margin:0">
+                        React Server Components are ideal for content-heavy apps.<span class="zak-ai-cite-preview"><a class="zak-ai-cite" href="#">[1]</a><div class="zak-ai-cite-preview-popup"><div class="zak-ai-cite-preview-title">React Docs: Server Components</div><div class="zak-ai-cite-preview-url">react.dev/learn/server-components</div><div class="zak-ai-cite-preview-snippet">Server Components are a new type of component that runs exclusively on the server...</div></div></span>
+                    </p>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;span class="zak-ai-cite-preview"&gt;
+    &lt;a class="zak-ai-cite" href="#"&gt;[1]&lt;/a&gt;
+    &lt;div class="zak-ai-cite-preview-popup"&gt;
+        &lt;div class="zak-ai-cite-preview-title"&gt;React Docs&lt;/div&gt;
+        &lt;div class="zak-ai-cite-preview-url"&gt;react.dev&lt;/div&gt;
+        &lt;div class="zak-ai-cite-preview-snippet"&gt;Server Components...&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/span&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Citation with Highlight</h2>
+            <p>Highlighted quote block with a left accent border.</p>
+            <div class="docs-preview">
+                <div style="max-width:600px;width:100%">
+                    <div class="zak-ai-cite-highlight">"Server Components allow you to write components that have access to the server environment directly. This means you can query databases, read files, and access secrets without exposing them to the client."<a class="zak-ai-cite" href="#cite-1">[1]</a></div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-ai-cite-highlight"&gt;
+    "Server Components allow you to write components..."
+    &lt;a class="zak-ai-cite" href="#cite-1"&gt;[1]&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Inline Citation Chip</h2>
+            <p>Compact inline citation with icon, suitable for inline references.</p>
+            <div class="docs-preview">
+                <div style="display:flex;gap:0.75rem;flex-wrap:wrap">
+                    <a class="zak-ai-cite-inline" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>React Docs [1]</a>
+                    <a class="zak-ai-cite-inline" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>Next.js Docs [2]</a>
+                    <a class="zak-ai-cite-inline" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>MDN Web Docs [3]</a>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;a class="zak-ai-cite-inline" href="#"&gt;
+    &lt;svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;...&lt;/svg&gt;
+    React Docs [1]
+&lt;/a&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>CSS Classes</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>.zak-ai-cite                   /* Inline superscript citation link */
+.zak-ai-cite-block             /* Citation block container */
+.zak-ai-cite-block-num         /* Numbered badge */
+.zak-ai-cite-block-body        /* Title + URL + snippet */
+.zak-ai-cite-block-title       /* Source title */
+.zak-ai-cite-block-url         /* Source URL */
+.zak-ai-cite-block-snippet     /* Text snippet (with mark highlighting) */
+.zak-ai-cite-list              /* Vertical list of citation blocks */
+.zak-ai-cite-preview           /* Hover preview wrapper */
+.zak-ai-cite-preview-popup     /* Popup tooltip on hover */
+.zak-ai-cite-preview-title     /* Popup title */
+.zak-ai-cite-preview-url       /* Popup URL */
+.zak-ai-cite-preview-snippet   /* Popup snippet */
+.zak-ai-cite-highlight         /* Highlighted quote with accent border */
+.zak-ai-cite-inline            /* Compact inline citation chip */</code></pre>
+        </div>
+        </section>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body>
+</html>

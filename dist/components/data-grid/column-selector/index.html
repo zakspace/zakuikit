@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Column Selector documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Column Selector - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/data-grid/column-selector/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Column Selector - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Column Selector documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/data-grid/column-selector/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Enterprise</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Column Selector</span>
+                </nav>
+        <h1>Column Selector</h1>
+        <p class="docs-subtitle">A column visibility and management panel with drag-to-reorder, column presets, pin/unpin, and resize reset functionality.</p>
+
+        <div class="zak-docs-section">
+            <h2>Column Selector Panel</h2>
+            <p>Toggle the column selector dropdown to manage column visibility, reorder columns via drag handles, pin columns, and apply presets.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--zak-space-4); flex-wrap: wrap; gap: var(--zak-space-3);">
+                    <div style="display: flex; gap: var(--zak-space-2); flex-wrap: wrap;">
+                        <div class="zak-dropdown" id="cs-dropdown">
+                            <button class="zak-btn zak-btn-outline zak-btn-sm" id="cs-toggle" style="position:relative;">
+                                <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg>
+                                Columns <span id="cs-count-badge" class="zak-badge zak-badge-primary" style="margin-left:4px;">6</span>
+                            </button>
+                            <div class="zak-dropdown-menu" id="cs-panel" style="width: 320px; padding: 0; max-height: 450px; overflow-y: auto;">
+                                <div style="padding: var(--zak-space-3); border-bottom: 1px solid var(--zak-border-color);">
+                                    <div style="display:flex;gap:var(--zak-space-2);margin-bottom:var(--zak-space-2);">
+                                        <button class="zak-btn zak-btn-sm zak-btn-primary" id="cs-preset-all">All</button>
+                                        <button class="zak-btn zak-btn-sm zak-btn-outline" id="cs-preset-essential">Essential</button>
+                                        <button class="zak-btn zak-btn-sm zak-btn-outline" id="cs-preset-minimal">Minimal</button>
+                                    </div>
+                                    <button class="zak-btn zak-btn-sm zak-btn-soft" id="cs-reset-resize" style="width:100%;text-align:left;">
+                                        <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 4v6h6"/><path d="M23 20v-6h-6"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
+                                        Reset All Widths
+                                    </button>
+                                </div>
+                                <div id="cs-column-list" style="padding: var(--zak-space-2) 0;"></div>
+                            </div>
+                        </div>
+                        <button class="zak-btn zak-btn-outline zak-btn-sm" id="cs-reset-btn" title="Reset to default">
+                            <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 4v6h6"/><path d="M23 20v-6h-6"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
+                            Reset
+                        </button>
+                    </div>
+                </div>
+
+                <div class="zak-table-wrapper" style="border: 1px solid var(--zak-border-color); border-radius: var(--zak-radius-lg); overflow: hidden;">
+                    <table class="zak-table" id="cs-table">
+                        <thead><tr id="cs-thead"></tr></thead>
+                        <tbody><tr id="cs-row1"><td>Alice Johnson</td><td>alice@company.com</td><td>Engineering</td><td><span class="zak-badge zak-badge-success">Active</span></td><td style="text-align:right;">$95,000</td><td>2021-03-15</td><td>Senior Engineer</td><td>Backend</td></tr>
+                        <tr id="cs-row2"><td>Bob Smith</td><td>bob@company.com</td><td>Marketing</td><td><span class="zak-badge zak-badge-success">Active</span></td><td style="text-align:right;">$72,000</td><td>2020-07-01</td><td>Marketing Manager</td><td>Brand</td></tr>
+                        <tr id="cs-row3"><td>Carol White</td><td>carol@company.com</td><td>Sales</td><td><span class="zak-badge zak-badge-warning">On Leave</span></td><td style="text-align:right;">$68,000</td><td>2019-11-20</td><td>Sales Rep</td><td>Enterprise</td></tr>
+                        <tr id="cs-row4"><td>David Brown</td><td>david@company.com</td><td>Engineering</td><td><span class="zak-badge zak-badge-success">Active</span></td><td style="text-align:right;">$105,000</td><td>2018-01-10</td><td>Tech Lead</td><td>Frontend</td></tr>
+                        <tr id="cs-row5"><td>Eva Martinez</td><td>eva@company.com</td><td>HR</td><td><span class="zak-badge zak-badge-success">Active</span></td><td style="text-align:right;">$78,000</td><td>2022-05-05</td><td>HR Specialist</td><td>Recruiting</td></tr></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-dropdown"&gt;
+  &lt;button class="zak-btn zak-btn-outline zak-btn-sm"&gt;
+    Columns &lt;span class="zak-badge zak-badge-primary"&gt;6&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;div class="zak-dropdown-menu" style="width:320px;padding:0;"&gt;
+    &lt;div style="padding:var(--zak-space-3);"&gt;
+      &lt;button class="zak-btn zak-btn-sm zak-btn-primary"&gt;All&lt;/button&gt;
+      &lt;button class="zak-btn zak-btn-sm zak-btn-outline"&gt;Essential&lt;/button&gt;
+      &lt;button class="zak-btn zak-btn-sm zak-btn-outline"&gt;Minimal&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div id="cs-column-list"&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Features</h2>
+            <ul>
+                <li><strong>Visibility Toggle</strong> &mdash; Show/hide columns with checkboxes.</li>
+                <li><strong>Drag Reorder</strong> &mdash; Drag columns by handle to reorder.</li>
+                <li><strong>Column Presets</strong> &mdash; All, Essential, Minimal presets for quick column layouts.</li>
+                <li><strong>Pin/Unpin</strong> &mdash; Pin columns to the left side of the table.</li>
+                <li><strong>Resize Reset</strong> &mdash; Reset all column widths to default.</li>
+                <li><strong>Badge Counter</strong> &mdash; Shows number of visible columns.</li>
+            </ul>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead><tr><th>Class</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>.zak-dropdown</code></td><td>Dropdown container for the column panel</td></tr>
+                        <tr><td><code>.zak-dropdown-menu</code></td><td>Panel container with padding and overflow</td></tr>
+                        <tr><td><code>.zak-badge zak-badge-primary</code></td><td>Visible column count badge</td></tr>
+                        <tr><td><code>.zak-btn zak-btn-outline zak-btn-sm</code></td><td>Column toggle button</td></tr>
+                        <tr><td><code>.zak-btn zak-btn-sm zak-btn-soft</code></td><td>Drag handle and reset width buttons</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    <script>
+    (function(){
+        var columns=[
+            {name:'Name',visible:true,pinned:false,order:0},
+            {name:'Email',visible:true,pinned:false,order:1},
+            {name:'Department',visible:true,pinned:false,order:2},
+            {name:'Status',visible:true,pinned:false,order:3},
+            {name:'Salary',visible:true,pinned:false,order:4},
+            {name:'Join Date',visible:true,pinned:false,order:5},
+            {name:'Title',visible:false,pinned:false,order:6},
+            {name:'Team',visible:false,pinned:false,order:7}
+        ];
+        var presets={all:[0,1,2,3,4,5,6,7],essential:[0,1,2,3,4],minimal:[0,2,3]};
+        var list=document.getElementById('cs-column-list');
+        var badge=document.getElementById('cs-count-badge');
+        var thead=document.getElementById('cs-thead');
+        var dragIdx=null;
+
+        function sortedCols(){return columns.slice().sort(function(a,b){return a.order-b.order;});}
+        function renderList(){
+            var sc=sortedCols();
+            list.innerHTML='';
+            sc.forEach(function(col){
+                var div=document.createElement('div');
+                div.className='cs-col-item';
+                div.style.cssText='display:flex;align-items:center;gap:var(--zak-space-2);padding:var(--zak-space-2) var(--zak-space-3);border-bottom:1px solid var(--zak-border-color);cursor:default;';
+                div.draggable=true;
+                div.dataset.name=col.name;
+                div.innerHTML='<span class="cs-drag-handle" style="cursor:grab;color:var(--zak-text-muted);font-size:14px;line-height:1;" title="Drag to reorder">&#9776;</span>'
+                    +'<input type="checkbox" class="zak-checkbox cs-vis-toggle" '+(col.visible?'checked':'')+' data-name="'+col.name+'" style="flex-shrink:0;">'
+                    +'<span style="flex:1;font-size:var(--zak-font-size-sm);'+(col.visible?'':'opacity:0.5;')+'">'+col.name+'</span>'
+                    +(col.pinned?'<span class="zak-badge zak-badge-primary" style="font-size:10px;">Pinned</span>':'')
+                    +'<button class="zak-btn zak-btn-soft zak-btn-sm cs-pin-btn" data-name="'+col.name+'" title="'+(col.pinned?'Unpin':'Pin')+'" style="padding:2px 4px;">'
+                    +'<svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="'+(col.pinned?'currentColor':'none')+'" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7z"/></svg>'
+                    +'</button>';
+                list.appendChild(div);
+                div.addEventListener('dragstart',function(e){dragIdx=col.name;e.dataTransfer.effectAllowed='move';});
+                div.addEventListener('dragover',function(e){e.preventDefault();e.dataTransfer.dropEffect='move';});
+                div.addEventListener('drop',function(e){
+                    e.preventDefault();
+                    if(dragIdx&&dragIdx!==col.name){
+                        var from=columns.find(function(c){return c.name===dragIdx;});
+                        var to=columns.find(function(c){return c.name===col.name;});
+                        var tmp=from.order;from.order=to.order;to.order=tmp;
+                        renderList();renderTable();
+                    }
+                    dragIdx=null;
+                });
+            });
+            list.querySelectorAll('.cs-vis-toggle').forEach(function(cb){
+                cb.addEventListener('change',function(){
+                    var col=columns.find(function(c){return c.name===cb.dataset.name;});
+                    if(col) col.visible=cb.checked;
+                    renderList();renderTable();
+                });
+            });
+            list.querySelectorAll('.cs-pin-btn').forEach(function(btn){
+                btn.addEventListener('click',function(){
+                    var col=columns.find(function(c){return c.name===btn.dataset.name;});
+                    if(col) col.pinned=!col.pinned;
+                    renderList();renderTable();
+                });
+            });
+            badge.textContent=columns.filter(function(c){return c.visible;}).length;
+        }
+        function renderTable(){
+            var sc=sortedCols().filter(function(c){return c.visible;});
+            thead.innerHTML='';
+            sc.forEach(function(col){var th=document.createElement('th');th.textContent=col.name;if(col.pinned){th.style.position='sticky';th.style.left='0';th.style.zIndex='2';th.style.background='var(--zak-surface-1)';}thead.appendChild(th);});
+            document.querySelectorAll('#cs-table tbody tr').forEach(function(tr){
+                var cells=tr.querySelectorAll('td');
+                cells.forEach(function(td,i){
+                    var origIdx=[0,1,2,3,4,5,6,7];
+                    var sc2=sortedCols();
+                    var visible=sc2.filter(function(c){return c.visible;});
+                    td.style.display='';
+                });
+                var allCells=Array.prototype.slice.call(tr.children);
+                var visibleIdx=sortedCols().filter(function(c){return c.visible;}).map(function(c){return c.order;});
+                allCells.forEach(function(td,i){
+                    var isVisible=visibleIdx.indexOf(i)!==-1;
+                    td.style.display=isVisible?'':'none';
+                });
+            });
+        }
+        document.getElementById('cs-preset-all').addEventListener('click',function(){
+            columns.forEach(function(c){c.visible=presets.all.indexOf(c.order)!==-1;});
+            renderList();renderTable();
+            document.getElementById('cs-preset-all').className='zak-btn zak-btn-sm zak-btn-primary';
+            document.getElementById('cs-preset-essential').className='zak-btn zak-btn-sm zak-btn-outline';
+            document.getElementById('cs-preset-minimal').className='zak-btn zak-btn-sm zak-btn-outline';
+        });
+        document.getElementById('cs-preset-essential').addEventListener('click',function(){
+            columns.forEach(function(c){c.visible=presets.essential.indexOf(c.order)!==-1;});
+            renderList();renderTable();
+            document.getElementById('cs-preset-all').className='zak-btn zak-btn-sm zak-btn-outline';
+            document.getElementById('cs-preset-essential').className='zak-btn zak-btn-sm zak-btn-primary';
+            document.getElementById('cs-preset-minimal').className='zak-btn zak-btn-sm zak-btn-outline';
+        });
+        document.getElementById('cs-preset-minimal').addEventListener('click',function(){
+            columns.forEach(function(c){c.visible=presets.minimal.indexOf(c.order)!==-1;});
+            renderList();renderTable();
+            document.getElementById('cs-preset-all').className='zak-btn zak-btn-sm zak-btn-outline';
+            document.getElementById('cs-preset-essential').className='zak-btn zak-btn-sm zak-btn-outline';
+            document.getElementById('cs-preset-minimal').className='zak-btn zak-btn-sm zak-btn-primary';
+        });
+        document.getElementById('cs-reset-resize').addEventListener('click',function(){renderTable();});
+        document.getElementById('cs-reset-btn').addEventListener('click',function(){
+            columns.forEach(function(c,i){c.visible=i<6;c.pinned=false;c.order=i;});
+            renderList();renderTable();
+        });
+        document.getElementById('cs-toggle').addEventListener('click',function(e){
+            e.stopPropagation();
+            var panel=document.getElementById('cs-panel');
+            panel.style.display=panel.style.display==='block'?'none':'block';
+        });
+        document.addEventListener('click',function(e){
+            if(!e.target.closest('#cs-dropdown')) document.getElementById('cs-panel').style.display='none';
+        });
+        renderList();renderTable();
+    })();
+    </script>
+</body></html>

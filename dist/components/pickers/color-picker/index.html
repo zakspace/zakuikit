@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Color Picker documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Color Picker - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/pickers/color-picker/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Color Picker - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Color Picker documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/pickers/color-picker/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Pickers</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Color Picker</span>
+                </nav>
+        <h1>Color Picker</h1>
+        <p class="docs-subtitle">The Color Picker renders a swatch from a normal input, opens a preset palette on click, and offers a native color input for fully custom values. Use <code>data-zak-colorpicker</code> to enable it.</p>
+
+        <section class="zak-docs-section">
+            <h2>Basic Color Picker</h2>
+            <p>Click the swatch to open the palette. Choosing a preset or confirming a custom color writes the hex value to the (hidden) input.</p>
+            <div class="docs-preview">
+                <input type="text" data-zak-colorpicker value="#3b82f6">
+                <div class="zak-docs-color-demo" id="colorDemoBox" style="background-color:#2563eb;">#2563eb</div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;input type="text" data-zak-colorpicker value="#3b82f6"&gt;</code></pre>
+            </div>
+            <script>
+                var colorDemoBox = document.getElementById('colorDemoBox');
+                var colorDemoInput = document.querySelector('[data-zak-colorpicker]');
+                if (colorDemoInput && colorDemoBox) {
+                    function setColorDemoText() {
+                        var bg = colorDemoBox.style.backgroundColor;
+                        var parts = bg.match(/\d+(?:\.\d+)?/g);
+                        if (parts && parts.length >= 3) {
+                            var lum = (0.2126 * parts[0] + 0.7152 * parts[1] + 0.0722 * parts[2]) / 255;
+                            colorDemoBox.style.color = lum > 0.5 ? '#1e293b' : '#ffffff';
+                        }
+                    }
+                    colorDemoInput.addEventListener('zak:change', function (e) {
+                        colorDemoBox.style.backgroundColor = e.detail.value;
+                        colorDemoBox.textContent = e.detail.value;
+                        setColorDemoText();
+                    });
+                    setColorDemoText();
+                }
+            </script>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Custom Presets</h2>
+            <p>Pass a comma-separated list of hex values in <code>data-zak-colorpicker-presets</code> to replace the default palette.</p>
+            <div class="docs-preview">
+                <input type="text" data-zak-colorpicker data-zak-colorpicker-presets="#0f172a,#475569,#0891b2,#16a34a,#ca8a04,#dc2626,#c026d3,#9333ea" value="#0891b2">
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;input type="text"
+       data-zak-colorpicker
+       data-zak-colorpicker-presets="#0f172a,#475569,#0891b2,#16a34a,#ca8a04,#dc2626,#c026d3,#9333ea"
+       value="#0891b2"&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Default Preset Palette</h2>
+            <p>With no attribute the picker ships this ten-color default set, which covers the semantic and neutral scales.</p>
+            <div class="docs-preview">
+                <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                    <span style="width:2rem;height:2rem;border-radius:8px;background:#ef4444;display:inline-block;"></span>
+                    <span style="width:2rem;height:2rem;border-radius:8px;background:#f97316;display:inline-block;"></span>
+                    <span style="width:2rem;height:2rem;border-radius:8px;background:#eab308;display:inline-block;"></span>
+                    <span style="width:2rem;height:2rem;border-radius:8px;background:#22c55e;display:inline-block;"></span>
+                    <span style="width:2rem;height:2rem;border-radius:8px;background:#3b82f6;display:inline-block;"></span>
+                    <span style="width:2rem;height:2rem;border-radius:8px;background:#8b5cf6;display:inline-block;"></span>
+                    <span style="width:2rem;height:2rem;border-radius:8px;background:#ec4899;display:inline-block;"></span>
+                    <span style="width:2rem;height:2rem;border-radius:8px;background:#6b7280;display:inline-block;"></span>
+                    <span style="width:2rem;height:2rem;border-radius:8px;background:#000000;display:inline-block;"></span>
+                    <span style="width:2rem;height:2rem;border-radius:8px;background:#ffffff;border:1px solid var(--zak-border,#e2e8f0);display:inline-block;"></span>
+                </div>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Native Fallback</h2>
+            <p>When scripting is disabled the input stays in the DOM. Use a plain <code>&lt;input type="color"&gt;</code> for an inaccessible-JS-safe alternative.</p>
+            <div class="docs-preview">
+                <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+                    <label style="font-size:14px; font-weight:500; color:var(--zak-text,#1e293b);">Choose accent</label>
+                    <input type="color" value="#3b82f6" style="width:3rem;height:2.5rem;padding:0;border:1px solid var(--zak-border,#e2e8f0);border-radius:10px;background:none;cursor:pointer;">
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;input type="color" value="#3b82f6"&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>CSS Classes</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>.zak-colorpicker              /* Wrapper injected around the input */
+.zak-colorpicker-swatch        /* Clickable color preview */
+.zak-colorpicker-popup         /* Palette popup (hidden until active) */
+.zak-colorpicker-presets       /* Grid of preset swatches */
+.zak-colorpicker-color         /* Individual preset button */
+.zak-colorpicker-color.selected /* Active preset outline */
+.zak-colorpicker-custom        /* Custom color row */
+.zak-colorpicker-native        /* Native color input */
+
+/* Toggle class */
+.zak-colorpicker-popup-active  /* Shows the popup */</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>JavaScript API</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>zak.colorPicker.init()     // Bind all [data-zak-colorpicker] inputs
+
+// Data attributes:
+data-zak-colorpicker       // Enables the picker on an input
+data-zak-colorpicker-presets // Comma-separated hex palette (optional)
+
+// The input is switched to type="hidden"; its value holds the hex.
+// The swatch is a div with role="button" and tabindex="0".
+
+// Event on the input:
+zak:change  // { value: "#hexcolor" }</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>The swatch exposes <code>role="button"</code>, <code>tabindex="0"</code> and an <code>aria-label</code> set by the component.</li>
+                <li>Preset swatches and the native color input are real interactive elements, operable by keyboard and pointer alike.</li>
+                <li>Clicking outside the popup closes it; the underlying input still submits normally since it holds the hex value.</li>
+                <li>Do not rely on the visual swatch alone — label the field so the color&rsquo;s purpose is clear to screen-reader users.</li>
+            </ul>
+        </section>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body></html>

@@ -1,0 +1,263 @@
+/* ===== Syntax Highlighting - Light Theme ===== */
+.token-tag {
+  color: #2563eb;
+  font-weight: 500;
+}
+
+.token-attr {
+  color: #0891b2;
+}
+
+.token-string {
+  color: #16a34a;
+}
+
+.token-comment {
+  color: #94a3b8;
+  font-style: italic;
+}
+
+.token-keyword {
+  color: #9333ea;
+  font-weight: 500;
+}
+
+.token-property {
+  color: #0891b2;
+}
+
+.token-value {
+  color: #ea580c;
+}
+
+.token-number {
+  color: #ea580c;
+}
+
+.token-selector {
+  color: #16a34a;
+  font-weight: 500;
+}
+
+.token-punctuation {
+  color: #64748b;
+}
+
+.token-function {
+  color: #2563eb;
+}
+
+.token-variable {
+  color: #dc2626;
+}
+
+.token-operator {
+  color: #9333ea;
+}
+
+.token-class {
+  color: #ca8a04;
+  font-weight: 500;
+}
+
+.token-tag .token-punctuation {
+  color: #64748b;
+  font-weight: 400;
+}
+
+.token-attr .token-string {
+  color: #16a34a;
+}
+
+.token-atrule {
+  color: #9333ea;
+}
+
+.token-regex {
+  color: #ea580c;
+}
+
+.token-important {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+.token-entity {
+  color: #ea580c;
+}
+
+.token-url {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+.token-inserted {
+  color: #16a34a;
+}
+
+.token-deleted {
+  color: #dc2626;
+}
+
+.token-template-string {
+  color: #16a34a;
+}
+
+.token-template-punctuation {
+  color: #ca8a04;
+}
+
+.token-boolean {
+  color: #ea580c;
+  font-weight: 500;
+}
+
+.token-null {
+  color: #9333ea;
+  font-style: italic;
+}
+
+.token-namespace {
+  opacity: 0.7;
+}
+
+.token-decorator {
+  color: #ca8a04;
+}
+
+.token-type {
+  color: #0891b2;
+  font-style: italic;
+}
+
+/* ===== Syntax Highlighting - Dark Theme ===== */
+[data-theme="dark"] .token-tag {
+  color: #60a5fa;
+  font-weight: 500;
+}
+
+[data-theme="dark"] .token-attr {
+  color: #22d3ee;
+}
+
+[data-theme="dark"] .token-string {
+  color: #4ade80;
+}
+
+[data-theme="dark"] .token-comment {
+  color: #64748b;
+  font-style: italic;
+}
+
+[data-theme="dark"] .token-keyword {
+  color: #c084fc;
+  font-weight: 500;
+}
+
+[data-theme="dark"] .token-property {
+  color: #22d3ee;
+}
+
+[data-theme="dark"] .token-value {
+  color: #fb923c;
+}
+
+[data-theme="dark"] .token-number {
+  color: #fb923c;
+}
+
+[data-theme="dark"] .token-selector {
+  color: #4ade80;
+  font-weight: 500;
+}
+
+[data-theme="dark"] .token-punctuation {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .token-function {
+  color: #60a5fa;
+}
+
+[data-theme="dark"] .token-variable {
+  color: #f87171;
+}
+
+[data-theme="dark"] .token-operator {
+  color: #c084fc;
+}
+
+[data-theme="dark"] .token-class {
+  color: #facc15;
+  font-weight: 500;
+}
+
+[data-theme="dark"] .token-tag .token-punctuation {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+[data-theme="dark"] .token-attr .token-string {
+  color: #4ade80;
+}
+
+[data-theme="dark"] .token-atrule {
+  color: #c084fc;
+}
+
+[data-theme="dark"] .token-regex {
+  color: #fb923c;
+}
+
+[data-theme="dark"] .token-important {
+  color: #f87171;
+  font-weight: 600;
+}
+
+[data-theme="dark"] .token-entity {
+  color: #fb923c;
+}
+
+[data-theme="dark"] .token-url {
+  color: #60a5fa;
+  text-decoration: underline;
+}
+
+[data-theme="dark"] .token-inserted {
+  color: #4ade80;
+}
+
+[data-theme="dark"] .token-deleted {
+  color: #f87171;
+}
+
+[data-theme="dark"] .token-template-string {
+  color: #4ade80;
+}
+
+[data-theme="dark"] .token-template-punctuation {
+  color: #facc15;
+}
+
+[data-theme="dark"] .token-boolean {
+  color: #fb923c;
+  font-weight: 500;
+}
+
+[data-theme="dark"] .token-null {
+  color: #c084fc;
+  font-style: italic;
+}
+
+[data-theme="dark"] .token-namespace {
+  opacity: 0.7;
+}
+
+[data-theme="dark"] .token-decorator {
+  color: #facc15;
+}
+
+[data-theme="dark"] .token-type {
+  color: #22d3ee;
+  font-style: italic;
+}

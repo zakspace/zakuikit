@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Radio Group documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Radio Group - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/forms/radio-group/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Radio Group - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Radio Group documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/forms/radio-group/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+  <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+  <span class="docs-breadcrumb__separator">/</span>
+  <span class="docs-breadcrumb__current">Forms</span>
+  <span class="docs-breadcrumb__separator">/</span>
+  <span class="docs-breadcrumb__current">Radio Group</span>
+</nav>
+        <h1>Radio Group</h1>
+        <p class="docs-subtitle">Radio Group wraps multiple radio buttons into a labeled, accessible group with horizontal or vertical layout options.</p>
+
+        <div class="zak-docs-section">
+            <h2>Vertical Radio Group</h2>
+            <p>Default vertical layout with descriptions.</p>
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <fieldset class="zak-fieldset">
+                        <legend class="zak-form-label">Choose a notification method</legend>
+                        <div class="zak-radio-group">
+                            <div class="zak-form-check">
+                                <input type="radio" name="notif" id="rg-v1" class="zak-form-check-input zak-radio" value="email" checked>
+                                <label class="zak-form-check-label" for="rg-v1">Email</label>
+                                <span class="zak-form-text">Get notified via email.</span>
+                            </div>
+                            <div class="zak-form-check">
+                                <input type="radio" name="notif" id="rg-v2" class="zak-form-check-input zak-radio" value="sms">
+                                <label class="zak-form-check-label" for="rg-v2">SMS</label>
+                                <span class="zak-form-text">Get notified via text message.</span>
+                            </div>
+                            <div class="zak-form-check">
+                                <input type="radio" name="notif" id="rg-v3" class="zak-form-check-input zak-radio" value="push">
+                                <label class="zak-form-check-label" for="rg-v3">Push Notification</label>
+                                <span class="zak-form-text">Get notified via push notification.</span>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="docs-code-block">
+                <div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div>
+                <pre><code class="language-html">&lt;fieldset class="zak-fieldset"&gt;
+  &lt;legend class="zak-form-label"&gt;Choose a notification method&lt;/legend&gt;
+  &lt;div class="zak-radio-group"&gt;
+    &lt;div class="zak-form-check"&gt;
+      &lt;input type="radio" name="notif" id="email" class="zak-form-check-input zak-radio" value="email" checked&gt;
+      &lt;label class="zak-form-check-label" for="email"&gt;Email&lt;/label&gt;
+      &lt;span class="zak-form-text"&gt;Get notified via email.&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="zak-form-check"&gt;
+      &lt;input type="radio" name="notif" id="sms" class="zak-form-check-input zak-radio" value="sms"&gt;
+      &lt;label class="zak-form-check-label" for="sms"&gt;SMS&lt;/label&gt;
+      &lt;span class="zak-form-text"&gt;Get notified via text message.&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/fieldset&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Horizontal Radio Group</h2>
+            <p>Display radio options horizontally.</p>
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <fieldset class="zak-fieldset">
+                        <legend class="zak-form-label">Select orientation</legend>
+                        <div class="zak-radio-group-horizontal">
+                            <div class="zak-form-check">
+                                <input type="radio" name="orient" id="rg-h1" class="zak-form-check-input zak-radio" value="left" checked>
+                                <label class="zak-form-check-label" for="rg-h1">Left</label>
+                            </div>
+                            <div class="zak-form-check">
+                                <input type="radio" name="orient" id="rg-h2" class="zak-form-check-input zak-radio" value="center">
+                                <label class="zak-form-check-label" for="rg-h2">Center</label>
+                            </div>
+                            <div class="zak-form-check">
+                                <input type="radio" name="orient" id="rg-h3" class="zak-form-check-input zak-radio" value="right">
+                                <label class="zak-form-check-label" for="rg-h3">Right</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="docs-code-block">
+                <div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div>
+                <pre><code class="language-html">&lt;fieldset class="zak-fieldset"&gt;
+  &lt;legend class="zak-form-label"&gt;Select orientation&lt;/legend&gt;
+  &lt;div class="zak-radio-group-horizontal"&gt;
+    &lt;div class="zak-form-check"&gt;
+      &lt;input type="radio" name="orient" id="left" class="zak-form-check-input zak-radio" value="left" checked&gt;
+      &lt;label class="zak-form-check-label" for="left"&gt;Left&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="zak-form-check"&gt;
+      &lt;input type="radio" name="orient" id="center" class="zak-form-check-input zak-radio" value="center"&gt;
+      &lt;label class="zak-form-check-label" for="center"&gt;Center&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="zak-form-check"&gt;
+      &lt;input type="radio" name="orient" id="right" class="zak-form-check-input zak-radio" value="right"&gt;
+      &lt;label class="zak-form-check-label" for="right"&gt;Right&lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/fieldset&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>With Descriptions</h2>
+            <p>Each option includes a description for clarity.</p>
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <fieldset class="zak-fieldset">
+                        <legend class="zak-form-label">Select your plan</legend>
+                        <div class="zak-radio-group">
+                            <label class="zak-radio-card">
+                                <input type="radio" name="plan-desc" value="free" checked>
+                                <span class="zak-radio-card-check" aria-hidden="true"></span>
+                                <div class="zak-radio-card-content">
+                                    <strong>Free</strong>
+                                    <span class="zak-form-text">$0/month — 1 user, 1GB storage</span>
+                                </div>
+                            </label>
+                            <label class="zak-radio-card">
+                                <input type="radio" name="plan-desc" value="pro">
+                                <span class="zak-radio-card-check" aria-hidden="true"></span>
+                                <div class="zak-radio-card-content">
+                                    <strong>Pro</strong>
+                                    <span class="zak-form-text">$19/month — 10 users, 50GB storage</span>
+                                </div>
+                            </label>
+                            <label class="zak-radio-card">
+                                <input type="radio" name="plan-desc" value="enterprise">
+                                <span class="zak-radio-card-check" aria-hidden="true"></span>
+                                <div class="zak-radio-card-content">
+                                    <strong>Enterprise</strong>
+                                    <span class="zak-form-text">$99/month — Unlimited users and storage</span>
+                                </div>
+                            </label>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="docs-code-block">
+                <div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div>
+                <pre><code class="language-html">&lt;div class="zak-radio-group"&gt;
+  &lt;label class="zak-radio-card"&gt;
+    &lt;input type="radio" name="plan" value="free" checked&gt;
+    &lt;span class="zak-radio-card-check" aria-hidden="true"&gt;&lt;/span&gt;
+    &lt;div class="zak-radio-card-content"&gt;
+      &lt;strong&gt;Free&lt;/strong&gt;
+      &lt;span class="zak-form-text"&gt;$0/month — 1 user, 1GB storage&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/label&gt;
+  &lt;label class="zak-radio-card"&gt;
+    &lt;input type="radio" name="plan" value="pro"&gt;
+    &lt;span class="zak-radio-card-check" aria-hidden="true"&gt;&lt;/span&gt;
+    &lt;div class="zak-radio-card-content"&gt;
+      &lt;strong&gt;Pro&lt;/strong&gt;
+      &lt;span class="zak-form-text"&gt;$19/month — 10 users, 50GB storage&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/label&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Validation</h2>
+            <p>Show validation state on radio groups.</p>
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <fieldset class="zak-fieldset zak-fieldset-danger">
+                        <legend class="zak-form-label">Select a category</legend>
+                        <div class="zak-radio-group">
+                            <div class="zak-form-check">
+                                <input type="radio" name="cat" id="rg-v-err" class="zak-form-check-input zak-radio" value="">
+                                <label class="zak-form-check-label" for="rg-v-err">Please select a category</label>
+                            </div>
+                        </div>
+                        <span class="zak-form-text zak-text-danger">You must select a category to continue.</span>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="docs-code-block">
+                <div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div>
+                <pre><code class="language-html">&lt;fieldset class="zak-fieldset zak-fieldset-danger"&gt;
+  &lt;legend class="zak-form-label"&gt;Select a category&lt;/legend&gt;
+  &lt;div class="zak-radio-group"&gt;
+    &lt;div class="zak-form-check"&gt;
+      &lt;input type="radio" name="cat" class="zak-form-check-input zak-radio"&gt;
+      &lt;label class="zak-form-check-label"&gt;Option 1&lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;span class="zak-form-text zak-text-danger"&gt;Please select a category.&lt;/span&gt;
+&lt;/fieldset&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead><tr><th>Class</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>.zak-radio-group</code></td><td>Vertical radio group</td></tr>
+                        <tr><td><code>.zak-radio-group-horizontal</code></td><td>Horizontal radio group</td></tr>
+                        <tr><td><code>.zak-fieldset</code></td><td>Fieldset wrapper with border</td></tr>
+                        <tr><td><code>.zak-fieldset-danger</code></td><td>Error state fieldset</td></tr>
+                        <tr><td><code>.zak-radio-card</code></td><td>Card-style radio option</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Use <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code> to group and label radio groups.</li>
+                <li>All radios in a group share the same <code>name</code> attribute.</li>
+                <li>Use <code>role="radiogroup"</code> on custom containers if not using native fieldset.</li>
+                <li>Arrow keys should navigate between options within a group.</li>
+                <li>Include descriptions using <code>aria-describedby</code> for complex options.</li>
+            </ul>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script></body>
+</html>

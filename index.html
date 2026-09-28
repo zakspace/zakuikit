@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>(function () { try { var t = localStorage.getItem('zak-docs-theme') || 'system'; if (t === 'system') { t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light'; } document.documentElement.setAttribute('data-theme', t); } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); } })();</script>
+  <meta name="description"
+    content="ZAKUIKit - A modern, lightweight UI toolkit built with HTML, CSS and JavaScript. Pure vanilla, no dependencies, dark mode ready and fully responsive.">
+  <meta name="theme-color" content="#2563eb">
+  <title>ZAKUIKit - Modern UI Toolkit</title>
+  <link rel="canonical" href="https://zakuikit.vercel.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ZAKUIKit">
+  <meta property="og:title" content="ZAKUIKit - Modern UI Toolkit">
+  <meta property="og:description"
+    content="ZAKUIKit - A modern, lightweight UI toolkit built with HTML, CSS and JavaScript. Pure vanilla, no dependencies, dark mode ready and fully responsive.">
+  <meta property="og:url" content="https://zakuikit.vercel.app/">
+  <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="dist/css/zak.css">
+  <link rel="stylesheet" href="css/zak-docs.css">
+  <link rel="stylesheet" href="css/syntax-highlight.css">
+  <link rel="stylesheet" href="dist/icons/icons.css">
+
+  <link rel="icon" href="img/favicon.ico">
+
+</head>
+
+<body>
+
+  <!-- ===== Search Overlay ===== -->
+  <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..."
+          aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Header ===== -->
+  <header class="docs-header lp-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12" />
+        <line x1="3" y1="6" x2="21" y2="6" />
+        <line x1="3" y1="18" x2="21" y2="18" />
+      </svg>
+    </button>
+    <a href="index.html" class="docs-header__logo">
+      <span class="docs-zak-logo">
+        <img src="img/logo.svg" alt="">
+      </span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="components.html" class="docs-header__link">Components</a>
+      <a href="templates.html" class="docs-header__link">Templates</a>
+      <a href="icons.html" class="docs-header__link">Icons</a>
+      <a href="utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+
+  <div class="lp-shell">
+
+    <!-- ===== Hero ===== -->
+    <section class="lp-hero" aria-label="Introduction">
+      <span class="lp-hero__badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+        </svg>
+        <span>ZAKUIKit</span>
+        <span class="lp-hero__badge-version">v1.0</span>
+      </span>
+      <h1>ZAKUIKit</h1>
+      <p class="lp-hero__subtitle">A modern, lightweight UI toolkit built with HTML, CSS and JavaScript.</p>
+      <div class="lp-hero__cta">
+        <a href="getting-started.html" class="zak-btn zak-btn-primary zak-btn-lg">Get Started</a>
+        <a href="components.html" class="zak-btn zak-btn-outline-primary zak-btn-lg">Explore Components</a>
+      </div>
+      <div class="lp-hero__stat-row">
+        <div class="lp-hero__stat">
+          <div class="lp-hero__stat-value">100+</div>
+          <div class="lp-hero__stat-label">Components</div>
+        </div>
+        <div class="lp-hero__stat">
+          <div class="lp-hero__stat-value">17</div>
+          <div class="lp-hero__stat-label">Categories</div>
+        </div>
+        <div class="lp-hero__stat">
+          <div class="lp-hero__stat-value">~30KB</div>
+          <div class="lp-hero__stat-label">Gzipped CSS</div>
+        </div>
+        <div class="lp-hero__stat">
+          <div class="lp-hero__stat-value">0</div>
+          <div class="lp-hero__stat-label">Dependencies</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Features ===== -->
+    <section class="lp-section" aria-label="Features">
+      <div class="lp-section__center">
+        <span class="lp-section__eyebrow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2 2 7l10 5 10-5-10-5z" />
+            <path d="M2 17l10 5 10-5" />
+            <path d="M2 12l10 5 10-5" />
+          </svg>
+          Why ZAKUIKit
+        </span>
+        <h2 class="lp-section__title">Everything you need, nothing you don't</h2>
+        <p class="lp-section__desc">A carefully engineered toolkit that stays out of your way while giving you a
+          complete design system out of the box.</p>
+      </div>
+
+      <div class="lp-features">
+        <article class="lp-feature">
+          <div class="lp-feature__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" />
+            </svg>
+          </div>
+          <h3 class="lp-feature__title">Lightweight</h3>
+          <p class="lp-feature__text">Only ~30KB gzipped. No bloat, no legacy weight. Every byte earns its place in the
+            bundle.</p>
+        </article>
+
+        <article class="lp-feature">
+          <div class="lp-feature__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6" />
+              <polyline points="8 6 2 12 8 18" />
+            </svg>
+          </div>
+          <h3 class="lp-feature__title">No Dependencies</h3>
+          <p class="lp-feature__text">Pure vanilla HTML, CSS and JavaScript. No frameworks, no build step required. Drop
+            it in and go.</p>
+        </article>
+
+        <article class="lp-feature">
+          <div class="lp-feature__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+          </div>
+          <h3 class="lp-feature__title">Dark Mode</h3>
+          <p class="lp-feature__text">Built-in theming with light, dark and system modes via the <code
+              class="docs-content__inline">data-theme</code> attribute.</p>
+        </article>
+
+        <article class="lp-feature">
+          <div class="lp-feature__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="4" width="22" height="16" rx="2" />
+              <line x1="1" y1="10" x2="23" y2="10" />
+              <line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="16" y1="2" x2="16" y2="6" />
+            </svg>
+          </div>
+          <h3 class="lp-feature__title">Responsive</h3>
+          <p class="lp-feature__text">Mobile-first by design. Grids, spacing, typography and components respond
+            gracefully at every breakpoint.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Component Categories ===== -->
+    <section class="lp-section lp-section--tinted" aria-label="Component categories">
+      <div class="lp-section__inner">
+        <div class="lp-section__center">
+          <span class="lp-section__eyebrow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7" />
+              <rect x="14" y="3" width="7" height="7" />
+              <rect x="14" y="14" width="7" height="7" />
+              <rect x="3" y="14" width="7" height="7" />
+            </svg>
+            Component Catalog
+          </span>
+          <h2 class="lp-section__title">15 component categories</h2>
+          <p class="lp-section__desc">From foundational tokens to enterprise-ready data tools — explore the full
+            ZAKUIKit component catalogue.</p>
+        </div>
+
+        <div class="lp-cat-grid">
+
+
+
+
+          <a class="lp-cat" href="dist/components/ai/ai-avatar/index.html">
+            <span class="lp-cat__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9" />
+              </svg></span>
+            <span>
+              <p class="lp-cat__name">AI</p>
+              <p class="lp-cat__count">AI Avatar, AI Button, AI Command Menu & more</p>
+            </span>
+          </a>
+
+          <a class="lp-cat" href="dist/components/buttons/button/index.html">
+            <span class="lp-cat__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9" />
+              </svg></span>
+            <span>
+              <p class="lp-cat__name">Buttons</p>
+              <p class="lp-cat__count">Button, Button Group, Button Toolbar & more</p>
+            </span>
+          </a>
+
+          <a class="lp-cat" href="dist/components/data-display/activity-feed/index.html">
+            <span class="lp-cat__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9" />
+              </svg></span>
+            <span>
+              <p class="lp-cat__name">Data Display</p>
+              <p class="lp-cat__count">Activity Feed, Avatar, Avatar Group & more</p>
+            </span>
+          </a>
+
+          <a class="lp-cat" href="dist/components/data-grid/column-selector/index.html">
+            <span class="lp-cat__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9" />
+              </svg></span>
+            <span>
+              <p class="lp-cat__name">Data Grid</p>
+              <p class="lp-cat__count">Column Selector, File Manager, Query Builder & more</p>
+            </span>
+          </a>
+
+          <a class="lp-cat" href="dist/components/data-visualization/charts/index.html">
+            <span class="lp-cat__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9" />
+              </svg></span>
+            <span>
+              <p class="lp-cat__name">Data Visualization</p>
+              <p class="lp-cat__count">Charts, Dashboard Widget, Filter Panel & more</p>
+            </span>
+          </a>
+
+          <a class="lp-cat" href="dist/components/disclosure-expansion/accordion/index.html">
+            <span class="lp-cat__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9" />
+              </svg></span>
+            <span>
+              <p class="lp-cat__name">Disclosure Expansion</p>
+              <p class="lp-cat__count">Accordion, Collapse, Details & more</p>
+            </span>
+          </a>
+
+          <a class="lp-cat" href="dist/components/feedback/alert/index.html">
+            <span class="lp-cat__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9" />
+              </svg></span>
+            <span>
+              <p class="lp-cat__name">Feedback</p>
+              <p class="lp-cat__count">Alert, Banner, Empty State & more</p>
+            </span>
+          </a>
+
+          <a class="lp-cat" href="dist/components/forms/autocomplete/index.html">
+            <span class="lp-cat__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9" />
+              </svg></span>
+            <span>
+              <p class="lp-cat__name">Forms</p>
+              <p class="lp-cat__count">Autocomplete, Checkbox, Combobox & more</p>
+            </span>
+          </a>
+
+          <a class="lp-cat" href="dist/components/foundations/borders/index.html">
+            <span class="lp-cat__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9" />
+              </svg></span>
+            <span>
+              <p class="lp-cat__name">Foundations</p>
+              <p class="lp-cat__count">Borders, Colors, Icons & more</p>
+            </span>
+          </a>
+
+          <a class="lp-cat" href="dist/components/layout/aspect-ratio/index.html">
+            <span class="lp-cat__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9" />
+              </svg></span>
+            <span>
+              <p class="lp-cat__name">Layout</p>
+              <p class="lp-cat__count">Aspect Ratio, Box, Columns & more</p>
+            </span>
+          </a>
+
+          <a class="lp-cat" href="dist/components/media/audio/index.html">
+            <span class="lp-cat__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9" />
+              </svg></span>
+            <span>
+              <p class="lp-cat__name">Media</p>
+              <p class="lp-cat__count">Audio, Carousel, Image & more</p>
+            </span>
+          </a>
+
+          <a class="lp-cat" href="dist/components/navigation/breadcrumb/index.html">
+            <span class="lp-cat__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9" />
+              </svg></span>
+            <span>
+              <p class="lp-cat__name">Navigation</p>
+              <p class="lp-cat__count">Breadcrumb, Dropdown Menu, Menu & more</p>
+            </span>
+          </a>
+
+          <a class="lp-cat" href="dist/components/overlays/context-menu/index.html">
+            <span class="lp-cat__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9" />
+              </svg></span>
+            <span>
+              <p class="lp-cat__name">Overlays</p>
+              <p class="lp-cat__count">Context Menu, Drawer, Dropdown & more</p>
+            </span>
+          </a>
+
+          <a class="lp-cat" href="dist/components/pickers/calendar/index.html">
+            <span class="lp-cat__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9" />
+              </svg></span>
+            <span>
+              <p class="lp-cat__name">Pickers</p>
+              <p class="lp-cat__count">Calendar, Cascader, Color Picker & more</p>
+            </span>
+          </a>
+
+          <a class="lp-cat" href="dist/components/tables/advanced-data-grid/index.html">
+            <span class="lp-cat__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9" />
+              </svg></span>
+            <span>
+              <p class="lp-cat__name">Tables</p>
+              <p class="lp-cat__count">Advanced Data Grid, Data Grid, Data Table & more</p>
+            </span>
+          </a>
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Featured Components ===== -->
+    <section class="lp-section" aria-label="Featured components">
+      <div class="lp-section__center">
+        <span class="lp-section__eyebrow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 19l7-7 3 3-7 7-3-3z" />
+            <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
+            <path d="M2 2l7.586 7.586" />
+            <circle cx="11" cy="11" r="2" />
+          </svg>
+          Live Previews
+        </span>
+        <h2 class="lp-section__title">Featured components</h2>
+        <p class="lp-section__desc">Real ZAKUIKit components, rendered directly on this page. No mockups — these are the
+          actual building blocks.</p>
+      </div>
+
+      <div class="lp-featured">
+
+        <!-- Buttons -->
+        <div class="lp-featured__item">
+          <div class="lp-featured__header">
+            <p class="lp-featured__title">Buttons</p>
+            <p class="lp-featured__desc">Variants: primary, secondary, success, danger, outline, soft</p>
+          </div>
+          <div class="lp-featured__body lp-featured__body--grid">
+            <button type="button" class="zak-btn zak-btn-primary">Primary</button>
+            <button type="button" class="zak-btn zak-btn-secondary">Secondary</button>
+            <button type="button" class="zak-btn zak-btn-success">Success</button>
+            <button type="button" class="zak-btn zak-btn-danger">Danger</button>
+            <button type="button" class="zak-btn zak-btn-outline-primary">Outline</button>
+            <button type="button" class="zak-btn zak-btn-soft">Soft</button>
+          </div>
+        </div>
+
+        <!-- Card -->
+        <div class="lp-featured__item">
+          <div class="lp-featured__header">
+            <p class="lp-featured__title">Card</p>
+            <p class="lp-featured__desc">Container with image, title, text and actions</p>
+          </div>
+          <div class="lp-featured__body">
+            <div class="zak-card zak-card-bordered" style="max-width: 340px; margin: 0 auto;">
+              <div
+                style="height: 130px; background: linear-gradient(135deg, #60a5fa, #7c3aed); display:flex; align-items:center; justify-content:center; color:#fff;">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14.5 17.5 3 6V3h3l11.5 11.5" />
+                  <path d="M13 19l6-6" />
+                  <path d="M16 16l4 4" />
+                  <path d="M19 21l2-2" />
+                </svg>
+              </div>
+              <div class="zak-card-body">
+                <h3 class="zak-card-title">ZAKUIKit Components</h3>
+                <p class="zak-card-subtitle">Card component</p>
+                <p class="zak-card-text">Cards are flexible containers for displaying related content, with sensible
+                  defaults for headers, bodies, footers and media.</p>
+                <div class="zak-stack-3" style="margin-top: 16px;">
+                  <button type="button" class="zak-btn zak-btn-primary zak-btn-sm">Read more</button>
+                  <button type="button" class="zak-btn zak-btn-soft zak-btn-sm">Dismiss</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form inputs -->
+        <div class="lp-featured__item">
+          <div class="lp-featured__header">
+            <p class="lp-featured__title">Form Inputs</p>
+            <p class="lp-featured__desc">Text, email and password fields</p>
+          </div>
+          <div class="lp-featured__body">
+            <div class="zak-stack-4">
+              <div class="zak-form-group">
+                <label class="zak-form-label" for="demo-name">Full name</label>
+                <input type="text" class="zak-input" id="demo-name" placeholder="Ada Lovelace">
+              </div>
+              <div class="zak-form-group">
+                <label class="zak-form-label" for="demo-email">Email</label>
+                <input type="email" class="zak-input" id="demo-email" placeholder="you@example.com">
+                <small class="zak-form-text">We'll never share your email.</small>
+              </div>
+              <div class="zak-form-group">
+                <label class="zak-form-label" for="demo-password">Password</label>
+                <input type="password" class="zak-input" id="demo-password" placeholder="••••••••">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Alerts -->
+        <div class="lp-featured__item">
+          <div class="lp-featured__header">
+            <p class="lp-featured__title">Alerts</p>
+            <p class="lp-featured__desc">Success, warning and danger states</p>
+          </div>
+          <div class="lp-featured__body">
+            <div class="zak-stack-3">
+              <div class="zak-alert zak-alert-success">
+                <span class="zak-alert-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                </span>
+                <div class="zak-alert-content">
+                  <div class="zak-alert-title">Success</div>
+                  Your changes have been saved successfully.
+                </div>
+              </div>
+              <div class="zak-alert zak-alert-warning">
+                <span class="zak-alert-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                      d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                    <line x1="12" y1="9" x2="12" y2="13" />
+                    <line x1="12" y1="17" x2="12.01" y2="17" />
+                  </svg>
+                </span>
+                <div class="zak-alert-content">
+                  <div class="zak-alert-title">Warning</div>
+                  Your session is about to expire.
+                </div>
+              </div>
+              <div class="zak-alert zak-alert-danger">
+                <span class="zak-alert-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="15" y1="9" x2="9" y2="15" />
+                    <line x1="9" y1="9" x2="15" y2="15" />
+                  </svg>
+                </span>
+                <div class="zak-alert-content">
+                  <div class="zak-alert-title">Danger</div>
+                  Something went wrong. Please try again.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Badges & Chips -->
+        <div class="lp-featured__item lp-featured--wide">
+          <div class="lp-featured__header">
+            <p class="lp-featured__title">Badges &amp; Chips</p>
+            <p class="lp-featured__desc">Status indicators and removable tags</p>
+          </div>
+          <div class="lp-featured__body lp-featured__body--grid">
+            <span class="zak-badge zak-badge-primary">Primary</span>
+            <span class="zak-badge zak-badge-success">Success</span>
+            <span class="zak-badge zak-badge-warning">Warning</span>
+            <span class="zak-badge zak-badge-danger">Danger</span>
+            <span class="zak-badge zak-badge-info">Info</span>
+            <span class="zak-badge zak-badge-primary zak-badge-pill">Pill label</span>
+            <span class="zak-chip zak-chip-primary">Design</span>
+            <span class="zak-chip zak-chip-success">React</span>
+            <span class="zak-chip zak-chip-info">Vue</span>
+            <span class="zak-chip zak-chip-warning zak-chip-removable">Angular
+              <button type="button" class="zak-chip-close" aria-label="Remove"
+                style="background:none;border:none;cursor:pointer;padding:0;display:inline-flex;align-items:center;color:inherit;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              </button>
+            </span>
+            <span class="zak-chip zak-chip-danger">Svelte</span>
+          </div>
+        </div>
+
+        <!-- Progress bar -->
+        <div class="lp-featured__item lp-featured--wide">
+          <div class="lp-featured__header">
+            <p class="lp-featured__title">Progress Bar</p>
+            <p class="lp-featured__desc">Animated progress indicators</p>
+          </div>
+          <div class="lp-featured__body">
+            <div class="zak-stack-4">
+              <div>
+                <div class="lp-grid-label">Primary</div>
+                <div class="zak-progress">
+                  <div class="zak-progress-bar" style="width: 75%;">75%</div>
+                </div>
+              </div>
+              <div>
+                <div class="lp-grid-label">Success</div>
+                <div class="zak-progress zak-progress-success">
+                  <div class="zak-progress-bar" style="width: 100%;">100%</div>
+                </div>
+              </div>
+              <div>
+                <div class="lp-grid-label">Warning &amp; animated</div>
+                <div class="zak-progress zak-progress-warning animated">
+                  <div class="zak-progress-bar" style="width: 45%;">45%</div>
+                </div>
+              </div>
+              <div>
+                <div class="lp-grid-label">Danger &amp; striped</div>
+                <div class="zak-progress zak-progress-danger striped">
+                  <div class="zak-progress-bar" style="width: 20%;">20%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== Design Tokens ===== -->
+    <section class="lp-section lp-section--tinted" aria-label="Design tokens">
+      <div class="lp-section__inner">
+        <div class="lp-section__center">
+          <span class="lp-section__eyebrow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2 2 7l10 5 10-5-10-5z" />
+              <path d="M2 17l10 5 10-5" />
+              <path d="M2 12l10 5 10-5" />
+            </svg>
+            Design System
+          </span>
+          <h2 class="lp-section__title">Design tokens</h2>
+          <p class="lp-section__desc">A consistent set of CSS custom properties drives every component. Here's a peek at
+            the core scale.</p>
+        </div>
+
+        <div class="lp-tokens">
+
+          <!-- Color palette -->
+          <div class="lp-token-card">
+            <p class="lp-token-card__title">Color Palette</p>
+
+            <div class="lp-color-row">
+              <div class="lp-swatch-name">Primary</div>
+              <div class="lp-color-swatch lp-color-swatch--label" style="background:#eff6ff;color:#1e3a8a;">50</div>
+              <div class="lp-color-swatch lp-color-swatch--label" style="background:#bfdbfe;color:#1e3a8a;">200</div>
+              <div class="lp-color-swatch lp-color-swatch--label" style="background:#93c5fd;color:#1e3a8a;">300</div>
+              <div class="lp-color-swatch lp-color-swatch--label" style="background:#60a5fa;color:#1e3a8a;">400</div>
+              <div class="lp-color-swatch" style="background:#3b82f6;color:#fff;">500</div>
+              <div class="lp-color-swatch" style="background:#2563eb;color:#fff;">600</div>
+              <div class="lp-color-swatch" style="background:#1d4ed8;color:#fff;">700</div>
+              <div class="lp-color-swatch" style="background:#1e40af;color:#fff;">800</div>
+              <div class="lp-color-swatch" style="background:#1e3a8a;color:#fff;">900</div>
+            </div>
+
+            <div class="lp-color-row">
+              <div class="lp-swatch-name">Success</div>
+              <div class="lp-color-swatch lp-color-swatch--label" style="background:#dcfce7;color:#166534;">100</div>
+              <div class="lp-color-swatch lp-color-swatch--label" style="background:#bbf7d0;color:#166534;">200</div>
+              <div class="lp-color-swatch lp-color-swatch--label" style="background:#86efac;color:#166534;">300</div>
+              <div class="lp-color-swatch lp-color-swatch--label" style="background:#4ade80;color:#166534;">400</div>
+              <div class="lp-color-swatch" style="background:#22c55e;color:#fff;">500</div>
+              <div class="lp-color-swatch" style="background:#16a34a;color:#fff;">600</div>
+              <div class="lp-color-swatch" style="background:#15803d;color:#fff;">700</div>
+              <div class="lp-color-swatch" style="background:#166534;color:#fff;">800</div>
+            </div>
+
+            <div class="lp-color-row">
+              <div class="lp-swatch-name">Warning</div>
+              <div class="lp-color-swatch lp-color-swatch--label" style="background:#fef3c7;color:#92400e;">100</div>
+              <div class="lp-color-swatch lp-color-swatch--label" style="background:#fde68a;color:#92400e;">200</div>
+              <div class="lp-color-swatch lp-color-swatch--label" style="background:#fcd34d;color:#92400e;">300</div>
+              <div class="lp-color-swatch lp-color-swatch--label" style="background:#fbbf24;color:#92400e;">400</div>
+              <div class="lp-color-swatch" style="background:#f59e0b;color:#fff;">500</div>
+              <div class="lp-color-swatch" style="background:#d97706;color:#fff;">600</div>
+              <div class="lp-color-swatch" style="background:#b45309;color:#fff;">700</div>
+              <div class="lp-color-swatch" style="background:#92400e;color:#fff;">800</div>
+            </div>
+
+            <div class="lp-color-row">
+              <div class="lp-swatch-name">Danger</div>
+              <div class="lp-color-swatch lp-color-swatch--label" style="background:#fee2e2;color:#991b1b;">100</div>
+              <div class="lp-color-swatch lp-color-swatch--label" style="background:#fecaca;color:#991b1b;">200</div>
+              <div class="lp-color-swatch lp-color-swatch--label" style="background:#fca5a5;color:#991b1b;">300</div>
+              <div class="lp-color-swatch lp-color-swatch--label" style="background:#f87171;color:#991b1b;">400</div>
+              <div class="lp-color-swatch" style="background:#ef4444;color:#fff;">500</div>
+              <div class="lp-color-swatch" style="background:#dc2626;color:#fff;">600</div>
+              <div class="lp-color-swatch" style="background:#b91c1c;color:#fff;">700</div>
+              <div class="lp-color-swatch" style="background:#991b1b;color:#fff;">800</div>
+            </div>
+
+          </div>
+
+          <!-- Typography & Spacing -->
+          <div class="lp-token-card">
+            <p class="lp-token-card__title">Typography Scale</p>
+            <div class="lp-type-row">
+              <span class="lp-type-tag">xs</span>
+              <span class="lp-type-sample" style="font-size:0.75rem;">The quick brown fox jumps over the lazy dog</span>
+            </div>
+            <div class="lp-type-row">
+              <span class="lp-type-tag">base</span>
+              <span class="lp-type-sample" style="font-size:1rem;">The quick brown fox jumps over</span>
+            </div>
+            <div class="lp-type-row">
+              <span class="lp-type-tag">lg</span>
+              <span class="lp-type-sample" style="font-size:1.125rem;">The quick brown fox</span>
+            </div>
+            <div class="lp-type-row">
+              <span class="lp-type-tag">2xl</span>
+              <span class="lp-type-sample" style="font-size:1.5rem;font-weight:600;">The quick</span>
+            </div>
+            <div class="lp-type-row">
+              <span class="lp-type-tag">4xl</span>
+              <span class="lp-type-sample" style="font-size:2.25rem;font-weight:700;">Quick</span>
+            </div>
+
+            <p class="lp-token-card__title" style="margin-top:28px;">Spacing Scale</p>
+            <div class="lp-space-row">
+              <span class="lp-space-tag">1 · 0.25rem</span>
+              <div class="lp-space-bar" style="width: 8px;"></div>
+            </div>
+            <div class="lp-space-row">
+              <span class="lp-space-tag">2 · 0.5rem</span>
+              <div class="lp-space-bar" style="width: 16px;"></div>
+            </div>
+            <div class="lp-space-row">
+              <span class="lp-space-tag">4 · 1rem</span>
+              <div class="lp-space-bar" style="width: 32px;"></div>
+            </div>
+            <div class="lp-space-row">
+              <span class="lp-space-tag">6 · 1.5rem</span>
+              <div class="lp-space-bar" style="width: 48px;"></div>
+            </div>
+            <div class="lp-space-row">
+              <span class="lp-space-tag">8 · 2rem</span>
+              <div class="lp-space-bar" style="width: 64px;"></div>
+            </div>
+            <div class="lp-space-row">
+              <span class="lp-space-tag">12 · 3rem</span>
+              <div class="lp-space-bar" style="width: 96px;"></div>
+            </div>
+            <div class="lp-space-row">
+              <span class="lp-space-tag">16 · 4rem</span>
+              <div class="lp-space-bar" style="width: 128px;"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Dark Mode ===== -->
+    <section class="lp-section" aria-label="Dark mode">
+      <div class="lp-section__center">
+        <span class="lp-section__eyebrow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+          Theming
+        </span>
+        <h2 class="lp-section__title">Dark mode, built in</h2>
+        <p class="lp-section__desc">Flip between light and dark with a single attribute. Every component is themed by
+          default.</p>
+      </div>
+
+      <div class="lp-dm-wrap">
+        <div class="lp-dm-card lp-dm-card--light">
+          <div class="lp-dm-card__bar">
+            <span>Light Theme</span>
+            <span class="lp-dm-card__dots">
+              <span class="lp-dm-card__dot" style="background:#f87171;"></span>
+              <span class="lp-dm-card__dot" style="background:#fbbf24;"></span>
+              <span class="lp-dm-card__dot" style="background:#34d399;"></span>
+            </span>
+          </div>
+          <div class="lp-dm-card__body">
+            <p class="lp-dm-title">Welcome back</p>
+            <p class="lp-dm-text">Sign in to continue to your dashboard. Choose a clean, bright experience.</p>
+            <input type="text" class="lp-dm-input" placeholder="Email address">
+            <input type="password" class="lp-dm-input" placeholder="Password">
+            <div class="lp-dm-actions">
+              <button type="button" class="lp-btn-demo">Sign in</button>
+              <button type="button" class="lp-btn-demo lp-dm-btn-ghost">Cancel</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="lp-dm-card lp-dm-card--dark">
+          <div class="lp-dm-card__bar">
+            <span>Dark Theme</span>
+            <span class="lp-dm-card__dots">
+              <span class="lp-dm-card__dot" style="background:#f87171;"></span>
+              <span class="lp-dm-card__dot" style="background:#fbbf24;"></span>
+              <span class="lp-dm-card__dot" style="background:#34d399;"></span>
+            </span>
+          </div>
+          <div class="lp-dm-card__body">
+            <p class="lp-dm-title">Welcome back</p>
+            <p class="lp-dm-text">Sign in to continue to your dashboard. Choose a calm, focused experience.</p>
+            <input type="text" class="lp-dm-input" placeholder="Email address">
+            <input type="password" class="lp-dm-input" placeholder="Password">
+            <div class="lp-dm-actions">
+              <button type="button" class="lp-btn-demo">Sign in</button>
+              <button type="button" class="lp-btn-demo lp-dm-btn-ghost">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lp-dm-switch" style="margin-top:32px;">
+        <button type="button" class="docs-theme-toggle"
+          style="width:auto;height:auto;padding:8px 18px;display:inline-flex;gap:8px;flex-direction:row;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </svg>
+          Toggle theme
+        </button>
+      </div>
+    </section>
+
+    <!-- ===== Responsive Grid ===== -->
+    <section class="lp-section lp-section--tinted" aria-label="Responsive grid">
+      <div class="lp-section__inner">
+        <div class="lp-section__center">
+          <span class="lp-section__eyebrow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="4" width="22" height="16" rx="2" />
+              <line x1="1" y1="10" x2="23" y2="10" />
+              <line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="16" y1="2" x2="16" y2="6" />
+            </svg>
+            Layout System
+          </span>
+          <h2 class="lp-section__title">Responsive grid</h2>
+          <p class="lp-section__desc">A 12-column grid that adapts at every breakpoint. Resize your browser to watch it
+            respond.</p>
+        </div>
+
+        <div class="lp-grid-demo">
+          <p class="lp-grid-label">12-column grid</p>
+          <div class="zak-grid">
+            <div class="lp-grid-demo__cell zak-col-md-12">.zak-col-md-12</div>
+          </div>
+
+          <p class="lp-grid-label">Split in half</p>
+          <div class="zak-grid">
+            <div class="lp-grid-demo__cell zak-col-md-6">.zak-col-md-6</div>
+            <div class="lp-grid-demo__cell zak-col-md-6">.zak-col-md-6</div>
+          </div>
+
+          <p class="lp-grid-label">Three columns</p>
+          <div class="zak-grid">
+            <div class="lp-grid-demo__cell zak-col-md-4">.zak-col-md-4</div>
+            <div class="lp-grid-demo__cell zak-col-md-4">.zak-col-md-4</div>
+            <div class="lp-grid-demo__cell zak-col-md-4">.zak-col-md-4</div>
+          </div>
+
+          <p class="lp-grid-label">Mixed layout</p>
+          <div class="zak-grid">
+            <div class="lp-grid-demo__cell zak-col-md-3">.zak-col-md-3</div>
+            <div class="lp-grid-demo__cell zak-col-md-6">.zak-col-md-6</div>
+            <div class="lp-grid-demo__cell zak-col-md-3">.zak-col-md-3</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Quick Start ===== -->
+    <section class="lp-section" aria-label="Quick start">
+      <div class="lp-quickstart">
+        <div class="lp-code-intro">
+          <span class="lp-section__eyebrow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6" />
+              <polyline points="8 6 2 12 8 18" />
+            </svg>
+            Quick Start
+          </span>
+          <h2 class="lp-section__title">Add to any project</h2>
+          <p class="lp-section__desc">Include two files and you're ready to build. No build tools, no configuration.</p>
+        </div>
+
+        <div class="docs-code-block">
+          <div class="docs-code-block__header">
+            <span class="docs-code-block__lang">HTML</span>
+            <button type="button" class="docs-copy-btn" aria-label="Copy code block">
+              <span class="docs-copy-btn__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+              </span>
+              <span class="docs-copy-btn__text">Copy</span>
+            </button>
+          </div>
+          <pre><code class="language-html"><span class="token-comment">&lt;!-- Add to your &lt;head&gt; --&gt;</span>
+<span class="token-tag">&lt;link</span> <span class="token-attr">rel</span>=<span class="token-string">"stylesheet"</span> <span class="token-attr">href</span>=<span class="token-string">"dist/css/zak.css"</span><span class="token-tag">&gt;</span>
+<span class="token-tag">&lt;script</span> <span class="token-attr">src</span>=<span class="token-string">"dist/js/zak.js"</span><span class="token-tag">&gt;&lt;/script&gt;</span></code></pre>
+        </div>
+
+        <div style="display:flex;justify-content:center;margin-top:8px;">
+          <a href="getting-started.html" class="zak-link zak-text-primary"
+            style="font-weight:600;text-decoration:none;">
+            Read the full getting started guide →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer class="lp-footer" aria-label="Footer">
+      <div class="lp-footer__inner">
+        <div>
+          <a href="index.html" class="lp-footer__brand">
+            <span class="docs-zak-logo"><img src="img/logo.svg" alt=""></span>
+            ZAKUIKit
+          </a>
+          <p class="lp-footer__desc">A modern, lightweight UI toolkit built with HTML, CSS and JavaScript. Pure vanilla,
+            batteries included.</p>
+        </div>
+
+        <div>
+          <p class="lp-footer__col-title">Documentation</p>
+          <ul class="lp-footer__links">
+            <li><a href="getting-started.html">Getting Started</a></li>
+            <li><a href="components.html">Components</a></li>
+            <li><a href="templates.html">Templates</a></li>
+            <li><a href="icons.html">Icons</a></li>
+            <li><a href="utilities.html">Utilities</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="lp-footer__col-title">Foundations</p>
+          <ul class="lp-footer__links">
+            <li><a href="dist/components/foundations/colors/index.html">Colors</a></li>
+            <li><a href="dist/components/foundations/typography/index.html">Typography</a></li>
+            <li><a href="dist/components/foundations/spacing/index.html">Spacing</a></li>
+            <li><a href="dist/components/foundations/borders/index.html">Borders</a></li>
+            <li><a href="dist/components/foundations/responsive/index.html">Responsive</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="lp-footer__col-title">Resources</p>
+          <ul class="lp-footer__links">
+            <li><a href="https://github.com/" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://github.com/" target="_blank" rel="noopener">Changelog</a></li>
+            <li><a href="https://github.com/" target="_blank" rel="noopener">Report a bug</a></li>
+            <li><a href="https://github.com/" target="_blank" rel="noopener">License (MIT)</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="lp-footer__bottom">
+        <span>© 2026 ZAKUIKit. Crafted with HTML, CSS &amp; JavaScript.</span>
+        <span>Released under the MIT License · v1.0.0</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- ===== Scripts ===== -->
+  <script src="dist/js/zak.js"></script>
+  <script src="js/docs.js"></script>
+
+</body>
+
+</html>

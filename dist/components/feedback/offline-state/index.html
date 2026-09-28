@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Offline State documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Offline State - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/feedback/offline-state/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Offline State - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Offline State documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/feedback/offline-state/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Loading-States</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Offline State</span>
+                </nav>
+        <h1>Offline State</h1>
+        <p class="docs-subtitle">Informs users when they lose connectivity and provides guidance for recovery.</p>
+
+        <h2>Offline Indicator Banner</h2>
+        <p>A compact banner that appears at the top of the page.</p>
+        <div class="docs-preview">
+            <div class="docs-preview">
+                <div class="zak-offline-banner">
+                    <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:1rem;height:1rem"><line x1="1" y1="1" x2="23" y2="23"/><path d="M16.72 11.06A10.94 10.94 0 0119 12.55"/><path d="M5 12.55a10.94 10.94 0 015.17-2.39"/><path d="M10.71 5.05A16 16 0 0122.56 9"/><path d="M1.42 9a15.91 15.91 0 014.7-2.88"/><path d="M8.53 16.11a6 6 0 016.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+                    <span>You are currently offline. Some features may be unavailable.</span>
+                    <button class="zak-offline-banner-close" onclick="this.parentElement.style.display='none'">&times;</button>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-offline-banner"&gt;
+    &lt;svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;
+        &lt;line x1="1" y1="1" x2="23" y2="23"/&gt;
+        &lt;path d="M16.72 11.06A10.94 10.94 0 0119 12.55"/&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;You are currently offline. Some features may be unavailable.&lt;/span&gt;
+    &lt;button class="zak-offline-banner-close" onclick="this.parentElement.style.display='none'"&gt;&amp;times;&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <h2>Offline State Page</h2>
+        <p>A full-page offline state for when the app cannot function.</p>
+        <div class="docs-preview">
+            <div class="docs-preview">
+                <div class="zak-offline-state">
+                    <div class="zak-offline-state-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:64px;height:64px"><line x1="1" y1="1" x2="23" y2="23"/><path d="M16.72 11.06A10.94 10.94 0 0119 12.55"/><path d="M5 12.55a10.94 10.94 0 015.17-2.39"/><path d="M10.71 5.05A16 16 0 0122.56 9"/><path d="M1.42 9a15.91 15.91 0 014.7-2.88"/><path d="M8.53 16.11a6 6 0 016.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+                    </div>
+                    <h2 class="zak-offline-state-title">You're offline</h2>
+                    <p class="zak-offline-state-text">It looks like you've lost your internet connection. Please check your network settings and try again.</p>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-offline-state"&gt;
+    &lt;div class="zak-offline-state-icon"&gt;
+        &lt;svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"&gt;
+            &lt;line x1="1" y1="1" x2="23" y2="23"/&gt;
+            &lt;path d="M16.72 11.06A10.94 10.94 0 0119 12.55"/&gt;
+            &lt;path d="M5 12.55a10.94 10.94 0 015.17-2.39"/&gt;
+            &lt;path d="M10.71 5.05A16 16 0 0122.56 9"/&gt;
+            &lt;path d="M1.42 9a15.91 15.91 0 014.7-2.88"/&gt;
+            &lt;path d="M8.53 16.11a6 6 0 016.95 0"/&gt;
+            &lt;line x1="12" y1="20" x2="12.01" y2="20"/&gt;
+        &lt;/svg&gt;
+    &lt;/div&gt;
+    &lt;h2 class="zak-offline-state-title"&gt;You're offline&lt;/h2&gt;
+    &lt;p class="zak-offline-state-text"&gt;Please check your network settings and try again.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <h2>Offline with Retry Button</h2>
+        <p>Include a retry button to reconnect.</p>
+        <div class="docs-preview">
+            <div class="docs-preview">
+                <div class="zak-offline-state">
+                    <div class="zak-offline-state-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:64px;height:64px"><line x1="1" y1="1" x2="23" y2="23"/><path d="M16.72 11.06A10.94 10.94 0 0119 12.55"/><path d="M5 12.55a10.94 10.94 0 015.17-2.39"/><path d="M10.71 5.05A16 16 0 0122.56 9"/><path d="M1.42 9a15.91 15.91 0 014.7-2.88"/><path d="M8.53 16.11a6 6 0 016.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+                    </div>
+                    <h2 class="zak-offline-state-title">No internet connection</h2>
+                    <p class="zak-offline-state-text">Please check your network settings and try again.</p>
+                    <button class="zak-btn zak-btn-primary" id="offlineRetryBtn">
+                        <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:1rem;height:1rem"><path d="M23 4v6h-6"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg>
+                        Retry Connection
+                    </button>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-offline-state"&gt;
+    &lt;div class="zak-offline-state-icon"&gt;
+        &lt;svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"&gt;
+            &lt;line x1="1" y1="1" x2="23" y2="23"/&gt;
+            &lt;path d="M16.72 11.06A10.94 10.94 0 0119 12.55"/&gt;
+        &lt;/svg&gt;
+    &lt;/div&gt;
+    &lt;h2 class="zak-offline-state-title"&gt;No internet connection&lt;/h2&gt;
+    &lt;p class="zak-offline-state-text"&gt;Please check your network settings and try again.&lt;/p&gt;
+    &lt;button class="zak-btn zak-btn-primary"&gt;Retry Connection&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <h2>Offline with Cached Content</h2>
+        <p>Inform users that cached content is available.</p>
+        <div class="docs-preview">
+            <div class="docs-preview">
+                <div class="zak-offline-state">
+                    <div class="zak-offline-state-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:64px;height:64px"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    </div>
+                    <h2 class="zak-offline-state-title">You're offline</h2>
+                    <p class="zak-offline-state-text">You can still view previously loaded content. New changes will sync when you're back online.</p>
+                    <div class="zak-offline-state-actions">
+                        <button class="zak-btn zak-btn-primary">View Cached Content</button>
+                        <button class="zak-btn zak-btn-outline">Retry Connection</button>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-offline-state"&gt;
+    &lt;div class="zak-offline-state-icon"&gt;
+        &lt;svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"&gt;
+            &lt;path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/&gt;
+            &lt;polyline points="7 10 12 15 17 10"/&gt;&lt;line x1="12" y1="15" x2="12" y2="3"/&gt;
+        &lt;/svg&gt;
+    &lt;/div&gt;
+    &lt;h2 class="zak-offline-state-title"&gt;You're offline&lt;/h2&gt;
+    &lt;p class="zak-offline-state-text"&gt;You can still view previously loaded content.&lt;/p&gt;
+    &lt;div class="zak-offline-state-actions"&gt;
+        &lt;button class="zak-btn zak-btn-primary"&gt;View Cached Content&lt;/button&gt;
+        &lt;button class="zak-btn zak-btn-outline"&gt;Retry Connection&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <h2>Network Status Dot</h2>
+        <p>A small dot indicator for inline network status display.</p>
+        <div class="docs-preview">
+            <div class="docs-preview" style="display:flex;gap:2rem;align-items:center">
+                <div style="display:flex;align-items:center;gap:0.5rem">
+                    <span class="zak-status-dot zak-status-dot-online"></span>
+                    <span>Online</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:0.5rem">
+                    <span class="zak-status-dot zak-status-dot-offline"></span>
+                    <span>Offline</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:0.5rem">
+                    <span class="zak-status-dot zak-status-dot-connecting"></span>
+                    <span>Connecting...</span>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;span class="zak-status-dot zak-status-dot-online"&gt;&lt;/span&gt; Online
+&lt;span class="zak-status-dot zak-status-dot-offline"&gt;&lt;/span&gt; Offline
+&lt;span class="zak-status-dot zak-status-dot-connecting"&gt;&lt;/span&gt; Connecting...</code></pre>
+            </div>
+        </div>
+
+        <h2>CSS Variables</h2>
+        <div class="docs-preview">
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span></div><pre><code>:root {
+    --zak-offline-banner-bg: var(--zak-warning);
+    --zak-offline-banner-color: #000;
+    --zak-offline-banner-padding: 0.75rem 1rem;
+    --zak-status-dot-size: 0.625rem;
+    --zak-status-dot-online: var(--zak-success);
+    --zak-status-dot-offline: var(--zak-danger);
+    --zak-status-dot-connecting: var(--zak-warning);
+}</code></pre>
+            </div>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    <script>
+        document.getElementById('offlineRetryBtn').addEventListener('click', function() {
+            var btn = this;
+            btn.disabled = true;
+            btn.innerHTML = '<div class="zak-spinner zak-spinner-sm"></div> Connecting...';
+            setTimeout(function() {
+                btn.disabled = false;
+                btn.innerHTML = '<svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:1rem;height:1rem"><path d="M23 4v6h-6"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg> Retry Connection';
+            }, 2000);
+        });
+    </script>
+</body></html>

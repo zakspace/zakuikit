@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Empty State documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Empty State - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/feedback/empty-state/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Empty State - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Empty State documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/feedback/empty-state/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Feedback</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Empty State</span>
+                </nav>
+        <h1>Empty State</h1>
+        <p class="docs-subtitle">Empty states guide users when a view has no data, offering context and a clear next action.</p>
+
+        <section class="zak-docs-section">
+            <h2>Basic Empty State</h2>
+            <p>Icon, title, supporting text, and a prompt action button.</p>
+            <div class="docs-preview">
+                <div class="zak-empty-state" style="width:100%;max-width:28rem;">
+                    <span class="zak-empty-state-icon">
+                        <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                    </span>
+                    <h3 class="zak-empty-state-title">No projects yet</h3>
+                    <p class="zak-empty-state-text">Create your first project to start organizing your work and collaborating with your team.</p>
+                    <div class="zak-empty-state-action">
+                        <button class="zak-btn zak-btn-primary">
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                            Create Project
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-empty-state"&gt;
+    &lt;span class="zak-empty-state-icon"&gt;
+        &lt;svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;...&lt;/svg&gt;
+    &lt;/span&gt;
+    &lt;h3 class="zak-empty-state-title"&gt;No projects yet&lt;/h3&gt;
+    &lt;p class="zak-empty-state-text"&gt;Create your first project to start organizing your work.&lt;/p&gt;
+    &lt;div class="zak-empty-state-action"&gt;
+        &lt;button class="zak-btn zak-btn-primary"&gt;Create Project&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Empty State with Illustration</h2>
+            <p>Use an illustration block (gradient tile standing in for artwork) with copy and action.</p>
+            <div class="docs-preview">
+                <div class="zak-empty-state" style="width:100%;max-width:28rem;">
+                    <div style="width:7rem;height:7rem;border-radius:var(--zak-radius-lg);background:linear-gradient(135deg,var(--zak-primary-100),var(--zak-info-100));display:flex;align-items:center;justify-content:center;color:var(--zak-color-primary);margin-bottom:var(--zak-space-2);">
+                        <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:3rem;height:3rem;"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                    </div>
+                    <h3 class="zak-empty-state-title">Build your dashboard</h3>
+                    <p class="zak-empty-state-text">Add widgets like charts and KPIs to see your data at a glance.</p>
+                    <div class="zak-empty-state-action">
+                        <button class="zak-btn zak-btn-outline-primary">Add Widget</button>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-empty-state"&gt;
+    &lt;!-- illustration --&gt;
+    &lt;div style="width:7rem;height:7rem;border-radius:var(--zak-radius-lg);
+         background:linear-gradient(135deg,var(--zak-primary-100),var(--zak-info-100));
+         display:flex;align-items:center;justify-content:center;color:var(--zak-color-primary);"&gt;
+        &lt;svg class="zak-icon" style="width:3rem;height:3rem;"&gt;...&lt;/svg&gt;
+    &lt;/div&gt;
+    &lt;h3 class="zak-empty-state-title"&gt;Build your dashboard&lt;/h3&gt;
+    &lt;p class="zak-empty-state-text"&gt;Add widgets like charts and KPIs.&lt;/p&gt;
+    &lt;div class="zak-empty-state-action"&gt;
+        &lt;button class="zak-btn zak-btn-outline-primary"&gt;Add Widget&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Empty State for Search (No Results)</h2>
+            <p>Guide users when a search query returns nothing.</p>
+            <div class="docs-preview">
+                <div class="zak-empty-state" style="width:100%;max-width:28rem;">
+                    <span class="zak-empty-state-icon">
+                        <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                    </span>
+                    <h3 class="zak-empty-state-title">No results found</h3>
+                    <p class="zak-empty-state-text">We couldn't find anything matching "quix". Try different keywords or check the spelling.</p>
+                    <div class="zak-empty-state-action">
+                        <button class="zak-btn zak-btn-secondary">Clear Search</button>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-empty-state"&gt;
+    &lt;span class="zak-empty-state-icon"&gt;
+        &lt;svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;&lt;circle cx="11" cy="11" r="8"/&gt;&lt;path d="m21 21-4.35-4.35"/&gt;&lt;/svg&gt;
+    &lt;/span&gt;
+    &lt;h3 class="zak-empty-state-title"&gt;No results found&lt;/h3&gt;
+    &lt;p class="zak-empty-state-text"&gt;We couldn't find anything matching "quix".&lt;/p&gt;
+    &lt;div class="zak-empty-state-action"&gt;
+        &lt;button class="zak-btn zak-btn-secondary"&gt;Clear Search&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Empty State for List (No Items)</h2>
+            <p>Encourage adding the first item to a collection.</p>
+            <div class="docs-preview">
+                <div class="zak-empty-state" style="width:100%;max-width:28rem;">
+                    <span class="zak-empty-state-icon">
+                        <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+                    </span>
+                    <h3 class="zak-empty-state-title">No conversations yet</h3>
+                    <p class="zak-empty-state-text">Start a new conversation to get help from our support team.</p>
+                    <div class="zak-empty-state-action">
+                        <button class="zak-btn zak-btn-primary">New Conversation</button>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-empty-state"&gt;
+    &lt;span class="zak-empty-state-icon"&gt;
+        &lt;svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;&lt;path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/&gt;&lt;/svg&gt;
+    &lt;/span&gt;
+    &lt;h3 class="zak-empty-state-title"&gt;No conversations yet&lt;/h3&gt;
+    &lt;p class="zak-empty-state-text"&gt;Start a new conversation to get help from our support team.&lt;/p&gt;
+    &lt;div class="zak-empty-state-action"&gt;
+        &lt;button class="zak-btn zak-btn-primary"&gt;New Conversation&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Empty State for Error</h2>
+            <p>Help users recover from failed loads.</p>
+            <div class="docs-preview">
+                <div class="zak-empty-state" style="width:100%;max-width:28rem;">
+                    <span class="zak-empty-state-icon" style="color:var(--zak-color-danger);">
+                        <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
+                    </span>
+                    <h3 class="zak-empty-state-title">Something went wrong</h3>
+                    <p class="zak-empty-state-text">We couldn't load this page. Please retry or check your connection.</p>
+                    <div class="zak-empty-state-action" style="display:flex;gap:0.5rem;">
+                        <button class="zak-btn zak-btn-danger">Retry</button>
+                        <button class="zak-btn zak-btn-outline-primary">Back to Home</button>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-empty-state"&gt;
+    &lt;span class="zak-empty-state-icon" style="color:var(--zak-color-danger);"&gt;
+        &lt;svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;...&lt;/svg&gt;
+    &lt;/span&gt;
+    &lt;h3 class="zak-empty-state-title"&gt;Something went wrong&lt;/h3&gt;
+    &lt;p class="zak-empty-state-text"&gt;We couldn't load this page.&lt;/p&gt;
+    &lt;div class="zak-empty-state-action"&gt;
+        &lt;button class="zak-btn zak-btn-danger"&gt;Retry&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Minimal Empty State</h2>
+            <p>A compact variant with just an icon and short copy.</p>
+            <div class="docs-preview">
+                <div class="zak-empty-state" style="width:100%;max-width:28rem;padding:2rem;">
+                    <span class="zak-empty-state-icon">
+                        <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+                    </span>
+                    <h3 class="zak-empty-state-title" style="font-size:var(--zak-font-size-md);">No notifications</h3>
+                    <p class="zak-empty-state-text">You're all caught up!</p>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-empty-state"&gt;
+    &lt;span class="zak-empty-state-icon"&gt;...&lt;/svg&gt;&lt;/span&gt;
+    &lt;h3 class="zak-empty-state-title"&gt;No notifications&lt;/h3&gt;
+    &lt;p class="zak-empty-state-text"&gt;You're all caught up!&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>CSS Classes &amp; Variables</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>.zak-empty-state        /* Centered column container */
+.zak-empty-state-icon    /* Circular icon wrapper */
+.zak-empty-state-title   /* Bold title */
+.zak-empty-state-text    /* Muted supporting text */
+.zak-empty-state-action  /* Action area below copy */</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Use a real heading element (<code>&lt;h2&gt;</code>/<code>&lt;h3&gt;</code>) for the empty-state title so it fits the document outline.</li>
+                <li>Icon-only decorations must have <code>aria-hidden="true"</code> or be inside an <code>alt=""</code> context.</li>
+                <li>Make the primary action a real button or link with a descriptive label.</li>
+                <li>If the empty state appears after an async load, announce it with <code>aria-live="polite"</code>.</li>
+            </ul>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-empty-state" role="status" aria-live="polite"&gt;
+    &lt;span class="zak-empty-state-icon" aria-hidden="true"&gt;...&lt;/svg&gt;&lt;/span&gt;
+    &lt;h3 class="zak-empty-state-title"&gt;No results&lt;/h3&gt;
+    &lt;p class="zak-empty-state-text"&gt;Try adjusting your filters.&lt;/p&gt;
+    &lt;div class="zak-empty-state-action"&gt;
+        &lt;button class="zak-btn zak-btn-primary"&gt;Clear Filters&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body></html>

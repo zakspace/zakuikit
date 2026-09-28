@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Loading Button documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Loading Button - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/buttons/loading-button/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Loading Button - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Loading Button documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/buttons/loading-button/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main">
+        <div class="docs-content">
+            <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Buttons</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Loading Button</span>
+                </nav>
+
+            <h1>Loading Button</h1>
+            <p class="docs-subtitle">Loading buttons provide visual feedback during asynchronous operations. They display a spinner animation and are disabled while the action is in progress.</p>
+
+            <section class="zak-docs-section">
+                <h2>Basic</h2>
+                <p>A button with a loading spinner. Click the button to see the interactive demo.</p>
+                <div class="docs-preview">
+                    <button class="zak-btn zak-btn-primary loading-btn-demo">
+                        <svg class="zak-btn-spinner" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="4" stroke-dasharray="31.4 31.4" stroke-linecap="round"/></svg>
+                        Click to Load
+                    </button>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;button class="zak-btn zak-btn-primary loading-btn-demo"&gt;
+    &lt;svg class="zak-btn-spinner" viewBox="0 0 24 24"&gt;
+        &lt;circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="4" stroke-dasharray="31.4 31.4" stroke-linecap="round"/&gt;
+    &lt;/svg&gt;
+    Click to Load
+&lt;/button&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Variants</h2>
+                <p>Loading state works with all color variants.</p>
+                <div class="docs-preview">
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
+                        <button class="zak-btn zak-btn-primary zak-btn-loading loading-btn-demo" disabled>
+                            <svg class="zak-btn-spinner" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="4" stroke-dasharray="31.4 31.4" stroke-linecap="round"/></svg>
+                            Primary
+                        </button>
+                        <button class="zak-btn zak-btn-secondary zak-btn-loading loading-btn-demo" disabled>
+                            <svg class="zak-btn-spinner" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="4" stroke-dasharray="31.4 31.4" stroke-linecap="round"/></svg>
+                            Secondary
+                        </button>
+                        <button class="zak-btn zak-btn-success zak-btn-loading loading-btn-demo" disabled>
+                            <svg class="zak-btn-spinner" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="4" stroke-dasharray="31.4 31.4" stroke-linecap="round"/></svg>
+                            Success
+                        </button>
+                        <button class="zak-btn zak-btn-danger zak-btn-loading loading-btn-demo" disabled>
+                            <svg class="zak-btn-spinner" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="4" stroke-dasharray="31.4 31.4" stroke-linecap="round"/></svg>
+                            Danger
+                        </button>
+                        <button class="zak-btn zak-btn-warning zak-btn-loading loading-btn-demo" disabled>
+                            <svg class="zak-btn-spinner" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="4" stroke-dasharray="31.4 31.4" stroke-linecap="round"/></svg>
+                            Warning
+                        </button>
+                        <button class="zak-btn zak-btn-info zak-btn-loading loading-btn-demo" disabled>
+                            <svg class="zak-btn-spinner" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="4" stroke-dasharray="31.4 31.4" stroke-linecap="round"/></svg>
+                            Info
+                        </button>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;button class="zak-btn zak-btn-primary zak-btn-loading" disabled&gt;
+    &lt;svg class="zak-btn-spinner" viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
+    Primary
+&lt;/button&gt;
+
+&lt;button class="zak-btn zak-btn-secondary zak-btn-loading" disabled&gt;
+    &lt;svg class="zak-btn-spinner" viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
+    Secondary
+&lt;/button&gt;
+
+&lt;button class="zak-btn zak-btn-success zak-btn-loading" disabled&gt;
+    &lt;svg class="zak-btn-spinner" viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
+    Success
+&lt;/button&gt;
+
+&lt;button class="zak-btn zak-btn-danger zak-btn-loading" disabled&gt;
+    &lt;svg class="zak-btn-spinner" viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
+    Danger
+&lt;/button&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Sizes</h2>
+                <p>Loading buttons work with all size modifiers.</p>
+                <div class="docs-preview">
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
+                        <button class="zak-btn zak-btn-primary zak-btn-sm zak-btn-loading loading-btn-demo" disabled>
+                            <svg class="zak-btn-spinner" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="4" stroke-dasharray="31.4 31.4" stroke-linecap="round"/></svg>
+                            Small
+                        </button>
+                        <button class="zak-btn zak-btn-primary zak-btn-loading loading-btn-demo" disabled>
+                            <svg class="zak-btn-spinner" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="4" stroke-dasharray="31.4 31.4" stroke-linecap="round"/></svg>
+                            Default
+                        </button>
+                        <button class="zak-btn zak-btn-primary zak-btn-lg zak-btn-loading loading-btn-demo" disabled>
+                            <svg class="zak-btn-spinner" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="4" stroke-dasharray="31.4 31.4" stroke-linecap="round"/></svg>
+                            Large
+                        </button>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;button class="zak-btn zak-btn-primary zak-btn-sm zak-btn-loading" disabled&gt;
+    &lt;svg class="zak-btn-spinner" viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
+    Small
+&lt;/button&gt;
+
+&lt;button class="zak-btn zak-btn-primary zak-btn-loading" disabled&gt;
+    &lt;svg class="zak-btn-spinner" viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
+    Default
+&lt;/button&gt;
+
+&lt;button class="zak-btn zak-btn-primary zak-btn-lg zak-btn-loading" disabled&gt;
+    &lt;svg class="zak-btn-spinner" viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
+    Large
+&lt;/button&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Interactive Demo</h2>
+                <p>Click any button below to see the loading state toggle automatically.</p>
+                <div class="docs-preview">
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
+                        <button class="zak-btn zak-btn-primary loading-btn-demo">
+                            <svg class="zak-btn-spinner" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="4" stroke-dasharray="31.4 31.4" stroke-linecap="round"/></svg>
+                            Submit
+                        </button>
+                        <button class="zak-btn zak-btn-success loading-btn-demo">
+                            <svg class="zak-btn-spinner" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="4" stroke-dasharray="31.4 31.4" stroke-linecap="round"/></svg>
+                            Save Changes
+                        </button>
+                        <button class="zak-btn zak-btn-outline-primary loading-btn-demo">
+                            <svg class="zak-btn-spinner" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="4" stroke-dasharray="31.4 31.4" stroke-linecap="round"/></svg>
+                            Load More
+                        </button>
+                        <button class="zak-btn zak-btn-icon loading-btn-demo" aria-label="Refresh">
+                            <svg class="zak-btn-spinner" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="4" stroke-dasharray="31.4 31.4" stroke-linecap="round"/></svg>
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;button class="zak-btn zak-btn-primary loading-btn-demo"&gt;
+    &lt;svg class="zak-btn-spinner" viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
+    Submit
+&lt;/button&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>JavaScript</h2>
+                <p>Use JavaScript to toggle the loading state dynamically.</p>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>// Basic loading button toggle
+document.querySelectorAll('.loading-btn-demo').forEach(btn =&gt; {
+    btn.addEventListener('click', function() {
+        this.classList.add('zak-btn-loading');
+        this.disabled = true;
+        setTimeout(() =&gt; {
+            this.classList.remove('zak-btn-loading');
+            this.disabled = false;
+        }, 2000);
+    });
+});
+
+// Manual loading control
+function setButtonLoading(button, isLoading) {
+    if (isLoading) {
+        button.classList.add('zak-btn-loading');
+        button.disabled = true;
+        button.setAttribute('aria-busy', 'true');
+    } else {
+        button.classList.remove('zak-btn-loading');
+        button.disabled = false;
+        button.setAttribute('aria-busy', 'false');
+    }
+}
+
+// Usage with async/await
+document.querySelector('#submit-btn').addEventListener('click', async function() {
+    setButtonLoading(this, true);
+    try {
+        await saveData();
+        // Success feedback
+    } catch (error) {
+        // Error feedback
+    } finally {
+        setButtonLoading(this, false);
+    }
+});</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>CSS</h2>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>/* Loading Button States */
+.zak-btn-loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.zak-btn-loading .zak-btn-spinner {
+    animation: zak-spin 0.75s linear infinite;
+}
+
+.zak-btn-loading .zak-btn-spinner {
+    width: 1em;
+    height: 1em;
+    margin-right: 0.5rem;
+}
+
+/* Spinner Animation */
+@keyframes zak-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Accessibility</h2>
+                <ul>
+                    <li>Always set <code>disabled</code> on the button during loading to prevent multiple submissions.</li>
+                    <li>Add <code>aria-busy="true"</code> during loading to announce the busy state to screen readers.</li>
+                    <li>Keep the button text meaningful so screen readers announce what action is being processed.</li>
+                    <li>Reset the button text and state when the operation completes.</li>
+                </ul>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;button class="zak-btn zak-btn-primary" aria-busy="true" disabled&gt;
+    &lt;svg class="zak-btn-spinner" viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
+    Saving...
+&lt;/button&gt;</code></pre>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    <script>
+    document.querySelectorAll('.loading-btn-demo').forEach(btn => {
+        btn.addEventListener('click', function() {
+            this.classList.add('zak-btn-loading');
+            this.disabled = true;
+            setTimeout(() => {
+                this.classList.remove('zak-btn-loading');
+                this.disabled = false;
+            }, 2000);
+        });
+    });
+    </script>
+</body>
+</html>

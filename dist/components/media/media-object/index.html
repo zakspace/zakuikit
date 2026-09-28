@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Media Object documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Media Object - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/media/media-object/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Media Object - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Media Object documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/media/media-object/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Media</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Media Object</span>
+                </nav>
+        <h1>Media Object</h1>
+        <p class="docs-subtitle">Media Object arranges a media element (image, avatar, or icon) alongside descriptive content, supporting horizontal and vertical alignment, lists, nesting, and actions.</p>
+
+        <div class="zak-docs-section">
+            <h2>Basic Media Object</h2>
+            <p>An image on the left with content on the right.</p>
+
+            <div class="docs-preview">
+                <div class="zak-media" style="max-width: 500px; gap: 1rem;">
+                    <div style="flex-shrink: 0; width: 64px; height: 64px; background: linear-gradient(135deg, #6366f1, #818cf8); border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">IMG</div>
+                    <div>
+                        <div style="font-weight: 600;">Media Heading</div>
+                        <p style="margin: 0.25rem 0 0; color: var(--zak-text-muted); font-size: 0.875rem;">This is the descriptive body content that sits alongside the media element.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-media"&gt;
+  &lt;div class="zak-media-body"&gt;
+    &lt;img src="..." alt="..." class="zak-media-figure"&gt;
+  &lt;/div&gt;
+  &lt;div class="zak-media-content"&gt;
+    &lt;h3 class="zak-media-title"&gt;Media Heading&lt;/h3&gt;
+    &lt;p&gt;Descriptive body content...&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Media Object with Avatar</h2>
+            <p>Use an avatar as the media element for user-centred content.</p>
+
+            <div class="docs-preview">
+                <div class="zak-media" style="max-width: 500px; gap: 1rem; align-items: center;">
+                    <div style="flex-shrink: 0;"><span class="zak-avatar zak-avatar-lg zak-avatar-primary">JT</span></div>
+                    <div>
+                        <div style="font-weight: 600;">Jane Thompson <span style="font-weight: 400; color: var(--zak-text-muted); font-size: 0.75rem;">Product Designer</span></div>
+                        <p style="margin: 0.25rem 0 0; color: var(--zak-text-muted); font-size: 0.875rem;">"The new design system has dramatically improved our workflow."</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-media"&gt;
+  &lt;div class="zak-media-body"&gt;
+    &lt;span class="zak-avatar zak-avatar-lg zak-avatar-primary"&gt;JT&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="zak-media-content"&gt;
+    &lt;strong&gt;Jane Thompson&lt;/strong&gt;
+    &lt;p&gt;"The new design system..."&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Media Object with Icon</h2>
+            <p>Use an icon in a coloured container as the media element.</p>
+
+            <div class="docs-preview">
+                <div class="zak-media" style="max-width: 500px; gap: 1rem;">
+                    <div style="flex-shrink: 0; width: 48px; height: 48px; border-radius: 0.5rem; background: rgba(16,185,129,0.12); color: #10b981; display: flex; align-items: center; justify-content: center;">
+                        <svg style="width: 24px; height: 24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    </div>
+                    <div>
+                        <div style="font-weight: 600;">Verification Complete</div>
+                        <p style="margin: 0.25rem 0 0; color: var(--zak-text-muted); font-size: 0.875rem;">Your account has been successfully verified and is now fully active.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-media"&gt;
+  &lt;div class="zak-media-body zak-media-icon zak-media-icon-success"&gt;
+    &lt;svg class="zak-icon"&gt;...&lt;/svg&gt;
+  &lt;/div&gt;
+  &lt;div class="zak-media-content"&gt;
+    &lt;strong&gt;Verification Complete&lt;/strong&gt;
+    &lt;p&gt;Your account has been verified.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Horizontal / Vertical Media Object</h2>
+            <p>Media and content can be laid out horizontally (default) or stacked vertically.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center;">
+                    <div class="zak-media" style="max-width: 320px; gap: 1rem;">
+                        <div style="flex-shrink: 0; width: 48px; height: 48px; background: linear-gradient(135deg, #0ea5e9, #38bdf8); border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem; font-weight: 600;">H</div>
+                        <div>
+                            <div style="font-weight: 600;">Horizontal</div>
+                            <p style="margin: 0.25rem 0 0; color: var(--zak-text-muted); font-size: 0.8125rem;">Default side-by-side arrangement.</p>
+                        </div>
+                    </div>
+                    <div class="zak-media zak-media-vertical" style="max-width: 200px; gap: 0.75rem; text-align: center; flex-direction: column; align-items: center;">
+                        <div style="width: 56px; height: 56px; background: linear-gradient(135deg, #14b8a6, #5eead4); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem; font-weight: 600;">V</div>
+                        <div>
+                            <div style="font-weight: 600;">Vertical</div>
+                            <p style="margin: 0.25rem 0 0; color: var(--zak-text-muted); font-size: 0.8125rem;">Stacked top-to-bottom arrangement.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;!-- Horizontal (default) --&gt;
+&lt;div class="zak-media"&gt;
+  &lt;div class="zak-media-body"&gt;...&lt;/div&gt;
+  &lt;div class="zak-media-content"&gt;...&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Vertical --&gt;
+&lt;div class="zak-media zak-media-vertical"&gt;
+  &lt;div class="zak-media-body"&gt;...&lt;/div&gt;
+  &lt;div class="zak-media-content"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Media Object List</h2>
+            <p>Render a list of media objects, for example search results or comment threads.</p>
+
+            <div class="docs-preview">
+                <div style="max-width: 520px; border: 1px solid var(--zak-border); border-radius: 0.75rem; overflow: hidden; background: var(--zak-surface);">
+                    <div style="padding: 1rem; border-bottom: 1px solid var(--zak-border); font-weight: 600;">Search Results</div>
+                    <div style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--zak-border); display: flex; gap: 0.75rem; align-items: center;">
+                        <div style="flex-shrink: 0; width: 40px; height: 40px; border-radius: 0.25rem; background: linear-gradient(135deg, #6366f1, #818cf8);"></div>
+                        <div>
+                            <div style="font-weight: 500; font-size: 0.875rem;">Getting Started with ZAKUIKit</div>
+                            <div style="font-size: 0.75rem; color: var(--zak-text-muted);">Documentation &middot; Updated 2 days ago</div>
+                        </div>
+                    </div>
+                    <div style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--zak-border); display: flex; gap: 0.75rem; align-items: center;">
+                        <div style="flex-shrink: 0; width: 40px; height: 40px; border-radius: 0.25rem; background: linear-gradient(135deg, #10b981, #34d399);"></div>
+                        <div>
+                            <div style="font-weight: 500; font-size: 0.875rem;">Component Gallery</div>
+                            <div style="font-size: 0.75rem; color: var(--zak-text-muted);">Showcase &middot; 48 components</div>
+                        </div>
+                    </div>
+                    <div style="padding: 0.75rem 1rem; display: flex; gap: 0.75rem; align-items: center;">
+                        <div style="flex-shrink: 0; width: 40px; height: 40px; border-radius: 0.25rem; background: linear-gradient(135deg, #f59e0b, #fbbf24);"></div>
+                        <div>
+                            <div style="font-weight: 500; font-size: 0.875rem;">Release Notes v2.0</div>
+                            <div style="font-size: 0.75rem; color: var(--zak-text-muted);">Changelog &middot; Yesterday</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;ul class="zak-media-list"&gt;
+  &lt;li class="zak-media"&gt;
+    &lt;div class="zak-media-body"&gt;...&lt;/div&gt;
+    &lt;div class="zak-media-content"&gt;...&lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li class="zak-media"&gt;...&lt;/li&gt;
+  &lt;li class="zak-media"&gt;...&lt;/li&gt;
+&lt;/ul&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Media Object with Nested Content</h2>
+            <p>Nest one media object inside another for threaded or hierarchical content such as comment replies.</p>
+
+            <div class="docs-preview">
+                <div style="max-width: 520px;">
+                    <div class="zak-media" style="gap: 0.75rem;">
+                        <div style="flex-shrink: 0;"><span class="zak-avatar zak-avatar-primary">SM</span></div>
+                        <div style="flex: 1;">
+                            <div style="font-weight: 600; font-size: 0.875rem;">Sarah Miller <span style="font-weight: 400; color: var(--zak-text-muted); font-size: 0.75rem;">2h ago</span></div>
+                            <p style="margin: 0.25rem 0 0; color: var(--zak-text-muted); font-size: 0.875rem;">Great release! The new components are fantastic.</p>
+                            <div class="zak-media" style="gap: 0.75rem; margin-top: 1rem; padding-left: 1.5rem;">
+                                <div style="flex-shrink: 0;"><span class="zak-avatar zak-avatar-sm zak-avatar-success">DK</span></div>
+                                <div style="flex: 1;">
+                                    <div style="font-weight: 600; font-size: 0.875rem;">David Kim <span style="font-weight: 400; color: var(--zak-text-muted); font-size: 0.75rem;">1h ago</span></div>
+                                    <p style="margin: 0.25rem 0 0; color: var(--zak-text-muted); font-size: 0.875rem;">Agreed, the dark theme is beautiful too.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-media"&gt;
+  &lt;div class="zak-media-body"&gt;...&lt;/div&gt;
+  &lt;div class="zak-media-content"&gt;
+    &lt;p&gt;Parent comment&lt;/p&gt;
+    &lt;div class="zak-media zak-media-nested"&gt;
+      &lt;div class="zak-media-body"&gt;...&lt;/div&gt;
+      &lt;div class="zak-media-content"&gt;
+        &lt;p&gt;Nested reply&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Media Object with Actions</h2>
+            <p>Include action buttons within the media object for user interactions.</p>
+
+            <div class="docs-preview">
+                <div style="max-width: 500px; display: grid; gap: 0.75rem;">
+                    <div style="display: flex; gap: 0.75rem; align-items: center; padding: 0.75rem; border: 1px solid var(--zak-border); border-radius: 0.5rem;">
+                        <div style="flex-shrink: 0;"><span class="zak-avatar zak-avatar-primary">JL</span></div>
+                        <div style="flex: 1;">
+                            <div style="font-weight: 600; font-size: 0.875rem;">John Lewis</div>
+                            <div style="font-size: 0.75rem; color: var(--zak-text-muted);">Senior Frontend Developer</div>
+                        </div>
+                        <button class="zak-btn zak-btn-sm zak-btn-primary">Follow</button>
+                    </div>
+                    <div style="display: flex; gap: 0.75rem; align-items: center; padding: 0.75rem; border: 1px solid var(--zak-border); border-radius: 0.5rem;">
+                        <div style="flex-shrink: 0;"><span class="zak-avatar zak-avatar-success">AP</span></div>
+                        <div style="flex: 1;">
+                            <div style="font-weight: 600; font-size: 0.875rem;">Ana Peters</div>
+                            <div style="font-size: 0.75rem; color: var(--zak-text-muted);">UX Researcher</div>
+                        </div>
+                        <button class="zak-btn zak-btn-sm zak-btn-outline zak-btn-outline-primary">Message</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-media"&gt;
+  &lt;div class="zak-media-body"&gt;
+    &lt;span class="zak-avatar zak-avatar-primary"&gt;JL&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="zak-media-content"&gt;
+    &lt;strong&gt;John Lewis&lt;/strong&gt;
+    &lt;span&gt;Senior Frontend Developer&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="zak-media-actions"&gt;
+    &lt;button class="zak-btn zak-btn-sm zak-btn-primary"&gt;Follow&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.zak-media</code></td><td>Base media object</td></tr>
+                        <tr><td><code>.zak-media-body</code></td><td>Media element wrapper</td></tr>
+                        <tr><td><code>.zak-media-figure</code></td><td>Image inside the media body</td></tr>
+                        <tr><td><code>.zak-media-content</code></td><td>Text/content area</td></tr>
+                        <tr><td><code>.zak-media-title</code></td><td>Title heading</td></tr>
+                        <tr><td><code>.zak-media-vertical</code></td><td>Vertical stack orientation</td></tr>
+                        <tr><td><code>.zak-media-icon</code></td><td>Icon container in media body</td></tr>
+                        <tr><td><code>.zak-media-icon-success</code></td><td>Success-themed icon</td></tr>
+                        <tr><td><code>.zak-media-list</code></td><td>List of media objects</td></tr>
+                        <tr><td><code>.zak-media-nested</code></td><td>Nested (threaded) media object</td></tr>
+                        <tr><td><code>.zak-media-actions</code></td><td>Actions slot (right-aligned)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Media figures/images require meaningful <code>alt</code> text or <code>alt=""</code> if decorative.</li>
+                <li>When a media object is interactive, wrap content in a semantic link or button with focus styling.</li>
+                <li>Icon-based media should pair with visible text or an <code>aria-label</code>.</li>
+                <li>Use <code>&lt;ul&gt;</code>/<code>&lt;li&gt;</code> for media object lists so screen readers announce counts.</li>
+                <li>Nested/threaded content should preserve heading hierarchy and indentation for visual clarity.</li>
+            </ul>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body></html>

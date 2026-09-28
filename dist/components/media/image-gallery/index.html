@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Image Gallery documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Image Gallery - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/media/image-gallery/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Image Gallery - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Image Gallery documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/media/image-gallery/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Media</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Image Gallery</span>
+                </nav>
+        <h1>Image Gallery</h1>
+        <p class="docs-subtitle">Image Gallery organises multiple images in grid layouts with optional captions, count badges, and thumbnail navigation.</p>
+
+        <div class="zak-docs-section">
+            <h2>Two-Column Grid</h2>
+            <p>A simple two-column gallery layout.</p>
+
+            <div class="docs-preview">
+                <div class="zak-gallery zak-gallery-2col" style="grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                    <div class="zak-gallery-item"><img src="../image-preview/images/photo-1.svg" alt="Photo 1"></div>
+                    <div class="zak-gallery-item"><img src="../image-preview/images/photo-2.svg" alt="Photo 2"></div>
+                    <div class="zak-gallery-item"><img src="../image-preview/images/photo-3.svg" alt="Photo 3"></div>
+                    <div class="zak-gallery-item"><img src="../image-preview/images/photo-1.svg" alt="Photo 4"></div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-gallery zak-gallery-2col"&gt;
+  &lt;div class="zak-gallery-item"&gt;&lt;img src="..." alt="..."&gt;&lt;/div&gt;
+  &lt;div class="zak-gallery-item"&gt;&lt;img src="..." alt="..."&gt;&lt;/div&gt;
+  &lt;div class="zak-gallery-item"&gt;&lt;img src="..." alt="..."&gt;&lt;/div&gt;
+  &lt;div class="zak-gallery-item"&gt;&lt;img src="..." alt="..."&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Three-Column Grid</h2>
+            <p>A three-column gallery for medium image sets.</p>
+
+            <div class="docs-preview">
+                <div class="zak-gallery zak-gallery-3col" style="grid-template-columns: repeat(3, 1fr); gap: 0.75rem;">
+                    <div class="zak-gallery-item"><img src="../image-preview/images/photo-2.svg" alt="Photo 1"></div>
+                    <div class="zak-gallery-item"><img src="../image-preview/images/photo-3.svg" alt="Photo 2"></div>
+                    <div class="zak-gallery-item"><img src="../image-preview/images/photo-1.svg" alt="Photo 3"></div>
+                    <div class="zak-gallery-item"><img src="../image-preview/images/before.svg" alt="Photo 4"></div>
+                    <div class="zak-gallery-item"><img src="../image-preview/images/after.svg" alt="Photo 5"></div>
+                    <div class="zak-gallery-item"><img src="../image-preview/images/photo-2.svg" alt="Photo 6"></div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-gallery zak-gallery-3col"&gt;
+  &lt;div class="zak-gallery-item"&gt;&lt;img src="..." alt="..."&gt;&lt;/div&gt;
+  ...
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Four-Column Grid</h2>
+            <p>Dense four-column grid for large galleries.</p>
+
+            <div class="docs-preview">
+                <div class="zak-gallery zak-gallery-4col" style="grid-template-columns: repeat(4, 1fr); gap: 0.5rem;">
+                    <div class="zak-gallery-item"><img src="../image-preview/images/photo-1.svg" alt="Photo 1"></div>
+                    <div class="zak-gallery-item"><img src="../image-preview/images/photo-2.svg" alt="Photo 2"></div>
+                    <div class="zak-gallery-item"><img src="../image-preview/images/photo-3.svg" alt="Photo 3"></div>
+                    <div class="zak-gallery-item"><img src="../image-preview/images/before.svg" alt="Photo 4"></div>
+                    <div class="zak-gallery-item"><img src="../image-preview/images/after.svg" alt="Photo 5"></div>
+                    <div class="zak-gallery-item"><img src="../image-preview/images/photo-1.svg" alt="Photo 6"></div>
+                    <div class="zak-gallery-item"><img src="../image-preview/images/photo-2.svg" alt="Photo 7"></div>
+                    <div class="zak-gallery-item"><img src="../image-preview/images/photo-3.svg" alt="Photo 8"></div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-gallery zak-gallery-4col"&gt;
+  &lt;div class="zak-gallery-item"&gt;&lt;img src="..." alt="..."&gt;&lt;/div&gt;
+  ...
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Masonry-Style Gallery</h2>
+            <p>A Pinterest-style layout with varying heights.</p>
+
+            <div class="docs-preview">
+                <div class="zak-gallery-masonry" style="columns: 3; column-gap: 0.75rem;">
+                    <div class="zak-gallery-item"><img src="../image-preview/images/photo-1.svg" alt="1" style="aspect-ratio: 4/3;"></div>
+                    <div class="zak-gallery-item"><img src="../image-preview/images/photo-2.svg" alt="2" style="aspect-ratio: 3/4;"></div>
+                    <div class="zak-gallery-item"><img src="../image-preview/images/photo-3.svg" alt="3" style="aspect-ratio: 1/1;"></div>
+                    <div class="zak-gallery-item"><img src="../image-preview/images/before.svg" alt="4" style="aspect-ratio: 4/5;"></div>
+                    <div class="zak-gallery-item"><img src="../image-preview/images/after.svg" alt="5" style="aspect-ratio: 3/3;"></div>
+                    <div class="zak-gallery-item"><img src="../image-preview/images/photo-1.svg" alt="6" style="aspect-ratio: 3/4;"></div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-gallery zak-gallery-masonry"&gt;
+  &lt;div class="zak-gallery-item"&gt;&lt;img src="..." alt="..."&gt;&lt;/div&gt;
+  ...
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Gallery with Thumbnails</h2>
+            <p>Show a grid of small thumbnail images that can be clicked to view the full image.</p>
+
+            <div class="docs-preview">
+                <div class="zak-gallery-thumbnails" style="grid-template-columns: repeat(5, 1fr); gap: 0.5rem;">
+                    <img src="../image-preview/images/photo-1.svg" alt="Thumb 1" style="border: 2px solid var(--zak-color-primary, #4f46e5);">
+                    <img src="../image-preview/images/photo-2.svg" alt="Thumb 2">
+                    <img src="../image-preview/images/photo-3.svg" alt="Thumb 3">
+                    <img src="../image-preview/images/before.svg" alt="Thumb 4">
+                    <img src="../image-preview/images/after.svg" alt="Thumb 5">
+                </div>
+                <div style="margin-top: 0.75rem;"><img class="zak-image" src="../image-preview/images/photo-2.svg" alt="Main Image" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 0.5rem;"></div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-gallery zak-gallery-thumbnails"&gt;
+  &lt;div class="zak-gallery-main"&gt;
+    &lt;img src="..." alt="..."&gt;
+  &lt;/div&gt;
+  &lt;div class="zak-gallery-thumbs"&gt;
+    &lt;button class="zak-gallery-thumb active"&gt;&lt;img src="..." alt="..."&gt;&lt;/button&gt;
+    &lt;button class="zak-gallery-thumb"&gt;&lt;img src="..." alt="..."&gt;&lt;/button&gt;
+    &lt;button class="zak-gallery-thumb"&gt;&lt;img src="..." alt="..."&gt;&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Gallery with Count Badge</h2>
+            <p>Show an overlay badge indicating the number of images in a collection.</p>
+
+            <div class="docs-preview">
+                <div class="zak-gallery zak-gallery-2col" style="grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                    <div class="zak-gallery-item"><img src="../image-preview/images/photo-1.svg" alt="Album 1">
+                        <span class="zak-gallery-count">12 photos</span>
+                    </div>
+                    <div class="zak-gallery-item"><img src="../image-preview/images/photo-2.svg" alt="Album 2">
+                        <span class="zak-gallery-count">8 photos</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-gallery-item"&gt;
+  &lt;img src="..." alt="..."&gt;
+  &lt;span class="zak-badge zak-gallery-count"&gt;12 photos&lt;/span&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Gallery with Captions</h2>
+            <p>Each image includes a caption overlay at the bottom.</p>
+
+            <div class="docs-preview">
+                <div class="zak-gallery zak-gallery-3col" style="grid-template-columns: repeat(3, 1fr); gap: 0.75rem;">
+                    <div class="zak-gallery-item"><img src="../image-preview/images/photo-3.svg" alt="Sunset Beach">
+                        <div class="zak-gallery-item-caption">Sunset Beach</div>
+                    </div>
+                    <div class="zak-gallery-item"><img src="../image-preview/images/photo-2.svg" alt="Forest Trail">
+                        <div class="zak-gallery-item-caption">Forest Trail</div>
+                    </div>
+                    <div class="zak-gallery-item"><img src="../image-preview/images/after.svg" alt="Desert Dunes">
+                        <div class="zak-gallery-item-caption">Desert Dunes</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-gallery-item zak-gallery-item-caption"&gt;
+  &lt;img src="..." alt="..."&gt;
+  &lt;div class="zak-gallery-caption"&gt;Sunset Beach&lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.zak-gallery</code></td><td>Base gallery container</td></tr>
+                        <tr><td><code>.zak-gallery-2col</code></td><td>Two-column grid</td></tr>
+                        <tr><td><code>.zak-gallery-3col</code></td><td>Three-column grid</td></tr>
+                        <tr><td><code>.zak-gallery-4col</code></td><td>Four-column grid</td></tr>
+                        <tr><td><code>.zak-gallery-masonry</code></td><td>Masonry / Pinterest layout</td></tr>
+                        <tr><td><code>.zak-gallery-thumbnails</code></td><td>Thumbnail strip variant</td></tr>
+                        <tr><td><code>.zak-gallery-item</code></td><td>Individual gallery image wrapper</td></tr>
+                        <tr><td><code>.zak-gallery-count</code></td><td>Overlay count badge</td></tr>
+                        <tr><td><code>.zak-gallery-item-caption</code></td><td>Item with caption overlay</td></tr>
+                        <tr><td><code>.zak-gallery-caption</code></td><td>Caption text element</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Each image must have a descriptive <code>alt</code> attribute.</li>
+                <li>Gallery items that are interactive (clickable thumbnails) need <code>role="button"</code> and <code>tabindex="0"</code>.</li>
+                <li>Count badges should be linked to the gallery context via <code>aria-label</code> (e.g., "Gallery with 12 photos").</li>
+                <li>Caption overlays must maintain a minimum 4.5:1 contrast ratio against the gradient background.</li>
+                <li>Use <code>&lt;figure&gt;</code> and <code>&lt;figcaption&gt;</code> for semantic caption content.</li>
+            </ul>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body></html>

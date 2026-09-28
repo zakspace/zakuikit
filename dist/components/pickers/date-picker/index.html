@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Date Picker documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Date Picker - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/pickers/date-picker/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Date Picker - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Date Picker documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/pickers/date-picker/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Pickers</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Date Picker</span>
+                </nav>
+        <h1>Date Picker</h1>
+        <p class="docs-subtitle">The Date Picker renders a calendar popup from a single text input. Add <code>data-zak-datepicker</code> and the popup appears on focus; pick a day and the value is written back to the input.</p>
+
+        <section class="zak-docs-section">
+            <h2>Basic Date Picker</h2>
+            <p>Click or focus the input to open the calendar. Selecting a day fills the field with an ISO date (<code>YYYY-MM-DD</code>).</p>
+            <div class="docs-preview">
+                <input type="text" class="zak-input" data-zak-datepicker placeholder="Pick a date..." autocomplete="off">
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;input type="text" class="zak-input" data-zak-datepicker&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Custom Format</h2>
+            <p>Change the output format with <code>data-zak-datepicker-format</code>. Supported tokens: <code>YYYY</code>, <code>MM</code>, <code>DD</code>.</p>
+            <div class="docs-preview">
+                <input type="text" class="zak-input" data-zak-datepicker data-zak-datepicker-format="MM/DD/YYYY" placeholder="MM/DD/YYYY" autocomplete="off">
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;input type="text" class="zak-input"
+       data-zak-datepicker
+       data-zak-datepicker-format="MM/DD/YYYY"&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Min &amp; Max Dates</h2>
+            <p>Constrain the selectable range with <code>data-zak-datepicker-min</code> and <code>data-zak-datepicker-max</code>. Out-of-range days are disabled.</p>
+            <div class="docs-preview">
+                <input type="text" class="zak-input" data-zak-datepicker data-zak-datepicker-min="2026-09-01" data-zak-datepicker-max="2026-09-30" placeholder="September 2026 only" autocomplete="off">
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;input type="text" class="zak-input"
+       data-zak-datepicker
+       data-zak-datepicker-min="2026-09-01"
+       data-zak-datepicker-max="2026-09-30"&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Pre-selected Date</h2>
+            <p>Place a valid date in <code>value</code> to preselect it and mark it in the calendar. The <code>today</code> day is tinted with the primary color.</p>
+            <div class="docs-preview">
+                <input type="text" class="zak-input" data-zak-datepicker value="2026-09-08" autocomplete="off">
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;input type="text" class="zak-input"
+       data-zak-datepicker value="2026-09-08"&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Change Event</h2>
+            <p>The input fires <code>zak:change</code> when a day is picked; <code>event.detail</code> carries <code>date</code> and <code>value</code>.</p>
+            <div class="docs-preview">
+                <input type="text" class="zak-input" data-zak-datepicker placeholder="Pick a date..." autocomplete="off">
+                <p class="zak-event-log" id="datePickerLog">No selection yet.</p>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;input type="text" class="zak-input" id="shipDate" data-zak-datepicker&gt;
+
+&lt;script&gt;
+    document.getElementById('shipDate').addEventListener('zak:change', function (e) {
+        console.log(e.detail.date, e.detail.value);
+    });
+&lt;/script&gt;</code></pre>
+            </div>
+            <script>
+                var datePickerInput = document.querySelector('[data-zak-datepicker]');
+                var datePickerLog = document.getElementById('datePickerLog');
+                if (datePickerInput) datePickerInput.addEventListener('zak:change', function (e) {
+                    datePickerLog.textContent = 'Picked ' + e.detail.value + ' (Date object: ' + e.detail.date.toDateString() + ')';
+                });
+                try { zak.datePicker.init(); } catch (e) {}
+            </script>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>CSS Classes</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>.zak-datepicker                /* Wrapper injected around the input */
+.zak-datepicker-popup          /* Calendar popup (hidden until active) */
+.zak-datepicker-header         /* Month nav row */
+.zak-datepicker-month          /* Month + year label */
+.zak-datepicker-prev / .next   /* Month navigation buttons */
+.zak-datepicker-weekdays       /* Su..Sa header row */
+.zak-datepicker-days           /* Day grid */
+.zak-datepicker-day            /* Clickable day cell */
+.zak-datepicker-day.empty      /* Spacer cells */
+.zak-datepicker-day.disabled   /* Out-of-range days */
+.zak-datepicker-day.today      /* Current day */
+.zak-datepicker-day.selected   /* Chosen day */
+
+/* Toggle class */
+.zak-datepicker-popup-active   /* Shows the popup */</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>JavaScript API</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>zak.datePicker.init()      // Bind all [data-zak-datepicker] inputs
+zak.datePicker.open(input) // Open a specific picker
+zak.datePicker.close(input)// Close a specific picker
+
+// Data attributes:
+data-zak-datepicker            // Enables the picker on an input
+data-zak-datepicker-format     // 'YYYY-MM-DD' (default) | 'MM/DD/YYYY' etc.
+data-zak-datepicker-min        // Earliest selectable date
+data-zak-datepicker-max        // Latest selectable date
+
+// Event on the input:
+zak:change  // { date: Date, value: "YYYY-MM-DD" }</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Days are real <code>&lt;button&gt;</code> elements, so they are focusable and operable by keyboard.</li>
+                <li>Focusing the input opens the popup; pressing <kbd>Esc</kbd> or clicking outside closes it.</li>
+                <li>Keep the input label associated with <code>&lt;label&gt;</code> or <code>aria-label</code> — the popup alone does not name the field.</li>
+                <li>Prefer the min/max attributes over hand-editing values so validation lives in one place.</li>
+            </ul>
+        </section>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body></html>

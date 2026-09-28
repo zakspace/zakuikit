@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Container documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Container - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/layout/container/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Container - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Container documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/layout/container/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main">
+        <div class="docs-content">
+            <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Layout</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Container</span>
+                </nav>
+            <h1>Container</h1>
+            <p class="docs-subtitle">A responsive, centered container for constraining your page width with consistent gutters.</p>
+
+            <section class="zak-docs-section">
+                <h2>Basic Container</h2>
+                <p>Use <code>.zak-container</code> as a centered, full-width container with balanced left and right padding.</p>
+                <div class="docs-preview">
+                    <div style="background:var(--zak-primary-light);border:1px dashed var(--zak-primary);border-radius:var(--zak-radius);padding:0.5rem;">
+                        <div class="zak-container" style="background:var(--zak-surface);border:1px solid var(--zak-border);border-radius:var(--zak-radius);text-align:center;padding:1.5rem 0;color:var(--zak-primary);">
+                            .zak-container keeps your content centered
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-container"&gt;
+  &lt;!-- content --&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Width Variants</h2>
+                <p>Constrain the maximum width with size modifiers from <code>.zak-container-sm</code> to <code>.zak-container-2xl</code>.</p>
+                <div class="docs-preview">
+                    <div style="display:flex;flex-direction:column;gap:0.5rem;">
+                        <div class="zak-container zak-container-sm" style="background:var(--zak-primary-light);border:1px dashed var(--zak-primary);border-radius:var(--zak-radius);text-align:center;font-size:0.875rem;color:var(--zak-primary);">sm · 540px</div>
+                        <div class="zak-container zak-container-md" style="background:var(--zak-secondary-light);border:1px dashed var(--zak-secondary);border-radius:var(--zak-radius);text-align:center;font-size:0.875rem;color:var(--zak-secondary);">md · 720px</div>
+                        <div class="zak-container zak-container-lg" style="background:var(--zak-success-light);border:1px dashed var(--zak-success);border-radius:var(--zak-radius);text-align:center;font-size:0.875rem;color:var(--zak-success);">lg · 960px</div>
+                        <div class="zak-container zak-container-xl" style="background:var(--zak-warning-light);border:1px dashed var(--zak-warning);border-radius:var(--zak-radius);text-align:center;font-size:0.875rem;color:var(--zak-warning);">xl · 1140px</div>
+                        <div class="zak-container zak-container-2xl" style="background:var(--zak-danger-light);border:1px dashed var(--zak-danger);border-radius:var(--zak-radius);text-align:center;font-size:0.875rem;color:var(--zak-danger);">2xl · 1320px</div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-container zak-container-sm"&gt;Small&lt;/div&gt;
+&lt;div class="zak-container zak-container-md"&gt;Medium&lt;/div&gt;
+&lt;div class="zak-container zak-container-lg"&gt;Large&lt;/div&gt;
+&lt;div class="zak-container zak-container-xl"&gt;Extra large&lt;/div&gt;
+&lt;div class="zak-container zak-container-2xl"&gt;2x large&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Full Width</h2>
+                <p>Drop the maximum width constraint entirely with <code>.zak-container-fluid</code>.</p>
+                <div class="docs-preview">
+                    <div class="zak-container-fluid" style="background:var(--zak-primary-light);border:1px dashed var(--zak-primary);border-radius:var(--zak-radius);text-align:center;padding:1.5rem 0;color:var(--zak-primary);">
+                        .zak-container-fluid fills the available width
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-container-fluid"&gt;
+  &lt;!-- edge-to-edge content --&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Container with Grid</h2>
+                <p>Combine a container with <code>.zak-grid</code> for responsive, centered layouts.</p>
+                <div class="docs-preview">
+                    <div class="zak-container zak-container-xl">
+                        <div class="zak-grid">
+                            <div class="zak-col-md-6"><div class="zak-box" style="border:1px solid var(--zak-border);border-radius:var(--zak-radius);text-align:center;padding:1rem;">Column A</div></div>
+                            <div class="zak-col-md-6"><div class="zak-box" style="border:1px solid var(--zak-border);border-radius:var(--zak-radius);text-align:center;padding:1rem;">Column B</div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-container zak-container-xl"&gt;
+  &lt;div class="zak-grid"&gt;
+    &lt;div class="zak-col-md-6"&gt;Half&lt;/div&gt;
+    &lt;div class="zak-col-md-6"&gt;Half&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>CSS Reference</h2>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>.zak-container { width: 100%; margin-inline: auto; padding-inline: var(--zak-space-4); }
+.zak-container-fluid { width: 100%; margin-inline: auto; padding-inline: var(--zak-space-4); }
+.zak-container-sm { max-width: 540px; }
+.zak-container-md { max-width: 720px; }
+.zak-container-lg { max-width: 960px; }
+.zak-container-xl { max-width: 1140px; }
+.zak-container-2xl { max-width: 1320px; }</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Accessibility</h2>
+                <ul>
+                    <li>Container is presentational — rely on semantic sectioning elements (<code>main</code>, <code>section</code>, <code>article</code>) for meaning</li>
+                    <li>Gutters (<code>--zak-space-4</code>) keep text clear of edges on small screens; no fix needed</li>
+                    <li>Height is never constrained by containers, so content can always grow</li>
+                </ul>
+            </section>
+</div>
+    </main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body>
+</html>

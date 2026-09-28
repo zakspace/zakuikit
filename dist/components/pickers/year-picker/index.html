@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Year Picker documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Year Picker - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/pickers/year-picker/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Year Picker - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Year Picker documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/pickers/year-picker/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Pickers</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Year Picker</span>
+                </nav>
+        <h1>Year Picker</h1>
+        <p class="docs-subtitle">The Year Picker offers a 4&times;3 grid of twelve years around the current one. Chevrons page through the decades.</p>
+
+        <section class="zak-docs-section">
+            <h2>Basic Year Picker</h2>
+            <p>Open the field, click a year. The current year is tinted; your pick gets a solid fill.</p>
+            <div class="docs-preview">
+                <div id="yearPicker1" class="zak-year-picker"></div>
+                <p class="zak-event-log" id="yearLog1">Pick a year.</p>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-year-picker"&gt;
+    &lt;button type="button" class="zak-year-field"&gt;
+        Select year
+    &lt;/button&gt;
+    &lt;div class="zak-year-popup"&gt;
+        &lt;div class="zak-calendar-header"&gt;
+            &lt;button class="zak-calendar-nav-btn"&gt;&amp;lt;&lt;/button&gt;
+            &lt;span class="zak-calendar-title"&gt;2026&ndash;2031&lt;/span&gt;
+            &lt;button class="zak-calendar-nav-btn"&gt;&amp;gt;&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class="zak-year-grid"&gt;&lt;!-- year cells --&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Decade Paging</h2>
+            <p>The chevrons move the whole grid by six years, keeping roughly a centered window: <em>2024&ndash;2031</em> becomes <em>2018&ndash;2025</em>, then <em>2012&ndash;2019</em>, and so on.</p>
+            <div class="docs-preview" id="yearPickerStatic"></div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;script&gt;
+    var anchor = new Date().getFullYear();
+    var step = 6;                       // half a window
+
+    prev.onclick = function () { anchor -= step; render(); };
+    next.onclick = function () { anchor += step; render(); };
+
+    function render() {
+        rangeLabel.textContent = (anchor - 2) + ' \u2013 ' + (anchor + 3);
+        grid.innerHTML = '';
+        for (var i = anchor - 2; i &lt;= anchor + 3; i++) {
+            Cell = yearCell(i);
+            grid.appendChild(Cell);
+        }
+    }
+&lt;/script&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Disabled Years</h2>
+            <p>Filter years that fall outside license or service windows so the picker itself enforces the rule.</p>
+            <div class="docs-preview" id="yearPickerDisabled"></div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>// During render:
+if (year &lt; minYear || year &gt; maxYear || year === 2025) {
+    cell.disabled = true;
+}</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>CSS Classes</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>.zak-year-picker    /* Relative wrapper (field + popup) */
+.zak-year-field     /* Readable trigger */
+.zak-year-popup     /* Popup holding grid (hidden until active) */
+.zak-year-grid      /* 4-by-3 year grid */
+.zak-year-cell      /* Single year button */
+.zak-year-cell.zak-selected  /* Chosen year */
+.zak-year-cell.zak-current   /* Current year */
+.zak-year-cell:disabled      /* Unselectable years */
+
+// Reused:
+.zak-calendar-header, .zak-calendar-title, .zak-calendar-nav-btn
+.zak-btn, .zak-btn-primary, .zak-btn-sm
+
+// Toggle class:
+.zak-year-popup-active      /* Shows the popup */</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>JavaScript</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>// No library module — mirror the Month Picker loop:
+
+var selected = null;
+
+function yearCell(y) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'zak-year-cell';
+    b.textContent = y;
+    var now = new Date().getFullYear();
+    if (y === now) b.classList.add('zak-current');
+    if (selected === y) b.classList.add('zak-selected');
+    b.addEventListener('click', function () {
+        selected = y;
+        field.textContent = y;
+        render();
+    });
+    return b;
+}</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Year cells are native <code>&lt;button&gt;</code> elements; paging chevrons are buttons too.</li>
+                <li>The header label doubles as the live region — it always names the visible window.</li>
+                <li>Disabled years should use <code>disabled</code> so keyboard and screen-reader users skip them.</li>
+                <li>For reports or filters, a Year Picker is the right grain; link to Month/Date variants when finer control is needed.</li>
+            </ul>
+        </section>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body></html>

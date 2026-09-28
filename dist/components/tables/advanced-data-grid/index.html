@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Advanced Data Grid documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Advanced Data Grid - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/tables/advanced-data-grid/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Advanced Data Grid - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Advanced Data Grid documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/tables/advanced-data-grid/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Tables &amp; DataGrid</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Advanced Data Grid</span>
+                </nav>
+        <h1>Advanced Data Grid</h1>
+        <p class="docs-subtitle">A full-featured data grid with sorting, filtering, row selection, expandable rows, pagination, column resize, frozen columns, and compact mode.</p>
+
+        <div class="zak-docs-section">
+            <h2>Full-Featured Grid</h2>
+            <p>This grid combines sorting, selection, filtering, row expand, pagination, and toolbar actions into a single enterprise-ready component.</p>
+
+            <div class="docs-preview">
+                <div id="adg-grid" style="border: 1px solid var(--zak-border-color); border-radius: var(--zak-radius-lg); overflow: hidden;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; padding: var(--zak-space-3) var(--zak-space-4); border-bottom: 1px solid var(--zak-border-color); background: var(--zak-surface-1); flex-wrap: wrap; gap: var(--zak-space-3);">
+                        <div style="display: flex; align-items: center; gap: var(--zak-space-3);">
+                            <input type="text" class="zak-input zak-input-sm" id="adg-search" placeholder="Search employees..." style="width: 220px;">
+                            <select class="zak-select zak-select-sm" id="adg-dept-filter" style="width: 150px;">
+                                <option value="all">All Departments</option>
+                                <option value="Engineering">Engineering</option>
+                                <option value="Marketing">Marketing</option>
+                                <option value="Sales">Sales</option>
+                                <option value="HR">HR</option>
+                                <option value="Finance">Finance</option>
+                            </select>
+                            <select class="zak-select zak-select-sm" id="adg-status-filter" style="width: 140px;">
+                                <option value="all">All Status</option>
+                                <option value="Active">Active</option>
+                                <option value="Inactive">Inactive</option>
+                                <option value="On Leave">On Leave</option>
+                            </select>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: var(--zak-space-2);">
+                            <button class="zak-btn zak-btn-outline zak-btn-sm" id="adg-density-toggle" title="Toggle density">
+                                <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+                                Dense
+                            </button>
+                            <button class="zak-btn zak-btn-outline zak-btn-sm" title="Export CSV">
+                                <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                                Export
+                            </button>
+                        </div>
+                    </div>
+                    <div style="overflow-x: auto;">
+                        <table class="zak-table" id="adg-table" style="margin: 0; min-width: 900px;">
+                            <thead>
+                                <tr>
+                                    <th style="width: 40px; position: sticky; left: 0; z-index: 2; background: var(--zak-surface-1);"><input type="checkbox" class="zak-checkbox" id="adg-select-all"></th>
+                                    <th style="position: sticky; left: 40px; z-index: 2; background: var(--zak-surface-1); min-width: 140px; cursor: pointer; user-select: none;" class="zak-srt-heading" data-col="0">
+                                        <span style="display: flex; align-items: center; gap: 4px;">Name <span class="adg-sort-icon" style="color: var(--zak-text-muted); font-size: 10px;">&#8597;</span></span>
+                                        <div style="position: absolute; right: 0; top: 0; bottom: 0; width: 4px; cursor: col-resize; background: transparent;" title="Resize column"></div>
+                                    </th>
+                                    <th style="min-width: 180px; cursor: pointer; user-select: none;" class="zak-srt-heading" data-col="1">
+                                        <span style="display: flex; align-items: center; gap: 4px;">Email <span class="adg-sort-icon" style="color: var(--zak-text-muted); font-size: 10px;">&#8597;</span></span>
+                                        <div style="position: absolute; right: 0; top: 0; bottom: 0; width: 4px; cursor: col-resize; background: transparent;"></div>
+                                    </th>
+                                    <th style="min-width: 120px; cursor: pointer; user-select: none;" class="zak-srt-heading" data-col="2">
+                                        <span style="display: flex; align-items: center; gap: 4px;">Department <span class="adg-sort-icon" style="color: var(--zak-text-muted); font-size: 10px;">&#8597;</span></span>
+                                    </th>
+                                    <th style="min-width: 100px; cursor: pointer; user-select: none;" class="zak-srt-heading" data-col="3">
+                                        <span style="display: flex; align-items: center; gap: 4px;">Status <span class="adg-sort-icon" style="color: var(--zak-text-muted); font-size: 10px;">&#8597;</span></span>
+                                    </th>
+                                    <th style="min-width: 100px; cursor: pointer; user-select: none; text-align: right;" class="zak-srt-heading" data-col="4">
+                                        <span style="display: flex; align-items: center; gap: 4px; justify-content: flex-end;">Salary <span class="adg-sort-icon" style="color: var(--zak-text-muted); font-size: 10px;">&#8597;</span></span>
+                                    </th>
+                                    <th style="min-width: 110px; cursor: pointer; user-select: none;" class="zak-srt-heading" data-col="5">
+                                        <span style="display: flex; align-items: center; gap: 4px;">Join Date <span class="adg-sort-icon" style="color: var(--zak-text-muted); font-size: 10px;">&#8597;</span></span>
+                                    </th>
+                                    <th style="width: 50px;"></th>
+                                </tr>
+                                <tr id="adg-filter-row">
+                                    <th style="position: sticky; left: 0; z-index: 2; background: var(--zak-surface-1);"></th>
+                                    <th style="position: sticky; left: 40px; z-index: 2; background: var(--zak-surface-1);"><input type="text" class="zak-input zak-input-sm" placeholder="Filter..." data-filter-col="0" style="width: 100%; font-size: var(--zak-font-size-xs); padding: 4px 8px;"></th>
+                                    <th><input type="text" class="zak-input zak-input-sm" placeholder="Filter..." data-filter-col="1" style="width: 100%; font-size: var(--zak-font-size-xs); padding: 4px 8px;"></th>
+                                    <th><input type="text" class="zak-input zak-input-sm" placeholder="Filter..." data-filter-col="2" style="width: 100%; font-size: var(--zak-font-size-xs); padding: 4px 8px;"></th>
+                                    <th><input type="text" class="zak-input zak-input-sm" placeholder="Filter..." data-filter-col="3" style="width: 100%; font-size: var(--zak-font-size-xs); padding: 4px 8px;"></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="adg-tbody"></tbody>
+                        </table>
+                    </div>
+                    <div style="display: flex; align-items: center; justify-content: space-between; padding: var(--zak-space-3) var(--zak-space-4); border-top: 1px solid var(--zak-border-color); background: var(--zak-surface-1); flex-wrap: wrap; gap: var(--zak-space-3);">
+                        <div style="display: flex; align-items: center; gap: var(--zak-space-3);">
+                            <span id="adg-selected-info" style="font-size: var(--zak-font-size-sm); color: var(--zak-text-muted);">0 rows selected</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: var(--zak-space-3);">
+                            <span id="adg-page-info" style="font-size: var(--zak-font-size-sm); color: var(--zak-text-muted);"></span>
+                            <div style="display: flex; gap: 2px;">
+                                <button class="zak-btn zak-btn-soft zak-btn-sm" id="adg-prev" disabled>&#8249;</button>
+                                <button class="zak-btn zak-btn-soft zak-btn-sm" id="adg-next">&#8250;</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-table-wrapper"&gt;
+  &lt;table class="zak-table"&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;&lt;input type="checkbox" class="zak-checkbox"&gt;&lt;/th&gt;
+        &lt;th class="zak-srt-heading"&gt;Name &lt;span&gt;&#8597;&lt;/span&gt;&lt;/th&gt;
+        &lt;th&gt;Email&lt;/th&gt;
+        &lt;th&gt;Department&lt;/th&gt;
+        &lt;th&gt;Status&lt;/th&gt;
+        &lt;th style="text-align:right"&gt;Salary&lt;/th&gt;
+        &lt;th&gt;Join Date&lt;/th&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;th&gt;&lt;/th&gt;
+        &lt;th&gt;&lt;input class="zak-input zak-input-sm" placeholder="Filter..."&gt;&lt;/th&gt;
+        &lt;th&gt;&lt;input class="zak-input zak-input-sm" placeholder="Filter..."&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;...&lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Features</h2>
+            <ul>
+                <li><strong>Sorting</strong> &mdash; Click column headers to sort ascending/descending.</li>
+                <li><strong>Column Filters</strong> &mdash; Filter inputs below headers for per-column filtering.</li>
+                <li><strong>Row Selection</strong> &mdash; Checkboxes for row-level selection with select-all.</li>
+                <li><strong>Expandable Rows</strong> &mdash; Click the chevron to expand row details.</li>
+                <li><strong>Pagination</strong> &mdash; Client-side pagination with page info.</li>
+                <li><strong>Frozen Column</strong> &mdash; Name column stays fixed when scrolling horizontally.</li>
+                <li><strong>Compact Mode</strong> &mdash; Toggle between default and dense row heights.</li>
+                <li><strong>Status Badges</strong> &mdash; Active (green), Inactive (gray), On Leave (yellow).</li>
+                <li><strong>Toolbar</strong> &mdash; Search, department/status filters, density toggle, and export.</li>
+            </ul>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Demo JavaScript</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span>JavaScript</span><button class="docs-copy-btn">Copy</button></div><pre><code>var gridData = [
+  { name:"Alice Johnson", email:"alice@company.com", dept:"Engineering", status:"Active", salary:95000, join:"2021-03-15" },
+  { name:"Bob Smith", email:"bob@company.com", dept:"Marketing", status:"Active", salary:72000, join:"2020-07-01" },
+  { name:"Carol White", email:"carol@company.com", dept:"Sales", status:"On Leave", salary:68000, join:"2019-11-20" },
+  { name:"David Brown", email:"david@company.com", dept:"Engineering", status:"Active", salary:105000, join:"2018-01-10" },
+  { name:"Eva Martinez", email:"eva@company.com", dept:"HR", status:"Active", salary:78000, join:"2022-05-05" },
+  { name:"Frank Lee", email:"frank@company.com", dept:"Finance", status:"Inactive", salary:88000, join:"2017-09-12" },
+  { name:"Grace Kim", email:"grace@company.com", dept:"Engineering", status:"Active", salary:112000, join:"2020-02-28" },
+  { name:"Henry Davis", email:"henry@company.com", dept:"Marketing", status:"On Leave", salary:65000, join:"2021-08-18" },
+  { name:"Iris Chen", email:"iris@company.com", dept:"Sales", status:"Active", salary:82000, join:"2019-04-22" },
+  { name:"Jack Wilson", email:"jack@company.com", dept:"Finance", status:"Active", salary:92000, join:"2020-10-05" },
+  { name:"Karen Lopez", email:"karen@company.com", dept:"HR", status:"Inactive", salary:71000, join:"2018-06-30" },
+  { name:"Leo Turner", email:"leo@company.com", dept:"Engineering", status:"Active", salary:99000, join:"2021-01-14" }
+];</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead><tr><th>Class</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>.zak-table</code></td><td>Base table with enterprise grid styling</td></tr>
+                        <tr><td><code>.zak-table-zak-table-sm</code></td><td>Dense/compact row mode</td></tr>
+                        <tr><td><code>.zak-srt-heading</code></td><td>Sortable header with cursor pointer</td></tr>
+                        <tr><td><code>.zak-row-selected</code></td><td>Selected row highlight</td></tr>
+                        <tr><td><code>.zak-badge zak-badge-success</code></td><td>Active status badge (green)</td></tr>
+                        <tr><td><code>.zak-badge zak-badge-warning</code></td><td>On Leave status badge (yellow)</td></tr>
+                        <tr><td><code>.zak-badge</code></td><td>Inactive status badge (default gray)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    <script>
+    (function(){
+        var data = [
+            {name:"Alice Johnson",email:"alice@company.com",dept:"Engineering",status:"Active",salary:95000,join:"2021-03-15",title:"Senior Engineer",team:"Backend"},
+            {name:"Bob Smith",email:"bob@company.com",dept:"Marketing",status:"Active",salary:72000,join:"2020-07-01",title:"Marketing Manager",team:"Brand"},
+            {name:"Carol White",email:"carol@company.com",dept:"Sales",status:"On Leave",salary:68000,join:"2019-11-20",title:"Sales Rep",team:"Enterprise"},
+            {name:"David Brown",email:"david@company.com",dept:"Engineering",status:"Active",salary:105000,join:"2018-01-10",title:"Tech Lead",team:"Frontend"},
+            {name:"Eva Martinez",email:"eva@company.com",dept:"HR",status:"Active",salary:78000,join:"2022-05-05",title:"HR Specialist",team:"Recruiting"},
+            {name:"Frank Lee",email:"frank@company.com",dept:"Finance",status:"Inactive",salary:88000,join:"2017-09-12",title:"Financial Analyst",team:"Reporting"},
+            {name:"Grace Kim",email:"grace@company.com",dept:"Engineering",status:"Active",salary:112000,join:"2020-02-28",title:"Principal Engineer",team:"Platform"},
+            {name:"Henry Davis",email:"henry@company.com",dept:"Marketing",status:"On Leave",salary:65000,join:"2021-08-18",title:"Content Writer",team:"Content"},
+            {name:"Iris Chen",email:"iris@company.com",dept:"Sales",status:"Active",salary:82000,join:"2019-04-22",title:"Account Executive",team:"Mid-Market"},
+            {name:"Jack Wilson",email:"jack@company.com",dept:"Finance",status:"Active",salary:92000,join:"2020-10-05",title:"Controller",team:"Operations"},
+            {name:"Karen Lopez",email:"karen@company.com",dept:"HR",status:"Inactive",salary:71000,join:"2018-06-30",title:"Benefits Coordinator",team:"Employee Relations"},
+            {name:"Leo Turner",email:"leo@company.com",dept:"Engineering",status:"Active",salary:99000,join:"2021-01-14",title:"DevOps Engineer",team:"Infrastructure"}
+        ];
+        var page=0, pageSize=5, sortCol=-1, sortDir='asc', dense=false;
+        var selected=new Set(), expanded=new Set();
+        var tbody=document.getElementById('adg-tbody');
+        var pageInfo=document.getElementById('adg-page-info');
+        var selInfo=document.getElementById('adg-selected-info');
+        var statusBadge={'Active':'<span class="zak-badge zak-badge-success">Active</span>','Inactive':'<span class="zak-badge">Inactive</span>','On Leave':'<span class="zak-badge zak-badge-warning">On Leave</span>'};
+
+        function filtered(){
+            var q=document.getElementById('adg-search').value.toLowerCase();
+            var dept=document.getElementById('adg-dept-filter').value;
+            var st=document.getElementById('adg-status-filter').value;
+            var colFilters=[];
+            document.querySelectorAll('#adg-filter-row input').forEach(function(inp){colFilters.push(inp.value.toLowerCase());});
+            return data.filter(function(r){
+                if(dept!=='all'&&r.dept!==dept) return false;
+                if(st!=='all'&&r.status!==st) return false;
+                var txt=(r.name+' '+r.email+' '+r.dept+' '+r.status+' '+r.salary+' '+r.join).toLowerCase();
+                if(txt.indexOf(q)===-1) return false;
+                var vals=[r.name,r.email,r.dept,r.status,String(r.salary),r.join];
+                for(var i=0;i<colFilters.length;i++){
+                    if(colFilters[i]&&vals[i]&&vals[i].toLowerCase().indexOf(colFilters[i])===-1) return false;
+                }
+                return true;
+            });
+        }
+        function sorted(arr){
+            if(sortCol<0) return arr;
+            var keys=['name','email','dept','status','salary','join'];
+            var key=keys[sortCol];
+            return arr.slice().sort(function(a,b){
+                var av=a[key],bv=b[key];
+                if(typeof av==='number') return sortDir==='asc'?av-bv:bv-av;
+                if(av<bv) return sortDir==='asc'?-1:1;
+                if(av>bv) return sortDir==='asc'?1:-1;
+                return 0;
+            });
+        }
+        function render(){
+            var fd=sorted(filtered());
+            var total=fd.length;
+            var start=page*pageSize;
+            var slice=fd.slice(start,start+pageSize);
+            tbody.innerHTML='';
+            slice.forEach(function(r,i){
+                var idx=start+i;
+                var tr=document.createElement('tr');
+                if(selected.has(idx)) tr.className='zak-row-selected';
+                if(dense) tr.classList.add('zak-table-row-dense');
+                var sIdx=data.indexOf(r);
+                tr.innerHTML='<td style="position:sticky;left:0;z-index:1;background:inherit;"><input type="checkbox" class="zak-checkbox adg-row-cb" data-idx="'+idx+'" '+(selected.has(idx)?'checked':'')+'></td>'
+                    +'<td style="position:sticky;left:40px;z-index:1;background:inherit;font-weight:500;">'+r.name+'</td>'
+                    +'<td>'+r.email+'</td>'
+                    +'<td>'+r.dept+'</td>'
+                    +'<td>'+statusBadge[r.status]+'</td>'
+                    +'<td style="text-align:right;font-variant-numeric:tabular-nums;">$'+r.salary.toLocaleString()+'</td>'
+                    +'<td>'+r.join+'</td>'
+                    +'<td><button class="zak-btn zak-btn-soft zak-btn-sm adg-expand-btn" data-idx="'+idx+'" title="Expand"><svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transition:transform .2s;'+(expanded.has(idx)?'transform:rotate(90deg);':'')+'"><path d="M9 18l6-6-6-6"/></svg></button></td>';
+                tbody.appendChild(tr);
+                if(expanded.has(idx)){
+                    var detail=document.createElement('tr');
+                    detail.className='adg-detail-row';
+                    detail.innerHTML='<td colspan="8" style="padding:var(--zak-space-3) var(--zak-space-4);background:var(--zak-surface-2);border-left:3px solid var(--zak-primary);"><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:var(--zak-space-3);"><div><strong>Title:</strong> '+r.title+'</div><div><strong>Team:</strong> '+r.team+'</div><div><strong>Email:</strong> '+r.email+'</div><div><strong>Salary:</strong> $'+r.salary.toLocaleString()+'</div></div></td>';
+                    tbody.appendChild(detail);
+                }
+            });
+            var totalPages=Math.ceil(total/pageSize);
+            pageInfo.textContent='Showing '+(total?start+1:0)+'-'+Math.min(start+pageSize,total)+' of '+total;
+            document.getElementById('adg-prev').disabled=page===0;
+            document.getElementById('adg-next').disabled=page>=totalPages-1||total===0;
+            selInfo.textContent=selected.size+' row'+(selected.size!==1?'s':'')+' selected';
+        }
+
+        document.getElementById('adg-select-all').addEventListener('change',function(){
+            var fd=sorted(filtered());
+            var start=page*pageSize;
+            var slice=fd.slice(start,start+pageSize);
+            if(this.checked){slice.forEach(function(r,i){selected.add(start+i);});}
+            else{slice.forEach(function(r,i){selected.delete(start+i);});}
+            render();
+        });
+        tbody.addEventListener('change',function(e){
+            if(e.target.classList.contains('adg-row-cb')){
+                var idx=parseInt(e.target.dataset.idx);
+                if(e.target.checked) selected.add(idx); else selected.delete(idx);
+                render();
+            }
+        });
+        tbody.addEventListener('click',function(e){
+            var btn=e.target.closest('.adg-expand-btn');
+            if(btn){
+                var idx=parseInt(btn.dataset.idx);
+                if(expanded.has(idx)) expanded.delete(idx); else expanded.add(idx);
+                render();
+            }
+        });
+        document.querySelectorAll('.zak-srt-heading').forEach(function(th){
+            th.addEventListener('click',function(e){
+                if(e.target.tagName==='INPUT') return;
+                var col=parseInt(th.dataset.col);
+                if(sortCol===col) sortDir=sortDir==='asc'?'desc':'asc';
+                else{sortCol=col;sortDir='asc';}
+                document.querySelectorAll('.adg-sort-icon').forEach(function(s){s.innerHTML='&#8597;';});
+                th.querySelector('.adg-sort-icon').innerHTML=sortDir==='asc'?'&#9650;':'&#9660;';
+                page=0;
+                render();
+            });
+        });
+        document.querySelectorAll('#adg-filter-row input').forEach(function(inp){
+            inp.addEventListener('input',function(){page=0;render();});
+        });
+        document.getElementById('adg-search').addEventListener('input',function(){page=0;render();});
+        document.getElementById('adg-dept-filter').addEventListener('change',function(){page=0;render();});
+        document.getElementById('adg-status-filter').addEventListener('change',function(){page=0;render();});
+        document.getElementById('adg-prev').addEventListener('click',function(){if(page>0){page--;render();}});
+        document.getElementById('adg-next').addEventListener('click',function(){page++;render();});
+        document.getElementById('adg-density-toggle').addEventListener('click',function(){
+            dense=!dense;
+            this.innerHTML=dense?'<svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg> Default':'<svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg> Dense';
+            render();
+        });
+        render();
+    })();
+    </script>
+</body></html>

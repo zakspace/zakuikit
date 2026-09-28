@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Accordion documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Accordion - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/disclosure-expansion/accordion/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Accordion - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Accordion documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/disclosure-expansion/accordion/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Disclosure</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Accordion</span>
+                </nav>
+        <h1>Accordion</h1>
+        <p class="docs-subtitle">Accordions stack expandable sections vertically. By default only one panel is open at a time; use <code>data-zak-accordion="multi"</code> to allow several open at once.</p>
+
+        <section class="zak-docs-section">
+            <h2>Basic Accordion</h2>
+            <p>Structure: <code>.zak-accordion &gt; .zak-accordion-item &gt; .zak-accordion-trigger + .zak-accordion-body</code>. Mark an open item with <code>.zak-accordion-item-active</code>.</p>
+            <div class="docs-preview">
+                <div class="zak-accordion" data-zak-accordion>
+                    <div class="zak-accordion-item zak-accordion-item-active">
+                        <button class="zak-accordion-trigger" data-zak-accordion-trigger="#accBody1" type="button" aria-expanded="true">What is ZAKUIKit?<svg class="zak-accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
+                        <div class="zak-accordion-body" id="accBody1">ZAKUIKit is a design system and component library with semantic classes and a dependency-free JavaScript engine included in <code>dist/js/zak.js</code>.</div>
+                    </div>
+                    <div class="zak-accordion-item">
+                        <button class="zak-accordion-trigger" data-zak-accordion-trigger="#accBody2" type="button">How do I install it?<svg class="zak-accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
+                        <div class="zak-accordion-body" id="accBody2">Drop <code>dist/css/zak.css</code> and <code>dist/js/zak.js</code> into the page; components auto-bind from their data attributes when <code>zak.init()</code> runs.</div>
+                    </div>
+                    <div class="zak-accordion-item">
+                        <button class="zak-accordion-trigger" data-zak-accordion-trigger="#accBody3" type="button">Can I use it with React or Vue?<svg class="zak-accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
+                        <div class="zak-accordion-body" id="accBody3">Yes. The CSS classes are framework-agnostic; you can bind the toggle behavior yourself or call the same JS methods from lifecycle hooks.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-accordion" data-zak-accordion&gt;
+    &lt;div class="zak-accordion-item zak-accordion-item-active"&gt;
+        &lt;button class="zak-accordion-trigger" type="button"&gt;
+            What is ZAKUIKit?
+            &lt;svg class="zak-accordion-icon" ...&gt;&lt;/svg&gt;
+        &lt;/button&gt;
+        &lt;div class="zak-accordion-body"&gt;...answer text...&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="zak-accordion-item"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Accordion with Icon</h2>
+            <p>Drop a <code>.zak-accordion-icon</code> inside any trigger; it rotates 180&deg; while its panel is open.</p>
+            <div class="docs-preview">
+                <div class="zak-accordion" data-zak-accordion>
+                    <div class="zak-accordion-item zak-accordion-item-active">
+                        <button class="zak-accordion-trigger" data-zak-accordion-trigger="#accBody4" type="button" aria-expanded="true"><span style="width:1.5rem;height:1.5rem;display:inline-flex;align-items:center;justify-content:center;border-radius:6px;background:var(--zak-warning-100, #fef3c7);color:var(--zak-color-warning, #f59e0b);font-size:13px;flex-shrink:0;">&#9889;</span>Performance tips<svg class="zak-accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
+                        <div class="zak-accordion-body" id="accBody4">Lazy-load images below the fold, memoize expensive renders and keep the DOM light. Aim for a 90+ Lighthouse score on both mobile and desktop.</div>
+                    </div>
+                    <div class="zak-accordion-item">
+                        <button class="zak-accordion-trigger" data-zak-accordion-trigger="#accBody5" type="button"><span style="width:1.5rem;height:1.5rem;display:inline-flex;align-items:center;justify-content:center;border-radius:6px;background:var(--zak-success-100, #dcfce7);color:var(--zak-color-success, #16a34a);font-size:13px;flex-shrink:0;">&#10003;</span>Code quality<svg class="zak-accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
+                        <div class="zak-accordion-body" id="accBody5">Run the linter and type checker before merging. Prefer small, single-purpose components and keep logic close to the markup it styles.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Multi Selectable</h2>
+            <p>Add <code>data-zak-accordion="multi"</code> so each panel toggles independently. User FAQ pages usually want this.</p>
+            <div class="docs-preview">
+                <div class="zak-accordion" data-zak-accordion="multi">
+                    <div class="zak-accordion-item">
+                        <button class="zak-accordion-trigger" data-zak-accordion-trigger="#accBody6" type="button">Billing &amp; plans<svg class="zak-accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
+                        <div class="zak-accordion-body" id="accBody6">Free, Pro ($12/mo) and Enterprise tiers. Every plan includes unlimited viewers and the full component library.</div>
+                    </div>
+                    <div class="zak-accordion-item">
+                        <button class="zak-accordion-trigger" data-zak-accordion-trigger="#accBody7" type="button">Refunds<svg class="zak-accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
+                        <div class="zak-accordion-body" id="accBody7">Full refund within 30 days. Contact support with your invoice number and reason — no questions asked.</div>
+                    </div>
+                    <div class="zak-accordion-item">
+                        <button class="zak-accordion-trigger" data-zak-accordion-trigger="#accBody8" type="button">Enterprise security<svg class="zak-accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
+                        <div class="zak-accordion-body" id="accBody8">SSO/SAML, SCIM provisioning, audit logs and DPA are available on the Enterprise plan. Book a demo for onboarding.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-accordion" data-zak-accordion="multi"&gt;
+    ...independent panels...
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Nested Accordion</h2>
+            <p>Accordions can nest to build documentation trees and settings groups. Keep nesting to two levels for clarity.</p>
+            <div class="docs-preview">
+                <div class="zak-accordion" data-zak-accordion="multi">
+                    <div class="zak-accordion-item zak-accordion-item-active">
+                        <button class="zak-accordion-trigger" data-zak-accordion-trigger="#accBody9" type="button" aria-expanded="true">Overlays<svg class="zak-accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
+                        <div class="zak-accordion-body" id="accBody9">
+                            <div class="zak-accordion" data-zak-accordion style="gap:0.25rem;">
+                                <div class="zak-accordion-item">
+                                    <button class="zak-accordion-trigger" data-zak-accordion-trigger="#accBody10" type="button" style="font-size:14px; font-weight:500;">Modal<svg class="zak-accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
+                                    <div class="zak-accordion-body" id="accBody10">Centered or scrollable dialogs with configurable backdrops and three size variants.</div>
+                                </div>
+                                <div class="zak-accordion-item">
+                                    <button class="zak-accordion-trigger" data-zak-accordion-trigger="#accBody11" type="button" style="font-size:14px; font-weight:500;">Drawer<svg class="zak-accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
+                                    <div class="zak-accordion-body" id="accBody11">Edge-mounted panels that slide in from any side with optional push behavior.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="zak-accordion-item">
+                        <button class="zak-accordion-trigger" data-zak-accordion-trigger="#accBody12" type="button">Pickers<svg class="zak-accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
+                        <div class="zak-accordion-body" id="accBody12">Date, time, calendar, color, month and year pickers with keyboard support and clean popup styling.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Accordion with Custom Content</h2>
+            <p>Bodies accept any semantic HTML — forms, list groups, media or nested controls.</p>
+            <div class="docs-preview">
+                <div class="zak-accordion" data-zak-accordion>
+                    <div class="zak-accordion-item zak-accordion-item-active">
+                        <button class="zak-accordion-trigger" data-zak-accordion-trigger="#accBody13" type="button" aria-expanded="true">Release notes v3.2<svg class="zak-accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
+                        <div class="zak-accordion-body" id="accBody13">
+                            <ul class="zak-list" style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:6px;">
+                                <li style="font-size:14px;">&#8226; New <code>.zak-drawer</code> push mode</li>
+                                <li style="font-size:14px;">&#8226; Date range picker with presets</li>
+                                <li style="font-size:14px;">&#8226; Faster theme switching</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="zak-accordion-item">
+                        <button class="zak-accordion-trigger" data-zak-accordion-trigger="#accBody14" type="button">Support<svg class="zak-accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
+                        <div class="zak-accordion-body" id="accBody14">
+                            <p style="margin:0 0 10px; font-size:14px;">Open a ticket and we respond within one business day.</p>
+                            <button class="zak-btn zak-btn-sm zak-btn-primary">Contact support</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>CSS Classes &amp; Variables</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>/* Class Summary */
+.zak-accordion          /* Vertical stack of items */
+.zak-accordion-item     /* Single section */
+.zak-accordion-item-active /* Open section */
+.zak-accordion-trigger  /* Toggling button */
+.zak-accordion-icon     /* Rotating chevron */
+.zak-accordion-body     /* Collapsible content region */
+
+/* Variables used */
+--zak-border            /* Item borders */
+--zak-surface           /* Item background */
+--zak-radius-md         /* Rounded corners */
+--zak-transition-medium /* Icon/height animation */</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>JavaScript</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>// Data attributes (automatic)
+//   data-zak-accordion        exclusive (one open at a time)
+//   data-zak-accordion="multi"  multiple panels open
+
+// Programmatic API
+zak.accordion.open(itemEl);
+zak.accordion.close(itemEl);
+
+// Events fire on the item element
+item.addEventListener('zak:open', function () {});
+item.addEventListener('zak:close', function () {});
+
+// Single panels outside an accordion can also use
+// the Collapse component for the same animation.</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Each trigger is a real <code>&lt;button&gt;</code> with <code>aria-expanded</code> toggled by the framework.</li>
+                <li>The body region is linked to its trigger with <code>aria-controls</code> and labelled via <code>aria-labelledby</code>.</li>
+                <li><kbd>Enter</kbd>/<kbd>Space</kbd> toggle a focused panel; the single-on behavior follows the WAI-ARIA accordion pattern.</li>
+                <li>Keep the trigger text short and descriptive — it is what screen readers announce first.</li>
+                <li>Avoid placing focusable controls in collapsed bodies; give open panels a heading structure.</li>
+            </ul>
+        </section>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body></html>

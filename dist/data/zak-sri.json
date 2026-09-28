@@ -1,0 +1,18 @@
+{
+  "dist/css/zak.css": {
+    "bytes": 383302,
+    "sha384": "sha384-8IpnC2fZE/Ygr0rSDundQayj/GrdwEUqZnFCupF/arjFZZYq49ciyB3nZ2dFxwiU"
+  },
+  "dist/css/zak.min.css": {
+    "bytes": 316603,
+    "sha384": "sha384-kkzBs00WJgsI9aWlZLZwp13Q9oIhlTb2TG2HEzsZsTOQfRPnFr7xBwp/OidTC/l7"
+  },
+  "dist/js/zak.js": {
+    "bytes": 200413,
+    "sha384": "sha384-lByCKNpRZeHejG7vRZKOShdJaiwcMpuYIoirDGol3iMqO2POGLkTpl1cdrkEgmCI"
+  },
+  "dist/js/zak.min.js": {
+    "bytes": 124100,
+    "sha384": "sha384-u87K0gPMbkVCACqdL2vVqvjhyv/8nCQqIZNJ6aCz/F41YQkr8OpOw+X3Ow8rNRBS"
+  }
+}

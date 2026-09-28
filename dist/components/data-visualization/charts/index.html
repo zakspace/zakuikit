@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Charts documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Charts - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/data-visualization/charts/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Charts - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Charts documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/data-visualization/charts/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Data-Visualization</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Charts</span>
+                </nav>
+        <h1>Charts</h1>
+        <p class="docs-subtitle">Pure CSS and SVG chart components — bar, line, pie/donut, and area charts rendered without any charting library. Includes legends, grid lines, and mock tooltips.</p>
+
+        <div class="zak-docs-section">
+            <h2>Bar Chart</h2>
+            <p>Vertical bar chart with CSS flexbox.</p>
+
+            <div class="docs-preview">
+                <div class="chart-container">
+                    <div class="bar-chart" id="chart-bar">
+                        <div class="bar" style="height: 65%; background: var(--zak-primary);"><span class="bar-label">$650</span><div class="bar-x-label">Mon</div></div>
+                        <div class="bar" style="height: 85%; background: var(--zak-primary);"><span class="bar-label">$850</span><div class="bar-x-label">Tue</div></div>
+                        <div class="bar" style="height: 45%; background: var(--zak-primary);"><span class="bar-label">$450</span><div class="bar-x-label">Wed</div></div>
+                        <div class="bar" style="height: 90%; background: var(--zak-primary);"><span class="bar-label">$900</span><div class="bar-x-label">Thu</div></div>
+                        <div class="bar" style="height: 70%; background: var(--zak-primary);"><span class="bar-label">$700</span><div class="bar-x-label">Fri</div></div>
+                        <div class="bar" style="height: 30%; background: var(--zak-primary);"><span class="bar-label">$300</span><div class="bar-x-label">Sat</div></div>
+                        <div class="bar" style="height: 50%; background: var(--zak-primary);"><span class="bar-label">$500</span><div class="bar-x-label">Sun</div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="bar-chart" style="display: flex; align-items: flex-end; gap: 0.5rem; height: 200px;"&gt;
+  &lt;div class="bar" style="height: 65%; background: var(--zak-primary); position: relative;"&gt;
+    &lt;span style="position: absolute; top: -1.25rem; left: 50%; transform: translateX(-50%); font-size: 0.6875rem;"&gt;$650&lt;/span&gt;
+    &lt;div style="text-align: center; font-size: 0.6875rem; padding-top: 0.25rem;"&gt;Mon&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="bar" style="height: 85%; background: var(--zak-primary);"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Line Chart (SVG)</h2>
+            <p>SVG-based line chart with data points and grid lines.</p>
+
+            <div class="docs-preview">
+                <div class="chart-container" style="position: relative;">
+                    <svg class="line-chart-svg" viewBox="0 0 400 200">
+                        <defs><pattern id="grid" width="57" height="40" patternUnits="userSpaceOnUse"><path d="M 57 0 L 0 0 0 40" fill="none" stroke="var(--zak-border)" stroke-width="0.5" stroke-dasharray="4,4"/></pattern></defs>
+                        <rect width="400" height="200" fill="url(#grid)"/>
+                        <polyline points="20,160 77,120 134,140 191,80 248,60 305,90 362,40" fill="none" stroke="var(--zak-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <polyline points="20,140 77,100 134,110 191,70 248,90 305,60 362,50" fill="none" stroke="var(--zak-success, #10b981)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="6,3"/>
+                        <circle cx="20" cy="160" r="4" fill="var(--zak-primary)"/><circle cx="77" cy="120" r="4" fill="var(--zak-primary)"/><circle cx="134" cy="140" r="4" fill="var(--zak-primary)"/><circle cx="191" cy="80" r="4" fill="var(--zak-primary)"/><circle cx="248" cy="60" r="4" fill="var(--zak-primary)"/><circle cx="305" cy="90" r="4" fill="var(--zak-primary)"/><circle cx="362" cy="40" r="4" fill="var(--zak-primary)"/>
+                        <text x="20" y="195" font-size="10" fill="var(--zak-text-muted)" text-anchor="middle">Jan</text>
+                        <text x="77" y="195" font-size="10" fill="var(--zak-text-muted)" text-anchor="middle">Feb</text>
+                        <text x="134" y="195" font-size="10" fill="var(--zak-text-muted)" text-anchor="middle">Mar</text>
+                        <text x="191" y="195" font-size="10" fill="var(--zak-text-muted)" text-anchor="middle">Apr</text>
+                        <text x="248" y="195" font-size="10" fill="var(--zak-text-muted)" text-anchor="middle">May</text>
+                        <text x="305" y="195" font-size="10" fill="var(--zak-text-muted)" text-anchor="middle">Jun</text>
+                        <text x="362" y="195" font-size="10" fill="var(--zak-text-muted)" text-anchor="middle">Jul</text>
+                    </svg>
+                    <div class="chart-legend">
+                        <div class="chart-legend-item"><span class="chart-legend-dot" style="background: var(--zak-primary);"></span> Revenue</div>
+                        <div class="chart-legend-item"><span class="chart-legend-dot" style="background: var(--zak-success, #10b981);"></span> Profit</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Pie Chart</h2>
+            <p>Pure CSS pie chart using conic-gradient.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
+                    <div class="pie-chart" style="background: conic-gradient(var(--zak-primary) 0deg 126deg, var(--zak-success, #10b981) 126deg 216deg, var(--zak-warning, #f59e0b) 216deg 288deg, var(--zak-danger, #ef4444) 288deg 360deg);"></div>
+                    <div class="chart-legend" style="flex-direction: column;">
+                        <div class="chart-legend-item"><span class="chart-legend-dot" style="background: var(--zak-primary);"></span> Desktop 35%</div>
+                        <div class="chart-legend-item"><span class="chart-legend-dot" style="background: var(--zak-success, #10b981);"></span> Mobile 25%</div>
+                        <div class="chart-legend-item"><span class="chart-legend-dot" style="background: var(--zak-warning, #f59e0b);"></span> Tablet 20%</div>
+                        <div class="chart-legend-item"><span class="chart-legend-dot" style="background: var(--zak-danger, #ef4444);"></span> Other 20%</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span>CSS</span><button class="docs-copy-btn">Copy</button></div><pre><code>.pie-chart {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--zak-primary) 0deg 126deg,
+    var(--zak-success) 126deg 216deg,
+    var(--zak-warning) 216deg 288deg,
+    var(--zak-danger) 288deg 360deg
+  );
+}</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Donut Chart</h2>
+            <p>Pie chart with a center hole via pseudo-element.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
+                    <div class="donut-chart" style="background: conic-gradient(var(--zak-primary) 0deg 180deg, var(--zak-success, #10b981) 180deg 270deg, var(--zak-muted, #94a3b8) 270deg 360deg);"></div>
+                    <div style="position: relative; z-index: 1; text-align: center; margin-left: -13rem;">
+                        <div style="font-size: 1.5rem; font-weight: 700;">73%</div>
+                        <div style="font-size: 0.75rem; color: var(--zak-text-muted);">Completion</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Area Chart (SVG)</h2>
+            <p>SVG area chart with gradient fill.</p>
+
+            <div class="docs-preview">
+                <div class="chart-container">
+                    <svg class="area-chart-svg" viewBox="0 0 400 200">
+                        <defs>
+                            <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="var(--zak-primary)" stop-opacity="0.3"/><stop offset="100%" stop-color="var(--zak-primary)" stop-opacity="0.02"/></linearGradient>
+                        </defs>
+                        <path d="M0,180 L0,140 L57,120 L114,150 L171,90 L228,70 L285,100 L342,50 L400,30 L400,180 Z" fill="url(#areaGrad)"/>
+                        <polyline points="0,140 57,120 114,150 171,90 228,70 285,100 342,50 400,30" fill="none" stroke="var(--zak-primary)" stroke-width="2"/>
+                        <text x="0" y="195" font-size="10" fill="var(--zak-text-muted)">Jan</text>
+                        <text x="57" y="195" font-size="10" fill="var(--zak-text-muted)">Feb</text>
+                        <text x="114" y="195" font-size="10" fill="var(--zak-text-muted)">Mar</text>
+                        <text x="171" y="195" font-size="10" fill="var(--zak-text-muted)">Apr</text>
+                        <text x="228" y="195" font-size="10" fill="var(--zak-text-muted)">May</text>
+                        <text x="285" y="195" font-size="10" fill="var(--zak-text-muted)">Jun</text>
+                        <text x="342" y="195" font-size="10" fill="var(--zak-text-muted)">Jul</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Grouped Bar Chart with Grid</h2>
+            <p>Side-by-side bars with horizontal grid lines.</p>
+
+            <div class="docs-preview">
+                <div class="chart-container">
+                    <div style="position: relative; height: 200px;">
+                        <div style="position: absolute; left: 0; top: 0; bottom: 1.5rem; width: 30px; display: flex; flex-direction: column; justify-content: space-between; font-size: 0.6875rem; color: var(--zak-text-muted); text-align: right; padding-right: 0.375rem;">
+                            <span>100</span><span>75</span><span>50</span><span>25</span><span>0</span>
+                        </div>
+                        <div style="margin-left: 35px; border-left: 1px solid var(--zak-border); border-bottom: 1px solid var(--zak-border); height: calc(100% - 1.5rem); position: relative; background: repeating-linear-gradient(to top, transparent, transparent calc(25% - 1px), var(--zak-border) calc(25% - 1px), var(--zak-border) 25%);">
+                            <div style="display: flex; gap: 2px; height: 100%; align-items: flex-end; padding: 0 0.5rem;">
+                                <div style="flex: 1; display: flex; gap: 2px; align-items: flex-end;">
+                                    <div style="flex: 1; height: 70%; background: var(--zak-primary); border-radius: 2px 2px 0 0;"></div>
+                                    <div style="flex: 1; height: 45%; background: var(--zak-success, #10b981); border-radius: 2px 2px 0 0;"></div>
+                                </div>
+                                <div style="flex: 1; display: flex; gap: 2px; align-items: flex-end;">
+                                    <div style="flex: 1; height: 85%; background: var(--zak-primary); border-radius: 2px 2px 0 0;"></div>
+                                    <div style="flex: 1; height: 60%; background: var(--zak-success, #10b981); border-radius: 2px 2px 0 0;"></div>
+                                </div>
+                                <div style="flex: 1; display: flex; gap: 2px; align-items: flex-end;">
+                                    <div style="flex: 1; height: 50%; background: var(--zak-primary); border-radius: 2px 2px 0 0;"></div>
+                                    <div style="flex: 1; height: 75%; background: var(--zak-success, #10b981); border-radius: 2px 2px 0 0;"></div>
+                                </div>
+                                <div style="flex: 1; display: flex; gap: 2px; align-items: flex-end;">
+                                    <div style="flex: 1; height: 90%; background: var(--zak-primary); border-radius: 2px 2px 0 0;"></div>
+                                    <div style="flex: 1; height: 55%; background: var(--zak-success, #10b981); border-radius: 2px 2px 0 0;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="display: flex; margin-left: 35px; font-size: 0.6875rem; color: var(--zak-text-muted);">
+                            <div style="flex: 1; text-align: center;">Q1</div>
+                            <div style="flex: 1; text-align: center;">Q2</div>
+                            <div style="flex: 1; text-align: center;">Q3</div>
+                            <div style="flex: 1; text-align: center;">Q4</div>
+                        </div>
+                    </div>
+                    <div class="chart-legend">
+                        <div class="chart-legend-item"><span class="chart-legend-dot" style="background: var(--zak-primary);"></span> Revenue</div>
+                        <div class="chart-legend-item"><span class="chart-legend-dot" style="background: var(--zak-success, #10b981);"></span> Profit</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead><tr><th>Class</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>.bar-chart</code></td><td>Flexbox bar chart container</td></tr>
+                        <tr><td><code>.bar</code></td><td>Individual bar element</td></tr>
+                        <tr><td><code>.line-chart-svg</code></td><td>SVG line chart wrapper</td></tr>
+                        <tr><td><code>.pie-chart</code></td><td>CSS conic-gradient pie chart</td></tr>
+                        <tr><td><code>.donut-chart</code></td><td>Pie chart with center hole</td></tr>
+                        <tr><td><code>.area-chart-svg</code></td><td>SVG area chart wrapper</td></tr>
+                        <tr><td><code>.chart-legend</code></td><td>Chart legend container</td></tr>
+                        <tr><td><code>.chart-legend-item</code></td><td>Single legend entry</td></tr>
+                        <tr><td><code>.chart-legend-dot</code></td><td>Color indicator dot</td></tr>
+                        <tr><td><code>.chart-grid</code></td><td>Grid line pattern</td></tr>
+                        <tr><td><code>.chart-tooltip</code></td><td>Mock tooltip element</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body>
+</html>

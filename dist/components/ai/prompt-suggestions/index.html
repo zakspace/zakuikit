@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Prompt Suggestions documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Prompt Suggestions - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/ai/prompt-suggestions/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Prompt Suggestions - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Prompt Suggestions documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/ai/prompt-suggestions/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Ai</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Prompt Suggestions</span>
+                </nav>
+        <h1>Prompt Suggestions</h1>
+        <p class="docs-subtitle">Clickable prompt suggestion cards, chips, and categorized grids to help users discover what they can ask the AI.</p>
+
+        <section class="zak-docs-section">
+            <h2>Suggestion Grid</h2>
+            <p>A responsive grid of suggestion cards with icons and descriptions.</p>
+            <div class="docs-preview">
+                <div class="zak-ai-suggestions-grid">
+                    <div class="zak-ai-suggestion-card">
+                        <div class="zak-ai-suggestion-card-header">
+                            <div class="zak-ai-suggestion-card-icon" style="background:rgba(99,102,241,0.1);color:#6366f1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></div>
+                            <span class="zak-ai-suggestion-card-title">Write Code</span>
+                        </div>
+                        <p class="zak-ai-suggestion-card-desc">Generate functional code snippets in any language with best practices.</p>
+                        <span class="zak-ai-suggestion-card-action">Try it <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                    </div>
+                    <div class="zak-ai-suggestion-card">
+                        <div class="zak-ai-suggestion-card-header">
+                            <div class="zak-ai-suggestion-card-icon" style="background:rgba(16,185,129,0.1);color:#10b981"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 113 3L7 19l-4 1 1-4z"/></svg></div>
+                            <span class="zak-ai-suggestion-card-title">Write Article</span>
+                        </div>
+                        <p class="zak-ai-suggestion-card-desc">Draft blog posts, articles, or documentation with proper structure.</p>
+                        <span class="zak-ai-suggestion-card-action">Try it <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                    </div>
+                    <div class="zak-ai-suggestion-card">
+                        <div class="zak-ai-suggestion-card-header">
+                            <div class="zak-ai-suggestion-card-icon" style="background:rgba(245,158,11,0.1);color:#f59e0b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg></div>
+                            <span class="zak-ai-suggestion-card-title">Summarize</span>
+                        </div>
+                        <p class="zak-ai-suggestion-card-desc">Condense long texts into key takeaways and executive summaries.</p>
+                        <span class="zak-ai-suggestion-card-action">Try it <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                    </div>
+                    <div class="zak-ai-suggestion-card">
+                        <div class="zak-ai-suggestion-card-header">
+                            <div class="zak-ai-suggestion-card-icon" style="background:rgba(239,68,68,0.1);color:#ef4444"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+                            <span class="zak-ai-suggestion-card-title">Analyze Data</span>
+                        </div>
+                        <p class="zak-ai-suggestion-card-desc">Extract insights and trends from datasets and documents.</p>
+                        <span class="zak-ai-suggestion-card-action">Try it <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-ai-suggestions-grid"&gt;
+    &lt;div class="zak-ai-suggestion-card"&gt;
+        &lt;div class="zak-ai-suggestion-card-header"&gt;
+            &lt;div class="zak-ai-suggestion-card-icon" style="background:rgba(99,102,241,0.1);color:#6366f1"&gt;
+                &lt;svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;...&lt;/svg&gt;
+            &lt;/div&gt;
+            &lt;span class="zak-ai-suggestion-card-title"&gt;Write Code&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;p class="zak-ai-suggestion-card-desc"&gt;Generate functional code snippets...&lt;/p&gt;
+        &lt;span class="zak-ai-suggestion-card-action"&gt;Try it â†’&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;!-- More cards... --&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Chips</h2>
+            <p>Compact suggestion chips for inline prompt starters.</p>
+            <div class="docs-preview">
+                <div class="zak-ai-chips">
+                    <span class="zak-ai-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>Generate a React component</span>
+                    <span class="zak-ai-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 113 3L7 19l-4 1 1-4z"/></svg>Write a blog post</span>
+                    <span class="zak-ai-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>Summarize this page</span>
+                    <span class="zak-ai-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>Explain this code</span>
+                    <span class="zak-ai-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>Draft an email</span>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-ai-chips"&gt;
+    &lt;span class="zak-ai-chip"&gt;
+        &lt;svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;...&lt;/svg&gt;
+        Generate a React component
+    &lt;/span&gt;
+    &lt;span class="zak-ai-chip"&gt;Write a blog post&lt;/span&gt;
+    &lt;span class="zak-ai-chip"&gt;Summarize this page&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Category Tabs</h2>
+            <p>Suggestions grouped by category with filter tabs.</p>
+            <div class="docs-preview">
+                <div class="zak-ai-suggestion-categories" id="suggest-cats">
+                    <button class="zak-ai-suggestion-cat active" data-cat="coding">Coding</button>
+                    <button class="zak-ai-suggestion-cat" data-cat="writing">Writing</button>
+                    <button class="zak-ai-suggestion-cat" data-cat="analysis">Analysis</button>
+                    <button class="zak-ai-suggestion-cat" data-cat="creative">Creative</button>
+                </div>
+                <div class="zak-ai-suggestions-grid" id="suggest-filtered">
+                    <div class="zak-ai-suggestion-card" data-category="coding">
+                        <div class="zak-ai-suggestion-card-header">
+                            <div class="zak-ai-suggestion-card-icon" style="background:rgba(99,102,241,0.1);color:#6366f1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></div>
+                            <span class="zak-ai-suggestion-card-title">Build an API</span>
+                        </div>
+                        <p class="zak-ai-suggestion-card-desc">Generate a RESTful API with authentication and validation.</p>
+                        <span class="zak-ai-suggestion-card-action">Try it <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                    </div>
+                    <div class="zak-ai-suggestion-card" data-category="coding">
+                        <div class="zak-ai-suggestion-card-header">
+                            <div class="zak-ai-suggestion-card-icon" style="background:rgba(16,185,129,0.1);color:#10b981"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+                            <span class="zak-ai-suggestion-card-title">Write Tests</span>
+                        </div>
+                        <p class="zak-ai-suggestion-card-desc">Create unit and integration tests for your functions.</p>
+                        <span class="zak-ai-suggestion-card-action">Try it <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-ai-suggestion-categories"&gt;
+    &lt;button class="zak-ai-suggestion-cat active" data-cat="coding"&gt;Coding&lt;/button&gt;
+    &lt;button class="zak-ai-suggestion-cat" data-cat="writing"&gt;Writing&lt;/button&gt;
+    &lt;button class="zak-ai-suggestion-cat" data-cat="analysis"&gt;Analysis&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="zak-ai-suggestions-grid"&gt;
+    &lt;div class="zak-ai-suggestion-card" data-category="coding"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Carousel</h2>
+            <p>Horizontally scrollable suggestion cards.</p>
+            <div class="docs-preview">
+                <div class="zak-ai-suggestion-carousel">
+                    <div class="zak-ai-suggestion-card">
+                        <div class="zak-ai-suggestion-card-header">
+                            <div class="zak-ai-suggestion-card-icon" style="background:rgba(99,102,241,0.1);color:#6366f1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></div>
+                            <span class="zak-ai-suggestion-card-title">Code Review</span>
+                        </div>
+                        <p class="zak-ai-suggestion-card-desc">Review code for bugs, security issues, and improvements.</p>
+                        <span class="zak-ai-suggestion-card-action">Try it <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                    </div>
+                    <div class="zak-ai-suggestion-card">
+                        <div class="zak-ai-suggestion-card-header">
+                            <div class="zak-ai-suggestion-card-icon" style="background:rgba(245,158,11,0.1);color:#f59e0b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg></div>
+                            <span class="zak-ai-suggestion-card-title">Convert to TypeScript</span>
+                        </div>
+                        <p class="zak-ai-suggestion-card-desc">Transform JavaScript code to typed TypeScript.</p>
+                        <span class="zak-ai-suggestion-card-action">Try it <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                    </div>
+                    <div class="zak-ai-suggestion-card">
+                        <div class="zak-ai-suggestion-card-header">
+                            <div class="zak-ai-suggestion-card-icon" style="background:rgba(239,68,68,0.1);color:#ef4444"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+                            <span class="zak-ai-suggestion-card-title">Debug Error</span>
+                        </div>
+                        <p class="zak-ai-suggestion-card-desc">Help diagnose and fix runtime errors.</p>
+                        <span class="zak-ai-suggestion-card-action">Try it <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-ai-suggestion-carousel"&gt;
+    &lt;div class="zak-ai-suggestion-card"&gt;...&lt;/div&gt;
+    &lt;div class="zak-ai-suggestion-card"&gt;...&lt;/div&gt;
+    &lt;div class="zak-ai-suggestion-card"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>CSS Classes</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>.zak-ai-suggestions-grid        /* Responsive card grid */
+.zak-ai-suggestion-card         /* Individual suggestion card */
+.zak-ai-suggestion-card-header  /* Card header with icon + title */
+.zak-ai-suggestion-card-icon    /* Icon container */
+.zak-ai-suggestion-card-title   /* Card title text */
+.zak-ai-suggestion-card-desc    /* Card description */
+.zak-ai-suggestion-card-action  /* "Try it â†’" action link */
+.zak-ai-chips                   /* Container for chip layout */
+.zak-ai-chip                    /* Individual suggestion chip */
+.zak-ai-suggestion-categories   /* Category tab bar */
+.zak-ai-suggestion-cat          /* Category tab button */
+.zak-ai-suggestion-carousel     /* Horizontal scroll container */</code></pre>
+        </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>JavaScript</h2>
+            <p>Category filtering for suggestion cards.</p>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>// Category filter
+const cats = document.getElementById('suggest-cats');
+const cards = document.querySelectorAll('#suggest-filtered .zak-ai-suggestion-card');
+if (cats) {
+    cats.querySelectorAll('.zak-ai-suggestion-cat').forEach(btn =&gt; {
+        btn.addEventListener('click', function() {
+            cats.querySelectorAll('.zak-ai-suggestion-cat').forEach(b =&gt; b.classList.remove('active'));
+            this.classList.add('active');
+            const cat = this.dataset.cat;
+            cards.forEach(card =&gt; {
+                card.style.display = (cat === 'all' || card.dataset.category === cat) ? '' : 'none';
+            });
+        });
+    });
+}
+
+// Click suggestion to populate input
+document.querySelectorAll('.zak-ai-suggestion-card').forEach(card =&gt; {
+    card.addEventListener('click', function() {
+        const title = this.querySelector('.zak-ai-suggestion-card-title')?.textContent;
+        if (title) console.log('Selected suggestion:', title);
+    });
+});</code></pre>
+        </div>
+        </section>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    <script>
+    var cats = document.getElementById('suggest-cats');
+    var cards = document.querySelectorAll('#suggest-filtered .zak-ai-suggestion-card');
+    if (cats) {
+      cats.querySelectorAll('.zak-ai-suggestion-cat').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          cats.querySelectorAll('.zak-ai-suggestion-cat').forEach(function (b) { b.classList.remove('active'); });
+          this.classList.add('active');
+          var cat = this.dataset.cat;
+          cards.forEach(function (card) {
+            card.style.display = (cat === 'all' || card.dataset.category === cat) ? '' : 'none';
+          });
+        });
+      });
+    }
+    document.querySelectorAll('.zak-ai-suggestion-card').forEach(function (card) {
+      card.addEventListener('click', function () {
+        var title = this.querySelector('.zak-ai-suggestion-card-title');
+        if (title && console && console.log) console.log('Selected suggestion:', title.textContent);
+      });
+    });
+    </script>
+    </body>
+</html>

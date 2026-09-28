@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Label documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Label - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/forms/label/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Label - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Label documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/forms/label/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+  <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+  <span class="docs-breadcrumb__separator">/</span>
+  <span class="docs-breadcrumb__current">Forms</span>
+  <span class="docs-breadcrumb__separator">/</span>
+  <span class="docs-breadcrumb__current">Label</span>
+</nav>
+
+        <h1>Label</h1>
+        <p class="docs-subtitle">Form labels identify form controls. They are essential for accessibility and should always be associated with their corresponding input.</p>
+
+        <div class="zak-docs-section">
+            <h2>Basic Labels</h2>
+            <p>Standard form labels used with inputs.</p>
+
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="lbl-basic-1">Name</label>
+                        <input type="text" id="lbl-basic-1" class="zak-input" placeholder="Enter name">
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="lbl-basic-2">Email</label>
+                        <input type="email" id="lbl-basic-2" class="zak-input" placeholder="Enter email">
+                    </div>
+                </form>
+            </div>
+
+            <div class="docs-code-block">
+                <div class="docs-code-block__header">
+                    <span class="docs-code-block__lang">HTML</span>
+                    <button class="docs-copy-btn">Copy</button>
+                </div>
+                <pre><code class="language-html">&lt;label class="zak-form-label" for="name"&gt;Name&lt;/label&gt;
+&lt;input type="text" id="name" class="zak-input" placeholder="Enter name"&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Required Label</h2>
+            <p>Mark fields as required with an asterisk indicator.</p>
+
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label zak-form-label-required" for="lbl-req-1">Full Name</label>
+                        <input type="text" id="lbl-req-1" class="zak-input" placeholder="Required field" required>
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label zak-form-label-required" for="lbl-req-2">Email Address</label>
+                        <input type="email" id="lbl-req-2" class="zak-input" placeholder="Required field" required>
+                    </div>
+                </form>
+            </div>
+
+            <div class="docs-code-block">
+                <div class="docs-code-block__header">
+                    <span class="docs-code-block__lang">HTML</span>
+                    <button class="docs-copy-btn">Copy</button>
+                </div>
+                <pre><code class="language-html">&lt;label class="zak-form-label zak-form-label-required" for="name"&gt;Full Name&lt;/label&gt;
+&lt;input type="text" id="name" class="zak-input" required&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Optional Label</h2>
+            <p>Indicate optional fields with an "optional" badge.</p>
+
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label zak-form-label-required" for="lbl-opt-1">Email Address</label>
+                        <input type="email" id="lbl-opt-1" class="zak-input" placeholder="Required" required>
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="lbl-opt-2">
+                            Phone Number
+                            <span class="zak-form-label-optional">(optional)</span>
+                        </label>
+                        <input type="tel" id="lbl-opt-2" class="zak-input" placeholder="Optional">
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="lbl-opt-3">
+                            Website
+                            <span class="zak-form-label-optional">(optional)</span>
+                        </label>
+                        <input type="url" id="lbl-opt-3" class="zak-input" placeholder="https://example.com">
+                    </div>
+                </form>
+            </div>
+
+            <div class="docs-code-block">
+                <div class="docs-code-block__header">
+                    <span class="docs-code-block__lang">HTML</span>
+                    <button class="docs-copy-btn">Copy</button>
+                </div>
+                <pre><code class="language-html">&lt;label class="zak-form-label" for="phone"&gt;
+  Phone Number
+  &lt;span class="zak-form-label-optional"&gt;(optional)&lt;/span&gt;
+&lt;/label&gt;
+&lt;input type="tel" id="phone" class="zak-input"&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Label Sizes</h2>
+            <p>Use size modifiers to match labels with different input sizes.</p>
+
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label zak-form-label-sm" for="lbl-sm">Small Label</label>
+                        <input type="text" id="lbl-sm" class="zak-input zak-input-sm" placeholder="Small input">
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="lbl-md">Default Label</label>
+                        <input type="text" id="lbl-md" class="zak-input" placeholder="Default input">
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label zak-form-label-lg" for="lbl-lg">Large Label</label>
+                        <input type="text" id="lbl-lg" class="zak-input zak-input-lg" placeholder="Large input">
+                    </div>
+                </form>
+            </div>
+
+            <div class="docs-code-block">
+                <div class="docs-code-block__header">
+                    <span class="docs-code-block__lang">HTML</span>
+                    <button class="docs-copy-btn">Copy</button>
+                </div>
+                <pre><code class="language-html">&lt;label class="zak-form-label zak-form-label-sm" for="small"&gt;Small Label&lt;/label&gt;
+&lt;input type="text" id="small" class="zak-input zak-input-sm"&gt;
+
+&lt;label class="zak-form-label" for="default"&gt;Default Label&lt;/label&gt;
+&lt;input type="text" id="default" class="zak-input"&gt;
+
+&lt;label class="zak-form-label zak-form-label-lg" for="large"&gt;Large Label&lt;/label&gt;
+&lt;input type="text" id="large" class="zak-input zak-input-lg"&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Floating Labels</h2>
+            <p>Labels that float above the input when focused or filled.</p>
+
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group zak-form-floating">
+                        <input type="text" id="lbl-float-1" class="zak-input" placeholder=" " value="">
+                        <label class="zak-form-label" for="lbl-float-1">First Name</label>
+                    </div>
+                    <div class="zak-form-group zak-form-floating">
+                        <input type="email" id="lbl-float-2" class="zak-input" placeholder=" " value="john@example.com">
+                        <label class="zak-form-label" for="lbl-float-2">Email Address</label>
+                    </div>
+                    <div class="zak-form-group zak-form-floating">
+                        <textarea id="lbl-float-3" class="zak-textarea" rows="3" placeholder=" "></textarea>
+                        <label class="zak-form-label" for="lbl-float-3">Your Message</label>
+                    </div>
+                </form>
+            </div>
+
+            <div class="docs-code-block">
+                <div class="docs-code-block__header">
+                    <span class="docs-code-block__lang">HTML</span>
+                    <button class="docs-copy-btn">Copy</button>
+                </div>
+                <pre><code class="language-html">&lt;div class="zak-form-group zak-form-floating"&gt;
+  &lt;input type="text" id="floating-name" class="zak-input" placeholder=" "&gt;
+  &lt;label class="zak-form-label" for="floating-name"&gt;First Name&lt;/label&gt;
+&lt;/div&gt;
+
+&lt;div class="zak-form-group zak-form-floating"&gt;
+  &lt;input type="email" id="floating-email" class="zak-input" placeholder=" " value="john@example.com"&gt;
+  &lt;label class="zak-form-label" for="floating-email"&gt;Email Address&lt;/label&gt;
+&lt;/div&gt;
+
+&lt;div class="zak-form-group zak-form-floating"&gt;
+  &lt;textarea id="floating-msg" class="zak-textarea" rows="3" placeholder=" "&gt;&lt;/textarea&gt;
+  &lt;label class="zak-form-label" for="floating-msg"&gt;Your Message&lt;/label&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.zak-form-label</code></td><td>Base label</td></tr>
+                        <tr><td><code>.zak-form-label-required</code></td><td>Label with required asterisk</td></tr>
+                        <tr><td><code>.zak-form-label-optional</code></td><td>Optional text inside label</td></tr>
+                        <tr><td><code>.zak-form-label-sm</code></td><td>Small label size</td></tr>
+                        <tr><td><code>.zak-form-label-lg</code></td><td>Large label size</td></tr>
+                        <tr><td><code>.zak-form-floating</code></td><td>Float label wrapper</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Every input must have an associated <code>&lt;label&gt;</code> using <code>for</code>/<code>id</code> pairing.</li>
+                <li>Never use placeholder text as a substitute for a visible label.</li>
+                <li>Required fields should be indicated both visually (asterisk) and programmatically (<code>aria-required</code>).</li>
+                <li>Floating labels must remain visible at all times — they should not disappear on focus.</li>
+                <li>Use <code>aria-label</code> only when a visual label is truly impossible.</li>
+            </ul>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body>
+</html>

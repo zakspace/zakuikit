@@ -1,0 +1,1106 @@
+[
+    {
+        "id": "ai-avatar",
+        "category": "ai",
+        "name": "ai avatar",
+        "slug": "ai-avatar",
+        "path": "components/ai/ai-avatar/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "ai-button",
+        "category": "ai",
+        "name": "ai button",
+        "slug": "ai-button",
+        "path": "components/ai/ai-button/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "ai-command-menu",
+        "category": "ai",
+        "name": "ai command menu",
+        "slug": "ai-command-menu",
+        "path": "components/ai/ai-command-menu/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "ai-input",
+        "category": "ai",
+        "name": "ai input",
+        "slug": "ai-input",
+        "path": "components/ai/ai-input/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "ai-prompt-input",
+        "category": "ai",
+        "name": "ai prompt input",
+        "slug": "ai-prompt-input",
+        "path": "components/ai/ai-prompt-input/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "ai-response",
+        "category": "ai",
+        "name": "ai response",
+        "slug": "ai-response",
+        "path": "components/ai/ai-response/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "chat",
+        "category": "ai",
+        "name": "chat",
+        "slug": "chat",
+        "path": "components/ai/chat/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "chat-message",
+        "category": "ai",
+        "name": "chat message",
+        "slug": "chat-message",
+        "path": "components/ai/chat-message/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "citation",
+        "category": "ai",
+        "name": "citation",
+        "slug": "citation",
+        "path": "components/ai/citation/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "conversation",
+        "category": "ai",
+        "name": "conversation",
+        "slug": "conversation",
+        "path": "components/ai/conversation/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "prompt-suggestions",
+        "category": "ai",
+        "name": "prompt suggestions",
+        "slug": "prompt-suggestions",
+        "path": "components/ai/prompt-suggestions/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "streaming-response",
+        "category": "ai",
+        "name": "streaming response",
+        "slug": "streaming-response",
+        "path": "components/ai/streaming-response/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "thinking-indicator",
+        "category": "ai",
+        "name": "thinking indicator",
+        "slug": "thinking-indicator",
+        "path": "components/ai/thinking-indicator/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "token-usage",
+        "category": "ai",
+        "name": "token usage",
+        "slug": "token-usage",
+        "path": "components/ai/token-usage/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "button",
+        "category": "buttons",
+        "name": "button",
+        "slug": "button",
+        "path": "components/buttons/button/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "button-group",
+        "category": "buttons",
+        "name": "button group",
+        "slug": "button-group",
+        "path": "components/buttons/button-group/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "button-toolbar",
+        "category": "buttons",
+        "name": "button toolbar",
+        "slug": "button-toolbar",
+        "path": "components/buttons/button-toolbar/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "floating-action-button",
+        "category": "buttons",
+        "name": "floating action button",
+        "slug": "floating-action-button",
+        "path": "components/buttons/floating-action-button/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "icon-button",
+        "category": "buttons",
+        "name": "icon button",
+        "slug": "icon-button",
+        "path": "components/buttons/icon-button/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "loading-button",
+        "category": "buttons",
+        "name": "loading button",
+        "slug": "loading-button",
+        "path": "components/buttons/loading-button/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "activity-feed",
+        "category": "data-display",
+        "name": "activity feed",
+        "slug": "activity-feed",
+        "path": "components/data-display/activity-feed/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "avatar",
+        "category": "data-display",
+        "name": "avatar",
+        "slug": "avatar",
+        "path": "components/data-display/avatar/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "avatar-group",
+        "category": "data-display",
+        "name": "avatar group",
+        "slug": "avatar-group",
+        "path": "components/data-display/avatar-group/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "badge",
+        "category": "data-display",
+        "name": "badge",
+        "slug": "badge",
+        "path": "components/data-display/badge/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "card",
+        "category": "data-display",
+        "name": "card",
+        "slug": "card",
+        "path": "components/data-display/card/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "chip",
+        "category": "data-display",
+        "name": "chip",
+        "slug": "chip",
+        "path": "components/data-display/chip/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "list",
+        "category": "data-display",
+        "name": "list",
+        "slug": "list",
+        "path": "components/data-display/list/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "list-group",
+        "category": "data-display",
+        "name": "list group",
+        "slug": "list-group",
+        "path": "components/data-display/list-group/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "organization-chart",
+        "category": "data-display",
+        "name": "organization chart",
+        "slug": "organization-chart",
+        "path": "components/data-display/organization-chart/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "rating",
+        "category": "data-display",
+        "name": "rating",
+        "slug": "rating",
+        "path": "components/data-display/rating/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "stat",
+        "category": "data-display",
+        "name": "stat",
+        "slug": "stat",
+        "path": "components/data-display/stat/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "timeline",
+        "category": "data-display",
+        "name": "timeline",
+        "slug": "timeline",
+        "path": "components/data-display/timeline/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "tree",
+        "category": "data-display",
+        "name": "tree",
+        "slug": "tree",
+        "path": "components/data-display/tree/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "column-selector",
+        "category": "data-grid",
+        "name": "column selector",
+        "slug": "column-selector",
+        "path": "components/data-grid/column-selector/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "file-manager",
+        "category": "data-grid",
+        "name": "file manager",
+        "slug": "file-manager",
+        "path": "components/data-grid/file-manager/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "query-builder",
+        "category": "data-grid",
+        "name": "query builder",
+        "slug": "query-builder",
+        "path": "components/data-grid/query-builder/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "transfer",
+        "category": "data-grid",
+        "name": "transfer",
+        "slug": "transfer",
+        "path": "components/data-grid/transfer/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "charts",
+        "category": "data-visualization",
+        "name": "charts",
+        "slug": "charts",
+        "path": "components/data-visualization/charts/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "dashboard-widget",
+        "category": "data-visualization",
+        "name": "dashboard widget",
+        "slug": "dashboard-widget",
+        "path": "components/data-visualization/dashboard-widget/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "filter-panel",
+        "category": "data-visualization",
+        "name": "filter panel",
+        "slug": "filter-panel",
+        "path": "components/data-visualization/filter-panel/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "kpi-card",
+        "category": "data-visualization",
+        "name": "kpi card",
+        "slug": "kpi-card",
+        "path": "components/data-visualization/kpi-card/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "accordion",
+        "category": "disclosure-expansion",
+        "name": "accordion",
+        "slug": "accordion",
+        "path": "components/disclosure-expansion/accordion/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "collapse",
+        "category": "disclosure-expansion",
+        "name": "collapse",
+        "slug": "collapse",
+        "path": "components/disclosure-expansion/collapse/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "details",
+        "category": "disclosure-expansion",
+        "name": "details",
+        "slug": "details",
+        "path": "components/disclosure-expansion/details/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "expandable-panel",
+        "category": "disclosure-expansion",
+        "name": "expandable panel",
+        "slug": "expandable-panel",
+        "path": "components/disclosure-expansion/expandable-panel/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "show-more",
+        "category": "disclosure-expansion",
+        "name": "show more",
+        "slug": "show-more",
+        "path": "components/disclosure-expansion/show-more/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "alert",
+        "category": "feedback",
+        "name": "alert",
+        "slug": "alert",
+        "path": "components/feedback/alert/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "banner",
+        "category": "feedback",
+        "name": "banner",
+        "slug": "banner",
+        "path": "components/feedback/banner/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "empty-state",
+        "category": "feedback",
+        "name": "empty state",
+        "slug": "empty-state",
+        "path": "components/feedback/empty-state/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "error-state",
+        "category": "feedback",
+        "name": "error state",
+        "slug": "error-state",
+        "path": "components/feedback/error-state/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "loading",
+        "category": "feedback",
+        "name": "loading",
+        "slug": "loading",
+        "path": "components/feedback/loading/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "loading-overlay",
+        "category": "feedback",
+        "name": "loading overlay",
+        "slug": "loading-overlay",
+        "path": "components/feedback/loading-overlay/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "maintenance-state",
+        "category": "feedback",
+        "name": "maintenance state",
+        "slug": "maintenance-state",
+        "path": "components/feedback/maintenance-state/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "offline-state",
+        "category": "feedback",
+        "name": "offline state",
+        "slug": "offline-state",
+        "path": "components/feedback/offline-state/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "progress",
+        "category": "feedback",
+        "name": "progress",
+        "slug": "progress",
+        "path": "components/feedback/progress/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "progress-bar",
+        "category": "feedback",
+        "name": "progress bar",
+        "slug": "progress-bar",
+        "path": "components/feedback/progress-bar/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "progress-circle",
+        "category": "feedback",
+        "name": "progress circle",
+        "slug": "progress-circle",
+        "path": "components/feedback/progress-circle/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "result",
+        "category": "feedback",
+        "name": "result",
+        "slug": "result",
+        "path": "components/feedback/result/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "skeleton",
+        "category": "feedback",
+        "name": "skeleton",
+        "slug": "skeleton",
+        "path": "components/feedback/skeleton/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "snackbar",
+        "category": "feedback",
+        "name": "snackbar",
+        "slug": "snackbar",
+        "path": "components/feedback/snackbar/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "spinner",
+        "category": "feedback",
+        "name": "spinner",
+        "slug": "spinner",
+        "path": "components/feedback/spinner/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "status-indicator",
+        "category": "feedback",
+        "name": "status indicator",
+        "slug": "status-indicator",
+        "path": "components/feedback/status-indicator/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "toast",
+        "category": "feedback",
+        "name": "toast",
+        "slug": "toast",
+        "path": "components/feedback/toast/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "autocomplete",
+        "category": "forms",
+        "name": "autocomplete",
+        "slug": "autocomplete",
+        "path": "components/forms/autocomplete/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "checkbox",
+        "category": "forms",
+        "name": "checkbox",
+        "slug": "checkbox",
+        "path": "components/forms/checkbox/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "combobox",
+        "category": "forms",
+        "name": "combobox",
+        "slug": "combobox",
+        "path": "components/forms/combobox/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "file-upload",
+        "category": "forms",
+        "name": "file upload",
+        "slug": "file-upload",
+        "path": "components/forms/file-upload/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "form",
+        "category": "forms",
+        "name": "form",
+        "slug": "form",
+        "path": "components/forms/form/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "form-field",
+        "category": "forms",
+        "name": "form field",
+        "slug": "form-field",
+        "path": "components/forms/form-field/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "form-wizard",
+        "category": "forms",
+        "name": "form wizard",
+        "slug": "form-wizard",
+        "path": "components/forms/form-wizard/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "input",
+        "category": "forms",
+        "name": "input",
+        "slug": "input",
+        "path": "components/forms/input/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "input-group",
+        "category": "forms",
+        "name": "input group",
+        "slug": "input-group",
+        "path": "components/forms/input-group/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "label",
+        "category": "forms",
+        "name": "label",
+        "slug": "label",
+        "path": "components/forms/label/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "multi-select",
+        "category": "forms",
+        "name": "multi select",
+        "slug": "multi-select",
+        "path": "components/forms/multi-select/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "otp-input",
+        "category": "forms",
+        "name": "otp input",
+        "slug": "otp-input",
+        "path": "components/forms/otp-input/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "password-input",
+        "category": "forms",
+        "name": "password input",
+        "slug": "password-input",
+        "path": "components/forms/password-input/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "radio",
+        "category": "forms",
+        "name": "radio",
+        "slug": "radio",
+        "path": "components/forms/radio/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "radio-group",
+        "category": "forms",
+        "name": "radio group",
+        "slug": "radio-group",
+        "path": "components/forms/radio-group/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "range",
+        "category": "forms",
+        "name": "range",
+        "slug": "range",
+        "path": "components/forms/range/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "select",
+        "category": "forms",
+        "name": "select",
+        "slug": "select",
+        "path": "components/forms/select/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "switch",
+        "category": "forms",
+        "name": "switch",
+        "slug": "switch",
+        "path": "components/forms/switch/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "tags-input",
+        "category": "forms",
+        "name": "tags input",
+        "slug": "tags-input",
+        "path": "components/forms/tags-input/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "textarea",
+        "category": "forms",
+        "name": "textarea",
+        "slug": "textarea",
+        "path": "components/forms/textarea/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "toggle",
+        "category": "forms",
+        "name": "toggle",
+        "slug": "toggle",
+        "path": "components/forms/toggle/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "validation",
+        "category": "forms",
+        "name": "validation",
+        "slug": "validation",
+        "path": "components/forms/validation/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "borders",
+        "category": "foundations",
+        "name": "borders",
+        "slug": "borders",
+        "path": "components/foundations/borders/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "colors",
+        "category": "foundations",
+        "name": "colors",
+        "slug": "colors",
+        "path": "components/foundations/colors/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "icons",
+        "category": "foundations",
+        "name": "icons",
+        "slug": "icons",
+        "path": "components/foundations/icons/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "responsive",
+        "category": "foundations",
+        "name": "responsive",
+        "slug": "responsive",
+        "path": "components/foundations/responsive/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "shadows",
+        "category": "foundations",
+        "name": "shadows",
+        "slug": "shadows",
+        "path": "components/foundations/shadows/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "spacing",
+        "category": "foundations",
+        "name": "spacing",
+        "slug": "spacing",
+        "path": "components/foundations/spacing/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "typography",
+        "category": "foundations",
+        "name": "typography",
+        "slug": "typography",
+        "path": "components/foundations/typography/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "aspect-ratio",
+        "category": "layout",
+        "name": "aspect ratio",
+        "slug": "aspect-ratio",
+        "path": "components/layout/aspect-ratio/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "box",
+        "category": "layout",
+        "name": "box",
+        "slug": "box",
+        "path": "components/layout/box/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "columns",
+        "category": "layout",
+        "name": "columns",
+        "slug": "columns",
+        "path": "components/layout/columns/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "container",
+        "category": "layout",
+        "name": "container",
+        "slug": "container",
+        "path": "components/layout/container/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "flex",
+        "category": "layout",
+        "name": "flex",
+        "slug": "flex",
+        "path": "components/layout/flex/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "grid",
+        "category": "layout",
+        "name": "grid",
+        "slug": "grid",
+        "path": "components/layout/grid/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "row",
+        "category": "layout",
+        "name": "row",
+        "slug": "row",
+        "path": "components/layout/row/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "stack",
+        "category": "layout",
+        "name": "stack",
+        "slug": "stack",
+        "path": "components/layout/stack/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "audio",
+        "category": "media",
+        "name": "audio",
+        "slug": "audio",
+        "path": "components/media/audio/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "carousel",
+        "category": "media",
+        "name": "carousel",
+        "slug": "carousel",
+        "path": "components/media/carousel/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "image",
+        "category": "media",
+        "name": "image",
+        "slug": "image",
+        "path": "components/media/image/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "image-gallery",
+        "category": "media",
+        "name": "image gallery",
+        "slug": "image-gallery",
+        "path": "components/media/image-gallery/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "image-preview",
+        "category": "media",
+        "name": "image preview",
+        "slug": "image-preview",
+        "path": "components/media/image-preview/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "media-object",
+        "category": "media",
+        "name": "media object",
+        "slug": "media-object",
+        "path": "components/media/media-object/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "slider",
+        "category": "media",
+        "name": "slider",
+        "slug": "slider",
+        "path": "components/media/slider/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "video",
+        "category": "media",
+        "name": "video",
+        "slug": "video",
+        "path": "components/media/video/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "breadcrumb",
+        "category": "navigation",
+        "name": "breadcrumb",
+        "slug": "breadcrumb",
+        "path": "components/navigation/breadcrumb/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "dropdown-menu",
+        "category": "navigation",
+        "name": "dropdown menu",
+        "slug": "dropdown-menu",
+        "path": "components/navigation/dropdown-menu/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "navmenu",
+        "category": "navigation",
+        "name": "nav menu",
+        "slug": "navmenu",
+        "path": "components/navigation/navmenu/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "navbar",
+        "category": "navigation",
+        "name": "navbar",
+        "slug": "navbar",
+        "path": "components/navigation/navbar/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "pagination",
+        "category": "navigation",
+        "name": "pagination",
+        "slug": "pagination",
+        "path": "components/navigation/pagination/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "sidebar",
+        "category": "navigation",
+        "name": "sidebar",
+        "slug": "sidebar",
+        "path": "components/navigation/sidebar/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "stepper",
+        "category": "navigation",
+        "name": "stepper",
+        "slug": "stepper",
+        "path": "components/navigation/stepper/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "tabs",
+        "category": "navigation",
+        "name": "tabs",
+        "slug": "tabs",
+        "path": "components/navigation/tabs/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "context-menu",
+        "category": "overlays",
+        "name": "context menu",
+        "slug": "context-menu",
+        "path": "components/overlays/context-menu/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "drawer",
+        "category": "overlays",
+        "name": "drawer",
+        "slug": "drawer",
+        "path": "components/overlays/drawer/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "dropdown",
+        "category": "overlays",
+        "name": "dropdown",
+        "slug": "dropdown",
+        "path": "components/overlays/dropdown/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "modal",
+        "category": "overlays",
+        "name": "modal",
+        "slug": "modal",
+        "path": "components/overlays/modal/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "offcanvas",
+        "category": "overlays",
+        "name": "offcanvas",
+        "slug": "offcanvas",
+        "path": "components/overlays/offcanvas/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "popover",
+        "category": "overlays",
+        "name": "popover",
+        "slug": "popover",
+        "path": "components/overlays/popover/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "tooltip",
+        "category": "overlays",
+        "name": "tooltip",
+        "slug": "tooltip",
+        "path": "components/overlays/tooltip/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "calendar",
+        "category": "pickers",
+        "name": "calendar",
+        "slug": "calendar",
+        "path": "components/pickers/calendar/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "cascader",
+        "category": "pickers",
+        "name": "cascader",
+        "slug": "cascader",
+        "path": "components/pickers/cascader/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "color-picker",
+        "category": "pickers",
+        "name": "color picker",
+        "slug": "color-picker",
+        "path": "components/pickers/color-picker/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "date-picker",
+        "category": "pickers",
+        "name": "date picker",
+        "slug": "date-picker",
+        "path": "components/pickers/date-picker/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "date-range-picker",
+        "category": "pickers",
+        "name": "date range picker",
+        "slug": "date-range-picker",
+        "path": "components/pickers/date-range-picker/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "date-time-picker",
+        "category": "pickers",
+        "name": "date time picker",
+        "slug": "date-time-picker",
+        "path": "components/pickers/date-time-picker/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "month-picker",
+        "category": "pickers",
+        "name": "month picker",
+        "slug": "month-picker",
+        "path": "components/pickers/month-picker/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "time-picker",
+        "category": "pickers",
+        "name": "time picker",
+        "slug": "time-picker",
+        "path": "components/pickers/time-picker/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "year-picker",
+        "category": "pickers",
+        "name": "year picker",
+        "slug": "year-picker",
+        "path": "components/pickers/year-picker/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "advanced-data-grid",
+        "category": "tables",
+        "name": "advanced data grid",
+        "slug": "advanced-data-grid",
+        "path": "components/tables/advanced-data-grid/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "data-grid",
+        "category": "tables",
+        "name": "data grid",
+        "slug": "data-grid",
+        "path": "components/tables/data-grid/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "data-table",
+        "category": "tables",
+        "name": "data table",
+        "slug": "data-table",
+        "path": "components/tables/data-table/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "search-filter",
+        "category": "tables",
+        "name": "search filter",
+        "slug": "search-filter",
+        "path": "components/tables/search-filter/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "table",
+        "category": "tables",
+        "name": "table",
+        "slug": "table",
+        "path": "components/tables/table/index.html",
+        "status": "stable"
+    },
+    {
+        "id": "tree-table",
+        "category": "tables",
+        "name": "tree table",
+        "slug": "tree-table",
+        "path": "components/tables/tree-table/index.html",
+        "status": "stable"
+    }
+]

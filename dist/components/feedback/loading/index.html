@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Loading documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Loading - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/feedback/loading/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Loading - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Loading documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/feedback/loading/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Feedback</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Loading</span>
+                </nav>
+        <h1>Loading</h1>
+        <p class="docs-subtitle">Loading states communicate that content is being fetched. ZAKUIKit provides inline indicators, bars, dots, overlays, and skeleton patterns.</p>
+
+        <section class="zak-docs-section">
+            <h2>Loading Button</h2>
+            <p>Attach <code>data-zak-loading-btn</code> to any button; clicking swaps its content for a spinner (via <code>zak.loadingButton</code>).</p>
+            <div class="docs-preview">
+                <button type="button" class="zak-btn zak-btn-primary" data-zak-loading-btn data-zak-loading-text="Saving...">Save changes</button>
+                <button type="button" class="zak-btn zak-btn-outline-primary" data-zak-loading-btn data-zak-loading-text="Adding...">Add to cart</button>
+            </div>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    document.querySelectorAll('[data-zak-loading-btn]').forEach(function(btn) {
+                        btn.addEventListener('zak:loading', function() {
+                            setTimeout(function() { if (window.zak) zak.loadingButton.stop(btn); }, 2500);
+                        });
+                    });
+                });
+            </script>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Loading Overlay</h2>
+            <p>Cover a container with a translucent overlay and a centered spinner.</p>
+            <div class="docs-preview">
+                <div style="position:relative;width:100%;height:14rem;border:1px solid var(--zak-border);border-radius:var(--zak-radius-lg);overflow:hidden;background:var(--zak-bg-subtle);">
+                    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:color-mix(in srgb, var(--zak-surface) 70%, transparent);backdrop-filter:blur(2px);z-index:2;">
+                        <span class="zak-spinner zak-spinner-lg" role="status" aria-label="Loading"></span>
+                    </div>
+                    <div class="zak-stack" style="padding:2rem;opacity:0.4;filter:blur(1px);">
+                        <span class="zak-skeleton zak-skeleton-lg"></span>
+                        <span class="zak-skeleton"></span>
+                        <span class="zak-skeleton"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div style="position:relative;min-height:14rem;"&gt;
+    &lt;!-- blurred content --&gt;
+    &lt;div class="zak-stack"&gt;...&lt;/div&gt;
+
+    &lt;!-- overlay --&gt;
+    &lt;div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+         background:color-mix(in srgb, var(--zak-surface) 70%, transparent);z-index:2;"&gt;
+        &lt;span class="zak-spinner zak-spinner-lg" role="status" aria-label="Loading"&gt;&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Loading Page</h2>
+            <p>A full-viewport loading screen for boot-time or route transitions.</p>
+            <div class="docs-preview">
+                <div style="position:relative;width:100%;height:14rem;border:1px solid var(--zak-border);border-radius:var(--zak-radius-lg);overflow:hidden;display:flex;align-items:center;justify-content:center;background:var(--zak-surface);">
+                    <div style="display:flex;flex-direction:column;align-items:center;gap:1rem;">
+                        <span class="zak-spinner zak-spinner-xl" role="status" aria-label="Loading page"></span>
+                        <span style="color:var(--zak-text-muted);font-size:var(--zak-font-size-sm);">Loading your workspace...</span>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
+     background:var(--zak-surface);z-index:var(--zak-z-modal);"&gt;
+    &lt;div style="display:flex;flex-direction:column;align-items:center;gap:1rem;"&gt;
+        &lt;span class="zak-spinner zak-spinner-xl" role="status" aria-label="Loading page"&gt;&lt;/span&gt;
+        &lt;span style="color:var(--zak-text-muted);"&gt;Loading your workspace...&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Loading with Text</h2>
+            <p>Use <code>.zak-loading</code> for a compact inline indicator with a label.</p>
+            <div class="docs-preview">
+                <div class="zak-loading">
+                    <span class="zak-spinner zak-spinner-sm" role="status" aria-label="Loading"></span>
+                    Fetching data...
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-loading"&gt;
+    &lt;span class="zak-spinner zak-spinner-sm" role="status" aria-label="Loading"&gt;&lt;/span&gt;
+    Fetching data...
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Loading with Spinner</h2>
+            <p>Standalone spinners at different sizes, paired with the loading wrapper.</p>
+            <div class="docs-preview">
+                <div style="display:flex;gap:2rem;align-items:center;flex-wrap:wrap;">
+                    <span class="zak-spinner zak-spinner-sm" role="status" aria-label="Loading"></span>
+                    <span class="zak-spinner" role="status" aria-label="Loading"></span>
+                    <span class="zak-spinner zak-spinner-lg" role="status" aria-label="Loading"></span>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;span class="zak-spinner zak-spinner-sm"&gt;&lt;/span&gt;  &lt;!-- small --&gt;
+&lt;span class="zak-spinner"&gt;&lt;/span&gt;              &lt;!-- default --&gt;
+&lt;span class="zak-spinner zak-spinner-lg"&gt;&lt;/span&gt;  &lt;!-- large --&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Loading with Progress</h2>
+            <p>Show determinate progress during long-running operations.</p>
+            <div class="docs-preview">
+                <div class="zak-stack" style="width:100%;max-width:24rem;">
+                    <div style="display:flex;justify-content:space-between;font-size:var(--zak-font-size-sm);">
+                        <span>Uploading</span><span>62%</span>
+                    </div>
+                    <div class="zak-progress"><div class="zak-progress-bar" style="width:62%;"></div></div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div&gt;
+    &lt;div style="display:flex;justify-content:space-between;"&gt;
+        &lt;span&gt;Uploading&lt;/span&gt;&lt;span&gt;62%&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="zak-progress"&gt;
+        &lt;div class="zak-progress-bar" style="width:62%;"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Loading with Skeleton</h2>
+            <p>Skeletons preview content structure while it loads.</p>
+            <div class="docs-preview">
+                <div class="zak-stack" style="width:100%;max-width:24rem;">
+                    <span class="zak-skeleton zak-skeleton-lg"></span>
+                    <span class="zak-skeleton"></span>
+                    <span class="zak-skeleton" style="width:70%;"></span>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-stack"&gt;
+    &lt;span class="zak-skeleton zak-skeleton-lg"&gt;&lt;/span&gt;
+    &lt;span class="zak-skeleton"&gt;&lt;/span&gt;
+    &lt;span class="zak-skeleton" style="width:70%;"&gt;&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Loading Bars and Dots</h2>
+            <p>Alternative pulse indicators: bouncing bars and pulsing dots.</p>
+            <div class="docs-preview">
+                <div style="display:flex;gap:2rem;align-items:center;flex-wrap:wrap;">
+                    <div class="zak-loading-bars" role="status" aria-label="Loading">
+                        <span class="zak-bar"></span><span class="zak-bar"></span><span class="zak-bar"></span>
+                    </div>
+                    <div class="zak-loading-dots" role="status" aria-label="Loading">
+                        <span class="zak-dot"></span><span class="zak-dot"></span><span class="zak-dot"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-loading-bars" role="status" aria-label="Loading"&gt;
+    &lt;span class="zak-bar"&gt;&lt;/span&gt;&lt;span class="zak-bar"&gt;&lt;/span&gt;&lt;span class="zak-bar"&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class="zak-loading-dots" role="status" aria-label="Loading"&gt;
+    &lt;span class="zak-dot"&gt;&lt;/span&gt;&lt;span class="zak-dot"&gt;&lt;/span&gt;&lt;span class="zak-dot"&gt;&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Centered Loading</h2>
+            <p>Center the indicator inside any container using flex utilities.</p>
+            <div class="docs-preview">
+                <div style="display:flex;align-items:center;justify-content:center;min-height:10rem;width:100%;border:1px dashed var(--zak-border);border-radius:var(--zak-radius-lg);">
+                    <div class="zak-stack" style="align-items:center;">
+                        <span class="zak-spinner" role="status" aria-label="Loading"></span>
+                        <span style="font-size:var(--zak-font-size-sm);color:var(--zak-text-muted);">Please wait</span>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div style="display:flex;align-items:center;justify-content:center;min-height:10rem;"&gt;
+    &lt;div class="zak-stack" style="align-items:center;"&gt;
+        &lt;span class="zak-spinner" role="status" aria-label="Loading"&gt;&lt;/span&gt;
+        &lt;span&gt;Please wait&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Loading in Specific Container</h2>
+            <p>Restrict the loading state to a card or panel rather than the whole page.</p>
+            <div class="docs-preview">
+                <div class="zak-card" style="width:100%;max-width:22rem;position:relative;min-height:12rem;display:flex;align-items:center;justify-content:center;">
+                    <div class="zak-stack" style="align-items:center;width:100%;padding:2rem;">
+                        <span class="zak-spinner" role="status" aria-label="Loading analytics"></span>
+                        <span style="font-size:var(--zak-font-size-sm);color:var(--zak-text-muted);">Loading analytics...</span>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-card" style="max-width:22rem;min-height:12rem;display:flex;align-items:center;justify-content:center;"&gt;
+    &lt;div class="zak-stack" style="align-items:center;padding:2rem;"&gt;
+        &lt;span class="zak-spinner" role="status" aria-label="Loading analytics"&gt;&lt;/span&gt;
+        &lt;span&gt;Loading analytics...&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>CSS Classes &amp; Variables</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>.zak-loading         /* Inline-flex label + indicator */
+.zak-spinner         /* Rotating ring */
+.zak-loading-bars    /* Bouncing bar trio */
+.zak-bar             /* Bar element */
+.zak-loading-dots    /* Pulsing dot trio */
+.zak-dot             /* Dot element */
+.zak-progress        /* Progress track */
+.zak-skeleton        /* Shimmer placeholder */</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Add <code>role="status"</code> and an <code>aria-label</code> to each loading indicator.</li>
+                <li>Set <code>aria-busy="true"</code> on the content region while it loads.</li>
+                <li>When loading finishes, update the region and set <code>aria-busy="false"</code>.</li>
+                <li>Provide a static equivalent (text) alongside any animated indicator.</li>
+                <li>Respect <code>prefers-reduced-motion</code>.</li>
+            </ul>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div id="feed" aria-busy="true"&gt;
+    &lt;div class="zak-loading"&gt;
+        &lt;span class="zak-spinner zak-spinner-sm" role="status" aria-label="Loading feed"&gt;&lt;/span&gt;
+        Loading feed...
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body></html>

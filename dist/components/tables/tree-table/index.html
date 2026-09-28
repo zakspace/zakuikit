@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Tree Table documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Tree Table - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/tables/tree-table/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Tree Table - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Tree Table documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/tables/tree-table/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Tables &amp; DataGrid</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Tree Table</span>
+                </nav>
+        <h1>Tree Table</h1>
+        <p class="docs-subtitle">Tree Table displays hierarchical data in a tabular format with expandable rows, checkboxes for selection, icons, and custom columns.</p>
+
+        <div class="zak-docs-section">
+            <h2>Basic Tree Table</h2>
+            <p>Expandable rows with chevron toggles.</p>
+
+            <div class="docs-preview">
+                <div class="zak-table-wrapper">
+                    <table class="zak-table" id="tree-basic">
+                        <thead><tr><th style="width: 240px;">Name</th><th>Type</th><th>Size</th></tr></thead>
+                        <tbody>
+                            <tr class="tree-row tree-parent" data-level="0"><td><span class="tree-toggle" onclick="toggleTreeRow(this)" style="cursor: pointer; margin-right: 0.5rem; user-select: none;">▶</span>📁 src</td><td>Folder</td><td>—</td></tr>
+                            <tr class="tree-row tree-child" data-level="1" style="display: none;"><td style="padding-left: 2rem;">📁 components</td><td>Folder</td><td>—</td></tr>
+                            <tr class="tree-row tree-child" data-level="2" style="display: none;"><td style="padding-left: 3.5rem;">📄 Button.tsx</td><td>Component</td><td>2.1 KB</td></tr>
+                            <tr class="tree-row tree-child" data-level="2" style="display: none;"><td style="padding-left: 3.5rem;">📄 Card.tsx</td><td>Component</td><td>3.4 KB</td></tr>
+                            <tr class="tree-row tree-child" data-level="1" style="display: none;"><td style="padding-left: 2rem;">📄 index.ts</td><td>File</td><td>0.5 KB</td></tr>
+                            <tr class="tree-row tree-child" data-level="1" style="display: none;"><td style="padding-left: 2rem;">📄 App.tsx</td><td>Component</td><td>4.2 KB</td></tr>
+                            <tr class="tree-row tree-parent" data-level="0"><td><span class="tree-toggle" onclick="toggleTreeRow(this)" style="cursor: pointer; margin-right: 0.5rem; user-select: none;">▶</span>📁 public</td><td>Folder</td><td>—</td></tr>
+                            <tr class="tree-row tree-child" data-level="1" style="display: none;"><td style="padding-left: 2rem;">📄 index.html</td><td>File</td><td>0.8 KB</td></tr>
+                            <tr class="tree-row tree-parent" data-level="0"><td style="padding-left: 0;">📄 package.json</td><td>Config</td><td>1.2 KB</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>With Checkboxes</h2>
+            <p>Selectable tree rows with parent/child checkbox propagation.</p>
+
+            <div class="docs-preview">
+                <div class="zak-table-wrapper">
+                    <table class="zak-table" id="tree-checkbox">
+                        <thead><tr><th style="width: 40px;"><input type="checkbox" class="zak-checkbox" id="tree-check-all" onchange="toggleTreeAll(this)"></th><th>Permission</th><th>Status</th></tr></thead>
+                        <tbody>
+                            <tr class="tree-row tree-parent" data-level="0"><td><input type="checkbox" class="zak-checkbox tree-parent-cb" onchange="toggleTreeChildren(this, 0)"></td><td><span class="tree-toggle" onclick="toggleTreeRow(this)" style="cursor: pointer; margin-right: 0.5rem;">▶</span>📁 Dashboard</td><td><span class="zak-badge zak-badge-success">Granted</span></td></tr>
+                            <tr class="tree-row tree-child" data-level="1" style="display: none;"><td style="padding-left: 2rem;"><input type="checkbox" class="zak-checkbox tree-child-cb" data-parent="0" checked></td><td style="padding-left: 0.5rem;">View Analytics</td><td><span class="zak-badge zak-badge-success">Granted</span></td></tr>
+                            <tr class="tree-row tree-child" data-level="1" style="display: none;"><td style="padding-left: 2rem;"><input type="checkbox" class="zak-checkbox tree-child-cb" data-parent="0" checked></td><td style="padding-left: 0.5rem;">Export Reports</td><td><span class="zak-badge zak-badge-success">Granted</span></td></tr>
+                            <tr class="tree-row tree-parent" data-level="0"><td><input type="checkbox" class="zak-checkbox tree-parent-cb" onchange="toggleTreeChildren(this, 1)"></td><td><span class="tree-toggle" onclick="toggleTreeRow(this)" style="cursor: pointer; margin-right: 0.5rem;">▶</span>📁 Settings</td><td><span class="zak-badge zak-badge-warning">Partial</span></td></tr>
+                            <tr class="tree-row tree-child" data-level="1" style="display: none;"><td style="padding-left: 2rem;"><input type="checkbox" class="zak-checkbox tree-child-cb" data-parent="1" checked></td><td style="padding-left: 0.5rem;">Profile</td><td><span class="zak-badge zak-badge-success">Granted</span></td></tr>
+                            <tr class="tree-row tree-child" data-level="1" style="display: none;"><td style="padding-left: 2rem;"><input type="checkbox" class="zak-checkbox tree-child-cb" data-parent="1"></td><td style="padding-left: 0.5rem;">Billing</td><td><span class="zak-badge zak-badge-danger">Denied</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>With Icons &amp; Status</h2>
+            <p>Rich tree rows with icons, descriptions, and status badges.</p>
+
+            <div class="docs-preview">
+                <div class="zak-table-wrapper">
+                    <table class="zak-table">
+                        <thead><tr><th>Item</th><th>Owner</th><th>Modified</th><th>Status</th></tr></thead>
+                        <tbody>
+                            <tr class="tree-row" data-level="0"><td><span style="margin-right: 0.5rem;">📁</span> <strong>Marketing Campaigns</strong></td><td>Team A</td><td>2 hours ago</td><td><span class="zak-badge zak-badge-success">Active</span></td></tr>
+                            <tr class="tree-row" data-level="1"><td style="padding-left: 2rem;"><span style="margin-right: 0.5rem;">📄</span> Q4 Social Media Plan</td><td>Alice</td><td>1 day ago</td><td><span class="zak-badge">Draft</span></td></tr>
+                            <tr class="tree-row" data-level="1"><td style="padding-left: 2rem;"><span style="margin-right: 0.5rem;">📄</span> Email Newsletter Template</td><td>Bob</td><td>3 days ago</td><td><span class="zak-badge zak-badge-success">Published</span></td></tr>
+                            <tr class="tree-row" data-level="0"><td><span style="margin-right: 0.5rem;">📁</span> <strong>Product Launch</strong></td><td>Team B</td><td>5 hours ago</td><td><span class="zak-badge zak-badge-warning">In Progress</span></td></tr>
+                            <tr class="tree-row" data-level="1"><td style="padding-left: 2rem;"><span style="margin-right: 0.5rem;">📄</span> Launch Checklist</td><td>Carol</td><td>Just now</td><td><span class="zak-badge zak-badge-success">Active</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Demo JavaScript</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span>JavaScript</span><button class="docs-copy-btn">Copy</button></div><pre><code>function toggleTreeRow(toggle) {
+  var row = toggle.closest('tr');
+  var level = parseInt(row.dataset.level);
+  var expanded = toggle.textContent === '▼';
+  toggle.textContent = expanded ? '▶' : '▼';
+  var next = row.nextElementSibling;
+  while (next &amp;&amp; parseInt(next.dataset.level) > level) {
+    if (expanded) { next.style.display = 'none'; }
+    else { next.style.display = ''; }
+    next = next.nextElementSibling;
+  }
+}
+
+function toggleTreeChildren(parentCb) {
+  var row = parentCb.closest('tr');
+  var level = parseInt(row.dataset.level);
+  var next = row.nextElementSibling;
+  while (next &amp;&amp; parseInt(next.dataset.level) > level) {
+    var cb = next.querySelector('.tree-child-cb');
+    if (cb) cb.checked = parentCb.checked;
+    next = next.nextElementSibling;
+  }
+}
+
+function toggleTreeAll(allCb) {
+  document.querySelectorAll('.tree-child-cb, .tree-parent-cb').forEach(function (cb) {
+    cb.checked = allCb.checked;
+  });
+}</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead><tr><th>Class</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>.tree-row</code></td><td>Tree table row</td></tr>
+                        <tr><td><code>.tree-parent</code></td><td>Parent (expandable) row</td></tr>
+                        <tr><td><code>.tree-child</code></td><td>Child (hidden by default) row</td></tr>
+                        <tr><td><code>.tree-toggle</code></td><td>Expand/collapse toggle icon</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    <script>
+    function toggleTreeRow(toggle) {
+      var row = toggle.closest('tr');
+      var level = parseInt(row.dataset.level, 10);
+      var expanded = toggle.textContent.indexOf('\u25bc') !== -1;
+      toggle.textContent = expanded ? '\u25b6' : '\u25bc';
+      var next = row.nextElementSibling;
+      while (next && parseInt(next.dataset.level, 10) > level) {
+        next.style.display = expanded ? 'none' : '';
+        next = next.nextElementSibling;
+      }
+      row.classList.toggle('tree-open', !expanded);
+    }
+
+    function toggleTreeChildren(parentCb) {
+      var row = parentCb.closest('tr');
+      var level = parseInt(row.dataset.level, 10);
+      var next = row.nextElementSibling;
+      while (next && parseInt(next.dataset.level, 10) > level) {
+        var cb = next.querySelector('.tree-child-cb');
+        if (cb) cb.checked = parentCb.checked;
+        next = next.nextElementSibling;
+      }
+      syncTreeAll(row);
+    }
+
+    function syncTreeAll(row) {
+      var table = (row || document.body).closest('table');
+      if (!table || !table.id) return;
+      var all = table.querySelectorAll('.tree-child-cb');
+      var sel = table.querySelectorAll('.tree-child-cb:checked');
+      var checkAll = table.querySelector('#tree-check-all');
+      if (checkAll) checkAll.checked = all.length > 0 && sel.length === all.length;
+    }
+
+    function toggleTreeAll(allCb) {
+      var table = allCb.closest('table');
+      document.querySelectorAll('.tree-child-cb, .tree-parent-cb').forEach(function (cb) {
+        cb.checked = allCb.checked;
+      });
+      var parents = table.querySelectorAll('.tree-parent-cb');
+      parents.forEach(function (pcb) { pcb.checked = allCb.checked; });
+    }
+
+    document.addEventListener('change', function (e) {
+      if (e.target.classList.contains('tree-child-cb')) {
+        var table = e.target.closest('table');
+        var row = e.target.closest('tr');
+        var level = parseInt(row.dataset.level, 10);
+        var prev = row.previousElementSibling;
+        while (prev && parseInt(prev.dataset.level, 10) >= level) {
+          if (parseInt(prev.dataset.level, 10) === level - 1) {
+            var pcb = prev.querySelector('.tree-parent-cb');
+            if (pcb) {
+              var parentLevel = level - 1;
+              var siblings = [];
+              var sib = prev.nextElementSibling;
+              while (sib && parseInt(sib.dataset.level, 10) > parentLevel) {
+                var scb = sib.querySelector('.tree-child-cb');
+                if (scb) siblings.push(scb);
+                sib = sib.nextElementSibling;
+              }
+              var full = siblings.length > 0 && siblings.every(function (c) { return c.checked; });
+              pcb.checked = full;
+            }
+            break;
+          }
+          prev = prev.previousElementSibling;
+        }
+        syncTreeAll(row);
+      }
+    });
+    </script>
+    </body>
+</html>

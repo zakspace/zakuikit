@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Navbar documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Navbar - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/navigation/navbar/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Navbar - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Navbar documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/navigation/navbar/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main">
+        <div class="docs-content">
+            <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Navigation</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Navbar</span>
+                </nav>
+
+            <h1>Navbar</h1>
+            <p class="docs-subtitle">The navbar provides a responsive navigation header with support for branding, links, dropdowns, search, forms, text, actions, and a mobile hamburger menu.</p>
+
+            <section class="zak-docs-section">
+                <h2>How it works</h2>
+                <ul>
+                    <li>Navbars require a wrapping <code>.zak-navbar</code> with a <code>zak-navbar-expand{-sm|-md|-lg|-xl|-xxl}</code> class for responsive collapsing, and a color scheme class (<code>zak-navbar-light</code> or <code>zak-navbar-dark</code>).</li>
+                    <li>Navbars and their contents are fluid by default; place a <code>zak-container</code> (or a fixed-width variant) inside to limit their horizontal extent. Leave the container out to span the full viewport.</li>
+                    <li>Add a <code>zak-navbar-toggler</code> button with <code>.zak-icon-menu</code>/<code>.zak-icon-close</code> for the hamburger icon swap and wrap the collapsible content in a <code>zak-navbar-collapse</code>.</li>
+                    <li>Mark the navbar with <code>data-zak-navbar</code> and include <code>zak.js</code>. The hamburger toggles the menu, sets <code>aria-expanded</code>, and closes on link click, outside click, and <kbd>Escape</kbd>.</li>
+                    <li>Use <code>.zak-navbar-nav</code> for links, <code>.zak-navbar-search</code> for search forms, <code>.zak-nav-link.active</code> for the current page, and <code>.zak-nav-link.disabled</code> (with <code>aria-disabled="true"</code>) for disabled items.</li>
+                </ul>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Supported content</h2>
+                <p>Navbars come with built-in support for a handful of sub-components. Choose from brand, nav links, dropdowns, search forms, text, and action buttons.</p>
+                <div class="docs-preview">
+                    <nav class="zak-navbar zak-navbar-light zak-navbar-expand-lg" data-zak-navbar aria-label="Supported content example">
+                        <div class="zak-container-fluid">
+                            <div class="zak-navbar-inner">
+                                <a href="#" class="zak-navbar-brand">Brand</a>
+                                <button class="zak-navbar-toggler" type="button" aria-label="Toggle navigation" aria-expanded="false">
+                                    <svg class="zak-icon zak-icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+                                    <svg class="zak-icon zak-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                                </button>
+                                <div class="zak-navbar-collapse">
+                                    <ul class="zak-navbar-nav">
+                                        <li><a href="#" class="zak-nav-link active">Home</a></li>
+                                        <li><a href="#" class="zak-nav-link">Link</a></li>
+                                        <li><a href="#" class="zak-nav-link disabled" aria-disabled="true">Disabled</a></li>
+                                        <li class="zak-nav-dropdown">
+                                            <a href="#" class="zak-nav-link" onclick="this.parentElement.classList.toggle('open'); return false;">
+                                                Dropdown
+                                                <svg class="zak-icon zak-icon-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                                            </a>
+                                            <ul class="zak-dropdown-menu">
+                                                <li><a href="#" class="zak-dropdown-item">Action</a></li>
+                                                <li><a href="#" class="zak-dropdown-item">Another action</a></li>
+                                                <li><a href="#" class="zak-dropdown-item">Something else here</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <form class="zak-navbar-search" role="search">
+                                        <input type="text" class="zak-input zak-input-sm" placeholder="Search" aria-label="Search">
+                                        <button class="zak-btn zak-btn-sm zak-btn-light" type="submit">Search</button>
+                                    </form>
+                                    <div class="zak-navbar-actions">
+                                        <button class="zak-btn zak-btn-sm zak-btn-primary">Button</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;nav class="zak-navbar zak-navbar-light zak-navbar-expand-lg" data-zak-navbar&gt;
+    &lt;div class="zak-container-fluid"&gt;
+        &lt;div class="zak-navbar-inner"&gt;
+            &lt;a href="#" class="zak-navbar-brand"&gt;Brand&lt;/a&gt;
+            &lt;button class="zak-navbar-toggler" type="button" aria-label="Toggle navigation" aria-expanded="false"&gt;
+                &lt;svg class="zak-icon zak-icon-menu" viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
+                &lt;svg class="zak-icon zak-icon-close" viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
+            &lt;/button&gt;
+            &lt;div class="zak-navbar-collapse"&gt;
+                &lt;ul class="zak-navbar-nav"&gt;
+                    &lt;li&gt;&lt;a href="#" class="zak-nav-link active"&gt;Home&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#" class="zak-nav-link disabled" aria-disabled="true"&gt;Disabled&lt;/a&gt;&lt;/li&gt;
+                    &lt;li class="zak-nav-dropdown"&gt;...&lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;form class="zak-navbar-search" role="search"&gt;
+                    &lt;input type="text" class="zak-input zak-input-sm"&gt;
+                    &lt;button type="submit" class="zak-btn zak-btn-sm"&gt;Search&lt;/button&gt;
+                &lt;/form&gt;
+                &lt;div class="zak-navbar-actions"&gt;
+                    &lt;button class="zak-btn zak-btn-sm"&gt;Button&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Brand</h2>
+                <p>Add a brand to your navbar with <code>.zak-navbar-brand</code>. Use a text label, an image or SVG logo, or combine both.</p>
+
+                <h3>Text</h3>
+                <p>Simple text-based brand.</p>
+                <div class="docs-preview">
+                    <nav class="zak-navbar zak-navbar-light" data-zak-navbar>
+                        <div class="zak-container">
+                            <div class="zak-navbar-inner">
+                                <a href="#" class="zak-navbar-brand">Brand</a>
+                                <button class="zak-navbar-toggler" type="button" aria-label="Toggle navigation" aria-expanded="false">
+                                    <svg class="zak-icon zak-icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+                                    <svg class="zak-icon zak-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                                </button>
+                                <div class="zak-navbar-collapse">
+                                    <ul class="zak-navbar-nav">
+                                        <li><a href="#" class="zak-nav-link active">Home</a></li>
+                                        <li><a href="#" class="zak-nav-link">Link</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;nav class="zak-navbar zak-navbar-light" data-zak-navbar&gt;
+    &lt;div class="zak-container"&gt;
+        &lt;div class="zak-navbar-inner"&gt;
+            &lt;a href="#" class="zak-navbar-brand"&gt;Brand&lt;/a&gt;
+            &lt;button class="zak-navbar-toggler" aria-label="Toggle navigation" aria-expanded="false"&gt;...&lt;/button&gt;
+            &lt;div class="zak-navbar-collapse"&gt;
+                &lt;ul class="zak-navbar-nav"&gt;...&lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+                </div>
+
+                <h3>Image</h3>
+                <p>Use an image or SVG logo. Images and SVGs inside <code>.zak-navbar-brand</code> are sized to 2rem.</p>
+                <div class="docs-preview">
+                    <nav class="zak-navbar zak-navbar-light zak-navbar-expand-lg" data-zak-navbar>
+                        <div class="zak-container">
+                            <div class="zak-navbar-inner">
+                                <a href="#" class="zak-navbar-brand">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="ZAK logo"><polygon points="12 2 2 7 2 17 12 22 22 17 22 7"/></svg>
+                                    <span>Brand</span>
+                                </a>
+                                <button class="zak-navbar-toggler" type="button" aria-label="Toggle navigation" aria-expanded="false">
+                                    <svg class="zak-icon zak-icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+                                    <svg class="zak-icon zak-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                                </button>
+                                <div class="zak-navbar-collapse">
+                                    <ul class="zak-navbar-nav">
+                                        <li><a href="#" class="zak-nav-link active">Home</a></li>
+                                        <li><a href="#" class="zak-nav-link">Features</a></li>
+                                        <li><a href="#" class="zak-nav-link">Pricing</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;a href="#" class="zak-navbar-brand"&gt;
+    &lt;svg viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
+    &lt;span&gt;Brand&lt;/span&gt;
+&lt;/a&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Nav</h2>
+                <p>Navigation is built with <code>.zak-navbar-nav</code> (a list-based flex nav of <code>.zak-nav-link</code> items). Nest links directly or combine with dropdowns via <code>.zak-nav-dropdown</code>.</p>
+
+                <h3>Text-based links</h3>
+                <p>List-based nav with an active and a disabled item.</p>
+                <div class="docs-preview">
+                    <nav class="zak-navbar zak-navbar-light zak-navbar-expand-lg" data-zak-navbar>
+                        <div class="zak-container">
+                            <div class="zak-navbar-inner">
+                                <a href="#" class="zak-navbar-brand">Brand</a>
+                                <button class="zak-navbar-toggler" type="button" aria-label="Toggle navigation" aria-expanded="false">
+                                    <svg class="zak-icon zak-icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+                                    <svg class="zak-icon zak-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                                </button>
+                                <div class="zak-navbar-collapse">
+                                    <ul class="zak-navbar-nav">
+                                        <li><a href="#" class="zak-nav-link active">Home</a></li>
+                                        <li><a href="#" class="zak-nav-link">Features</a></li>
+                                        <li><a href="#" class="zak-nav-link">Pricing</a></li>
+                                        <li><a href="#" class="zak-nav-link disabled" aria-disabled="true">Disabled</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-navbar-collapse"&gt;
+    &lt;ul class="zak-navbar-nav"&gt;
+        &lt;li&gt;&lt;a href="#" class="zak-nav-link active"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#" class="zak-nav-link"&gt;Features&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#" class="zak-nav-link disabled" aria-disabled="true"&gt;Disabled&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+
+                <h3>Dropdowns</h3>
+                <p>Add dropdown menus to navbar items for nested navigation. Wrap the toggle and menu in <code>.zak-nav-dropdown</code>.</p>
+                <div class="docs-preview">
+                    <nav class="zak-navbar zak-navbar-light zak-navbar-expand-lg" data-zak-navbar>
+                        <div class="zak-container">
+                            <div class="zak-navbar-inner">
+                                <a href="#" class="zak-navbar-brand">Brand</a>
+                                <button class="zak-navbar-toggler" type="button" aria-label="Toggle navigation" aria-expanded="false">
+                                    <svg class="zak-icon zak-icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+                                    <svg class="zak-icon zak-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                                </button>
+                                <div class="zak-navbar-collapse">
+                                    <ul class="zak-navbar-nav">
+                                        <li><a href="#" class="zak-nav-link active">Home</a></li>
+                                        <li class="zak-nav-dropdown">
+                                            <a href="#" class="zak-nav-link" onclick="this.parentElement.classList.toggle('open'); return false;">
+                                                Products
+                                                <svg class="zak-icon zak-icon-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                                            </a>
+                                            <ul class="zak-dropdown-menu">
+                                                <li><a href="#" class="zak-dropdown-item">Analytics</a></li>
+                                                <li><a href="#" class="zak-dropdown-item">Commerce</a></li>
+                                                <li><a href="#" class="zak-dropdown-item">Invoicing</a></li>
+                                                <li class="zak-dropdown-divider"></li>
+                                                <li><a href="#" class="zak-dropdown-item">All Products</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#" class="zak-nav-link">Pricing</a></li>
+                                        <li><a href="#" class="zak-nav-link">About</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;li class="zak-nav-dropdown"&gt;
+    &lt;a href="#" class="zak-nav-link"&gt;
+        Products
+        &lt;svg class="zak-icon zak-icon-chevron-down" viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
+    &lt;/a&gt;
+    &lt;ul class="zak-dropdown-menu"&gt;
+        &lt;li&gt;&lt;a href="#" class="zak-dropdown-item"&gt;Analytics&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="zak-dropdown-divider"&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#" class="zak-dropdown-item"&gt;All Products&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/li&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Forms</h2>
+                <p>Place form controls inside the navbar with <code>.zak-navbar-search</code> for quick site search. On expanded navbars the form sits inline; below the breakpoint it stretches full width.</p>
+                <div class="docs-preview">
+                    <nav class="zak-navbar zak-navbar-light zak-navbar-expand-lg" data-zak-navbar>
+                        <div class="zak-container">
+                            <div class="zak-navbar-inner">
+                                <a href="#" class="zak-navbar-brand">Brand</a>
+                                <button class="zak-navbar-toggler" type="button" aria-label="Toggle navigation" aria-expanded="false">
+                                    <svg class="zak-icon zak-icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+                                    <svg class="zak-icon zak-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                                </button>
+                                <div class="zak-navbar-collapse">
+                                    <ul class="zak-navbar-nav">
+                                        <li><a href="#" class="zak-nav-link active">Home</a></li>
+                                        <li><a href="#" class="zak-nav-link">Features</a></li>
+                                        <li><a href="#" class="zak-nav-link">Pricing</a></li>
+                                    </ul>
+                                    <form class="zak-navbar-search" role="search">
+                                        <input type="text" class="zak-input zak-input-sm" placeholder="Search..." aria-label="Search">
+                                        <button type="submit" class="zak-btn zak-btn-sm zak-btn-outline-primary">
+                                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;form class="zak-navbar-search" role="search"&gt;
+    &lt;input type="text" class="zak-input zak-input-sm" placeholder="Search..."&gt;
+    &lt;button type="submit" class="zak-btn zak-btn-sm zak-btn-outline-primary"&gt;
+        &lt;svg class="zak-icon" viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
+    &lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Text</h2>
+                <p>Use <code>.zak-navbar-text</code> for plain text blocks in the navbar (or between links) without an anchor or button.</p>
+                <div class="docs-preview">
+                    <nav class="zak-navbar zak-navbar-light zak-navbar-expand-lg" data-zak-navbar>
+                        <div class="zak-container">
+                            <div class="zak-navbar-inner">
+                                <a href="#" class="zak-navbar-brand">Brand</a>
+                                <button class="zak-navbar-toggler" type="button" aria-label="Toggle navigation" aria-expanded="false">
+                                    <svg class="zak-icon zak-icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+                                    <svg class="zak-icon zak-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                                </button>
+                                <div class="zak-navbar-collapse">
+                                    <span class="zak-navbar-text">Signed in as Zak Kalin</span>
+                                    <ul class="zak-navbar-nav">
+                                        <li><a href="#" class="zak-nav-link active">Home</a></li>
+                                        <li><a href="#" class="zak-nav-link">Features</a></li>
+                                        <li><a href="#" class="zak-nav-link">Pricing</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;span class="zak-navbar-text"&gt;Signed in as Zak Kalin&lt;/span&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Color schemes</h2>
+                <p>Use <code>zak-navbar-light</code> or <code>zak-navbar-dark</code> to switch between the light and dark color schemes. Dark navbars pair well with light buttons (<code>zak-btn-light</code>) and lighter text for contrast.</p>
+                <div class="docs-preview">
+                    <nav class="zak-navbar zak-navbar-light zak-navbar-expand-lg" data-zak-navbar>
+                        <div class="zak-container">
+                            <div class="zak-navbar-inner">
+                                <a href="#" class="zak-navbar-brand">Light</a>
+                                <button class="zak-navbar-toggler" type="button" aria-label="Toggle navigation" aria-expanded="false">
+                                    <svg class="zak-icon zak-icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+                                    <svg class="zak-icon zak-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                                </button>
+                                <div class="zak-navbar-collapse">
+                                    <ul class="zak-navbar-nav">
+                                        <li><a href="#" class="zak-nav-link active">Home</a></li>
+                                        <li><a href="#" class="zak-nav-link">Features</a></li>
+                                        <li><a href="#" class="zak-nav-link">Pricing</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="docs-preview">
+                    <nav class="zak-navbar zak-navbar-dark zak-navbar-expand-lg" data-zak-navbar>
+                        <div class="zak-container">
+                            <div class="zak-navbar-inner">
+                                <a href="#" class="zak-navbar-brand">Dark</a>
+                                <button class="zak-navbar-toggler" type="button" aria-label="Toggle navigation" aria-expanded="false">
+                                    <svg class="zak-icon zak-icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+                                    <svg class="zak-icon zak-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                                </button>
+                                <div class="zak-navbar-collapse">
+                                    <ul class="zak-navbar-nav">
+                                        <li><a href="#" class="zak-nav-link active">Home</a></li>
+                                        <li><a href="#" class="zak-nav-link">Features</a></li>
+                                        <li><a href="#" class="zak-nav-link">Pricing</a></li>
+                                    </ul>
+                                    <div class="zak-navbar-actions">
+                                        <a href="#" class="zak-btn zak-btn-sm zak-btn-light">Login</a>
+                                        <a href="#" class="zak-btn zak-btn-sm zak-btn-outline-light">Sign up</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;nav class="zak-navbar zak-navbar-dark zak-navbar-expand-lg" data-zak-navbar&gt;
+    ...
+    &lt;div class="zak-navbar-actions"&gt;
+        &lt;a href="#" class="zak-btn zak-btn-sm zak-btn-light"&gt;Login&lt;/a&gt;
+        &lt;a href="#" class="zak-btn zak-btn-sm zak-btn-outline-light"&gt;Sign up&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Containers</h2>
+                <p>Navbars are fluid by default. Wrap the contents in a <code>zak-container</code> to center them within a fixed-width container, or use a size variant such as <code>zak-container-xl</code> to select a matching container width at every breakpoint.</p>
+                <div class="docs-preview">
+                    <nav class="zak-navbar zak-navbar-dark zak-navbar-expand-lg" data-zak-navbar>
+                        <div class="zak-container">
+                            <div class="zak-navbar-inner">
+                                <a href="#" class="zak-navbar-brand">Container</a>
+                                <button class="zak-navbar-toggler" type="button" aria-label="Toggle navigation" aria-expanded="false">
+                                    <svg class="zak-icon zak-icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+                                    <svg class="zak-icon zak-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                                </button>
+                                <div class="zak-navbar-collapse">
+                                    <ul class="zak-navbar-nav">
+                                        <li><a href="#" class="zak-nav-link active">Home</a></li>
+                                        <li><a href="#" class="zak-nav-link">Link</a></li>
+                                        <li><a href="#" class="zak-nav-link disabled" aria-disabled="true">Disabled</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                    <p style="text-align: center; color: var(--docs-text-muted); font-size: 14px;">Matching .zak-container width at every breakpoint.</p>
+                </div>
+                <div class="docs-preview">
+                    <nav class="zak-navbar zak-navbar-dark zak-navbar-expand-lg" data-zak-navbar>
+                        <div class="zak-container-xl">
+                            <div class="zak-navbar-inner">
+                                <a href="#" class="zak-navbar-brand">Container XL</a>
+                                <button class="zak-navbar-toggler" type="button" aria-label="Toggle navigation" aria-expanded="false">
+                                    <svg class="zak-icon zak-icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+                                    <svg class="zak-icon zak-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                                </button>
+                                <div class="zak-navbar-collapse">
+                                    <ul class="zak-navbar-nav">
+                                        <li><a href="#" class="zak-nav-link active">Home</a></li>
+                                        <li><a href="#" class="zak-nav-link">Link</a></li>
+                                        <li><a href="#" class="zak-nav-link disabled" aria-disabled="true">Disabled</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                    <p style="text-align: center; color: var(--docs-text-muted); font-size: 14px;">Matching .zak-container-xl width at every breakpoint.</p>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;nav class="zak-navbar zak-navbar-dark zak-navbar-expand-lg" data-zak-navbar&gt;
+    &lt;div class="zak-container"&gt;&lt;!-- or .zak-container-xl / .zak-container-fluid --&gt;
+        &lt;div class="zak-navbar-inner"&gt;
+            &lt;a href="#" class="zak-navbar-brand"&gt;Brand&lt;/a&gt;
+            ...
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Placement</h2>
+                <p>Use placement classes to position the navbar in the layout. <code>zak-navbar-fixed</code> pins it to the top of the viewport, <code>zak-navbar-fixed-bottom</code> to the bottom, and <code>zak-navbar-sticky</code> keeps it visible while scrolling.</p>
+                <div class="docs-preview">
+                    <div style="position: relative; height: 120px; overflow: hidden; border-radius: 0.375rem; border: 1px solid var(--docs-border);">
+                        <nav class="zak-navbar zak-navbar-light zak-navbar-fixed zak-navbar-expand-lg" data-zak-navbar style="position: absolute; top: 0; left: 0; right: 0;">
+                            <div class="zak-container">
+                                <div class="zak-navbar-inner">
+                                    <a href="#" class="zak-navbar-brand">Fixed top</a>
+                                    <button class="zak-navbar-toggler" type="button" aria-label="Toggle navigation" aria-expanded="false">
+                                        <svg class="zak-icon zak-icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+                                        <svg class="zak-icon zak-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                                    </button>
+                                    <div class="zak-navbar-collapse">
+                                        <ul class="zak-navbar-nav">
+                                            <li><a href="#" class="zak-nav-link active">Home</a></li>
+                                            <li><a href="#" class="zak-nav-link">Link</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                        <div style="padding-top: 70px; text-align: center; color: var(--docs-text-muted); font-size: 14px;">Scroll content below navbar</div>
+                    </div>
+                </div>
+                <div class="docs-preview">
+                    <div style="position: relative; height: 120px; overflow: hidden; border-radius: 0.375rem; border: 1px solid var(--docs-border);">
+                        <nav class="zak-navbar zak-navbar-dark zak-navbar-fixed-bottom zak-navbar-expand-lg" data-zak-navbar style="position: absolute; bottom: 0; left: 0; right: 0;">
+                            <div class="zak-container">
+                                <div class="zak-navbar-inner">
+                                    <a href="#" class="zak-navbar-brand">Fixed bottom</a>
+                                    <button class="zak-navbar-toggler" type="button" aria-label="Toggle navigation" aria-expanded="false">
+                                        <svg class="zak-icon zak-icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+                                        <svg class="zak-icon zak-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                                    </button>
+                                    <div class="zak-navbar-collapse">
+                                        <ul class="zak-navbar-nav">
+                                            <li><a href="#" class="zak-nav-link active">Home</a></li>
+                                            <li><a href="#" class="zak-nav-link">Link</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                        <div style="padding-top: 30px; text-align: center; color: var(--docs-text-muted); font-size: 14px;">Scroll content above navbar</div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;nav class="zak-navbar zak-navbar-fixed zak-navbar-expand-lg"&gt;...&lt;/nav&gt;        &lt;!-- pinned to top --&gt;
+&lt;nav class="zak-navbar zak-navbar-fixed-bottom zak-navbar-expand-lg"&gt;...&lt;/nav&gt; &lt;!-- pinned to bottom --&gt;
+&lt;nav class="zak-navbar zak-navbar-sticky zak-navbar-expand-lg"&gt;...&lt;/nav&gt;       &lt;!-- sticky top --&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Scrolling</h2>
+                <p>For long link lists set a max-height on <code>.zak-navbar-nav</code> with <code>.zak-navbar-nav-scroll</code>. Below the expand breakpoint the menu scrolls vertically once it exceeds the height; at and above the breakpoint the expanded nav renders without scrolling.</p>
+                <div class="docs-preview">
+                    <nav class="zak-navbar zak-navbar-light" data-zak-navbar>
+                        <div class="zak-container">
+                            <div class="zak-navbar-inner">
+                                <a href="#" class="zak-navbar-brand">Brand</a>
+                                <button class="zak-navbar-toggler" type="button" aria-label="Toggle navigation" aria-expanded="false">
+                                    <svg class="zak-icon zak-icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+                                    <svg class="zak-icon zak-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                                </button>
+                                <div class="zak-navbar-collapse zak-navbar-active" style="display: flex;">
+                                    <ul class="zak-navbar-nav zak-navbar-nav-scroll" style="max-height: 160px;">
+                                        <li><a href="#" class="zak-nav-link active">Overview</a></li>
+                                        <li><a href="#" class="zak-nav-link">Getting started</a></li>
+                                        <li><a href="#" class="zak-nav-link">Installation</a></li>
+                                        <li><a href="#" class="zak-nav-link">Theming</a></li>
+                                        <li><a href="#" class="zak-nav-link">Customization</a></li>
+                                        <li><a href="#" class="zak-nav-link">Utilities</a></li>
+                                        <li><a href="#" class="zak-nav-link">Icons</a></li>
+                                        <li><a href="#" class="zak-nav-link">Components</a></li>
+                                        <li><a href="#" class="zak-nav-link">Templates</a></li>
+                                        <li><a href="#" class="zak-nav-link">Accessibility</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-navbar-collapse"&gt;
+    &lt;ul class="zak-navbar-nav zak-navbar-nav-scroll"&gt;
+        &lt;li&gt;&lt;a href="#" class="zak-nav-link active"&gt;Overview&lt;/a&gt;&lt;/li&gt;
+        ...
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Responsive behaviors</h2>
+                <p>Expand classes mirror Bootstrap's behavior. A navbar <strong>without</strong> an expand class <em>never expands</em>: the toggler and stacked menu are shown at every size. Add <code>zak-navbar-expand</code> to <em>always expand</em>: the menu is inline and the hamburger hidden at every size. Use <code>zak-navbar-expand-{sm|md|lg|xl|xxl}</code> to expand at and above the matching breakpoint; below it the menu collapses behind a hamburger and stacks full-width when opened.</p>
+                <table>
+                    <thead>
+                        <tr><th>Class</th><th>Expands at</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.zak-navbar</code></td><td>Never (hamburger always visible)</td></tr>
+                        <tr><td><code>.zak-navbar-expand</code></td><td>Always (hamburger hidden)</td></tr>
+                        <tr><td><code>.zak-navbar-expand-sm</code></td><td>&ge; 576px</td></tr>
+                        <tr><td><code>.zak-navbar-expand-md</code></td><td>&ge; 768px</td></tr>
+                        <tr><td><code>.zak-navbar-expand-lg</code></td><td>&ge; 992px</td></tr>
+                        <tr><td><code>.zak-navbar-expand-xl</code></td><td>&ge; 1200px</td></tr>
+                        <tr><td><code>.zak-navbar-expand-xxl</code></td><td>&ge; 1400px</td></tr>
+                    </tbody>
+                </table>
+                <p>With <code>data-zak-navbar</code> + <code>zak.js</code>, clicking the toggler opens the stacked menu, the icon swaps to the close icon, and <code>aria-expanded</code> stays in sync. Actions placed in <code>.zak-navbar-actions</code> stay visible at all sizes.</p>
+                <div class="docs-preview">
+                    <nav class="zak-navbar zak-navbar-light zak-navbar-expand-lg" id="demo-responsive-navbar" data-zak-navbar aria-label="Main navigation">
+                        <div class="zak-container">
+                            <div class="zak-navbar-inner">
+                                <a href="#" class="zak-navbar-brand">Brand</a>
+                                <button class="zak-navbar-toggler" type="button" aria-label="Toggle navigation" aria-expanded="false">
+                                    <svg class="zak-icon zak-icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+                                    <svg class="zak-icon zak-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                                </button>
+                                <div class="zak-navbar-collapse">
+                                    <ul class="zak-navbar-nav">
+                                        <li><a href="#" class="zak-nav-link active">Home</a></li>
+                                        <li><a href="#" class="zak-nav-link">Features</a></li>
+                                        <li><a href="#" class="zak-nav-link">Pricing</a></li>
+                                        <li><a href="#" class="zak-nav-link">About</a></li>
+                                    </ul>
+                                </div>
+                                <div class="zak-navbar-actions">
+                                    <button class="zak-btn zak-btn-sm zak-btn-outline-primary">Login</button>
+                                    <button class="zak-btn zak-btn-sm zak-btn-primary">Sign Up</button>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;nav class="zak-navbar zak-navbar-light zak-navbar-expand-lg" data-zak-navbar&gt;
+    &lt;div class="zak-container"&gt;
+        &lt;div class="zak-navbar-inner"&gt;
+            &lt;a href="#" class="zak-navbar-brand"&gt;Brand&lt;/a&gt;
+            &lt;button class="zak-navbar-toggler" aria-label="Toggle navigation" aria-expanded="false"&gt;
+                &lt;svg class="zak-icon zak-icon-menu"&gt;...&lt;/svg&gt;
+                &lt;svg class="zak-icon zak-icon-close"&gt;...&lt;/svg&gt;
+            &lt;/button&gt;
+            &lt;div class="zak-navbar-collapse"&gt;
+                &lt;ul class="zak-navbar-nav"&gt;...&lt;/ul&gt;
+            &lt;/div&gt;
+            &lt;div class="zak-navbar-actions"&gt;
+                &lt;button class="zak-btn zak-btn-sm zak-btn-primary"&gt;Sign Up&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Avatar dropdown</h2>
+                <p>Combine a user avatar with a dropdown menu for account actions. Align the open menu to the right with <code>style="right: 0; left: auto;"</code>.</p>
+                <div class="docs-preview">
+                    <nav class="zak-navbar zak-navbar-light zak-navbar-expand-lg" data-zak-navbar>
+                        <div class="zak-container">
+                            <div class="zak-navbar-inner">
+                                <a href="#" class="zak-navbar-brand">Brand</a>
+                                <button class="zak-navbar-toggler" type="button" aria-label="Toggle navigation" aria-expanded="false">
+                                    <svg class="zak-icon zak-icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+                                    <svg class="zak-icon zak-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                                </button>
+                                <div class="zak-navbar-collapse">
+                                    <ul class="zak-navbar-nav">
+                                        <li><a href="#" class="zak-nav-link active">Dashboard</a></li>
+                                        <li><a href="#" class="zak-nav-link">Projects</a></li>
+                                        <li><a href="#" class="zak-nav-link">Team</a></li>
+                                    </ul>
+                                </div>
+                                <div class="zak-navbar-actions">
+                                    <div class="zak-nav-dropdown" id="demo-avatar-dropdown">
+                                        <a href="#" class="zak-nav-link" onclick="document.getElementById('demo-avatar-dropdown').classList.toggle('open'); return false;" style="display: flex; align-items: center; gap: 0.5rem;">
+                                            <span class="zak-avatar zak-avatar-sm" style="background: var(--zak-color-primary); color: #fff;">JD</span>
+                                            <svg class="zak-icon zak-icon-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                                        </a>
+                                        <ul class="zak-dropdown-menu" style="right: 0; left: auto;">
+                                            <li><a href="#" class="zak-dropdown-item">Profile</a></li>
+                                            <li><a href="#" class="zak-dropdown-item">Settings</a></li>
+                                            <li class="zak-dropdown-divider"></li>
+                                            <li><a href="#" class="zak-dropdown-item" style="color: var(--zak-color-danger);">Logout</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-navbar-actions"&gt;
+    &lt;div class="zak-nav-dropdown"&gt;
+        &lt;a href="#" class="zak-nav-link"&gt;
+            &lt;span class="zak-avatar zak-avatar-sm"&gt;JD&lt;/span&gt;
+            &lt;svg class="zak-icon zak-icon-chevron-down"&gt;...&lt;/svg&gt;
+        &lt;/a&gt;
+        &lt;ul class="zak-dropdown-menu" style="right: 0; left: auto;"&gt;
+            &lt;li&gt;&lt;a href="#" class="zak-dropdown-item"&gt;Profile&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#" class="zak-dropdown-item"&gt;Logout&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+
+            <section class="zak-docs-section">
+                <h2>CSS Classes</h2>
+                <p>Navbar styles are controlled through these CSS classes.</p>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>/* Navbar Container */
+.zak-navbar                /* Base navbar (no expand class = never expand) */
+.zak-navbar-light          /* Light background */
+.zak-navbar-dark           /* Dark background */
+
+/* Expand behavior */
+.zak-navbar-expand         /* Always expand (inline at every size) */
+.zak-navbar-expand-sm      /* Expand at/above sm = 576px */
+.zak-navbar-expand-md      /* Expand at/above md = 768px */
+.zak-navbar-expand-lg      /* Expand at/above lg = 992px */
+.zak-navbar-expand-xl      /* Expand at/above xl = 1200px */
+.zak-navbar-expand-xxl     /* Expand at/above xxl = 1400px */
+
+/* Positioning */
+.zak-navbar-fixed           /* Fixed to top of viewport */
+.zak-navbar-fixed-bottom    /* Fixed to bottom of viewport */
+.zak-navbar-sticky          /* Sticky to top on scroll */
+.zak-navbar-sticky-bottom   /* Sticky to bottom on scroll */
+
+/* Navbar Parts */
+.zak-navbar-inner          /* Flex layout container (wrap + space-between) */
+.zak-navbar-brand          /* Brand/logo link (images/svg sized to 2rem) */
+.zak-navbar-toggler        /* Hamburger menu button (uses .zak-icon-menu/.zak-icon-close for icon swap) */
+.zak-navbar-collapse       /* Collapsible nav content (below breakpoint) */
+.zak-navbar-search         /* Search form wrapper */
+.zak-navbar-actions        /* Right-aligned actions (visible at all sizes) */
+.zak-navbar-text           /* Plain text block inside the navbar */
+.zak-navbar-nav-scroll     /* Vertically scrollable nav list (when collapsed) */
+.zak-navbar-menu           /* Legacy alias for collapse */
+
+/* Navigation Links */
+.zak-navbar-nav            /* Nav link list */
+.zak-nav-link              /* Individual nav link (scoped to .zak-navbar) */
+.zak-nav-link.active       /* Active state */
+.zak-nav-link.disabled     /* Disabled state (also via aria-disabled="true") */
+.zak-nav-dropdown          /* Dropdown parent */
+
+/* Centered layouts */
+.zak-navbar-center         /* Center the collapse contents (no brand) */
+.zak-navbar-nav-center     /* Center the nav links inside the collapse */
+.zak-navbar-actions-end    /* Push actions to the right of the collapse */
+
+/* Mobile */
+.zak-open                /* Mobile menu open state (toggled by JS) */
+.zak-navbar-active       /* Alias open state for JS-driven navbars */
+.zak-navbar-menu-active  /* Open state on collapse/menu element */
+.zak-icon-menu           /* Hamburger icon (shown when closed) */
+.zak-icon-close          /* Close icon (shown when open) */</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>JavaScript</h2>
+                <p>Include <code>zak.js</code> and mark the navbar with <code>data-zak-navbar</code>. It auto-wires the hamburger toggle, sets <code>aria-expanded</code>, and closes the menu on link click, outside click, and <kbd>Escape</kbd>.</p>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;nav class="zak-navbar zak-navbar-light zak-navbar-expand-lg" data-zak-navbar&gt;
+  ...
+&lt;/nav&gt;
+
+&lt;script src="path/to/zak.js"&gt;&lt;/script&gt;</code></pre>
+                </div>
+                <p>The expand behavior mirrors Bootstrap: a navbar without an expand class never expands, <code>zak-navbar-expand</code> always expands, and <code>zak-navbar-expand-{sm|md|lg|xl|xxl}</code> expands at its breakpoint. Below the expand breakpoint the toggler shows a hamburger menu; at or above it the menu is laid out inline and the toggler is hidden. The <code>zak.navbar</code> API is also available for manual control:</p>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>zak.navbar.open(navbar);      // open the mobile menu
+zak.navbar.close(navbar);     // close the mobile menu
+zak.navbar.toggle(navbar);    // toggle open/closed
+zak.navbar.isExpanded(navbar);// true at/above the navbar's expand breakpoint</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Accessibility</h2>
+                <p>Follow these accessibility best practices when using navbars.</p>
+                <ul>
+                    <li>Use <code>&lt;nav&gt;</code> element with <code>aria-label="Main navigation"</code> for the primary navbar.</li>
+                    <li>Use the hamburger button's <code>aria-label="Toggle navigation"</code> for screen readers.</li>
+                    <li>Mark the current page with <code>aria-current="page"</code> on the active link.</li>
+                    <li>Mark disabled links with <code>aria-disabled="true"</code> (the <code>.disabled</code> class alone is not enough).</li>
+                    <li>Ensure the mobile menu has <code>role="navigation"</code> when expanded.</li>
+                    <li>Close the mobile menu on <kbd>Escape</kbd> key press.</li>
+                    <li>Manage focus trap inside the open mobile menu for keyboard navigation.</li>
+                </ul>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;nav class="zak-navbar zak-navbar-light zak-navbar-expand-lg" data-zak-navbar aria-label="Main navigation"&gt;
+    &lt;div class="zak-container"&gt;
+        &lt;div class="zak-navbar-inner"&gt;
+            &lt;a href="#" class="zak-navbar-brand"&gt;Brand&lt;/a&gt;
+            &lt;button class="zak-navbar-toggler" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navbar-collapse"&gt;
+                &lt;svg class="zak-icon zak-icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"&gt;
+                    &lt;path d="M3 12h18M3 6h18M3 18h18"/&gt;
+                &lt;/svg&gt;
+                &lt;svg class="zak-icon zak-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"&gt;
+                    &lt;path d="M18 6 6 18M6 6l12 12"/&gt;
+                &lt;/svg&gt;
+            &lt;/button&gt;
+            &lt;div class="zak-navbar-collapse" id="navbar-collapse" role="navigation"&gt;
+                &lt;ul class="zak-navbar-nav"&gt;
+                    &lt;li&gt;&lt;a href="#" class="zak-nav-link active" aria-current="page"&gt;Home&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#" class="zak-nav-link"&gt;Features&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body>
+</html>

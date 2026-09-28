@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Dashboard Widget documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Dashboard Widget - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/data-visualization/dashboard-widget/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Dashboard Widget - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Dashboard Widget documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/data-visualization/dashboard-widget/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Data-Visualization</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Dashboard Widget</span>
+                </nav>
+        <h1>Dashboard Widget</h1>
+        <p class="docs-subtitle">Dashboard Widgets are card-based containers for dashboard layouts. They combine a title bar with actions, chart/table/stats content areas, loading states, and responsive grid layouts.</p>
+
+        <div class="zak-docs-section">
+            <h2>Widget with Title &amp; Actions</h2>
+            <p>Standard widget with a header bar containing title and action buttons.</p>
+
+            <div class="docs-preview">
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr)); gap: 1rem;">
+                    <div class="zak-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; border-bottom: 1px solid var(--zak-border);">
+                            <h3 style="margin: 0; font-size: 1rem;">Revenue Overview</h3>
+                            <div style="display: flex; gap: 0.375rem;">
+                                <button class="zak-btn zak-btn-soft zak-btn-sm">
+                                    <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+                                </button>
+                                <button class="zak-btn zak-btn-soft zak-btn-sm">
+                                    <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="zak-card-body" style="padding: 1.25rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+                                <div style="font-size: 1.5rem; font-weight: 700;">$48,290</div>
+                                <svg width="120" height="40" viewBox="0 0 120 40"><polyline points="0,30 20,22 40,26 60,14 80,18 100,8 120,12" fill="none" stroke="var(--zak-primary)" stroke-width="2" stroke-linecap="round"/></svg>
+                            </div>
+                            <div style="font-size: 0.75rem; color: var(--zak-success, #10b981);">↑ 12.5% from last month</div>
+                        </div>
+                    </div>
+                    <div class="zak-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; border-bottom: 1px solid var(--zak-border);">
+                            <h3 style="margin: 0; font-size: 1rem;">Recent Activity</h3>
+                            <a href="#" style="font-size: 0.8125rem; color: var(--zak-primary);">View all</a>
+                        </div>
+                        <div class="zak-card-body" style="padding: 0;">
+                            <div style="padding: 0.75rem 1.25rem; border-bottom: 1px solid var(--zak-border); display: flex; gap: 0.75rem; align-items: center;">
+                                <span class="zak-avatar zak-avatar-sm" style="background: var(--zak-primary-bg, #eff6ff); color: var(--zak-primary);">AJ</span>
+                                <div style="flex: 1;"><div style="font-size: 0.875rem;">Alice uploaded a file</div><div style="font-size: 0.75rem; color: var(--zak-text-muted);">2 minutes ago</div></div>
+                            </div>
+                            <div style="padding: 0.75rem 1.25rem; border-bottom: 1px solid var(--zak-border); display: flex; gap: 0.75rem; align-items: center;">
+                                <span class="zak-avatar zak-avatar-sm" style="background: rgba(16,185,129,0.1); color: var(--zak-success, #10b981);">BS</span>
+                                <div style="flex: 1;"><div style="font-size: 0.875rem;">Bob approved a request</div><div style="font-size: 0.75rem; color: var(--zak-text-muted);">15 minutes ago</div></div>
+                            </div>
+                            <div style="padding: 0.75rem 1.25rem; display: flex; gap: 0.75rem; align-items: center;">
+                                <span class="zak-avatar zak-avatar-sm" style="background: rgba(245,158,11,0.1); color: var(--zak-warning, #f59e0b);">CW</span>
+                                <div style="flex: 1;"><div style="font-size: 0.875rem;">Carol commented on post</div><div style="font-size: 0.75rem; color: var(--zak-text-muted);">1 hour ago</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-card"&gt;
+  &lt;div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; border-bottom: 1px solid var(--zak-border);"&gt;
+    &lt;h3 style="margin: 0; font-size: 1rem;"&gt;Revenue Overview&lt;/h3&gt;
+    &lt;button class="zak-btn zak-btn-soft zak-btn-sm"&gt;...&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="zak-card-body" style="padding: 1.25rem;"&gt;
+    &lt;div style="font-size: 1.5rem; font-weight: 700;"&gt;$48,290&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Widget with Chart Placeholder</h2>
+            <p>Widget containing a CSS bar chart.</p>
+
+            <div class="docs-preview">
+                <div class="zak-card" style="max-width: 400px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; border-bottom: 1px solid var(--zak-border);">
+                        <h3 style="margin: 0; font-size: 1rem;">Weekly Traffic</h3>
+                        <span class="zak-badge">Live</span>
+                    </div>
+                    <div class="zak-card-body" style="padding: 1.25rem;">
+                        <div style="display: flex; align-items: flex-end; gap: 0.5rem; height: 120px;">
+                            <div style="flex: 1; height: 60%; background: var(--zak-primary); border-radius: 3px 3px 0 0; opacity: 0.6;"></div>
+                            <div style="flex: 1; height: 80%; background: var(--zak-primary); border-radius: 3px 3px 0 0;"></div>
+                            <div style="flex: 1; height: 45%; background: var(--zak-primary); border-radius: 3px 3px 0 0; opacity: 0.6;"></div>
+                            <div style="flex: 1; height: 90%; background: var(--zak-primary); border-radius: 3px 3px 0 0;"></div>
+                            <div style="flex: 1; height: 70%; background: var(--zak-primary); border-radius: 3px 3px 0 0;"></div>
+                            <div style="flex: 1; height: 55%; background: var(--zak-primary); border-radius: 3px 3px 0 0; opacity: 0.6;"></div>
+                            <div style="flex: 1; height: 65%; background: var(--zak-primary); border-radius: 3px 3px 0 0;"></div>
+                        </div>
+                        <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+                            <div style="flex: 1; text-align: center; font-size: 0.6875rem; color: var(--zak-text-muted);">Mon</div>
+                            <div style="flex: 1; text-align: center; font-size: 0.6875rem; color: var(--zak-text-muted);">Tue</div>
+                            <div style="flex: 1; text-align: center; font-size: 0.6875rem; color: var(--zak-text-muted);">Wed</div>
+                            <div style="flex: 1; text-align: center; font-size: 0.6875rem; color: var(--zak-text-muted);">Thu</div>
+                            <div style="flex: 1; text-align: center; font-size: 0.6875rem; color: var(--zak-text-muted);">Fri</div>
+                            <div style="flex: 1; text-align: center; font-size: 0.6875rem; color: var(--zak-text-muted);">Sat</div>
+                            <div style="flex: 1; text-align: center; font-size: 0.6875rem; color: var(--zak-text-muted);">Sun</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-card"&gt;
+  &lt;div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; border-bottom: 1px solid var(--zak-border);"&gt;
+    &lt;h3 style="margin: 0; font-size: 1rem;"&gt;Weekly Traffic&lt;/h3&gt;
+    &lt;span class="zak-badge"&gt;Live&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="zak-card-body" style="padding: 1.25rem; display: flex; align-items: flex-end; gap: 0.5rem; height: 120px;"&gt;
+    &lt;div style="flex: 1; height: 60%; background: var(--zak-primary);"&gt;&lt;/div&gt;
+    &lt;div style="flex: 1; height: 80%; background: var(--zak-primary);"&gt;&lt;/div&gt;
+    &lt;div style="flex: 1; height: 45%; background: var(--zak-primary);"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Widget with Stats</h2>
+            <p>Widget displaying a mini stat grid.</p>
+
+            <div class="docs-preview">
+                <div class="zak-card" style="max-width: 360px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; border-bottom: 1px solid var(--zak-border);">
+                        <h3 style="margin: 0; font-size: 1rem;">Quick Stats</h3>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr;">
+                        <div style="padding: 1rem 1.25rem; border-right: 1px solid var(--zak-border); border-bottom: 1px solid var(--zak-border);">
+                            <div style="font-size: 0.75rem; color: var(--zak-text-muted);">Orders</div>
+                            <div style="font-size: 1.25rem; font-weight: 700;">1,234</div>
+                        </div>
+                        <div style="padding: 1rem 1.25rem; border-bottom: 1px solid var(--zak-border);">
+                            <div style="font-size: 0.75rem; color: var(--zak-text-muted);">Revenue</div>
+                            <div style="font-size: 1.25rem; font-weight: 700;">$48K</div>
+                        </div>
+                        <div style="padding: 1rem 1.25rem; border-right: 1px solid var(--zak-border);">
+                            <div style="font-size: 0.75rem; color: var(--zak-text-muted);">Customers</div>
+                            <div style="font-size: 1.25rem; font-weight: 700;">892</div>
+                        </div>
+                        <div style="padding: 1rem 1.25rem;">
+                            <div style="font-size: 0.75rem; color: var(--zak-text-muted);">Returns</div>
+                            <div style="font-size: 1.25rem; font-weight: 700;">23</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-card" style="max-width: 360px;"&gt;
+  &lt;div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; border-bottom: 1px solid var(--zak-border);"&gt;
+    &lt;h3 style="margin: 0; font-size: 1rem;"&gt;Quick Stats&lt;/h3&gt;
+  &lt;/div&gt;
+  &lt;div style="display: grid; grid-template-columns: 1fr 1fr;"&gt;
+    &lt;div style="padding: 1rem 1.25rem; border-right: 1px solid var(--zak-border); border-bottom: 1px solid var(--zak-border);"&gt;
+      &lt;div style="font-size: 0.75rem; color: var(--zak-text-muted);"&gt;Orders&lt;/div&gt;
+      &lt;div style="font-size: 1.25rem; font-weight: 700;"&gt;1,234&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div style="padding: 1rem 1.25rem; border-bottom: 1px solid var(--zak-border);"&gt;
+      &lt;div style="font-size: 0.75rem; color: var(--zak-text-muted);"&gt;Revenue&lt;/div&gt;
+      &lt;div style="font-size: 1.25rem; font-weight: 700;"&gt;$48K&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Widget with Loading State</h2>
+            <p>Show skeleton placeholders while data loads.</p>
+
+            <div class="docs-preview">
+                <div class="zak-card" style="max-width: 360px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; border-bottom: 1px solid var(--zak-border);">
+                        <h3 style="margin: 0; font-size: 1rem;">Top Products</h3>
+                        <div class="zak-spinner zak-spinner-sm" style="width: 1rem; height: 1rem;"></div>
+                    </div>
+                    <div class="zak-card-body" style="padding: 1.25rem;">
+                        <div style="display: flex; align-items: center; gap: 0.75rem; padding: 0.5rem 0; border-bottom: 1px solid var(--zak-border);">
+                            <div class="zak-skeleton" style="width: 2rem; height: 2rem; border-radius: 4px;"></div>
+                            <div style="flex: 1;"><div class="zak-skeleton" style="height: 0.875rem; width: 60%; margin-bottom: 0.375rem;"></div><div class="zak-skeleton" style="height: 0.625rem; width: 40%;"></div></div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.75rem; padding: 0.5rem 0; border-bottom: 1px solid var(--zak-border);">
+                            <div class="zak-skeleton" style="width: 2rem; height: 2rem; border-radius: 4px;"></div>
+                            <div style="flex: 1;"><div class="zak-skeleton" style="height: 0.875rem; width: 50%; margin-bottom: 0.375rem;"></div><div class="zak-skeleton" style="height: 0.625rem; width: 35%;"></div></div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.75rem; padding: 0.5rem 0;">
+                            <div class="zak-skeleton" style="width: 2rem; height: 2rem; border-radius: 4px;"></div>
+                            <div style="flex: 1;"><div class="zak-skeleton" style="height: 0.875rem; width: 70%; margin-bottom: 0.375rem;"></div><div class="zak-skeleton" style="height: 0.625rem; width: 45%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-card" style="max-width: 360px;"&gt;
+  &lt;div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; border-bottom: 1px solid var(--zak-border);"&gt;
+    &lt;h3 style="margin: 0; font-size: 1rem;"&gt;Top Products&lt;/h3&gt;
+    &lt;div class="zak-spinner zak-spinner-sm"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="zak-card-body" style="padding: 1.25rem;"&gt;
+    &lt;div class="zak-skeleton" style="width: 2rem; height: 2rem; border-radius: 4px;"&gt;&lt;/div&gt;
+    &lt;div class="zak-skeleton" style="height: 0.875rem; width: 60%;"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Widget Grid Layout</h2>
+            <p>Responsive dashboard grid combining multiple widget sizes.</p>
+
+            <div class="docs-preview">
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;">
+                    <div class="zak-card" style="grid-column: span 2;">
+                        <div style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--zak-border); font-weight: 600; font-size: 0.875rem;">Revenue Chart</div>
+                        <div class="zak-card-body" style="height: 120px; display: flex; align-items: flex-end; gap: 4px;">
+                            <div style="flex:1;height:40%;background:var(--zak-primary);border-radius:2px 2px 0 0;"></div>
+                            <div style="flex:1;height:65%;background:var(--zak-primary);border-radius:2px 2px 0 0;"></div>
+                            <div style="flex:1;height:50%;background:var(--zak-primary);border-radius:2px 2px 0 0;"></div>
+                            <div style="flex:1;height:80%;background:var(--zak-primary);border-radius:2px 2px 0 0;"></div>
+                            <div style="flex:1;height:60%;background:var(--zak-primary);border-radius:2px 2px 0 0;"></div>
+                            <div style="flex:1;height:90%;background:var(--zak-primary);border-radius:2px 2px 0 0;"></div>
+                            <div style="flex:1;height:70%;background:var(--zak-primary);border-radius:2px 2px 0 0;"></div>
+                            <div style="flex:1;height:85%;background:var(--zak-primary);border-radius:2px 2px 0 0;"></div>
+                        </div>
+                    </div>
+                    <div class="zak-card" style="grid-column: span 1;">
+                        <div style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--zak-border); font-weight: 600; font-size: 0.875rem;">Users</div>
+                        <div class="zak-card-body" style="text-align: center; padding: 1.5rem 1rem;">
+                            <div style="font-size: 1.75rem; font-weight: 700;">2.4K</div>
+                            <div style="font-size: 0.75rem; color: var(--zak-success, #10b981);">↑ 12%</div>
+                        </div>
+                    </div>
+                    <div class="zak-card" style="grid-column: span 1;">
+                        <div style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--zak-border); font-weight: 600; font-size: 0.875rem;">Tasks</div>
+                        <div class="zak-card-body" style="text-align: center; padding: 1.5rem 1rem;">
+                            <div style="font-size: 1.75rem; font-weight: 700;">84%</div>
+                            <div style="font-size: 0.75rem; color: var(--zak-success, #10b981);">↑ 3%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;"&gt;
+  &lt;div class="zak-card" style="grid-column: span 2;"&gt;
+    &lt;div style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--zak-border); font-weight: 600; font-size: 0.875rem;"&gt;Revenue Chart&lt;/div&gt;
+    &lt;div class="zak-card-body" style="height: 120px;"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="zak-card"&gt;
+    &lt;div style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--zak-border); font-weight: 600; font-size: 0.875rem;"&gt;Users&lt;/div&gt;
+    &lt;div class="zak-card-body"&gt;2.4K&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="zak-card"&gt;
+    &lt;div style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--zak-border); font-weight: 600; font-size: 0.875rem;"&gt;Tasks&lt;/div&gt;
+    &lt;div class="zak-card-body"&gt;84%&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead><tr><th>Class</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>.zak-card</code></td><td>Widget container</td></tr>
+                        <tr><td><code>.zak-card-body</code></td><td>Widget content area</td></tr>
+                        <tr><td><code>.zak-skeleton</code></td><td>Loading skeleton placeholder</td></tr>
+                        <tr><td><code>.zak-spinner</code></td><td>Loading spinner indicator</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body>
+</html>

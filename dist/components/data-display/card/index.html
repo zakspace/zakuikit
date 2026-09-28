@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Card documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Card - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/data-display/card/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Card - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Card documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/data-display/card/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Data-Display</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Card</span>
+                </nav>
+        <h1>Card</h1>
+        <p class="docs-subtitle">Cards are flexible, extensible content containers. They include options for headers and footers, image placement, contextual border colors, hover interactions, and powerful display options.</p>
+
+        <div class="zak-docs-section">
+            <h2>Basic Card</h2>
+            <p>The default card has a surface background, a subtle border and shadow, and a padded body.</p>
+
+            <div class="docs-preview">
+                <div class="zak-card" style="max-width: 22rem; margin: 0 auto;">
+                    <div class="zak-card-body">
+                        <h3 class="zak-card-title">Card title</h3>
+                        <h6 class="zak-card-subtitle">Card subtitle</h6>
+                        <p class="zak-card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="zak-btn zak-btn-primary zak-btn-sm">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-card"&gt;
+  &lt;div class="zak-card-body"&gt;
+    &lt;h3 class="zak-card-title"&gt;Card title&lt;/h3&gt;
+    &lt;h6 class="zak-card-subtitle"&gt;Card subtitle&lt;/h6&gt;
+    &lt;p class="zak-card-text"&gt;Some quick example text...&lt;/p&gt;
+    &lt;a href="#" class="zak-btn zak-btn-primary zak-btn-sm"&gt;Go somewhere&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Card with Image</h2>
+            <p>Place an image at the top of a card using <code>.zak-card-img</code> with <code>.zak-card-img-top</code>.</p>
+
+            <div class="docs-preview">
+                <div class="zak-card" style="max-width: 22rem; margin: 0 auto;">
+                    <img class="zak-card-img zak-card-img-top" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 220'%3E%3Crect width='400' height='220' fill='%234f46e5'/%3E%3Ccircle cx='330' cy='40' r='120' fill='%236366f1' opacity='0.7'/%3E%3Ccircle cx='40' cy='200' r='100' fill='%23818cf8' opacity='0.5'/%3E%3C/svg%3E" alt="Illustrative card image">
+                    <div class="zak-card-body">
+                        <h3 class="zak-card-title">Product launch</h3>
+                        <p class="zak-card-text">Announce new releases with a hero image card that leads with rich visuals.</p>
+                        <a href="#" class="zak-btn zak-btn-outline-primary zak-btn-sm">Read more</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-card"&gt;
+  &lt;img class="zak-card-img zak-card-img-top" src="..." alt="..."&gt;
+  &lt;div class="zak-card-body"&gt;
+    &lt;h3 class="zak-card-title"&gt;Product launch&lt;/h3&gt;
+    &lt;p class="zak-card-text"&gt;Announce new releases...&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Card with Header and Footer</h2>
+            <p>Use <code>.zak-card-header</code> and <code>.zak-card-footer</code> to add extra structure. Headers may contain titles and actions; footers typically hold buttons.</p>
+
+            <div class="docs-preview">
+                <div class="zak-card" style="max-width: 22rem; margin: 0 auto;">
+                    <div class="zak-card-header">
+                        <span class="zak-card-title">Project settings</span>
+                        <span class="zak-badge zak-badge-primary">Active</span>
+                    </div>
+                    <div class="zak-card-body">
+                        <p class="zak-card-text">Configure project-wide preferences that apply to every member of the workspace.</p>
+                    </div>
+                    <div class="zak-card-footer">
+                        <button class="zak-btn zak-btn-outline-secondary zak-btn-sm">Cancel</button>
+                        <button class="zak-btn zak-btn-primary zak-btn-sm">Save changes</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-card"&gt;
+  &lt;div class="zak-card-header"&gt;
+    &lt;span class="zak-card-title"&gt;Project settings&lt;/span&gt;
+    &lt;span class="zak-badge zak-badge-primary"&gt;Active&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="zak-card-body"&gt;
+    &lt;p class="zak-card-text"&gt;Configure project-wide preferences...&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="zak-card-footer"&gt;
+    &lt;button class="zak-btn zak-btn-outline-secondary zak-btn-sm"&gt;Cancel&lt;/button&gt;
+    &lt;button class="zak-btn zak-btn-primary zak-btn-sm"&gt;Save changes&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Horizontal Card</h2>
+            <p>Combine a card with flex utilities to create a horizontal image-card layout.</p>
+
+            <div class="docs-preview">
+                <div class="zak-card" style="max-width: 30rem; margin: 0 auto;">
+                    <div style="display: flex; align-items: stretch;">
+                        <div style="width: 10rem; flex-shrink: 0; min-height: 8rem;">
+                            <img class="zak-card-img" style="height: 100%; border-top-left-radius: calc(var(--zak-radius-xl) - 1px); border-bottom-left-radius: calc(var(--zak-radius-xl) - 1px);" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%230d9488'/%3E%3Ccircle cx='160' cy='30' r='80' fill='%2314b8a6' opacity='0.7'/%3E%3Ccircle cx='20' cy='180' r='70' fill='%232dd4bf' opacity='0.55'/%3E%3C/svg%3E" alt="Teal abstract">
+                        </div>
+                        <div class="zak-card-body" style="display: flex; flex-direction: column; justify-content: center;">
+                            <h3 class="zak-card-title">New dashboard</h3>
+                            <p class="zak-card-text">Track team performance with the updated analytics dashboard built for speed.</p>
+                            <div style="margin-top: 0.5rem;">
+                                <button class="zak-btn zak-btn-primary zak-btn-sm">Open dashboard</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-card" style="max-width: 30rem;"&gt;
+  &lt;div style="display: flex; align-items: stretch;"&gt;
+    &lt;div style="width: 10rem; flex-shrink: 0; min-height: 8rem;"&gt;
+      &lt;img class="zak-card-img" src="..." alt="..."&gt;
+    &lt;/div&gt;
+    &lt;div class="zak-card-body"&gt;
+      &lt;h3 class="zak-card-title"&gt;New dashboard&lt;/h3&gt;
+      &lt;p class="zak-card-text"&gt;Track team performance...&lt;/p&gt;
+      &lt;button class="zak-btn zak-btn-primary zak-btn-sm"&gt;Open&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Card Variants</h2>
+            <p>Combine <code>.zak-card-bordered</code> with the contextual border utilities to emphasize card meaning with a colored border.</p>
+
+            <div class="docs-preview">
+                <div class="zak-grid zak-grid-cols-3" style="align-items: stretch;">
+                    <div class="zak-card zak-card-bordered zak-border-primary" style="padding: var(--zak-space-5);">
+                        <h3 class="zak-card-title zak-text-primary">Primary</h3>
+                        <p class="zak-card-text">Primary context card for featured content.</p>
+                    </div>
+                    <div class="zak-card zak-card-bordered zak-border-success" style="padding: var(--zak-space-5);">
+                        <h3 class="zak-card-title zak-text-success">Success</h3>
+                        <p class="zak-card-text">Success context card for positive states.</p>
+                    </div>
+                    <div class="zak-card zak-card-bordered zak-border-danger" style="padding: var(--zak-space-5);">
+                        <h3 class="zak-card-title zak-text-danger">Danger</h3>
+                        <p class="zak-card-text">Danger context card for destructive states.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-card zak-card-bordered zak-border-primary"&gt;...&lt;/div&gt;
+&lt;div class="zak-card zak-card-bordered zak-border-success"&gt;...&lt;/div&gt;
+&lt;div class="zak-card zak-card-bordered zak-border-danger"&gt;...&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Card with Overlay</h2>
+            <p>Place content directly over an image by positioning the body absolutely over the image.</p>
+
+            <div class="docs-preview">
+                <div class="zak-card" style="max-width: 22rem; margin: 0 auto;">
+                    <div style="position: relative; border-radius: calc(var(--zak-radius-xl) - 1px); overflow: hidden;">
+                        <img class="zak-card-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 260'%3E%3Crect width='400' height='260' fill='%23d97706'/%3E%3Ccircle cx='340' cy='30' r='110' fill='%23f59e0b' opacity='0.75'/%3E%3Ccircle cx='30' cy='250' r='130' fill='%23fb923c' opacity='0.6'/%3E%3C/svg%3E" alt="Sunset gradient" style="display: block;">
+                        <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0.05)); display: flex; flex-direction: column; justify-content: flex-end; padding: var(--zak-space-5);">
+                            <h3 class="zak-card-title" style="color: #fff; margin-bottom: 0.25rem;">Summer campaign</h3>
+                            <p class="zak-card-text" style="color: rgba(255,255,255,0.85); margin-bottom: 0.5rem;">Launching across all regions in Q3.</p>
+                            <span class="zak-badge zak-badge-warning">Coming soon</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-card"&gt;
+  &lt;div style="position: relative; border-radius: calc(var(--zak-radius-xl) - 1px); overflow: hidden;"&gt;
+    &lt;img class="zak-card-img" src="..." alt="..."&gt;
+    &lt;div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0.05)); display: flex; flex-direction: column; justify-content: flex-end; padding: var(--zak-space-5);"&gt;
+      &lt;h3 class="zak-card-title" style="color: #fff;"&gt;Summer campaign&lt;/h3&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Interactive Card</h2>
+            <p>Add <code>.zak-card-hoverable</code> to lift the card and deepen the shadow on hover.</p>
+
+            <div class="docs-preview">
+                <div class="zak-grid zak-grid-cols-3" style="align-items: stretch;">
+                    <a href="#" class="zak-card zak-card-hoverable" style="padding: var(--zak-space-5); text-decoration: none; color: inherit;">
+                        <h3 class="zak-card-title">Design system</h3>
+                        <p class="zak-card-text">Browse every token, component and guideline in one place.</p>
+                        <span class="zak-text-primary" style="font-size: var(--zak-font-size-sm); font-weight: var(--zak-font-weight-semibold);">Explore &rarr;</span>
+                    </a>
+                    <a href="#" class="zak-card zak-card-hoverable" style="padding: var(--zak-space-5); text-decoration: none; color: inherit;">
+                        <h3 class="zak-card-title">Documentation</h3>
+                        <p class="zak-card-text">Learn how to install, customize and extend the library.</p>
+                        <span class="zak-text-primary" style="font-size: var(--zak-font-size-sm); font-weight: var(--zak-font-weight-semibold);">Read docs &rarr;</span>
+                    </a>
+                    <a href="#" class="zak-card zak-card-hoverable" style="padding: var(--zak-space-5); text-decoration: none; color: inherit;">
+                        <h3 class="zak-card-title">Showcase</h3>
+                        <p class="zak-card-text">See real applications built on top of ZAKUIKit components.</p>
+                        <span class="zak-text-primary" style="font-size: var(--zak-font-size-sm); font-weight: var(--zak-font-weight-semibold);">View gallery &rarr;</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;a href="#" class="zak-card zak-card-hoverable"&gt;
+  &lt;h3 class="zak-card-title"&gt;Design system&lt;/h3&gt;
+  &lt;p class="zak-card-text"&gt;Browse every token, component and guideline in one place.&lt;/p&gt;
+  &lt;span class="zak-text-primary"&gt;Explore &amp;rarr;&lt;/span&gt;
+&lt;/a&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Card Grid</h2>
+            <p>Wrap cards in a responsive grid to build a card group that stays aligned.</p>
+
+            <div class="docs-preview">
+                <div class="zak-grid zak-grid-cols-3" style="align-items: stretch;">
+                    <div class="zak-card" style="padding: var(--zak-space-5);">
+                        <h3 class="zak-card-title">Weekly digest</h3>
+                        <p class="zak-card-text">A summary of product updates shipped this week.</p>
+                        <button class="zak-btn zak-btn-outline-primary zak-btn-sm">Open</button>
+                    </div>
+                    <div class="zak-card" style="padding: var(--zak-space-5);">
+                        <h3 class="zak-card-title">Growth report</h3>
+                        <p class="zak-card-text">Quarterly metrics for traffic, activation and retention.</p>
+                        <button class="zak-btn zak-btn-outline-primary zak-btn-sm">Open</button>
+                    </div>
+                    <div class="zak-card" style="padding: var(--zak-space-5);">
+                        <h3 class="zak-card-title">Feedback</h3>
+                        <p class="zak-card-text">Unmoderated NPS responses collected from customers.</p>
+                        <button class="zak-btn zak-btn-outline-primary zak-btn-sm">Open</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-grid zak-grid-cols-3"&gt;
+  &lt;div class="zak-card"&gt;...&lt;/div&gt;
+  &lt;div class="zak-card"&gt;...&lt;/div&gt;
+  &lt;div class="zak-card"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.zak-card</code></td><td>Base card container</td></tr>
+                        <tr><td><code>.zak-card-body</code></td><td>Padded body content area</td></tr>
+                        <tr><td><code>.zak-card-header</code></td><td>Top header with flex alignment</td></tr>
+                        <tr><td><code>.zak-card-footer</code></td><td>Bottom footer with right-aligned actions</td></tr>
+                        <tr><td><code>.zak-card-title</code></td><td>Card heading style</td></tr>
+                        <tr><td><code>.zak-card-subtitle</code></td><td>Muted subtitle style</td></tr>
+                        <tr><td><code>.zak-card-text</code></td><td>Body copy style</td></tr>
+                        <tr><td><code>.zak-card-img</code></td><td>Responsive cover image</td></tr>
+                        <tr><td><code>.zak-card-img-top</code></td><td>Rounds the top corners of an image</td></tr>
+                        <tr><td><code>.zak-card-img-bottom</code></td><td>Rounds the bottom corners of an image</td></tr>
+                        <tr><td><code>.zak-card-hoverable</code></td><td>Raises card and deepens shadow on hover</td></tr>
+                        <tr><td><code>.zak-card-flat</code></td><td>Removes shadow</td></tr>
+                        <tr><td><code>.zak-card-bordered</code></td><td>Emphasizes border, removes shadow</td></tr>
+                        <tr><td><code>.zak-border-primary</code> / <code>-success</code> / <code>-danger</code></td><td>Contextual border colors</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Use the appropriate heading level (<code>h1</code>&ndash;<code>h6</code>) for <code>.zak-card-title</code>, never skip levels.</li>
+                <li>Provide descriptive <code>alt</code> text on <code>.zak-card-img</code> images; use <code>alt=""</code> for purely decorative images.</li>
+                <li>When the entire card is clickable, use a single link or button wrapping the card, not multiple nested interactive elements.</li>
+                <li>Color borders indicating meaning must always be paired with a text label — never rely on color alone.</li>
+                <li>Cards inside a grid should remain keyboard-navigable and include visible focus states on any interactive controls.</li>
+            </ul>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body></html>

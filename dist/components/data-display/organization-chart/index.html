@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Organization Chart documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Organization Chart - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/data-display/organization-chart/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Organization Chart - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Organization Chart documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/data-display/organization-chart/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Enterprise</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Organization Chart</span>
+                </nav>
+        <h1>Organization Chart</h1>
+        <p class="docs-subtitle">An organizational chart with hierarchical levels, connecting lines, collapsible branches, and employee cards with avatars.</p>
+
+        <div class="zak-docs-section">
+            <h2>Organization Chart</h2>
+            <p>A multi-level org chart with CSS flexbox layout, connecting lines between levels, and collapsible branches.</p>
+
+            <div class="docs-preview">
+                <div style="border:1px solid var(--zak-border-color);border-radius:var(--zak-radius-lg);overflow:auto;padding:var(--zak-space-6);background:var(--zak-surface-1);" id="org-container">
+                    <div style="display:flex;justify-content:center;margin-bottom:var(--zak-space-4);">
+                        <button class="zak-btn zak-btn-outline zak-btn-sm" id="org-toggle-all">Collapse All</button>
+                    </div>
+                    <div id="org-chart" style="display:flex;flex-direction:column;align-items:center;"></div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="org-chart"&gt;
+  &lt;div class="org-node org-root"&gt;
+    &lt;div class="org-card" style="text-align:center;"&gt;
+      &lt;div class="org-avatar"&gt;JD&lt;/div&gt;
+      &lt;div class="org-name"&gt;Jane Doe&lt;/div&gt;
+      &lt;div class="org-title"&gt;CEO&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="org-children"&gt;
+      &lt;div class="org-connector"&gt;&lt;/div&gt;
+      &lt;div class="org-node"&gt;...&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Features</h2>
+            <ul>
+                <li><strong>Hierarchical Layout</strong> &mdash; CEO at top, VPs in second row, Directors/Managers below, ICs at bottom.</li>
+                <li><strong>Employee Cards</strong> &mdash; Circle avatar, name, and title in each card.</li>
+                <li><strong>Connecting Lines</strong> &mdash; Visual lines connecting parent to children at each level.</li>
+                <li><strong>Collapse/Expand</strong> &mdash; Click toggle button to collapse or expand branches.</li>
+                <li><strong>Color-Coded Avatars</strong> &mdash; Each level uses a different avatar background color.</li>
+                <li><strong>Responsive</strong> &mdash; Horizontal scroll for wide org charts.</li>
+            </ul>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead><tr><th>Class</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>.zak-btn zak-btn-outline zak-btn-sm</code></td><td>Collapse/Expand All toggle button</td></tr>
+                        <tr><td><code>.zak-avatar</code></td><td>Circle avatar in org cards</td></tr>
+                        <tr><td><code>.zak-badge</code></td><td>Employee count badge</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    <script>
+    (function(){
+        var orgData={
+            name:'Jane Doe',title:'CEO',color:'#6366f1',children:[
+                {name:'Michael Chen',title:'VP Engineering',color:'#3b82f6',children:[
+                    {name:'Sarah Kim',title:'Director of Frontend',color:'#10b981',children:[
+                        {name:'Tom Wilson',title:'Senior Engineer',color:'#8b5cf6',children:[]},
+                        {name:'Lisa Park',title:'Engineer',color:'#8b5cf6',children:[]}
+                    ]},
+                    {name:'James Liu',title:'Director of Backend',color:'#10b981',children:[
+                        {name:'Anna Roy',title:'Senior Engineer',color:'#8b5cf6',children:[]}
+                    ]}
+                ]},
+                {name:'Emily Davis',title:'VP Product',color:'#3b82f6',children:[
+                    {name:'Carlos Reyes',title:'Product Manager',color:'#10b981',children:[
+                        {name:'Nina Patel',title:'Associate PM',color:'#8b5cf6',children:[]}
+                    ]}
+                ]},
+                {name:'Robert Brown',title:'VP Operations',color:'#3b82f6',children:[
+                    {name:'Kate Johnson',title:'Director of HR',color:'#10b981',children:[]},
+                    {name:'Dan Lee',title:'Finance Manager',color:'#10b981',children:[]}
+                ]}
+            ]
+        };
+        var collapsed=new Set();
+        var chart=document.getElementById('org-chart');
+        var toggleAllBtn=document.getElementById('org-toggle-all');
+        var allCollapsed=false;
+
+        function getInitials(name){return name.split(' ').map(function(w){return w[0];}).join('');}
+        function countDescendants(node){var c=0;node.children.forEach(function(ch){c++;c+=countDescendants(ch);});return c;}
+        function renderCard(node,hasChildren,nodeId){
+            var isCollapsed=collapsed.has(nodeId);
+            var initials=getInitials(node.name);
+            var descCount=countDescendants(node);
+            return '<div style="text-align:center;position:relative;">'
+                +'<div style="background:var(--zak-surface-1);border:2px solid var(--zak-border-color);border-radius:var(--zak-radius-lg);padding:var(--zak-space-3) var(--zak-space-4);min-width:160px;box-shadow:var(--zak-shadow-sm);display:inline-block;transition:all 0.2s;" onmouseover="this.style.boxShadow=\'var(--zak-shadow-md)\';this.style.borderColor=\''+node.color+'\'" onmouseout="this.style.boxShadow=\'var(--zak-shadow-sm)\';this.style.borderColor=\'var(--zak-border-color)\'">'
+                +'<div style="width:48px;height:48px;border-radius:50%;background:'+node.color+';color:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto var(--zak-space-2);font-weight:600;font-size:var(--zak-font-size-sm);">'+initials+'</div>'
+                +'<div style="font-weight:600;font-size:var(--zak-font-size-sm);margin-bottom:2px;">'+node.name+'</div>'
+                +'<div style="font-size:var(--zak-font-size-xs);color:var(--zak-text-muted);">'+node.title+'</div>'
+                +(hasChildren?'<div style="margin-top:var(--zak-space-2);"><button class="zak-btn zak-btn-soft zak-btn-sm org-collapse-btn" data-id="'+nodeId+'" style="font-size:10px;padding:2px 8px;border:1px solid var(--zak-border-color);border-radius:999px;">'+(isCollapsed?'Show '+(descCount)+' members':'Collapse')+'</button></div>':'')
+                +'</div></div>';
+        }
+        function renderLevel(node,parentId,nodeId){
+            var isCollapsed=collapsed.has(nodeId);
+            var html='<div style="display:flex;flex-direction:column;align-items:center;">';
+            html+=renderCard(node,node.children.length>0,nodeId);
+            if(node.children.length>0&&!isCollapsed){
+                html+='<div style="width:2px;height:20px;background:var(--zak-border-color);"></div>';
+                html+='<div style="display:flex;gap:var(--zak-space-6);position:relative;padding-top:20px;">';
+                html+='<div style="position:absolute;top:0;left:'+(node.children.length>1?'calc(50% - '+(node.children.length*50)+'% + 40px)':'calc(50% - 40px)')+';right:'+(node.children.length>1?'calc(50% - '+(node.children.length*50)+'% + 40px)':'calc(50% - 40px)')+';height:2px;background:var(--zak-border-color);"></div>';
+                node.children.forEach(function(child,ci){
+                    html+='<div style="display:flex;flex-direction:column;align-items:center;position:relative;">';
+                    html+='<div style="width:2px;height:20px;background:var(--zak-border-color);position:absolute;top:-20px;"></div>';
+                    html+=renderLevel(child,nodeId,nodeId+'-'+ci);
+                    html+='</div>';
+                });
+                html+='</div>';
+            }
+            html+='</div>';
+            return html;
+        }
+        function render(){
+            chart.innerHTML=renderLevel(orgData,'root','0');
+            chart.querySelectorAll('.org-collapse-btn').forEach(function(btn){
+                btn.addEventListener('click',function(e){
+                    e.stopPropagation();
+                    var id=btn.dataset.id;
+                    if(collapsed.has(id)) collapsed.delete(id); else collapsed.add(id);
+                    render();
+                });
+            });
+        }
+        toggleAllBtn.addEventListener('click',function(){
+            allCollapsed=!allCollapsed;
+            function collectIds(node,id){
+                if(node.children.length>0){
+                    if(allCollapsed) collapsed.add(id); else collapsed.delete(id);
+                    node.children.forEach(function(ch,i){collectIds(ch,id+'-'+i);});
+                }
+            }
+            collectIds(orgData,'0');
+            toggleAllBtn.textContent=allCollapsed?'Expand All':'Collapse All';
+            render();
+        });
+        render();
+    })();
+    </script>
+</body></html>

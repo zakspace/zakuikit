@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Chip documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Chip - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/data-display/chip/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Chip - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Chip documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/data-display/chip/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Data-Display</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Chip</span>
+                </nav>
+        <h1>Chip</h1>
+        <p class="docs-subtitle">Chips are compact elements that represent an input, attribute or action. They can contain icons, avatars, and close buttons, and support every contextual color.</p>
+
+        <div class="zak-docs-section">
+            <h2>Basic Chip</h2>
+            <p>The default chip has a subtle background with a border.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; justify-content: center;">
+                    <span class="zak-chip">React</span>
+                    <span class="zak-chip">Vue</span>
+                    <span class="zak-chip">Svelte</span>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;span class="zak-chip"&gt;React&lt;/span&gt;
+&lt;span class="zak-chip"&gt;Vue&lt;/span&gt;
+&lt;span class="zak-chip"&gt;Svelte&lt;/span&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Color Variants</h2>
+            <p>Chips support primary, success, warning, danger and info color variants.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; justify-content: center;">
+                    <span class="zak-chip zak-chip-primary">Primary</span>
+                    <span class="zak-chip zak-chip-success">Success</span>
+                    <span class="zak-chip zak-chip-warning">Warning</span>
+                    <span class="zak-chip zak-chip-danger">Danger</span>
+                    <span class="zak-chip zak-chip-info">Info</span>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;span class="zak-chip zak-chip-primary"&gt;Primary&lt;/span&gt;
+&lt;span class="zak-chip zak-chip-success"&gt;Success&lt;/span&gt;
+&lt;span class="zak-chip zak-chip-warning"&gt;Warning&lt;/span&gt;
+&lt;span class="zak-chip zak-chip-danger"&gt;Danger&lt;/span&gt;
+&lt;span class="zak-chip zak-chip-info"&gt;Info&lt;/span&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Chip with Icon</h2>
+            <p>Add a leading icon inside the chip for extra context.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; justify-content: center;">
+                    <span class="zak-chip zak-chip-primary">
+                        <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        Mail
+                    </span>
+                    <span class="zak-chip zak-chip-success">
+                        <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        Admin
+                    </span>
+                    <span class="zak-chip zak-chip-info">
+                        <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                        Notifications
+                    </span>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;span class="zak-chip zak-chip-primary"&gt;
+  &lt;svg class="zak-icon zak-icon-sm"&gt;...&lt;/svg&gt;
+  Mail
+&lt;/span&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Chip with Avatar</h2>
+            <p>Nest a small avatar inside a chip to identify a person or entity.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; justify-content: center;">
+                    <span class="zak-chip"><span class="zak-avatar zak-avatar-xs zak-avatar-primary">JA</span> Janet Fox</span>
+                    <span class="zak-chip"><span class="zak-avatar zak-avatar-xs zak-avatar-success">MK</span> Mark Kim</span>
+                    <span class="zak-chip"><span class="zak-avatar zak-avatar-xs zak-avatar-warning">SR</span> Sara Reyes</span>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;span class="zak-chip"&gt;
+  &lt;span class="zak-avatar zak-avatar-xs zak-avatar-primary"&gt;JA&lt;/span&gt;
+  Janet Fox
+&lt;/span&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Closable Chip</h2>
+            <p>Add <code>.zak-chip-removable</code> and a <code>.zak-chip-close</code> button for removable chips. A small script removes the chip on click.</p>
+
+            <div class="docs-preview">
+                <div id="chip-group-demo" style="display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; justify-content: center;">
+                    <span class="zak-chip zak-chip-removable">Tag: apples<button type="button" class="zak-chip-close" aria-label="Remove" onclick="this.parentElement.remove()">&times;</button></span>
+                    <span class="zak-chip zak-chip-removable zak-chip-primary">Tag: bananas<button type="button" class="zak-chip-close" aria-label="Remove" onclick="this.parentElement.remove()">&times;</button></span>
+                    <span class="zak-chip zak-chip-removable zak-chip-success">Tag: citrus<button type="button" class="zak-chip-close" aria-label="Remove" onclick="this.parentElement.remove()">&times;</button></span>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;span class="zak-chip zak-chip-removable"&gt;
+  Tag: apples
+  &lt;button type="button" class="zak-chip-close" aria-label="Remove" onclick="this.parentElement.remove()"&gt;&amp;times;&lt;/button&gt;
+&lt;/span&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Chip Group</h2>
+            <p>Group chips in a wrapping flex container to form a tag list.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; justify-content: center;">
+                    <span class="zak-chip zak-chip-info">#design</span>
+                    <span class="zak-chip zak-chip-info">#frontend</span>
+                    <span class="zak-chip zak-chip-info">#backend</span>
+                    <span class="zak-chip zak-chip-info">#docs</span>
+                    <span class="zak-chip zak-chip-info">#release</span>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div style="display: flex; flex-wrap: wrap; gap: 0.5rem;"&gt;
+  &lt;span class="zak-chip zak-chip-info"&gt;#design&lt;/span&gt;
+  &lt;span class="zak-chip zak-chip-info"&gt;#frontend&lt;/span&gt;
+  &lt;span class="zak-chip zak-chip-info"&gt;#backend&lt;/span&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Outlined Chip</h2>
+            <p>Create an outlined chip by overriding the background with an inline style.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; justify-content: center;">
+                    <span class="zak-chip" style="background: transparent;">Outlined</span>
+                    <span class="zak-chip" style="background: transparent; color: var(--zak-color-primary); border-color: var(--zak-color-primary);">Primary outline</span>
+                    <span class="zak-chip" style="background: transparent; color: var(--zak-color-success); border-color: var(--zak-color-success);">Success outline</span>
+                    <span class="zak-chip" style="background: transparent; color: var(--zak-color-danger); border-color: var(--zak-color-danger);">Danger outline</span>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;span class="zak-chip" style="background: transparent;"&gt;Outlined&lt;/span&gt;
+&lt;span class="zak-chip" style="background: transparent; color: var(--zak-color-primary); border-color: var(--zak-color-primary);"&gt;Primary outline&lt;/span&gt;
+&lt;span class="zak-chip" style="background: transparent; color: var(--zak-color-success); border-color: var(--zak-color-success);"&gt;Success outline&lt;/span&gt;
+&lt;span class="zak-chip" style="background: transparent; color: var(--zak-color-danger); border-color: var(--zak-color-danger);"&gt;Danger outline&lt;/span&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Sizes</h2>
+            <p>Scale chips with <code>font-size</code> — padding and icon size follow along.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; justify-content: center;">
+                    <span class="zak-chip zak-chip-primary" style="font-size: 0.65rem;">Small</span>
+                    <span class="zak-chip zak-chip-primary">Default</span>
+                    <span class="zak-chip zak-chip-primary" style="font-size: 0.95rem;">Large</span>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;span class="zak-chip zak-chip-primary" style="font-size: 0.65rem;"&gt;Small&lt;/span&gt;
+&lt;span class="zak-chip zak-chip-primary"&gt;Default&lt;/span&gt;
+&lt;span class="zak-chip zak-chip-primary" style="font-size: 0.95rem;"&gt;Large&lt;/span&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.zak-chip</code></td><td>Base chip styling</td></tr>
+                        <tr><td><code>.zak-chip-primary</code></td><td>Primary color variant</td></tr>
+                        <tr><td><code>.zak-chip-success</code></td><td>Success color variant</td></tr>
+                        <tr><td><code>.zak-chip-warning</code></td><td>Warning color variant</td></tr>
+                        <tr><td><code>.zak-chip-danger</code></td><td>Danger color variant</td></tr>
+                        <tr><td><code>.zak-chip-info</code></td><td>Info color variant</td></tr>
+                        <tr><td><code>.zak-chip-removable</code></td><td>Adds padding for a close button</td></tr>
+                        <tr><td><code>.zak-chip-close</code></td><td>Circular close button inside a removable chip</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Close buttons in removable chips need an accessible name, e.g. <code>aria-label="Remove"</code>.</li>
+                <li>When a chip's color indicates meaning, keep the visible text readable on every variant.</li>
+                <li>Use <code>aria-live="polite"</code> on containers whose chips are dynamically added or removed.</li>
+                <li>Focus must move to a sensible spot after a chip is removed (e.g. the next chip or the input).</li>
+                <li>Chips that act as buttons or links should use the real <code>&lt;button&gt;</code> / <code>&lt;a&gt;</code> elements with visible focus styles.</li>
+            </ul>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body></html>

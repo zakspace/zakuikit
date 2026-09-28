@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Dropdown documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Dropdown - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/overlays/dropdown/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Dropdown - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Dropdown documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/overlays/dropdown/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Overlays</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Dropdown</span>
+                </nav>
+        <h1>Dropdown</h1>
+        <p class="docs-subtitle">Dropdowns surface a compact menu of actions anchored to a trigger. Great for row actions, sorting, exports and user menus.</p>
+
+        <section class="zak-docs-section">
+            <h2>Basic Dropdown</h2>
+            <p>Wrap the trigger and menu in <code>.zak-dropdown</code>, then toggle with <code>data-zak-dropdown="#id"</code>. Outside clicks, <kbd>Escape</kbd> and item selection close it.</p>
+            <div class="docs-preview">
+                <div class="zak-dropdown">
+                    <button class="zak-btn zak-btn-primary" data-zak-dropdown="#ddBasic">Actions <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left:4px;"><path d="m6 9 6 6 6-6"/></svg></button>
+                    <div class="zak-dropdown-menu" id="ddBasic">
+                        <button class="zak-menu-item">Edit</button>
+                        <button class="zak-menu-item">Duplicate</button>
+                        <button class="zak-menu-item">Archive</button>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-dropdown"&gt;
+    &lt;button class="zak-btn zak-btn-primary" data-zak-dropdown="#ddBasic"&gt;
+        Actions &amp;lt;svg ...&amp;gt;
+    &lt;/button&gt;
+    &lt;div class="zak-dropdown-menu" id="ddBasic"&gt;
+        &lt;button class="zak-menu-item"&gt;Edit&lt;/button&gt;
+        &lt;button class="zak-menu-item"&gt;Duplicate&lt;/button&gt;
+        &lt;button class="zak-menu-item"&gt;Archive&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Dropdown with Header</h2>
+            <p>Add <code>.zak-menu-header</code> to label a group, and use <code>.zak-menu-divider</code> to separate related items.</p>
+            <div class="docs-preview">
+                <div class="zak-dropdown">
+                    <button class="zak-btn zak-btn-secondary" data-zak-dropdown="#ddHeader"><span style="display:flex; align-items:center; gap:8px;"><span class="zak-avatar" style="width:20px;height:20px;border-radius:50%;background:var(--zak-color-primary);color:#fff;font-size:11px;display:inline-flex;align-items:center;justify-content:center;">A</span> Ada Lovelace</span></button>
+                    <div class="zak-dropdown-menu" id="ddHeader">
+                        <div class="zak-menu-header">Account</div>
+                        <button class="zak-menu-item">Profile</button>
+                        <button class="zak-menu-item">Settings</button>
+                        <hr class="zak-menu-divider">
+                        <div class="zak-menu-header">Workspace</div>
+                        <button class="zak-menu-item">Members</button>
+                        <button class="zak-menu-item">Billing</button>
+                        <hr class="zak-menu-divider">
+                        <button class="zak-menu-item is-danger">Sign out</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Dropdown with Icons</h2>
+            <p>Pair <code>.zak-menu-item</code> with inline SVG icons for scannable actions.</p>
+            <div class="docs-preview">
+                <div class="zak-dropdown">
+                    <button class="zak-btn zak-btn-outline-primary" data-zak-dropdown="#ddIcons">Export</button>
+                    <div class="zak-dropdown-menu" id="ddIcons">
+                        <button class="zak-menu-item"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>Export CSV</button>
+                        <button class="zak-menu-item"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>Export JSON</button>
+                        <button class="zak-menu-item"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Share with team</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Disabled Items</h2>
+            <p>Apply <code>.is-disabled</code> to a menu item to make it read-only and unclickable.</p>
+            <div class="docs-preview">
+                <div class="zak-dropdown">
+                    <button class="zak-btn zak-btn-secondary" data-zak-dropdown="#ddDisabled">More</button>
+                    <div class="zak-dropdown-menu" id="ddDisabled">
+                        <button class="zak-menu-item">Publish now</button>
+                        <button class="zak-menu-item is-disabled">Schedule (coming soon)</button>
+                        <button class="zak-menu-item">Preview</button>
+                        <button class="zak-menu-item is-danger">Delete draft</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Alignment</h2>
+            <p>The menu aligns to the trigger&rsquo;s left edge by default. Add <code>.zak-dropdown-menu-right</code> to align it to the trigger&rsquo;s right edge instead (useful for actions near the viewport edge).</p>
+            <div class="docs-preview">
+                <div class="zak-dropdown">
+                    <button class="zak-btn zak-btn-primary" data-zak-dropdown="#ddRight">Changelog</button>
+                    <div class="zak-dropdown-menu zak-dropdown-menu-right" id="ddRight" style="min-width:18rem;">
+                        <button class="zak-menu-item">2.4.0 — Drawers &amp; offcanvas</button>
+                        <button class="zak-menu-item">2.3.2 — Tooltip fixes</button>
+                        <button class="zak-menu-item">2.3.0 — Date &amp; time pickers</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Long List (Scrollable)</h2>
+            <p>The menu caps at <code>max-height: 20rem</code> and scrolls internally for long item lists.</p>
+            <div class="docs-preview">
+                <div class="zak-dropdown">
+                    <button class="zak-btn zak-btn-outline-primary" data-zak-dropdown="#ddLong">Jump to section</button>
+                    <div class="zak-dropdown-menu" id="ddLong" style="min-width:16rem;">
+                        <div class="zak-menu-header">Chapters</div>
+                        <button class="zak-menu-item">1. Getting started</button>
+                        <button class="zak-menu-item">2. Design tokens</button>
+                        <button class="zak-menu-item">3. Layout primitives</button>
+                        <button class="zak-menu-item">4. Forms</button>
+                        <button class="zak-menu-item">5. Data display</button>
+                        <button class="zak-menu-item">6. Feedback</button>
+                        <button class="zak-menu-item">7. Overlays</button>
+                        <button class="zak-menu-item">8. Pickers</button>
+                        <button class="zak-menu-item">9. Data visualization</button>
+                        <button class="zak-menu-item">10. Enterprise</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>CSS Classes &amp; Variables</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>/* Class Summary */
+.zak-dropdown            /* Positioning context (inline-block, relative) */
+.zak-dropdown-menu       /* Floating menu (hidden until active) */
+.zak-dropdown-active     /* Added by JS to show */
+.zak-dropdown-menu-left  /* Align to the left edge (default) */
+.zak-dropdown-menu-right /* Align to the right edge */
+.zak-dropdown-menu-center/* Center on the trigger */
+.zak-menu-header         /* Group label */
+.zak-menu-item           /* Single action row */
+.zak-menu-item.is-danger /* Destructive styling */
+.zak-menu-item.is-disabled /* Read-only state */
+.zak-menu-divider        /* Horizontal rule between groups */
+
+/* Variables used */
+--zak-surface           /* Menu background */
+--zak-border            /* Menu border */
+--zak-shadow-lg         /* Menu shadow */
+--zak-z-dropdown        /* z-index (above content) */
+--zak-radius-lg         /* Rounded corners */</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>JavaScript</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>// Data attributes (automatic)
+//   data-zak-dropdown="#id"      toggle the menu
+
+// Programmatic API
+zak.dropdown.open('#myMenu');
+zak.dropdown.close('#myMenu');
+zak.dropdown.toggle('#myMenu');
+
+// Each menu item fires when chosen
+menu.addEventListener('zak:select', function (e) {
+    console.log('Selected', e.detail.value);
+});
+
+// Events on the dropdown menu element
+menu.addEventListener('zak:open', function () { console.log('opened'); });
+menu.addEventListener('zak:close', function () { console.log('closed'); });</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>The trigger carries <code>aria-haspopup="menu"</code>; the framework toggles <code>aria-expanded</code> automatically.</li>
+                <li>Menus use the <code>menu</code> role with items as <code>menuitem</code> so screen readers announce correctly.</li>
+                <li>Arrow keys navigate items; <kbd>Enter</kbd>/<kbd>Space</kbd> activates, <kbd>Escape</kbd> closes and returns focus to the trigger.</li>
+                <li>Keep the trigger as a real <code>&lt;button&gt;</code> (or a link that goes somewhere).</li>
+                <li>Prefer a plain Dropdown for 3–10 actions; use a navigation menu for site IA instead.</li>
+            </ul>
+        </section>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body></html>

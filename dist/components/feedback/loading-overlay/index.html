@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Loading Overlay documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Loading Overlay - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/feedback/loading-overlay/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Loading Overlay - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Loading Overlay documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/feedback/loading-overlay/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Loading-States</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Loading Overlay</span>
+                </nav>
+        <h1>Loading Overlay</h1>
+        <p class="docs-subtitle">A semi-transparent overlay placed on top of content to indicate a loading state.</p>
+
+        <h2>Overlay on Card</h2>
+        <p>Place an overlay on a card to block interaction during loading.</p>
+        <div class="docs-preview">
+            <div class="docs-preview">
+                <div class="zak-card zak-loading" id="overlayCard1" style="position:relative;max-width:400px">
+                    <div class="zak-card-body">
+                        <h3>Card Title</h3>
+                        <p>This card content is covered by a loading overlay. The content is still there but interaction is blocked.</p>
+                    </div>
+                    <div class="zak-overlay zak-overlay-active">
+                        <div class="zak-spinner"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-card zak-loading" style="position:relative"&gt;
+    &lt;div class="zak-card-body"&gt;
+        &lt;h3&gt;Card Title&lt;/h3&gt;
+        &lt;p&gt;Card content...&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="zak-overlay zak-overlay-active"&gt;
+        &lt;div class="zak-spinner"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <h2>Overlay on Table</h2>
+        <p>Block table interaction during data fetching.</p>
+        <div class="docs-preview">
+            <div class="docs-preview">
+                <div class="zak-loading" id="overlayTable" style="position:relative">
+                    <table class="zak-table" style="width:100%">
+                        <thead>
+                            <tr><th>Name</th><th>Email</th><th>Role</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Alice Johnson</td><td>alice@example.com</td><td>Admin</td></tr>
+                            <tr><td>Bob Smith</td><td>bob@example.com</td><td>Editor</td></tr>
+                            <tr><td>Carol Davis</td><td>carol@example.com</td><td>Viewer</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="zak-overlay zak-overlay-active">
+                        <div class="zak-spinner"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-loading" style="position:relative"&gt;
+    &lt;table class="zak-table"&gt;
+        &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Email&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+        &lt;tbody&gt;...&lt;/tbody&gt;
+    &lt;/table&gt;
+    &lt;div class="zak-overlay zak-overlay-active"&gt;
+        &lt;div class="zak-spinner"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <h2>Overlay on Page</h2>
+        <p>A full-page overlay for global loading states.</p>
+        <div class="docs-preview">
+            <div class="docs-preview">
+                <div class="zak-overlay zak-overlay-active" style="position:relative;height:250px;background:var(--zak-surface);border-radius:8px">
+                    <div class="zak-overlay-content">
+                        <div class="zak-spinner zak-spinner-lg"></div>
+                        <p style="margin-top:1rem;color:var(--zak-text-muted)">Loading page content...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-overlay zak-overlay-active"&gt;
+    &lt;div class="zak-overlay-content"&gt;
+        &lt;div class="zak-spinner zak-spinner-lg"&gt;&lt;/div&gt;
+        &lt;p&gt;Loading page content...&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <h2>Overlay with Spinner</h2>
+        <p>Default overlay using a spinner indicator.</p>
+        <div class="docs-preview">
+            <div class="docs-preview">
+                <div class="zak-overlay zak-overlay-active" style="position:relative;height:120px;background:var(--zak-surface);border-radius:8px">
+                    <div class="zak-overlay-content">
+                        <div class="zak-spinner zak-spinner-primary"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-overlay zak-overlay-active"&gt;
+    &lt;div class="zak-overlay-content"&gt;
+        &lt;div class="zak-spinner zak-spinner-primary"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <h2>Overlay with Text</h2>
+        <p>Display a text message alongside the loading indicator.</p>
+        <div class="docs-preview">
+            <div class="docs-preview">
+                <div class="zak-overlay zak-overlay-active" style="position:relative;height:120px;background:var(--zak-surface);border-radius:8px">
+                    <div class="zak-overlay-content">
+                        <div class="zak-spinner"></div>
+                        <p style="margin-top:0.75rem;color:var(--zak-text)">Saving changes...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-overlay zak-overlay-active"&gt;
+    &lt;div class="zak-overlay-content"&gt;
+        &lt;div class="zak-spinner"&gt;&lt;/div&gt;
+        &lt;p&gt;Saving changes...&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <h2>Overlay with Progress Bar</h2>
+        <p>Combine the overlay with a progress bar for determinate loading.</p>
+        <div class="docs-preview">
+            <div class="docs-preview">
+                <div class="zak-overlay zak-overlay-active" style="position:relative;height:120px;background:var(--zak-surface);border-radius:8px">
+                    <div class="zak-overlay-content" style="width:200px">
+                        <p style="margin-bottom:0.5rem;color:var(--zak-text);font-size:0.875rem">Uploading...</p>
+                        <div class="zak-progress">
+                            <div class="zak-progress-bar zak-progress-striped zak-progress-animated" id="overlayProgressBar" style="width:65%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-overlay zak-overlay-active"&gt;
+    &lt;div class="zak-overlay-content" style="width:200px"&gt;
+        &lt;p&gt;Uploading...&lt;/p&gt;
+        &lt;div class="zak-progress"&gt;
+            &lt;div class="zak-progress-bar zak-progress-striped zak-progress-animated" style="width:65%"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <h2>Toggle Demo</h2>
+        <p>Click the buttons to toggle overlay states.</p>
+        <div class="docs-preview">
+            <div class="docs-preview" style="display:flex;gap:1rem;flex-wrap:wrap">
+                <button class="zak-btn zak-btn-primary" onclick="toggleOverlay('overlayCard1')">Toggle Card Overlay</button>
+                <button class="zak-btn zak-btn-outline" onclick="toggleOverlay('overlayTable')">Toggle Table Overlay</button>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;script&gt;
+function toggleOverlay(id) {
+    const container = document.getElementById(id);
+    const overlay = container.querySelector('.zak-overlay');
+    overlay.classList.toggle('zak-overlay-active');
+}
+&lt;/script&gt;</code></pre>
+            </div>
+        </div>
+
+        <h2>CSS Variables</h2>
+        <div class="docs-preview">
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span></div><pre><code>:root {
+    --zak-overlay-bg: rgba(255, 255, 255, 0.8);
+    --zak-overlay-z-index: 10;
+    --zak-overlay-radius: inherit;
+}
+
+[data-theme="dark"] {
+    --zak-overlay-bg: rgba(0, 0, 0, 0.6);
+}</code></pre>
+            </div>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    <script>
+        function toggleOverlay(id) {
+            const container = document.getElementById(id);
+            const overlay = container.querySelector('.zak-overlay');
+            overlay.classList.toggle('zak-overlay-active');
+        }
+    </script>
+</body></html>

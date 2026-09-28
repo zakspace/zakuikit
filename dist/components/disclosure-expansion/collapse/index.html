@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Collapse documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Collapse - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/disclosure-expansion/collapse/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Collapse - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Collapse documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/disclosure-expansion/collapse/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Disclosure</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Collapse</span>
+                </nav>
+        <h1>Collapse</h1>
+        <p class="docs-subtitle">Collapse expands and retracts a single content block with a smooth height animation. It is the lowest-level disclosure primitive behind accordions and expandable panels.</p>
+
+        <section class="zak-docs-section">
+            <h2>Basic Collapse</h2>
+            <p>Point a trigger at its target with <code>data-zak-collapse="#id"</code>. The target is <code>.zak-collapse-target</code>; add <code>.zak-collapse-active</code> to start open.</p>
+            <div class="docs-preview">
+                <button class="zak-btn zak-btn-primary" data-zak-collapse="#collapseBasic">Toggle details</button>
+                <div class="zak-collapse-target zak-collapse-active" id="collapseBasic">
+                    <div class="coll-box" style="margin-top:12px;">Release 3.2 shipped today. It adds push-mode drawers, a date range picker and faster theme switching. See the changelog for breaking changes.</div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;button class="zak-btn zak-btn-primary" data-zak-collapse="#collapseBasic"&gt;
+    Toggle details
+&lt;/button&gt;
+
+&lt;div class="zak-collapse-target zak-collapse-active" id="collapseBasic"&gt;
+    &lt;div class="coll-box"&gt;Release 3.2 shipped today...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Collapse with Icon</h2>
+            <p>Swap the chevron state from the <code>zak:open</code> / <code>zak:close</code> events for a tidy disclosure affordance.</p>
+            <div class="docs-preview">
+                <button class="zak-btn zak-btn-secondary" id="collapseChevronBtn" data-zak-collapse="#collapseChevron">
+                    More options <svg class="zak-icon" id="collapseChevronIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left:2px; transition: transform 0.2s ease;"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="zak-collapse-target" id="collapseChevron">
+                    <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:12px; padding:16px; background:var(--zak-surface,#fff); border:1px solid var(--zak-border,#e2e8f0); border-radius:10px;">
+                        <button class="zak-btn zak-btn-sm zak-btn-outline-primary">Compact</button>
+                        <button class="zak-btn zak-btn-sm zak-btn-outline-primary">Detailed</button>
+                        <button class="zak-btn zak-btn-sm zak-btn-outline-primary">Grid</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Multiple Collapses</h2>
+            <p>You can drive several targets with one trigger by listing multiple selectors, or use two independent buttons for the same target.</p>
+            <div class="docs-preview">
+                <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:12px;">
+                    <button class="zak-btn zak-btn-primary" data-zak-collapse="#collapseMulti1">Section A</button>
+                    <button class="zak-btn zak-btn-primary" data-zak-collapse="#collapseMulti2">Section B</button>
+                </div>
+                <div class="zak-collapse-target" id="collapseMulti1"><div class="coll-box" style="margin-bottom:8px;">Section A content — filters like status, assignee and priority.</div></div>
+                <div class="zak-collapse-target" id="collapseMulti2"><div class="coll-box">Section B content — sorting and grouping controls.</div></div>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Horizontal Collapse</h2>
+            <p>For width animation, override the transition to animate <code>width</code> and set <code>height: auto</code> on the target.</p>
+            <div class="docs-preview">
+                <button class="zak-btn zak-btn-outline-primary" data-zak-collapse="#collapseH" onclick="document.getElementById('collapseH').style.transition='width 0.3s ease'; document.getElementById('collapseH').style.height='auto';">Toggle panel width</button>
+                <div class="zak-collapse-target" id="collapseH" style="height:auto; width:0; min-width:0; overflow:hidden; transition: width 0.3s ease;">
+                    <div style="width:340px; max-width:100%; padding:16px; background:var(--zak-surface,#fff); border:1px solid var(--zak-border,#e2e8f0); border-radius:10px; margin-top:12px; font-size:14px; color:var(--zak-text-muted, #475569); white-space:normal;">This collapses horizontally using width animation.</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>CSS Classes &amp; Variables</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>/* Class Summary */
+.zak-collapse-target   /* Collapsible region (height: 0 by default) */
+.zak-collapse-active   /* Expanded state (height: auto) */
+
+/* Variables used */
+--zak-transition-medium /* Animation duration */
+--zak-ease-standard     /* Easing curve */</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>JavaScript</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>// Data attributes (automatic)
+//   data-zak-collapse="#id"  toggle the target
+
+// Programmatic API
+zak.collapse.open('#myTarget');
+zak.collapse.close('#myTarget');
+zak.collapse.toggle('#myTarget');
+
+// Events on the target element
+target.addEventListener('zak:open', function () {});
+target.addEventListener('zak:close', function () {});
+
+// Height is animated, so open is async:
+zak.collapse.open('#myTarget').then(function () {
+    console.log('fully expanded');
+});</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>The trigger is a <code>&lt;button&gt;</code> and toggles <code>aria-expanded</code> automatically.</li>
+                <li>The target gets <code>aria-hidden</code> sync while collapsed so hidden content stays out of the accessibility tree.</li>
+                <li>Use <code>aria-controls</code> so assistive tech can jump from trigger to panel.</li>
+                <li>Never nest bootstrap-style double-tap triggers; one button controls one or more panels with clear labels.</li>
+                <li>Avoid animating <code>display</code>; the height transition keeps layout stable and predictable.</li>
+            </ul>
+        </section>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body></html>

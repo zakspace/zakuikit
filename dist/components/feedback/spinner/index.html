@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Spinner documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Spinner - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/feedback/spinner/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Spinner - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Spinner documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/feedback/spinner/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Feedback</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Spinner</span>
+                </nav>
+        <h1>Spinner</h1>
+        <p class="docs-subtitle">Spinners indicate that content is loading or a process is running. They pair well with buttons, in-page containers, and full-page loads.</p>
+
+        <section class="zak-docs-section">
+            <h2>Basic Spinner</h2>
+            <p>A default spinner animates a rotating border ring.</p>
+            <div class="docs-preview">
+                <span class="zak-spinner" role="status" aria-label="Loading"></span>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;span class="zak-spinner" role="status" aria-label="Loading"&gt;&lt;/span&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Spinner Sizes</h2>
+            <p>Sizes range from small to extra-large.</p>
+            <div class="docs-preview">
+                <div style="display:flex;gap:2rem;align-items:center;flex-wrap:wrap;">
+                    <span class="zak-spinner zak-spinner-sm" role="status" aria-label="Loading small"></span>
+                    <span class="zak-spinner" role="status" aria-label="Loading medium"></span>
+                    <span class="zak-spinner zak-spinner-lg" role="status" aria-label="Loading large"></span>
+                    <span class="zak-spinner zak-spinner-xl" role="status" aria-label="Loading extra large"></span>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;span class="zak-spinner zak-spinner-sm"&gt;&lt;/span&gt;  &lt;!-- 1rem --&gt;
+&lt;span class="zak-spinner"&gt;&lt;/span&gt;              &lt;!-- 1.5rem --&gt;
+&lt;span class="zak-spinner zak-spinner-lg"&gt;&lt;/span&gt;  &lt;!-- 2.5rem --&gt;
+&lt;span class="zak-spinner zak-spinner-xl"&gt;&lt;/span&gt;  &lt;!-- 4rem --&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Spinner Color Variants</h2>
+            <p>Recolor the leading edge of the ring with semantic variants.</p>
+            <div class="docs-preview">
+                <div style="display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;">
+                    <span class="zak-spinner" role="status" aria-label="Loading"></span>
+                    <span class="zak-spinner zak-spinner-success" role="status" aria-label="Loading success"></span>
+                    <span class="zak-spinner zak-spinner-danger" role="status" aria-label="Loading danger"></span>
+                    <span class="zak-spinner zak-spinner-warning" role="status" aria-label="Loading warning"></span>
+                    <span class="zak-spinner zak-spinner-info" role="status" aria-label="Loading info"></span>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;span class="zak-spinner"&gt;&lt;/span&gt;                    &lt;!-- primary --&gt;
+&lt;span class="zak-spinner zak-spinner-success"&gt;&lt;/span&gt;
+&lt;span class="zak-spinner zak-spinner-danger"&gt;&lt;/span&gt;
+&lt;span class="zak-spinner zak-spinner-warning"&gt;&lt;/span&gt;
+&lt;span class="zak-spinner zak-spinner-info"&gt;&lt;/span&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Spinner with Text</h2>
+            <p>Use <code>.zak-spinner-text</code> to align a spinner beside descriptive text.</p>
+            <div class="docs-preview">
+                <div class="zak-spinner-text">
+                    <span class="zak-spinner" role="status"></span>
+                    Loading dashboard...
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-spinner-text"&gt;
+    &lt;span class="zak-spinner" role="status"&gt;&lt;/span&gt;
+    Loading dashboard...
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Spinner as Button Loading State</h2>
+            <p>Swap a button's label for a spinner while processing. Click to try it.</p>
+            <div class="docs-preview">
+                <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+                    <button class="zak-btn zak-btn-primary" id="loading-btn-demo">
+                        <span class="zak-btn-loading-label">Save Changes</span>
+                    </button>
+                    <button class="zak-btn zak-btn-success">
+                        <span class="zak-spinner zak-spinner-sm" style="border-top-color:#fff;border-color:rgba(255,255,255,0.4);"></span>
+                        Processing...
+                    </button>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;button class="zak-btn zak-btn-primary" id="btn"&gt;
+    &lt;span id="label"&gt;Save Changes&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;script&gt;
+document.getElementById('btn').addEventListener('click', function () {
+    var spinner = document.createElement('span');
+    spinner.className = 'zak-spinner zak-spinner-sm';
+    this.querySelector('#label').textContent = 'Saving...';
+    this.prepend(spinner);
+    this.disabled = true;
+    setTimeout(function () {
+        document.getElementById('btn').disabled = false;
+        document.getElementById('btn').innerHTML = '&lt;span id="label"&gt;Saved&lt;/span&gt;';
+    }, 2000);
+});
+&lt;/script&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Border Spinner vs Grow Spinner</h2>
+            <p>ZAKUIKit offers a rotating border spinner. A grow spinner scales and fades a dot — add it via CSS if desired.</p>
+            <div class="docs-preview">
+                <div style="display:flex;gap:2rem;align-items:center;flex-wrap:wrap;">
+                    <span class="zak-spinner zak-spinner-lg" role="status" aria-label="Border spinner"></span>
+                    <span style="display:inline-block;width:2rem;height:2rem;border-radius:50%;background-color:var(--zak-color-primary);animation:zak-grow 1.2s ease-in-out infinite;"></span>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>/* Border spinner (built-in) */
+&lt;span class="zak-spinner zak-spinner-lg"&gt;&lt;/span&gt;
+
+/* Grow spinner (add this keyframe + markup) */
+@keyframes zak-grow {
+    0%, 100% { transform: scale(0); opacity: 0; }
+    50% { transform: scale(1); opacity: 1; }
+}
+&lt;span style="display:inline-block;width:2rem;height:2rem;border-radius:50%;
+     background-color:var(--zak-color-primary);
+     animation:zak-grow 1.2s ease-in-out infinite;"&gt;&lt;/span&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Full-Page Spinner</h2>
+            <p>Center a large spinner over the entire viewport during initial page loads.</p>
+            <div class="docs-preview">
+                <div style="display:flex;align-items:center;justify-content:center;min-height:12rem;width:100%;background:var(--zak-bg-subtle);border-radius:var(--zak-radius-lg);">
+                    <div style="display:flex;flex-direction:column;align-items:center;gap:1rem;color:var(--zak-text-muted);font-size:var(--zak-font-size-sm);">
+                        <span class="zak-spinner zak-spinner-lg" role="status" aria-label="Loading page"></span>
+                        Loading, please wait...
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
+     background:var(--zak-surface);z-index:var(--zak-z-modal);"&gt;
+    &lt;span class="zak-spinner zak-spinner-lg" role="status" aria-label="Loading page"&gt;&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>CSS Classes &amp; Variables</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>.zak-spinner        /* Base ring spinner */
+.zak-spinner-sm      /* 1rem */
+.zak-spinner-lg      /* 2.5rem */
+.zak-spinner-xl      /* 4rem */
+.zak-spinner-success /* Green leading edge */
+.zak-spinner-danger  /* Red leading edge */
+.zak-spinner-warning /* Amber leading edge */
+.zak-spinner-info    /* Cyan leading edge */
+.zak-spinner-text    /* Inline-flex wrapper with text */
+.zak-loading         /* Generic loading indicator wrapper */</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Add <code>role="status"</code> and an <code>aria-label</code> so the spinner is announced to assistive technology.</li>
+                <li>For in-progress areas, set <code>aria-busy="true"</code> on the container to defer updates.</li>
+                <li>Avoid purely decorative spinners that might falsely announce loading.</li>
+                <li>Respect <code>prefers-reduced-motion</code> by swapping or disconnecting the animation where possible.</li>
+            </ul>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div id="results" aria-busy="true"&gt;
+    &lt;span class="zak-spinner" role="status" aria-label="Fetching results"&gt;&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    <script>
+        document.getElementById('loading-btn-demo').addEventListener('click', function () {
+            var self = this;
+            self.disabled = true;
+            self.innerHTML = '<span class="zak-spinner zak-spinner-sm" style="border-top-color:#fff;border-color:rgba(255,255,255,0.4);"></span> Saving...';
+            setTimeout(function () {
+                self.disabled = false;
+                self.innerHTML = '<span class="zak-btn-loading-label">Saved!</span>';
+                setTimeout(function () {
+                    self.innerHTML = '<span class="zak-btn-loading-label">Save Changes</span>';
+                }, 1500);
+            }, 2000);
+        });
+    </script>
+</body></html>

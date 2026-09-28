@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Switch documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Switch - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/forms/switch/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Switch - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Switch documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/forms/switch/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+  <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+  <span class="docs-breadcrumb__separator">/</span>
+  <span class="docs-breadcrumb__current">Forms</span>
+  <span class="docs-breadcrumb__separator">/</span>
+  <span class="docs-breadcrumb__current">Switch</span>
+</nav>
+        <h1>Switch</h1>
+        <p class="docs-subtitle">Switch is a toggle control for binary on/off states. It provides a more intuitive UI than checkboxes for settings and preferences.</p>
+
+        <div class="zak-docs-section">
+            <h2>Basic Switch</h2>
+            <p>Simple switch with label.</p>
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-check zak-switch-wrapper">
+                        <input type="checkbox" id="sw-1" class="zak-form-check-input zak-switch" checked>
+                        <label class="zak-form-check-label" for="sw-1">Dark Mode</label>
+                    </div>
+                    <div class="zak-form-check zak-switch-wrapper">
+                        <input type="checkbox" id="sw-2" class="zak-form-check-input zak-switch">
+                        <label class="zak-form-check-label" for="sw-2">Email Notifications</label>
+                    </div>
+                </form>
+            </div>
+            <div class="docs-code-block">
+                <div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div>
+                <pre><code class="language-html">&lt;div class="zak-form-check zak-switch-wrapper"&gt;
+  &lt;input type="checkbox" id="darkmode" class="zak-form-check-input zak-switch" checked&gt;
+  &lt;label class="zak-form-check-label" for="darkmode"&gt;Dark Mode&lt;/label&gt;
+&lt;/div&gt;
+
+&lt;div class="zak-form-check zak-switch-wrapper"&gt;
+  &lt;input type="checkbox" id="notifications" class="zak-form-check-input zak-switch"&gt;
+  &lt;label class="zak-form-check-label" for="notifications"&gt;Email Notifications&lt;/label&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Switch Sizes</h2>
+            <p>Small and large switch variants.</p>
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-check zak-switch-wrapper">
+                        <input type="checkbox" id="sw-sm" class="zak-form-check-input zak-switch zak-switch-sm" checked>
+                        <label class="zak-form-check-label" for="sw-sm">Small Switch</label>
+                    </div>
+                    <div class="zak-form-check zak-switch-wrapper">
+                        <input type="checkbox" id="sw-md" class="zak-form-check-input zak-switch" checked>
+                        <label class="zak-form-check-label" for="sw-md">Default Switch</label>
+                    </div>
+                    <div class="zak-form-check zak-switch-wrapper">
+                        <input type="checkbox" id="sw-lg" class="zak-form-check-input zak-switch zak-switch-lg" checked>
+                        <label class="zak-form-check-label" for="sw-lg">Large Switch</label>
+                    </div>
+                </form>
+            </div>
+            <div class="docs-code-block">
+                <div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div>
+                <pre><code class="language-html">&lt;div class="zak-form-check zak-switch-wrapper"&gt;
+  &lt;input type="checkbox" class="zak-form-check-input zak-switch zak-switch-sm" checked&gt;
+  &lt;label class="zak-form-check-label"&gt;Small&lt;/label&gt;
+&lt;/div&gt;
+
+&lt;div class="zak-form-check zak-switch-wrapper"&gt;
+  &lt;input type="checkbox" class="zak-form-check-input zak-switch" checked&gt;
+  &lt;label class="zak-form-check-label"&gt;Default&lt;/label&gt;
+&lt;/div&gt;
+
+&lt;div class="zak-form-check zak-switch-wrapper"&gt;
+  &lt;input type="checkbox" class="zak-form-check-input zak-switch zak-switch-lg" checked&gt;
+  &lt;label class="zak-form-check-label"&gt;Large&lt;/label&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Switch Colors</h2>
+            <p>Different color themes for switches.</p>
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-check zak-switch-wrapper">
+                        <input type="checkbox" id="sw-primary" class="zak-form-check-input zak-switch zak-switch-primary" checked>
+                        <label class="zak-form-check-label" for="sw-primary">Primary</label>
+                    </div>
+                    <div class="zak-form-check zak-switch-wrapper">
+                        <input type="checkbox" id="sw-success" class="zak-form-check-input zak-switch zak-switch-success" checked>
+                        <label class="zak-form-check-label" for="sw-success">Success</label>
+                    </div>
+                    <div class="zak-form-check zak-switch-wrapper">
+                        <input type="checkbox" id="sw-danger" class="zak-form-check-input zak-switch zak-switch-danger" checked>
+                        <label class="zak-form-check-label" for="sw-danger">Danger</label>
+                    </div>
+                    <div class="zak-form-check zak-switch-wrapper">
+                        <input type="checkbox" id="sw-warning" class="zak-form-check-input zak-switch zak-switch-warning" checked>
+                        <label class="zak-form-check-label" for="sw-warning">Warning</label>
+                    </div>
+                </form>
+            </div>
+            <div class="docs-code-block">
+                <div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div>
+                <pre><code class="language-html">&lt;div class="zak-form-check zak-switch-wrapper"&gt;
+  &lt;input type="checkbox" class="zak-form-check-input zak-switch zak-switch-primary" checked&gt;
+  &lt;label class="zak-form-check-label"&gt;Primary&lt;/label&gt;
+&lt;/div&gt;
+
+&lt;div class="zak-form-check zak-switch-wrapper"&gt;
+  &lt;input type="checkbox" class="zak-form-check-input zak-switch zak-switch-success" checked&gt;
+  &lt;label class="zak-form-check-label"&gt;Success&lt;/label&gt;
+&lt;/div&gt;
+
+&lt;div class="zak-form-check zak-switch-wrapper"&gt;
+  &lt;input type="checkbox" class="zak-form-check-input zak-switch zak-switch-danger" checked&gt;
+  &lt;label class="zak-form-check-label"&gt;Danger&lt;/label&gt;
+&lt;/div&gt;
+
+&lt;div class="zak-form-check zak-switch-wrapper"&gt;
+  &lt;input type="checkbox" class="zak-form-check-input zak-switch zak-switch-warning" checked&gt;
+  &lt;label class="zak-form-check-label"&gt;Warning&lt;/label&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Disabled Switch</h2>
+            <p>Non-interactive disabled state.</p>
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-check zak-switch-wrapper">
+                        <input type="checkbox" id="sw-dis-on" class="zak-form-check-input zak-switch" checked disabled>
+                        <label class="zak-form-check-label" for="sw-dis-on">Enabled (disabled control)</label>
+                    </div>
+                    <div class="zak-form-check zak-switch-wrapper">
+                        <input type="checkbox" id="sw-dis-off" class="zak-form-check-input zak-switch" disabled>
+                        <label class="zak-form-check-label" for="sw-dis-off">Disabled switch</label>
+                    </div>
+                </form>
+            </div>
+            <div class="docs-code-block">
+                <div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div>
+                <pre><code class="language-html">&lt;div class="zak-form-check zak-switch-wrapper"&gt;
+  &lt;input type="checkbox" class="zak-form-check-input zak-switch" checked disabled&gt;
+  &lt;label class="zak-form-check-label"&gt;Enabled (disabled control)&lt;/label&gt;
+&lt;/div&gt;
+
+&lt;div class="zak-form-check zak-switch-wrapper"&gt;
+  &lt;input type="checkbox" class="zak-form-check-input zak-switch" disabled&gt;
+  &lt;label class="zak-form-check-label"&gt;Disabled switch&lt;/label&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Switch with Icons</h2>
+            <p>Add icons to represent on/off states.</p>
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-check zak-switch-wrapper">
+                        <input type="checkbox" id="sw-icon-1" class="zak-form-check-input zak-switch" checked>
+                        <label class="zak-form-check-label" for="sw-icon-1">
+                            <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                            Lights
+                        </label>
+                    </div>
+                    <div class="zak-form-check zak-switch-wrapper">
+                        <input type="checkbox" id="sw-icon-2" class="zak-form-check-input zak-switch" checked>
+                        <label class="zak-form-check-label" for="sw-icon-2">
+                            <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/></svg>
+                            Auto-brightness
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div class="docs-code-block">
+                <div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div>
+                <pre><code class="language-html">&lt;div class="zak-form-check zak-switch-wrapper"&gt;
+  &lt;input type="checkbox" id="lights" class="zak-form-check-input zak-switch" checked&gt;
+  &lt;label class="zak-form-check-label" for="lights"&gt;
+    &lt;svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;
+      &lt;circle cx="12" cy="12" r="5"/&gt;&lt;path d="M12 1v2M12 21v2"/&gt;
+    &lt;/svg&gt;
+    Lights
+  &lt;/label&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>JS Toggle Demo</h2>
+            <p>Interactive demo showing toggle state with JavaScript.</p>
+            <div class="docs-preview">
+                <div class="zak-form" id="sw-demo-area">
+                    <div class="zak-form-check zak-switch-wrapper">
+                        <input type="checkbox" id="sw-demo" class="zak-form-check-input zak-switch" onchange="document.getElementById('sw-demo-status').textContent = this.checked ? 'ON' : 'OFF'">
+                        <label class="zak-form-check-label" for="sw-demo">Airplane Mode</label>
+                    </div>
+                    <p class="zak-form-text">Status: <strong id="sw-demo-status">OFF</strong></p>
+                </div>
+            </div>
+            <div class="docs-code-block">
+                <div class="docs-code-block__header"><span>JavaScript</span><button class="docs-copy-btn">Copy</button></div>
+                <pre><code class="language-javascript">document.getElementById('sw-demo').addEventListener('change', function() {
+  document.getElementById('sw-demo-status').textContent = this.checked ? 'ON' : 'OFF';
+});</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead><tr><th>Class</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>.zak-switch</code></td><td>Base switch toggle</td></tr>
+                        <tr><td><code>.zak-switch-sm</code></td><td>Small size</td></tr>
+                        <tr><td><code>.zak-switch-lg</code></td><td>Large size</td></tr>
+                        <tr><td><code>.zak-switch-primary</code></td><td>Primary color</td></tr>
+                        <tr><td><code>.zak-switch-success</code></td><td>Success color</td></tr>
+                        <tr><td><code>.zak-switch-danger</code></td><td>Danger color</td></tr>
+                        <tr><td><code>.zak-switch-warning</code></td><td>Warning color</td></tr>
+                        <tr><td><code>.zak-switch-wrapper</code></td><td>Wrapper for switch + label</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Use <code>role="switch"</code> on the input element.</li>
+                <li>Set <code>aria-checked="true"</code> or <code>aria-checked="false"</code> to indicate state.</li>
+                <li>Associate with a visible <code>&lt;label&gt;</code> via <code>for</code>/<code>id</code>.</li>
+                <li>Support keyboard interaction: Space to toggle.</li>
+                <li>Disabled switches should have <code>aria-disabled="true"</code>.</li>
+            </ul>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script></body>
+</html>

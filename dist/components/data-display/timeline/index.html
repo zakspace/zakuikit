@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Timeline documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Timeline - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/data-display/timeline/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Timeline - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Timeline documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/data-display/timeline/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Data-Display</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Timeline</span>
+                </nav>
+        <h1>Timeline</h1>
+        <p class="docs-subtitle">Timelines present events in chronological order. Variants cover basic entries, icon markers, context colors, dates, and alternating layouts.</p>
+
+        <div class="zak-docs-section">
+            <h2>Basic Timeline</h2>
+            <p>Wrap <code>.zak-timeline-item</code> blocks inside <code>.zak-timeline</code>.</p>
+
+            <div class="docs-preview">
+                <ul class="zak-timeline" style="max-width: 30rem; margin: 0 auto; text-align: left; list-style: none;">
+                    <li class="zak-timeline-item">
+                        <div class="zak-timeline-content">
+                            <h4 style="margin: 0; font-size: var(--zak-font-size-sm);">Project kickoff meeting</h4>
+                            <p style="margin: 0.25rem 0 0; font-size: var(--zak-font-size-sm); color: var(--zak-text-muted);">Defined scope and success metrics for the redesign.</p>
+                        </div>
+                    </li>
+                    <li class="zak-timeline-item">
+                        <div class="zak-timeline-content">
+                            <h4 style="margin: 0; font-size: var(--zak-font-size-sm);">Design review</h4>
+                            <p style="margin: 0.25rem 0 0; font-size: var(--zak-font-size-sm); color: var(--zak-text-muted);">Two options presented; team chose the card layout.</p>
+                        </div>
+                    </li>
+                    <li class="zak-timeline-item">
+                        <div class="zak-timeline-content">
+                            <h4 style="margin: 0; font-size: var(--zak-font-size-sm);">Build complete</h4>
+                            <p style="margin: 0.25rem 0 0; font-size: var(--zak-font-size-sm); color: var(--zak-text-muted);">All components shipped to staging.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;ul class="zak-timeline"&gt;
+  &lt;li class="zak-timeline-item"&gt;
+    &lt;div class="zak-timeline-content"&gt;
+      &lt;h4&gt;Project kickoff meeting&lt;/h4&gt;
+      &lt;p&gt;Defined scope and success metrics.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Timeline with Icons</h2>
+            <p>Add an icon marker inside the item for richer visuals.</p>
+
+            <div class="docs-preview">
+                <ul class="zak-timeline" style="max-width: 30rem; margin: 0 auto; text-align: left; list-style: none;">
+                    <li class="zak-timeline-item">
+                        <span class="zak-timeline-icon zak-text-primary">
+                            <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        </span>
+                        <div class="zak-timeline-content">
+                            <h4 style="margin: 0; font-size: var(--zak-font-size-sm);">Invoice paid</h4>
+                            <p style="margin: 0.25rem 0 0; font-size: var(--zak-font-size-sm); color: var(--zak-text-muted);">Invoice #1024 marked as paid.</p>
+                        </div>
+                    </li>
+                    <li class="zak-timeline-item">
+                        <span class="zak-timeline-icon zak-text-warning">
+                            <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                        </span>
+                        <div class="zak-timeline-content">
+                            <h4 style="margin: 0; font-size: var(--zak-font-size-sm);">Notification threshold</h4>
+                            <p style="margin: 0.25rem 0 0; font-size: var(--zak-font-size-sm); color: var(--zak-text-muted);">Usage crossed 80% of plan allowance.</p>
+                        </div>
+                    </li>
+                    <li class="zak-timeline-item">
+                        <span class="zak-timeline-icon zak-text-success">
+                            <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        </span>
+                        <div class="zak-timeline-content">
+                            <h4 style="margin: 0; font-size: var(--zak-font-size-sm);">Deployment finished</h4>
+                            <p style="margin: 0.25rem 0 0; font-size: var(--zak-font-size-sm); color: var(--zak-text-muted);">v2.4.0 live in production.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;li class="zak-timeline-item"&gt;
+  &lt;span class="zak-timeline-icon zak-text-success"&gt;
+    &lt;svg class="zak-icon zak-icon-sm"&gt;...&lt;/svg&gt;
+  &lt;/span&gt;
+  &lt;div class="zak-timeline-content"&gt;
+    &lt;h4&gt;Deployment finished&lt;/h4&gt;
+    &lt;p&gt;v2.4.0 live in production.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/li&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Contextual Colors</h2>
+            <p>Apply <code>zak-timeline-success</code> / <code>-warning</code> / <code>-danger</code> to the item to tint the track marker.</p>
+
+            <div class="docs-preview">
+                <ul class="zak-timeline" style="max-width: 30rem; margin: 0 auto; text-align: left; list-style: none;">
+                    <li class="zak-timeline-item zak-timeline-success">
+                        <div class="zak-timeline-content">
+                            <h4 style="margin: 0; font-size: var(--zak-font-size-sm);">Backup completed</h4>
+                            <p style="margin: 0.25rem 0 0; font-size: var(--zak-font-size-sm); color: var(--zak-text-muted);">Nightly snapshot uploaded successfully.</p>
+                        </div>
+                    </li>
+                    <li class="zak-timeline-item zak-timeline-warning">
+                        <div class="zak-timeline-content">
+                            <h4 style="margin: 0; font-size: var(--zak-font-size-sm);">Certificate expiring</h4>
+                            <p style="margin: 0.25rem 0 0; font-size: var(--zak-font-size-sm); color: var(--zak-text-muted);">TLS cert for api.example.com expires in 7 days.</p>
+                        </div>
+                    </li>
+                    <li class="zak-timeline-item zak-timeline-danger">
+                        <div class="zak-timeline-content">
+                            <h4 style="margin: 0; font-size: var(--zak-font-size-sm);">Partial region outage</h4>
+                            <p style="margin: 0.25rem 0 0; font-size: var(--zak-font-size-sm); color: var(--zak-text-muted);">Increased latency detected in us-central1.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;li class="zak-timeline-item zak-timeline-success"&gt;
+  &lt;div class="zak-timeline-content"&gt;...&lt;/div&gt;
+&lt;/li&gt;
+
+&lt;!-- Also available: --&gt;
+&lt;li class="zak-timeline-item zak-timeline-danger"&gt;...&lt;/li&gt;
+&lt;li class="zak-timeline-item zak-timeline-warning"&gt;...&lt;/li&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Timeline with Badges</h2>
+            <p>Add labels or state badges alongside the title.</p>
+
+            <div class="docs-preview">
+                <ul class="zak-timeline" style="max-width: 30rem; margin: 0 auto; text-align: left; list-style: none;">
+                    <li class="zak-timeline-item">
+                        <div class="zak-timeline-content">
+                            <div style="display: flex; align-items: center; gap: var(--zak-space-2); flex-wrap: wrap;">
+                                <h4 style="margin: 0; font-size: var(--zak-font-size-sm);">Order #3042 shipped</h4>
+                                <span class="zak-badge zak-badge-primary">In transit</span>
+                            </div>
+                            <p style="margin: 0.25rem 0 0; font-size: var(--zak-font-size-sm); color: var(--zak-text-muted);">Carrier: DHL · Tracking available</p>
+                        </div>
+                    </li>
+                    <li class="zak-timeline-item">
+                        <div class="zak-timeline-content">
+                            <div style="display: flex; align-items: center; gap: var(--zak-space-2); flex-wrap: wrap;">
+                                <h4 style="margin: 0; font-size: var(--zak-font-size-sm);">Order #3042 out for delivery</h4>
+                                <span class="zak-badge zak-badge-success">Delivered</span>
+                            </div>
+                            <p style="margin: 0.25rem 0 0; font-size: var(--zak-font-size-sm); color: var(--zak-text-muted);">Arrived at local facility.</p>
+                        </div>
+                    </li>
+                    <li class="zak-timeline-item">
+                        <div class="zak-timeline-content">
+                            <div style="display: flex; align-items: center; gap: var(--zak-space-2); flex-wrap: wrap;">
+                                <h4 style="margin: 0; font-size: var(--zak-font-size-sm);">Order #3042 delivered</h4>
+                                <span class="zak-badge zak-badge-success">Delivered</span>
+                            </div>
+                            <p style="margin: 0.25rem 0 0; font-size: var(--zak-font-size-sm); color: var(--zak-text-muted);">Signed for by recipient.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;li class="zak-timeline-item"&gt;
+  &lt;div class="zak-timeline-content"&gt;
+    &lt;h4&gt;Order #3042 shipped&lt;/h4&gt;
+    &lt;span class="zak-badge zak-badge-primary"&gt;In transit&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/li&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Timeline with Dates</h2>
+            <p>Show a date time on the leading edge with <code>.zak-timeline-time</code>.</p>
+
+            <div class="docs-preview">
+                <ul class="zak-timeline" style="max-width: 30rem; margin: 0 auto; text-align: left; list-style: none;">
+                    <li class="zak-timeline-item">
+                        <span class="zak-timeline-time">09:42</span>
+                        <div class="zak-timeline-content">
+                            <h4 style="margin: 0; font-size: var(--zak-font-size-sm);">Standup</h4>
+                            <p style="margin: 0.25rem 0 0; font-size: var(--zak-font-size-sm); color: var(--zak-text-muted);">Sprint updates across 3 squads.</p>
+                        </div>
+                    </li>
+                    <li class="zak-timeline-item">
+                        <span class="zak-timeline-time">11:15</span>
+                        <div class="zak-timeline-content">
+                            <h4 style="margin: 0; font-size: var(--zak-font-size-sm);">Code review</h4>
+                            <p style="margin: 0.25rem 0 0; font-size: var(--zak-font-size-sm); color: var(--zak-text-muted);">Table variants approved, merged.</p>
+                        </div>
+                    </li>
+                    <li class="zak-timeline-item">
+                        <span class="zak-timeline-time">14:30</span>
+                        <div class="zak-timeline-content">
+                            <h4 style="margin: 0; font-size: var(--zak-font-size-sm);">Design system sync</h4>
+                            <p style="margin: 0.25rem 0 0; font-size: var(--zak-font-size-sm); color: var(--zak-text-muted);">Aligned tokens with latest release.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;li class="zak-timeline-item"&gt;
+  &lt;span class="zak-timeline-time"&gt;09:42&lt;/span&gt;
+  &lt;div class="zak-timeline-content"&gt;
+    &lt;h4&gt;Standup&lt;/h4&gt;
+    &lt;p&gt;Sprint updates across 3 squads.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/li&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Alternating Timeline</h2>
+            <p>Use a grid with the date/content swapping sides via inline styles for a center-line layout on wide screens.</p>
+
+            <div class="docs-preview">
+                <ul class="zak-timeline" style="max-width: 34rem; margin: 0 auto; text-align: left; list-style: none;">
+                    <li class="zak-timeline-item" style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: start;">
+                        <div class="zak-timeline-content" style="text-align: right; padding-right: var(--zak-space-4);">
+                            <h4 style="margin: 0; font-size: var(--zak-font-size-sm);">Research interviews</h4>
+                            <p style="margin: 0.25rem 0 0; font-size: var(--zak-font-size-sm); color: var(--zak-text-muted);">8 customers interviewed.</p>
+                        </div>
+                        <span class="zak-timeline-icon" style="width: 1.75rem; height: 1.75rem; font-size: var(--zak-font-size-sm);">Q1</span>
+                        <div style="min-height: 1px;"></div>
+                    </li>
+                    <li class="zak-timeline-item" style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: start;">
+                        <div style="min-height: 1px;"></div>
+                        <span class="zak-timeline-icon" style="width: 1.75rem; height: 1.75rem; font-size: var(--zak-font-size-sm);">Q2</span>
+                        <div class="zak-timeline-content" style="text-align: left; padding-left: var(--zak-space-4);">
+                            <h4 style="margin: 0; font-size: var(--zak-font-size-sm);">Prototype testing</h4>
+                            <p style="margin: 0.25rem 0 0; font-size: var(--zak-font-size-sm); color: var(--zak-text-muted);">Usability test with 12 participants.</p>
+                        </div>
+                    </li>
+                    <li class="zak-timeline-item" style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: start;">
+                        <div class="zak-timeline-content" style="text-align: right; padding-right: var(--zak-space-4);">
+                            <h4 style="margin: 0; font-size: var(--zak-font-size-sm);">Release</h4>
+                            <p style="margin: 0.25rem 0 0; font-size: var(--zak-font-size-sm); color: var(--zak-text-muted);">Public launch of v2.0.</p>
+                        </div>
+                        <span class="zak-timeline-icon" style="width: 1.75rem; height: 1.75rem; font-size: var(--zak-font-size-sm);">Q3</span>
+                        <div style="min-height: 1px;"></div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;li class="zak-timeline-item" style="display: grid; grid-template-columns: 1fr auto 1fr;"&gt;
+  &lt;div class="zak-timeline-content" style="text-align: right;"&gt;...&lt;/div&gt;
+  &lt;span class="zak-timeline-icon"&gt;Q1&lt;/span&gt;
+  &lt;div&gt;&lt;/div&gt;
+&lt;/li&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.zak-timeline</code></td><td>Vertical list with connecting track</td></tr>
+                        <tr><td><code>.zak-timeline-item</code></td><td>Single event row</td></tr>
+                        <tr><td><code>.zak-timeline-item-success</code></td><td>Green marker variant</td></tr>
+                        <tr><td><code>.zak-timeline-item-warning</code></td><td>Amber marker variant</td></tr>
+                        <tr><td><code>.zak-timeline-item-danger</code></td><td>Red marker variant</td></tr>
+                        <tr><td><code>.zak-timeline-icon</code></td><td>Icon/label marker node</td></tr>
+                        <tr><td><code>.zak-timeline-time</code></td><td>Timestamp on the leading edge</td></tr>
+                        <tr><td><code>.zak-timeline-content</code></td><td>Title + description block</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Keep the timeline items in a <code>&lt;ul&gt;</code> so order is conveyed to assistive tech.</li>
+                <li>Use real heading levels for item titles, not just bolded text.</li>
+                <li>Icon markers must include an <code>aria-hidden="true"</code> and a visible text label where the meaning matters.</li>
+                <li>Do not convey status with color alone; pair contextual variants with a badge or text label.</li>
+                <li>For time-ordered content, include either a visible timestamp or <code>&lt;time&gt;</code> element.</li>
+            </ul>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body></html>

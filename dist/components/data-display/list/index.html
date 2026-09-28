@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit List documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>List - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/data-display/list/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="List - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit List documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/data-display/list/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Data-Display</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">List</span>
+                </nav>
+        <h1>List</h1>
+        <p class="docs-subtitle">Lists present related information in a vertical stack. Items flex between leading visuals, primary text and trailing content.</p>
+
+        <div class="zak-docs-section">
+            <h2>Basic List</h2>
+            <p>Use <code>.zak-list</code> with <code>.zak-list-item</code> children.</p>
+
+            <div class="docs-preview">
+                <ul class="zak-list" style="max-width: 24rem; margin: 0 auto; text-align: left;">
+                    <li class="zak-list-item">Getting started guide</li>
+                    <li class="zak-list-item">Components overview</li>
+                    <li class="zak-list-item">Design tokens</li>
+                    <li class="zak-list-item">Browser support</li>
+                </ul>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;ul class="zak-list"&gt;
+  &lt;li class="zak-list-item"&gt;Getting started guide&lt;/li&gt;
+  &lt;li class="zak-list-item"&gt;Components overview&lt;/li&gt;
+  &lt;li class="zak-list-item"&gt;Design tokens&lt;/li&gt;
+  &lt;li class="zak-list-item"&gt;Browser support&lt;/li&gt;
+&lt;/ul&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>List with Icons</h2>
+            <p>Insert a leading icon on each item.</p>
+
+            <div class="docs-preview">
+                <ul class="zak-list" style="max-width: 24rem; margin: 0 auto; text-align: left;">
+                    <li class="zak-list-item">
+                        <svg class="zak-icon zak-icon-sm zak-text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        <div>
+                            <div>janet@example.com</div>
+                            <div style="font-size: var(--zak-font-size-xs); color: var(--zak-text-muted);">Primary</div>
+                        </div>
+                    </li>
+                    <li class="zak-list-item">
+                        <svg class="zak-icon zak-icon-sm zak-text-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        <span>+1 555 010 2030</span>
+                    </li>
+                    <li class="zak-list-item">
+                        <svg class="zak-icon zak-icon-sm zak-text-warning" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        <span>work@example.com</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;ul class="zak-list"&gt;
+  &lt;li class="zak-list-item"&gt;
+    &lt;svg class="zak-icon zak-icon-sm zak-text-primary"&gt;...&lt;/svg&gt;
+    &lt;span&gt;janet@example.com&lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li class="zak-list-item"&gt;
+    &lt;svg class="zak-icon zak-icon-sm zak-text-success"&gt;...&lt;/svg&gt;
+    &lt;span&gt;+1 555 010 2030&lt;/span&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>List with Avatars</h2>
+            <p>Pair list items with avatars to build member and contact lists.</p>
+
+            <div class="docs-preview">
+                <ul class="zak-list" style="max-width: 24rem; margin: 0 auto; text-align: left;">
+                    <li class="zak-list-item">
+                        <span class="zak-avatar zak-avatar-sm zak-avatar-primary">JA</span>
+                        <div>
+                            <div style="font-weight: var(--zak-font-weight-medium);">Janet Fox</div>
+                            <div style="font-size: var(--zak-font-size-xs); color: var(--zak-text-muted);">Product Designer</div>
+                        </div>
+                    </li>
+                    <li class="zak-list-item">
+                        <span class="zak-avatar zak-avatar-sm zak-avatar-success">MK</span>
+                        <div>
+                            <div style="font-weight: var(--zak-font-weight-medium);">Mark Kim</div>
+                            <div style="font-size: var(--zak-font-size-xs); color: var(--zak-text-muted);">Frontend Engineer</div>
+                        </div>
+                    </li>
+                    <li class="zak-list-item">
+                        <span class="zak-avatar zak-avatar-sm zak-avatar-warning">SR</span>
+                        <div>
+                            <div style="font-weight: var(--zak-font-weight-medium);">Sara Reyes</div>
+                            <div style="font-size: var(--zak-font-size-xs); color: var(--zak-text-muted);">Data Analyst</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;ul class="zak-list"&gt;
+  &lt;li class="zak-list-item"&gt;
+    &lt;span class="zak-avatar zak-avatar-sm zak-avatar-primary"&gt;JA&lt;/span&gt;
+    &lt;div&gt;
+      &lt;div style="font-weight: var(--zak-font-weight-medium);"&gt;Janet Fox&lt;/div&gt;
+      &lt;div style="font-size: var(--zak-font-size-xs); color: var(--zak-text-muted);"&gt;Product Designer&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>List with Badges</h2>
+            <p>Trailing badges are useful for counts and status.</p>
+
+            <div class="docs-preview">
+                <ul class="zak-list" style="max-width: 24rem; margin: 0 auto; text-align: left;">
+                    <li class="zak-list-item">
+                        <span>Inbox</span>
+                        <span class="zak-badge zak-badge-primary" style="margin-left: auto;">12</span>
+                    </li>
+                    <li class="zak-list-item">
+                        <span>Drafts</span>
+                        <span class="zak-badge" style="margin-left: auto;">3</span>
+                    </li>
+                    <li class="zak-list-item">
+                        <span>Spam</span>
+                        <span class="zak-badge zak-badge-danger" style="margin-left: auto;">7</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;ul class="zak-list"&gt;
+  &lt;li class="zak-list-item"&gt;
+    &lt;span&gt;Inbox&lt;/span&gt;
+    &lt;span class="zak-badge zak-badge-primary" style="margin-left: auto;"&gt;12&lt;/span&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>List with Actions</h2>
+            <p>Append action buttons on the trailing edge of each item.</p>
+
+            <div class="docs-preview">
+                <ul class="zak-list" style="max-width: 26rem; margin: 0 auto; text-align: left;">
+                    <li class="zak-list-item">
+                        <span style="flex: 1;">Quarterly review notes</span>
+                        <button class="zak-btn zak-btn-soft zak-btn-sm"><svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg> Edit</button>
+                        <button class="zak-btn zak-btn-soft zak-btn-sm" style="color: var(--zak-color-danger);"><svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg> Delete</button>
+                    </li>
+                    <li class="zak-list-item">
+                        <span style="flex: 1;">Design tokens RFC</span>
+                        <button class="zak-btn zak-btn-soft zak-btn-sm"><svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg> Edit</button>
+                        <button class="zak-btn zak-btn-soft zak-btn-sm" style="color: var(--zak-color-danger);"><svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg> Delete</button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;li class="zak-list-item"&gt;
+  &lt;span style="flex: 1;"&gt;Quarterly review notes&lt;/span&gt;
+  &lt;button class="zak-btn zak-btn-soft zak-btn-sm"&gt;Edit&lt;/button&gt;
+  &lt;button class="zak-btn zak-btn-soft zak-btn-sm"&gt;Delete&lt;/button&gt;
+&lt;/li&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>List with Dividers</h2>
+            <p>Items are divided by a bottom border by default. Remove it with an explicit style override.</p>
+
+            <div class="docs-preview">
+                <div class="zak-grid zak-grid-cols-2" style="align-items: start;">
+                    <ul class="zak-list" style="max-width: 100%; text-align: left;">
+                        <li class="zak-list-item">Divided item</li>
+                        <li class="zak-list-item">Divided item</li>
+                        <li class="zak-list-item">Divided item</li>
+                    </ul>
+                    <ul class="zak-list" style="max-width: 100%; text-align: left;">
+                        <li class="zak-list-item" style="border-bottom: 0;">Undivided item</li>
+                        <li class="zak-list-item" style="border-bottom: 0;">Undivided item</li>
+                        <li class="zak-list-item" style="border-bottom: 0;">Undivided item</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;!-- With dividers (default) --&gt;
+&lt;ul class="zak-list"&gt;
+  &lt;li class="zak-list-item"&gt;Divided item&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Without dividers --&gt;
+&lt;ul class="zak-list"&gt;
+  &lt;li class="zak-list-item" style="border-bottom: 0;"&gt;Undivided item&lt;/li&gt;
+&lt;/ul&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Ordered List</h2>
+            <p>Plain ordered lists can use the list-style utilities such as <code>.zak-list-decimal</code>.</p>
+
+            <div class="docs-preview">
+                <ol class="zak-list-decimal" style="max-width: 24rem; margin: 0 auto; text-align: left;">
+                    <li>Configure your build pipeline</li>
+                    <li>Install the package via npm</li>
+                    <li>Import the compiled stylesheet</li>
+                    <li>Start using components</li>
+                </ol>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;ol class="zak-list-decimal"&gt;
+  &lt;li&gt;Configure your build pipeline&lt;/li&gt;
+  &lt;li&gt;Install the package via npm&lt;/li&gt;
+  &lt;li&gt;Import the compiled stylesheet&lt;/li&gt;
+&lt;/ol&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Flush List</h2>
+            <p>Remove the container border and rounding to create a flush list that can sit inside a card.</p>
+
+            <div class="docs-preview">
+                <div class="zak-card" style="max-width: 24rem; margin: 0 auto; overflow: hidden;">
+                    <ul class="zak-list" style="border: 0; border-radius: 0; text-align: left;">
+                        <li class="zak-list-item">Account settings</li>
+                        <li class="zak-list-item">Team members</li>
+                        <li class="zak-list-item">Billing plan</li>
+                        <li class="zak-list-item">Notifications</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-card" style="overflow: hidden;"&gt;
+  &lt;ul class="zak-list" style="border: 0; border-radius: 0;"&gt;
+    &lt;li class="zak-list-item"&gt;Account settings&lt;/li&gt;
+    &lt;li class="zak-list-item"&gt;Team members&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Numbered List</h2>
+            <p>Use <code>.zak-list-inside</code> to position the numbers inside the content box for a tighter layout.</p>
+
+            <div class="docs-preview">
+                <ol class="zak-list-decimal zak-list-inside" style="max-width: 24rem; margin: 0 auto; text-align: left;">
+                    <li>Create a new post</li>
+                    <li>Add an engaging cover image</li>
+                    <li>Publish to your audience</li>
+                    <li>Analyze the engagement metrics</li>
+                </ol>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;ol class="zak-list-decimal zak-list-inside"&gt;
+  &lt;li&gt;Create a new post&lt;/li&gt;
+  &lt;li&gt;Add an engaging cover image&lt;/li&gt;
+  &lt;li&gt;Publish to your audience&lt;/li&gt;
+&lt;/ol&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.zak-list</code></td><td>Base list container with surface, border and rounding</td></tr>
+                        <tr><td><code>.zak-list-item</code></td><td>Flex row item with spacing and dividers</td></tr>
+                        <tr><td><code>.zak-list-item-active</code></td><td>Active/selected item highlight</td></tr>
+                        <tr><td><code>.zak-list-item-disabled</code></td><td>Muted, non-interactive item</td></tr>
+                        <tr><td><code>.zak-list-disc</code></td><td>Disc bullets for plain lists</td></tr>
+                        <tr><td><code>.zak-list-circle</code></td><td>Circle bullets</td></tr>
+                        <tr><td><code>.zak-list-square</code></td><td>Square bullets</td></tr>
+                        <tr><td><code>.zak-list-decimal</code></td><td>Decimal numbers for ordered lists</td></tr>
+                        <tr><td><code>.zak-list-none</code></td><td>Removes list markers</td></tr>
+                        <tr><td><code>.zak-list-inside</code></td><td>Positions markers inside the content box</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Use semantic list elements <code>&lt;ul&gt;</code> / <code>&lt;ol&gt;</code> / <code>&lt;li&gt;</code> so screen readers announce structure.</li>
+                <li>Interactive items (links, buttons) must not be nested inside each other and need visible focus states.</li>
+                <li>Keep action buttons at least 24&times;24px to be comfortably tappable.</li>
+                <li>Where order matters, use an ordered list; otherwise use an unordered list.</li>
+            </ul>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body></html>

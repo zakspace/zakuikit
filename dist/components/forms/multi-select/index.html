@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Multi Select documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Multi Select - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/forms/multi-select/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Multi Select - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Multi Select documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/forms/multi-select/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+  <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+  <span class="docs-breadcrumb__separator">/</span>
+  <span class="docs-breadcrumb__current">Forms</span>
+  <span class="docs-breadcrumb__separator">/</span>
+  <span class="docs-breadcrumb__current">Multi Select</span>
+</nav>
+
+        <h1>Multi Select</h1>
+        <p class="docs-subtitle">Multi Select allows users to select multiple options displayed as tags. It supports search, max selection limits, and disabled options.</p>
+
+        <div class="zak-docs-section">
+            <h2>Basic Multi Select</h2>
+            <p>A multi-select with tag display and remove capability.</p>
+
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="ms-basic">Select Skills</label>
+                        <select class="zak-input" id="ms-basic" data-zak-multiselect data-zak-multiselect-placeholder="Type to add skills..." multiple>
+                            <option value="javascript" selected>JavaScript</option>
+                            <option value="css" selected>CSS</option>
+                            <option value="html">HTML</option>
+                            <option value="typescript">TypeScript</option>
+                            <option value="python">Python</option>
+                            <option value="sql">SQL</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+
+            <div class="docs-code-block">
+                <div class="docs-code-block__header">
+                    <span class="docs-code-block__lang">HTML</span>
+                    <button class="docs-copy-btn">Copy</button>
+                </div>
+                <pre><code class="language-html">&lt;select class="zak-input" data-zak-multiselect multiple
+        data-zak-multiselect-placeholder="Type to add skills..."&gt;
+  &lt;option value="javascript" selected&gt;JavaScript&lt;/option&gt;
+  &lt;option value="css" selected&gt;CSS&lt;/option&gt;
+  &lt;option value="html"&gt;HTML&lt;/option&gt;
+  &lt;option value="typescript"&gt;TypeScript&lt;/option&gt;
+  &lt;option value="python"&gt;Python&lt;/option&gt;
+  &lt;option value="sql"&gt;SQL&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Searchable Multi Select</h2>
+            <p>Filter options by typing in the search field.</p>
+
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="ms-search">Select Technologies</label>
+                        <select class="zak-input" id="ms-search" data-zak-multiselect data-zak-multiselect-placeholder="Search technologies..." multiple>
+                            <option value="react" selected>React</option>
+                            <option value="angular">Angular</option>
+                            <option value="vue">Vue.js</option>
+                            <option value="svelte">Svelte</option>
+                            <option value="next">Next.js</option>
+                            <option value="nuxt">Nuxt</option>
+                            <option value="ember">Ember</option>
+                            <option value="solid">Solid</option>
+                        </select>
+                        <span class="zak-form-text">Type in the field to filter the options.</span>
+                    </div>
+                </form>
+            </div>
+
+            <div class="docs-code-block">
+                <div class="docs-code-block__header">
+                    <span class="docs-code-block__lang">HTML</span>
+                    <button class="docs-copy-btn">Copy</button>
+                </div>
+                <pre><code class="language-html">&lt;select class="zak-input" data-zak-multiselect multiple
+        data-zak-multiselect-placeholder="Search technologies..."&gt;
+  &lt;option value="react" selected&gt;React&lt;/option&gt;
+  &lt;option value="angular"&gt;Angular&lt;/option&gt;
+  &lt;option value="vue"&gt;Vue.js&lt;/option&gt;
+  &lt;option value="svelte"&gt;Svelte&lt;/option&gt;
+  &lt;option value="next"&gt;Next.js&lt;/option&gt;
+  &lt;option value="nuxt"&gt;Nuxt&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Max Selection</h2>
+            <p>Limit the number of selections allowed.</p>
+
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="ms-max">Select up to 3 Fruits</label>
+                        <select class="zak-input" id="ms-max" data-zak-multiselect data-zak-multiselect-max="3" data-zak-multiselect-placeholder="Max 3 selections" multiple>
+                            <option value="apple" selected>Apple</option>
+                            <option value="banana" selected>Banana</option>
+                            <option value="cherry">Cherry</option>
+                            <option value="date">Date</option>
+                            <option value="elderberry">Elderberry</option>
+                            <option value="fig">Fig</option>
+                            <option value="grape">Grape</option>
+                        </select>
+                        <span class="zak-form-text">Up to 3 options can be selected.</span>
+                    </div>
+                </form>
+            </div>
+
+            <div class="docs-code-block">
+                <div class="docs-code-block__header">
+                    <span class="docs-code-block__lang">HTML</span>
+                    <button class="docs-copy-btn">Copy</button>
+                </div>
+                <pre><code class="language-html">&lt;select class="zak-input" data-zak-multiselect multiple
+        data-zak-multiselect-max="3"
+        data-zak-multiselect-placeholder="Max 3 selections"&gt;
+  &lt;option value="apple" selected&gt;Apple&lt;/option&gt;
+  &lt;option value="banana" selected&gt;Banana&lt;/option&gt;
+  &lt;option value="cherry"&gt;Cherry&lt;/option&gt;
+  &lt;option value="date"&gt;Date&lt;/option&gt;
+  &lt;option value="elderberry"&gt;Elderberry&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Disabled Options</h2>
+            <p>Some options can be pre-disabled.</p>
+
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="ms-disabled">Select Plan Features</label>
+                        <select class="zak-input" id="ms-disabled" data-zak-multiselect data-zak-multiselect-placeholder="Select features..." multiple>
+                            <option value="basic-analytics">Basic Analytics</option>
+                            <option value="advanced-analytics">Advanced Analytics</option>
+                            <option value="custom-reports" disabled>Custom Reports (Pro Only)</option>
+                            <option value="white-label" disabled>White Label (Enterprise)</option>
+                        </select>
+                        <span class="zak-form-text">Disabled options cannot be selected.</span>
+                    </div>
+                </form>
+            </div>
+
+            <div class="docs-code-block">
+                <div class="docs-code-block__header">
+                    <span class="docs-code-block__lang">HTML</span>
+                    <button class="docs-copy-btn">Copy</button>
+                </div>
+                <pre><code class="language-html">&lt;select class="zak-input" data-zak-multiselect multiple
+        data-zak-multiselect-placeholder="Select features..."&gt;
+  &lt;option value="basic-analytics"&gt;Basic Analytics&lt;/option&gt;
+  &lt;option value="advanced-analytics"&gt;Advanced Analytics&lt;/option&gt;
+  &lt;option value="custom-reports" disabled&gt;Custom Reports (Pro Only)&lt;/option&gt;
+  &lt;option value="white-label" disabled&gt;White Label (Enterprise)&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>JavaScript Demo</h2>
+            <p>Interactive multi-select with add and remove functionality.</p>
+
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="ms-api">Interactive Multi Select</label>
+                        <select class="zak-input" id="ms-api" data-zak-multiselect data-zak-multiselect-placeholder="Type to search..." multiple>
+                            <option value="html" selected>HTML</option>
+                            <option value="css">CSS</option>
+                            <option value="javascript">JavaScript</option>
+                            <option value="typescript">TypeScript</option>
+                            <option value="python">Python</option>
+                            <option value="go">Go</option>
+                        </select>
+                        <span class="zak-form-text" id="ms-api-output">Selected: html</span>
+                    </div>
+                </form>
+            </div>
+
+            <div class="docs-code-block">
+                <div class="docs-code-block__header">
+                    <span class="docs-code-block__lang">JavaScript</span>
+                    <button class="docs-copy-btn">Copy</button>
+                </div>
+                <pre><code class="language-javascript">const select = document.getElementById('ms-api');
+
+select.addEventListener('zak:change', function (e) {
+  console.log(e.detail.value); // array of selected values
+  document.getElementById('ms-api-output').textContent =
+    'Selected: ' + (e.detail.value.length ? e.detail.value.join(', ') : 'none');
+});</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.zak-multi-select</code></td><td>Container generated by JS (wraps tags, search and dropdown)</td></tr>
+                        <tr><td><code>.zak-multi-select-tags</code></td><td>Container for the selected tag badges</td></tr>
+                        <tr><td><code>.zak-multi-select-search</code></td><td>Search input inside the container</td></tr>
+                        <tr><td><code>.zak-multi-select-dropdown</code></td><td>Dropdown options list</td></tr>
+                        <tr><td><code>.zak-multi-select-option</code></td><td>Individual option</td></tr>
+                        <tr><td><code>.zak-multi-select-option-disabled</code></td><td>Disabled option</td></tr>
+                        <tr><td><code>.zak-multi-select-checkbox</code></td><td>Checkbox indicator inside an option</td></tr>
+                        <tr><td><code>.zak-multi-select-label</code></td><td>Text label inside an option</td></tr>
+                        <tr><td><code>.zak-multi-select-empty</code></td><td>No-results message</td></tr>
+                        <tr><td><code>.zak-multi-select-active</code></td><td>Applied to the container while the dropdown is open</td></tr>
+                        <tr><td><code>.zak-selected</code></td><td>Applied to a selected option</td></tr>
+                        <tr><td><code>.zak-active</code></td><td>Applied to the keyboard-highlighted option</td></tr>
+                        <tr><td><code>.zak-badge-removable</code></td><td>Tag badge with a remove button</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Data Attributes</h2>
+            <p>The multi select is initialized automatically on any <code>&lt;select multiple&gt;</code> that carries <code>data-zak-multiselect</code>.</p>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead>
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>data-zak-multiselect</code></td><td>Enables the component on the <code>select</code>.</td></tr>
+                        <tr><td><code>data-zak-multiselect-placeholder</code></td><td>Placeholder text for the search field. Defaults to <code>Select...</code>.</td></tr>
+                        <tr><td><code>data-zak-multiselect-max</code></td><td>Maximum number of selectable options (<code>0</code> = unlimited).</td></tr>
+                        <tr><td><code>data-zak-multiselect-search</code></td><td>Set to <code>false</code> to disable typing/filtering.</td></tr>
+                        <tr><td><code>disabled</code> (on <code>select</code>)</td><td>Renders the whole component as disabled.</td></tr>
+                        <tr><td><code>disabled</code> (on <code>option</code>)</td><td>Renders that option as non-selectable.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>The generated container uses <code>role="combobox"</code> and the dropdown uses <code>role="listbox"</code> with <code>aria-multiselectable="true"</code>; each option gets <code>role="option"</code>.</li>
+                <li>Selected state is exposed through <code>aria-selected</code>, and disabled options through <code>aria-disabled="true"</code>.</li>
+                <li>Open state is reflected on the container with <code>aria-expanded</code>.</li>
+                <li>Keyboard support: arrow keys move the highlight, <kbd>Enter</kbd> selects, <kbd>Backspace</kbd> removes the last tag, and <kbd>Escape</kbd>/<kbd>Tab</kbd> closes the dropdown.</li>
+                <li>Bind a visible <code>&lt;label for="..."&gt;</code> to the underlying <code>select</code> and provide clear instructions.</li>
+            </ul>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    <script>
+        (function() {
+            var select = document.getElementById('ms-api');
+            var output = document.getElementById('ms-api-output');
+            if (!select || !output) return;
+            function render(values) {
+                output.textContent = 'Selected: ' + (values.length ? values.join(', ') : 'none');
+            }
+            function initial() {
+                render(Array.prototype.filter.call(select.options, function(o) { return o.selected; }).map(function(o) { return o.value; }));
+            }
+            select.addEventListener('zak:change', function(e) { render(e.detail.value); });
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initial);
+            } else {
+                initial();
+            }
+        })();
+    </script>
+</body>
+</html>

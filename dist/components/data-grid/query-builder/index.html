@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Query Builder documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Query Builder - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/data-grid/query-builder/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Query Builder - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Query Builder documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/data-grid/query-builder/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Enterprise</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Query Builder</span>
+                </nav>
+        <h1>Query Builder</h1>
+        <p class="docs-subtitle">An advanced query builder with extended operators, nested AND/OR groups, live query preview, and save/load query templates.</p>
+
+        <div class="zak-docs-section">
+            <h2>Query Builder</h2>
+            <p>Build complex queries with 13 operators, nested logic groups, and a live text preview of the query.</p>
+
+            <div class="docs-preview">
+                <div id="qb-container" style="border: 1px solid var(--zak-border-color); border-radius: var(--zak-radius-lg); overflow: hidden;">
+                    <div style="display:flex;align-items:center;justify-content:space-between;padding:var(--zak-space-3) var(--zak-space-4);border-bottom:1px solid var(--zak-border-color);background:var(--zak-surface-1);flex-wrap:wrap;gap:var(--zak-space-2);">
+                        <div style="display:flex;align-items:center;gap:var(--zak-space-2);">
+                            <h3 style="margin:0;font-size:var(--zak-font-size-base);font-weight:600;">Query Builder</h3>
+                            <span id="qb-count" class="zak-badge zak-badge-primary" style="display:none;">0</span>
+                        </div>
+                        <div style="display:flex;gap:var(--zak-space-2);flex-wrap:wrap;">
+                            <select class="zak-select zak-select-sm" id="qb-templates" style="width:160px;">
+                                <option value="">Load template...</option>
+                                <option value="active-eng">Active Engineers</option>
+                                <option value="high-salary">High Salary</option>
+                                <option value="recent">Recent Hires</option>
+                            </select>
+                            <button class="zak-btn zak-btn-outline zak-btn-sm" id="qb-save-template">Save Template</button>
+                            <button class="zak-btn zak-btn-primary zak-btn-sm" id="qb-add-group">+ Group</button>
+                        </div>
+                    </div>
+                    <div style="padding:var(--zak-space-4);" id="qb-body">
+                        <div id="qb-groups"></div>
+                        <div id="qb-preview" style="margin-top:var(--zak-space-4);padding:var(--zak-space-3);background:var(--zak-surface-2);border-radius:var(--zak-radius);font-family:monospace;font-size:var(--zak-font-size-sm);white-space:pre-wrap;display:none;"></div>
+                        <div style="display:flex;gap:var(--zak-space-2);margin-top:var(--zak-space-4);justify-content:flex-end;">
+                            <button class="zak-btn zak-btn-soft zak-btn-sm" id="qb-clear">Clear All</button>
+                            <button class="zak-btn zak-btn-primary zak-btn-sm" id="qb-execute">Execute Query</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div id="qb-container"&gt;
+  &lt;div class="qb-header"&gt;
+    &lt;h3&gt;Query Builder&lt;/h3&gt;
+    &lt;select class="zak-select zak-select-sm" id="qb-templates"&gt;
+      &lt;option value=""&gt;Load template...&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;button class="zak-btn zak-btn-primary zak-btn-sm" id="qb-add-group"&gt;+ Group&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div id="qb-groups"&gt;&lt;/div&gt;
+  &lt;pre id="qb-preview"&gt;&lt;/pre&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Features</h2>
+            <ul>
+                <li><strong>Extended Operators</strong> &mdash; =, !=, &gt;, &lt;, &gt;=, &lt;=, contains, starts with, ends with, in, between, is null, is not null.</li>
+                <li><strong>Nested Groups</strong> &mdash; Add filter groups inside other groups.</li>
+                <li><strong>AND/OR Logic</strong> &mdash; Each group supports AND or OR conjunction.</li>
+                <li><strong>Live Preview</strong> &mdash; Real-time text representation of the query.</li>
+                <li><strong>Templates</strong> &mdash; Save and load query templates from a dropdown.</li>
+                <li><strong>Field Types</strong> &mdash; Name, Email, Department, Status, Salary, Join Date.</li>
+            </ul>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead><tr><th>Class</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>.zak-select zak-select-sm</code></td><td>Field, operator, and logic selectors</td></tr>
+                        <tr><td><code>.zak-input zak-input-sm</code></td><td>Value inputs for query rows</td></tr>
+                        <tr><td><code>.zak-btn zak-btn-primary zak-btn-sm</code></td><td>Add Group and Execute buttons</td></tr>
+                        <tr><td><code>.zak-btn zak-btn-outline zak-btn-sm</code></td><td>Save Template button</td></tr>
+                        <tr><td><code>.zak-badge zak-badge-primary</code></td><td>Active condition count badge</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    <script>
+    (function(){
+        var groupCounter=0;
+        var fields=['Name','Email','Department','Status','Salary','Join Date'];
+        var allOps=['=','!=','>','<','>=','<=','contains','starts with','ends with','in','between','is null','is not null'];
+        var unaryOps=['is null','is not null'];
+        var groups=document.getElementById('qb-groups');
+        var preview=document.getElementById('qb-preview');
+        var countBadge=document.getElementById('qb-count');
+        var templates={
+            'active-eng':[{field:'Department',op:'=',value:'Engineering'},{field:'Status',op:'=',value:'Active'}],
+            'high-salary':[{field:'Salary',op:'>',value:'90000'}],
+            'recent':[{field:'Join Date',op:'>=',value:'2021-01-01'}]
+        };
+
+        function makeRow(){
+            var div=document.createElement('div');
+            div.className='qb-row';
+            div.style.cssText='display:flex;align-items:center;gap:var(--zak-space-2);margin-bottom:var(--zak-space-2);flex-wrap:wrap;';
+            div.innerHTML='<select class="zak-select zak-select-sm qb-field" style="width:130px;">'+fields.map(function(f){return '<option>'+f+'</option>';}).join('')+'</select>'
+                +'<select class="zak-select zak-select-sm qb-op" style="width:120px;">'+allOps.map(function(o){return '<option>'+o+'</option>';}).join('')+'</select>'
+                +'<input type="text" class="zak-input zak-input-sm qb-val" placeholder="Value" style="width:150px;">'
+                +'<input type="text" class="zak-input zak-input-sm qb-val2" placeholder="And" style="width:120px;display:none;">'
+                +'<button class="zak-btn zak-btn-soft zak-btn-sm qb-remove" title="Remove"><svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>';
+            var opSel=div.querySelector('.qb-op');
+            var valInput=div.querySelector('.qb-val');
+            var val2Input=div.querySelector('.qb-val2');
+            opSel.addEventListener('change',function(){
+                var isUnary=unaryOps.indexOf(this.value)!==-1;
+                valInput.style.display=isUnary?'none':'';
+                val2Input.style.display=this.value==='between'?'':'none';
+                updatePreview();
+            });
+            valInput.addEventListener('input',updatePreview);
+            div.querySelector('.qb-remove').addEventListener('click',function(){div.remove();updateCount();updatePreview();});
+            return div;
+        }
+        function makeGroup(parent,depth){
+            var id='qbg-'+(groupCounter++);
+            var div=document.createElement('div');
+            div.className='qb-group';
+            div.id=id;
+            div.style.cssText='border:1px solid var(--zak-border-color);border-radius:var(--zak-radius);padding:var(--zak-space-3);margin-bottom:var(--zak-space-3);'+(depth>0?'margin-left:var(--zak-space-4);border-left:3px solid var(--zak-primary-500,var(--zak-primary));':'');
+            div.innerHTML='<div style="display:flex;align-items:center;gap:var(--zak-space-2);margin-bottom:var(--zak-space-2);flex-wrap:wrap;">'
+                +'<select class="zak-select zak-select-sm qb-logic" style="width:80px;"><option>AND</option><option>OR</option></select>'
+                +'<button class="zak-btn zak-btn-outline zak-btn-sm qb-add-row">+ Condition</button>'
+                +'<button class="zak-btn zak-btn-outline zak-btn-sm qb-add-nested">+ Group</button>'
+                +'<button class="zak-btn zak-btn-soft zak-btn-sm qb-remove-group" style="margin-left:auto;" title="Remove group"><svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>'
+                +'</div><div class="qb-group-body"></div>';
+            var body=div.querySelector('.qb-group-body');
+            body.appendChild(makeRow());
+            div.querySelector('.qb-add-row').addEventListener('click',function(){body.appendChild(makeRow());updateCount();updatePreview();});
+            div.querySelector('.qb-add-nested').addEventListener('click',function(){makeGroup(body,depth+1);updateCount();updatePreview();});
+            div.querySelector('.qb-remove-group').addEventListener('click',function(){div.remove();updateCount();updatePreview();});
+            div.querySelector('.qb-logic').addEventListener('change',updatePreview);
+            parent.appendChild(div);
+            updateCount();updatePreview();
+        }
+        function countConditions(){
+            return document.querySelectorAll('.qb-row').length;
+        }
+        function updateCount(){
+            var c=countConditions();
+            if(c>0){countBadge.style.display='';countBadge.textContent=c;}
+            else{countBadge.style.display='none';}
+        }
+        function buildPreview(el){
+            var parts=[];
+            el.querySelectorAll(':scope > .qb-group').forEach(function(g,idx){
+                var logic=g.querySelector('.qb-logic').value;
+                var rows=g.querySelectorAll(':scope > .qb-group-body > .qb-row');
+                var nested=g.querySelectorAll(':scope > .qb-group-body > .qb-group');
+                var rowParts=[];
+                rows.forEach(function(r){
+                    var f=r.querySelector('.qb-field').value;
+                    var op=r.querySelector('.qb-op').value;
+                    var v=r.querySelector('.qb-val').value||'?';
+                    if(unaryOps.indexOf(op)!==-1) rowParts.push(f+' '+op);
+                    else if(op==='between') rowParts.push(f+' BETWEEN '+v+' AND '+(r.querySelector('.qb-val2').value||'?'));
+                    else if(op==='in') rowParts.push(f+' IN ('+v+')');
+                    else if(op==='contains') rowParts.push(f+' LIKE \'%'+v+'%\'');
+                    else if(op==='starts with') rowParts.push(f+' LIKE \''+v+'%\'');
+                    else if(op==='ends with') rowParts.push(f+' LIKE \'%'+v+'\'');
+                    else rowParts.push(f+' '+op+' \''+v+'\'');
+                });
+                nested.forEach(function(ng){rowParts.push('('+buildPreview(ng)+')');});
+                if(rowParts.length>0) parts.push(rowParts.join(' '+logic+' '));
+            });
+            return parts.join(' AND ');
+        }
+        function updatePreview(){
+            var c=countConditions();
+            if(c>0){preview.style.display='';preview.textContent=buildPreview(groups);}
+            else{preview.style.display='none';}
+        }
+        document.getElementById('qb-add-group').addEventListener('click',function(){makeGroup(groups,0);});
+        document.getElementById('qb-clear').addEventListener('click',function(){groups.innerHTML='';groupCounter=0;updateCount();updatePreview();});
+        document.getElementById('qb-execute').addEventListener('click',function(){
+            alert('Query executed!\n\n'+buildPreview(groups));
+        });
+        document.getElementById('qb-templates').addEventListener('change',function(){
+            var t=templates[this.value];
+            if(!t) return;
+            groups.innerHTML='';groupCounter=0;
+            makeGroup(groups,0);
+            var body=groups.querySelector('.qb-group-body');
+            body.innerHTML='';
+            t.forEach(function(row){
+                var r=makeRow();
+                r.querySelector('.qb-field').value=row.field;
+                r.querySelector('.qb-op').value=row.op;
+                r.querySelector('.qb-val').value=row.value;
+                body.appendChild(r);
+            });
+            updateCount();updatePreview();
+            this.value='';
+        });
+        document.getElementById('qb-save-template').addEventListener('click',function(){
+            var name=prompt('Template name:');
+            if(!name) return;
+            var rows=[];
+            document.querySelectorAll('.qb-row').forEach(function(r){
+                rows.push({field:r.querySelector('.qb-field').value,op:r.querySelector('.qb-op').value,value:r.querySelector('.qb-val').value});
+            });
+            templates[name]=rows;
+            var opt=document.createElement('option');
+            opt.value=name;opt.textContent=name;
+            document.getElementById('qb-templates').appendChild(opt);
+            alert('Template saved: '+name);
+        });
+        makeGroup(groups,0);
+    })();
+    </script>
+</body></html>

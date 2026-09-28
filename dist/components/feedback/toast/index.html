@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Toast documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Toast - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/feedback/toast/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Toast - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Toast documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/feedback/toast/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Feedback</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Toast</span>
+                </nav>
+        <h1>Toast</h1>
+        <p class="docs-subtitle">Toasts are lightweight notifications that surface short, non-blocking messages near the edge of the screen.</p>
+
+        <section class="zak-docs-section">
+            <h2>Basic Toast</h2>
+            <p>A minimal toast with title and supporting text.</p>
+            <div class="docs-preview">
+                <div class="zak-toast" style="position:static;">
+                    <div style="flex:1;">
+                        <div class="zak-toast-title">File uploaded</div>
+                        <div class="zak-toast-text">report-q3.pdf has been uploaded.</div>
+                    </div>
+                    <button class="zak-toast-close" aria-label="Close toast">&times;</button>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-toast"&gt;
+    &lt;div style="flex:1;"&gt;
+        &lt;div class="zak-toast-title"&gt;File uploaded&lt;/div&gt;
+        &lt;div class="zak-toast-text"&gt;report-q3.pdf has been uploaded.&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;button class="zak-toast-close" aria-label="Close toast"&gt;&amp;times;&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Toast Positions</h2>
+            <p>Toast containers place toasts in six fixed corners and centers using position modifiers.</p>
+            <div class="docs-preview">
+                <div class="zak-stack" style="width:100%;">
+                    <div class="zak-toast" style="position:static;">
+                        <div style="flex:1;"><div class="zak-toast-title">Top left</div><div class="zak-toast-text">at the top-left of the viewport.</div></div>
+                    </div>
+                    <div class="zak-toast" style="position:static;">
+                        <div style="flex:1;"><div class="zak-toast-title">Top center</div><div class="zak-toast-text">at the top-center of the viewport.</div></div>
+                    </div>
+                    <div class="zak-toast" style="position:static;">
+                        <div style="flex:1;"><div class="zak-toast-title">Top right</div><div class="zak-toast-text">at the top-right of the viewport.</div></div>
+                    </div>
+                    <div class="zak-toast" style="position:static;">
+                        <div style="flex:1;"><div class="zak-toast-title">Bottom right</div><div class="zak-toast-text">at the bottom-right of the viewport.</div></div>
+                    </div>
+                    <div class="zak-toast" style="position:static;">
+                        <div style="flex:1;"><div class="zak-toast-title">Bottom left</div><div class="zak-toast-text">at the bottom-left of the viewport.</div></div>
+                    </div>
+                    <div class="zak-toast" style="position:static;">
+                        <div style="flex:1;"><div class="zak-toast-title">Bottom center</div><div class="zak-toast-text">at the bottom-center of the viewport.</div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-toast-container zak-toast-container-top-start"&gt;...&lt;/div&gt;
+&lt;div class="zak-toast-container zak-toast-container-top-center"&gt;...&lt;/div&gt;
+&lt;div class="zak-toast-container zak-toast-container-top-end"&gt;...&lt;/div&gt;
+&lt;div class="zak-toast-container zak-toast-container-bottom-start"&gt;...&lt;/div&gt;
+&lt;div class="zak-toast-container zak-toast-container-bottom-center"&gt;...&lt;/div&gt;
+&lt;div class="zak-toast-container zak-toast-container-bottom-end"&gt;...&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Toast Variants</h2>
+            <p>Variants tint the icon badge to communicate success, error, warning, or info.</p>
+            <div class="docs-preview">
+                <div class="zak-stack" style="width:100%;">
+                    <div class="zak-toast zak-toast-success">
+                        <span class="zak-toast-icon"><svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></span>
+                        <div style="flex:1;"><div class="zak-toast-title">Saved</div><div class="zak-toast-text">Changes saved successfully.</div></div>
+                    </div>
+                    <div class="zak-toast zak-toast-danger">
+                        <span class="zak-toast-icon"><svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg></span>
+                        <div style="flex:1;"><div class="zak-toast-title">Error</div><div class="zak-toast-text">Something went wrong.</div></div>
+                    </div>
+                    <div class="zak-toast zak-toast-warning">
+                        <span class="zak-toast-icon"><svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg></span>
+                        <div style="flex:1;"><div class="zak-toast-title">Warning</div><div class="zak-toast-text">Storage space running low.</div></div>
+                    </div>
+                    <div class="zak-toast zak-toast-info">
+                        <span class="zak-toast-icon"><svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></span>
+                        <div style="flex:1;"><div class="zak-toast-title">Info</div><div class="zak-toast-text">A new version is available.</div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-toast zak-toast-success"&gt;...&lt;/div&gt;
+&lt;div class="zak-toast zak-toast-danger"&gt;...&lt;/div&gt;
+&lt;div class="zak-toast zak-toast-warning"&gt;...&lt;/div&gt;
+&lt;div class="zak-toast zak-toast-info"&gt;...&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Toast with Action</h2>
+            <p>Include a call to action such as "Undo" inside the toast.</p>
+            <div class="docs-preview">
+                <div class="zak-toast zak-toast-info" style="position:static;">
+                    <span class="zak-toast-icon"><svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></span>
+                    <div style="flex:1;"><div class="zak-toast-title">Item deleted</div><div class="zak-toast-text">Post was moved to trash.</div></div>
+                    <button class="zak-btn zak-btn-link zak-btn-sm">Undo</button>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-toast zak-toast-info"&gt;
+    &lt;span class="zak-toast-icon"&gt;...&lt;/svg&gt;&lt;/span&gt;
+    &lt;div style="flex:1;"&gt;
+        &lt;div class="zak-toast-title"&gt;Item deleted&lt;/div&gt;
+        &lt;div class="zak-toast-text"&gt;Post was moved to trash.&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;button class="zak-btn zak-btn-link zak-btn-sm"&gt;Undo&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Auto-Dismiss Toast</h2>
+            <p>Click the button to show a toast that disappears after 3 seconds.</p>
+            <div class="docs-preview">
+                <div class="zak-alert zak-alert-info" style="width:100%;">
+                    <div class="zak-alert-content">Auto-dismiss is handled with <code>setTimeout</code>. See the JavaScript section.</div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>function showAutoToast(message) {
+    var toast = document.createElement('div');
+    toast.className = 'zak-toast zak-toast-success';
+    toast.innerHTML = '&lt;div style="flex:1;"&gt;&lt;div class="zak-toast-title"&gt;' + message +
+        '&lt;/div&gt;&lt;div class="zak-toast-text"&gt;This toast auto-dismisses.&lt;/div&gt;&lt;/div&gt;';
+    container.appendChild(toast);
+    setTimeout(function() {
+        toast.remove();
+    }, 3000);
+}</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Interactive Demo</h2>
+            <p>Use the buttons to trigger toasts in a fixed container.</p>
+            <div class="docs-preview">
+                <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+                    <button class="zak-btn zak-btn-success" onclick="zakToast.demo('success')">Success Toast</button>
+                    <button class="zak-btn zak-btn-danger" onclick="zakToast.demo('danger')">Error Toast</button>
+                    <button class="zak-btn zak-btn-warning" onclick="zakToast.demo('warning')">Warning Toast</button>
+                    <button class="zak-btn zak-btn-info" onclick="zakToast.demo('info')">Info Toast</button>
+                    <button class="zak-btn zak-btn-outline-primary" onclick="zakToast.demo('stack')">Stack 3 Toasts</button>
+                </div>
+                <div class="zak-toast-container zak-toast-container-top-end" id="toast-demo-container" style="position:fixed;"></div>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>JavaScript</h2>
+            <p>A small helper to create, append, and remove toasts.</p>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>var zakToast = (function() {
+    var container = document.getElementById('toast-demo-container');
+
+    var icons = {
+        success: '&lt;svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;&lt;path d="M20 6L9 17l-5-5"/&gt;&lt;/svg&gt;',
+        danger: '&lt;svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;&lt;circle cx="12" cy="12" r="10"/&gt;&lt;path d="M15 9l-6 6M9 9l6 6"/&gt;&lt;/svg&gt;',
+        warning: '&lt;svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;&lt;path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/&gt;&lt;path d="M12 9v4M12 17h.01"/&gt;&lt;/svg&gt;',
+        info: '&lt;svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;&lt;circle cx="12" cy="12" r="10"/&gt;&lt;path d="M12 16v-4M12 8h.01"/&gt;&lt;/svg&gt;'
+    };
+
+    var titles = {
+        success: 'Success',
+        danger: 'Error',
+        warning: 'Warning',
+        info: 'Info'
+    };
+
+    var messages = {
+        success: 'Your changes were saved.',
+        danger: 'The operation could not be completed.',
+        warning: 'Your session will expire soon.',
+        info: 'A new version is available.'
+    };
+
+    function create(type) {
+        var toast = document.createElement('div');
+        toast.className = 'zak-toast zak-toast-' + type;
+        toast.setAttribute('role', 'status');
+        toast.innerHTML =
+            '&lt;span class="zak-toast-icon"&gt;' + icons[type] + '&lt;/span&gt;' +
+            '&lt;div style="flex:1;"&gt;&lt;div class="zak-toast-title"&gt;' + titles[type] + '&lt;/div&gt;' +
+            '&lt;div class="zak-toast-text"&gt;' + messages[type] + '&lt;/div&gt;&lt;/div&gt;' +
+            '&lt;button class="zak-toast-close" aria-label="Close"&gt;&amp;times;&lt;/button&gt;';
+        toast.querySelector('.zak-toast-close').addEventListener('click', function() {
+            toast.remove();
+        });
+        return toast;
+    }
+
+    function demo(type) {
+        if (type === 'stack') {
+            ['success', 'info', 'warning'].forEach(function(t, i) {
+                setTimeout(function() { container.appendChild(create(t)); }, i * 350);
+            });
+            return;
+        }
+        container.appendChild(create(type));
+    }
+
+    return { demo: demo, create: create };
+})();</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>CSS Classes &amp; Variables</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>.zak-toast                    /* Base toast */
+.zak-toast-icon               /* Circular icon badge */
+.zak-toast-title              /* Bold title */
+.zak-toast-text               /* Muted body text */
+.zak-toast-close              /* Close button */
+.zak-toast-success            /* Success variant */
+.zak-toast-danger             /* Danger variant */
+.zak-toast-warning            /* Warning variant */
+.zak-toast-info               /* Info variant */
+.zak-toast-container          /* Fixed stacking container */
+.zak-toast-container-top-start / -top-center / -top-end
+.zak-toast-container-bottom-start / -bottom-center / -bottom-end
+.zak-toast-enter / -enter-active  /* Enter animation classes */</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Use <code>role="status"</code> for polite toasts and <code>role="alert"</code> for critical ones.</li>
+                <li>Do not use time as the only signal; also keep the toast dismissable by keyboard.</li>
+                <li>Ensure toast close buttons have a descriptive <code>aria-label</code>.</li>
+                <li>For auto-dismiss toasts, consider pausing dismiss while the user hovers or focuses the toast.</li>
+            </ul>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-toast zak-toast-danger" role="alert"&gt;
+    &lt;div class="zak-toast-title"&gt;Connection lost&lt;/div&gt;
+    &lt;button class="zak-toast-close" aria-label="Dismiss notification"&gt;&amp;times;&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    <script>
+        var zakToast = (function () {
+            var container = document.getElementById('toast-demo-container');
+            var icons = {
+                success: '<svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>',
+                danger: '<svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>',
+                warning: '<svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>',
+                info: '<svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>'
+            };
+            var titles = { success: 'Success', danger: 'Error', warning: 'Warning', info: 'Info' };
+            var messages = {
+                success: 'Your changes were saved.',
+                danger: 'The operation could not be completed.',
+                warning: 'Your session will expire soon.',
+                info: 'A new version is available.'
+            };
+            function create(type) {
+                var toast = document.createElement('div');
+                toast.className = 'zak-toast zak-toast-' + type;
+                toast.setAttribute('role', 'status');
+                toast.innerHTML =
+                    '<span class="zak-toast-icon">' + icons[type] + '</span>' +
+                    '<div style="flex:1;"><div class="zak-toast-title">' + titles[type] + '</div>' +
+                    '<div class="zak-toast-text">' + messages[type] + '</div></div>' +
+                    '<button class="zak-toast-close" aria-label="Close">&times;</button>';
+                toast.querySelector('.zak-toast-close').addEventListener('click', function () {
+                    toast.remove();
+                });
+                setTimeout(function () {
+                    if (toast.parentNode) toast.remove();
+                }, 5000);
+                return toast;
+            }
+            function demo(type) {
+                if (type === 'stack') {
+                    ['success', 'info', 'warning'].forEach(function (t, i) {
+                        setTimeout(function () { container.appendChild(create(t)); }, i * 350);
+                    });
+                    return;
+                }
+                container.appendChild(create(type));
+            }
+            return { demo: demo, create: create };
+        })();
+    </script>
+</body></html>

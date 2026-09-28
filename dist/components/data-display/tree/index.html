@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Tree documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Tree - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/data-display/tree/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Tree - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Tree documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/data-display/tree/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Data-Display</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Tree</span>
+                </nav>
+        <h1>Tree</h1>
+        <p class="docs-subtitle">Trees organize nested data such as file systems, org charts, and permission scopes. Combine node rows, toggles, icons, and checkboxes for browsable hierarchies.</p>
+
+        <div class="zak-docs-section">
+            <h2>Basic Tree</h2>
+            <p>Wrap the hierarchy in <code>.zak-tree</code> using <code>.zak-tree-node</code> and <code>.zak-node-row</code>.</p>
+
+            <div class="docs-preview">
+                <div class="zak-tree" style="max-width: 22rem; margin: 0 auto; text-align: left;">
+                    <div class="zak-tree-node zak-open">
+                        <div class="zak-node-row">Products</div>
+                        <div class="zak-tree-children">
+                            <div class="zak-tree-node">
+                                <div class="zak-node-row">Electronics</div>
+                                <div class="zak-tree-children">
+                                    <div class="zak-tree-node"><div class="zak-node-row">Laptops</div></div>
+                                    <div class="zak-tree-node"><div class="zak-node-row">Phones</div></div>
+                                </div>
+                            </div>
+                            <div class="zak-tree-node">
+                                <div class="zak-node-row">Accessories</div>
+                                <div class="zak-tree-children">
+                                    <div class="zak-tree-node"><div class="zak-node-row">Cables</div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-tree"&gt;
+  &lt;div class="zak-tree-node zak-open"&gt;
+    &lt;div class="zak-node-row"&gt;Products&lt;/div&gt;
+    &lt;div class="zak-tree-children"&gt;
+      &lt;div class="zak-tree-node"&gt;
+        &lt;div class="zak-node-row"&gt;Electronics&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Expand and Collapse</h2>
+            <p>Add a toggle button per node that flips <code>.zak-open</code> on the node. The demo hooks every <code>.zak-toggle</code> button.</p>
+
+            <div class="docs-preview">
+                <div class="zak-tree" id="toggle-tree" style="max-width: 22rem; margin: 0 auto; text-align: left;">
+                    <div class="zak-tree-node zak-open">
+                        <div class="zak-node-row">
+                            <button type="button" class="zak-toggle" aria-label="Toggle" aria-expanded="true">
+                                <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                            </button>
+                            Design studio
+                        </div>
+                        <div class="zak-tree-children">
+                            <div class="zak-tree-node zak-open">
+                                <div class="zak-node-row">
+                                    <button type="button" class="zak-toggle" aria-label="Toggle" aria-expanded="true">
+                                        <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                                    </button>
+                                    Components
+                                </div>
+                                <div class="zak-tree-children">
+                                    <div class="zak-tree-node"><div class="zak-node-row">Card</div></div>
+                                    <div class="zak-tree-node"><div class="zak-node-row">Badge</div></div>
+                                    <div class="zak-tree-node"><div class="zak-node-row">Table</div></div>
+                                </div>
+                            </div>
+                            <div class="zak-tree-node">
+                                <div class="zak-node-row">
+                                    <button type="button" class="zak-toggle" aria-label="Toggle" aria-expanded="false">
+                                        <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                                    </button>
+                                    Foundations
+                                </div>
+                                <div class="zak-tree-children">
+                                    <div class="zak-tree-node"><div class="zak-node-row">Colors</div></div>
+                                    <div class="zak-tree-node"><div class="zak-node-row">Tokens</div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-tree-node zak-open"&gt;
+  &lt;div class="zak-node-row"&gt;
+    &lt;button type="button" class="zak-toggle" aria-expanded="true"&gt;
+      &lt;svg class="zak-icon zak-icon-sm"&gt;...&lt;/svg&gt;
+    &lt;/button&gt;
+    Components
+  &lt;/div&gt;
+  &lt;div class="zak-tree-children"&gt;
+    &lt;div class="zak-tree-node"&gt;&lt;div class="zak-node-row"&gt;Card&lt;/div&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Tree with Icons</h2>
+            <p>Prefix node rows with type icons (folder/file) for file explorers.</p>
+
+            <div class="docs-preview">
+                <div class="zak-tree zak-open" style="max-width: 22rem; margin: 0 auto; text-align: left;">
+                    <div class="zak-tree-node zak-open">
+                        <div class="zak-node-row">
+                            <svg class="zak-icon zak-icon-sm zak-text-warning" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                            src
+                        </div>
+                        <div class="zak-tree-children">
+                            <div class="zak-tree-node">
+                                <div class="zak-node-row">
+                                    <svg class="zak-icon zak-icon-sm zak-text-warning" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                                    components
+                                </div>
+                            </div>
+                            <div class="zak-tree-node">
+                                <div class="zak-node-row">
+                                    <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                    main.js
+                                </div>
+                            </div>
+                            <div class="zak-tree-node">
+                                <div class="zak-node-row">
+                                    <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                    app.js
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-node-row"&gt;
+  &lt;svg class="zak-icon zak-icon-sm zak-text-warning"&gt;...&lt;/svg&gt;
+  src
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Tree with Checkboxes</h2>
+            <p>Include <code>zak-checkbox</code> inputs for multi-select hierarchies such as permissions.</p>
+
+            <div class="docs-preview">
+                <div class="zak-tree" style="max-width: 22rem; margin: 0 auto; text-align: left;">
+                    <div class="zak-tree-node zak-open">
+                        <div class="zak-node-row">
+                            <input type="checkbox" class="zak-checkbox" id="cb-access" checked>
+                            <label for="cb-access" style="cursor: pointer;">Full access</label>
+                        </div>
+                        <div class="zak-tree-children">
+                            <div class="zak-tree-node zak-open">
+                                <div class="zak-node-row">
+                                    <input type="checkbox" class="zak-checkbox" id="cb-read" checked>
+                                    <label for="cb-read" style="cursor: pointer;">Read</label>
+                                </div>
+                                <div class="zak-tree-children">
+                                    <div class="zak-tree-node"><div class="zak-node-row"><input type="checkbox" class="zak-checkbox" id="cb-files" checked><label for="cb-files" style="cursor: pointer;">Files</label></div></div>
+                                    <div class="zak-tree-node"><div class="zak-node-row"><input type="checkbox" class="zak-checkbox" id="cb-issues"><label for="cb-issues" style="cursor: pointer;">Issues</label></div></div>
+                                </div>
+                            </div>
+                            <div class="zak-tree-node">
+                                <div class="zak-node-row">
+                                    <input type="checkbox" class="zak-checkbox" id="cb-write">
+                                    <label for="cb-write" style="cursor: pointer;">Write</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-node-row"&gt;
+  &lt;input type="checkbox" class="zak-checkbox" id="cb-read"&gt;
+  &lt;label for="cb-read"&gt;Read&lt;/label&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Tree with Links</h2>
+            <p>Make node rows links for navigation trees.</p>
+
+            <div class="docs-preview">
+                <div class="zak-tree" style="max-width: 22rem; margin: 0 auto; text-align: left;">
+                    <div class="zak-tree-node zak-open">
+                        <div class="zak-node-row"><a href="#" style="text-decoration: none;">Getting started</a></div>
+                    </div>
+                    <div class="zak-tree-node zak-open">
+                        <div class="zak-node-row" style="font-weight: var(--zak-font-weight-semibold);">Components</div>
+                        <div class="zak-tree-children">
+                            <div class="zak-tree-node"><div class="zak-node-row"><a href="../card/index.html" style="text-decoration: none;">Card</a></div></div>
+                            <div class="zak-tree-node"><div class="zak-node-row"><a href="../../tables/table/index.html" style="text-decoration: none;">Table</a></div></div>
+                            <div class="zak-tree-node"><div class="zak-node-row"><a href="../list-group/index.html" style="text-decoration: none;">List Group</a></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-node-row"&gt;
+  &lt;a href="../card/index.html"&gt;Card&lt;/a&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Custom Node Content</h2>
+            <p>Keep flexible content inside <code>.zak-node-row</code> — add badges, avatars and metadata.</p>
+
+            <div class="docs-preview">
+                <div class="zak-tree" style="max-width: 24rem; margin: 0 auto; text-align: left;">
+                    <div class="zak-tree-node zak-open">
+                        <div class="zak-node-row">
+                            <svg class="zak-icon zak-icon-sm zak-text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            Team
+                            <span class="zak-badge" style="margin-left: auto;">8</span>
+                        </div>
+                        <div class="zak-tree-children">
+                            <div class="zak-tree-node">
+                                <div class="zak-node-row"><span class="zak-avatar zak-avatar-2xl zak-avatar-primary" style="width: 1.5rem; height: 1.5rem; font-size: 0.6rem;">JA</span> Janet Fox</div>
+                            </div>
+                            <div class="zak-tree-node">
+                                <div class="zak-node-row"><span class="zak-avatar zak-avatar-2xl zak-avatar-success" style="width: 1.5rem; height: 1.5rem; font-size: 0.6rem;">MK</span> Mark Kim</div>
+                            </div>
+                            <div class="zak-tree-node">
+                                <div class="zak-node-row"><span class="zak-avatar zak-avatar-2xl zak-avatar-warning" style="width: 1.5rem; height: 1.5rem; font-size: 0.6rem;">SR</span> Sara Reyes</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-node-row"&gt;
+  &lt;span class="zak-avatar zak-avatar-sm"&gt;JA&lt;/span&gt;
+  Janet Fox
+  &lt;span class="zak-badge" style="margin-left: auto;"&gt;8&lt;/span&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Demo JavaScript</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span>JavaScript</span><button class="docs-copy-btn">Copy</button></div><pre><code>document.querySelectorAll('#toggle-tree .zak-toggle').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var node = btn.closest('.zak-tree-node');
+    var open = node.classList.toggle('zak-open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+});</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.zak-tree</code></td><td>Root container for the hierarchy</td></tr>
+                        <tr><td><code>.zak-tree-node</code></td><td>A single node (can nest children)</td></tr>
+                        <tr><td><code>.zak-tree-node.open</code></td><td>Expanded state — shows children</td></tr>
+                        <tr><td><code>.zak-node-row</code></td><td>Horizontal label row of a node</td></tr>
+                        <tr><td><code>.zak-tree-children</code></td><td>Wrapper for nested child nodes</td></tr>
+                        <tr><td><code>.zak-toggle</code></td><td>Expand/collapse control button</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Mark the tree container with <code>role="tree"</code> and items with <code>role="treeitem"</code> when JS behavior is applied.</li>
+                <li>Each toggle button needs <code>aria-expanded</code> and a label; focus should move predictably with arrow keys in full implementations.</li>
+                <li>Keep label text directly next to checkboxes so label association is trivial.</li>
+                <li>Visual indentation must be preserved for screen readers via nesting or <code>aria-level</code>.</li>
+                <li>Do not make the whole row a link and a toggle simultaneously unless nesting clearly separates the interactive regions.</li>
+            </ul>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    <script>
+        document.querySelectorAll('#toggle-tree .zak-toggle').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var node = btn.closest('.zak-tree-node');
+                var open = node.classList.toggle('zak-open');
+                btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            });
+        });
+    </script>
+</body></html>

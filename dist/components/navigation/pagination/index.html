@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Pagination documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Pagination - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/navigation/pagination/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Pagination - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Pagination documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/navigation/pagination/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main">
+        <div class="docs-content">
+            <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Navigation</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Pagination</span>
+                </nav>
+
+            <h1>Pagination</h1>
+            <p class="docs-subtitle">Pagination allows users to navigate between pages of content. It displays page numbers, navigation controls, and provides context about the total number of items.</p>
+
+            <section class="zak-docs-section">
+                <h2>Basic Pagination</h2>
+                <p>A simple pagination with numbered page links.</p>
+                <div class="docs-preview">
+                    <nav class="zak-pagination" aria-label="Pagination">
+                        <button class="zak-pagination-item" disabled aria-label="Previous">&laquo;</button>
+                        <a href="#" class="zak-pagination-item active" aria-current="page">1</a>
+                        <a href="#" class="zak-pagination-item">2</a>
+                        <a href="#" class="zak-pagination-item">3</a>
+                        <a href="#" class="zak-pagination-item">4</a>
+                        <a href="#" class="zak-pagination-item">5</a>
+                        <button class="zak-pagination-item" aria-label="Next">&raquo;</button>
+                    </nav>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;nav class="zak-pagination" aria-label="Pagination"&gt;
+    &lt;button class="zak-pagination-item" disabled aria-label="Previous"&gt;&amp;laquo;&lt;/button&gt;
+    &lt;a href="#" class="zak-pagination-item active" aria-current="page"&gt;1&lt;/a&gt;
+    &lt;a href="#" class="zak-pagination-item"&gt;2&lt;/a&gt;
+    &lt;a href="#" class="zak-pagination-item"&gt;3&lt;/a&gt;
+    &lt;a href="#" class="zak-pagination-item"&gt;4&lt;/a&gt;
+    &lt;a href="#" class="zak-pagination-item"&gt;5&lt;/a&gt;
+    &lt;button class="zak-pagination-item" aria-label="Next"&gt;&amp;raquo;&lt;/button&gt;
+&lt;/nav&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Pagination with Icons</h2>
+                <p>Use SVG icons for the previous/next buttons.</p>
+                <div class="docs-preview">
+                    <nav class="zak-pagination" aria-label="Pagination with icons">
+                        <button class="zak-pagination-item" disabled aria-label="Previous">
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+                        </button>
+                        <a href="#" class="zak-pagination-item active" aria-current="page">1</a>
+                        <a href="#" class="zak-pagination-item">2</a>
+                        <a href="#" class="zak-pagination-item">3</a>
+                        <a href="#" class="zak-pagination-item">4</a>
+                        <button class="zak-pagination-item" aria-label="Next">
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+                        </button>
+                    </nav>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;button class="zak-pagination-item" aria-label="Previous"&gt;
+    &lt;svg class="zak-icon" viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
+&lt;/button&gt;
+&lt;a href="#" class="zak-pagination-item active" aria-current="page"&gt;1&lt;/a&gt;
+&lt;a href="#" class="zak-pagination-item"&gt;2&lt;/a&gt;
+&lt;button class="zak-pagination-item" aria-label="Next"&gt;
+    &lt;svg class="zak-icon" viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
+&lt;/button&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Pagination Sizes</h2>
+                <p>Small and large size variants for different contexts.</p>
+                <div class="docs-preview">
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <div>
+                            <div style="font-size: 0.75rem; color: var(--docs-text-muted); margin-bottom: 0.25rem;">Small</div>
+                            <nav class="zak-pagination zak-pagination-sm" aria-label="Small pagination">
+                                <button class="zak-pagination-item" disabled>&laquo;</button>
+                                <a href="#" class="zak-pagination-item active" aria-current="page">1</a>
+                                <a href="#" class="zak-pagination-item">2</a>
+                                <a href="#" class="zak-pagination-item">3</a>
+                                <button class="zak-pagination-item">&raquo;</button>
+                            </nav>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.75rem; color: var(--docs-text-muted); margin-bottom: 0.25rem;">Default</div>
+                            <nav class="zak-pagination" aria-label="Default pagination">
+                                <button class="zak-pagination-item" disabled>&laquo;</button>
+                                <a href="#" class="zak-pagination-item active" aria-current="page">1</a>
+                                <a href="#" class="zak-pagination-item">2</a>
+                                <a href="#" class="zak-pagination-item">3</a>
+                                <button class="zak-pagination-item">&raquo;</button>
+                            </nav>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.75rem; color: var(--docs-text-muted); margin-bottom: 0.25rem;">Large</div>
+                            <nav class="zak-pagination zak-pagination-lg" aria-label="Large pagination">
+                                <button class="zak-pagination-item" disabled>&laquo;</button>
+                                <a href="#" class="zak-pagination-item active" aria-current="page">1</a>
+                                <a href="#" class="zak-pagination-item">2</a>
+                                <a href="#" class="zak-pagination-item">3</a>
+                                <button class="zak-pagination-item">&raquo;</button>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;!-- Small --&gt;
+&lt;nav class="zak-pagination zak-pagination-sm"&gt;...&lt;/nav&gt;
+
+&lt;!-- Default --&gt;
+&lt;nav class="zak-pagination"&gt;...&lt;/nav&gt;
+
+&lt;!-- Large --&gt;
+&lt;nav class="zak-pagination zak-pagination-lg"&gt;...&lt;/nav&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Pagination with Active/Disabled States</h2>
+                <p>Active page is highlighted, disabled controls are visually muted.</p>
+                <div class="docs-preview">
+                    <nav class="zak-pagination" aria-label="States pagination">
+                        <button class="zak-pagination-item" disabled aria-label="Previous">
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+                        </button>
+                        <a href="#" class="zak-pagination-item">1</a>
+                        <a href="#" class="zak-pagination-item">2</a>
+                        <a href="#" class="zak-pagination-item active" aria-current="page">3</a>
+                        <a href="#" class="zak-pagination-item">4</a>
+                        <a href="#" class="zak-pagination-item">5</a>
+                        <a href="#" class="zak-pagination-item">6</a>
+                        <a href="#" class="zak-pagination-item">7</a>
+                        <button class="zak-pagination-item" aria-label="Next">
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+                        </button>
+                    </nav>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;!-- Active page --&gt;
+&lt;a href="#" class="zak-pagination-item active" aria-current="page"&gt;3&lt;/a&gt;
+
+&lt;!-- Disabled button --&gt;
+&lt;button class="zak-pagination-item" disabled&gt;&amp;laquo;&lt;/button&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Pagination with Ellipsis</h2>
+                <p>Use ellipsis for large page counts to collapse middle pages.</p>
+                <div class="docs-preview">
+                    <nav class="zak-pagination" aria-label="Ellipsis pagination">
+                        <button class="zak-pagination-item" disabled>&laquo;</button>
+                        <a href="#" class="zak-pagination-item">1</a>
+                        <a href="#" class="zak-pagination-item">2</a>
+                        <a href="#" class="zak-pagination-item">3</a>
+                        <span class="zak-pagination-ellipsis">&hellip;</span>
+                        <a href="#" class="zak-pagination-item">10</a>
+                        <a href="#" class="zak-pagination-item">11</a>
+                        <a href="#" class="zak-pagination-item">12</a>
+                        <button class="zak-pagination-item">&raquo;</button>
+                    </nav>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;a href="#" class="zak-pagination-item"&gt;1&lt;/a&gt;
+&lt;a href="#" class="zak-pagination-item"&gt;2&lt;/a&gt;
+&lt;a href="#" class="zak-pagination-item"&gt;3&lt;/a&gt;
+&lt;span class="zak-pagination-ellipsis"&gt;&amp;hellip;&lt;/span&gt;
+&lt;a href="#" class="zak-pagination-item"&gt;10&lt;/a&gt;
+&lt;a href="#" class="zak-pagination-item"&gt;11&lt;/a&gt;
+&lt;a href="#" class="zak-pagination-item"&gt;12&lt;/a&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Compact Pagination</h2>
+                <p>A minimal pagination with just prev/next and page indicator.</p>
+                <div class="docs-preview">
+                    <nav class="zak-pagination zak-pagination-compact" aria-label="Compact pagination">
+                        <button class="zak-pagination-item" disabled>
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+                        </button>
+                        <span class="zak-pagination-info">Page 3 of 10</span>
+                        <button class="zak-pagination-item">
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+                        </button>
+                    </nav>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;nav class="zak-pagination zak-pagination-compact"&gt;
+    &lt;button class="zak-pagination-item"&gt;
+        &lt;svg class="zak-icon" viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
+    &lt;/button&gt;
+    &lt;span class="zak-pagination-info"&gt;Page 3 of 10&lt;/span&gt;
+    &lt;button class="zak-pagination-item"&gt;
+        &lt;svg class="zak-icon" viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
+    &lt;/button&gt;
+&lt;/nav&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Pagination with Items Count</h2>
+                <p>Show a summary of the displayed items range alongside pagination.</p>
+                <div class="docs-preview">
+                    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+                        <span style="font-size: 0.875rem; color: var(--docs-text-muted);">Showing 1-10 of 120 items</span>
+                        <nav class="zak-pagination" aria-label="Pagination with count">
+                            <button class="zak-pagination-item" disabled>&laquo;</button>
+                            <a href="#" class="zak-pagination-item active" aria-current="page">1</a>
+                            <a href="#" class="zak-pagination-item">2</a>
+                            <a href="#" class="zak-pagination-item">3</a>
+                            <span class="zak-pagination-ellipsis">&hellip;</span>
+                            <a href="#" class="zak-pagination-item">12</a>
+                            <button class="zak-pagination-item">&raquo;</button>
+                        </nav>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div style="display: flex; align-items: center; justify-content: space-between;"&gt;
+    &lt;span&gt;Showing 1-10 of 120 items&lt;/span&gt;
+    &lt;nav class="zak-pagination" aria-label="Pagination"&gt;
+        &lt;button class="zak-pagination-item" disabled&gt;&amp;laquo;&lt;/button&gt;
+        &lt;a href="#" class="zak-pagination-item active" aria-current="page"&gt;1&lt;/a&gt;
+        &lt;a href="#" class="zak-pagination-item"&gt;2&lt;/a&gt;
+    &lt;/nav&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Interactive Demo</h2>
+                <p>Click through pages with this interactive pagination example.</p>
+                <div class="docs-preview">
+                    <div id="demo-pagination" style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
+                        <div id="demo-pagination-content" style="padding: 1rem; border: 1px solid var(--docs-border); border-radius: 0.375rem; width: 100%; text-align: center; color: var(--docs-text-muted);">Page 1 content</div>
+                        <nav class="zak-pagination" id="demo-pagination-nav" aria-label="Interactive pagination"></nav>
+                    </div>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>CSS Classes</h2>
+                <p>Pagination styles are controlled through these CSS classes.</p>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>/* Pagination Container */
+.zak-pagination                     /* Base pagination */
+.zak-pagination-sm                  /* Small size */
+.zak-pagination-lg                  /* Large size */
+.zak-pagination-compact             /* Compact prev/next only */
+
+/* Pagination Items */
+.zak-pagination-item                /* Page number or nav button */
+.zak-pagination-item.active         /* Active/current page */
+.zak-pagination-item:disabled       /* Disabled state */
+
+/* Helpers */
+.zak-pagination-ellipsis            /* Ellipsis indicator */
+.zak-pagination-info                /* Page info text (compact) */</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>JavaScript</h2>
+                <p>Use JavaScript for interactive pagination behavior.</p>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>// Generate pagination
+function createPagination(container, totalPages, currentPage) {
+    container.innerHTML = '';
+    // Previous button
+    const prev = document.createElement('button');
+    prev.className = 'zak-pagination-item';
+    prev.innerHTML = '&laquo;';
+    prev.disabled = currentPage === 1;
+    prev.onclick = () =&gt; createPagination(container, totalPages, currentPage - 1);
+    container.appendChild(prev);
+
+    for (let i = 1; i &lt;= totalPages; i++) {
+        const link = document.createElement('a');
+        link.className = 'zak-pagination-item' + (i === currentPage ? ' active' : '');
+        link.href = '#';
+        if (i === currentPage) link.setAttribute('aria-current', 'page');
+        link.textContent = i;
+        link.onclick = (e) =&gt; {
+            e.preventDefault();
+            createPagination(container, totalPages, i);
+        };
+        container.appendChild(link);
+    }
+
+    // Next button
+    const next = document.createElement('button');
+    next.className = 'zak-pagination-item';
+    next.innerHTML = '&raquo;';
+    next.disabled = currentPage === totalPages;
+    next.onclick = () =&gt; createPagination(container, totalPages, currentPage + 1);
+    container.appendChild(next);
+}
+
+createPagination(document.querySelector('.zak-pagination'), 10, 1);</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Accessibility</h2>
+                <p>Follow these accessibility best practices when using pagination.</p>
+                <ul>
+                    <li>Use <code>&lt;nav&gt;</code> with <code>aria-label="Pagination"</code> to identify the navigation.</li>
+                    <li>Mark the current page with <code>aria-current="page"</code>.</li>
+                    <li>Use <code>disabled</code> attribute on prev/next buttons when at boundaries.</li>
+                    <li>Provide descriptive <code>aria-label</code> on prev/next buttons (e.g., "Previous page", "Next page").</li>
+                    <li>Use semantic list markup or ARIA to convey the page structure.</li>
+                    <li>Ensure sufficient contrast for active page indicator and text.</li>
+                </ul>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;nav aria-label="Pagination results"&gt;
+    &lt;button class="zak-pagination-item" disabled aria-label="Go to previous page"&gt;&amp;laquo;&lt;/button&gt;
+    &lt;a href="#" class="zak-pagination-item" aria-label="Go to page 1"&gt;1&lt;/a&gt;
+    &lt;a href="#" class="zak-pagination-item active" aria-current="page" aria-label="Page 2, current page"&gt;2&lt;/a&gt;
+    &lt;a href="#" class="zak-pagination-item" aria-label="Go to page 3"&gt;3&lt;/a&gt;
+    &lt;button class="zak-pagination-item" aria-label="Go to next page"&gt;&amp;raquo;&lt;/button&gt;
+&lt;/nav&gt;</code></pre>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script>
+        // Demo: generate pagination buttons and update the preview content
+        function createPagination(container, totalPages, currentPage) {
+            container.innerHTML = '';
+
+            var prev = document.createElement('button');
+            prev.className = 'zak-pagination-item';
+            prev.setAttribute('aria-label', 'Previous');
+            prev.innerHTML = '&laquo;';
+            prev.disabled = currentPage === 1;
+            prev.onclick = function () { createPagination(container, totalPages, currentPage - 1); };
+            container.appendChild(prev);
+
+            for (var i = 1; i <= totalPages; i++) {
+                var link = document.createElement('a');
+                link.className = 'zak-pagination-item' + (i === currentPage ? ' active' : '');
+                link.href = '#';
+                if (i === currentPage) link.setAttribute('aria-current', 'page');
+                link.textContent = i;
+                link.onclick = function (e) {
+                    e.preventDefault();
+                    createPagination(container, totalPages, parseInt(this.textContent, 10));
+                };
+                container.appendChild(link);
+            }
+
+            var next = document.createElement('button');
+            next.className = 'zak-pagination-item';
+            next.setAttribute('aria-label', 'Next');
+            next.innerHTML = '&raquo;';
+            next.disabled = currentPage === totalPages;
+            next.onclick = function () { createPagination(container, totalPages, currentPage + 1); };
+            container.appendChild(next);
+
+            document.getElementById('demo-pagination-content').textContent = 'Page ' + currentPage + ' content';
+        }
+
+        createPagination(document.getElementById('demo-pagination-nav'), 10, 1);
+    </script>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body>
+</html>

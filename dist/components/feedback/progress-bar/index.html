@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Progress Bar documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Progress Bar - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/feedback/progress-bar/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Progress Bar - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Progress Bar documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/feedback/progress-bar/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Loading-States</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Progress Bar</span>
+                </nav>
+        <h1>Progress Bar</h1>
+        <p class="docs-subtitle">A visual indicator showing the completion progress of a task or process.</p>
+
+        <h2>Basic Progress Bar</h2>
+        <p>A simple progress bar showing completion level.</p>
+        <div class="docs-preview">
+            <div class="docs-preview">
+                <div class="zak-progress">
+                    <div class="zak-progress-bar" style="width:45%"></div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-progress"&gt;
+    &lt;div class="zak-progress-bar" style="width:45%"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <h2>Progress with Label</h2>
+        <p>Add a text label inside the progress bar.</p>
+        <div class="docs-preview">
+            <div class="docs-preview">
+                <div class="zak-progress">
+                    <div class="zak-progress-bar" style="width:60%">60%</div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-progress"&gt;
+    &lt;div class="zak-progress-bar" style="width:60%"&gt;60%&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <h2>Progress with Percentage Text</h2>
+        <p>Show the percentage as a label above or beside the bar.</p>
+        <div class="docs-preview">
+            <div class="docs-preview">
+                <div class="zak-progress-wrapper">
+                    <div class="zak-progress-header">
+                        <span>Upload Progress</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="zak-progress">
+                        <div class="zak-progress-bar" style="width:75%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-progress-wrapper"&gt;
+    &lt;div class="zak-progress-header"&gt;
+        &lt;span&gt;Upload Progress&lt;/span&gt;
+        &lt;span&gt;75%&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="zak-progress"&gt;
+        &lt;div class="zak-progress-bar" style="width:75%"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <h2>Color Variants</h2>
+        <p>Use color classes to convey different statuses.</p>
+        <div class="docs-preview">
+            <div class="docs-preview" style="display:flex;flex-direction:column;gap:1rem">
+                <div class="zak-progress">
+                    <div class="zak-progress-bar zak-progress-primary" style="width:70%"></div>
+                </div>
+                <div class="zak-progress">
+                    <div class="zak-progress-bar zak-progress-success" style="width:85%"></div>
+                </div>
+                <div class="zak-progress">
+                    <div class="zak-progress-bar zak-progress-danger" style="width:25%"></div>
+                </div>
+                <div class="zak-progress">
+                    <div class="zak-progress-bar zak-progress-warning" style="width:55%"></div>
+                </div>
+                <div class="zak-progress">
+                    <div class="zak-progress-bar zak-progress-info" style="width:40%"></div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-progress"&gt;
+    &lt;div class="zak-progress-bar zak-progress-primary" style="width:70%"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="zak-progress"&gt;
+    &lt;div class="zak-progress-bar zak-progress-success" style="width:85%"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="zak-progress"&gt;
+    &lt;div class="zak-progress-bar zak-progress-danger" style="width:25%"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="zak-progress"&gt;
+    &lt;div class="zak-progress-bar zak-progress-warning" style="width:55%"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="zak-progress"&gt;
+    &lt;div class="zak-progress-bar zak-progress-info" style="width:40%"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <h2>Striped Progress</h2>
+        <p>Add diagonal stripes for a styled appearance.</p>
+        <div class="docs-preview">
+            <div class="docs-preview">
+                <div class="zak-progress">
+                    <div class="zak-progress-bar zak-progress-striped" style="width:65%"></div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-progress"&gt;
+    &lt;div class="zak-progress-bar zak-progress-striped" style="width:65%"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <h2>Animated Stripes</h2>
+        <p>Combine stripes with animation for an active progress effect.</p>
+        <div class="docs-preview">
+            <div class="docs-preview">
+                <div class="zak-progress">
+                    <div class="zak-progress-bar zak-progress-striped zak-progress-animated" style="width:60%"></div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-progress"&gt;
+    &lt;div class="zak-progress-bar zak-progress-striped zak-progress-animated" style="width:60%"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <h2>Stacked Progress Bars</h2>
+        <p>Combine multiple bars to show multi-step progress.</p>
+        <div class="docs-preview">
+            <div class="docs-preview">
+                <div class="zak-progress">
+                    <div class="zak-progress-bar zak-progress-success" style="width:35%">35%</div>
+                    <div class="zak-progress-bar zak-progress-info" style="width:25%">25%</div>
+                    <div class="zak-progress-bar zak-progress-warning" style="width:15%">15%</div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-progress"&gt;
+    &lt;div class="zak-progress-bar zak-progress-success" style="width:35%"&gt;35%&lt;/div&gt;
+    &lt;div class="zak-progress-bar zak-progress-info" style="width:25%"&gt;25%&lt;/div&gt;
+    &lt;div class="zak-progress-bar zak-progress-warning" style="width:15%"&gt;15%&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <h2>Progress with Icon</h2>
+        <p>Add an icon alongside the progress bar for context.</p>
+        <div class="docs-preview">
+            <div class="docs-preview">
+                <div class="zak-progress-wrapper">
+                    <div class="zak-progress-header">
+                        <span><svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:1rem;height:1rem;vertical-align:-0.125em"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg> Uploading files</span>
+                        <span>3 of 5</span>
+                    </div>
+                    <div class="zak-progress">
+                        <div class="zak-progress-bar zak-progress-striped zak-progress-animated zak-progress-primary" style="width:60%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-progress-wrapper"&gt;
+    &lt;div class="zak-progress-header"&gt;
+        &lt;span&gt;Uploading files&lt;/span&gt;
+        &lt;span&gt;3 of 5&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="zak-progress"&gt;
+        &lt;div class="zak-progress-bar zak-progress-striped zak-progress-animated zak-progress-primary" style="width:60%"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <h2>Heights</h2>
+        <p>Control the thickness of the progress bar.</p>
+        <div class="docs-preview">
+            <div class="docs-preview" style="display:flex;flex-direction:column;gap:1rem">
+                <div class="zak-progress zak-progress-thin">
+                    <div class="zak-progress-bar" style="width:70%"></div>
+                </div>
+                <div class="zak-progress">
+                    <div class="zak-progress-bar" style="width:55%"></div>
+                </div>
+                <div class="zak-progress zak-progress-thick">
+                    <div class="zak-progress-bar" style="width:40%"></div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-progress zak-progress-thin"&gt;
+    &lt;div class="zak-progress-bar" style="width:70%"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="zak-progress"&gt;
+    &lt;div class="zak-progress-bar" style="width:55%"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="zak-progress zak-progress-thick"&gt;
+    &lt;div class="zak-progress-bar" style="width:40%"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <h2>CSS Variables</h2>
+        <div class="docs-preview">
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span></div><pre><code>:root {
+    --zak-progress-height: 0.75rem;
+    --zak-progress-bg: var(--zak-surface-alt);
+    --zak-progress-bar-bg: var(--zak-primary);
+    --zak-progress-radius: 9999px;
+    --zak-progress-transition: width 0.3s ease;
+}
+
+.zak-progress-thin { --zak-progress-height: 0.25rem; }
+.zak-progress-thick { --zak-progress-height: 1.5rem; }</code></pre>
+            </div>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body></html>

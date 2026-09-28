@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Avatar Group documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Avatar Group - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/data-display/avatar-group/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Avatar Group - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Avatar Group documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/data-display/avatar-group/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Data-Display</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Avatar Group</span>
+                </nav>
+        <h1>Avatar Group</h1>
+        <p class="docs-subtitle">Avatar groups stack member avatars with a negative overlap. They support an overflow counter and can be combined with tooltips for quick identification.</p>
+
+        <div class="zak-docs-section">
+            <h2>Stacked Avatars</h2>
+            <p>Wrap avatars in <code>.zak-avatar-group</code> to overlap them automatically.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; justify-content: center;">
+                    <div class="zak-avatar-group">
+                        <span class="zak-avatar zak-avatar-primary">JA</span>
+                        <span class="zak-avatar zak-avatar-success">MK</span>
+                        <span class="zak-avatar zak-avatar-warning">SR</span>
+                        <span class="zak-avatar zak-avatar-danger">AL</span>
+                        <span class="zak-avatar zak-avatar-info">RS</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-avatar-group"&gt;
+  &lt;span class="zak-avatar zak-avatar-primary"&gt;JA&lt;/span&gt;
+  &lt;span class="zak-avatar zak-avatar-success"&gt;MK&lt;/span&gt;
+  &lt;span class="zak-avatar zak-avatar-warning"&gt;SR&lt;/span&gt;
+  &lt;span class="zak-avatar zak-avatar-danger"&gt;AL&lt;/span&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Avatar Group with Max Count</h2>
+            <p>Show a limited number of avatars and append <code>.zak-avatar-more</code> to indicate the remaining count.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; justify-content: center;">
+                    <div class="zak-avatar-group">
+                        <span class="zak-avatar zak-avatar-primary">JA</span>
+                        <span class="zak-avatar zak-avatar-success">MK</span>
+                        <span class="zak-avatar zak-avatar-warning">SR</span>
+                        <span class="zak-avatar zak-avatar-more">+12</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-avatar-group"&gt;
+  &lt;span class="zak-avatar zak-avatar-primary"&gt;JA&lt;/span&gt;
+  &lt;span class="zak-avatar zak-avatar-success"&gt;MK&lt;/span&gt;
+  &lt;span class="zak-avatar zak-avatar-warning"&gt;SR&lt;/span&gt;
+  &lt;span class="zak-avatar zak-avatar-more"&gt;+12&lt;/span&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Avatar Group Sizes</h2>
+            <p>Use any avatar size class inside the group; the overlap stays consistent.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; justify-content: center;">
+                    <div class="zak-avatar-group">
+                        <span class="zak-avatar zak-avatar-sm zak-avatar-primary">JA</span>
+                        <span class="zak-avatar zak-avatar-sm zak-avatar-success">MK</span>
+                        <span class="zak-avatar zak-avatar-sm zak-avatar-warning">SR</span>
+                    </div>
+                    <div class="zak-avatar-group" style="margin-left: 2.5rem;">
+                        <span class="zak-avatar zak-avatar-primary">JA</span>
+                        <span class="zak-avatar zak-avatar-success">MK</span>
+                        <span class="zak-avatar zak-avatar-warning">SR</span>
+                    </div>
+                    <div class="zak-avatar-group" style="margin-left: 2.5rem;">
+                        <span class="zak-avatar zak-avatar-lg zak-avatar-primary">JA</span>
+                        <span class="zak-avatar zak-avatar-lg zak-avatar-success">MK</span>
+                        <span class="zak-avatar zak-avatar-lg zak-avatar-warning">SR</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-avatar-group"&gt;
+  &lt;span class="zak-avatar zak-avatar-sm"&gt;JA&lt;/span&gt;
+  &lt;span class="zak-avatar zak-avatar-sm"&gt;MK&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class="zak-avatar-group"&gt;
+  &lt;span class="zak-avatar zak-avatar-lg"&gt;JA&lt;/span&gt;
+  &lt;span class="zak-avatar zak-avatar-lg"&gt;MK&lt;/span&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Avatar Group with Tooltips</h2>
+            <p>Add <code>title</code> attributes (native tooltips) or wire the ZAKUIKit tooltip component for rich identification on hover.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; justify-content: center;">
+                    <div class="zak-avatar-group">
+                        <a href="#" class="zak-avatar zak-avatar-primary" title="Janet Fox - Product Designer" style="text-decoration: none;">JA</a>
+                        <a href="#" class="zak-avatar zak-avatar-success" title="Mark Kim - Frontend Engineer" style="text-decoration: none;">MK</a>
+                        <a href="#" class="zak-avatar zak-avatar-warning" title="Sara Reyes - Data Analyst" style="text-decoration: none;">SR</a>
+                        <a href="#" class="zak-avatar zak-avatar-more" title="View all 14 members" style="text-decoration: none;">+11</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-avatar-group"&gt;
+  &lt;a href="#" class="zak-avatar zak-avatar-primary" title="Janet Fox - Product Designer"&gt;JA&lt;/a&gt;
+  &lt;a href="#" class="zak-avatar zak-avatar-success" title="Mark Kim - Frontend Engineer"&gt;MK&lt;/a&gt;
+  &lt;a href="#" class="zak-avatar zak-avatar-more" title="View all 14 members"&gt;+11&lt;/a&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Image Avatars in a Group</h2>
+            <p>Image avatars work identically inside groups.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; justify-content: center;">
+                    <div class="zak-avatar-group">
+                        <span class="zak-avatar"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%236366f1'/%3E%3Ctext x='20' y='26' font-family='Arial,sans-serif' font-size='15' fill='white' font-weight='bold' text-anchor='middle'%3EJA%3C/text%3E%3C/svg%3E" alt="Janet Fox"></span>
+                        <span class="zak-avatar"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%2310b981'/%3E%3Ctext x='20' y='26' font-family='Arial,sans-serif' font-size='15' fill='white' font-weight='bold' text-anchor='middle'%3EMK%3C/text%3E%3C/svg%3E" alt="Mark Kim"></span>
+                        <span class="zak-avatar"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%23f59e0b'/%3E%3Ctext x='20' y='26' font-family='Arial,sans-serif' font-size='15' fill='white' font-weight='bold' text-anchor='middle'%3ESR%3C/text%3E%3C/svg%3E" alt="Sara Reyes"></span>
+                        <span class="zak-avatar zak-avatar-more">+9</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-avatar-group"&gt;
+  &lt;span class="zak-avatar"&gt;&lt;img src="..." alt="Janet Fox"&gt;&lt;/span&gt;
+  &lt;span class="zak-avatar"&gt;&lt;img src="..." alt="Mark Kim"&gt;&lt;/span&gt;
+  &lt;span class="zak-avatar zak-avatar-more"&gt;+9&lt;/span&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.zak-avatar-group</code></td><td>Flex container with overlapping avatars</td></tr>
+                        <tr><td><code>.zak-avatar</code></td><td>Individual avatar (see Avatar documentation)</td></tr>
+                        <tr><td><code>.zak-avatar-more</code></td><td>Overflow counter avatar showing remaining count</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Each avatar in a group needs an accessible name via <code>alt</code>, <code>aria-label</code> or associated visible text.</li>
+                <li>When the overflow counter (<code>+N</code>) is meaningful, replace it with "View N more members" for screen readers.</li>
+                <li>If group members are interactive, use links/buttons and ensure keyboard focus reaches each one.</li>
+                <li>Hover-only tooltips should also work on keyboard focus for users navigating without a pointer.</li>
+            </ul>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body></html>

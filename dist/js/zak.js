@@ -1,0 +1,3665 @@
+(function() {
+  'use strict';
+
+  // ─── Helpers ────────────────────────────────────────────────────────────────
+
+  function $(sel, ctx) { return (ctx || document).querySelector(sel); }
+  function $$(sel, ctx) { return Array.from((ctx || document).querySelectorAll(sel)); }
+  function el(tag, attrs, children) {
+    var e = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function(k) {
+      if (k === 'className') e.className = attrs[k];
+      else if (k === 'textContent') e.textContent = attrs[k];
+      else if (k === 'innerHTML') e.innerHTML = attrs[k];
+      else if (k.indexOf('on') === 0) e.addEventListener(k.slice(2).toLowerCase(), attrs[k]);
+      else e.setAttribute(k, attrs[k]);
+    });
+    if (children) {
+      if (!Array.isArray(children)) children = [children];
+      children.forEach(function(c) {
+        if (typeof c === 'string') e.appendChild(document.createTextNode(c));
+        else if (c) e.appendChild(c);
+      });
+    }
+    return e;
+  }
+  function dispatch(target, name, detail) {
+    target.dispatchEvent(new CustomEvent(name, { bubbles: true, cancelable: true, detail: detail || {} }));
+  }
+  function animate(el, cls, cb) {
+    el.classList.add(cls);
+    function handler() {
+      el.classList.remove(cls);
+      el.removeEventListener('animationend', handler);
+      if (cb) cb();
+    }
+    el.addEventListener('animationend', handler);
+  }
+  function onTransitionEnd(el, cls, cb) {
+    function handler(e) {
+      if (e.target !== el) return;
+      el.removeEventListener('transitionend', handler);
+      if (cb) cb();
+    }
+    el.addEventListener('transitionend', handler);
+  }
+  function uid() { return 'zak_' + Math.random().toString(36).slice(2, 9); }
+  function indexOf(arr, val) { return Array.prototype.indexOf.call(arr, val); }
+  function getClosest(el, sel) { return el.closest(sel); }
+  function getRect(el) { return el.getBoundingClientRect(); }
+  function isVisible(el) { return el.offsetParent !== null; }
+  function getComputedHeight(el) { return el.scrollHeight; }
+
+  // ─── Main Namespace ────────────────────────────────────────────────────────
+
+  var zak = {
+    version: '1.0.0',
+    _instances: {}
+  };
+
+  // ─── 1. Modal ──────────────────────────────────────────────────────────────
+
+zak.modal = {
+    _stack: [],
+    init: function() {
+      $$('[data-zak-modal]').forEach(function(trigger) {
+        trigger.addEventListener('click', function(e) {
+          e.preventDefault();
+          var target = trigger.getAttribute('data-zak-modal');
+          zak.modal.open(target);
+        });
+      });
+      $$('[data-zak-modal-close]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var modal = getClosest(btn, '.zak-modal');
+          if (modal) zak.modal.close(modal);
+        });
+      });
+    },
+    _findFocusable: function(modal) {
+      return $$('button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])', modal).filter(function(el) {
+        var style = getComputedStyle(el);
+        return style.display !== 'none' && style.visibility !== 'hidden' && el.getClientRects().length > 0;
+      });
+    },
+    open: function(selector) {
+      var modal = $(selector);
+      if (!modal) return;
+      if (modal.classList.contains('zak-modal-active')) return;
+      modal._lastFocused = document.activeElement;
+      modal.classList.add('zak-modal-active');
+      modal._backdrop = el('div', { className: 'zak-modal-backdrop', hidden: true });
+      modal._backdrop.hidden = false;
+      document.body.appendChild(modal._backdrop);
+      var backdrop = modal._backdrop;
+      backdrop.addEventListener('click', function() { zak.modal.close(modal); });
+      modal.__focusQualifier = function() { return zak.modal._findFocusable(modal); };
+      var focusable = modal.__focusQualifier();
+      if (focusable.length) focusable[0].focus();
+      modal._focusTrap = function(e) {
+        if (e.key === 'Escape') { zak.modal.close(modal); return; }
+        if (e.key !== 'Tab') return;
+        var focusableNow = modal.__focusQualifier();
+        if (!focusableNow.length) return;
+        var first = focusableNow[0];
+        var last = focusableNow[focusableNow.length - 1];
+        if (e.shiftKey) { if (document.activeElement === first || !modal.contains(document.activeElement)) { e.preventDefault(); last.focus(); } }
+        else { if (document.activeElement === last) { e.preventDefault(); first.focus(); } }
+      };
+      document.addEventListener('keydown', modal._focusTrap);
+      zak.modal._stack.push(modal);
+      if (document.body.style.overflow !== 'hidden') document.body.style.overflow = 'hidden';
+      dispatch(modal, 'zak:open');
+    },
+    close: function(modal) {
+      if (typeof modal === 'string') modal = $(modal);
+      if (!modal) return;
+      if (!modal.classList.contains('zak-modal-active')) return;
+      modal.classList.remove('zak-modal-active');
+      if (modal._backdrop) { modal._backdrop.remove(); modal._backdrop = null; }
+      if (modal._focusTrap) { document.removeEventListener('keydown', modal._focusTrap); modal._focusTrap = null; }
+      modal.__focusQualifier = null;
+      var stack = zak.modal._stack;
+      var idx = stack.indexOf(modal);
+      if (idx >= 0) stack.splice(idx, 1);
+      if (stack.length) {
+        var top = stack[stack.length - 1];
+        if (top && top.__focusQualifier) {
+          var f = top.__focusQualifier();
+          if (f.length) f[0].focus();
+        }
+      } else {
+        document.body.style.overflow = '';
+        if (modal._lastFocused && typeof modal._lastFocused.focus === 'function') modal._lastFocused.focus();
+      }
+      dispatch(modal, 'zak:close');
+    },
+    toggle: function(selector) {
+      var modal = $(selector);
+      if (!modal) return;
+      modal.classList.contains('zak-modal-active') ? zak.modal.close(modal) : zak.modal.open(selector);
+    }
+  };
+
+  // ─── 3. Dropdown ───────────────────────────────────────────────────────────
+
+  zak.dropdown = {
+    init: function() {
+      $$('[data-zak-dropdown]').forEach(function(trigger) {
+        var target = $(trigger.getAttribute('data-zak-dropdown'));
+        if (!target) return;
+        trigger.setAttribute('aria-haspopup', 'menu');
+        trigger.setAttribute('aria-expanded', 'false');
+        trigger.addEventListener('click', function(e) {
+          e.stopPropagation();
+          zak.dropdown.toggle(trigger, target);
+        });
+        trigger.addEventListener('keydown', function(e) {
+          if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            zak.dropdown.open(trigger, target);
+            var firstItem = $('a, button, [tabindex]', target);
+            if (firstItem) firstItem.focus();
+          }
+        });
+        var items = $$('[tabindex], a, button', target);
+        items.forEach(function(item, i) {
+          item.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowDown') {
+              e.preventDefault();
+              var next = items[i + 1] || items[0];
+              next.focus();
+            } else if (e.key === 'ArrowUp') {
+              e.preventDefault();
+              var prev = items[i - 1] || items[items.length - 1];
+              prev.focus();
+            } else if (e.key === 'Escape') {
+              zak.dropdown.close(trigger, target);
+              trigger.focus();
+            }
+          });
+        });
+      });
+      document.addEventListener('click', function(e) {
+        var t = e.target;
+        $$('.zak-dropdown-active').forEach(function(dd) {
+          var id = dd.getAttribute('id');
+          if (!id) return;
+          var trig = $('[data-zak-dropdown="#' + id + '"]');
+          if (!trig) return;
+          if (dd.contains(t)) {
+            // item selection closes the menu, other internal clicks do not
+            if (t.closest('.zak-menu-item')) zak.dropdown.close(trig, dd);
+            return;
+          }
+          if (trig.contains(t)) return;
+          zak.dropdown.close(trig, dd);
+        });
+      });
+    },
+    open: function(trigger, target) {
+      if (typeof trigger === 'string') { target = $(trigger); trigger = $('[data-zak-dropdown="' + trigger + '"]'); }
+      if (!target) return;
+      target.classList.add('zak-dropdown-active');
+      if (trigger) {
+        trigger.classList.add('zak-dropdown-active');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+      dispatch(target, 'zak:open');
+    },
+    close: function(trigger, target) {
+      if (typeof trigger === 'string') { target = $(trigger); trigger = $('[data-zak-dropdown="' + trigger + '"]'); }
+      if (!target) return;
+      target.classList.remove('zak-dropdown-active');
+      if (trigger) {
+        trigger.classList.remove('zak-dropdown-active');
+        trigger.setAttribute('aria-expanded', 'false');
+      }
+      dispatch(target, 'zak:close');
+    },
+    toggle: function(trigger, target) {
+      if (typeof trigger === 'string') { target = $(trigger); trigger = $('[data-zak-dropdown="' + trigger + '"]'); }
+      if (!target) return;
+      target.classList.contains('zak-dropdown-active') ? zak.dropdown.close(trigger, target) : zak.dropdown.open(trigger, target);
+    }
+  };
+
+  // ─── 4. Tooltip ────────────────────────────────────────────────────────────
+
+zak.tooltip = {
+    _tooltipEl: null,
+    _delayTimer: null,
+    init: function() {
+      $$('[data-zak-tooltip]').forEach(function(el) {
+        el.addEventListener('mouseenter', function() {
+          el._zakTipDelay = setTimeout(function() {
+            zak.tooltip.show(el);
+          }, 80);
+        });
+        el.addEventListener('mouseleave', function() {
+          if (el._zakTipDelay) { clearTimeout(el._zakTipDelay); el._zakTipDelay = null; }
+          zak.tooltip.hide();
+        });
+        el.addEventListener('focus', function() { zak.tooltip.show(el); });
+        el.addEventListener('blur', function() { zak.tooltip.hide(); });
+        el.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape') zak.tooltip.hide();
+        });
+      });
+      if (!zak.tooltip._menuKeyBound) {
+        document.addEventListener('keydown', zak.tooltip._escKey);
+        zak.tooltip._menuKeyBound = true;
+      }
+    },
+show: function(target) {
+      zak.tooltip.hide();
+      var text = target.getAttribute('data-zak-tooltip');
+      var placement = target.getAttribute('data-zak-tooltip-placement') || 'top';
+      var tip = el('div', { className: 'zak-tooltip zak-tooltip-' + placement, textContent: text, role: 'tooltip', id: uid() });
+      tip._target = target;
+      document.body.appendChild(tip);
+      var tr = getRect(target);
+      var tw = getRect(tip);
+      var top, left;
+      switch (placement) {
+        case 'top':
+          top = tr.top - tw.height - 8;
+          left = tr.left + (tr.width - tw.width) / 2;
+          break;
+        case 'bottom':
+          top = tr.bottom + 8;
+          left = tr.left + (tr.width - tw.width) / 2;
+          break;
+        case 'left':
+          top = tr.top + (tr.height - tw.height) / 2;
+          left = tr.left - tw.width - 8;
+          break;
+        case 'right':
+          top = tr.top + (tr.height - tw.height) / 2;
+          left = tr.right + 8;
+          break;
+      }
+      var gap = 8;
+      var maxLeft = window.innerWidth - tw.width - gap;
+      var maxTop = window.innerHeight - tw.height - gap;
+      if (maxLeft < gap) maxLeft = gap;
+      if (maxTop < gap) maxTop = gap;
+      left = Math.max(gap, Math.min(left, maxLeft));
+      top = Math.max(gap, Math.min(top, maxTop));
+      tip.style.top = top + 'px';
+      tip.style.left = left + 'px';
+      tip.classList.add('zak-tooltip-active');
+      zak.tooltip._tooltipEl = tip;
+      target.setAttribute('aria-describedby', tip.id);
+      target._zakTipDesc = tip.id;
+    },
+    hide: function() {
+      if (zak.tooltip._tooltipEl) {
+        var tip = zak.tooltip._tooltipEl;
+        if (tip._target && tip._target.getAttribute('aria-describedby') === tip.id) {
+          tip._target.removeAttribute('aria-describedby');
+        }
+        tip.remove();
+        zak.tooltip._tooltipEl = null;
+      }
+    },
+    _escKey: function(e) {
+      if (e.key === 'Escape') {
+        var tip = zak.tooltip._tooltipEl;
+        if (tip) zak.tooltip.hide();
+      }
+    }
+  };
+
+  // ─── 5. Popover ────────────────────────────────────────────────────────────
+
+  zak.popover = {
+    _active: null,
+    init: function() {
+      $$('[data-zak-popover]').forEach(function(trigger) {
+        trigger.setAttribute('aria-haspopup', 'dialog');
+        trigger.setAttribute('aria-expanded', 'false');
+        trigger.addEventListener('click', function(e) {
+          e.stopPropagation();
+          zak.popover.toggle(trigger);
+        });
+      });
+      document.addEventListener('click', function(e) {
+        if (zak.popover._active && zak.popover._active.contains(e.target)) return;
+        zak.popover.closeAll();
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') zak.popover.closeAll();
+      });
+    },
+    // Resolve a trigger element / popover element / selector to { trigger, panel }.
+    _resolve: function(target) {
+      var trigger = null, panel = null;
+      if (typeof target === 'string') {
+        var node = $(target);
+        if (!node) return null;
+        if (node.hasAttribute('data-zak-popover')) {
+          trigger = node;
+          panel = $(node.getAttribute('data-zak-popover'));
+        } else {
+          panel = node;
+        }
+      } else if (target) {
+        if (target.hasAttribute('data-zak-popover')) {
+          trigger = target;
+          panel = $(target.getAttribute('data-zak-popover'));
+        } else {
+          panel = target;
+        }
+      }
+      if (!panel) return null;
+      return { trigger: trigger, panel: panel };
+    },
+    open: function(target, opts) {
+      opts = opts || {};
+      var resolved = zak.popover._resolve(target);
+      if (!resolved) return;
+      var trigger = resolved.trigger;
+      var popover = resolved.panel;
+      zak.popover.closeAll();
+      var placement = opts.placement ||
+        (trigger && trigger.getAttribute('data-zak-popover-placement')) ||
+        popover.getAttribute('data-zak-popover-placement') || 'bottom';
+      // Remember where the panel lives so it can be restored on close.
+      popover._zakHome = { parent: popover.parentNode, next: popover.nextSibling };
+      popover._zakPrevCss = popover.style.cssText;
+      popover._zakTrigger = trigger;
+      popover._zakOpen = true;
+      popover.classList.add('zak-popover-active');
+      if (popover.parentNode !== document.body) document.body.appendChild(popover);
+      popover.style.position = 'fixed';
+      popover.style.top = '-9999px';
+      popover.style.left = '-9999px';
+      popover.style.zIndex = '1080';
+      // Bind any close buttons (once per panel).
+      $$('[data-zak-popover-close]', popover).forEach(function(btn) {
+        if (btn._zakBound) return;
+        btn._zakBound = true;
+        btn.addEventListener('click', function() { zak.popover.close(popover); });
+      });
+      var anchor = trigger ? getRect(trigger) : getRect(popover);
+      var pw = getRect(popover);
+      var top, left;
+      switch (placement) {
+        case 'top':
+          top = anchor.top - pw.height - 8;
+          left = anchor.left + (anchor.width - pw.width) / 2;
+          break;
+        case 'left':
+          top = anchor.top + (anchor.height - pw.height) / 2;
+          left = anchor.left - pw.width - 8;
+          break;
+        case 'right':
+          top = anchor.top + (anchor.height - pw.height) / 2;
+          left = anchor.right + 8;
+          break;
+        case 'bottom':
+        default:
+          top = anchor.bottom + 8;
+          left = anchor.left + (anchor.width - pw.width) / 2;
+          break;
+      }
+      var gap = 8;
+      var maxLeft = window.innerWidth - pw.width - gap;
+      var maxTop = window.innerHeight - pw.height - gap;
+      if (maxLeft < gap) maxLeft = gap;
+      if (maxTop < gap) maxTop = gap;
+      left = Math.max(gap, Math.min(left, maxLeft));
+      top = Math.max(gap, Math.min(top, maxTop));
+      popover.style.top = top + 'px';
+      popover.style.left = left + 'px';
+      if (trigger) {
+        trigger.classList.add('zak-popover-active');
+        trigger.setAttribute('aria-expanded', 'true');
+        trigger._popover = popover;
+      }
+      zak.popover._active = popover;
+      dispatch(popover, 'zak:open');
+    },
+    close: function(target) {
+      var popover = null;
+      if (typeof target === 'string') {
+        var node = $(target);
+        if (!node) return;
+        popover = node._zakOpen ? node : (node._openPopover || null);
+      } else if (target) {
+        popover = target._zakOpen ? target : (target._popover || null);
+      }
+      if (!popover || !popover._zakOpen) return;
+      var trigger = popover._zakTrigger;
+      popover._zakOpen = false;
+      popover.classList.remove('zak-popover-active');
+      if (trigger) {
+        trigger.classList.remove('zak-popover-active');
+        trigger.setAttribute('aria-expanded', 'false');
+        trigger._popover = null;
+      }
+      var home = popover._zakHome;
+      if (home && home.parent) {
+        if (home.next && home.next.parentNode === home.parent) home.parent.insertBefore(popover, home.next);
+        else home.parent.appendChild(popover);
+      }
+      popover.style.cssText = popover._zakPrevCss || '';
+      popover._zakHome = null;
+      popover._zakTrigger = null;
+      if (zak.popover._active === popover) zak.popover._active = null;
+      dispatch(popover, 'zak:close');
+    },
+    closeAll: function() {
+      $$('.zak-popover-active').forEach(function(p) {
+        if (p._zakOpen) zak.popover.close(p);
+      });
+    },
+    toggle: function(target) {
+      var resolved = zak.popover._resolve(target);
+      if (!resolved) return;
+      if (resolved.panel._zakOpen) zak.popover.close(resolved.panel);
+      else zak.popover.open(resolved.trigger || resolved.panel, {});
+    }
+  };
+  // ─── 6. Accordion ──────────────────────────────────────────────────────────
+
+  zak.accordion = {
+    init: function() {
+      $$('[data-zak-accordion]').forEach(function(acc) {
+        var multi = acc.getAttribute('data-zak-accordion') === 'multi';
+        $$('[data-zak-accordion-trigger]', acc).forEach(function(trigger) {
+          trigger.addEventListener('click', function() {
+            zak.accordion.toggle(trigger, multi);
+          });
+          trigger.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); zak.accordion.toggle(trigger, multi); }
+          });
+        });
+      });
+    },
+    toggle: function(trigger, multi) {
+      var expanded = trigger.getAttribute('aria-expanded') === 'true';
+      var target = $(trigger.getAttribute('data-zak-accordion-trigger'));
+      if (!target) return;
+      var accordion = getClosest(trigger, '[data-zak-accordion]');
+      if (!multi && !expanded && accordion) {
+        $$('[data-zak-accordion-trigger]', accordion).forEach(function(t) {
+          if (t !== trigger) zak.accordion.close(t);
+        });
+      }
+      expanded ? zak.accordion.close(trigger) : zak.accordion.open(trigger);
+    },
+open: function(trigger) {
+      if (typeof trigger === 'string') trigger = $(trigger);
+      if (!trigger) return;
+      var target = $(trigger.getAttribute('data-zak-accordion-trigger'));
+      if (!target) return;
+      trigger.setAttribute('aria-expanded', 'true');
+      trigger.classList.add('zak-accordion-active');
+      target.classList.add('zak-accordion-content-active');
+      var item = getClosest(trigger, '.zak-accordion-item');
+      if (item) item.classList.add('zak-accordion-item-active');
+      target.style.height = getComputedHeight(target) + 'px';
+      dispatch(trigger, 'zak:open');
+    },
+    close: function(trigger) {
+      if (typeof trigger === 'string') trigger = $(trigger);
+      if (!trigger) return;
+      var target = $(trigger.getAttribute('data-zak-accordion-trigger'));
+      if (!target) return;
+      var item = getClosest(trigger, '.zak-accordion-item');
+      trigger.setAttribute('aria-expanded', 'false');
+      trigger.classList.remove('zak-accordion-active');
+      if (item) item.classList.remove('zak-accordion-item-active');
+      target.style.height = getComputedHeight(target) + 'px';
+      requestAnimationFrame(function() {
+        target.style.height = '0px';
+        onTransitionEnd(target, 'zak-accordion-content-active', function() {
+          target.classList.remove('zak-accordion-content-active');
+        });
+      });
+      dispatch(trigger, 'zak:close');
+    }
+  };
+
+  // ─── 7. Collapse ───────────────────────────────────────────────────────────
+
+  zak.collapse = {
+    init: function() {
+      $$('[data-zak-collapse]').forEach(function(trigger) {
+        trigger.addEventListener('click', function() { zak.collapse.toggle(trigger); });
+        var target = $(trigger.getAttribute('data-zak-collapse'));
+        if (target && trigger.getAttribute('aria-expanded') === 'true') {
+          target.style.height = getComputedHeight(target) + 'px';
+        }
+      });
+    },
+    toggle: function(trigger) {
+      if (typeof trigger === 'string') trigger = $(trigger);
+      if (!trigger) return;
+      var target = $(trigger.getAttribute('data-zak-collapse'));
+      if (!target) return;
+      trigger.getAttribute('aria-expanded') === 'true' ? zak.collapse.close(trigger) : zak.collapse.open(trigger);
+    },
+    open: function(trigger) {
+      if (typeof trigger === 'string') trigger = $(trigger);
+      if (!trigger) return;
+      var target = $(trigger.getAttribute('data-zak-collapse'));
+      if (!target) return;
+      trigger.setAttribute('aria-expanded', 'true');
+      target.style.height = getComputedHeight(target) + 'px';
+      onTransitionEnd(target, 'zak-collapse-active', function() { target.style.height = ''; target.classList.add('zak-collapse-active'); });
+      target.classList.add('zak-collapse-active');
+      dispatch(trigger, 'zak:open');
+    },
+    close: function(trigger) {
+      if (typeof trigger === 'string') trigger = $(trigger);
+      if (!trigger) return;
+      var target = $(trigger.getAttribute('data-zak-collapse'));
+      if (!target) return;
+target.style.height = getComputedHeight(target) + 'px';
+      requestAnimationFrame(function() {
+        trigger.setAttribute('aria-expanded', 'false');
+        target.style.height = '0px';
+        dispatch(trigger, 'zak:close');
+      });
+    }
+  };
+
+  // ─── 7.5 Expandable Panel ────────────────────────────────────────────────
+
+  zak.expandablePanel = {
+    init: function() {
+      $$('[data-zak-expandable]').forEach(function(panel) {
+        var header = $('.zak-expandable-panel-header', panel);
+        if (header) {
+          header.addEventListener('click', function() {
+            zak.expandablePanel.toggle(panel);
+          });
+          header.setAttribute('aria-controls', (panel.id || panel._uid || (panel._uid = uid())));
+          if (panel.classList.contains('zak-expandable-panel-active')) header.setAttribute('aria-expanded', 'true');
+          else header.setAttribute('aria-expanded', 'false');
+        }
+        panel.addEventListener('zak:open', function() { zak.expandablePanel.sync(panel, true); });
+        panel.addEventListener('zak:close', function() { zak.expandablePanel.sync(panel, false); });
+      });
+    },
+    target: function(panel) {
+      if (typeof panel === 'string') panel = $(panel);
+      return panel ? $('.zak-collapse-target', panel) : null;
+    },
+    sync: function(panel, open) {
+      if (typeof panel === 'string') panel = $(panel);
+      if (!panel) return;
+      var header = $('.zak-expandable-panel-header', panel);
+      if (open) panel.classList.add('zak-expandable-panel-active');
+      else panel.classList.remove('zak-expandable-panel-active');
+      if (header) header.setAttribute('aria-expanded', open ? 'true' : 'false');
+    },
+    toggle: function(panel) {
+      if (typeof panel === 'string') panel = $(panel);
+      if (!panel) return;
+      if (panel.classList.contains('zak-expandable-panel-active')) zak.expandablePanel.close(panel);
+      else zak.expandablePanel.open(panel);
+    },
+    open: function(panel) {
+      if (typeof panel === 'string') panel = $(panel);
+      if (!panel) return;
+      var target = zak.expandablePanel.target(panel);
+      var header = $('.zak-expandable-panel-header', panel);
+      panel.classList.add('zak-expandable-panel-active');
+      if (header) header.setAttribute('aria-expanded', 'true');
+      if (target) {
+        target.classList.add('zak-collapse-active');
+        target.style.height = getComputedHeight(target) + 'px';
+        onTransitionEnd(target, 'zak-collapse-active', function() { target.style.height = ''; });
+      }
+      dispatch(panel, 'zak:open');
+    },
+    close: function(panel) {
+      if (typeof panel === 'string') panel = $(panel);
+      if (!panel) return;
+      var target = zak.expandablePanel.target(panel);
+      var header = $('.zak-expandable-panel-header', panel);
+      panel.classList.remove('zak-expandable-panel-active');
+      if (header) header.setAttribute('aria-expanded', 'false');
+      if (target) {
+        target.style.height = getComputedHeight(target) + 'px';
+        requestAnimationFrame(function() {
+          target.style.height = '0px';
+          onTransitionEnd(target, 'zak-collapse-active', function() {
+            target.classList.remove('zak-collapse-active');
+          });
+        });
+      }
+      dispatch(panel, 'zak:close');
+    }
+  };
+
+  // ─── 8. Drawer ─────────────────────────────────────────────────────────────
+
+  zak.drawer = {
+    init: function() {
+      $$('[data-zak-drawer]').forEach(function(trigger) {
+        trigger.addEventListener('click', function(e) {
+          e.preventDefault();
+          zak.drawer.open(trigger.getAttribute('data-zak-drawer'));
+        });
+      });
+      $$('[data-zak-drawer-close]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var drawer = getClosest(btn, '.zak-drawer');
+          if (drawer) zak.drawer.close(drawer);
+        });
+      });
+    },
+    open: function(selector) {
+      var drawer = $(selector);
+      if (!drawer) return;
+      var placement = drawer.getAttribute('data-zak-drawer-placement') || 'left';
+      var overlay = el('div', { className: 'zak-drawer-overlay' });
+      drawer._overlay = overlay;
+      document.body.appendChild(overlay);
+      overlay.addEventListener('click', function() { zak.drawer.close(drawer); });
+      document.body.style.overflow = 'hidden';
+      requestAnimationFrame(function() {
+        drawer.classList.add('zak-drawer-active');
+        overlay.classList.add('zak-drawer-overlay-active');
+      });
+      var escHandler = function(e) {
+        if (e.key === 'Escape') { zak.drawer.close(drawer); document.removeEventListener('keydown', escHandler); }
+      };
+      document.addEventListener('keydown', escHandler);
+      drawer._escHandler = escHandler;
+      dispatch(drawer, 'zak:open');
+    },
+    close: function(drawer) {
+      if (typeof drawer === 'string') drawer = $(drawer);
+      if (!drawer) return;
+      drawer.classList.remove('zak-drawer-active');
+      if (drawer._overlay) { drawer._overlay.classList.remove('zak-drawer-overlay-active'); setTimeout(function() { drawer._overlay.remove(); }, 300); }
+      document.body.style.overflow = '';
+      if (drawer._escHandler) document.removeEventListener('keydown', drawer._escHandler);
+      dispatch(drawer, 'zak:close');
+    },
+    toggle: function(selector) {
+      var drawer = $(selector);
+      if (!drawer) return;
+      drawer.classList.contains('zak-drawer-active') ? zak.drawer.close(drawer) : zak.drawer.open(selector);
+    }
+  };
+
+  // ─── 9. Offcanvas ──────────────────────────────────────────────────────────
+
+  zak.offcanvas = {
+    init: function() {
+      $$('[data-zak-offcanvas]').forEach(function(trigger) {
+        trigger.addEventListener('click', function(e) {
+          e.preventDefault();
+          zak.offcanvas.open(trigger.getAttribute('data-zak-offcanvas'));
+        });
+      });
+      $$('[data-zak-offcanvas-close]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var panel = getClosest(btn, '.zak-offcanvas');
+          if (panel) zak.offcanvas.close(panel);
+        });
+      });
+    },
+    open: function(selector) {
+      var panel = $(selector);
+      if (!panel) return;
+      var overlay = el('div', { className: 'zak-offcanvas-overlay' });
+      panel._overlay = overlay;
+      document.body.appendChild(overlay);
+      overlay.addEventListener('click', function() { zak.offcanvas.close(panel); });
+      document.body.style.overflow = 'hidden';
+      requestAnimationFrame(function() {
+        panel.classList.add('zak-offcanvas-active');
+        overlay.classList.add('zak-offcanvas-overlay-active');
+      });
+      var escHandler = function(e) {
+        if (e.key === 'Escape') { zak.offcanvas.close(panel); document.removeEventListener('keydown', escHandler); }
+      };
+      document.addEventListener('keydown', escHandler);
+      panel._escHandler = escHandler;
+      dispatch(panel, 'zak:open');
+    },
+    close: function(panel) {
+      if (typeof panel === 'string') panel = $(panel);
+      if (!panel) return;
+      panel.classList.remove('zak-offcanvas-active');
+      if (panel._overlay) { panel._overlay.classList.remove('zak-offcanvas-overlay-active'); setTimeout(function() { panel._overlay.remove(); }, 300); }
+      document.body.style.overflow = '';
+      if (panel._escHandler) document.removeEventListener('keydown', panel._escHandler);
+      dispatch(panel, 'zak:close');
+    },
+    toggle: function(selector) {
+      var panel = $(selector);
+      if (!panel) return;
+      panel.classList.contains('zak-offcanvas-active') ? zak.offcanvas.close(panel) : zak.offcanvas.open(selector);
+    }
+  };
+
+  // ─── 10. Toast ─────────────────────────────────────────────────────────────
+
+  zak.toast = {
+    _container: null,
+    _getContainer: function() {
+      if (!zak.toast._container) {
+        zak.toast._container = el('div', { className: 'zak-toast-container' });
+        document.body.appendChild(zak.toast._container);
+      }
+      return zak.toast._container;
+    },
+    show: function(opts) {
+      if (typeof opts === 'string') opts = { message: opts };
+      var container = zak.toast._getContainer();
+      var type = opts.type || 'info';
+      var toast = el('div', { className: 'zak-toast zak-toast-' + type, role: 'alert' });
+      var icon = el('span', { className: 'zak-toast-icon' });
+      toast.appendChild(icon);
+      toast.appendChild(el('span', { className: 'zak-toast-message', textContent: opts.message }));
+      if (opts.closeable !== false) {
+        var closeBtn = el('button', { className: 'zak-toast-close', textContent: '\u00d7' });
+        closeBtn.addEventListener('click', function() { zak.toast.dismiss(toast); });
+        toast.appendChild(closeBtn);
+      }
+      container.appendChild(toast);
+      requestAnimationFrame(function() { toast.classList.add('zak-toast-active'); });
+      var duration = opts.duration !== undefined ? opts.duration : 3000;
+      if (duration > 0) {
+        toast._timer = setTimeout(function() { zak.toast.dismiss(toast); }, duration);
+      }
+      dispatch(toast, 'zak:open');
+      return toast;
+    },
+    dismiss: function(toast) {
+      if (typeof toast === 'string') toast = $(toast);
+      if (!toast) return;
+      clearTimeout(toast._timer);
+      toast.classList.remove('zak-toast-active');
+      toast.classList.add('zak-toast-dismissing');
+      setTimeout(function() { toast.remove(); dispatch(toast, 'zak:close'); }, 300);
+    },
+    success: function(msg, opts) { return zak.toast.show(Object.assign({ message: msg, type: 'success' }, opts || {})); },
+    error: function(msg, opts) { return zak.toast.show(Object.assign({ message: msg, type: 'error' }, opts || {})); },
+    warning: function(msg, opts) { return zak.toast.show(Object.assign({ message: msg, type: 'warning' }, opts || {})); },
+    info: function(msg, opts) { return zak.toast.show(Object.assign({ message: msg, type: 'info' }, opts || {})); }
+  };
+
+  // ─── 11. Snackbar ──────────────────────────────────────────────────────────
+
+  zak.snackbar = {
+    _container: null,
+    _getContainer: function() {
+      if (!zak.snackbar._container) {
+        zak.snackbar._container = el('div', { className: 'zak-snackbar-container' });
+        document.body.appendChild(zak.snackbar._container);
+      }
+      return zak.snackbar._container;
+    },
+    show: function(opts) {
+      if (typeof opts === 'string') opts = { message: opts };
+      var container = zak.snackbar._getContainer();
+      var snackbar = el('div', { className: 'zak-snackbar', role: 'status' });
+      snackbar.appendChild(el('span', { className: 'zak-snackbar-message', textContent: opts.message }));
+      if (opts.action) {
+        var actionBtn = el('button', { className: 'zak-snackbar-action', textContent: opts.action.text || 'Undo' });
+        actionBtn.addEventListener('click', function() {
+          if (opts.action.handler) opts.action.handler();
+          zak.snackbar.dismiss(snackbar);
+        });
+        snackbar.appendChild(actionBtn);
+      }
+      container.appendChild(snackbar);
+      requestAnimationFrame(function() { snackbar.classList.add('zak-snackbar-active'); });
+      var duration = opts.duration !== undefined ? opts.duration : 4000;
+      if (duration > 0) {
+        snackbar._timer = setTimeout(function() { zak.snackbar.dismiss(snackbar); }, duration);
+      }
+      dispatch(snackbar, 'zak:open');
+      return snackbar;
+    },
+    dismiss: function(snackbar) {
+      if (typeof snackbar === 'string') snackbar = $(snackbar);
+      if (!snackbar) return;
+      clearTimeout(snackbar._timer);
+      snackbar.classList.remove('zak-snackbar-active');
+      setTimeout(function() { snackbar.remove(); dispatch(snackbar, 'zak:close'); }, 300);
+    }
+  };
+
+  // ─── 12. Tabs ──────────────────────────────────────────────────────────────
+
+  zak.tabs = {
+    init: function() {
+      $$('[data-zak-tabs]').forEach(function(tabsEl) {
+        var triggers = $$('[data-zak-tab]', tabsEl);
+        triggers.forEach(function(trigger) {
+          trigger.addEventListener('click', function() {
+            zak.tabs.activate(tabsEl, trigger.getAttribute('data-zak-tab'));
+          });
+          trigger.addEventListener('keydown', function(e) {
+            var idx = indexOf(triggers, trigger);
+            var next;
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+              e.preventDefault();
+              next = triggers[(idx + 1) % triggers.length];
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+              e.preventDefault();
+              next = triggers[(idx - 1 + triggers.length) % triggers.length];
+            } else if (e.key === 'Home') {
+              e.preventDefault();
+              next = triggers[0];
+            } else if (e.key === 'End') {
+              e.preventDefault();
+              next = triggers[triggers.length - 1];
+            }
+            if (next) { next.focus(); zak.tabs.activate(tabsEl, next.getAttribute('data-zak-tab')); }
+          });
+        });
+        var active = $('[data-zak-tab].active, [aria-selected="true"]', tabsEl) || triggers[0];
+        if (active) zak.tabs.activate(tabsEl, active.getAttribute('data-zak-tab'));
+      });
+    },
+    activate: function(container, id) {
+      if (typeof container === 'string') container = $(container);
+      if (!container) return;
+      $$('[data-zak-tab]', container).forEach(function(t) {
+        var isActive = t.getAttribute('data-zak-tab') === id;
+        t.classList.toggle('active', isActive);
+        t.setAttribute('aria-selected', isActive);
+        t.setAttribute('tabindex', isActive ? '0' : '-1');
+      });
+      $$('[data-zak-tab-panel]', container).forEach(function(p) {
+        var isActive = p.getAttribute('data-zak-tab-panel') === id;
+        p.classList.toggle('active', isActive);
+        p.setAttribute('role', 'tabpanel');
+        p.hidden = !isActive;
+      });
+      var panel = $('[data-zak-tab-panel="' + id + '"]', container);
+      if (panel) dispatch(panel, 'zak:change', { tab: id });
+    },
+    show: function(container, id) {
+      zak.tabs.activate(container, id);
+    }
+  };
+
+// ─── 13. Carousel (robust implementation lives in the picker/media IIFE) ───
+
+  // ─── 14. Sidebar ───────────────────────────────────────────────────────────
+
+  zak.sidebar = {
+    init: function() {
+      $$('[data-zak-sidebar]').forEach(function(sidebar) {
+        var toggleBtn = $('[data-zak-sidebar-toggle="' + sidebar.getAttribute('data-zak-sidebar') + '"]');
+        if (toggleBtn) {
+          toggleBtn.addEventListener('click', function() {
+            zak.sidebar.toggle(sidebar);
+          });
+        }
+        var closeBtn = $('.zak-sidebar-close', sidebar);
+        if (closeBtn) {
+          closeBtn.addEventListener('click', function() {
+            zak.sidebar.close(sidebar);
+          });
+        }
+      });
+      $$('[data-zak-sidebar-toggle]').forEach(function(btn) {
+        var target = btn.getAttribute('data-zak-sidebar-toggle');
+        var sidebar = $(target);
+        if (sidebar && !sidebar.hasAttribute('data-zak-sidebar')) {
+          sidebar.setAttribute('data-zak-sidebar', target);
+        }
+        btn.addEventListener('click', function() {
+          var s = $(target);
+          if (s) zak.sidebar.toggle(s);
+        });
+      });
+    },
+    toggle: function(sidebar) {
+      if (typeof sidebar === 'string') sidebar = $(sidebar);
+      if (!sidebar) return;
+      sidebar.classList.contains('zak-sidebar-active') ? zak.sidebar.close(sidebar) : zak.sidebar.open(sidebar);
+    },
+    open: function(sidebar) {
+      if (typeof sidebar === 'string') sidebar = $(sidebar);
+      if (!sidebar) return;
+      var overlay = el('div', { className: 'zak-sidebar-overlay' });
+      sidebar._overlay = overlay;
+      document.body.appendChild(overlay);
+      overlay.addEventListener('click', function() { zak.sidebar.close(sidebar); });
+      sidebar.classList.add('zak-sidebar-active');
+      overlay.classList.add('zak-sidebar-overlay-active');
+      document.body.style.overflow = 'hidden';
+      dispatch(sidebar, 'zak:open');
+    },
+    close: function(sidebar) {
+      if (typeof sidebar === 'string') sidebar = $(sidebar);
+      if (!sidebar) return;
+      sidebar.classList.remove('zak-sidebar-active');
+      if (sidebar._overlay) {
+        sidebar._overlay.classList.remove('zak-sidebar-overlay-active');
+        setTimeout(function() { sidebar._overlay.remove(); }, 300);
+      }
+      document.body.style.overflow = '';
+      dispatch(sidebar, 'zak:close');
+    },
+    collapse: function(sidebar) {
+      if (typeof sidebar === 'string') sidebar = $(sidebar);
+      if (!sidebar) return;
+      sidebar.classList.toggle('zak-sidebar-collapsed');
+      dispatch(sidebar, 'zak:change', { collapsed: sidebar.classList.contains('zak-sidebar-collapsed') });
+    }
+  };
+
+  // ─── 15. Navbar ────────────────────────────────────────────────────────────
+
+zak.navbar = {
+    _breakpoints: { sm: 576, md: 768, lg: 992, xl: 1200, xxl: 1400 },
+    init: function() {
+      $$('[data-zak-navbar], .zak-navbar').forEach(function(navbar) {
+        var togglers = $$('.zak-navbar-toggler, .zak-navbar-toggle', navbar);
+        togglers.forEach(function(toggler) {
+          if (!toggler.hasAttribute('aria-expanded')) toggler.setAttribute('aria-expanded', 'false');
+          toggler.addEventListener('click', function(e) {
+            e.preventDefault();
+            zak.navbar.toggle(navbar);
+          });
+        });
+var links = $$('a, button', navbar);
+        links.forEach(function(link) {
+          if (link === togglers[0] || link.matches('.zak-navbar-toggler, .zak-navbar-toggle')) return;
+          if (link.parentElement && link.parentElement.classList.contains('zak-nav-dropdown')) return;
+          link.addEventListener('click', function() {
+            if (!zak.navbar.isExpanded(navbar)) zak.navbar.close(navbar);
+          });
+        });
+        var sticky = navbar.getAttribute('data-zak-navbar-sticky');
+        if (sticky === 'true' || sticky === '') {
+          var placeholder = el('div', { className: 'zak-navbar-placeholder' });
+          navbar._placeholder = placeholder;
+          var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+              if (!entry.isIntersecting) {
+                navbar.classList.add('zak-navbar-sticky');
+                if (!navbar._placeholder.parentNode) navbar.parentNode.insertBefore(placeholder, navbar);
+              } else {
+                navbar.classList.remove('zak-navbar-sticky');
+                if (navbar._placeholder.parentNode) placeholder.remove();
+              }
+            });
+          }, { threshold: 0 });
+          observer.observe(navbar);
+          navbar._observer = observer;
+        }
+      });
+      document.addEventListener('click', function(e) {
+        $$('.zak-navbar.zak-open, .zak-navbar.zak-navbar-active').forEach(function(navbar) {
+          if (!navbar.contains(e.target)) zak.navbar.close(navbar);
+        });
+      });
+    },
+_breakpointOf: function(navbar) {
+      return ['xxl', 'xl', 'lg', 'md', 'sm'].filter(function(k) {
+        return navbar.classList.contains('zak-navbar-expand-' + k);
+      })[0] || null;
+    },
+    isExpanded: function(navbar) {
+      if (typeof navbar === 'string') navbar = $(navbar);
+      if (!navbar) return true;
+      if (navbar.classList.contains('zak-navbar-expand') && !this._breakpointOf(navbar)) return true;
+      var bp = this._breakpointOf(navbar);
+      if (!bp) return false;
+      return window.innerWidth >= this._breakpoints[bp];
+    },
+    toggle: function(navbar) {
+      if (typeof navbar === 'string') navbar = $(navbar);
+      if (!navbar) return;
+      var open = navbar.classList.contains('zak-open') || navbar.classList.contains('zak-navbar-active');
+      open ? this.close(navbar) : this.open(navbar);
+    },
+    open: function(navbar) {
+      if (typeof navbar === 'string') navbar = $(navbar);
+      if (!navbar) return;
+      navbar.classList.add('zak-open', 'zak-navbar-active');
+      var menu = $('.zak-navbar-collapse, .zak-navbar-menu', navbar);
+      if (menu) menu.classList.add('zak-navbar-menu-active');
+      var toggler = $('.zak-navbar-toggler, .zak-navbar-toggle', navbar);
+      if (toggler) toggler.setAttribute('aria-expanded', 'true');
+      dispatch(navbar, 'zak:open');
+    },
+    close: function(navbar) {
+      if (typeof navbar === 'string') navbar = $(navbar);
+      if (!navbar) return;
+      navbar.classList.remove('zak-open', 'zak-navbar-active');
+      var menu = $('.zak-navbar-collapse, .zak-navbar-menu', navbar);
+      if (menu) menu.classList.remove('zak-navbar-menu-active');
+      var toggler = $('.zak-navbar-toggler, .zak-navbar-toggle', navbar);
+      if (toggler) toggler.setAttribute('aria-expanded', 'false');
+      dispatch(navbar, 'zak:close');
+    }
+  };
+
+  zak.pagination = {
+    init: function() {
+      $$('[data-zak-pagination]').forEach(function(pag) {
+        var page = parseInt(pag.getAttribute('data-zak-pagination-current'), 10) || 1;
+        var total = parseInt(pag.getAttribute('data-zak-pagination-total'), 10) || 1;
+        var visible = parseInt(pag.getAttribute('data-zak-pagination-visible'), 10) || 5;
+        zak.pagination.render(pag, page, total, visible);
+      });
+    },
+    render: function(container, current, total, visible) {
+      if (typeof container === 'string') container = $(container);
+      if (!container) return;
+      container.innerHTML = '';
+      container.setAttribute('role', 'navigation');
+      container.setAttribute('aria-label', 'Pagination');
+
+      function addBtn(text, page, disabled, active, cls) {
+        var btn = el('button', {
+          className: 'zak-pagination-btn' + (active ? ' active' : '') + (cls ? ' ' + cls : ''),
+          textContent: text,
+          'aria-current': active ? 'page' : undefined
+        });
+        if (disabled) { btn.disabled = true; btn.setAttribute('aria-disabled', 'true'); }
+        if (!disabled && page !== undefined) {
+          btn.addEventListener('click', function() {
+            container.setAttribute('data-zak-pagination-current', page);
+            zak.pagination.render(container, page, total, visible);
+            dispatch(container, 'zak:change', { page: page });
+          });
+        }
+        return btn;
+      }
+
+      container.appendChild(addBtn('\u00ab', Math.max(1, current - 1), current === 1, false, 'zak-pagination-prev'));
+
+      var start = Math.max(1, current - Math.floor(visible / 2));
+      var end = Math.min(total, start + visible - 1);
+      start = Math.max(1, end - visible + 1);
+
+      if (start > 1) {
+        container.appendChild(addBtn('1', 1, false, false));
+        if (start > 2) container.appendChild(addBtn('...', null, true, false, 'zak-pagination-ellipsis'));
+      }
+
+      for (var i = start; i <= end; i++) {
+        container.appendChild(addBtn(String(i), i, false, i === current));
+      }
+
+      if (end < total) {
+        if (end < total - 1) container.appendChild(addBtn('...', null, true, false, 'zak-pagination-ellipsis'));
+        container.appendChild(addBtn(String(total), total, false, false));
+      }
+
+      container.appendChild(addBtn('\u00bb', Math.min(total, current + 1), current === total, false, 'zak-pagination-next'));
+    },
+    goTo: function(container, page) {
+      if (typeof container === 'string') container = $(container);
+      if (!container) return;
+      var total = parseInt(container.getAttribute('data-zak-pagination-total'), 10) || 1;
+      var visible = parseInt(container.getAttribute('data-zak-pagination-visible'), 10) || 5;
+      page = Math.max(1, Math.min(total, page));
+      container.setAttribute('data-zak-pagination-current', page);
+      zak.pagination.render(container, page, total, visible);
+      dispatch(container, 'zak:change', { page: page });
+    }
+  };
+
+  // ─── 17. Stepper ───────────────────────────────────────────────────────────
+
+zak.stepper = {
+    resolveButton: function(stepper, role) {
+      if (typeof stepper === 'string') stepper = $(stepper);
+      if (!stepper) return null;
+      var sel = '[data-zak-stepper-' + role + ']';
+      var local = $(sel, stepper);
+      if (local) return local;
+      var p = stepper.parentElement;
+      while (p && p !== document.body) {
+        var b = $(sel, p);
+        if (b && !stepper.contains(b)) return b;
+        p = p.parentElement;
+      }
+      return null;
+    },
+    init: function() {
+      $$('[data-zak-stepper]').forEach(function(stepper) {
+        var steps = $$('.zak-stepper-step', stepper);
+        steps.forEach(function(step, i) {
+          step.setAttribute('data-step-index', i);
+        });
+        var current = parseInt(stepper.getAttribute('data-zak-stepper-current'), 10) || 0;
+        zak.stepper.goTo(stepper, current);
+        var nextBtn = zak.stepper.resolveButton(stepper, 'next');
+        var prevBtn = zak.stepper.resolveButton(stepper, 'prev');
+        if (nextBtn) {
+          nextBtn.addEventListener('click', function() {
+            var cur = parseInt(stepper.getAttribute('data-zak-stepper-current'), 10) || 0;
+            if (cur < steps.length - 1) zak.stepper.goTo(stepper, cur + 1);
+          });
+        }
+        if (prevBtn) {
+          prevBtn.addEventListener('click', function() {
+            var cur = parseInt(stepper.getAttribute('data-zak-stepper-current'), 10) || 0;
+            if (cur > 0) zak.stepper.goTo(stepper, cur - 1);
+          });
+        }
+      });
+    },
+    goTo: function(stepper, index) {
+      if (typeof stepper === 'string') stepper = $(stepper);
+      if (!stepper) return;
+      var steps = $$('.zak-stepper-step', stepper);
+      if (index < 0 || index >= steps.length) return;
+      steps.forEach(function(step, i) {
+        step.classList.remove('active', 'completed', 'upcoming');
+        if (i < index) step.classList.add('completed');
+        else if (i === index) step.classList.add('active');
+        else step.classList.add('upcoming');
+      });
+stepper.setAttribute('data-zak-stepper-current', index);
+      var prevBtn = zak.stepper.resolveButton(stepper, 'prev');
+      var nextBtn = zak.stepper.resolveButton(stepper, 'next');
+      if (prevBtn) prevBtn.disabled = index === 0;
+      if (nextBtn) {
+        nextBtn.disabled = index === steps.length - 1;
+        if (index === steps.length - 1) {
+          var finishText = stepper.getAttribute('data-zak-stepper-finish-text');
+          if (finishText) nextBtn.textContent = finishText;
+        } else {
+          var nextText = stepper.getAttribute('data-zak-stepper-next-text');
+          if (nextText) nextBtn.textContent = nextText;
+        }
+      }
+      dispatch(stepper, 'zak:change', { step: index, total: steps.length });
+    },
+    next: function(stepper) {
+      if (typeof stepper === 'string') stepper = $(stepper);
+      if (!stepper) return;
+      var cur = parseInt(stepper.getAttribute('data-zak-stepper-current'), 10) || 0;
+      zak.stepper.goTo(stepper, cur + 1);
+    },
+    prev: function(stepper) {
+      if (typeof stepper === 'string') stepper = $(stepper);
+      if (!stepper) return;
+      var cur = parseInt(stepper.getAttribute('data-zak-stepper-current'), 10) || 0;
+      zak.stepper.goTo(stepper, cur - 1);
+    }
+  };
+
+  // ─── 18. Date Picker ───────────────────────────────────────────────────────
+
+  zak.datePicker = {
+    init: function() {
+      $$('[data-zak-datepicker]').forEach(function(input) {
+        zak.datePicker._create(input);
+      });
+    },
+    _create: function(input) {
+      var format = input.getAttribute('data-zak-datepicker-format') || 'YYYY-MM-DD';
+      var minDate = input.getAttribute('data-zak-datepicker-min') || null;
+      var maxDate = input.getAttribute('data-zak-datepicker-max') || null;
+      var container = el('div', { className: 'zak-datepicker' });
+      var popup = el('div', { className: 'zak-datepicker-popup' });
+      container.appendChild(popup);
+      input.parentNode.insertBefore(container, input);
+      container.appendChild(input);
+      var state = { date: new Date(), selected: null };
+      if (input.value) state.selected = new Date(input.value);
+
+      function parseDate(str) {
+        var parts = str.split('-');
+        return new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+      }
+
+      function formatDate(d) {
+        var y = d.getFullYear();
+        var m = ('0' + (d.getMonth() + 1)).slice(-2);
+        var day = ('0' + d.getDate()).slice(-2);
+        return format.replace('YYYY', y).replace('MM', m).replace('DD', day);
+      }
+
+      function isDisabled(d) {
+        if (minDate && d < parseDate(minDate)) return true;
+        if (maxDate && d > parseDate(maxDate)) return true;
+        return false;
+      }
+
+      function render() {
+        popup.innerHTML = '';
+        var header = el('div', { className: 'zak-datepicker-header' });
+        var prevM = el('button', { className: 'zak-datepicker-prev', textContent: '\u2039' });
+        var monthLabel = el('span', { className: 'zak-datepicker-month', textContent: state.date.toLocaleString('default', { month: 'long', year: 'numeric' }) });
+        var nextM = el('button', { className: 'zak-datepicker-next', textContent: '\u203a' });
+        header.appendChild(prevM);
+        header.appendChild(monthLabel);
+        header.appendChild(nextM);
+        popup.appendChild(header);
+
+        prevM.addEventListener('click', function(e) {
+          e.stopPropagation();
+          state.date.setMonth(state.date.getMonth() - 1);
+          render();
+        });
+        nextM.addEventListener('click', function(e) {
+          e.stopPropagation();
+          state.date.setMonth(state.date.getMonth() + 1);
+          render();
+        });
+
+        var weekDays = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
+        var weekRow = el('div', { className: 'zak-datepicker-weekdays' });
+        weekDays.forEach(function(d) { weekRow.appendChild(el('span', { textContent: d })); });
+        popup.appendChild(weekRow);
+
+        var grid = el('div', { className: 'zak-datepicker-days' });
+        var year = state.date.getFullYear();
+        var month = state.date.getMonth();
+        var firstDay = new Date(year, month, 1).getDay();
+        var daysInMonth = new Date(year, month + 1, 0).getDate();
+
+        for (var i = 0; i < firstDay; i++) {
+          grid.appendChild(el('span', { className: 'zak-datepicker-day empty' }));
+        }
+
+        for (var d = 1; d <= daysInMonth; d++) {
+          (function(day) {
+            var dayEl = el('button', { className: 'zak-datepicker-day', textContent: day });
+            var dayDate = new Date(year, month, day);
+            if (isDisabled(dayDate)) {
+              dayEl.classList.add('disabled');
+              dayEl.disabled = true;
+            }
+            if (state.selected && dayDate.toDateString() === state.selected.toDateString()) {
+              dayEl.classList.add('selected');
+            }
+            if (dayDate.toDateString() === new Date().toDateString()) {
+              dayEl.classList.add('today');
+            }
+            dayEl.addEventListener('click', function(e) {
+              e.stopPropagation();
+              state.selected = dayDate;
+              input.value = formatDate(dayDate);
+              popup.classList.remove('zak-datepicker-popup-active');
+              dispatch(input, 'zak:change', { date: dayDate, value: input.value });
+            });
+            grid.appendChild(dayEl);
+          })(d);
+        }
+        popup.appendChild(grid);
+      }
+
+      input.addEventListener('focus', function() {
+        render();
+        popup.classList.add('zak-datepicker-popup-active');
+      });
+      input.addEventListener('click', function(e) {
+        e.stopPropagation();
+        render();
+        popup.classList.add('zak-datepicker-popup-active');
+      });
+      document.addEventListener('click', function() {
+        popup.classList.remove('zak-datepicker-popup-active');
+      });
+      popup.addEventListener('click', function(e) { e.stopPropagation(); });
+    },
+    open: function(input) {
+      if (typeof input === 'string') input = $(input);
+      if (input) input.focus();
+    },
+    close: function(input) {
+      if (typeof input === 'string') input = $(input);
+      if (!input) return;
+      var popup = $('.zak-datepicker-popup', input.parentNode);
+      if (popup) popup.classList.remove('zak-datepicker-popup-active');
+    }
+  };
+
+  // ─── 19. Time Picker ───────────────────────────────────────────────────────
+
+  zak.timePicker = {
+    init: function() {
+      $$('[data-zak-timepicker]').forEach(function(input) {
+        zak.timePicker._create(input);
+      });
+    },
+    _create: function(input) {
+      var format = input.getAttribute('data-zak-timepicker-format') || '24h';
+      var container = el('div', { className: 'zak-timepicker' });
+      var popup = el('div', { className: 'zak-timepicker-popup' });
+      container.appendChild(popup);
+      input.parentNode.insertBefore(container, input);
+      container.appendChild(input);
+
+      var hours = 0, minutes = 0;
+
+      function render() {
+        popup.innerHTML = '';
+        var header = el('div', { className: 'zak-timepicker-header' });
+        var hUp = el('button', { className: 'zak-timepicker-spin-up', textContent: '\u25b2' });
+        var mUp = el('button', { className: 'zak-timepicker-spin-up', textContent: '\u25b2' });
+        var hDown = el('button', { className: 'zak-timepicker-spin-down', textContent: '\u25bc' });
+        var mDown = el('button', { className: 'zak-timepicker-spin-down', textContent: '\u25bc' });
+        var hDisplay = el('span', { className: 'zak-timepicker-hour', textContent: ('0' + hours).slice(-2) });
+        var sep = el('span', { className: 'zak-timepicker-separator', textContent: ':' });
+        var mDisplay = el('span', { className: 'zak-timepicker-minute', textContent: ('0' + minutes).slice(-2) });
+
+        var colH = el('div', { className: 'zak-timepicker-column' });
+        colH.appendChild(hUp);
+        colH.appendChild(hDisplay);
+        colH.appendChild(hDown);
+
+        var colM = el('div', { className: 'zak-timepicker-column' });
+        colM.appendChild(mUp);
+        colM.appendChild(mDisplay);
+        colM.appendChild(mDown);
+
+        header.appendChild(colH);
+        header.appendChild(sep);
+        header.appendChild(colM);
+        popup.appendChild(header);
+
+        hUp.addEventListener('click', function(e) { e.stopPropagation(); hours = (hours + 1) % 24; hDisplay.textContent = ('0' + hours).slice(-2); setTime(); });
+        hDown.addEventListener('click', function(e) { e.stopPropagation(); hours = (hours - 1 + 24) % 24; hDisplay.textContent = ('0' + hours).slice(-2); setTime(); });
+        mUp.addEventListener('click', function(e) { e.stopPropagation(); minutes = (minutes + 5) % 60; mDisplay.textContent = ('0' + minutes).slice(-2); setTime(); });
+        mDown.addEventListener('click', function(e) { e.stopPropagation(); minutes = (minutes - 5 + 60) % 60; mDisplay.textContent = ('0' + minutes).slice(-2); setTime(); });
+
+        var footer = el('div', { className: 'zak-timepicker-footer' });
+        var nowBtn = el('button', { className: 'zak-btn zak-btn-sm', textContent: 'Now' });
+        var okBtn = el('button', { className: 'zak-btn zak-btn-primary zak-btn-sm', textContent: 'OK' });
+        nowBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          var now = new Date();
+          hours = now.getHours();
+          minutes = now.getMinutes();
+          hDisplay.textContent = ('0' + hours).slice(-2);
+          mDisplay.textContent = ('0' + minutes).slice(-2);
+          setTime();
+        });
+        okBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          setTime();
+          popup.classList.remove('zak-timepicker-popup-active');
+        });
+        footer.appendChild(nowBtn);
+        footer.appendChild(okBtn);
+        popup.appendChild(footer);
+      }
+
+      function setTime() {
+        var val = ('0' + hours).slice(-2) + ':' + ('0' + minutes).slice(-2);
+        input.value = val;
+        dispatch(input, 'zak:change', { hours: hours, minutes: minutes, value: val });
+      }
+
+      input.addEventListener('focus', function() { render(); popup.classList.add('zak-timepicker-popup-active'); });
+      input.addEventListener('click', function(e) { e.stopPropagation(); render(); popup.classList.add('zak-timepicker-popup-active'); });
+      document.addEventListener('click', function() { popup.classList.remove('zak-timepicker-popup-active'); });
+      popup.addEventListener('click', function(e) { e.stopPropagation(); });
+    }
+  };
+
+  // ─── 20. Color Picker ──────────────────────────────────────────────────────
+
+  zak.colorPicker = {
+    init: function() {
+      $$('[data-zak-colorpicker]').forEach(function(input) {
+        zak.colorPicker._create(input);
+      });
+    },
+    _create: function(input) {
+      var presetColors = (input.getAttribute('data-zak-colorpicker-presets') || '#ef4444,#f97316,#eab308,#22c55e,#3b82f6,#8b5cf6,#ec4899,#6b7280,#000000,#ffffff').split(',');
+      var container = el('div', { className: 'zak-colorpicker' });
+      var swatch = el('div', { className: 'zak-colorpicker-swatch', tabindex: '0', role: 'button', 'aria-label': 'Choose color' });
+      swatch.style.backgroundColor = input.value || '#3b82f6';
+      var popup = el('div', { className: 'zak-colorpicker-popup' });
+      container.appendChild(swatch);
+      container.appendChild(popup);
+      input.parentNode.insertBefore(container, input);
+      input.type = 'hidden';
+
+      function render() {
+        popup.innerHTML = '';
+        var grid = el('div', { className: 'zak-colorpicker-presets' });
+        presetColors.forEach(function(color) {
+          var c = el('button', { className: 'zak-colorpicker-color', title: color });
+          c.style.backgroundColor = color;
+          if (input.value === color) c.classList.add('selected');
+          c.addEventListener('click', function(e) {
+            e.stopPropagation();
+            input.value = color;
+            swatch.style.backgroundColor = color;
+            popup.classList.remove('zak-colorpicker-popup-active');
+            dispatch(input, 'zak:change', { value: color });
+          });
+          grid.appendChild(c);
+        });
+        popup.appendChild(grid);
+
+        var customRow = el('div', { className: 'zak-colorpicker-custom' });
+        var customInput = el('input', { type: 'color', className: 'zak-colorpicker-native', value: input.value || '#3b82f6' });
+        customInput.addEventListener('input', function() {
+          input.value = customInput.value;
+          swatch.style.backgroundColor = customInput.value;
+        });
+        customInput.addEventListener('change', function() {
+          dispatch(input, 'zak:change', { value: customInput.value });
+          popup.classList.remove('zak-colorpicker-popup-active');
+        });
+        var customLabel = el('span', { textContent: 'Custom: ' });
+        customRow.appendChild(customLabel);
+        customRow.appendChild(customInput);
+        popup.appendChild(customRow);
+      }
+
+      swatch.addEventListener('click', function(e) {
+        e.stopPropagation();
+        render();
+        popup.classList.toggle('zak-colorpicker-popup-active');
+      });
+      document.addEventListener('click', function() { popup.classList.remove('zak-colorpicker-popup-active'); });
+      popup.addEventListener('click', function(e) { e.stopPropagation(); });
+    }
+  };
+
+  // ─── 21. Autocomplete ──────────────────────────────────────────────────────
+
+  zak.autocomplete = {
+    init: function() {
+      $$('[data-zak-autocomplete]').forEach(function(input) {
+        zak.autocomplete._create(input);
+      });
+    },
+    _create: function(input) {
+      var src = input.getAttribute('data-zak-autocomplete');
+      var items = [];
+      try { items = JSON.parse(src); } catch(e) {
+        if (src) items = src.split(',').map(function(s) { return s.trim(); });
+      }
+      var minLen = parseInt(input.getAttribute('data-zak-autocomplete-min'), 10) || 1;
+      var list = el('div', { className: 'zak-autocomplete-list' });
+      input.parentNode.style.position = 'relative';
+      input.parentNode.appendChild(list);
+      input.setAttribute('role', 'combobox');
+      input.setAttribute('aria-autocomplete', 'list');
+      var highlighted = -1;
+
+      function filter(query) {
+        return items.filter(function(item) {
+          return item.toLowerCase().indexOf(query.toLowerCase()) !== -1;
+        });
+      }
+
+      function render(filtered) {
+        list.innerHTML = '';
+        highlighted = -1;
+        if (filtered.length === 0 || input.value.length < minLen) {
+          list.classList.remove('zak-autocomplete-list-active');
+          return;
+        }
+        filtered.forEach(function(item, i) {
+          var opt = el('div', { className: 'zak-autocomplete-item', textContent: item, role: 'option', tabindex: '-1' });
+          opt.addEventListener('mousedown', function(e) {
+            e.preventDefault();
+            input.value = item;
+            list.classList.remove('zak-autocomplete-list-active');
+            dispatch(input, 'zak:change', { value: item });
+          });
+          list.appendChild(opt);
+        });
+        list.classList.add('zak-autocomplete-list-active');
+      }
+
+      input.addEventListener('input', function() {
+        render(filter(input.value));
+      });
+      input.addEventListener('focus', function() {
+        if (input.value.length >= minLen) render(filter(input.value));
+      });
+      input.addEventListener('keydown', function(e) {
+        var opts = $$('.zak-autocomplete-item', list);
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          highlighted = Math.min(highlighted + 1, opts.length - 1);
+          opts.forEach(function(o, i) { o.classList.toggle('zak-autocomplete-item-active', i === highlighted); });
+          if (opts[highlighted]) opts[highlighted].scrollIntoView({ block: 'nearest' });
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          highlighted = Math.max(highlighted - 1, 0);
+          opts.forEach(function(o, i) { o.classList.toggle('zak-autocomplete-item-active', i === highlighted); });
+          if (opts[highlighted]) opts[highlighted].scrollIntoView({ block: 'nearest' });
+        } else if (e.key === 'Enter') {
+          e.preventDefault();
+          if (highlighted >= 0 && opts[highlighted]) {
+            input.value = opts[highlighted].textContent;
+            list.classList.remove('zak-autocomplete-list-active');
+            dispatch(input, 'zak:change', { value: input.value });
+          }
+        } else if (e.key === 'Escape') {
+          list.classList.remove('zak-autocomplete-list-active');
+        }
+      });
+      document.addEventListener('click', function() { list.classList.remove('zak-autocomplete-list-active'); });
+    }
+  };
+
+  // ─── 22. Combobox ──────────────────────────────────────────────────────────
+
+  zak.combobox = {
+    init: function() {
+      $$('[data-zak-combobox]').forEach(function(select) {
+        zak.combobox._create(select);
+      });
+    },
+    _create: function(select) {
+      var options = $$('option', select).map(function(o) {
+        return { value: o.value, text: o.textContent, disabled: o.disabled };
+      });
+      var placeholder = select.getAttribute('data-zak-combobox-placeholder') || 'Select...';
+      var container = el('div', { className: 'zak-combobox', tabindex: '0', role: 'combobox', 'aria-expanded': 'false', 'aria-haspopup': 'listbox' });
+      var trigger = el('div', { className: 'zak-combobox-trigger' });
+      var selectedText = el('span', { className: 'zak-combobox-value', textContent: placeholder });
+      var arrow = el('span', { className: 'zak-combobox-arrow' });
+      var search = el('input', { className: 'zak-combobox-search', type: 'text', placeholder: placeholder });
+      var listbox = el('div', { className: 'zak-combobox-listbox', role: 'listbox' });
+
+      trigger.appendChild(selectedText);
+      trigger.appendChild(arrow);
+      container.appendChild(trigger);
+      container.appendChild(search);
+      container.appendChild(listbox);
+      select.style.display = 'none';
+      select.parentNode.insertBefore(container, select);
+      var current = select.value || '';
+      var highlighted = -1;
+
+      function render(filterText) {
+        listbox.innerHTML = '';
+        highlighted = -1;
+        var filtered = options.filter(function(o) {
+          if (filterText) return o.text.toLowerCase().indexOf(filterText.toLowerCase()) !== -1;
+          return true;
+        });
+        if (filtered.length === 0) {
+          var empty = el('div', { className: 'zak-combobox-option disabled', textContent: 'No options found' });
+          listbox.appendChild(empty);
+          return;
+        }
+        filtered.forEach(function(opt, i) {
+          var item = el('div', {
+            className: 'zak-combobox-option' + (opt.value === current ? ' selected' : '') + (opt.disabled ? ' disabled' : ''),
+            textContent: opt.text,
+            role: 'option',
+            'data-value': opt.value
+          });
+          if (opt.value === current) item.setAttribute('aria-selected', 'true');
+          item.addEventListener('mousedown', function(e) {
+            e.preventDefault();
+            if (!opt.disabled) selectOption(opt);
+          });
+          listbox.appendChild(item);
+        });
+      }
+
+      function selectOption(opt) {
+        current = opt.value;
+        select.value = opt.value;
+        selectedText.textContent = opt.text;
+        search.value = '';
+        container.classList.remove('zak-combobox-active');
+        container.setAttribute('aria-expanded', 'false');
+        search.style.display = 'none';
+        dispatch(select, 'zak:change', { value: opt.value, text: opt.text });
+      }
+
+      function open() {
+        container.classList.add('zak-combobox-active');
+        container.setAttribute('aria-expanded', 'true');
+        search.style.display = 'block';
+        search.value = '';
+        search.focus();
+        render('');
+      }
+
+      trigger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        container.classList.contains('zak-combobox-active') ? container.classList.remove('zak-combobox-active') : open();
+      });
+
+      search.addEventListener('input', function() { render(search.value); });
+      search.addEventListener('keydown', function(e) {
+        var opts = $$('.zak-combobox-option:not(.disabled)', listbox);
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          highlighted = Math.min(highlighted + 1, opts.length - 1);
+          opts.forEach(function(o, i) { o.classList.toggle('zak-combobox-option-active', i === highlighted); });
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          highlighted = Math.max(highlighted - 1, 0);
+          opts.forEach(function(o, i) { o.classList.toggle('zak-combobox-option-active', i === highlighted); });
+        } else if (e.key === 'Enter') {
+          e.preventDefault();
+          if (highlighted >= 0 && opts[highlighted]) {
+            selectOption({ value: opts[highlighted].getAttribute('data-value'), text: opts[highlighted].textContent });
+          }
+        } else if (e.key === 'Escape') {
+          container.classList.remove('zak-combobox-active');
+          container.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      document.addEventListener('click', function() {
+        container.classList.remove('zak-combobox-active');
+        container.setAttribute('aria-expanded', 'false');
+      });
+
+      if (current) {
+        var found = options.find(function(o) { return o.value === current; });
+        if (found) selectedText.textContent = found.text;
+      }
+    }
+  };
+
+  // ─── 23. Multi Select ──────────────────────────────────────────────────────
+
+  zak.multiSelect = {
+    init: function() {
+      $$('[data-zak-multiselect]').forEach(function(select) {
+        if (select.__zakMultiSelect) return;
+        select.__zakMultiSelect = true;
+        zak.multiSelect._create(select);
+      });
+    },
+    _create: function(select) {
+      var options = $$('option', select).map(function(o) {
+        return { value: o.value, text: o.textContent.trim(), selected: o.selected, disabled: o.disabled };
+      });
+      var placeholder = select.getAttribute('data-zak-multiselect-placeholder') || 'Select...';
+      var max = parseInt(select.getAttribute('data-zak-multiselect-max'), 10) || 0;
+      var searchable = select.getAttribute('data-zak-multiselect-search') !== 'false';
+
+      var container = el('div', {
+        className: 'zak-multi-select',
+        tabindex: '0',
+        role: 'combobox',
+        'aria-expanded': 'false',
+        'aria-haspopup': 'listbox'
+      });
+      var tagsContainer = el('div', { className: 'zak-multi-select-tags' });
+      var search = el('input', {
+        className: 'zak-multi-select-search',
+        type: 'text',
+        placeholder: placeholder,
+        autocomplete: 'off'
+      });
+      if (!searchable) search.setAttribute('readonly', 'readonly');
+      var listbox = el('div', {
+        className: 'zak-multi-select-dropdown',
+        role: 'listbox',
+        'aria-multiselectable': 'true'
+      });
+
+      container.appendChild(tagsContainer);
+      container.appendChild(search);
+      container.appendChild(listbox);
+      select.style.display = 'none';
+      select.parentNode.insertBefore(container, select);
+
+      var selected = options.filter(function(o) { return o.selected; }).map(function(o) { return o.value; });
+      var activeIndex = -1;
+
+      function isMaximum() { return max > 0 && selected.length >= max; }
+
+      function renderTags() {
+        tagsContainer.innerHTML = '';
+        selected.forEach(function(val) {
+          var opt = options.find(function(o) { return o.value === val; });
+          if (!opt) return;
+          var tag = el('span', { className: 'zak-badge zak-badge-primary zak-badge-removable' });
+          tag.appendChild(document.createTextNode(opt.text));
+          var removeBtn = el('button', {
+            type: 'button',
+            textContent: '\u00d7',
+            'aria-label': 'Remove ' + opt.text
+          });
+          removeBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            remove(val);
+          });
+          tag.appendChild(removeBtn);
+          tagsContainer.appendChild(tag);
+        });
+        search.placeholder = isMaximum() ? 'Maximum ' + max + ' selected' : placeholder;
+      }
+
+      function filteredOptions() {
+        var q = search.value.toLowerCase();
+        return options.filter(function(o) {
+          return !q || o.text.toLowerCase().indexOf(q) !== -1;
+        });
+      }
+
+      function renderOptions() {
+        var vis = filteredOptions();
+        listbox.innerHTML = '';
+        if (!vis.length) {
+          listbox.appendChild(el('div', { className: 'zak-multi-select-empty', textContent: 'No results found' }));
+          activeIndex = -1;
+          return;
+        }
+        vis.forEach(function(opt, i) {
+          var isSel = selected.indexOf(opt.value) !== -1;
+          var item = el('div', {
+            className: 'zak-multi-select-option'
+              + (isSel ? ' zak-selected' : '')
+              + (opt.disabled ? ' zak-multi-select-option-disabled' : '')
+              + (i === activeIndex ? ' zak-active' : ''),
+            role: 'option',
+            'aria-selected': isSel ? 'true' : 'false',
+            'aria-disabled': opt.disabled ? 'true' : 'false'
+          });
+          item.appendChild(el('span', { className: 'zak-multi-select-checkbox' }));
+          item.appendChild(el('span', { className: 'zak-multi-select-label', textContent: opt.text }));
+          if (!opt.disabled) {
+            item.addEventListener('click', function(e) {
+              e.stopPropagation();
+              toggle(opt.value);
+            });
+          }
+          listbox.appendChild(item);
+        });
+      }
+
+      function syncSelect() {
+        $$('option', select).forEach(function(o) {
+          o.selected = selected.indexOf(o.value) !== -1;
+        });
+        select.dispatchEvent(new Event('change', { bubbles: true }));
+        dispatch(select, 'zak:change', { value: selected.slice() });
+      }
+
+      function afterChange() {
+        renderTags();
+        renderOptions();
+        syncSelect();
+      }
+
+      function toggle(val) {
+        if (selected.indexOf(val) !== -1) { remove(val); return; }
+        if (isMaximum()) return;
+        selected.push(val);
+        afterChange();
+      }
+
+      function remove(val) {
+        selected = selected.filter(function(s) { return s !== val; });
+        afterChange();
+      }
+
+      function isOpen() { return container.classList.contains('zak-multi-select-active'); }
+
+      function open() {
+        if (isOpen()) return;
+        container.classList.add('zak-multi-select-active');
+        container.setAttribute('aria-expanded', 'true');
+        if (searchable) search.focus();
+        renderOptions();
+        dispatch(select, 'zak:open');
+      }
+
+      function close() {
+        if (!isOpen()) return;
+        container.classList.remove('zak-multi-select-active');
+        container.setAttribute('aria-expanded', 'false');
+        activeIndex = -1;
+        search.value = '';
+        renderOptions();
+        dispatch(select, 'zak:close');
+      }
+
+      container.addEventListener('click', function() {
+        if (isOpen()) { if (searchable) search.focus(); }
+        else open();
+      });
+
+      container.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+          e.preventDefault();
+          if (!isOpen()) { open(); return; }
+          var vis = filteredOptions();
+          if (!vis.length) return;
+          activeIndex = (activeIndex + (e.key === 'ArrowDown' ? 1 : -1) + vis.length) % vis.length;
+          renderOptions();
+          var active = listbox.children[activeIndex];
+          if (active && active.scrollIntoView) active.scrollIntoView({ block: 'nearest' });
+        } else if (e.key === 'Enter') {
+          if (!isOpen()) { e.preventDefault(); open(); return; }
+          var vis = filteredOptions();
+          if (activeIndex >= 0 && vis[activeIndex] && !vis[activeIndex].disabled) {
+            e.preventDefault();
+            toggle(vis[activeIndex].value);
+          }
+        } else if (e.key === 'Backspace' && !search.value && selected.length) {
+          remove(selected[selected.length - 1]);
+        } else if (e.key === 'Escape' || e.key === 'Tab') {
+          close();
+        }
+      });
+
+      if (searchable) {
+        search.addEventListener('input', function() {
+          activeIndex = -1;
+          renderOptions();
+        });
+      }
+
+      document.addEventListener('click', function(e) {
+        if (!container.contains(e.target)) close();
+      });
+
+      if (select.disabled) container.classList.add('zak-multi-select-disabled');
+
+      renderTags();
+      renderOptions();
+    }
+  };
+
+  // ─── 24. Tags Input ────────────────────────────────────────────────────────
+
+  zak.tagsInput = {
+    init: function() {
+      $$('[data-zak-tags]').forEach(function(input) {
+        zak.tagsInput._create(input);
+      });
+    },
+    _create: function(input) {
+      var delimiter = input.getAttribute('data-zak-tags-delimiter') || ',';
+      var maxTags = parseInt(input.getAttribute('data-zak-tags-max'), 10) || 0;
+      var container = el('div', { className: 'zak-tags-input', tabindex: '-1' });
+      var tagsContainer = el('div', { className: 'zak-tags-input-tags' });
+      var field = el('input', { className: 'zak-tags-input-field', type: 'text', placeholder: input.getAttribute('data-zak-tags-placeholder') || 'Add tag...' });
+      container.appendChild(tagsContainer);
+      container.appendChild(field);
+      input.style.display = 'none';
+      input.parentNode.insertBefore(container, input);
+
+      var tags = input.value ? input.value.split(delimiter).map(function(t) { return t.trim(); }).filter(Boolean) : [];
+
+      function render() {
+        tagsContainer.innerHTML = '';
+        tags.forEach(function(tag, i) {
+          var tagEl = el('span', { className: 'zak-tags-input-tag' });
+          tagEl.appendChild(document.createTextNode(tag));
+          var removeBtn = el('button', { className: 'zak-tags-input-tag-remove', textContent: '\u00d7', 'aria-label': 'Remove ' + tag });
+          removeBtn.addEventListener('click', function() {
+            tags.splice(i, 1);
+            render();
+            sync();
+          });
+          tagEl.appendChild(removeBtn);
+          tagsContainer.appendChild(tagEl);
+        });
+        input.value = tags.join(delimiter);
+        field.disabled = maxTags > 0 && tags.length >= maxTags;
+        field.placeholder = tags.length === 0 ? (input.getAttribute('data-zak-tags-placeholder') || 'Add tag...') : '';
+      }
+
+      function addTag(value) {
+        var tag = value.trim();
+        if (tag && tags.indexOf(tag) === -1) {
+          tags.push(tag);
+          render();
+          sync();
+          dispatch(input, 'zak:change', { tags: tags.slice() });
+        }
+      }
+
+      function sync() { input.value = tags.join(delimiter); }
+
+      field.addEventListener('keydown', function(e) {
+        if ((e.key === delimiter || e.key === 'Enter') && field.value.trim()) {
+          e.preventDefault();
+          addTag(field.value);
+          field.value = '';
+        } else if (e.key === 'Backspace' && !field.value && tags.length) {
+          tags.pop();
+          render();
+          sync();
+        }
+      });
+      field.addEventListener('blur', function() {
+        if (field.value.trim()) {
+          addTag(field.value);
+          field.value = '';
+        }
+      });
+      container.addEventListener('click', function() { field.focus(); });
+
+      render();
+    }
+  };
+
+  // ─── 25. Rating ────────────────────────────────────────────────────────────
+
+  zak.rating = {
+    init: function() {
+      $$('[data-zak-rating]').forEach(function(container) {
+        zak.rating._create(container);
+      });
+    },
+    _create: function(container) {
+      var maxStars = parseInt(container.getAttribute('data-zak-rating-max'), 10) || 5;
+      var currentValue = parseFloat(container.getAttribute('data-zak-rating-value')) || 0;
+      var readonly = container.hasAttribute('data-zak-rating-readonly');
+      var hiddenInput = $('input[type="hidden"]', container);
+      container.setAttribute('role', 'radiogroup');
+      container.setAttribute('aria-label', 'Rating');
+      container.innerHTML = '';
+      var stars = [];
+
+      for (var i = 1; i <= maxStars; i++) {
+        (function(val) {
+          var star = el('button', {
+            className: 'zak-rating-star' + (val <= currentValue ? ' active' : ''),
+            role: 'radio',
+            'aria-checked': val === currentValue ? 'true' : 'false',
+            'aria-label': val + ' star' + (val > 1 ? 's' : ''),
+            textContent: '\u2605'
+          });
+          if (readonly) star.disabled = true;
+          star.addEventListener('click', function() {
+            if (readonly) return;
+            currentValue = val;
+            updateStars();
+            if (hiddenInput) hiddenInput.value = val;
+            dispatch(container, 'zak:change', { value: val });
+          });
+          star.addEventListener('mouseenter', function() {
+            if (readonly) return;
+            stars.forEach(function(s, j) {
+              s.classList.toggle('zak-rating-star-hover', j < val);
+            });
+          });
+          star.addEventListener('mouseleave', function() {
+            if (readonly) return;
+            stars.forEach(function(s, j) {
+              s.classList.remove('zak-rating-star-hover');
+            });
+          });
+          container.appendChild(star);
+          stars.push(star);
+        })(i);
+      }
+
+      function updateStars() {
+        stars.forEach(function(s, i) {
+          s.classList.toggle('active', i < currentValue);
+          s.setAttribute('aria-checked', (i + 1) === currentValue ? 'true' : 'false');
+        });
+      }
+
+      if (hiddenInput) hiddenInput.value = currentValue;
+    },
+    set: function(container, value) {
+      if (typeof container === 'string') container = $(container);
+      if (!container) return;
+      container.setAttribute('data-zak-rating-value', value);
+      zak.rating._create(container);
+    }
+  };
+
+  // ─── 26. Slider ────────────────────────────────────────────────────────────
+
+  zak.slider = {
+    init: function() {
+      $$('[data-zak-slider]').forEach(function(slider) {
+        zak.slider._create(slider);
+      });
+    },
+    _create: function(slider) {
+      var min = parseFloat(slider.getAttribute('data-zak-slider-min')) || 0;
+      var max = parseFloat(slider.getAttribute('data-zak-slider-max')) || 100;
+      var step = parseFloat(slider.getAttribute('data-zak-slider-step')) || 1;
+      var isRange = slider.hasAttribute('data-zak-slider-range');
+      var values = isRange ? [min, max] : [parseFloat(slider.getAttribute('value')) || min];
+
+      var track = el('div', { className: 'zak-slider-track' });
+      var fill = el('div', { className: 'zak-slider-fill' });
+      track.appendChild(fill);
+      slider.appendChild(track);
+
+      var thumbs = [];
+      values.forEach(function(val, i) {
+        var thumb = el('div', { className: 'zak-slider-thumb', tabindex: '0', role: 'slider', 'aria-valuemin': min, 'aria-valuemax': max, 'aria-valuenow': val, 'aria-label': isRange ? (i === 0 ? 'Min value' : 'Max value') : 'Value' });
+        slider.appendChild(thumb);
+        thumbs.push({ el: thumb, value: val });
+      });
+
+      function positionThumb(t) {
+        var pct = ((t.value - min) / (max - min)) * 100;
+        t.el.style.left = pct + '%';
+        t.el.setAttribute('aria-valuenow', t.value);
+      }
+
+      function updateFill() {
+        if (isRange && thumbs.length === 2) {
+          var left = ((thumbs[0].value - min) / (max - min)) * 100;
+          var right = ((thumbs[1].value - min) / (max - min)) * 100;
+          fill.style.left = left + '%';
+          fill.style.width = (right - left) + '%';
+        } else if (thumbs.length === 1) {
+          fill.style.left = '0';
+          fill.style.width = ((thumbs[0].value - min) / (max - min)) * 100 + '%';
+        }
+      }
+
+      function snap(val) {
+        return Math.round(val / step) * step;
+      }
+
+      function handleDrag(thumbObj) {
+        return function(e) {
+          e.preventDefault();
+          var startX = e.touches ? e.touches[0].clientX : e.clientX;
+          var startVal = thumbObj.value;
+          var trackRect = getRect(track);
+
+          function onMove(ev) {
+            var x = ev.touches ? ev.touches[0].clientX : ev.clientX;
+            var pct = (x - trackRect.left) / trackRect.width;
+            var newVal = snap(min + pct * (max - min));
+            newVal = Math.max(min, Math.min(max, newVal));
+
+            if (isRange && thumbs.length === 2) {
+              var other = thumbObj === thumbs[0] ? thumbs[1] : thumbs[0];
+              if (thumbObj === thumbs[0]) newVal = Math.min(newVal, other.value - step);
+              else newVal = Math.max(newVal, other.value + step);
+            }
+
+            thumbObj.value = newVal;
+            positionThumb(thumbObj);
+            updateFill();
+            dispatch(slider, 'zak:change', {
+              values: thumbs.map(function(t) { return t.value; }),
+              value: isRange ? null : thumbs[0].value
+            });
+          }
+
+          function onUp() {
+            document.removeEventListener('mousemove', onMove);
+            document.removeEventListener('mouseup', onUp);
+            document.removeEventListener('touchmove', onMove);
+            document.removeEventListener('touchend', onUp);
+          }
+
+          document.addEventListener('mousemove', onMove);
+          document.addEventListener('mouseup', onUp);
+          document.addEventListener('touchmove', onMove);
+          document.addEventListener('touchend', onUp);
+        };
+      }
+
+      thumbs.forEach(function(t) {
+        positionThumb(t);
+        t.el.addEventListener('mousedown', handleDrag(t));
+        t.el.addEventListener('touchstart', handleDrag(t), { passive: false });
+        t.el.addEventListener('keydown', function(e) {
+          var delta = e.key === 'ArrowRight' || e.key === 'ArrowUp' ? step : (e.key === 'ArrowLeft' || e.key === 'ArrowDown' ? -step : 0);
+          if (delta) {
+            e.preventDefault();
+            t.value = Math.max(min, Math.min(max, snap(t.value + delta)));
+            positionThumb(t);
+            updateFill();
+            dispatch(slider, 'zak:change', { values: thumbs.map(function(th) { return th.value; }), value: isRange ? null : thumbs[0].value });
+          }
+        });
+      });
+
+      updateFill();
+      slider._thumbs = thumbs;
+    },
+    getValue: function(slider) {
+      if (typeof slider === 'string') slider = $(slider);
+      if (!slider || !slider._thumbs) return null;
+      return slider._thumbs.length === 1 ? slider._thumbs[0].value : slider._thumbs.map(function(t) { return t.value; });
+    }
+  };
+
+  // ─── 27. Copy Code ─────────────────────────────────────────────────────────
+
+  zak.copyCode = {
+    init: function() {
+      $$('[data-zak-copycode]').forEach(function(block) {
+        var wrapper = el('div', { className: 'zak-copycode-wrapper' });
+        block.parentNode.insertBefore(wrapper, block);
+        wrapper.appendChild(block);
+        var btn = el('button', { className: 'zak-copycode-btn', textContent: 'Copy', 'aria-label': 'Copy code to clipboard' });
+        btn.addEventListener('click', function() {
+          var code = block.textContent;
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(code).then(function() {
+              zak.copyCode._copied(btn);
+            }).catch(function() {
+              zak.copyCode._fallback(code, btn);
+            });
+          } else {
+            zak.copyCode._fallback(code, btn);
+          }
+        });
+        wrapper.appendChild(btn);
+      });
+    },
+    _copied: function(btn) {
+      var original = btn.textContent;
+      btn.textContent = 'Copied!';
+      btn.classList.add('zak-copycode-btn-copied');
+      setTimeout(function() {
+        btn.textContent = original;
+        btn.classList.remove('zak-copycode-btn-copied');
+      }, 2000);
+    },
+    _fallback: function(text, btn) {
+      var textarea = el('textarea', { value: text });
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      try { document.execCommand('copy'); zak.copyCode._copied(btn); } catch(e) {}
+      textarea.remove();
+    }
+  };
+
+  // ─── 28. Theme ─────────────────────────────────────────────────────────────
+
+  zak.theme = {
+    _current: 'light',
+    init: function() {
+      var saved = localStorage.getItem('zak-theme');
+      var systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      zak.theme._current = saved || (systemDark ? 'dark' : 'light');
+      zak.theme.apply(zak.theme._current);
+      $$('[data-zak-theme]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var mode = btn.getAttribute('data-zak-theme');
+          if (mode === 'toggle') zak.theme.toggle();
+          else zak.theme.set(mode);
+        });
+      });
+    },
+    apply: function(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      document.documentElement.classList.remove('zak-theme-light', 'zak-theme-dark');
+      document.documentElement.classList.add('zak-theme-' + theme);
+      zak.theme._current = theme;
+      localStorage.setItem('zak-theme', theme);
+      dispatch(document.documentElement, 'zak:themechange', { theme: theme });
+    },
+    set: function(theme) {
+      zak.theme.apply(theme);
+    },
+    toggle: function() {
+      zak.theme.apply(zak.theme._current === 'light' ? 'dark' : 'light');
+    },
+    get: function() {
+      return zak.theme._current;
+    }
+  };
+
+  // ─── 30. Progress Circle ───────────────────────────────────────────────────
+
+  zak.progressCircle = {
+    init: function() {
+      $$('[data-zak-progress-circle]').forEach(function(el) {
+        zak.progressCircle._create(el);
+      });
+    },
+    _create: function(container) {
+      var value = parseFloat(container.getAttribute('data-zak-progress-circle')) || 0;
+      var size = parseInt(container.getAttribute('data-zak-progress-circle-size'), 10) || 100;
+      var strokeWidth = parseInt(container.getAttribute('data-zak-progress-circle-stroke'), 10) || 8;
+      var color = container.getAttribute('data-zak-progress-circle-color') || 'currentColor';
+      var trackColor = container.getAttribute('data-zak-progress-circle-track') || '#e5e7eb';
+
+      container.innerHTML = '';
+      var svgNS = 'http://www.w3.org/2000/svg';
+      var svg = document.createElementNS(svgNS, 'svg');
+      svg.setAttribute('width', size);
+      svg.setAttribute('height', size);
+      svg.setAttribute('viewBox', '0 0 ' + size + ' ' + size);
+      svg.setAttribute('class', 'zak-progress-circle-svg');
+
+      var radius = (size - strokeWidth) / 2;
+      var circumference = 2 * Math.PI * radius;
+      var offset = circumference - (value / 100) * circumference;
+
+      var track = document.createElementNS(svgNS, 'circle');
+      track.setAttribute('cx', size / 2);
+      track.setAttribute('cy', size / 2);
+      track.setAttribute('r', radius);
+      track.setAttribute('fill', 'none');
+      track.setAttribute('stroke', trackColor);
+      track.setAttribute('stroke-width', strokeWidth);
+
+      var progress = document.createElementNS(svgNS, 'circle');
+      progress.setAttribute('cx', size / 2);
+      progress.setAttribute('cy', size / 2);
+      progress.setAttribute('r', radius);
+      progress.setAttribute('fill', 'none');
+      progress.setAttribute('stroke', color);
+      progress.setAttribute('stroke-width', strokeWidth);
+      progress.setAttribute('stroke-dasharray', circumference);
+      progress.setAttribute('stroke-dashoffset', circumference);
+      progress.setAttribute('stroke-linecap', 'round');
+      progress.setAttribute('transform', 'rotate(-90 ' + (size / 2) + ' ' + (size / 2) + ')');
+      progress.classList.add('zak-progress-circle-bar');
+
+      svg.appendChild(track);
+      svg.appendChild(progress);
+      container.appendChild(svg);
+
+      var label = el('span', { className: 'zak-progress-circle-label', textContent: Math.round(value) + '%' });
+      container.appendChild(label);
+
+      requestAnimationFrame(function() {
+        progress.style.strokeDashoffset = offset;
+      });
+
+      container._update = function(val) {
+        value = Math.max(0, Math.min(100, val));
+        var newOffset = circumference - (value / 100) * circumference;
+        progress.style.strokeDashoffset = newOffset;
+        label.textContent = Math.round(value) + '%';
+        dispatch(container, 'zak:change', { value: value });
+      };
+    },
+    setValue: function(container, value) {
+      if (typeof container === 'string') container = $(container);
+      if (container && container._update) container._update(value);
+    }
+  };
+
+  // ─── 31. Loading Button ────────────────────────────────────────────────────
+
+  zak.loadingButton = {
+    init: function() {
+      $$('[data-zak-loading-btn]').forEach(function(btn) {
+        btn._originalContent = btn.innerHTML;
+        btn.addEventListener('click', function(e) {
+          if (btn.hasAttribute('disabled')) return;
+          zak.loadingButton.start(btn);
+        });
+      });
+    },
+    start: function(btn) {
+      if (typeof btn === 'string') btn = $(btn);
+      if (!btn) return;
+      if (!btn._originalContent) btn._originalContent = btn.innerHTML;
+      btn.setAttribute('disabled', 'disabled');
+      btn.classList.add('zak-loading-btn-active');
+      var text = btn.getAttribute('data-zak-loading-text');
+      btn.innerHTML = '<span class="zak-loading-btn-spinner"></span>' + (text ? ' ' + text : '');
+      dispatch(btn, 'zak:loading');
+    },
+    stop: function(btn) {
+      if (typeof btn === 'string') btn = $(btn);
+      if (!btn) return;
+      btn.removeAttribute('disabled');
+      btn.classList.remove('zak-loading-btn-active');
+      if (btn._originalContent) btn.innerHTML = btn._originalContent;
+      dispatch(btn, 'zak:loaded');
+    }
+  };
+
+  // ─── 32. Show More ─────────────────────────────────────────────────────────
+
+  zak.showMore = {
+    init: function() {
+      $$('[data-zak-showmore]').forEach(function(el) {
+        var lines = parseInt(el.getAttribute('data-zak-showmore'), 10) || 3;
+        var fullText = el.textContent;
+        el.setAttribute('data-zak-showmore-full', fullText);
+        zak.showMore._truncate(el, lines);
+      });
+    },
+    _truncate: function(el, lines) {
+      var lineHeight = parseFloat(getComputedStyle(el).lineHeight) || 20;
+      var maxHeight = lineHeight * lines;
+      el.style.maxHeight = maxHeight + 'px';
+      el.style.overflow = 'hidden';
+      el.style.position = 'relative';
+
+if (el.scrollHeight > maxHeight) {
+        el.classList.add('zak-showmore-truncated');
+        var btn = document.createElement('button');
+        btn.className = 'zak-showmore-btn';
+        btn.textContent = 'Show more';
+        el.parentNode.insertBefore(btn, el.nextSibling);
+        btn.addEventListener('click', function() {
+          if (el.classList.contains('zak-showmore-expanded')) {
+            el.classList.remove('zak-showmore-expanded');
+            el.style.maxHeight = maxHeight + 'px';
+            btn.textContent = 'Show more';
+            dispatch(el, 'zak:close');
+          } else {
+            el.classList.add('zak-showmore-expanded');
+            el.style.maxHeight = el.scrollHeight + 'px';
+            btn.textContent = 'Show less';
+            dispatch(el, 'zak:open');
+          }
+        });
+      }
+    }
+  };
+
+  // ─── 33. Context Menu ──────────────────────────────────────────────────────
+
+  zak.contextMenu = {
+    _active: null,
+    _bound: false,
+    init: function() {
+      if (zak.contextMenu._bound) return;
+      zak.contextMenu._bound = true;
+      function bindTarget(target) {
+        target.setAttribute('aria-haspopup', 'menu');
+        target.addEventListener('contextmenu', function(e) {
+          e.preventDefault();
+          var menuId = target.getAttribute('data-zak-contextmenu') || target.getAttribute('data-zak-contextmenu-target');
+          zak.contextMenu.show(e.clientX, e.clientY, menuId, target);
+        });
+        target.addEventListener('keydown', function(e) {
+          if ((e.shiftKey && e.key === 'F10') || e.key === 'ContextMenu') {
+            e.preventDefault();
+            var r = getRect(target);
+            var menuId = target.getAttribute('data-zak-contextmenu') || target.getAttribute('data-zak-contextmenu-target');
+            zak.contextMenu.show(r.left + 4, r.top + 4, menuId, target);
+          }
+        });
+      }
+      $$('[data-zak-contextmenu]').forEach(bindTarget);
+      $$('[data-zak-contextmenu-target]').forEach(bindTarget);
+    },
+    _bindItems: function(menu) {
+      if (menu._zakItemsBound) return;
+      menu._zakItemsBound = true;
+      $$('.zak-menu-item, [data-zak-contextmenu-action]', menu).forEach(function(item) {
+        item.addEventListener('click', function() {
+          if (item.classList.contains('is-disabled') ||
+              item.classList.contains('zak-disabled') || item.disabled) return;
+          var value = item.getAttribute('data-zak-contextmenu-value') ||
+            item.getAttribute('data-value') || (item.textContent || '').trim();
+          var target = menu._zakTarget;
+          dispatch(menu, 'zak:select', { value: value, item: item, target: target });
+          var action = item.getAttribute('data-zak-contextmenu-action');
+          if (action) dispatch(menu, 'zak:contextmenu:action', { action: action, target: target });
+          zak.contextMenu.hide();
+        });
+      });
+    },
+    show: function(x, y, menuId, target) {
+      zak.contextMenu.hide();
+      var menu = $(menuId);
+      if (!menu) return;
+      menu._zakHome = { parent: menu.parentNode, next: menu.nextSibling };
+      menu._zakPrevCss = menu.style.cssText;
+      menu._zakTarget = target || null;
+      zak.contextMenu._bindItems(menu);
+      menu.classList.add('zak-contextmenu-active');
+      if (menu.parentNode !== document.body) document.body.appendChild(menu);
+      menu.style.position = 'fixed';
+      menu.style.left = x + 'px';
+      menu.style.top = y + 'px';
+      menu.style.zIndex = '10000';
+      var r = getRect(menu);
+      if (x + r.width > window.innerWidth) menu.style.left = Math.max(4, x - r.width) + 'px';
+      if (y + r.height > window.innerHeight) menu.style.top = Math.max(4, y - r.height) + 'px';
+      zak.contextMenu._active = menu;
+      document.addEventListener('click', zak.contextMenu._hideHandler);
+      document.addEventListener('keydown', zak.contextMenu._keyHandler);
+      dispatch(menu, 'zak:open', { x: x, y: y, target: target || null });
+    },
+    _hideHandler: function() { zak.contextMenu.hide(); },
+    _keyHandler: function(e) { if (e.key === 'Escape') zak.contextMenu.hide(); },
+    hide: function() {
+      var menu = zak.contextMenu._active;
+      if (!menu) return;
+      zak.contextMenu._active = null;
+      document.removeEventListener('click', zak.contextMenu._hideHandler);
+      document.removeEventListener('keydown', zak.contextMenu._keyHandler);
+      dispatch(menu, 'zak:close');
+      menu.classList.remove('zak-contextmenu-active');
+      var home = menu._zakHome;
+      if (home && home.parent) {
+        if (home.next && home.next.parentNode === home.parent) home.parent.insertBefore(menu, home.next);
+        else home.parent.appendChild(menu);
+      }
+      menu.style.cssText = menu._zakPrevCss || '';
+      menu._zakHome = null;
+      menu._zakTarget = null;
+    },
+    open: function(menuId, opts) {
+      opts = opts || {};
+      zak.contextMenu.show(opts.x || 0, opts.y || 0, menuId, opts.target || null);
+    },
+    close: function() { zak.contextMenu.hide(); }
+  };
+  // ─── 34. File Upload ───────────────────────────────────────────────────────
+
+  zak.fileUpload = {
+    init: function() {
+      $$('[data-zak-fileupload]').forEach(function(zone) {
+        zak.fileUpload._create(zone);
+      });
+    },
+    _create: function(zone) {
+      var inputId = zone.getAttribute('data-zak-fileupload');
+      var input = inputId ? $(inputId) : $('input[type="file"]', zone);
+      var multiple = zone.hasAttribute('data-zak-fileupload-multiple');
+      var accept = zone.getAttribute('data-zak-fileupload-accept') || '';
+      var preview = el('div', { className: 'zak-fileupload-previews' });
+      var files = [];
+
+      if (!input) {
+        input = el('input', { type: 'file', className: 'zak-fileupload-input' });
+        if (multiple) input.setAttribute('multiple', 'multiple');
+        if (accept) input.setAttribute('accept', accept);
+        zone.appendChild(input);
+      }
+      input.style.display = 'none';
+      zone.appendChild(preview);
+      input.setAttribute('tabindex', '-1');
+
+      zone.setAttribute('tabindex', '0');
+      zone.setAttribute('role', 'button');
+      zone.addEventListener('click', function() { input.click(); });
+      zone.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); input.click(); }
+      });
+
+      zone.addEventListener('dragover', function(e) { e.preventDefault(); zone.classList.add('zak-fileupload-dragover'); });
+      zone.addEventListener('dragleave', function() { zone.classList.remove('zak-fileupload-dragover'); });
+      zone.addEventListener('drop', function(e) {
+        e.preventDefault();
+        zone.classList.remove('zak-fileupload-dragover');
+        var droppedFiles = Array.from(e.dataTransfer.files);
+        if (!multiple) droppedFiles = droppedFiles.slice(0, 1);
+        addFiles(droppedFiles);
+      });
+
+      input.addEventListener('change', function() {
+        var selectedFiles = Array.from(input.files);
+        addFiles(selectedFiles);
+        input.value = '';
+      });
+
+      function addFiles(newFiles) {
+        newFiles.forEach(function(file) {
+          files.push(file);
+          var item = el('div', { className: 'zak-fileupload-item' });
+          var name = el('span', { className: 'zak-fileupload-name', textContent: file.name });
+          var size = el('span', { className: 'zak-fileupload-size', textContent: formatSize(file.size) });
+          var removeBtn = el('button', { className: 'zak-fileupload-remove', textContent: '\u00d7', 'aria-label': 'Remove file' });
+
+          if (file.type.startsWith('image/')) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+              var thumb = el('img', { className: 'zak-fileupload-thumb', src: e.target.result });
+              item.insertBefore(thumb, item.firstChild);
+            };
+            reader.readAsDataURL(file);
+          }
+
+          removeBtn.addEventListener('click', function(ev) {
+            ev.stopPropagation();
+            var idx = files.indexOf(file);
+            if (idx !== -1) files.splice(idx, 1);
+            item.remove();
+            dispatch(zone, 'zak:change', { files: files.slice() });
+          });
+
+          item.appendChild(name);
+          item.appendChild(size);
+          item.appendChild(removeBtn);
+          preview.appendChild(item);
+        });
+        dispatch(zone, 'zak:change', { files: files.slice() });
+      }
+
+      function formatSize(bytes) {
+        if (bytes < 1024) return bytes + ' B';
+        if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
+        return (bytes / 1048576).toFixed(1) + ' MB';
+      }
+    }
+  };
+
+  // ─── 35. OTP Input ─────────────────────────────────────────────────────────
+
+  zak.otpInput = {
+    init: function() {
+      $$('[data-zak-otp]').forEach(function(container) {
+        zak.otpInput._create(container);
+      });
+    },
+    _create: function(container) {
+      var length = parseInt(container.getAttribute('data-zak-otp'), 10) || 6;
+      var hiddenInput = $('input[type="hidden"]', container);
+      if (!hiddenInput) {
+        hiddenInput = el('input', { type: 'hidden', name: 'otp' });
+        container.appendChild(hiddenInput);
+      }
+      container.innerHTML = '';
+      container.appendChild(hiddenInput);
+      var fields = [];
+
+      for (var i = 0; i < length; i++) {
+        var field = el('input', {
+          className: 'zak-otp-field',
+          type: 'text',
+          inputMode: 'numeric',
+          maxlength: '1',
+          autocomplete: 'one-time-code',
+          'aria-label': 'Digit ' + (i + 1)
+        });
+        container.appendChild(field);
+        fields.push(field);
+      }
+
+      function syncValue() {
+        var val = fields.map(function(f) { return f.value; }).join('');
+        hiddenInput.value = val;
+        dispatch(container, 'zak:change', { value: val });
+        if (val.length === length) {
+          dispatch(container, 'zak:complete', { value: val });
+        }
+      }
+
+      fields.forEach(function(field, i) {
+        field.addEventListener('input', function(e) {
+          var val = field.value.replace(/[^0-9]/g, '');
+          field.value = val.slice(0, 1);
+          if (val && i < length - 1) {
+            fields[i + 1].focus();
+            fields[i + 1].select();
+          }
+          syncValue();
+        });
+        field.addEventListener('keydown', function(e) {
+          if (e.key === 'Backspace' && !field.value && i > 0) {
+            fields[i - 1].focus();
+            fields[i - 1].value = '';
+            syncValue();
+          } else if (e.key === 'ArrowLeft' && i > 0) {
+            e.preventDefault();
+            fields[i - 1].focus();
+          } else if (e.key === 'ArrowRight' && i < length - 1) {
+            e.preventDefault();
+            fields[i + 1].focus();
+          }
+        });
+        field.addEventListener('paste', function(e) {
+          e.preventDefault();
+          var text = (e.clipboardData || window.clipboardData).getData('text').replace(/[^0-9]/g, '').slice(0, length);
+          text.split('').forEach(function(char, j) {
+            if (fields[i + j]) fields[i + j].value = char;
+          });
+          var focusIdx = Math.min(i + text.length, length - 1);
+          fields[focusIdx].focus();
+          syncValue();
+        });
+        field.addEventListener('focus', function() { field.select(); });
+      });
+
+      container._getValue = function() { return hiddenInput.value; };
+      container._setValue = function(val) {
+        val = String(val).replace(/[^0-9]/g, '').slice(0, length);
+        fields.forEach(function(f, i) { f.value = val[i] || ''; });
+        syncValue();
+      };
+      container._clear = function() {
+        fields.forEach(function(f) { f.value = ''; });
+        fields[0].focus();
+        syncValue();
+      };
+    },
+    getValue: function(container) {
+      if (typeof container === 'string') container = $(container);
+      return container && container._getValue ? container._getValue() : '';
+    },
+    setValue: function(container, val) {
+      if (typeof container === 'string') container = $(container);
+      if (container && container._setValue) container._setValue(val);
+    },
+    clear: function(container) {
+      if (typeof container === 'string') container = $(container);
+      if (container && container._clear) container._clear();
+    }
+  };
+
+  // ─── 36. Password Input ────────────────────────────────────────────────────
+
+  zak.passwordInput = {
+    init: function() {
+      $$('[data-zak-password]').forEach(function(container) {
+        zak.passwordInput._create(container);
+      });
+    },
+    _create: function(container) {
+      var input = $('input', container);
+      if (!input) return;
+      input.type = 'password';
+      var toggleBtn = el('button', {
+        className: 'zak-password-toggle',
+        type: 'button',
+        'aria-label': 'Toggle password visibility'
+      });
+      toggleBtn.innerHTML = '<span class="zak-password-eye-open">\u{1F441}</span><span class="zak-password-eye-closed" style="display:none">\u{1F441}\u200D\u{1F5E8}</span>';
+      container.style.position = 'relative';
+      container.appendChild(toggleBtn);
+      input.style.paddingRight = '40px';
+
+      var showPlain = false;
+      toggleBtn.addEventListener('click', function() {
+        showPlain = !showPlain;
+        input.type = showPlain ? 'text' : 'password';
+        toggleBtn.querySelector('.zak-password-eye-open').style.display = showPlain ? 'none' : '';
+        toggleBtn.querySelector('.zak-password-eye-closed').style.display = showPlain ? '' : 'none';
+        toggleBtn.setAttribute('aria-label', showPlain ? 'Hide password' : 'Show password');
+        dispatch(input, 'zak:change', { visible: showPlain });
+      });
+    }
+  };
+
+  // ─── 37. Transfer ──────────────────────────────────────────────────────────
+
+  zak.transfer = {
+    init: function() {
+      $$('[data-zak-transfer]').forEach(function(container) {
+        zak.transfer._create(container);
+      });
+    },
+    _create: function(container) {
+      var sourceList = $(' [data-zak-transfer-source]', container);
+      var targetList = $(' [data-zak-transfer-target]', container);
+      if (!sourceList || !targetList) return;
+
+      var moveRightBtn = $('[data-zak-transfer-right]', container);
+      var moveLeftBtn = $('[data-zak-transfer-left]', container);
+      var moveAllRightBtn = $('[data-zak-transfer-all-right]', container);
+      var moveAllLeftBtn = $('[data-zak-transfer-all-left]', container);
+
+      function getSelected(list) {
+        return $$('.zak-transfer-item.selected', list);
+      }
+
+      function moveItems(fromList, toList) {
+        var selected = getSelected(fromList);
+        selected.forEach(function(item) {
+          item.classList.remove('selected');
+          toList.appendChild(item);
+        });
+        syncInput();
+        dispatch(container, 'zak:change', { source: getSourceValues(), target: getTargetValues() });
+      }
+
+      function moveAll(fromList, toList) {
+        var items = $$('.zak-transfer-item', fromList);
+        items.forEach(function(item) {
+          item.classList.remove('selected');
+          toList.appendChild(item);
+        });
+        syncInput();
+        dispatch(container, 'zak:change', { source: getSourceValues(), target: getTargetValues() });
+      }
+
+      function syncInput() {
+        var sourceInput = $('[name][data-zak-transfer-source-input]', container);
+        var targetInput = $('[name][data-zak-transfer-target-input]', container);
+        if (sourceInput) sourceInput.value = getSourceValues().join(',');
+        if (targetInput) targetInput.value = getTargetValues().join(',');
+      }
+
+      function getSourceValues() {
+        return $$('.zak-transfer-item', sourceList).map(function(item) { return item.getAttribute('data-value'); });
+      }
+
+      function getTargetValues() {
+        return $$('.zak-transfer-item', targetList).map(function(item) { return item.getAttribute('data-value'); });
+      }
+
+      [sourceList, targetList].forEach(function(list) {
+        list.addEventListener('click', function(e) {
+          var item = e.target.closest('.zak-transfer-item');
+          if (item) item.classList.toggle('selected');
+        });
+      });
+
+      if (moveRightBtn) moveRightBtn.addEventListener('click', function() { moveItems(sourceList, targetList); });
+      if (moveLeftBtn) moveLeftBtn.addEventListener('click', function() { moveItems(targetList, sourceList); });
+      if (moveAllRightBtn) moveAllRightBtn.addEventListener('click', function() { moveAll(sourceList, targetList); });
+      if (moveAllLeftBtn) moveAllLeftBtn.addEventListener('click', function() { moveAll(targetList, sourceList); });
+    },
+    getSource: function(container) {
+      if (typeof container === 'string') container = $(container);
+      if (!container) return [];
+      var list = $('[data-zak-transfer-source]', container);
+      return list ? $$('.zak-transfer-item', list).map(function(i) { return i.getAttribute('data-value'); }) : [];
+    },
+    getTarget: function(container) {
+      if (typeof container === 'string') container = $(container);
+      if (!container) return [];
+      var list = $('[data-zak-transfer-target]', container);
+      return list ? $$('.zak-transfer-item', list).map(function(i) { return i.getAttribute('data-value'); }) : [];
+    }
+  };
+
+  // ─── 38. Form Wizard ───────────────────────────────────────────────────────
+
+  zak.formWizard = {
+    init: function() {
+      $$('[data-zak-wizard]').forEach(function(wizard) {
+        var steps = $$('.zak-wizard-step', wizard);
+        var current = 0;
+
+        steps.forEach(function(step, i) {
+          step.style.display = i === 0 ? '' : 'none';
+          step.setAttribute('data-wizard-step', i);
+        });
+
+        var nextBtn = $('[data-zak-wizard-next]', wizard);
+        var prevBtn = $('[data-zak-wizard-prev]', wizard);
+        var finishBtn = $('[data-zak-wizard-finish]', wizard);
+
+        function goTo(idx) {
+          if (idx < 0 || idx >= steps.length) return;
+          steps[current].style.display = 'none';
+          steps[current].classList.remove('active');
+          current = idx;
+          steps[current].style.display = '';
+          steps[current].classList.add('active');
+
+          if (prevBtn) prevBtn.style.display = current === 0 ? 'none' : '';
+          if (nextBtn) nextBtn.style.display = current === steps.length - 1 ? 'none' : '';
+          if (finishBtn) finishBtn.style.display = current === steps.length - 1 ? '' : 'none';
+
+          var progress = $('.zak-wizard-progress', wizard);
+          if (progress) {
+            var pct = ((current + 1) / steps.length) * 100;
+            var bar = $('.zak-wizard-progress-bar', progress);
+            if (bar) bar.style.width = pct + '%';
+          }
+
+          var indicators = $$('.zak-wizard-indicator', wizard);
+          indicators.forEach(function(ind, i) {
+            ind.classList.remove('active', 'completed');
+            if (i < current) ind.classList.add('completed');
+            else if (i === current) ind.classList.add('active');
+          });
+
+          dispatch(wizard, 'zak:change', { step: current, total: steps.length });
+        }
+
+        if (nextBtn) {
+          nextBtn.addEventListener('click', function() {
+            var validateEvent = dispatch(steps[current], 'zak:wizard:validate', { step: current });
+            if (validateEvent && !validateEvent.defaultPrevented) {
+              goTo(current + 1);
+            }
+          });
+        }
+        if (prevBtn) {
+          prevBtn.addEventListener('click', function() { goTo(current - 1); });
+        }
+        if (finishBtn) {
+          finishBtn.addEventListener('click', function() {
+            dispatch(wizard, 'zak:wizard:finish', { step: current });
+          });
+        }
+
+        wizard._goTo = goTo;
+        goTo(0);
+      });
+    },
+    goTo: function(wizard, step) {
+      if (typeof wizard === 'string') wizard = $(wizard);
+      if (wizard && wizard._goTo) wizard._goTo(step);
+    },
+    next: function(wizard) {
+      if (typeof wizard === 'string') wizard = $(wizard);
+      if (wizard && wizard._goTo) {
+        var steps = $$('.zak-wizard-step', wizard);
+        var current = indexOf(steps, $('.zak-wizard-step.active', wizard));
+        wizard._goTo(current + 1);
+      }
+    },
+    prev: function(wizard) {
+      if (typeof wizard === 'string') wizard = $(wizard);
+      if (wizard && wizard._goTo) {
+        var steps = $$('.zak-wizard-step', wizard);
+        var current = indexOf(steps, $('.zak-wizard-step.active', wizard));
+        wizard._goTo(current - 1);
+      }
+    }
+  };
+
+  // ─── 40. Cascader ──────────────────────────────────────────────────────────
+
+  zak.cascader = {
+    init: function() {
+      $$('[data-zak-cascader]').forEach(function(input) {
+        zak.cascader._create(input);
+      });
+    },
+    _create: function(input) {
+      var src = input.getAttribute('data-zak-cascader');
+      var data = null;
+      try { data = JSON.parse(src); } catch(e) {}
+
+      if (!data) {
+        var dataEl = $(src);
+        if (dataEl) try { data = JSON.parse(dataEl.textContent); } catch(e) {}
+      }
+      if (!data) return;
+
+      var placeholder = input.getAttribute('data-zak-cascader-placeholder') || 'Select...';
+      var container = el('div', { className: 'zak-cascader' });
+      var trigger = el('div', { className: 'zak-cascader-trigger', tabindex: '0', role: 'combobox', 'aria-expanded': 'false' });
+      var display = el('span', { className: 'zak-cascader-value', textContent: placeholder });
+      trigger.appendChild(display);
+      var panels = el('div', { className: 'zak-cascader-panels' });
+      container.appendChild(trigger);
+      container.appendChild(panels);
+      input.style.display = 'none';
+      input.parentNode.insertBefore(container, input);
+
+      var selectedPath = [];
+      var open = false;
+
+      function renderPanel(items, level, parentPath) {
+        var panel = el('div', { className: 'zak-cascader-panel', 'data-level': level });
+        items.forEach(function(item) {
+          var option = el('div', {
+            className: 'zak-cascader-option' + (item.disabled ? ' disabled' : ''),
+            textContent: item.label
+          });
+          if (item.children && item.children.length) {
+            option.classList.add('zak-cascader-option-parent');
+            var arrow = el('span', { className: 'zak-cascader-arrow' });
+            option.appendChild(arrow);
+          }
+          if (!item.disabled) {
+            option.addEventListener('click', function(e) {
+              e.stopPropagation();
+              var path = parentPath.concat([item]);
+              if (item.children && item.children.length) {
+                selectedPath = path;
+                var panelsChildren = panels.childNodes;
+                for (var i = panelsChildren.length - 1; i > level; i--) {
+                  panelsChildren[i].remove();
+                }
+                renderPanel(item.children, level + 1, path);
+                updateActiveClass();
+              } else {
+                selectedPath = path;
+                var val = path.map(function(p) { return p.value; }).join('/');
+                var label = path.map(function(p) { return p.label; }).join(' / ');
+                input.value = val;
+                display.textContent = label;
+                close();
+                dispatch(input, 'zak:change', { value: val, label: label, path: path });
+              }
+            });
+          }
+          panel.appendChild(option);
+        });
+        panels.appendChild(panel);
+      }
+
+      function updateActiveClass() {
+        var panelEls = $$('.zak-cascader-panel', panels);
+        panelEls.forEach(function(panel, i) {
+          var opts = $$('.zak-cascader-option', panel);
+          opts.forEach(function(opt) {
+            var val = opt.textContent;
+            var isActive = selectedPath[i] && selectedPath[i].label === val;
+            opt.classList.toggle('active', isActive);
+          });
+        });
+      }
+
+      function openDropdown() {
+        open = true;
+        panels.innerHTML = '';
+        renderPanel(data, 0, []);
+        container.classList.add('zak-cascader-active');
+        trigger.setAttribute('aria-expanded', 'true');
+        if (selectedPath.length) {
+          var tempPath = [];
+          selectedPath.forEach(function(item, i) {
+            tempPath.push(item);
+            var panelEls = $$('.zak-cascader-panel', panels);
+            if (panelEls[i] && item.children) {
+              renderPanel(item.children, i + 1, tempPath);
+            }
+          });
+          updateActiveClass();
+        }
+      }
+
+      function close() {
+        open = false;
+        container.classList.remove('zak-cascader-active');
+        trigger.setAttribute('aria-expanded', 'false');
+      }
+
+      trigger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        open ? close() : openDropdown();
+      });
+      trigger.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open ? close() : openDropdown(); }
+        else if (e.key === 'Escape') close();
+      });
+document.addEventListener('click', function() { close(); });
+      panels.addEventListener('click', function(e) { e.stopPropagation(); });
+    }
+  };
+
+  // ─── Radio Card (selected-state sync) ──────────────────────────────────────
+
+  zak.radioCard = {
+    init: function() {
+      var cards = $$('.zak-radio-card');
+      var sync = function() {
+        cards.forEach(function(card) {
+          var input = card.querySelector('input[type="radio"]');
+          if (input) card.classList.toggle('zak-radio-card--checked', !!input.checked);
+        });
+      };
+      sync();
+      cards.forEach(function(card) {
+        var input = card.querySelector('input[type="radio"]');
+        if (input) input.addEventListener('change', sync);
+      });
+    }
+  };
+
+  // ─── Global Init ───────────────────────────────────────────────────────────
+
+  window.zak = zak;
+
+  zak.init = function() {
+    zak.modal.init();
+    zak.dropdown.init();
+    zak.tooltip.init();
+    zak.popover.init();
+zak.accordion.init();
+    zak.collapse.init();
+    zak.expandablePanel.init();
+    zak.drawer.init();
+    zak.offcanvas.init();
+    zak.tabs.init();
+    zak.carousel.init();
+    zak.sidebar.init();
+    zak.navbar.init();
+    zak.pagination.init();
+    zak.stepper.init();
+    zak.datePicker.init();
+    zak.timePicker.init();
+    zak.colorPicker.init();
+    zak.autocomplete.init();
+    zak.combobox.init();
+    zak.multiSelect.init();
+    zak.tagsInput.init();
+    zak.rating.init();
+    zak.slider.init();
+    zak.copyCode.init();
+    zak.theme.init();
+    zak.progressCircle.init();
+    zak.loadingButton.init();
+    zak.showMore.init();
+    zak.contextMenu.init();
+    zak.fileUpload.init();
+    zak.otpInput.init();
+    zak.passwordInput.init();
+    zak.transfer.init();
+    zak.formWizard.init();
+    zak.radioCard.init();
+    zak.cascader.init();
+  };
+
+  document.addEventListener('DOMContentLoaded', function() {
+    zak.init();
+  });
+
+})();
+
+/* ============================================================
+   ZAKUIKit — Picker, Media & Carousel enhancements
+   Adds: month/year/date-range/date-time pickers, standalone
+   calandar, lightbox, compare slider, robust carousel.
+   ============================================================ */
+(function () {
+  'use strict';
+
+  function $(s, c) { return (c || document).querySelector(s); }
+  function $$(s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); }
+  function el(tag, cls, html) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (html !== null && html !== undefined) n.innerHTML = html;
+    return n;
+  }
+  function dispatchDom(node, name, detail) {
+    if (!node || typeof CustomEvent === 'undefined') return;
+    try { node.dispatchEvent(new CustomEvent(name, { detail: detail })); } catch (e) {}
+  }
+
+  var MONTHS_SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  var MONTHS_FULL = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  var WEEKDAYS = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
+  var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+
+  /* ---------- shared popup helpers ---------- */
+  function closeAllPopups() {
+    $$('.zak-calendar-popup, .zak-month-popup, .zak-year-popup, .zak-range-popup, .zak-datetime-popup').forEach(function (p) {
+      p.classList.remove('zak-calendar-popup-active', 'zak-month-popup-active', 'zak-year-popup-active', 'zak-range-popup-active', 'zak-datetime-popup-active');
+    });
+  }
+  function wireOutside(pickerEl, fn) {
+    document.addEventListener('click', function (e) {
+      if (pickerEl && !pickerEl.contains(e.target)) fn();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') fn();
+    });
+    pickerEl.addEventListener('click', function (e) { e.stopPropagation(); });
+  }
+
+  function findLog(container) {
+    var id = container.id || '';
+    var candidates = [];
+    if (id) candidates.push(id.replace(/Picker\d*$/, 'Log'));
+    var sib = container.nextElementSibling;
+    while (sib) {
+      if (sib.classList && sib.classList.contains('zak-event-log')) { candidates.push('#'); return sib; }
+      sib = sib.nextElementSibling;
+    }
+    for (var i = 0; i < candidates.length; i++) {
+      var l = document.getElementById(candidates[i]);
+      if (l) return l;
+    }
+    return null;
+  }
+  function setLog(container, msg) {
+    var log = container._zakLog || (container._zakLog = findLog(container));
+    if (log) log.textContent = msg;
+  }
+
+  /* draw one calendar (cell-based), returns element with internal state.
+     opts: year, month, selected (Date|null), range:{from,to}|null,
+     rangeMode(bool), onPick(date), nav(bool) */
+  function drawCalendar(opts) {
+    var year = opts.year, month = opts.month;
+    var cal = el('div', 'zak-calendar');
+    var header = el('div', 'zak-calendar-header');
+    var title = el('div', 'zak-calendar-title', MONTHS_FULL[month] + ' ' + year);
+    var navLeft = opts.nav !== false ? el('button', 'zak-calendar-nav-btn', '\u2039') : null;
+    var navRight = opts.nav !== false ? el('button', 'zak-calendar-nav-btn', '\u203a') : null;
+    if (navLeft) { navLeft.type = 'button'; navLeft.setAttribute('aria-label', 'Previous month'); }
+    if (navRight) { navRight.type = 'button'; navRight.setAttribute('aria-label', 'Next month'); }
+    if (navLeft) header.appendChild(navLeft);
+    header.appendChild(title);
+    if (navRight) header.appendChild(navRight);
+    cal.appendChild(header);
+
+    var wd = el('div', 'zak-calendar-grid');
+    var grid = el('div', 'zak-calendar-grid');
+    WEEKDAYS.forEach(function (d) { wd.appendChild(el('div', 'zak-calendar-weekday', d)); });
+    cal.appendChild(wd);
+
+    function mark(dayEl, date) {
+      dayEl.classList.remove('zak-outside', 'zak-today', 'zak-selected', 'zak-range-start', 'zak-range-end', 'zak-range-in-range');
+      var today = new Date(); today.setHours(0, 0, 0, 0);
+      if (date < new Date(year, 0, 1) || date >= new Date(year + 1, 0, 1)) dayEl.classList.add('zak-outside');
+      if (date.getTime() === today.getTime()) dayEl.classList.add('zak-today');
+      if (opts.selected && date.getTime() === opts.selected.getTime()) dayEl.classList.add('zak-selected');
+      if (opts.range) {
+        var from = opts.range.from, to = opts.range.to;
+        if (from && date.getTime() === from.getTime()) dayEl.classList.add('zak-range-start');
+        if (to && date.getTime() === to.getTime()) dayEl.classList.add('zak-range-end');
+        if (from && to && date > from && date < to) dayEl.classList.add('zak-range-in-range');
+      }
+    }
+
+    function render() {
+      grid.innerHTML = '';
+      var first = new Date(year, month, 1);
+      var offset = first.getDay();
+      var days = new Date(year, month + 1, 0).getDate();
+      var start = new Date(year, month, 1 - offset);
+      for (var i = 0; i < 42; i++) {
+        (function () {
+          var d = new Date(start.getFullYear(), start.getMonth(), start.getDate() + i);
+          var cell = el('button', 'zak-calendar-day', String(d.getDate()));
+          cell.type = 'button';
+          cell.setAttribute('data-year', d.getFullYear());
+          cell.setAttribute('data-month', d.getMonth());
+          cell.setAttribute('data-date', d.getDate());
+          mark(cell, d);
+          cell.addEventListener('click', function () { if (opts.onPick) opts.onPick(d); });
+          grid.appendChild(cell);
+        })();
+      }
+    }
+    render();
+
+    if (navLeft) navLeft.addEventListener('click', function () { month--; if (month < 0) { month = 11; year--; } title.textContent = MONTHS_FULL[month] + ' ' + year; render(); });
+    if (navRight) navRight.addEventListener('click', function () { month++; if (month > 11) { month = 0; year++; } title.textContent = MONTHS_FULL[month] + ' ' + year; render(); });
+
+    cal.appendChild(grid);
+    cal._render = render;
+    cal._setView = function (y, m) { year = y; month = m; title.textContent = MONTHS_FULL[month] + ' ' + year; render(); };
+    return cal;
+  }
+
+  /* calendar day formatting */
+  function fmtDate(d) { return MONTHS_FULL[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear(); }
+
+  /* ================= MONTH PICKER ================= */
+  window.zak = window.zak || {};
+  zak.monthPicker = {
+    init: function () {
+      $$('.zak-month-picker').forEach(function (c) { if (!c.__zakMonth) zak.monthPicker._create(c); });
+    },
+    _create: function (container) {
+      container.__zakMonth = true;
+      var now = new Date();
+      var viewYear = now.getFullYear();
+      var selected = null; /* {y,m} */
+      var field = el('button', 'zak-month-field');
+      field.type = 'button';
+      field.setAttribute('aria-haspopup', 'grid');
+      var valSpan = el('span', 'zak-month-value', 'Select month');
+      var caret = el('span', 'zak-month-caret', '\u25be');
+      field.appendChild(valSpan); field.appendChild(caret);
+
+      var popup = el('div', 'zak-month-popup');
+      var popHeader = el('div', 'zak-month-header');
+      var prev = el('button', 'zak-month-prev', '\u2039'); prev.type = 'button';
+      var yearLabel = el('span', 'zak-month-year', String(viewYear));
+      var next = el('button', 'zak-month-next', '\u203a'); next.type = 'button';
+      popHeader.appendChild(prev); popHeader.appendChild(yearLabel); popHeader.appendChild(next);
+
+      var grid = el('div', 'zak-month-grid');
+      function renderMonths() {
+        grid.innerHTML = '';
+        yearLabel.textContent = String(viewYear);
+        MONTHS_SHORT.forEach(function (m, i) {
+          var cell = el('button', 'zak-month-cell', m);
+          cell.type = 'button';
+          cell.setAttribute('data-month', i);
+          if (now.getFullYear() === viewYear && now.getMonth() === i) cell.classList.add('zak-current');
+          if (selected && selected.y === viewYear && selected.m === i) cell.classList.add('zak-selected');
+          cell.addEventListener('click', function () {
+            selected = { y: viewYear, m: i };
+            renderMonths();
+            valSpan.textContent = MONTHS_FULL[i] + ' ' + viewYear;
+            setLog(container, 'You picked ' + MONTHS_FULL[i] + ' ' + viewYear + '.');
+            dispatchDom(container, 'zak:change', { month: i, year: viewYear });
+            popup.classList.remove('zak-month-popup-active');
+          });
+          grid.appendChild(cell);
+        });
+      }
+      renderMonths();
+      popup.appendChild(popHeader); popup.appendChild(grid);
+
+      prev.addEventListener('click', function () { viewYear--; renderMonths(); });
+      next.addEventListener('click', function () { viewYear++; renderMonths(); });
+
+      field.addEventListener('click', function (e) { e.stopPropagation(); closeAllPopups(); popup.classList.toggle('zak-month-popup-active'); });
+      container.appendChild(field); container.appendChild(popup);
+      wireOutside(container, function () { popup.classList.remove('zak-month-popup-active'); });
+      container._val = function () { return selected; };
+    }
+  };
+
+  /* ================= YEAR PICKER ================= */
+  zak.yearPicker = {
+    init: function () {
+      $$('.zak-year-picker').forEach(function (c) { if (!c.__zakYear) zak.yearPicker._create(c); });
+    },
+    _create: function (container) {
+      container.__zakYear = true;
+      var now = new Date();
+      var viewStart = now.getFullYear() - 6;
+      var selected = null; /* year */
+      var field = el('button', 'zak-year-field');
+      field.type = 'button';
+      var valSpan = el('span', 'zak-year-value', 'Select year');
+      var caret = el('span', 'zak-year-caret', '\u25be');
+      field.appendChild(valSpan); field.appendChild(caret);
+
+      var popup = el('div', 'zak-year-popup');
+      var popHeader = el('div', 'zak-year-header');
+      var prev = el('button', 'zak-year-prev', '\u2039'); prev.type = 'button';
+      var rangeLabel = el('span', 'zak-year-range', '');
+      var next = el('button', 'zak-year-next', '\u203a'); next.type = 'button';
+      popHeader.appendChild(prev); popHeader.appendChild(rangeLabel); popHeader.appendChild(next);
+
+      var grid = el('div', 'zak-year-grid');
+      function renderYears() {
+        grid.innerHTML = '';
+        rangeLabel.textContent = viewStart + '\u2013' + (viewStart + 11);
+        for (var i = 0; i < 12; i++) {
+          (function () {
+            var y = viewStart + i;
+            var cell = el('button', 'zak-year-cell', String(y));
+            cell.type = 'button';
+            if (y === now.getFullYear()) cell.classList.add('zak-current');
+            if (selected === y) cell.classList.add('zak-selected');
+            cell.addEventListener('click', function () {
+              selected = y;
+              renderYears();
+              valSpan.textContent = String(y);
+              setLog(container, 'You picked ' + y + '.');
+              dispatchDom(container, 'zak:change', { year: y });
+              popup.classList.remove('zak-year-popup-active');
+            });
+            grid.appendChild(cell);
+          })();
+        }
+      }
+      renderYears();
+      popup.appendChild(popHeader); popup.appendChild(grid);
+
+      prev.addEventListener('click', function () { viewStart -= 12; renderYears(); });
+      next.addEventListener('click', function () { viewStart += 12; renderYears(); });
+
+      field.addEventListener('click', function (e) { e.stopPropagation(); closeAllPopups(); popup.classList.toggle('zak-year-popup-active'); });
+      container.appendChild(field); container.appendChild(popup);
+      wireOutside(container, function () { popup.classList.remove('zak-year-popup-active'); });
+    }
+  };
+
+  /* ================= DATE RANGE PICKER ================= */
+  zak.rangePicker = {
+    init: function () {
+      $$('.zak-range-picker').forEach(function (c) { if (!c.__zakRange) zak.rangePicker._create(c); });
+    },
+    _create: function (container) {
+      container.__zakRange = true;
+      var state = { from: null, to: null, year: new Date().getFullYear(), month: new Date().getMonth() };
+      var field = el('button', 'zak-range-field');
+      field.type = 'button';
+      var startSpan = el('span', 'zak-range-start', 'Start date');
+      var sep = el('span', 'zak-range-sep', '\u2192');
+      var endSpan = el('span', 'zak-range-end', 'End date');
+      field.appendChild(startSpan); field.appendChild(sep); field.appendChild(endSpan);
+
+      var popup = el('div', 'zak-range-popup');
+      var cals = el('div', 'zak-range-calendars');
+      var calA = drawCalendar({ year: state.year, month: state.month, range: state, rangeMode: true, onPick: pick });
+      var calB = drawCalendar({ year: state.year, month: state.month + 1, range: state, rangeMode: true, onPick: pick });
+      cals.appendChild(calA); cals.appendChild(calB);
+      var footer = el('div', 'zak-calendar-footer');
+      var clearBtn = el('button', 'zak-btn zak-btn-light', 'Clear');
+      clearBtn.type = 'button';
+      footer.appendChild(clearBtn);
+      popup.appendChild(cals); popup.appendChild(footer);
+
+      function pick(d) {
+        var t = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+        if (!state.from || (state.from && state.to)) {
+          state.from = t; state.to = null;
+        } else if (t < state.from) {
+          state.to = state.from; state.from = t;
+        } else {
+          state.to = t;
+        }
+        [calA, calB].forEach(function (cal, i) {
+          var y = state.month + i > 11 ? state.year + 1 : state.year;
+          var m = state.month + i > 11 ? state.month + i - 12 : state.month + i;
+          cal._setView(y, m);
+        });
+        if (state.from && state.to) {
+          startSpan.textContent = MONTHS_SHORT[state.from.getMonth()] + ' ' + state.from.getDate();
+          endSpan.textContent = MONTHS_SHORT[state.to.getMonth()] + ' ' + state.to.getDate();
+          setLog(container, MONTHS_FULL[state.from.getMonth()] + ' ' + state.from.getDate() + ' \u2014 ' + MONTHS_FULL[state.to.getMonth()] + ' ' + state.to.getDate());
+          dispatchDom(container, 'zak:change', { from: state.from, to: state.to });
+        } else {
+          setLog(container, state.from ? MONTHS_FULL[state.from.getMonth()] + ' ' + state.from.getDate() + ' \u2014 pick an end date...' : 'Pick a start, then an end.');
+        }
+      }
+      clearBtn.addEventListener('click', function () {
+        state.from = null; state.to = null;
+        startSpan.textContent = 'Start date'; endSpan.textContent = 'End date';
+        setLog(container, 'Pick a start, then an end.');
+      });
+
+      field.addEventListener('click', function (e) { e.stopPropagation(); closeAllPopups(); popup.classList.toggle('zak-range-popup-active'); });
+      container.appendChild(field); container.appendChild(popup);
+      wireOutside(container, function () { popup.classList.remove('zak-range-popup-active'); });
+    }
+  };
+
+  /* ================= DATE TIME PICKER ================= */
+  zak.dateTimePicker = {
+    init: function () {
+      $$('.zak-datetime-picker').forEach(function (c) { if (!c.__zakDt) zak.dateTimePicker._create(c); });
+    },
+    _create: function (container) {
+      container.__zakDt = true;
+      var now = new Date();
+      var state = { date: null, hour: 12, minute: 0 };
+      var field = el('button', 'zak-datetime-field');
+      field.type = 'button';
+      var valSpan = el('span', 'zak-datetime-value', 'Select date & time');
+      var caret = el('span', 'zak-datetime-caret', '\u25be');
+      field.appendChild(valSpan); field.appendChild(caret);
+
+      var popup = el('div', 'zak-datetime-popup');
+      var calHolder = el('div', 'zak-datetime-cal');
+      var cal = drawCalendar({ year: now.getFullYear(), month: now.getMonth(), selected: state.date, nav: true, onPick: function (d) {
+        state.date = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+        var savedCal = cal;
+        savedCal._setView(state.date.getFullYear(), state.date.getMonth());
+      } });
+      calHolder.appendChild(cal);
+
+      var divider = el('hr', 'zak-datetime-divider');
+      var timeRow = el('div', 'zak-datetime-time');
+      var hourSel = el('select', 'zak-datetime-select');
+      var minSel = el('select', 'zak-datetime-select');
+      for (var h = 0; h < 24; h++) { var o = el('option', null, pad(h)); o.value = h; hourSel.appendChild(o); }
+      for (var m2 = 0; m2 < 60; m2 += 5) { var o2 = el('option', null, pad(m2)); o2.value = m2; minSel.appendChild(o2); }
+      hourSel.value = 12; minSel.value = 0;
+
+      var footer = el('div', 'zak-calendar-footer');
+      var clearBtn = el('button', 'zak-btn zak-btn-light', 'Clear'); clearBtn.type = 'button';
+      var nowBtn = el('button', 'zak-btn zak-btn-light', 'Now'); nowBtn.type = 'button';
+      var applyBtn = el('button', 'zak-btn zak-btn-primary', 'Apply'); applyBtn.type = 'button';
+      footer.appendChild(clearBtn); footer.appendChild(nowBtn); footer.appendChild(applyBtn);
+
+      popup.appendChild(calHolder); popup.appendChild(divider);
+      timeRow.appendChild(el('label', 'zak-datetime-label', 'Hour')); timeRow.appendChild(hourSel);
+      timeRow.appendChild(el('label', 'zak-datetime-label', 'Min')); timeRow.appendChild(minSel);
+      popup.appendChild(timeRow); popup.appendChild(footer);
+
+      function apply() {
+        if (!state.date) { setLog(container, 'Pick a day first.'); return; }
+        state.hour = parseInt(hourSel.value, 10); state.minute = parseInt(minSel.value, 10);
+        var v = new Date(state.date.getFullYear(), state.date.getMonth(), state.date.getDate(), state.hour, state.minute);
+        var ampm = state.hour >= 12 ? 'PM' : 'AM';
+        var hr = state.hour % 12; if (hr === 0) hr = 12;
+        valSpan.textContent = MONTHS_SHORT[state.date.getMonth()] + ' ' + state.date.getDate() + ', ' + state.date.getFullYear() + ' ' + pad(hr) + ':' + pad(state.minute) + ' ' + ampm;
+        setLog(container, MONTHS_FULL[state.date.getMonth()] + ' ' + state.date.getDate() + ', ' + state.date.getFullYear() + ' ' + pad(hr) + ':' + pad(state.minute) + ' ' + ampm);
+        dispatchDom(container, 'zak:change', { date: v });
+        popup.classList.remove('zak-datetime-popup-active');
+      }
+      clearBtn.addEventListener('click', function () { state.date = null; valSpan.textContent = 'Select date & time'; setLog(container, 'Nothing selected yet.'); });
+      nowBtn.addEventListener('click', function () { var d = new Date(); state.date = d; cal._setView(d.getFullYear(), d.getMonth()); hourSel.value = d.getHours(); minSel.value = Math.floor(d.getMinutes() / 5) * 5; });
+      applyBtn.addEventListener('click', apply);
+
+      field.addEventListener('click', function (e) { e.stopPropagation(); closeAllPopups(); popup.classList.toggle('zak-datetime-popup-active'); });
+      container.appendChild(field); container.appendChild(popup);
+      wireOutside(container, function () { popup.classList.remove('zak-datetime-popup-active'); });
+    }
+  };
+
+  /* ================= STANDALONE CALENDAR ================= */
+  zak.pickerCalendar = {
+    init: function () {
+      $$('.zak-calendar').forEach(function (c) {
+        if (c.__zakCal || c._render || c.querySelector('.zak-calendar-grid') && c.querySelector('.zak-calendar-grid').childElementCount) return;
+c.__zakCal = true;
+        var now = new Date();
+        var sel = null;
+        if (c.hasAttribute('data-zak-calendar-range')) {
+          var state = { from: null, to: null };
+          var opts = {
+            year: now.getFullYear(), month: now.getMonth(), selected: state.from, nav: true,
+            range: { from: null, to: null },
+            onPick: function (d) {
+              var dd = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+              if (!state.from) {
+                state.from = dd; state.to = null;
+              } else if (!state.to) {
+                if (dd < state.from) { state.to = new Date(state.from); state.from = dd; }
+                else { state.to = dd; }
+                setLog(c, fmtDate(state.from) + ' to ' + fmtDate(state.to));
+                dispatchDom(c, 'zak:change', { from: state.from, to: state.to, complete: true });
+              } else {
+                state.from = dd; state.to = null;
+                setLog(c, 'Pick an end date.');
+              }
+              opts.range.from = state.from; opts.range.to = state.to;
+              opts.selected = state.from;
+              cal._render();
+              cal._setView(state.from.getFullYear(), state.from.getMonth());
+            }
+          };
+          var cal = drawCalendar(opts);
+          c.appendChild(cal);
+          return;
+        }
+        var cal = drawCalendar({
+          year: now.getFullYear(), month: now.getMonth(), selected: sel, nav: true,
+          onPick: function (d) {
+            sel = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+            cal._setView(sel.getFullYear(), sel.getMonth());
+            setLog(c, 'You selected ' + fmtDate(sel) + '.');
+            dispatchDom(c, 'zak:change', { date: sel });
+          }
+        });
+        c.appendChild(cal);
+      });
+    }
+  };
+
+  /* ================= LIGHTBOX ================= */
+  zak.lightbox = {
+    init: function () {
+      $$('[data-zak-lightbox]').forEach(function (trigger) {
+        if (trigger.__zakLightbox) return;
+        trigger.__zakLightbox = true;
+        trigger.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); zak.lightbox.open(trigger); });
+      });
+    },
+    open: function (trigger) {
+      var existing = $('.zak-lightbox');
+      if (existing) existing.remove();
+      var src = trigger.getAttribute('data-zak-lightbox');
+      var imgSrc = src || '';
+      if (!imgSrc) {
+        var img = trigger.tagName === 'IMG' ? trigger : $('img', trigger);
+        if (img) imgSrc = img.getAttribute('src') || img.getAttribute('data-src') || '';
+      }
+      var overlay = el('div', 'zak-lightbox');
+      var box = el('div', 'zak-lightbox-box');
+      var close = el('button', 'zak-lightbox-close', '\u00d7'); close.type = 'button';
+      close.setAttribute('aria-label', 'Close lightbox');
+      var figure = el('figure', 'zak-lightbox-figure');
+      if (imgSrc) {
+        var imgEl = document.createElement('img');
+        imgEl.src = imgSrc;
+        imgEl.alt = trigger.getAttribute('data-lightbox-alt') || trigger.getAttribute('alt') || '';
+        figure.appendChild(imgEl);
+      } else {
+        figure.appendChild(trigger.cloneNode(true));
+      }
+      var cap = trigger.getAttribute('data-lightbox-caption');
+      if (cap) { var fig = el('figcaption', 'zak-lightbox-caption', cap); figure.appendChild(fig); }
+      box.appendChild(close); box.appendChild(figure);
+      overlay.appendChild(box);
+      document.body.appendChild(overlay);
+      requestAnimationFrame(function () { overlay.classList.add('zak-lightbox-active'); });
+      function closeLightbox() {
+        overlay.classList.remove('zak-lightbox-active');
+        setTimeout(function () { overlay.remove(); }, 160);
+        document.removeEventListener('keydown', onKey);
+      }
+      function onKey(e) { if (e.key === 'Escape') closeLightbox(); }
+      document.addEventListener('keydown', onKey);
+      overlay.addEventListener('click', function (e) { if (e.target === overlay || e.target === box) closeLightbox(); });
+      close.addEventListener('click', closeLightbox);
+    }
+  };
+
+  /* ================= COMPARE SLIDER ================= */
+  zak.compare = {
+    init: function () {
+      $$('[data-zak-compare]').forEach(function (c) { if (!c.__zakCompare) zak.compare._create(c); });
+    },
+    _create: function (container) {
+      container.__zakCompare = true;
+      container.classList.add('zak-compare');
+      var images = $$('img', container);
+      if (images.length < 2) return;
+      images[0].classList.add('zak-compare-after');
+      images[0].classList.add('zak-compare-image');
+      images[1].classList.add('zak-compare-before');
+      images[1].classList.add('zak-compare-image');
+      var before = images[1], after = images[0];
+      var divider = el('div', 'zak-compare-divider');
+      divider.innerHTML = '<span class="zak-compare-handle">\u21c4</span>';
+      container.appendChild(divider);
+      var pct = 50;
+      function apply(p) {
+        pct = Math.max(0, Math.min(100, p));
+        divider.style.left = pct + '%';
+        after.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
+        after.style.webkitClipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
+      }
+      apply(pct);
+      var dragging = false;
+      divider.addEventListener('pointerdown', function (e) { dragging = true; divider.setPointerCapture(e.pointerId); });
+      divider.addEventListener('pointermove', function (e) {
+        if (!dragging) return;
+        var r = container.getBoundingClientRect();
+        apply(((e.clientX - r.left) / r.width) * 100);
+      });
+      divider.addEventListener('pointerup', function () { dragging = false; });
+      divider.addEventListener('pointercancel', function () { dragging = false; });
+      container.addEventListener('click', function (e) {
+        if (e.target === container) { var r = container.getBoundingClientRect(); apply(((e.clientX - r.left) / r.width) * 100); }
+      });
+    }
+  };
+
+  /* ================= CAROUSEL (robust) ================= */
+  zak.carousel = {
+    init: function () {
+      $$('.zak-carousel').forEach(function (c) { if (!c.__zakCarousel) zak.carousel._create(c); });
+    },
+    _create: function (carousel) {
+      carousel.__zakCarousel = true;
+      var inner = $('.zak-carousel-inner', carousel);
+      var items = $$('.zak-carousel-item', carousel);
+      if (!inner && items.length) {
+        inner = el('div', 'zak-carousel-inner');
+        while (carousel.firstChild) inner.appendChild(carousel.firstChild);
+        carousel.appendChild(inner);
+        items = $$('.zak-carousel-item', carousel);
+      }
+      if (!items.length) return;
+      var indicators = $$('.zak-carousel-indicator', carousel);
+      var prevBtn = $('.zak-carousel-control-prev', carousel);
+      var nextBtn = $('.zak-carousel-control-next', carousel);
+      var autoplay = carousel.getAttribute('data-zak-carousel-autoplay');
+      if (autoplay === null) autoplay = carousel.getAttribute('data-zak-autoplay');
+      var interval = parseInt(carousel.getAttribute('data-zak-carousel-interval'), 10) || 5000;
+      var perPage = parseInt(carousel.getAttribute('data-zak-carousel-per-page') || carousel.getAttribute('data-zak-per-page'), 10) || 1;
+      var current = 0;
+
+      function goTo(idx) {
+        if (idx < 0) idx = items.length - 1;
+        if (idx >= items.length) idx = 0;
+current = idx;
+        if (carousel.classList.contains('zak-carousel-fade')) {
+          inner.style.transform = 'none';
+        } else {
+          var shift = (100 / perPage) * idx;
+          inner.style.transform = 'translateX(-' + shift + '%)';
+        }
+        items.forEach(function (it, i) {
+          it.classList.toggle('zak-active', i === idx);
+          it.setAttribute('aria-hidden', i === idx ? 'false' : 'true');
+        });
+        if (indicators.length) indicators.forEach(function (d, i) { d.classList.toggle('zak-active', i === idx); });
+        dispatchDom(carousel, 'zak:change', { index: current });
+      }
+      function startAuto() { if (!carousel.__timer && (autoplay === 'true' || autoplay === '')) carousel.__timer = setInterval(function () { goTo(current + 1); }, interval); }
+      function stopAuto() { if (carousel.__timer) { clearInterval(carousel.__timer); carousel.__timer = null; } }
+
+      if (prevBtn) prevBtn.addEventListener('click', function () { goTo(current - 1); });
+      if (nextBtn) nextBtn.addEventListener('click', function () { goTo(current + 1); });
+      indicators.forEach(function (d, i) { d.addEventListener('click', function () { goTo(i); }); });
+      carousel.addEventListener('mouseenter', stopAuto);
+      carousel.addEventListener('mouseleave', startAuto);
+      var sx = 0;
+      carousel.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+      carousel.addEventListener('touchend', function (e) {
+        var dx = e.changedTouches[0].clientX - sx;
+        if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
+      }, { passive: true });
+
+      goTo(0);
+      startAuto();
+    }
+  };
+
+  /* ---------- auto-init for the new modules ---------- */
+  function initNew() {
+    if (!window.zak) return;
+    try {
+      zak.monthPicker.init(); zak.yearPicker.init(); zak.rangePicker.init();
+      zak.dateTimePicker.init(); zak.pickerCalendar.init(); zak.lightbox.init(); zak.compare.init();
+    } catch (e) { if (window.console) console.error(e); }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initNew);
+  } else {
+    initNew();
+  }
+})();
+
+/* ============================================================
+   ZAKUIKit Icon Sprite Injector
+   Ensures <svg><use href="#icon-*"></use></svg> resolves on
+   every page over file:// by injecting the canonical sprite
+   (hidden) when a page references icon fragments but does NOT
+   already embed a local <symbol id="icon-*">.
+   ============================================================ */
+(function () {
+  var PAYLOAD = "<svg xmlns=\"http://www.w3.org/2000/svg\" style=\"display:none\">\n  <symbol id=\"icon-activity\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polyline points=\"22 12 18 12 15 21 9 3 6 12 2 12\"/>\n  </symbol>\n  <symbol id=\"icon-alert-circle\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <circle cx=\"12\" cy=\"12\" r=\"10\"/> <line x1=\"12\" y1=\"8\" x2=\"12\" y2=\"12\"/> <line x1=\"12\" y1=\"16\" x2=\"12.01\" y2=\"16\"/>\n  </symbol>\n  <symbol id=\"icon-alert-triangle\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z\"/> <line x1=\"12\" y1=\"9\" x2=\"12\" y2=\"13\"/> <line x1=\"12\" y1=\"17\" x2=\"12.01\" y2=\"17\"/>\n  </symbol>\n  <symbol id=\"icon-archive\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polyline points=\"21 8 21 21 3 21 3 8\"/> <rect x=\"1\" y=\"3\" width=\"22\" height=\"5\"/> <line x1=\"10\" y1=\"12\" x2=\"14\" y2=\"12\"/>\n  </symbol>\n  <symbol id=\"icon-arrow-down\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <line x1=\"12\" y1=\"5\" x2=\"12\" y2=\"19\"/> <polyline points=\"19 12 12 19 5 12\"/>\n  </symbol>\n  <symbol id=\"icon-arrow-left\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <line x1=\"19\" y1=\"12\" x2=\"5\" y2=\"12\"/> <polyline points=\"12 19 5 12 12 5\"/>\n  </symbol>\n  <symbol id=\"icon-arrow-right\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"/> <polyline points=\"12 5 19 12 12 19\"/>\n  </symbol>\n  <symbol id=\"icon-arrow-up\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <line x1=\"12\" y1=\"19\" x2=\"12\" y2=\"5\"/> <polyline points=\"5 12 12 5 19 12\"/>\n  </symbol>\n  <symbol id=\"icon-at-sign\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <circle cx=\"12\" cy=\"12\" r=\"4\"/> <path d=\"M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94\"/>\n  </symbol>\n  <symbol id=\"icon-attachment\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48\"/>\n  </symbol>\n  <symbol id=\"icon-award\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <circle cx=\"12\" cy=\"8\" r=\"7\"/> <polyline points=\"8.21 13.89 7 23 12 20 17 23 15.79 13.88\"/>\n  </symbol>\n  <symbol id=\"icon-bar-chart\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <line x1=\"12\" y1=\"20\" x2=\"12\" y2=\"10\"/> <line x1=\"18\" y1=\"20\" x2=\"18\" y2=\"4\"/> <line x1=\"6\" y1=\"20\" x2=\"6\" y2=\"16\"/>\n  </symbol>\n  <symbol id=\"icon-battery\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <rect x=\"1\" y=\"6\" width=\"18\" height=\"12\" rx=\"2\" ry=\"2\"/> <line x1=\"23\" y1=\"13\" x2=\"23\" y2=\"11\"/>\n  </symbol>\n  <symbol id=\"icon-bell\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9\"/> <path d=\"M13.73 21a2 2 0 0 1-3.46 0\"/>\n  </symbol>\n  <symbol id=\"icon-bookmark\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z\"/>\n  </symbol>\n  <symbol id=\"icon-box\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z\"/> <polyline points=\"3.27 6.96 12 12.01 20.73 6.96\"/> <line x1=\"12\" y1=\"22.08\" x2=\"12\" y2=\"12\"/>\n  </symbol>\n  <symbol id=\"icon-calendar\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\" ry=\"2\"/> <line x1=\"16\" y1=\"2\" x2=\"16\" y2=\"6\"/> <line x1=\"8\" y1=\"2\" x2=\"8\" y2=\"6\"/> <line x1=\"3\" y1=\"10\" x2=\"21\" y2=\"10\"/>\n  </symbol>\n  <symbol id=\"icon-camera\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z\"/> <circle cx=\"12\" cy=\"13\" r=\"4\"/>\n  </symbol>\n  <symbol id=\"icon-caret-down\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M6 9l6 6 6-6\"/>\n  </symbol>\n  <symbol id=\"icon-caret-left\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M15 18l-6-6 6-6\"/>\n  </symbol>\n  <symbol id=\"icon-caret-right\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M9 18l6-6-6-6\"/>\n  </symbol>\n  <symbol id=\"icon-caret-up\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M18 15l-6-6-6 6\"/>\n  </symbol>\n  <symbol id=\"icon-chat\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z\"/>\n  </symbol>\n  <symbol id=\"icon-check\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polyline points=\"20 6 9 17 4 12\"/>\n  </symbol>\n  <symbol id=\"icon-check-circle\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M22 11.08V12a10 10 0 1 1-5.93-9.14\"/> <polyline points=\"22 4 12 14.01 9 11.01\"/>\n  </symbol>\n  <symbol id=\"icon-chevron-down\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polyline points=\"6 9 12 15 18 9\"/>\n  </symbol>\n  <symbol id=\"icon-chevron-first\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polyline points=\"11 17 6 12 11 7\"/> <polyline points=\"18 17 13 12 18 7\"/>\n  </symbol>\n  <symbol id=\"icon-chevron-last\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polyline points=\"13 17 18 12 13 7\"/> <polyline points=\"6 17 11 12 6 7\"/>\n  </symbol>\n  <symbol id=\"icon-chevron-left\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polyline points=\"15 18 9 12 15 6\"/>\n  </symbol>\n  <symbol id=\"icon-chevron-right\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polyline points=\"9 18 15 12 9 6\"/>\n  </symbol>\n  <symbol id=\"icon-chevron-up\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polyline points=\"18 15 12 9 6 15\"/>\n  </symbol>\n  <symbol id=\"icon-circle\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <circle cx=\"12\" cy=\"12\" r=\"10\"/>\n  </symbol>\n  <symbol id=\"icon-clock\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <circle cx=\"12\" cy=\"12\" r=\"10\"/> <polyline points=\"12 6 12 12 16 14\"/>\n  </symbol>\n  <symbol id=\"icon-close\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <line x1=\"18\" y1=\"6\" x2=\"6\" y2=\"18\"/> <line x1=\"6\" y1=\"6\" x2=\"18\" y2=\"18\"/>\n  </symbol>\n  <symbol id=\"icon-code\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polyline points=\"16 18 22 12 16 6\"/> <polyline points=\"8 6 2 12 8 18\"/>\n  </symbol>\n  <symbol id=\"icon-coffee\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M18 8h1a4 4 0 0 1 0 8h-1\"/> <path d=\"M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z\"/> <line x1=\"6\" y1=\"1\" x2=\"6\" y2=\"4\"/> <line x1=\"10\" y1=\"1\" x2=\"10\" y2=\"4\"/> <line x1=\"14\" y1=\"1\" x2=\"14\" y2=\"4\"/>\n  </symbol>\n  <symbol id=\"icon-compass\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <circle cx=\"12\" cy=\"12\" r=\"10\"/> <polygon points=\"16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76\"/>\n  </symbol>\n  <symbol id=\"icon-copy\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <rect x=\"9\" y=\"9\" width=\"13\" height=\"13\" rx=\"2\" ry=\"2\"/> <path d=\"M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1\"/>\n  </symbol>\n  <symbol id=\"icon-crop\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M6.13 1L6 16a2 2 0 0 0 2 2h15\"/> <path d=\"M1 6.13L16 6a2 2 0 0 1 2 2v15\"/>\n  </symbol>\n  <symbol id=\"icon-crown\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z\"/> <line x1=\"5\" y1=\"20\" x2=\"19\" y2=\"20\"/> <line x1=\"8\" y1=\"16\" x2=\"16\" y2=\"16\"/>\n  </symbol>\n  <symbol id=\"icon-database\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"/> <path d=\"M21 12c0 1.66-4 3-9 3s-9-1.34-9-3\"/> <path d=\"M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5\"/>\n  </symbol>\n  <symbol id=\"icon-delete\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polyline points=\"3 6 5 6 21 6\"/> <path d=\"M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2\"/> <line x1=\"10\" y1=\"11\" x2=\"10\" y2=\"17\"/> <line x1=\"14\" y1=\"11\" x2=\"14\" y2=\"17\"/>\n  </symbol>\n  <symbol id=\"icon-download\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4\"/> <polyline points=\"7 10 12 15 17 10\"/> <line x1=\"12\" y1=\"15\" x2=\"12\" y2=\"3\"/>\n  </symbol>\n  <symbol id=\"icon-edit\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7\"/> <path d=\"M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z\"/>\n  </symbol>\n  <symbol id=\"icon-external-link\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6\"/> <polyline points=\"15 3 21 3 21 9\"/> <line x1=\"10\" y1=\"14\" x2=\"21\" y2=\"3\"/>\n  </symbol>\n  <symbol id=\"icon-eye\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z\"/> <circle cx=\"12\" cy=\"12\" r=\"3\"/>\n  </symbol>\n  <symbol id=\"icon-eye-off\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94\"/> <path d=\"M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19\"/> <line x1=\"1\" y1=\"1\" x2=\"23\" y2=\"23\"/> <path d=\"M14.12 14.12a3 3 0 1 1-4.24-4.24\"/>\n  </symbol>\n  <symbol id=\"icon-file\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z\"/> <polyline points=\"13 2 13 9 20 9\"/>\n  </symbol>\n  <symbol id=\"icon-file-image\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/> <polyline points=\"14 2 14 8 20 8\"/> <circle cx=\"10\" cy=\"13\" r=\"2\"/> <polyline points=\"21 15 16 10 5 21\"/>\n  </symbol>\n  <symbol id=\"icon-file-text\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/> <polyline points=\"14 2 14 8 20 8\"/> <line x1=\"16\" y1=\"13\" x2=\"8\" y2=\"13\"/> <line x1=\"16\" y1=\"17\" x2=\"8\" y2=\"17\"/> <polyline points=\"10 9 9 9 8 9\"/>\n  </symbol>\n  <symbol id=\"icon-file-video\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/> <polyline points=\"14 2 14 8 20 8\"/> <polygon points=\"10 12 15 15 10 18 10 12\"/>\n  </symbol>\n  <symbol id=\"icon-filter\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polygon points=\"22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3\"/>\n  </symbol>\n  <symbol id=\"icon-flag\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z\"/> <line x1=\"4\" y1=\"22\" x2=\"4\" y2=\"15\"/>\n  </symbol>\n  <symbol id=\"icon-folder\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z\"/>\n  </symbol>\n  <symbol id=\"icon-folder-open\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z\"/> <line x1=\"2\" y1=\"10\" x2=\"22\" y2=\"10\"/>\n  </symbol>\n  <symbol id=\"icon-gift\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polyline points=\"20 12 20 22 4 22 4 12\"/> <rect x=\"2\" y=\"7\" width=\"20\" height=\"5\"/> <line x1=\"12\" y1=\"22\" x2=\"12\" y2=\"7\"/> <path d=\"M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z\"/> <path d=\"M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z\"/>\n  </symbol>\n  <symbol id=\"icon-globe\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <circle cx=\"12\" cy=\"12\" r=\"10\"/> <line x1=\"2\" y1=\"12\" x2=\"22\" y2=\"12\"/> <path d=\"M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z\"/>\n  </symbol>\n  <symbol id=\"icon-grid\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <rect x=\"3\" y=\"3\" width=\"7\" height=\"7\"/> <rect x=\"14\" y=\"3\" width=\"7\" height=\"7\"/> <rect x=\"14\" y=\"14\" width=\"7\" height=\"7\"/> <rect x=\"3\" y=\"14\" width=\"7\" height=\"7\"/>\n  </symbol>\n  <symbol id=\"icon-hash\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <line x1=\"4\" y1=\"9\" x2=\"20\" y2=\"9\"/> <line x1=\"4\" y1=\"15\" x2=\"20\" y2=\"15\"/> <line x1=\"10\" y1=\"3\" x2=\"8\" y2=\"21\"/> <line x1=\"16\" y1=\"3\" x2=\"14\" y2=\"21\"/>\n  </symbol>\n  <symbol id=\"icon-heart\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z\"/>\n  </symbol>\n  <symbol id=\"icon-help-circle\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <circle cx=\"12\" cy=\"12\" r=\"10\"/> <path d=\"M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3\"/> <line x1=\"12\" y1=\"17\" x2=\"12.01\" y2=\"17\"/>\n  </symbol>\n  <symbol id=\"icon-home\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\"/> <polyline points=\"9 22 9 12 15 12 15 22\"/>\n  </symbol>\n  <symbol id=\"icon-image\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\" ry=\"2\"/> <circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/> <polyline points=\"21 15 16 10 5 21\"/>\n  </symbol>\n  <symbol id=\"icon-inbox\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polyline points=\"22 12 16 12 14 15 10 15 8 12 2 12\"/> <path d=\"M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z\"/>\n  </symbol>\n  <symbol id=\"icon-info\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <circle cx=\"12\" cy=\"12\" r=\"10\"/> <line x1=\"12\" y1=\"16\" x2=\"12\" y2=\"12\"/> <line x1=\"12\" y1=\"8\" x2=\"12.01\" y2=\"8\"/>\n  </symbol>\n  <symbol id=\"icon-layers\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polygon points=\"12 2 2 7 12 12 22 7 12 2\"/> <polyline points=\"2 17 12 22 22 17\"/> <polyline points=\"2 12 12 17 22 12\"/>\n  </symbol>\n  <symbol id=\"icon-link\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71\"/> <path d=\"M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71\"/>\n  </symbol>\n  <symbol id=\"icon-list\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <line x1=\"8\" y1=\"6\" x2=\"21\" y2=\"6\"/> <line x1=\"8\" y1=\"12\" x2=\"21\" y2=\"12\"/> <line x1=\"8\" y1=\"18\" x2=\"21\" y2=\"18\"/> <line x1=\"3\" y1=\"6\" x2=\"3.01\" y2=\"6\"/> <line x1=\"3\" y1=\"12\" x2=\"3.01\" y2=\"12\"/> <line x1=\"3\" y1=\"18\" x2=\"3.01\" y2=\"18\"/>\n  </symbol>\n  <symbol id=\"icon-lock\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <rect x=\"3\" y=\"11\" width=\"18\" height=\"11\" rx=\"2\" ry=\"2\"/> <path d=\"M7 11V7a5 5 0 0 1 10 0v4\"/>\n  </symbol>\n  <symbol id=\"icon-logout\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4\"/> <polyline points=\"16 17 21 12 16 7\"/> <line x1=\"21\" y1=\"12\" x2=\"9\" y2=\"12\"/>\n  </symbol>\n  <symbol id=\"icon-mail\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z\"/> <polyline points=\"22,6 12,13 2,6\"/>\n  </symbol>\n  <symbol id=\"icon-map\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polygon points=\"1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6\"/> <line x1=\"8\" y1=\"2\" x2=\"8\" y2=\"18\"/> <line x1=\"16\" y1=\"6\" x2=\"16\" y2=\"22\"/>\n  </symbol>\n  <symbol id=\"icon-maximize\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polyline points=\"15 3 21 3 21 9\"/> <polyline points=\"9 21 3 21 3 15\"/> <line x1=\"21\" y1=\"3\" x2=\"14\" y2=\"10\"/> <line x1=\"3\" y1=\"21\" x2=\"10\" y2=\"14\"/>\n  </symbol>\n  <symbol id=\"icon-maximize-2\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polyline points=\"15 3 21 3 21 9\"/> <polyline points=\"9 21 3 21 3 15\"/> <line x1=\"21\" y1=\"3\" x2=\"14\" y2=\"10\"/> <line x1=\"3\" y1=\"21\" x2=\"10\" y2=\"14\"/>\n  </symbol>\n  <symbol id=\"icon-menu\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <line x1=\"3\" y1=\"6\" x2=\"21\" y2=\"6\"/> <line x1=\"3\" y1=\"12\" x2=\"21\" y2=\"12\"/> <line x1=\"3\" y1=\"18\" x2=\"21\" y2=\"18\"/>\n  </symbol>\n  <symbol id=\"icon-message\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z\"/>\n  </symbol>\n  <symbol id=\"icon-mic\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z\"/> <path d=\"M19 10v2a7 7 0 0 1-14 0v-2\"/> <line x1=\"12\" y1=\"19\" x2=\"12\" y2=\"23\"/> <line x1=\"8\" y1=\"23\" x2=\"16\" y2=\"23\"/>\n  </symbol>\n  <symbol id=\"icon-minimize\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polyline points=\"4 14 10 14 10 20\"/> <polyline points=\"20 10 14 10 14 4\"/> <line x1=\"14\" y1=\"10\" x2=\"21\" y2=\"3\"/> <line x1=\"3\" y1=\"21\" x2=\"10\" y2=\"14\"/>\n  </symbol>\n  <symbol id=\"icon-minimize-2\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polyline points=\"4 14 10 14 10 20\"/> <polyline points=\"20 10 14 10 14 4\"/> <line x1=\"14\" y1=\"10\" x2=\"21\" y2=\"3\"/> <line x1=\"3\" y1=\"21\" x2=\"10\" y2=\"14\"/>\n  </symbol>\n  <symbol id=\"icon-minus\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"/>\n  </symbol>\n  <symbol id=\"icon-moon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z\"/>\n  </symbol>\n  <symbol id=\"icon-more-horizontal\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <circle cx=\"12\" cy=\"12\" r=\"1\"/> <circle cx=\"19\" cy=\"12\" r=\"1\"/> <circle cx=\"5\" cy=\"12\" r=\"1\"/>\n  </symbol>\n  <symbol id=\"icon-more-vertical\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <circle cx=\"12\" cy=\"12\" r=\"1\"/> <circle cx=\"12\" cy=\"5\" r=\"1\"/> <circle cx=\"12\" cy=\"19\" r=\"1\"/>\n  </symbol>\n  <symbol id=\"icon-move\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polyline points=\"5 9 2 12 5 15\"/> <polyline points=\"9 5 12 2 15 5\"/> <polyline points=\"15 19 12 22 9 19\"/> <polyline points=\"19 9 22 12 19 15\"/> <line x1=\"2\" y1=\"12\" x2=\"22\" y2=\"12\"/> <line x1=\"12\" y1=\"2\" x2=\"12\" y2=\"22\"/>\n  </symbol>\n  <symbol id=\"icon-music\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M9 18V5l12-2v13\"/> <circle cx=\"6\" cy=\"18\" r=\"3\"/> <circle cx=\"18\" cy=\"16\" r=\"3\"/>\n  </symbol>\n  <symbol id=\"icon-notification\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9\"/> <path d=\"M13.73 21a2 2 0 0 1-3.46 0\"/> <line x1=\"12\" y1=\"2\" x2=\"12\" y2=\"4\"/>\n  </symbol>\n  <symbol id=\"icon-paperclip\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48\"/>\n  </symbol>\n  <symbol id=\"icon-pause\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <rect x=\"6\" y=\"4\" width=\"4\" height=\"16\"/> <rect x=\"14\" y=\"4\" width=\"4\" height=\"16\"/>\n  </symbol>\n  <symbol id=\"icon-phone\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z\"/>\n  </symbol>\n  <symbol id=\"icon-pie-chart\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M21.21 15.89A10 10 0 1 1 8 2.83\"/> <path d=\"M22 12A10 10 0 0 0 12 2v10z\"/>\n  </symbol>\n  <symbol id=\"icon-pin\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z\"/> <circle cx=\"12\" cy=\"10\" r=\"3\"/>\n  </symbol>\n  <symbol id=\"icon-play\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polygon points=\"5 3 19 12 5 21 5 3\"/>\n  </symbol>\n  <symbol id=\"icon-plus\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <line x1=\"12\" y1=\"5\" x2=\"12\" y2=\"19\"/> <line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"/>\n  </symbol>\n  <symbol id=\"icon-power\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M18.36 6.64a9 9 0 1 1-12.73 0\"/> <line x1=\"12\" y1=\"2\" x2=\"12\" y2=\"12\"/>\n  </symbol>\n  <symbol id=\"icon-print\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polyline points=\"6 9 6 2 18 2 18 9\"/> <path d=\"M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2\"/> <rect x=\"6\" y=\"14\" width=\"12\" height=\"8\"/>\n  </symbol>\n  <symbol id=\"icon-redo\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polyline points=\"23 4 23 10 17 10\"/> <path d=\"M20.49 15a9 9 0 1 1-2.12-9.36L23 10\"/>\n  </symbol>\n  <symbol id=\"icon-refresh\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polyline points=\"23 4 23 10 17 10\"/> <polyline points=\"1 20 1 14 7 14\"/> <path d=\"M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15\"/>\n  </symbol>\n  <symbol id=\"icon-save\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z\"/> <polyline points=\"17 21 17 13 7 13 7 21\"/> <polyline points=\"7 3 7 8 15 8\"/>\n  </symbol>\n  <symbol id=\"icon-scissors\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <circle cx=\"6\" cy=\"6\" r=\"3\"/> <circle cx=\"6\" cy=\"18\" r=\"3\"/> <line x1=\"20\" y1=\"4\" x2=\"8.12\" y2=\"15.88\"/> <line x1=\"14.47\" y1=\"14.48\" x2=\"20\" y2=\"20\"/> <line x1=\"8.12\" y1=\"8.12\" x2=\"12\" y2=\"12\"/>\n  </symbol>\n  <symbol id=\"icon-search\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <circle cx=\"11\" cy=\"11\" r=\"8\"/> <line x1=\"21\" y1=\"21\" x2=\"16.65\" y2=\"16.65\"/>\n  </symbol>\n  <symbol id=\"icon-send\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <line x1=\"22\" y1=\"2\" x2=\"11\" y2=\"13\"/> <polygon points=\"22 2 15 22 11 13 2 9 22 2\"/>\n  </symbol>\n  <symbol id=\"icon-server\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <rect x=\"2\" y=\"2\" width=\"20\" height=\"8\" rx=\"2\" ry=\"2\"/> <rect x=\"2\" y=\"14\" width=\"20\" height=\"8\" rx=\"2\" ry=\"2\"/> <line x1=\"6\" y1=\"6\" x2=\"6.01\" y2=\"6\"/> <line x1=\"6\" y1=\"18\" x2=\"6.01\" y2=\"18\"/>\n  </symbol>\n  <symbol id=\"icon-settings\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <circle cx=\"12\" cy=\"12\" r=\"3\"/> <path d=\"M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z\"/>\n  </symbol>\n  <symbol id=\"icon-share\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <circle cx=\"18\" cy=\"5\" r=\"3\"/> <circle cx=\"6\" cy=\"12\" r=\"3\"/> <circle cx=\"18\" cy=\"19\" r=\"3\"/> <line x1=\"8.59\" y1=\"13.51\" x2=\"15.42\" y2=\"17.49\"/> <line x1=\"15.41\" y1=\"6.51\" x2=\"8.59\" y2=\"10.49\"/>\n  </symbol>\n  <symbol id=\"icon-shield\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\"/>\n  </symbol>\n  <symbol id=\"icon-skip-back\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polygon points=\"19 20 9 12 19 4 19 20\"/> <line x1=\"5\" y1=\"19\" x2=\"5\" y2=\"5\"/>\n  </symbol>\n  <symbol id=\"icon-skip-forward\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polygon points=\"5 4 15 12 5 20 5 4\"/> <line x1=\"19\" y1=\"5\" x2=\"19\" y2=\"19\"/>\n  </symbol>\n  <symbol id=\"icon-square\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\" ry=\"2\"/>\n  </symbol>\n  <symbol id=\"icon-star\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polygon points=\"12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2\"/>\n  </symbol>\n  <symbol id=\"icon-stop\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\" ry=\"2\"/>\n  </symbol>\n  <symbol id=\"icon-sun\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <circle cx=\"12\" cy=\"12\" r=\"5\"/> <line x1=\"12\" y1=\"1\" x2=\"12\" y2=\"3\"/> <line x1=\"12\" y1=\"21\" x2=\"12\" y2=\"23\"/> <line x1=\"4.22\" y1=\"4.22\" x2=\"5.64\" y2=\"5.64\"/> <line x1=\"18.36\" y1=\"18.36\" x2=\"19.78\" y2=\"19.78\"/> <line x1=\"1\" y1=\"12\" x2=\"3\" y2=\"12\"/> <line x1=\"21\" y1=\"12\" x2=\"23\" y2=\"12\"/> <line x1=\"4.22\" y1=\"19.78\" x2=\"5.64\" y2=\"18.36\"/> <line x1=\"18.36\" y1=\"5.64\" x2=\"19.78\" y2=\"4.22\"/>\n  </symbol>\n  <symbol id=\"icon-table\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\" ry=\"2\"/> <line x1=\"3\" y1=\"9\" x2=\"21\" y2=\"9\"/> <line x1=\"3\" y1=\"15\" x2=\"21\" y2=\"15\"/> <line x1=\"9\" y1=\"3\" x2=\"9\" y2=\"21\"/> <line x1=\"15\" y1=\"3\" x2=\"15\" y2=\"21\"/>\n  </symbol>\n  <symbol id=\"icon-tag\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z\"/> <line x1=\"7\" y1=\"7\" x2=\"7.01\" y2=\"7\"/>\n  </symbol>\n  <symbol id=\"icon-terminal\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polyline points=\"4 17 10 11 4 5\"/> <line x1=\"12\" y1=\"19\" x2=\"20\" y2=\"19\"/>\n  </symbol>\n  <symbol id=\"icon-trash\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polyline points=\"3 6 5 6 21 6\"/> <path d=\"M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2\"/>\n  </symbol>\n  <symbol id=\"icon-trash-2\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polyline points=\"3 6 5 6 21 6\"/> <path d=\"M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2\"/> <line x1=\"10\" y1=\"11\" x2=\"10\" y2=\"17\"/> <line x1=\"14\" y1=\"11\" x2=\"14\" y2=\"17\"/>\n  </symbol>\n  <symbol id=\"icon-trending-down\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polyline points=\"23 18 13.5 8.5 8.5 13.5 1 6\"/> <polyline points=\"17 18 23 18 23 12\"/>\n  </symbol>\n  <symbol id=\"icon-trending-up\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polyline points=\"23 6 13.5 15.5 8.5 10.5 1 18\"/> <polyline points=\"17 6 23 6 23 12\"/>\n  </symbol>\n  <symbol id=\"icon-triangle\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z\"/>\n  </symbol>\n  <symbol id=\"icon-undo\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polyline points=\"1 4 1 10 7 10\"/> <path d=\"M3.51 15a9 9 0 1 0 2.13-9.36L1 10\"/>\n  </symbol>\n  <symbol id=\"icon-unlock\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <rect x=\"3\" y=\"11\" width=\"18\" height=\"11\" rx=\"2\" ry=\"2\"/> <path d=\"M7 11V7a5 5 0 0 1 9.9-1\"/>\n  </symbol>\n  <symbol id=\"icon-upload\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4\"/> <polyline points=\"17 8 12 3 7 8\"/> <line x1=\"12\" y1=\"3\" x2=\"12\" y2=\"15\"/>\n  </symbol>\n  <symbol id=\"icon-user\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\"/> <circle cx=\"12\" cy=\"7\" r=\"4\"/>\n  </symbol>\n  <symbol id=\"icon-user-check\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2\"/> <circle cx=\"8.5\" cy=\"7\" r=\"4\"/> <polyline points=\"17 11 19 13 23 9\"/>\n  </symbol>\n  <symbol id=\"icon-user-minus\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2\"/> <circle cx=\"8.5\" cy=\"7\" r=\"4\"/> <line x1=\"23\" y1=\"11\" x2=\"17\" y2=\"11\"/>\n  </symbol>\n  <symbol id=\"icon-user-plus\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2\"/> <circle cx=\"8.5\" cy=\"7\" r=\"4\"/> <line x1=\"20\" y1=\"8\" x2=\"20\" y2=\"14\"/> <line x1=\"23\" y1=\"11\" x2=\"17\" y2=\"11\"/>\n  </symbol>\n  <symbol id=\"icon-users\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2\"/> <circle cx=\"9\" cy=\"7\" r=\"4\"/> <path d=\"M23 21v-2a4 4 0 0 0-3-3.87\"/> <path d=\"M16 3.13a4 4 0 0 1 0 7.75\"/>\n  </symbol>\n  <symbol id=\"icon-video\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polygon points=\"23 7 16 12 23 17 23 7\"/> <rect x=\"1\" y=\"5\" width=\"15\" height=\"14\" rx=\"2\" ry=\"2\"/>\n  </symbol>\n  <symbol id=\"icon-volume\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polygon points=\"11 5 6 9 2 9 2 15 6 15 11 19 11 5\"/> <path d=\"M19.07 4.93a10 10 0 0 1 0 14.14\"/> <path d=\"M15.54 8.46a5 5 0 0 1 0 7.07\"/>\n  </symbol>\n  <symbol id=\"icon-volume-x\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polygon points=\"11 5 6 9 2 9 2 15 6 15 11 19 11 5\"/> <line x1=\"23\" y1=\"9\" x2=\"17\" y2=\"15\"/> <line x1=\"17\" y1=\"9\" x2=\"23\" y2=\"15\"/>\n  </symbol>\n  <symbol id=\"icon-wifi\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M5 12.55a11 11 0 0 1 14.08 0\"/> <path d=\"M1.42 9a16 16 0 0 1 21.16 0\"/> <path d=\"M8.53 16.11a6 6 0 0 1 6.95 0\"/> <line x1=\"12\" y1=\"20\" x2=\"12.01\" y2=\"20\"/>\n  </symbol>\n  <symbol id=\"icon-x\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <line x1=\"18\" y1=\"6\" x2=\"6\" y2=\"18\"/> <line x1=\"6\" y1=\"6\" x2=\"18\" y2=\"18\"/>\n  </symbol>\n  <symbol id=\"icon-x-circle\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <circle cx=\"12\" cy=\"12\" r=\"10\"/> <line x1=\"15\" y1=\"9\" x2=\"9\" y2=\"15\"/> <line x1=\"9\" y1=\"9\" x2=\"15\" y2=\"15\"/>\n  </symbol>\n  <symbol id=\"icon-zap\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polygon points=\"13 2 3 14 12 14 11 22 21 10 12 10 13 2\"/>\n  </symbol>\n</svg>";
+  function ensureIconSprite() {
+    try {
+      if (document.getElementById('zak-icons-sprite')) return;
+      if (document.querySelector('symbol[id^="icon-"]')) return;
+      var needSprite = false;
+      var uses = document.querySelectorAll('use');
+      for (var i = 0; i < uses.length; i++) {
+        var ref = uses[i].getAttribute('href') || uses[i].getAttribute('xlink:href') || '';
+        if (ref.charAt(0) === '#' && ref.indexOf('#icon-') === 0) { needSprite = true; break; }
+      }
+      if (!needSprite) return;
+      var wrap = document.createElement('div');
+      wrap.style.display = 'none';
+      wrap.innerHTML = PAYLOAD;
+      var svg = wrap.firstChild;
+      svg.setAttribute('id', 'zak-icons-sprite');
+      document.body.appendChild(svg);
+    } catch (e) { if (window.console) console.error(e); }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', ensureIconSprite);
+  } else {
+    ensureIconSprite();
+  }
+})();

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Badge documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Badge - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/data-display/badge/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Badge - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Badge documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/data-display/badge/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Data-Display</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Badge</span>
+                </nav>
+        <h1>Badge</h1>
+        <p class="docs-subtitle">Badges are small, lightweight indicators for counts, states and labels. They scale to match the parent element and come in a full set of contextual colors.</p>
+
+        <div class="zak-docs-section">
+            <h2>Basic Badge</h2>
+            <p>The default badge uses a neutral gray color scheme.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: center;">
+                    <span class="zak-badge">Default</span>
+                    <span class="zak-badge">42</span>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;span class="zak-badge"&gt;Default&lt;/span&gt;
+&lt;span class="zak-badge"&gt;42&lt;/span&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Color Variants</h2>
+            <p>Use contextual variants to convey meaning.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; justify-content: center;">
+                    <span class="zak-badge">Secondary</span>
+                    <span class="zak-badge zak-badge-primary">Primary</span>
+                    <span class="zak-badge zak-badge-success">Success</span>
+                    <span class="zak-badge zak-badge-danger">Danger</span>
+                    <span class="zak-badge zak-badge-warning">Warning</span>
+                    <span class="zak-badge zak-badge-info">Info</span>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;span class="zak-badge"&gt;Secondary&lt;/span&gt;
+&lt;span class="zak-badge zak-badge-primary"&gt;Primary&lt;/span&gt;
+&lt;span class="zak-badge zak-badge-success"&gt;Success&lt;/span&gt;
+&lt;span class="zak-badge zak-badge-danger"&gt;Danger&lt;/span&gt;
+&lt;span class="zak-badge zak-badge-warning"&gt;Warning&lt;/span&gt;
+&lt;span class="zak-badge zak-badge-info"&gt;Info&lt;/span&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Pill Badge</h2>
+            <p>Badges already use fully rounded corners. The <code>.zak-badge-pill</code> class is provided for semantic clarity and future overrides.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; justify-content: center;">
+                    <span class="zak-badge zak-badge-pill zak-badge-primary">New</span>
+                    <span class="zak-badge zak-badge-pill zak-badge-success">In stock</span>
+                    <span class="zak-badge zak-badge-pill zak-badge-danger">Sold out</span>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;span class="zak-badge zak-badge-pill zak-badge-primary"&gt;New&lt;/span&gt;
+&lt;span class="zak-badge zak-badge-pill zak-badge-success"&gt;In stock&lt;/span&gt;
+&lt;span class="zak-badge zak-badge-pill zak-badge-danger"&gt;Sold out&lt;/span&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Badge on Buttons</h2>
+            <p>Place badges inside buttons with a small gap on the text.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: center;">
+                    <button class="zak-btn zak-btn-primary">
+                        Notifications <span class="zak-badge zak-badge-light" style="margin-left: 0.35rem;">4</span>
+                    </button>
+                    <button class="zak-btn zak-btn-outline-secondary">
+                        Inbox <span class="zak-badge zak-badge-primary" style="margin-left: 0.35rem;">+2</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;button class="zak-btn zak-btn-primary"&gt;
+  Notifications
+  &lt;span class="zak-badge zak-badge-light" style="margin-left: 0.35rem;"&gt;4&lt;/span&gt;
+&lt;/button&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Badge on Icons</h2>
+            <p>Use <code>.zak-badge-counter</code> with a <code>position: relative</code> wrapper to anchor a count badge to an icon.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; justify-content: center;">
+                    <div style="position: relative;">
+                        <svg class="zak-icon zak-icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--zak-text);"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                        <span class="zak-badge zak-badge-danger zak-badge-counter">3</span>
+                    </div>
+                    <div style="position: relative;">
+                        <svg class="zak-icon zak-icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--zak-text);"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        <span class="zak-badge zak-badge-primary zak-badge-counter">12</span>
+                    </div>
+                    <div style="position: relative;">
+                        <svg class="zak-icon zak-icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--zak-text);"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+                        <span class="zak-badge zak-badge-success zak-badge-counter">7</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div style="position: relative;"&gt;
+  &lt;svg class="zak-icon zak-icon-lg"&gt;...&lt;/svg&gt;
+  &lt;span class="zak-badge zak-badge-danger zak-badge-counter"&gt;3&lt;/span&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Badge on Avatars</h2>
+            <p>Anchor a count badge to an avatar using a relatively positioned wrapper.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; justify-content: center;">
+                    <div style="position: relative;">
+                        <span class="zak-avatar zak-avatar-primary">JA</span>
+                        <span class="zak-badge zak-badge-success zak-badge-counter">4</span>
+                    </div>
+                    <div style="position: relative;">
+                        <span class="zak-avatar zak-avatar-lg zak-avatar-warning">MK</span>
+                        <span class="zak-badge zak-badge-danger zak-badge-counter">9</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div style="position: relative;"&gt;
+  &lt;span class="zak-avatar zak-avatar-primary"&gt;JA&lt;/span&gt;
+  &lt;span class="zak-badge zak-badge-success zak-badge-counter"&gt;4&lt;/span&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Dot Badge</h2>
+            <p><code>.zak-badge-dot</code> renders a standalone status dot.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; flex-wrap: wrap; gap: 1.25rem; align-items: center; justify-content: center;">
+                    <span style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: var(--zak-font-size-sm); color: var(--zak-text);"><span class="zak-badge zak-badge-success zak-badge-dot" aria-hidden="true"></span>Online</span>
+                    <span style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: var(--zak-font-size-sm); color: var(--zak-text);"><span class="zak-badge zak-badge-warning zak-badge-dot" aria-hidden="true"></span>Away</span>
+                    <span style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: var(--zak-font-size-sm); color: var(--zak-text);"><span class="zak-badge zak-badge-danger zak-badge-dot" aria-hidden="true"></span>Offline</span>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;span class="zak-badge zak-badge-success zak-badge-dot"&gt;&lt;/span&gt;
+&lt;span class="zak-badge zak-badge-warning zak-badge-dot"&gt;&lt;/span&gt;
+&lt;span class="zak-badge zak-badge-danger zak-badge-dot"&gt;&lt;/span&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Badge Sizes</h2>
+            <p>Adjust badge size with font-size utilities (badges scale from em-based padding).</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: center;">
+                    <span class="zak-badge zak-badge-primary" style="font-size: 0.65rem;">Small</span>
+                    <span class="zak-badge zak-badge-primary">Medium</span>
+                    <span class="zak-badge zak-badge-primary" style="font-size: 0.95rem;">Large</span>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;span class="zak-badge zak-badge-primary" style="font-size: 0.65rem;"&gt;Small&lt;/span&gt;
+&lt;span class="zak-badge zak-badge-primary"&gt;Medium&lt;/span&gt;
+&lt;span class="zak-badge zak-badge-primary" style="font-size: 0.95rem;"&gt;Large&lt;/span&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.zak-badge</code></td><td>Base badge styling (neutral gray)</td></tr>
+                        <tr><td><code>.zak-badge-primary</code></td><td>Primary color variant</td></tr>
+                        <tr><td><code>.zak-badge-success</code></td><td>Success color variant</td></tr>
+                        <tr><td><code>.zak-badge-danger</code></td><td>Danger color variant</td></tr>
+                        <tr><td><code>.zak-badge-warning</code></td><td>Warning color variant</td></tr>
+                        <tr><td><code>.zak-badge-info</code></td><td>Info color variant</td></tr>
+                        <tr><td><code>.zak-badge-pill</code></td><td>Fully rounded pill shape</td></tr>
+                        <tr><td><code>.zak-badge-dot</code></td><td>Compact status dot</td></tr>
+                        <tr><td><code>.zak-badge-counter</code></td><td>Absolute-positioned count anchored to top-right</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Badges do not express semantic meaning by themselves — always combine a color variant with readable text.</li>
+                <li>Dot badges are decorative; pair them with a visible text label and add <code>aria-hidden="true"</code>.</li>
+                <li>When a count badge is important (e.g. unread items), announce it with <code>aria-label</code> like "3 unread notifications".</li>
+                <li>Do not rely on color alone to convey state — text must always accompany the badge.</li>
+                <li>Counter badges on interactive elements should never intercept clicks; keep them non-interactive.</li>
+            </ul>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body></html>

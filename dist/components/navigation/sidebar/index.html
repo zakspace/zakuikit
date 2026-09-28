@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Sidebar documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Sidebar - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/navigation/sidebar/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Sidebar - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Sidebar documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/navigation/sidebar/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main">
+        <div class="docs-content">
+            <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Navigation</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Sidebar</span>
+                </nav>
+
+            <h1>Sidebar</h1>
+            <p class="docs-subtitle">A sidebar provides persistent vertical navigation alongside main content, supporting links, icons, badges, and nested collapsible sections.</p>
+
+            <section class="zak-docs-section">
+                <h2>Toggleable Sidebar</h2>
+                <p>Open and close a sidebar from a button using <code>data-zak-sidebar-toggle="#target"</code>.</p>
+                <div style="position: relative; overflow: hidden; min-height: 280px; border: 1px solid var(--docs-border, #e2e8f0); border-radius: var(--docs-radius-md, 0.5rem);">
+                    <button type="button" class="zak-btn zak-btn-primary" data-zak-sidebar-toggle="#demoSidebar" style="margin: 1rem;">Open Sidebar</button>
+                    <aside id="demoSidebar" class="zak-sidebar zak-sidebar-light" style="position: relative; width: 220px; min-height: 0; transform: none;">
+                        <nav class="zak-sidebar-nav">
+                            <a href="#" class="zak-sidebar-link active">Dashboard</a>
+                            <a href="#" class="zak-sidebar-link">Projects</a>
+                            <a href="#" class="zak-sidebar-link">Team</a>
+                            <a href="#" class="zak-sidebar-link">Settings</a>
+                        </nav>
+                    </aside>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Basic Sidebar</h2>
+                <p>A simple sidebar with navigation links.</p>
+                <div class="docs-preview">
+                    <div style="display: flex; gap: 1rem; min-height: 320px;">
+<aside class="zak-sidebar zak-sidebar-light" style="position:relative;width:220px;min-height:0;top:auto;left:auto;bottom:auto;transform:none;">
+                            <nav class="zak-sidebar-nav">
+                                <a href="#" class="zak-sidebar-link active">Dashboard</a>
+                                <a href="#" class="zak-sidebar-link">Projects</a>
+                                <a href="#" class="zak-sidebar-link">Team</a>
+                                <a href="#" class="zak-sidebar-link">Settings</a>
+                            </nav>
+                        </aside>
+                        <div style="flex: 1; padding: 1.5rem; background: var(--docs-surface); border-radius: 0.375rem; border: 1px solid var(--docs-border);">
+                            <p style="margin: 0; color: var(--docs-text-muted);">Main content area</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;aside class="zak-sidebar zak-sidebar-light"&gt;
+    &lt;nav class="zak-sidebar-nav"&gt;
+        &lt;a href="#" class="zak-sidebar-link active"&gt;
+            &lt;svg class="zak-icon" viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
+            Dashboard
+        &lt;/a&gt;
+        &lt;a href="#" class="zak-sidebar-link"&gt;
+            &lt;svg class="zak-icon" viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
+            Projects
+        &lt;/a&gt;
+    &lt;/nav&gt;
+&lt;/aside&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Sidebar with Icons</h2>
+                <p>Sidebar links can display icons alongside text labels.</p>
+                <div class="docs-preview">
+                    <div style="display: flex; gap: 1rem; min-height: 300px;">
+<aside class="zak-sidebar zak-sidebar-light" style="position:relative;width:64px;min-height:0;top:auto;left:auto;bottom:auto;transform:none;">
+                            <nav class="zak-sidebar-nav">
+                                <a href="#" class="zak-sidebar-link active" title="Dashboard" aria-label="Dashboard">
+                                    <svg class="zak-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+                                </a>
+                                <a href="#" class="zak-sidebar-link" title="Projects" aria-label="Projects">
+                                    <svg class="zak-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                                </a>
+                                <a href="#" class="zak-sidebar-link" title="Settings" aria-label="Settings">
+                                    <svg class="zak-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                                </a>
+                            </nav>
+                        </aside>
+                        <div style="flex: 1; padding: 1.5rem; background: var(--docs-surface); border-radius: 0.375rem; border: 1px solid var(--docs-border);">
+                            <p style="margin: 0; color: var(--docs-text-muted);">Icon-only sidebar</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;aside class="zak-sidebar zak-sidebar-light" style="width: 64px;"&gt;
+    &lt;nav class="zak-sidebar-nav"&gt;
+        &lt;a href="#" class="zak-sidebar-link active" title="Dashboard"&gt;
+            &lt;svg class="zak-icon" viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
+        &lt;/a&gt;
+    &lt;/nav&gt;
+&lt;/aside&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Collapsible Sidebar</h2>
+                <p>Sidebar sections can be collapsed and expanded by clicking section headers.</p>
+                <div class="docs-preview">
+                    <div style="display: flex; gap: 1rem; min-height: 380px;">
+<aside class="zak-sidebar zak-sidebar-light" style="position:relative;width:220px;min-height:0;top:auto;left:auto;bottom:auto;transform:none;">
+                            <nav class="zak-sidebar-nav">
+                                <div class="zak-sidebar-section" id="demoSection1">
+                                    <button class="zak-sidebar-section-header" onclick="document.getElementById('demoSection1').classList.toggle('collapsed')" type="button">
+                                        <span>Main</span>
+                                    </button>
+                                    <div class="zak-sidebar-section-body">
+                                        <a href="#" class="zak-sidebar-link active">Dashboard</a>
+                                        <a href="#" class="zak-sidebar-link">Analytics</a>
+                                    </div>
+                                </div>
+                                <div class="zak-sidebar-section" id="demoSection2">
+                                    <button class="zak-sidebar-section-header" onclick="document.getElementById('demoSection2').classList.toggle('collapsed')" type="button">
+                                        <span>Projects</span>
+                                    </button>
+                                    <div class="zak-sidebar-section-body">
+                                        <a href="#" class="zak-sidebar-link">Website Redesign</a>
+                                        <a href="#" class="zak-sidebar-link">Mobile App</a>
+                                    </div>
+                                </div>
+                            </nav>
+                        </aside>
+                        <div style="flex: 1; padding: 1.5rem; background: var(--docs-surface); border-radius: 0.375rem; border: 1px solid var(--docs-border);">
+                            <p style="margin: 0; color: var(--docs-text-muted);">Click section headers to toggle</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;aside class="zak-sidebar zak-sidebar-light"&gt;
+    &lt;nav class="zak-sidebar-nav"&gt;
+        &lt;div class="zak-sidebar-section" id="section1"&gt;
+            &lt;button class="zak-sidebar-section-header"
+                onclick="document.getElementById('section1').classList.toggle('docs-sidebar__category--collapsed')"&gt;
+                &lt;span&gt;Main&lt;/span&gt;
+                &lt;svg class="zak-icon zak-icon-chevron-down" viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
+            &lt;/button&gt;
+            &lt;div class="zak-sidebar-section-body"&gt;
+                &lt;a href="#" class="zak-sidebar-link active"&gt;Dashboard&lt;/a&gt;
+                &lt;a href="#" class="zak-sidebar-link"&gt;Analytics&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/nav&gt;
+&lt;/aside&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Sidebar with Header</h2>
+                <p>Add a header area at the top of the sidebar for branding or user info.</p>
+                <div class="docs-preview">
+                    <div style="display: flex; gap: 1rem; min-height: 360px;">
+<aside class="zak-sidebar zak-sidebar-light" style="position:relative;width:220px;min-height:0;top:auto;left:auto;bottom:auto;transform:none;">
+                            <div class="zak-sidebar-header">
+                                <span class="zak-avatar zak-avatar-sm">Z</span>
+                                <div>
+                                    <div style="font-weight: 600;">ZAKUIKit</div>
+                                    <div style="font-size: 0.75rem; color: var(--zak-text-muted);">Team Workspace</div>
+                                </div>
+                            </div>
+                            <nav class="zak-sidebar-nav">
+                                <a href="#" class="zak-sidebar-link active">Dashboard</a>
+                                <a href="#" class="zak-sidebar-link">Projects</a>
+                            </nav>
+                        </aside>
+                        <div style="flex: 1; padding: 1.5rem; background: var(--docs-surface); border-radius: 0.375rem; border: 1px solid var(--docs-border);">
+                            <p style="margin: 0; color: var(--docs-text-muted);">Sidebar with header</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;aside class="zak-sidebar zak-sidebar-light"&gt;
+    &lt;div class="zak-sidebar-header"&gt;
+        &lt;span class="zak-avatar zak-avatar-sm"&gt;Z&lt;/span&gt;
+        &lt;div&gt;
+            &lt;div style="font-weight: 600;"&gt;ZAKUIKit&lt;/div&gt;
+            &lt;div style="font-size: 0.75rem;"&gt;Team Workspace&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;nav class="zak-sidebar-nav"&gt;
+        &lt;a href="#" class="zak-sidebar-link active"&gt;Dashboard&lt;/a&gt;
+        &lt;a href="#" class="zak-sidebar-link"&gt;Projects&lt;/a&gt;
+    &lt;/nav&gt;
+&lt;/aside&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Sidebar with Footer</h2>
+                <p>Add a footer area at the bottom of the sidebar for auxiliary actions.</p>
+                <div class="docs-preview">
+                    <div style="display: flex; gap: 1rem; min-height: 360px;">
+<aside class="zak-sidebar zak-sidebar-light" style="position:relative;width:220px;min-height:0;top:auto;left:auto;bottom:auto;transform:none;">
+                            <nav class="zak-sidebar-nav">
+                                <a href="#" class="zak-sidebar-link active">Dashboard</a>
+                                <a href="#" class="zak-sidebar-link">Projects</a>
+                            </nav>
+                            <div class="zak-sidebar-footer">
+                                <span class="zak-avatar zak-avatar-sm">AB</span>
+                                <span>Alex Brown</span>
+                            </div>
+                        </aside>
+                        <div style="flex: 1; padding: 1.5rem; background: var(--docs-surface); border-radius: 0.375rem; border: 1px solid var(--docs-border);">
+                            <p style="margin: 0; color: var(--docs-text-muted);">Sidebar with footer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;aside class="zak-sidebar zak-sidebar-light"&gt;
+    &lt;nav class="zak-sidebar-nav"&gt;
+        &lt;a href="#" class="zak-sidebar-link active"&gt;Dashboard&lt;/a&gt;
+        &lt;a href="#" class="zak-sidebar-link"&gt;Projects&lt;/a&gt;
+    &lt;/nav&gt;
+    &lt;div class="zak-sidebar-footer"&gt;
+        &lt;span class="zak-avatar zak-avatar-sm"&gt;AB&lt;/span&gt;
+        &lt;span&gt;Alex Brown&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/aside&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Sidebar with Badges</h2>
+                <p>Add notification badges to sidebar links.</p>
+                <div class="docs-preview">
+                    <div style="display: flex; gap: 1rem; min-height: 340px;">
+<aside class="zak-sidebar zak-sidebar-light" style="position:relative;width:220px;min-height:0;top:auto;left:auto;bottom:auto;transform:none;">
+                            <nav class="zak-sidebar-nav">
+                                <a href="#" class="zak-sidebar-link active">Dashboard</a>
+                                <a href="#" class="zak-sidebar-link">Messages <span class="zak-badge zak-badge-primary" style="margin-left: auto;">12</span></a>
+                                <a href="#" class="zak-sidebar-link">Notifications <span class="zak-badge zak-badge-danger" style="margin-left: auto;">3</span></a>
+                                <a href="#" class="zak-sidebar-link">Settings</a>
+                            </nav>
+                        </aside>
+                        <div style="flex: 1; padding: 1.5rem; background: var(--docs-surface); border-radius: 0.375rem; border: 1px solid var(--docs-border);">
+                            <p style="margin: 0; color: var(--docs-text-muted);">Links with badges</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;a href="#" class="zak-sidebar-link"&gt;
+    Messages
+    &lt;span class="zak-badge zak-badge-primary" style="margin-left: auto;"&gt;12&lt;/span&gt;
+&lt;/a&gt;
+&lt;a href="#" class="zak-sidebar-link"&gt;
+    Notifications
+    &lt;span class="zak-badge zak-badge-danger" style="margin-left: auto;"&gt;3&lt;/span&gt;
+&lt;/a&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Fixed Sidebar</h2>
+                <p>Use the fixed variant to keep the sidebar always visible while scrolling.</p>
+                <div class="docs-preview">
+                    <div style="position: relative; height: 280px; overflow: hidden; border-radius: 0.375rem; border: 1px solid var(--docs-border);">
+<aside class="zak-sidebar zak-sidebar-light zak-sidebar-fixed" style="position:absolute;top:0;left:0;width:220px;min-height:0;">
+                            <nav class="zak-sidebar-nav">
+                                <a href="#" class="zak-sidebar-link active">Dashboard</a>
+                                <a href="#" class="zak-sidebar-link">Projects</a>
+                                <a href="#" class="zak-sidebar-link">Settings</a>
+                            </nav>
+                        </aside>
+                        <div style="margin-left: 220px; padding: 1.5rem;">
+                            <p style="margin: 0; color: var(--docs-text-muted); font-size: 14px;">Scroll content next to fixed sidebar</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;aside class="zak-sidebar zak-sidebar-light zak-sidebar-fixed"&gt;
+    &lt;nav class="zak-sidebar-nav"&gt;
+        &lt;a href="#" class="zak-sidebar-link active"&gt;Dashboard&lt;/a&gt;
+        &lt;a href="#" class="zak-sidebar-link"&gt;Projects&lt;/a&gt;
+    &lt;/nav&gt;
+&lt;/aside&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Sidebar with Nested Links</h2>
+                <p>Create multi-level navigation with nested sub-links.</p>
+                <div class="docs-preview">
+                    <div style="display: flex; gap: 1rem; min-height: 380px;">
+<aside class="zak-sidebar zak-sidebar-light" style="position:relative;width:220px;min-height:0;top:auto;left:auto;bottom:auto;transform:none;">
+                            <nav class="zak-sidebar-nav">
+                                <a href="#" class="zak-sidebar-link active">Dashboard</a>
+                                <div class="zak-sidebar-subnav" id="demoSub1">
+                                    <button class="zak-sidebar-link zak-sidebar-subnav-toggle" onclick="document.getElementById('demoSub1').classList.toggle('open')" type="button">
+                                        Projects
+                                    </button>
+                                    <div class="zak-sidebar-subnav-items">
+                                        <a href="#" class="zak-sidebar-link">Website Redesign</a>
+                                        <a href="#" class="zak-sidebar-link">Mobile App</a>
+                                        <a href="#" class="zak-sidebar-link">API v2</a>
+                                    </div>
+                                </div>
+                                <a href="#" class="zak-sidebar-link">Settings</a>
+                            </nav>
+                        </aside>
+                        <div style="flex: 1; padding: 1.5rem; background: var(--docs-surface); border-radius: 0.375rem; border: 1px solid var(--docs-border);">
+                            <p style="margin: 0; color: var(--docs-text-muted);">Nested links with toggle</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-sidebar-subnav" id="nav1"&gt;
+    &lt;button class="zak-sidebar-link zak-sidebar-subnav-toggle"
+        onclick="document.getElementById('nav1').classList.toggle('open')"&gt;
+        &lt;svg class="zak-icon zak-icon-chevron-down" viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
+        Projects
+    &lt;/button&gt;
+    &lt;div class="zak-sidebar-subnav-items"&gt;
+        &lt;a href="#" class="zak-sidebar-link"&gt;Website Redesign&lt;/a&gt;
+        &lt;a href="#" class="zak-sidebar-link"&gt;Mobile App&lt;/a&gt;
+        &lt;a href="#" class="zak-sidebar-link"&gt;API v2&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>CSS Classes</h2>
+                <p>Sidebar styles are controlled through these CSS classes.</p>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>/* Sidebar Container */
+.zak-sidebar                  /* Base sidebar */
+.zak-sidebar-light            /* Light background */
+.zak-sidebar-dark             /* Dark background */
+.zak-sidebar-fixed            /* Fixed position */
+
+/* Sidebar Parts */
+.zak-sidebar-header           /* Top header area */
+.zak-sidebar-nav              /* Navigation container */
+.zak-sidebar-footer           /* Bottom footer area */
+
+/* Links */
+.zak-sidebar-link             /* Navigation link */
+.zak-sidebar-link.active      /* Active state */
+
+/* Sections */
+.zak-sidebar-section          /* Collapsible section wrapper */
+.zak-sidebar-section-header   /* Section header button */
+.zak-sidebar-section-body     /* Section body container */
+.zak-sidebar-section.collapsed /* Collapsed state */
+
+/* Nested */
+.zak-sidebar-subnav           /* Nested nav wrapper */
+.zak-sidebar-subnav-toggle    /* Toggle button for nested */
+.zak-sidebar-subnav-items     /* Nested items container */
+.zak-sidebar-subnav.open      /* Nested items expanded */</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>JavaScript</h2>
+                <p>Use JavaScript for collapsible sections and nested navigation toggles.</p>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>// Toggle collapsible sidebar sections
+document.querySelectorAll('.zak-sidebar-section-header').forEach(header =&gt; {
+    header.addEventListener('click', function() {
+        this.closest('.zak-sidebar-section').classList.toggle('docs-sidebar__category--collapsed');
+    });
+});
+
+// Toggle nested subnav
+document.querySelectorAll('.zak-sidebar-subnav-toggle').forEach(toggle =&gt; {
+    toggle.addEventListener('click', function() {
+        this.closest('.zak-sidebar-subnav').classList.toggle('open');
+    });
+});
+
+// Close other open subnavs
+document.querySelectorAll('.zak-sidebar-subnav-toggle').forEach(toggle =&gt; {
+    toggle.addEventListener('click', function() {
+        const subnav = this.closest('.zak-sidebar-subnav');
+        const siblings = subnav.parentElement.querySelectorAll('.zak-sidebar-subnav.open');
+        siblings.forEach(s =&gt; { if (s !== subnav) s.classList.remove('open'); });
+    });
+});
+
+// Handle sidebar link clicks
+document.querySelectorAll('.zak-sidebar-link').forEach(link =&gt; {
+    link.addEventListener('click', function() {
+        if (!this.classList.contains('zak-sidebar-subnav-toggle')) {
+            this.closest('.zak-sidebar-nav').querySelectorAll('.zak-sidebar-link').forEach(l =&gt; {
+                l.classList.remove('active');
+            });
+            this.classList.add('active');
+        }
+    });
+});</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Accessibility</h2>
+                <p>Follow these accessibility best practices when using sidebars.</p>
+                <ul>
+                    <li>Use <code>&lt;aside&gt;</code> element with <code>role="navigation"</code> and an <code>aria-label</code>.</li>
+                    <li>Mark the current page link with <code>aria-current="page"</code>.</li>
+                    <li>For collapsible sections, use <code>aria-expanded</code> on the toggle button.</li>
+                    <li>Use <code>aria-controls</code> to associate the toggle with the expandable content.</li>
+                    <li>Ensure keyboard navigation works through all sidebar links with <kbd>Tab</kbd>.</li>
+                    <li>For icon-only sidebars, always provide <code>title</code> or <code>aria-label</code> attributes.</li>
+                </ul>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;aside class="zak-sidebar zak-sidebar-light" role="navigation" aria-label="Main sidebar"&gt;
+    &lt;nav class="zak-sidebar-nav"&gt;
+        &lt;a href="#" class="zak-sidebar-link active" aria-current="page"&gt;Dashboard&lt;/a&gt;
+        &lt;a href="#" class="zak-sidebar-link"&gt;Projects&lt;/a&gt;
+    &lt;/nav&gt;
+&lt;/aside&gt;
+
+&lt;!-- Collapsible section with ARIA --&gt;
+&lt;div class="zak-sidebar-section"&gt;
+    &lt;button class="zak-sidebar-section-header" aria-expanded="true" aria-controls="section-body-1"&gt;
+        &lt;span&gt;Projects&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;div class="zak-sidebar-section-body" id="section-body-1" role="list"&gt;
+        &lt;a href="#" class="zak-sidebar-link" role="listitem"&gt;Website Redesign&lt;/a&gt;
+        &lt;a href="#" class="zak-sidebar-link" role="listitem"&gt;Mobile App&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body>
+</html>

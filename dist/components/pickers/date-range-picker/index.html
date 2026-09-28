@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Date Range Picker documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Date Range Picker - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/pickers/date-range-picker/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Date Range Picker - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Date Range Picker documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/pickers/date-range-picker/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Pickers</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Date Range Picker</span>
+                </nav>
+        <h1>Date Range Picker</h1>
+        <p class="docs-subtitle">The Date Range Picker captures a start and end date in one gesture. Click the field to open a month calendar, pick the start, then the end — the span highlights with <code>zak-in-range</code>.</p>
+
+        <section class="zak-docs-section">
+            <h2>Basic Range Picker</h2>
+            <p>Open the popup, click two days. Days between the endpoints are highlighted and the field shows <code>Sept 1 — Sept 12</code>.</p>
+            <div class="docs-preview">
+                <div id="rangePicker1" class="zak-range-picker"></div>
+                <p class="zak-event-log" id="rangeLog1">Pick a start, then an end.</p>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-range-picker"&gt;
+    &lt;button class="zak-range-field"&gt;
+        &lt;span data-start&gt;Start date&lt;/span&gt;
+        &lt;span class="zak-range-sep"&gt;&amp;mdash;&lt;/span&gt;
+        &lt;span data-end&gt;End date&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;div class="zak-range-popup"&gt;
+        &lt;!-- .zak-calendar built by JS --&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Quick Presets</h2>
+            <p>Offer ready-made spans. Chips such as <em>Today</em>, <em>Last 7 days</em> or <em>This month</em> set the selection immediately.</p>
+            <div class="docs-preview">
+                <div id="rangePicker2" class="zak-range-picker"></div>
+                <p class="zak-event-log" id="rangeLog2">Choose a preset or pick a range.</p>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-docs-presets" role="group" aria-label="Quick ranges"&gt;
+    &lt;button class="zak-preset-chip" data-days="7"&gt;Last 7 days&lt;/button&gt;
+    &lt;button class="zak-preset-chip" data-days="0"&gt;Today&lt;/button&gt;
+    &lt;button class="zak-preset-chip" data-month&gt;This month&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="zak-calendar" id="range2"&gt;&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Constrained Range</h2>
+            <p>Disable days outside a business window with the <code>disabled</code> attribute so the picker rejects invalid spans functionally, not just visually.</p>
+            <div class="docs-preview">
+                <div class="zak-calendar" id="rangeConstrained" style="display:inline-flex;"></div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>// During grid construction:
+if (date.getDay() === 0 || date.getDay() === 6) {
+    day.disabled = true;   // block weekends
+}
+if (date &lt; new Date(2026, 8, 15)) {
+    day.disabled = true;   // block past bookings
+}</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Value Handling</h2>
+            <p>Keep two hidden inputs (<code>start</code>/<code>end</code>) for form submission, and mirror the readable value in the field.</p>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;input type="hidden" name="date_from"&gt;
+&lt;input type="hidden" name="date_to"&gt;
+
+&lt;script&gt;
+    function commitRange(start, end) {
+        form.date_from.value = toISO(start);
+        form.date_to.value   = toISO(end);
+        field.textContent = short(start) + ' \u2014 ' + short(end);
+    }
+&lt;/script&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>CSS Classes</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>// Range picker composition:
+.zak-range-picker       /* Relative wrapper (field + popup) */
+.zak-range-field        /* Readable trigger (styled as a field) */
+.zak-range-sep          /* "—" between the two dates */
+.zak-range-popup        /* Popup card (hidden until active) */
+.zak-preset-row         /* Quick-range chip row */
+.zak-preset-chip        /* Single preset button */
+
+// Calendar states (shared with Calendar):
+.zak-calendar-day.zak-in-range    /* Days inside the span */
+.zak-calendar-day.zak-range-start /* Start endpoint */
+.zak-calendar-day.zak-range-end   /* End endpoint */
+.zak-calendar-day.zak-today       /* Current day */
+.zak-calendar-day.zak-outside     /* Adjacent-month days */
+.zak-calendar-day:disabled        /* Unselectable days */
+
+// Toggle class:
+.zak-range-popup-active  /* Shows the popup */</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>JavaScript</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>// No library module ships for the range picker — reuse the
+// Calendar helpers and add two-state selection:
+
+var start = null, end = null;
+
+function onDayClick(dayBtn) {
+    var date = new Date(dayBtn.dataset.date);
+    if (!start || end) {          // first pick / starting over
+        start = date; end = null;
+    } else if (date &lt; start) {     // picked earlier than start
+        end = start; start = date;
+    } else {
+        end = date;
+    }
+    drawRange();
+}
+
+function drawRange() {
+    grid.forEach(day =&gt; day.classList.toggle('zak-in-range',
+        start &amp;&amp; end &amp;&amp; day.date &gt; start &amp;&amp; day.date &lt; end));
+    mark(start, 'zak-range-start');
+    mark(end, 'zak-range-end');
+}</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Make the trigger a <code>&lt;button&gt;</code> (not a div) so it is focusable and operable by keyboard.</li>
+                <li>Announce the selection: set the field text on each choice, or use an <code>aria-live="assertive"</code> line.</li>
+                <li>Keep hidden start/end inputs labelled so the pair reads clearly to assistive tech.</li>
+                <li>Preset chips labeled <em>Last 7 days</em> etc. are more descriptive than raw dates.</li>
+            </ul>
+        </section>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body></html>

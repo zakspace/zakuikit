@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Aspect Ratio documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Aspect Ratio - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/layout/aspect-ratio/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Aspect Ratio - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Aspect Ratio documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/layout/aspect-ratio/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main">
+        <div class="docs-content">
+            <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Layout</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Aspect Ratio</span>
+                </nav>
+            <h1>Aspect Ratio</h1>
+            <p class="docs-subtitle">Maintain a consistent width-to-height ratio for responsive images, videos, iframes, and other media content.</p>
+
+            <section class="zak-docs-section">
+                <h2>Basic Aspect Ratio</h2>
+                <p>Use <code>.zak-aspect-ratio</code> to maintain a 16:9 ratio by default.</p>
+                <div class="docs-preview">
+                    <div class="zak-aspect-ratio" style="max-width:300px;background:var(--zak-primary-light);border:1px dashed var(--zak-primary);border-radius:var(--zak-radius);color:var(--zak-primary);display:flex;align-items:center;justify-content:center;">
+                        16:9 (default)
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-aspect-ratio"&gt;
+  &lt;img src="image.jpg" alt="Description"&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Ratio Variants</h2>
+                <p>Choose from common aspect ratios for different content types.</p>
+                <div class="docs-preview">
+                    <div style="display:flex;gap:1.5rem;flex-wrap:wrap;align-items:flex-end;">
+                        <div style="flex:0 0 auto;">
+                            <p style="font-size:0.75rem;margin:0 0 0.5rem;color:var(--zak-text-muted);">.zak-aspect-ratio-1x1</p>
+                            <div class="zak-aspect-ratio-1x1" style="width:120px;background:var(--zak-primary-light);border:1px dashed var(--zak-primary);border-radius:var(--zak-radius);color:var(--zak-primary);display:flex;align-items:center;justify-content:center;font-size:0.75rem;">1:1</div>
+                        </div>
+                        <div style="flex:0 0 auto;">
+                            <p style="font-size:0.75rem;margin:0 0 0.5rem;color:var(--zak-text-muted);">.zak-aspect-ratio-4x3</p>
+                            <div class="zak-aspect-ratio-4x3" style="width:160px;background:var(--zak-secondary-light);border:1px dashed var(--zak-secondary);border-radius:var(--zak-radius);color:var(--zak-secondary);display:flex;align-items:center;justify-content:center;font-size:0.75rem;">4:3</div>
+                        </div>
+                        <div style="flex:0 0 auto;">
+                            <p style="font-size:0.75rem;margin:0 0 0.5rem;color:var(--zak-text-muted);">.zak-aspect-ratio-16x9</p>
+                            <div class="zak-aspect-ratio-16x9" style="width:200px;background:var(--zak-success-light);border:1px dashed var(--zak-success);border-radius:var(--zak-radius);color:var(--zak-success);display:flex;align-items:center;justify-content:center;font-size:0.75rem;">16:9</div>
+                        </div>
+                        <div style="flex:0 0 auto;">
+                            <p style="font-size:0.75rem;margin:0 0 0.5rem;color:var(--zak-text-muted);">.zak-aspect-ratio-21x9</p>
+                            <div class="zak-aspect-ratio-21x9" style="width:200px;background:var(--zak-warning-light);border:1px dashed var(--zak-warning);border-radius:var(--zak-radius);color:var(--zak-warning-dark,var(--zak-warning));display:flex;align-items:center;justify-content:center;font-size:0.75rem;">21:9</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-aspect-ratio-1x1"&gt;1:1 Square&lt;/div&gt;
+&lt;div class="zak-aspect-ratio-4x3"&gt;4:3 Standard&lt;/div&gt;
+&lt;div class="zak-aspect-ratio-16x9"&gt;16:9 Widescreen&lt;/div&gt;
+&lt;div class="zak-aspect-ratio-21x9"&gt;21:9 Ultra-wide&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Responsive Aspect Ratio</h2>
+                <p>Change aspect ratio at different breakpoints for adaptive layouts.</p>
+                <div class="docs-preview">
+                    <div class="zak-aspect-ratio-4x9 zak-aspect-ratio-sm-1x1 zak-aspect-ratio-md-4x3 zak-aspect-ratio-lg-16x9" style="max-width:400px;background:var(--zak-primary-light);border:1px dashed var(--zak-primary);border-radius:var(--zak-radius);color:var(--zak-primary);display:flex;align-items:center;justify-content:center;font-size:0.875rem;">
+                        Responsive: 4:9 &rarr; 1:1 &rarr; 4:3 &rarr; 16:9
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-aspect-ratio-4x9 zak-aspect-ratio-sm-1x1 zak-aspect-ratio-md-4x3 zak-aspect-ratio-lg-16x9"&gt;
+  Responsive aspect ratio
+&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Images</h2>
+                <p>Wrap images in an aspect ratio container to prevent layout shift while loading.</p>
+                <div class="docs-preview">
+                    <div class="zak-aspect-ratio-16x9" style="max-width:350px;background:var(--zak-surface-alt);border:1px solid var(--zak-border);border-radius:var(--zak-radius);">
+                        <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.5rem;">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--zak-text-muted)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+                            <span style="font-size:0.875rem;color:var(--zak-text-muted);">Image placeholder</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-aspect-ratio-16x9"&gt;
+  &lt;img src="photo.jpg" alt="Description" style="width:100%;height:100%;object-fit:cover;"&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Videos and Iframes</h2>
+                <p>Embed responsive video players and iframes without aspect ratio distortion.</p>
+                <div class="docs-preview">
+                    <div class="zak-aspect-ratio-16x9" style="max-width:400px;background:#000;border-radius:var(--zak-radius);display:flex;align-items:center;justify-content:center;">
+                        <div style="width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-aspect-ratio-16x9"&gt;
+  &lt;iframe src="https://..." title="Video" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>CSS Reference</h2>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>.zak-aspect-ratio {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+}
+
+.zak-aspect-ratio > * {
+  width: 100%;
+  height: 100%;
+}
+
+.zak-aspect-ratio-1x1 { aspect-ratio: 1 / 1; }
+.zak-aspect-ratio-4x3 { aspect-ratio: 4 / 3; }
+.zak-aspect-ratio-16x9 { aspect-ratio: 16 / 9; }
+.zak-aspect-ratio-21x9 { aspect-ratio: 21 / 9; }</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Accessibility</h2>
+                <ul>
+                    <li>Always provide <code>alt</code> text for images inside aspect ratio containers</li>
+                    <li>For iframes, include a descriptive <code>title</code> attribute</li>
+                    <li>Videos should have captions or transcripts when possible</li>
+                    <li>The aspect-ratio CSS property is well-supported; no fallback needed for modern browsers</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body>
+</html>

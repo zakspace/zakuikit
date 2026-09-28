@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Chat Message documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Chat Message - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/ai/chat-message/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Chat Message - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Chat Message documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/ai/chat-message/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Ai</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Chat Message</span>
+                </nav>
+        <h1>Chat Message</h1>
+        <p class="docs-subtitle">Individual chat message bubbles for user and AI messages with avatars, timestamps, rich content, and action buttons.</p>
+
+        <section class="zak-docs-section">
+            <h2>User &amp; AI Messages</h2>
+            <p>Messages with avatars and timestamps, alternating between user and AI.</p>
+            <div class="docs-preview">
+                <div style="max-width:640px;width:100%">
+                    <div class="zak-ai-cmsg user">
+                        <div class="zak-ai-cmsg-avatar">U</div>
+                        <div class="zak-ai-cmsg-body">
+                            <div class="zak-ai-cmsg-meta"><span class="zak-ai-cmsg-name">You</span><span>2:34 PM</span></div>
+                            <div class="zak-ai-cmsg-bubble">What's the difference between <code>let</code>, <code>const</code>, and <code>var</code> in JavaScript?</div>
+                        </div>
+                    </div>
+                    <div class="zak-ai-cmsg ai">
+                        <div class="zak-ai-cmsg-avatar"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></div>
+                        <div class="zak-ai-cmsg-body">
+                            <div class="zak-ai-cmsg-meta"><span class="zak-ai-cmsg-name">ZAK AI</span><span>2:34 PM</span></div>
+                            <div class="zak-ai-cmsg-bubble">
+                                Great question! Here are the key differences:<br><br>
+                                <ul>
+                                    <li><strong>var</strong> — function-scoped, hoisted, can be redeclared</li>
+                                    <li><strong>let</strong> — block-scoped, not hoisted, cannot be redeclared</li>
+                                    <li><strong>const</strong> — block-scoped, not hoisted, cannot be reassigned</li>
+                                </ul><br>
+                                Best practice: Use <code>const</code> by default, <code>let</code> when reassignment is needed.
+                            </div>
+                            <div class="zak-ai-cmsg-actions">
+                                <button title="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></button>
+                                <button title="Regenerate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 4v6h6M23 20v-6h-6"/><path d="M20.49 9A9 9 0 005.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 013.51 15"/></svg></button>
+                                <button title="Edit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 113 3L7 19l-4 1 1-4z"/></svg></button>
+                                <button title="Share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98"/></svg></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-ai-cmsg user"&gt;
+    &lt;div class="zak-ai-cmsg-avatar"&gt;U&lt;/div&gt;
+    &lt;div class="zak-ai-cmsg-body"&gt;
+        &lt;div class="zak-ai-cmsg-meta"&gt;
+            &lt;span class="zak-ai-cmsg-name"&gt;You&lt;/span&gt;&lt;span&gt;2:34 PM&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class="zak-ai-cmsg-bubble"&gt;Your message here&lt;/div&gt;
+        &lt;div class="zak-ai-cmsg-actions"&gt;
+            &lt;button title="Copy"&gt;ðŸ“‹&lt;/button&gt;
+            &lt;button title="Edit"&gt;âœï¸&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Message with Code Block</h2>
+            <p>AI message containing a formatted code block.</p>
+            <div class="docs-preview">
+                <div style="max-width:640px;width:100%">
+                    <div class="zak-ai-cmsg ai">
+                        <div class="zak-ai-cmsg-avatar"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></div>
+                        <div class="zak-ai-cmsg-body">
+                            <div class="zak-ai-cmsg-meta"><span class="zak-ai-cmsg-name">ZAK AI</span><span>2:35 PM</span></div>
+                            <div class="zak-ai-cmsg-bubble">Here's a React <code>useEffect</code> example:<pre><code>useEffect(() =&gt; {
+  const controller = new AbortController();
+
+  async function fetchData() {
+    const res = await fetch(url, {
+      signal: controller.signal
+    });
+    const data = await res.json();
+    setData(data);
+  }
+
+  fetchData();
+  return () =&gt; controller.abort();
+}, [url]);</code></pre>The cleanup function aborts the fetch on unmount.</div>
+                            <div class="zak-ai-cmsg-actions">
+                                <button title="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></button>
+                                <button title="Regenerate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 4v6h6M23 20v-6h-6"/></svg></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Message with Markdown</h2>
+            <p>AI message with markdown-like formatting (bold, links, lists).</p>
+            <div class="docs-preview">
+                <div style="max-width:640px;width:100%">
+                    <div class="zak-ai-cmsg ai">
+                        <div class="zak-ai-cmsg-avatar"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></div>
+                        <div class="zak-ai-cmsg-body">
+                            <div class="zak-ai-cmsg-meta"><span class="zak-ai-cmsg-name">ZAK AI</span><span>2:36 PM</span></div>
+                            <div class="zak-ai-cmsg-bubble">
+                                Here are the top resources for learning React:<br><br>
+                                <strong>Official Resources:</strong>
+                                <ul>
+                                    <li><a href="#">React Documentation</a> — The official guide</li>
+                                    <li><a href="#">React GitHub</a> — Source code and issues</li>
+                                </ul><br>
+                                <strong>Community Picks:</strong>
+                                <ul>
+                                    <li><a href="#">Kent C. Dodds' Blog</a> — Expert React patterns</li>
+                                    <li><a href="#">React Hooks Course</a> — Deep dive into hooks</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>With Copy Button</h2>
+            <p>AI message with a prominent copy-to-clipboard button.</p>
+            <div class="docs-preview">
+                <div style="max-width:640px;width:100%">
+                    <div class="zak-ai-cmsg ai">
+                        <div class="zak-ai-cmsg-avatar"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></div>
+                        <div class="zak-ai-cmsg-body">
+                            <div class="zak-ai-cmsg-meta"><span class="zak-ai-cmsg-name">ZAK AI</span><span>2:37 PM</span></div>
+                            <div class="zak-ai-cmsg-bubble">npm install @zak-ui/core @zak-ui/icons</div>
+                            <div class="zak-ai-cmsg-actions">
+                                <button title="Copy" class="zak-copy-msg" style="opacity:1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copy</button>
+                                <button title="Regenerate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 4v6h6M23 20v-6h-6"/></svg></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-ai-cmsg-actions"&gt;
+    &lt;button title="Copy" class="zak-copy-msg" style="opacity:1"&gt;
+        &lt;svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;...&lt;/svg&gt;
+        Copy
+    &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>CSS Classes</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>.zak-ai-cmsg            /* Message row container (flex) */
+.zak-ai-cmsg.user       /* User message — right-aligned, gradient bg */
+.zak-ai-cmsg.ai         /* AI message — left-aligned, neutral bg */
+.zak-ai-cmsg-avatar     /* Avatar circle */
+.zak-ai-cmsg-body       /* Body container (meta + bubble + actions) */
+.zak-ai-cmsg-meta       /* Name + timestamp row */
+.zak-ai-cmsg-name       /* Sender name */
+.zak-ai-cmsg-bubble     /* Message bubble with content */
+.zak-ai-cmsg-actions    /* Action buttons row (copy, edit, etc.) */</code></pre>
+        </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>JavaScript</h2>
+            <p>Copy message content to clipboard.</p>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>document.querySelectorAll('.zak-copy-msg').forEach(btn =&gt; {
+    btn.addEventListener('click', function() {
+        const bubble = this.closest('.zak-ai-cmsg-body').querySelector('.zak-ai-cmsg-bubble');
+        if (bubble) {
+            navigator.clipboard.writeText(bubble.textContent.trim());
+            this.innerHTML = 'âœ“ Copied';
+            setTimeout(() =&gt; {
+                this.innerHTML = '&lt;svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;...&lt;/svg&gt; Copy';
+            }, 2000);
+        }
+    });
+});</code></pre>
+        </div>
+        </section>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    <script>
+        document.querySelectorAll('.zak-copy-msg').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var body = this.closest('.zak-ai-cmsg-body');
+                var bubble = body && body.querySelector('.zak-ai-cmsg-bubble');
+                if (!bubble) return;
+                if (navigator.clipboard) navigator.clipboard.writeText(bubble.textContent.trim());
+                var original = this.innerHTML;
+                var self = this;
+                this.textContent = 'Copied';
+                setTimeout(function () { self.innerHTML = original; }, 2000);
+            });
+        });
+    </script>
+    </body>
+</html>

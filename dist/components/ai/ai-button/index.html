@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit AI Button documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>AI Button - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/ai/ai-button/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="AI Button - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit AI Button documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/ai/ai-button/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Ai</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">AI Button</span>
+                </nav>
+        <h1>AI Button</h1>
+        <p class="docs-subtitle">AI-themed buttons with sparkle icons, gradient backgrounds, and glow animations for triggering AI-powered actions.</p>
+
+        <section class="zak-docs-section">
+            <h2>Primary Gradient</h2>
+            <p>AI buttons with a gradient purple background and sparkle icon.</p>
+            <div class="docs-preview">
+                <div style="display:flex;flex-wrap:wrap;gap:0.75rem;align-items:center">
+                    <button class="zak-ai-btn zak-ai-btn-primary zak-ai-btn-sm"><svg class="zak-ai-sparkle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg>Generate</button>
+                    <button class="zak-ai-btn zak-ai-btn-primary zak-ai-btn-md"><svg class="zak-ai-sparkle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg>Generate</button>
+                    <button class="zak-ai-btn zak-ai-btn-primary zak-ai-btn-lg"><svg class="zak-ai-sparkle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg>Generate</button>
+                    <button class="zak-ai-btn zak-ai-btn-primary zak-ai-btn-xl"><svg class="zak-ai-sparkle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg>Generate</button>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;button class="zak-ai-btn zak-ai-btn-primary zak-ai-btn-md"&gt;
+    &lt;svg class="zak-ai-sparkle" viewBox="0 0 24 24" fill="currentColor"&gt;
+        &lt;path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/&gt;
+    &lt;/svg&gt;
+    Generate
+&lt;/button&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Variants</h2>
+            <p>Different visual styles for different contexts.</p>
+            <div class="docs-preview">
+                <div style="display:flex;flex-wrap:wrap;gap:0.75rem;align-items:center">
+                    <button class="zak-ai-btn zak-ai-btn-primary zak-ai-btn-md"><svg class="zak-ai-sparkle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg>Primary</button>
+                    <button class="zak-ai-btn zak-ai-btn-secondary zak-ai-btn-md"><svg class="zak-ai-sparkle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg>Secondary</button>
+                    <button class="zak-ai-btn zak-ai-btn-outline zak-ai-btn-md"><svg class="zak-ai-sparkle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg>Outline</button>
+                    <button class="zak-ai-btn zak-ai-btn-ghost zak-ai-btn-md"><svg class="zak-ai-sparkle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg>Ghost</button>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;button class="zak-ai-btn zak-ai-btn-primary zak-ai-btn-md"&gt;...Primary&lt;/button&gt;
+&lt;button class="zak-ai-btn zak-ai-btn-secondary zak-ai-btn-md"&gt;...Secondary&lt;/button&gt;
+&lt;button class="zak-ai-btn zak-ai-btn-outline zak-ai-btn-md"&gt;...Outline&lt;/button&gt;
+&lt;button class="zak-ai-btn zak-ai-btn-ghost zak-ai-btn-md"&gt;...Ghost&lt;/button&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>With AI Badge</h2>
+            <p>Buttons with an "AI" text badge alongside the sparkle icon.</p>
+            <div class="docs-preview">
+                <div style="display:flex;flex-wrap:wrap;gap:0.75rem;align-items:center">
+                    <button class="zak-ai-btn zak-ai-btn-primary zak-ai-btn-md"><svg class="zak-ai-sparkle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg><span class="zak-ai-badge">AI</span>Complete</button>
+                    <button class="zak-ai-btn zak-ai-btn-secondary zak-ai-btn-md"><svg class="zak-ai-sparkle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg><span class="zak-ai-badge">AI</span>Summarize</button>
+                    <button class="zak-ai-btn zak-ai-btn-outline zak-ai-btn-md"><svg class="zak-ai-sparkle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg><span class="zak-ai-badge">AI</span>Translate</button>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;button class="zak-ai-btn zak-ai-btn-primary zak-ai-btn-md"&gt;
+    &lt;svg class="zak-ai-sparkle" viewBox="0 0 24 24" fill="currentColor"&gt;...&lt;/svg&gt;
+    &lt;span class="zak-ai-badge"&gt;AI&lt;/span&gt;Complete
+&lt;/button&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Glowing Animation</h2>
+            <p>Buttons with a pulsing glow animation to draw attention.</p>
+            <div class="docs-preview">
+                <div style="display:flex;flex-wrap:wrap;gap:0.75rem;align-items:center">
+                    <button class="zak-ai-btn zak-ai-btn-glow zak-ai-btn-lg"><svg class="zak-ai-sparkle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg>Generate with AI</button>
+                    <button class="zak-ai-btn zak-ai-btn-glow zak-ai-btn-lg" style="animation-delay:0.5s"><svg class="zak-ai-sparkle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg>Enhance</button>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;button class="zak-ai-btn zak-ai-btn-glow zak-ai-btn-lg"&gt;
+    &lt;svg class="zak-ai-sparkle" viewBox="0 0 24 24" fill="currentColor"&gt;...&lt;/svg&gt;
+    Generate with AI
+&lt;/button&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Loading State</h2>
+            <p>AI buttons with a spinner during processing.</p>
+            <div class="docs-preview">
+                <div style="display:flex;flex-wrap:wrap;gap:0.75rem;align-items:center">
+                    <button class="zak-ai-btn zak-ai-btn-loading zak-ai-btn-md"><span class="zak-ai-spinner"></span>Generating...</button>
+                    <button class="zak-ai-btn zak-ai-btn-loading zak-ai-btn-lg"><span class="zak-ai-spinner"></span>Processing...</button>
+                    <button class="zak-ai-btn zak-ai-btn-primary zak-ai-btn-md" id="ai-btn-demo"><svg class="zak-ai-sparkle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg>Click to Test</button>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;button class="zak-ai-btn zak-ai-btn-loading zak-ai-btn-md"&gt;
+    &lt;span class="zak-ai-spinner"&gt;&lt;/span&gt;Generating...
+&lt;/button&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Icon Only</h2>
+            <p>Compact icon-only AI buttons for toolbars and tight spaces.</p>
+            <div class="docs-preview">
+                <div style="display:flex;flex-wrap:wrap;gap:0.75rem;align-items:center">
+                    <button class="zak-ai-btn zak-ai-btn-primary zak-ai-btn-icon" aria-label="AI Generate"><svg class="zak-ai-sparkle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></button>
+                    <button class="zak-ai-btn zak-ai-btn-secondary zak-ai-btn-icon" aria-label="AI Enhance"><svg class="zak-ai-sparkle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></button>
+                    <button class="zak-ai-btn zak-ai-btn-outline zak-ai-btn-icon" aria-label="AI Transform"><svg class="zak-ai-sparkle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></button>
+                    <button class="zak-ai-btn zak-ai-btn-glow zak-ai-btn-icon" aria-label="AI Spark"><svg class="zak-ai-sparkle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></button>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;button class="zak-ai-btn zak-ai-btn-primary zak-ai-btn-icon" aria-label="AI Generate"&gt;
+    &lt;svg class="zak-ai-sparkle" viewBox="0 0 24 24" fill="currentColor"&gt;...&lt;/svg&gt;
+&lt;/button&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Button Group</h2>
+            <p>Group multiple AI action buttons together.</p>
+            <div class="docs-preview">
+                <div style="display:flex;gap:0">
+                    <button class="zak-ai-btn zak-ai-btn-outline zak-ai-btn-md" style="border-radius:0.75rem 0 0 0.75rem"><svg class="zak-ai-sparkle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg>Generate</button>
+                    <button class="zak-ai-btn zak-ai-btn-primary zak-ai-btn-md" style="border-radius:0 0.75rem 0.75rem 0">Enhance</button>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div style="display:flex;gap:0"&gt;
+    &lt;button class="zak-ai-btn zak-ai-btn-outline zak-ai-btn-md" style="border-radius:0.75rem 0 0 0.75rem"&gt;
+        &lt;svg class="zak-ai-sparkle" viewBox="0 0 24 24" fill="currentColor"&gt;...&lt;/svg&gt;Generate
+    &lt;/button&gt;
+    &lt;button class="zak-ai-btn zak-ai-btn-primary zak-ai-btn-md" style="border-radius:0 0.75rem 0.75rem 0"&gt;Enhance&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>CSS Classes</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>.zak-ai-btn                 /* Base AI button */
+.zak-ai-btn-primary         /* Gradient purple background */
+.zak-ai-btn-secondary       /* Light purple tint */
+.zak-ai-btn-outline         /* Purple border, transparent bg */
+.zak-ai-btn-ghost           /* No bg/border, text only */
+.zak-ai-btn-glow            /* Pulsing glow animation */
+.zak-ai-btn-loading         /* Loading state with spinner */
+.zak-ai-btn-sm              /* Small */
+.zak-ai-btn-md              /* Medium (default) */
+.zak-ai-btn-lg              /* Large */
+.zak-ai-btn-xl              /* Extra large */
+.zak-ai-btn-icon            /* Square icon-only button */
+.zak-ai-badge               /* "AI" badge inside button */
+.zak-ai-sparkle             /* Sparkle icon sizing */
+.zak-ai-spinner             /* Loading spinner circle */
+
+/* Glow Animation Keyframes */
+@keyframes zak-ai-glow {
+    0%, 100% { box-shadow: 0 0 15px rgba(99, 102, 241, 0.4); }
+    50%      { box-shadow: 0 0 30px rgba(139, 92, 246, 0.6); }
+}
+
+/* Spinner Animation */
+@keyframes zak-ai-spin { to { transform: rotate(360deg); } }</code></pre>
+        </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>JavaScript</h2>
+            <p>Toggle loading state on click.</p>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>document.getElementById('ai-btn-demo').addEventListener('click', function() {
+    const btn = this;
+    btn.classList.remove('zak-ai-btn-primary');
+    btn.classList.add('zak-ai-btn-loading');
+    btn.innerHTML = '&lt;span class="zak-ai-spinner"&gt;&lt;/span&gt;Generating...';
+    btn.disabled = true;
+    setTimeout(() => {
+        btn.classList.remove('zak-ai-btn-loading');
+        btn.classList.add('zak-ai-btn-primary');
+        btn.innerHTML = '&lt;svg class="zak-ai-sparkle" viewBox="0 0 24 24" fill="currentColor"&gt;&lt;path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/&gt;&lt;/svg&gt;Click to Test';
+        btn.disabled = false;
+    }, 2000);
+});</code></pre>
+        </div>
+        </section>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    <script>
+    document.getElementById('ai-btn-demo').addEventListener('click', function () {
+      var btn = this;
+      btn.classList.remove('zak-ai-btn-primary');
+      btn.classList.add('zak-ai-btn-loading');
+      btn.innerHTML = '<span class="zak-ai-spinner"></span>Generating...';
+      btn.disabled = true;
+      setTimeout(function () {
+        btn.classList.remove('zak-ai-btn-loading');
+        btn.classList.add('zak-ai-btn-primary');
+        btn.innerHTML = '<svg class="zak-ai-sparkle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg>Click to Test';
+        btn.disabled = false;
+      }, 2000);
+    });
+    </script>
+    </body>
+</html>

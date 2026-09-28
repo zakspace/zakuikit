@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Autocomplete documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Autocomplete - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/forms/autocomplete/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Autocomplete - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Autocomplete documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/forms/autocomplete/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Advanced</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Autocomplete</span>
+                </nav>
+        <h1>Autocomplete</h1>
+        <p class="docs-subtitle">Autocomplete provides search-as-you-type suggestions from a list of options. It supports custom templates, categories, debounced input, and remote data fetching.</p>
+
+        <div class="zak-docs-section">
+            <h2>Basic Autocomplete</h2>
+            <p>Start typing to see filtered suggestions from a local list.</p>
+
+            <div class="docs-preview">
+                <div class="zak-autocomplete" id="ac-basic" style="position: relative; max-width: 24rem;">
+                    <input type="text" class="zak-input" placeholder="Type a fruit..." data-zak-autocomplete="Apple,Apricot,Avocado,Banana,Blackberry,Blueberry,Cherry,Coconut,Grape,Grapefruit,Kiwi,Lemon,Lime,Mango,Melon,Orange,Peach,Pear,Pineapple,Plum,Raspberry,Strawberry,Watermelon" autocomplete="off">
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-autocomplete" style="position: relative;"&gt;
+  &lt;input type="text" class="zak-input" placeholder="Type a fruit..." autocomplete="off"&gt;
+  &lt;div class="zak-autocomplete-dropdown" style="position: absolute; top: 100%; left: 0; right: 0;"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Remote Data (Mock)</h2>
+            <p>Simulate fetching suggestions from a server with a delay.</p>
+
+            <div class="docs-preview">
+                <div class="zak-autocomplete" id="ac-remote" style="position: relative; max-width: 24rem;">
+                    <input type="text" class="zak-input" placeholder="Search countries..." id="ac-remote-input" autocomplete="off">
+                    <div id="ac-remote-loading" style="display: none; padding: 0.5rem 1rem; font-size: 0.875rem; color: var(--zak-text-muted);">Loading...</div>
+                    <div class="zak-autocomplete-dropdown" id="ac-remote-dropdown" style="display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--zak-bg); border: 1px solid var(--zak-border); border-radius: var(--zak-radius-md); box-shadow: var(--zak-shadow-lg); z-index: 50; max-height: 12rem; overflow-y: auto; margin-top: 2px;"></div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span>JavaScript</span><button class="docs-copy-btn">Copy</button></div><pre><code>// Simulate remote fetch with debounce
+var remoteTimer;
+remoteInput.addEventListener('input', function () {
+  clearTimeout(remoteTimer);
+  loadingEl.style.display = 'block';
+  remoteTimer = setTimeout(function () {
+    var results = countries.filter(function (c) {
+      return c.toLowerCase().indexOf(remoteInput.value.toLowerCase()) !== -1;
+    });
+    loadingEl.style.display = 'none';
+    renderDropdown(remoteDropdown, results);
+  }, 400);
+});</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Custom Template</h2>
+            <p>Render each suggestion with custom HTML including icons and descriptions.</p>
+
+            <div class="docs-preview">
+                <div class="zak-autocomplete" id="ac-template" style="position: relative; max-width: 24rem;">
+                    <input type="text" class="zak-input" placeholder="Search users..." id="ac-template-input" autocomplete="off">
+                    <div class="zak-autocomplete-dropdown" id="ac-template-dropdown" style="display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--zak-bg); border: 1px solid var(--zak-border); border-radius: var(--zak-radius-md); box-shadow: var(--zak-shadow-lg); z-index: 50; max-height: 16rem; overflow-y: auto; margin-top: 2px;"></div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-autocomplete-item" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.5rem 1rem; cursor: pointer;"&gt;
+  &lt;span class="zak-avatar zak-avatar-sm"&gt;JD&lt;/span&gt;
+  &lt;div&gt;
+    &lt;div style="font-weight: 500;"&gt;John Doe&lt;/div&gt;
+    &lt;div style="font-size: 0.75rem; color: var(--zak-text-muted);"&gt;john@example.com&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Categories</h2>
+            <p>Group suggestions under category headers.</p>
+
+            <div class="docs-preview">
+                <div class="zak-autocomplete" id="ac-categories" style="position: relative; max-width: 24rem;">
+                    <input type="text" class="zak-input" placeholder="Search components..." id="ac-categories-input" autocomplete="off">
+                    <div class="zak-autocomplete-dropdown" id="ac-categories-dropdown" style="display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--zak-bg); border: 1px solid var(--zak-border); border-radius: var(--zak-radius-md); box-shadow: var(--zak-shadow-lg); z-index: 50; max-height: 16rem; overflow-y: auto; margin-top: 2px;"></div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-autocomplete-category" style="padding: 0.375rem 1rem; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; color: var(--zak-text-muted);"&gt;Forms&lt;/div&gt;
+&lt;div class="zak-autocomplete-item" style="padding: 0.5rem 1rem; cursor: pointer;"&gt;Input&lt;/div&gt;
+&lt;div class="zak-autocomplete-item" style="padding: 0.5rem 1rem; cursor: pointer;"&gt;Select&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Clear Button</h2>
+            <p>Include a clear button to reset the input value.</p>
+
+            <div class="docs-preview">
+                <div class="zak-autocomplete" id="ac-clear" style="position: relative; max-width: 24rem;">
+                    <div class="zak-input-group">
+                        <input type="text" class="zak-input" placeholder="Search..." id="ac-clear-input" autocomplete="off">
+                        <button class="zak-btn zak-btn-soft" id="ac-clear-btn" style="display: none;" aria-label="Clear">
+                            <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                        </button>
+                    </div>
+                    <div class="zak-autocomplete-dropdown" id="ac-clear-dropdown" style="display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--zak-bg); border: 1px solid var(--zak-border); border-radius: var(--zak-radius-md); box-shadow: var(--zak-shadow-lg); z-index: 50; max-height: 12rem; overflow-y: auto; margin-top: 2px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Demo JavaScript</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span>JavaScript</span><button class="docs-copy-btn">Copy</button></div><pre><code>var fruits = ['Apple','Banana','Cherry','Date','Elderberry','Fig','Grape','Honeydew','Kiwi','Lemon','Mango','Nectarine','Orange','Papaya','Quince','Raspberry','Strawberry','Tangerine','Watermelon'];
+var countries = ['Afghanistan','Albania','Algeria','Argentina','Australia','Austria','Belgium','Brazil','Canada','Chile','China','Colombia','Denmark','Egypt','Finland','France','Germany','Greece','India','Indonesia','Ireland','Italy','Japan','Kenya','Mexico','Netherlands','New Zealand','Norway','Peru','Portugal','Russia','South Africa','South Korea','Spain','Sweden','Switzerland','Thailand','Turkey','United Kingdom','United States'];
+var users = [
+  {name:'Janet Fox', email:'janet@example.com'},
+  {name:'Mark Kim', email:'mark@example.com'},
+  {name:'Sara Reyes', email:'sara@example.com'},
+  {name:'Leo Brooks', email:'leo@example.com'},
+  {name:'Ava Mitchell', email:'ava@example.com'},
+  {name:'Noah Carter', email:'noah@example.com'},
+  {name:'Emma Foster', email:'emma@example.com'},
+  {name:'Liam Hughes', email:'liam@example.com'}
+];
+var categories = {
+  'Forms': ['Input','Select','Checkbox','Radio','Switch','Textarea','Range','File Upload'],
+  'Data Display': ['Table','Card','Badge','Avatar','Timeline','Stat'],
+  'Feedback': ['Alert','Toast','Spinner','Progress','Notification'],
+  'Navigation': ['Tabs','Navbar','Breadcrumb','Pagination','Sidebar']
+};
+
+function renderSimpleDropdown(dropdown, items, input) {
+  var q = input.value.toLowerCase();
+  var filtered = items.filter(function (i) { return i.toLowerCase().indexOf(q) !== -1; });
+  dropdown.innerHTML = filtered.length ? filtered.map(function (i) {
+    return '&lt;div class="zak-autocomplete-item" style="padding:0.5rem 1rem;cursor:pointer;" onmouseover="this.style.background=\'var(--zak-bg-hover)\'" onmouseout="this.style.background=\'\'"&gt;' + i + '&lt;/div&gt;';
+  }).join('') : '&lt;div style="padding:0.5rem 1rem;color:var(--zak-text-muted);font-size:0.875rem;"&gt;No results found&lt;/div&gt;';
+  dropdown.style.display = items.length ? 'block' : 'none';
+  dropdown.querySelectorAll('.zak-autocomplete-item').forEach(function (item) {
+    item.addEventListener('click', function () { input.value = item.textContent; dropdown.style.display = 'none'; });
+  });
+}
+
+// Basic autocomplete
+(function () {
+  var input = document.getElementById('ac-basic-input');
+  var dropdown = document.getElementById('ac-basic-dropdown');
+  input.addEventListener('input', function () { renderSimpleDropdown(dropdown, fruits, input); });
+  document.addEventListener('click', function (e) { if (!e.target.closest('#ac-basic')) dropdown.style.display = 'none'; });
+})();
+
+// Remote autocomplete
+(function () {
+  var input = document.getElementById('ac-remote-input');
+  var dropdown = document.getElementById('ac-remote-dropdown');
+  var loading = document.getElementById('ac-remote-loading');
+  var timer;
+  input.addEventListener('input', function () {
+    clearTimeout(timer);
+    loading.style.display = 'block';
+    timer = setTimeout(function () {
+      loading.style.display = 'none';
+      renderSimpleDropdown(dropdown, countries, input);
+    }, 400);
+  });
+  document.addEventListener('click', function (e) { if (!e.target.closest('#ac-remote')) { dropdown.style.display = 'none'; loading.style.display = 'none'; } });
+})();
+
+// Custom template autocomplete
+(function () {
+  var input = document.getElementById('ac-template-input');
+  var dropdown = document.getElementById('ac-template-dropdown');
+  input.addEventListener('input', function () {
+    var q = input.value.toLowerCase();
+    var filtered = users.filter(function (u) { return u.name.toLowerCase().indexOf(q) !== -1 || u.email.toLowerCase().indexOf(q) !== -1; });
+    dropdown.innerHTML = filtered.length ? filtered.map(function (u) {
+      var initials = u.name.split(' ').map(function (w) { return w[0]; }).join('');
+      return '&lt;div class="zak-autocomplete-item" style="display:flex;align-items:center;gap:0.75rem;padding:0.5rem 1rem;cursor:pointer;" onmouseover="this.style.background=\'var(--zak-bg-hover)\'" onmouseout="this.style.background=\'\'"&gt;' +
+        '&lt;span class="zak-avatar zak-avatar-sm"&gt;' + initials + '&lt;/span&gt;&lt;div&gt;&lt;div style="font-weight:500;"&gt;' + u.name + '&lt;/div&gt;&lt;div style="font-size:0.75rem;color:var(--zak-text-muted);"&gt;' + u.email + '&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;';
+    }).join('') : '&lt;div style="padding:0.5rem 1rem;color:var(--zak-text-muted);font-size:0.875rem;"&gt;No results&lt;/div&gt;';
+    dropdown.style.display = 'block';
+    dropdown.querySelectorAll('.zak-autocomplete-item').forEach(function (item) {
+      item.addEventListener('click', function () { input.value = item.querySelector('div div').textContent; dropdown.style.display = 'none'; });
+    });
+  });
+  document.addEventListener('click', function (e) { if (!e.target.closest('#ac-template')) dropdown.style.display = 'none'; });
+})();
+
+// Categories autocomplete
+(function () {
+  var input = document.getElementById('ac-categories-input');
+  var dropdown = document.getElementById('ac-categories-dropdown');
+  input.addEventListener('input', function () {
+    var q = input.value.toLowerCase();
+    var html = '';
+    Object.keys(categories).forEach(function (cat) {
+      var items = categories[cat].filter(function (i) { return i.toLowerCase().indexOf(q) !== -1; });
+      if (items.length) {
+        html += '&lt;div class="zak-autocomplete-category" style="padding:0.375rem 1rem;font-size:0.75rem;font-weight:600;text-transform:uppercase;color:var(--zak-text-muted);margin-top:0.25rem;"&gt;' + cat + '&lt;/div&gt;';
+        items.forEach(function (i) {
+          html += '&lt;div class="zak-autocomplete-item" style="padding:0.5rem 1rem;cursor:pointer;" onmouseover="this.style.background=\'var(--zak-bg-hover)\'" onmouseout="this.style.background=\'\'"&gt;' + i + '&lt;/div&gt;';
+        });
+      }
+    });
+    dropdown.innerHTML = html || '&lt;div style="padding:0.5rem 1rem;color:var(--zak-text-muted);font-size:0.875rem;"&gt;No results&lt;/div&gt;';
+    dropdown.style.display = 'block';
+    dropdown.querySelectorAll('.zak-autocomplete-item').forEach(function (item) {
+      item.addEventListener('click', function () { input.value = item.textContent; dropdown.style.display = 'none'; });
+    });
+  });
+  document.addEventListener('click', function (e) { if (!e.target.closest('#ac-categories')) dropdown.style.display = 'none'; });
+})();
+
+// Clear button autocomplete
+(function () {
+  var input = document.getElementById('ac-clear-input');
+  var dropdown = document.getElementById('ac-clear-dropdown');
+  var clearBtn = document.getElementById('ac-clear-btn');
+  input.addEventListener('input', function () {
+    clearBtn.style.display = input.value ? 'flex' : 'none';
+    renderSimpleDropdown(dropdown, fruits, input);
+  });
+  clearBtn.addEventListener('click', function () {
+    input.value = '';
+    clearBtn.style.display = 'none';
+    dropdown.style.display = 'none';
+    input.focus();
+  });
+  document.addEventListener('click', function (e) { if (!e.target.closest('#ac-clear')) dropdown.style.display = 'none'; });
+})();</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead><tr><th>Class</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>.zak-autocomplete</code></td><td>Autocomplete container (position: relative)</td></tr>
+                        <tr><td><code>.zak-autocomplete-dropdown</code></td><td>Dropdown panel for suggestions</td></tr>
+                        <tr><td><code>.zak-autocomplete-item</code></td><td>Individual suggestion item</td></tr>
+                        <tr><td><code>.zak-autocomplete-category</code></td><td>Category header for grouped suggestions</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    <script>/* ZAK_DEMO_LIVE */</script>
+<script>
+(function(){try{
+var fruits = ['Apple','Banana','Cherry','Date','Elderberry','Fig','Grape','Honeydew','Kiwi','Lemon','Mango','Nectarine','Orange','Papaya','Quince','Raspberry','Strawberry','Tangerine','Watermelon'];
+var countries = ['Afghanistan','Albania','Algeria','Argentina','Australia','Austria','Belgium','Brazil','Canada','Chile','China','Colombia','Denmark','Egypt','Finland','France','Germany','Greece','India','Indonesia','Ireland','Italy','Japan','Kenya','Mexico','Netherlands','New Zealand','Norway','Peru','Portugal','Russia','South Africa','South Korea','Spain','Sweden','Switzerland','Thailand','Turkey','United Kingdom','United States'];
+var users = [
+  {name:'Janet Fox', email:'janet@example.com'},
+  {name:'Mark Kim', email:'mark@example.com'},
+  {name:'Sara Reyes', email:'sara@example.com'},
+  {name:'Leo Brooks', email:'leo@example.com'},
+  {name:'Ava Mitchell', email:'ava@example.com'},
+  {name:'Noah Carter', email:'noah@example.com'},
+  {name:'Emma Foster', email:'emma@example.com'},
+  {name:'Liam Hughes', email:'liam@example.com'}
+];
+var categories = {
+  'Forms': ['Input','Select','Checkbox','Radio','Switch','Textarea','Range','File Upload'],
+  'Data Display': ['Table','Card','Badge','Avatar','Timeline','Stat'],
+  'Feedback': ['Alert','Toast','Spinner','Progress','Notification'],
+  'Navigation': ['Tabs','Navbar','Breadcrumb','Pagination','Sidebar']
+};
+
+function renderSimpleDropdown(dropdown, items, input) {
+  var q = input.value.toLowerCase();
+  var filtered = items.filter(function (i) { return i.toLowerCase().indexOf(q) !== -1; });
+  dropdown.innerHTML = filtered.length ? filtered.map(function (i) {
+    return '<div class="zak-autocomplete-item" style="padding:0.5rem 1rem;cursor:pointer;" onmouseover="this.style.background=\'var(--zak-bg-hover)\'" onmouseout="this.style.background=\'\'">' + i + '</div>';
+  }).join('') : '<div style="padding:0.5rem 1rem;color:var(--zak-text-muted);font-size:0.875rem;">No results found</div>';
+  dropdown.style.display = items.length ? 'block' : 'none';
+  dropdown.querySelectorAll('.zak-autocomplete-item').forEach(function (item) {
+    item.addEventListener('click', function () { input.value = item.textContent; dropdown.style.display = 'none'; });
+  });
+}
+
+// Remote autocomplete
+(function () {
+  var input = document.getElementById('ac-remote-input');
+  var dropdown = document.getElementById('ac-remote-dropdown');
+  var loading = document.getElementById('ac-remote-loading');
+  var timer;
+  input.addEventListener('input', function () {
+    clearTimeout(timer);
+    loading.style.display = 'block';
+    timer = setTimeout(function () {
+      loading.style.display = 'none';
+      renderSimpleDropdown(dropdown, countries, input);
+    }, 400);
+  });
+  document.addEventListener('click', function (e) { if (!e.target.closest('#ac-remote')) { dropdown.style.display = 'none'; loading.style.display = 'none'; } });
+})();
+
+// Custom template autocomplete
+(function () {
+  var input = document.getElementById('ac-template-input');
+  var dropdown = document.getElementById('ac-template-dropdown');
+  input.addEventListener('input', function () {
+    var q = input.value.toLowerCase();
+    var filtered = users.filter(function (u) { return u.name.toLowerCase().indexOf(q) !== -1 || u.email.toLowerCase().indexOf(q) !== -1; });
+    dropdown.innerHTML = filtered.length ? filtered.map(function (u) {
+      var initials = u.name.split(' ').map(function (w) { return w[0]; }).join('');
+      return '<div class="zak-autocomplete-item" style="display:flex;align-items:center;gap:0.75rem;padding:0.5rem 1rem;cursor:pointer;" onmouseover="this.style.background=\'var(--zak-bg-hover)\'" onmouseout="this.style.background=\'\'">' +
+        '<span class="zak-avatar zak-avatar-sm">' + initials + '</span><div><div style="font-weight:500;">' + u.name + '</div><div style="font-size:0.75rem;color:var(--zak-text-muted);">' + u.email + '</div></div></div>';
+    }).join('') : '<div style="padding:0.5rem 1rem;color:var(--zak-text-muted);font-size:0.875rem;">No results</div>';
+    dropdown.style.display = 'block';
+    dropdown.querySelectorAll('.zak-autocomplete-item').forEach(function (item) {
+      item.addEventListener('click', function () { input.value = item.querySelector('div div').textContent; dropdown.style.display = 'none'; });
+    });
+  });
+  document.addEventListener('click', function (e) { if (!e.target.closest('#ac-template')) dropdown.style.display = 'none'; });
+})();
+
+// Categories autocomplete
+(function () {
+  var input = document.getElementById('ac-categories-input');
+  var dropdown = document.getElementById('ac-categories-dropdown');
+  input.addEventListener('input', function () {
+    var q = input.value.toLowerCase();
+    var html = '';
+    Object.keys(categories).forEach(function (cat) {
+      var items = categories[cat].filter(function (i) { return i.toLowerCase().indexOf(q) !== -1; });
+      if (items.length) {
+        html += '<div class="zak-autocomplete-category" style="padding:0.375rem 1rem;font-size:0.75rem;font-weight:600;text-transform:uppercase;color:var(--zak-text-muted);margin-top:0.25rem;">' + cat + '</div>';
+        items.forEach(function (i) {
+          html += '<div class="zak-autocomplete-item" style="padding:0.5rem 1rem;cursor:pointer;" onmouseover="this.style.background=\'var(--zak-bg-hover)\'" onmouseout="this.style.background=\'\'">' + i + '</div>';
+        });
+      }
+    });
+    dropdown.innerHTML = html || '<div style="padding:0.5rem 1rem;color:var(--zak-text-muted);font-size:0.875rem;">No results</div>';
+    dropdown.style.display = 'block';
+    dropdown.querySelectorAll('.zak-autocomplete-item').forEach(function (item) {
+      item.addEventListener('click', function () { input.value = item.textContent; dropdown.style.display = 'none'; });
+    });
+  });
+  document.addEventListener('click', function (e) { if (!e.target.closest('#ac-categories')) dropdown.style.display = 'none'; });
+})();
+
+// Clear button autocomplete
+(function () {
+  var input = document.getElementById('ac-clear-input');
+  var dropdown = document.getElementById('ac-clear-dropdown');
+  var clearBtn = document.getElementById('ac-clear-btn');
+  input.addEventListener('input', function () {
+    clearBtn.style.display = input.value ? 'flex' : 'none';
+    renderSimpleDropdown(dropdown, fruits, input);
+  });
+  clearBtn.addEventListener('click', function () {
+    input.value = '';
+    clearBtn.style.display = 'none';
+    dropdown.style.display = 'none';
+    input.focus();
+  });
+  document.addEventListener('click', function (e) { if (!e.target.closest('#ac-clear')) dropdown.style.display = 'none'; });
+})();
+}catch(e){console.warn("zak-demo",e);}})();
+</script>
+</body>
+</html>

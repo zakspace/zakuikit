@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>(function () { try { var t = localStorage.getItem('zak-docs-theme') || 'system'; if (t === 'system') { t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light'; } document.documentElement.setAttribute('data-theme', t); } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); } })();</script>
+  <meta name="description"
+    content="ZAKUIKit Row documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+  <meta name="theme-color" content="#2563eb">
+  <title>Row - ZAKUIKit</title>
+  <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/layout/row/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ZAKUIKit">
+  <meta property="og:title" content="Row - ZAKUIKit">
+  <meta property="og:description"
+    content="ZAKUIKit Row documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+  <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/layout/row/">
+  <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="../../../../dist/css/zak.css">
+  <link rel="stylesheet" href="../../../../css/zak-docs.css">
+  <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+  <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+  <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+  <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+  <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+
+<body>
+  <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12" />
+        <line x1="3" y1="6" x2="21" y2="6" />
+        <line x1="3" y1="18" x2="21" y2="18" />
+      </svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+  <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+  <main class="docs-main">
+    <div class="docs-content">
+      <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+        <span class="docs-breadcrumb__separator">/</span>
+        <span class="docs-breadcrumb__current">Layout</span>
+        <span class="docs-breadcrumb__separator">/</span>
+        <span class="docs-breadcrumb__current">Row</span>
+      </nav>
+
+      <h1>Row</h1>
+      <p class="docs-subtitle">A flex-based row component for horizontal layout with column support, alignment, and
+        ordering utilities.</p>
+
+      <!-- Basic Row -->
+      <section class="zak-docs-section">
+        <h2>Basic Row</h2>
+        <p>Use <code>.zak-row</code> with <code>.zak-col</code> children to create a horizontal layout. Columns will
+          share equal width by default.</p>
+        <div class="docs-preview">
+          <div class="zak-row">
+            <div class="zak-col">Column 1</div>
+            <div class="zak-col">Column 2</div>
+            <div class="zak-col">Column 3</div>
+          </div>
+        </div>
+        <div class="docs-code-block">
+          <div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button
+              class="docs-copy-btn">Copy</button></div>
+          <pre><code>&lt;div class="zak-row"&gt;
+  &lt;div class="zak-col"&gt;Column 1&lt;/div&gt;
+  &lt;div class="zak-col"&gt;Column 2&lt;/div&gt;
+  &lt;div class="zak-col"&gt;Column 3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- Auto Columns -->
+      <section class="zak-docs-section">
+        <h2>Auto Columns</h2>
+        <p>Without explicit sizing, columns automatically share equal space within the row.</p>
+        <div class="docs-preview">
+          <div class="zak-row">
+            <div class="zak-col">
+              Auto</div>
+            <div class="zak-col">
+              Auto</div>
+            <div class="zak-col">
+              Auto</div>
+            <div class="zak-col">
+              Auto</div>
+            <div class="zak-col">
+              Auto</div>
+          </div>
+        </div>
+        <div class="docs-code-block">
+          <div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button
+              class="docs-copy-btn">Copy</button></div>
+          <pre><code>&lt;div class="zak-row"&gt;
+  &lt;div class="zak-col"&gt;Auto&lt;/div&gt;
+  &lt;div class="zak-col"&gt;Auto&lt;/div&gt;
+  &lt;div class="zak-col"&gt;Auto&lt;/div&gt;
+  &lt;div class="zak-col"&gt;Auto&lt;/div&gt;
+  &lt;div class="zak-col"&gt;Auto&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- Column Sizing -->
+      <section class="zak-docs-section">
+        <h2>Column Sizing</h2>
+        <p>Use <code>.zak-col-{n}</code> to set a column's width as a fraction of 12. For example,
+          <code>.zak-col-4</code> takes up 4/12 (33.3%) of the row.
+        </p>
+        <div class="docs-preview">
+          <div class="zak-row" style="margin-bottom: 0.5rem;">
+            <div class="zak-col-1">
+              1</div>
+            <div class="zak-col-11">
+              11</div>
+          </div>
+          <div class="zak-row" style="margin-bottom: 0.5rem;">
+            <div class="zak-col-4">
+              4</div>
+            <div class="zak-col-4">
+              4</div>
+            <div class="zak-col-4">
+              4</div>
+          </div>
+          <div class="zak-row" style="margin-bottom: 0.5rem;">
+            <div class="zak-col-3">
+              3</div>
+            <div class="zak-col-6">
+              6</div>
+            <div class="zak-col-3">
+              3</div>
+          </div>
+          <div class="zak-row">
+            <div class="zak-col-6">
+              6</div>
+            <div class="zak-col-6">
+              6</div>
+          </div>
+        </div>
+        <div class="docs-code-block">
+          <div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button
+              class="docs-copy-btn">Copy</button></div>
+          <pre><code>&lt;div class="zak-row"&gt;
+  &lt;div class="zak-col-1"&gt;1&lt;/div&gt;
+  &lt;div class="zak-col-11"&gt;11&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="zak-row"&gt;
+  &lt;div class="zak-col-4"&gt;4&lt;/div&gt;
+  &lt;div class="zak-col-4"&gt;4&lt;/div&gt;
+  &lt;div class="zak-col-4"&gt;4&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="zak-row"&gt;
+  &lt;div class="zak-col-3"&gt;3&lt;/div&gt;
+  &lt;div class="zak-col-6"&gt;6&lt;/div&gt;
+  &lt;div class="zak-col-3"&gt;3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- Responsive Columns -->
+      <section class="zak-docs-section">
+        <h2>Responsive Columns</h2>
+        <p>Use breakpoint prefixes to change column widths at specific screen sizes. Columns stack vertically on smaller
+          screens by default.</p>
+        <div class="docs-preview">
+          <div class="zak-row">
+            <div class="zak-col-12 zak-col-sm-6 zak-col-md-4 zak-col-lg-3">12 / 6 / 4 / 3</div>
+            <div class="zak-col-12 zak-col-sm-6 zak-col-md-4 zak-col-lg-3">12 / 6 / 4 / 3</div>
+            <div class="zak-col-12 zak-col-sm-6 zak-col-md-4 zak-col-lg-3">12 / 6 / 4 / 3</div>
+            <div class="zak-col-12 zak-col-sm-6 zak-col-md-12 zak-col-lg-3">12 / 6 / 12 / 3</div>
+          </div>
+        </div>
+        <div class="docs-code-block">
+          <div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button
+              class="docs-copy-btn">Copy</button></div>
+          <pre><code>&lt;div class="zak-row"&gt;
+  &lt;div class="zak-col-12 zak-col-sm-6 zak-col-md-4 zak-col-lg-3"&gt;
+    Responsive column
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- Column Alignment -->
+      <section class="zak-docs-section">
+        <h2>Column Alignment</h2>
+        <p>Use alignment utilities on the row to control how columns are positioned along the main and cross axes.</p>
+        <div class="docs-preview" style="margin-bottom: 1rem;">
+          <p style="font-size: 0.875rem; font-weight: 600; margin-bottom: 0.5rem;">justify-content: center</p>
+          <div class="zak-row zak-justify-center"
+            style="min-height: 80px; background: var(--zak-surface-alt); padding: 0.5rem; border-radius: var(--zak-radius);">
+            <div class="zak-col-3">
+              Center</div>
+            <div class="zak-col-3">
+              Center</div>
+          </div>
+        </div>
+        <div class="docs-preview" style="margin-bottom: 1rem;">
+          <p style="font-size: 0.875rem; font-weight: 600; margin-bottom: 0.5rem;">justify-content: end</p>
+          <div class="zak-row zak-justify-end"
+            style="min-height: 80px; background: var(--zak-surface-alt); padding: 0.5rem; border-radius: var(--zak-radius);">
+            <div class="zak-col-3">
+              End</div>
+            <div class="zak-col-3">
+              End</div>
+          </div>
+        </div>
+        <div class="docs-preview">
+          <p style="font-size: 0.875rem; font-weight: 600; margin-bottom: 0.5rem;">align-items: center</p>
+          <div class="zak-row zak-align-center"
+            style="min-height: 120px; background: var(--zak-surface-alt); padding: 0.5rem; border-radius: var(--zak-radius);">
+            <div class="zak-col-4">
+              Short</div>
+            <div class="zak-col-4">
+              Tall</div>
+            <div class="zak-col-4">
+              Short</div>
+          </div>
+        </div>
+        <div class="docs-code-block">
+          <div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button
+              class="docs-copy-btn">Copy</button></div>
+          <pre><code>&lt;div class="zak-row zak-justify-center"&gt;...&lt;/div&gt;
+&lt;div class="zak-row zak-justify-end"&gt;...&lt;/div&gt;
+&lt;div class="zak-row zak-align-center"&gt;...&lt;/div&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- Column Ordering -->
+      <section class="zak-docs-section">
+        <h2>Column Ordering</h2>
+        <p>Use <code>.zak-order-{n}</code> to control the visual order of columns independent of DOM order.</p>
+        <div class="docs-preview">
+          <div class="zak-row">
+            <div class="zak-col-4 zak-order-3">First (order: 3)</div>
+            <div class="zak-col-4 zak-order-1">Second (order: 1)</div>
+            <div class="zak-col-4 zak-order-2">Third (order: 2)</div>
+          </div>
+        </div>
+        <div class="docs-code-block">
+          <div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button
+              class="docs-copy-btn">Copy</button></div>
+          <pre><code>&lt;div class="zak-row"&gt;
+  &lt;div class="zak-col-4 zak-order-3"&gt;First (order: 3)&lt;/div&gt;
+  &lt;div class="zak-col-4 zak-order-1"&gt;Second (order: 1)&lt;/div&gt;
+  &lt;div class="zak-col-4 zak-order-2"&gt;Third (order: 2)&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- CSS Reference -->
+      <section class="zak-docs-section">
+        <h2>CSS Reference</h2>
+        <div class="docs-code-block">
+          <div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button
+              class="docs-copy-btn">Copy</button></div>
+          <pre><code>.zak-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+}
+
+.zak-col {
+  flex: 1 0 0%;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.zak-col-1 { flex: 0 0 8.333%; max-width: 8.333%; }
+.zak-col-2 { flex: 0 0 16.667%; max-width: 16.667%; }
+.zak-col-3 { flex: 0 0 25%; max-width: 25%; }
+.zak-col-4 { flex: 0 0 33.333%; max-width: 33.333%; }
+.zak-col-6 { flex: 0 0 50%; max-width: 50%; }
+.zak-col-12 { flex: 0 0 100%; max-width: 100%; }</code></pre>
+        </div>
+      </section>
+
+      <!-- Accessibility -->
+      <section class="zak-docs-section">
+        <h2>Accessibility</h2>
+        <ul>
+          <li>The row uses <code>display: flex</code> which maintains a logical reading order in the DOM</li>
+          <li>Use <code>order</code> sparingly — it can confuse screen reader users if visual order differs from DOM
+            order</li>
+          <li>Ensure columns contain meaningful content that reads logically without CSS</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+  <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..."
+          aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+  <script src="../../../../dist/js/zak.js"></script>
+  <script src="../../../../js/docs.js"></script>
+</body>
+
+</html>

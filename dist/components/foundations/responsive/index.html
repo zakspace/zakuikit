@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function () { try { var t = localStorage.getItem('zak-docs-theme') || 'system'; if (t === 'system') { t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light'; } document.documentElement.setAttribute('data-theme', t); } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); } })();</script>
+    <meta name="description"
+        content="ZAKUIKit Responsive documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Responsive - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/foundations/responsive/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Responsive - ZAKUIKit">
+    <meta property="og:description"
+        content="ZAKUIKit Responsive documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/foundations/responsive/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="docs-header">
+        <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12" />
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+        </button>
+        <a href="../../../../index.html" class="docs-header__logo">
+            <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+            <span>ZAKUIKit</span>
+        </a>
+        <nav class="docs-header__nav" aria-label="Primary navigation">
+            <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+            <a href="../../../../components.html"
+                class="docs-header__link docs-header__link--active">Components</a>
+            <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+            <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+            <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+        </nav>
+        <div class="docs-header__actions">
+            <div class="docs-header__search-btn-wrap">
+                <button type="button" class="docs-header__search-btn" aria-label="Open search">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                    <span>Search docs...</span>
+                    <kbd>?K</kbd>
+                </button>
+            </div>
+            <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+    <div class="docs-sidebar-overlay"></div>
+
+    <!-- Main Content -->
+    <main class="docs-main">
+        <div class="docs-content">
+
+            <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                <span class="docs-breadcrumb__separator">/</span>
+                <span class="docs-breadcrumb__current">Foundations</span>
+                <span class="docs-breadcrumb__separator">/</span>
+                <span class="docs-breadcrumb__current">Responsive</span>
+            </nav>
+
+            <div class="docs-component-header">
+                <h1>Responsive</h1>
+                <p class="docs-component-header__description">Build mobile-first interfaces with a five-tier breakpoint
+                    system and responsive display, text, spacing, and grid utilities.</p>
+            </div>
+
+            <section id="breakpoints">
+                <h2>Breakpoints</h2>
+                <p>ZAKUIKit uses a mobile-first, min-width breakpoint system. Utilities are applied at the given width
+                    and above unless overridden.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Breakpoint</th>
+                            <th>Class infix</th>
+                            <th>Min width</th>
+                            <th>Container</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Extra small</strong></td>
+                            <td><em>(none)</em></td>
+                            <td>&lt; 576px</td>
+                            <td>auto</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Small</strong></td>
+                            <td><code>sm</code></td>
+                            <td>576px</td>
+                            <td>540px</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Medium</strong></td>
+                            <td><code>md</code></td>
+                            <td>768px</td>
+                            <td>720px</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Large</strong></td>
+                            <td><code>lg</code></td>
+                            <td>992px</td>
+                            <td>960px</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Extra large</strong></td>
+                            <td><code>xl</code></td>
+                            <td>1200px</td>
+                            <td>1140px</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2X large</strong></td>
+                            <td><code>2xl</code></td>
+                            <td>1400px</td>
+                            <td>1320px</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="docs-code-block">
+                    <div class="docs-code-block__header">
+                        <span class="docs-code-block__lang">css</span>
+                        <button class="docs-copy-btn"><svg class="docs-copy-btn__icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg><span class="docs-copy-btn__text">Copy</span></button>
+                    </div>
+                    <pre><code class="language-css">@media (min-width: 576px)  { /* sm */ }
+@media (min-width: 768px)  { /* md */ }
+@media (min-width: 992px)  { /* lg */ }
+@media (min-width: 1200px) { /* xl */ }
+@media (min-width: 1400px) { /* 2xl */ }
+
+/* Useful max-widths for hiding objects below a breakpoint */
+@media (max-width: 575.98px)  { /* below sm */ }
+@media (max-width: 767.98px)  { /* below md */ }</code></pre>
+                </div>
+            </section>
+
+            <section id="display">
+                <h2>Responsive Display</h2>
+                <p>Show or hide elements at specific breakpoints using the display-d breakpoint-infix classes.</p>
+                <div class="docs-preview">
+                    <div class="docs-preview__toolbar">
+                        <span>Display</span>
+                        <div class="docs-preview__toolbar-actions">
+                        </div>
+                    </div>
+                    <div class="docs-preview__area" style="flex-direction:column; align-items:stretch; gap:8px;">
+                        <div class="zak-bg-primary zak-text-inverse zak-p-2 zak-d-none zak-d-md-block"
+                            style="border-radius:4px; text-align:center;">Visible on md and up (.zak-d-md-block)</div>
+                        <div class="zak-bg-success zak-text-inverse zak-p-2 zak-d-flex zak-d-md-none"
+                            style="border-radius:4px; text-align:center;">Visible below md (.zak-d-md-none)</div>
+                    </div>
+                </div>
+                <div class="docs-code-block">
+                    <div class="docs-code-block__header">
+                        <span class="docs-code-block__lang">css</span>
+                        <button class="docs-copy-btn"><svg class="docs-copy-btn__icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg><span class="docs-copy-btn__text">Copy</span></button>
+                    </div>
+                    <pre><code class="language-html">&lt;!-- Hidden until md, then shown as block --&gt;
+&lt;div class="zak-d-none zak-d-md-block"&gt;Visible on md+&lt;/div&gt;
+
+&lt;!-- Visible until md, then hidden --&gt;
+&lt;div class="zak-d-flex zak-d-md-none"&gt;Only below md&lt;/div&gt;
+
+::Display types: none, inline, inline-block, block, flex,
+::inline-flex, grid + infixes (sm, md, lg, xl, 2xl)
+.zak-d-md-flex .zak-d-lg-inline-flex .zak-d-xl-grid</code></pre>
+                </div>
+            </section>
+
+            <section id="text">
+                <h2>Responsive Text</h2>
+                <p>Change text alignment at different breakpoints.</p>
+                <div class="docs-preview">
+                    <div class="docs-preview__toolbar">
+                        <span>Text alignment</span>
+                        <div class="docs-preview__toolbar-actions">
+                        </div>
+                    </div>
+                    <div class="docs-preview__area" style="flex-direction:column; align-items:stretch;">
+                        <p class="zak-text-center zak-text-md-start">Centered on mobile, left-aligned on md+
+                            (zak-text-center zak-text-md-start)</p>
+                        <p class="zak-text-start zak-text-lg-end">Left on base, right on lg+ (zak-text-start
+                            zak-text-lg-end)</p>
+                    </div>
+                </div>
+                <div class="docs-code-block">
+                    <div class="docs-code-block__header">
+                        <span class="docs-code-block__lang">html</span>
+                        <button class="docs-copy-btn"><svg class="docs-copy-btn__icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg><span class="docs-copy-btn__text">Copy</span></button>
+                    </div>
+                    <pre><code class="language-html">&lt;p class="zak-text-center zak-text-md-start"&gt;Center on mobile, left on md+&lt;/p&gt;
+
+::Available per breakpoint:
+.zak-text-sm-start .zak-text-sm-center .zak-text-sm-end
+.zak-text-md-start .zak-text-md-center .zak-text-md-end
+.zak-text-lg-start .zak-text-lg-center .zak-text-lg-end
+.zak-text-xl-start .zak-text-xl-center .zak-text-xl-end
+.zak-text-2xl-start .zak-text-2xl-center .zak-text-2xl-end</code></pre>
+                </div>
+            </section>
+
+            <section id="spacing">
+                <h2>Responsive Spacing</h2>
+                <p>Adjust margin and padding at breakpoints to tighten mobile layouts and open up desktop layouts.</p>
+                <div class="docs-preview">
+                    <div class="docs-preview__toolbar">
+                        <span>Spacing</span>
+                        <div class="docs-preview__toolbar-actions">
+                        </div>
+                    </div>
+                    <div class="docs-preview__area" style="flex-direction:column; align-items:stretch;">
+                        <div class="zak-bg-primary zak-text-inverse zak-p-3 zak-p-md-5" style="border-radius:4px;">
+                            Small padding on mobile, larger padding on md+ (zak-p-3 zak-p-md-5)
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-block">
+                    <div class="docs-code-block__header">
+                        <span class="docs-code-block__lang">css</span>
+                        <button class="docs-copy-btn"><svg class="docs-copy-btn__icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg><span class="docs-copy-btn__text">Copy</span></button>
+                    </div>
+                    <pre><code class="language-html">&lt;div class="zak-p-3 zak-p-md-5"&gt;&lt;/div&gt;
+&lt;div class="zak-mt-2 zak-mt-lg-4"&gt;&lt;/div&gt;
+
+/* Responsive spacing follows the same naming as base
+   utilities with a breakpoint infix:
+   .zak-p-{breakpoint}-{size}   .zak-m-{breakpoint}-{size}
+   .zak-px-{b}-{s} .zak-py-{b}-{s} .zak-mx-{b}-{s} .zak-my-{b}-{s}
+   .zak-pt-{b}-{s} .zak-pb-{b}-{s} .zak-mt-{b}-{s} .zak-mb-{b}-{s} */
+&lt;div class="zak-p-sm-3 zak-p-md-4 zak-p-lg-5"&gt;Scales with each breakpoint&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section id="grid">
+                <h2>Responsive Grid</h2>
+                <p>Change column spans at breakpoints so layouts reflow naturally across device sizes.</p>
+                <div class="docs-preview">
+                    <div class="docs-preview__toolbar">
+                        <span>Grid</span>
+                        <div class="docs-preview__toolbar-actions">
+                        </div>
+                    </div>
+                    <div class="docs-preview__area" style="flex-direction:column; align-items:stretch;">
+                        <div class="zak-grid zak-col-md-6">
+                            <div class="zak-bg-primary zak-text-inverse zak-p-3"
+                                style="border-radius:4px; text-align:center;">col-md-6 (full width below md)</div>
+                            <div class="zak-bg-primary zak-text-inverse zak-p-3"
+                                style="border-radius:4px; text-align:center;">col-md-6</div>
+                        </div>
+                        <div class="zak-grid zak-col-lg-4" style="margin-top:12px;">
+                            <div class="zak-bg-success zak-text-inverse zak-p-3"
+                                style="border-radius:4px; text-align:center;">col-lg-4</div>
+                            <div class="zak-bg-success zak-text-inverse zak-p-3"
+                                style="border-radius:4px; text-align:center;">col-lg-4</div>
+                            <div class="zak-bg-success zak-text-inverse zak-p-3"
+                                style="border-radius:4px; text-align:center;">col-lg-4</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-block">
+                    <div class="docs-code-block__header">
+                        <span class="docs-code-block__lang">html</span>
+                        <button class="docs-copy-btn"><svg class="docs-copy-btn__icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg><span class="docs-copy-btn__text">Copy</span></button>
+                    </div>
+                    <pre><code class="language-html">&lt;!-- Two columns on md+, full width below --&gt;
+&lt;div class="zak-grid zak-col-md-6"&gt;
+  &lt;div&gt;Item 1&lt;/div&gt;
+  &lt;div&gt;Item 2&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Three columns on lg+ --&gt;
+&lt;div class="zak-grid zak-col-lg-4"&gt;
+  &lt;div&gt;A&lt;/div&gt;&lt;div&gt;B&lt;/div&gt;&lt;div&gt;C&lt;/div&gt;
+&lt;/div&gt;
+
+::Column spans available at md, lg, xl and 2xl:
+.zak-col-md-1 ... .zak-col-md-12
+.zak-col-lg-1 ... .zak-col-lg-12
+.zak-col-xl-1 ... .zak-col-xl-12
+.zak-col-2xl-1 ... .zak-col-2xl-12</code></pre>
+                </div>
+            </section>
+
+            <section id="media-queries">
+                <h2>Media Query Examples</h2>
+                <p>Combine ZAKUIKit tokens with your own CSS media queries for full control.</p>
+                <div class="docs-code-block">
+                    <div class="docs-code-block__header">
+                        <span class="docs-code-block__lang">css</span>
+                        <button class="docs-copy-btn"><svg class="docs-copy-btn__icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg><span class="docs-copy-btn__text">Copy</span></button>
+                    </div>
+                    <pre><code class="language-css">/* Mobile-first, min-width */
+.my-layout {
+  display: block;
+}
+@media (min-width: 768px) {
+  .my-layout { display: flex; gap: var(--zak-space-4); }
+}
+@media (min-width: 1200px) {
+  .my-layout { justify-content: space-between; }
+}
+
+/* Max-width for mobile-only tweaks */
+@media (max-width: 575.98px) {
+  .my-hero { font-size: var(--zak-font-size-2xl); }
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .my-anim { transition: none; }
+}</code></pre>
+                </div>
+            </section>
+
+            <section id="browser-support">
+                <h2>Browser Support</h2>
+                <p>ZAKUIKit is built with modern CSS (custom properties, flexbox, grid, color-mix) and targets evergreen
+                    browsers.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Browser</th>
+                            <th>Minimum version</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Chrome</td>
+                            <td>111+</td>
+                            <td><span class="zak-text-success">Fully supported</span></td>
+                        </tr>
+                        <tr>
+                            <td>Edge</td>
+                            <td>111+</td>
+                            <td><span class="zak-text-success">Fully supported</span></td>
+                        </tr>
+                        <tr>
+                            <td>Firefox</td>
+                            <td>113+</td>
+                            <td><span class="zak-text-success">Fully supported</span></td>
+                        </tr>
+                        <tr>
+                            <td>Safari</td>
+                            <td>16.4+</td>
+                            <td><span class="zak-text-success">Fully supported</span></td>
+                        </tr>
+                        <tr>
+                            <td>Opera</td>
+                            <td>97+</td>
+                            <td><span class="zak-text-success">Fully supported</span></td>
+                        </tr>
+                        <tr>
+                            <td>IE / old Edge</td>
+                            <td>—</td>
+                            <td><span class="zak-text-danger">Not supported</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="accessibility">
+                <h2>Accessibility</h2>
+                <ul class="zak-list-disc">
+                    <li>When hiding content with <code>d-*-none</code>, the element is removed from layout — ensure it
+                        is not needed by assistive technology; use <code>.zak-visually-hidden</code> to keep content
+                        readable by screen readers while hiding it visually.</li>
+                    <li>Test responsive layouts with zoom and text-size increases up to 200% to be sure nothing overlaps
+                        or clips.</li>
+                    <li>Do not rely on width alone for responsive behavior; consider touch targets (44Ã—44px minimum) on
+                        mobile.</li>
+                    <li>Ensure interactive elements remain usable and focusable across all breakpoints.</li>
+                </ul>
+            </section>
+
+        </div>
+    </main>
+    <!-- Search Overlay -->
+    <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+        <div class="docs-search">
+            <div class="docs-search__input-wrap">
+                <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+                <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..."
+                    aria-label="Search">
+                <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+            </div>
+            <div class="docs-search__results"></div>
+            <div class="docs-search__footer">
+                <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+                <span>Press <kbd>ESC</kbd> to close</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+</body>
+
+</html>

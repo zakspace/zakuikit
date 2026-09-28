@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Input documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Input - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/forms/input/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Input - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Input documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/forms/input/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+  <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+  <span class="docs-breadcrumb__separator">/</span>
+  <span class="docs-breadcrumb__current">Forms</span>
+  <span class="docs-breadcrumb__separator">/</span>
+  <span class="docs-breadcrumb__current">Input</span>
+</nav>
+
+        <h1>Input</h1>
+        <p class="docs-subtitle">Input components are used to collect user data. ZAKUIKit provides a wide variety of input types, sizes, states, and validation options.</p>
+
+        <div class="zak-docs-section">
+            <h2>Input Types</h2>
+            <p>All standard HTML input types are supported with consistent styling.</p>
+
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="in-text">Text</label>
+                        <input type="text" id="in-text" class="zak-input" placeholder="Enter text">
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="in-email">Email</label>
+                        <input type="email" id="in-email" class="zak-input" placeholder="you@example.com">
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="in-number">Number</label>
+                        <input type="number" id="in-number" class="zak-input" placeholder="0">
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="in-tel">Telephone</label>
+                        <input type="tel" id="in-tel" class="zak-input" placeholder="(555) 123-4567">
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="in-url">URL</label>
+                        <input type="url" id="in-url" class="zak-input" placeholder="https://example.com">
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="in-search">Search</label>
+                        <input type="search" id="in-search" class="zak-input" placeholder="Search...">
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="in-date">Date</label>
+                        <input type="date" id="in-date" class="zak-input">
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="in-password">Password</label>
+                        <input type="password" id="in-password" class="zak-input" placeholder="Enter password">
+                    </div>
+                </form>
+            </div>
+
+            <div class="docs-code-block">
+                <div class="docs-code-block__header">
+                    <span class="docs-code-block__lang">HTML</span>
+                    <button class="docs-copy-btn">Copy</button>
+                </div>
+                <pre><code class="language-html">&lt;input type="text" class="zak-input" placeholder="Enter text"&gt;
+&lt;input type="email" class="zak-input" placeholder="you@example.com"&gt;
+&lt;input type="number" class="zak-input" placeholder="0"&gt;
+&lt;input type="tel" class="zak-input" placeholder="(555) 123-4567"&gt;
+&lt;input type="url" class="zak-input" placeholder="https://example.com"&gt;
+&lt;input type="search" class="zak-input" placeholder="Search..."&gt;
+&lt;input type="date" class="zak-input"&gt;
+&lt;input type="password" class="zak-input" placeholder="Enter password"&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Placeholder &amp; Value</h2>
+            <p>Inputs support placeholders and default values.</p>
+
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="in-ph">With Placeholder</label>
+                        <input type="text" id="in-ph" class="zak-input" placeholder="This is a placeholder">
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="in-val">With Value</label>
+                        <input type="text" id="in-val" class="zak-input" value="Pre-filled value">
+                    </div>
+                </form>
+            </div>
+
+            <div class="docs-code-block">
+                <div class="docs-code-block__header">
+                    <span class="docs-code-block__lang">HTML</span>
+                    <button class="docs-copy-btn">Copy</button>
+                </div>
+                <pre><code class="language-html">&lt;input type="text" class="zak-input" placeholder="This is a placeholder"&gt;
+&lt;input type="text" class="zak-input" value="Pre-filled value"&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Disabled &amp; Read-only</h2>
+            <p>Disable or lock inputs to prevent user interaction.</p>
+
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="in-dis">Disabled Input</label>
+                        <input type="text" id="in-dis" class="zak-input" placeholder="Cannot type here" disabled>
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="in-ro">Read-only Input</label>
+                        <input type="text" id="in-ro" class="zak-input" value="You can select but not edit" readonly>
+                    </div>
+                </form>
+            </div>
+
+            <div class="docs-code-block">
+                <div class="docs-code-block__header">
+                    <span class="docs-code-block__lang">HTML</span>
+                    <button class="docs-copy-btn">Copy</button>
+                </div>
+                <pre><code class="language-html">&lt;input type="text" class="zak-input" placeholder="Cannot type here" disabled&gt;
+&lt;input type="text" class="zak-input" value="You can select but not edit" readonly&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Sizes</h2>
+            <p>Three sizes are available: small, default, and large.</p>
+
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="in-sm">Small</label>
+                        <input type="text" id="in-sm" class="zak-input zak-input-sm" placeholder="Small input">
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="in-md">Default</label>
+                        <input type="text" id="in-md" class="zak-input" placeholder="Default input">
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="in-lg">Large</label>
+                        <input type="text" id="in-lg" class="zak-input zak-input-lg" placeholder="Large input">
+                    </div>
+                </form>
+            </div>
+
+            <div class="docs-code-block">
+                <div class="docs-code-block__header">
+                    <span class="docs-code-block__lang">HTML</span>
+                    <button class="docs-copy-btn">Copy</button>
+                </div>
+                <pre><code class="language-html">&lt;input type="text" class="zak-input zak-input-sm" placeholder="Small input"&gt;
+&lt;input type="text" class="zak-input" placeholder="Default input"&gt;
+&lt;input type="text" class="zak-input zak-input-lg" placeholder="Large input"&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>With Icons</h2>
+            <p>Embed icons inside inputs using the input group component.</p>
+
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="in-icon-search">Search</label>
+                        <div class="zak-input-group">
+                            <span class="zak-input-group-text">
+                                <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                            </span>
+                            <input type="search" id="in-icon-search" class="zak-input" placeholder="Search...">
+                        </div>
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="in-icon-mail">Email</label>
+                        <div class="zak-input-group">
+                            <span class="zak-input-group-text">
+                                <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                            </span>
+                            <input type="email" id="in-icon-mail" class="zak-input" placeholder="you@example.com">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="docs-code-block">
+                <div class="docs-code-block__header">
+                    <span class="docs-code-block__lang">HTML</span>
+                    <button class="docs-copy-btn">Copy</button>
+                </div>
+                <pre><code class="language-html">&lt;div class="zak-input-group"&gt;
+  &lt;span class="zak-input-group-text"&gt;
+    &lt;svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;
+      &lt;circle cx="11" cy="11" r="8"/&gt;&lt;path d="m21 21-4.35-4.35"/&gt;
+    &lt;/svg&gt;
+  &lt;/span&gt;
+  &lt;input type="search" class="zak-input" placeholder="Search..."&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Validation States</h2>
+            <p>Show success, error, or warning states on inputs.</p>
+
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="in-suc">Success</label>
+                        <input type="text" id="in-suc" class="zak-input zak-form-control-success" value="Valid input">
+                        <span class="zak-form-text zak-text-success">Input looks good!</span>
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="in-err">Error</label>
+                        <input type="text" id="in-err" class="zak-input zak-form-control-danger" value="Invalid">
+                        <span class="zak-form-text zak-text-danger">This field has an error.</span>
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="in-warn">Warning</label>
+                        <input type="text" id="in-warn" class="zak-input zak-form-control-warning" value="Check this">
+                        <span class="zak-form-text zak-text-warning">Please review this value.</span>
+                    </div>
+                </form>
+            </div>
+
+            <div class="docs-code-block">
+                <div class="docs-code-block__header">
+                    <span class="docs-code-block__lang">HTML</span>
+                    <button class="docs-copy-btn">Copy</button>
+                </div>
+                <pre><code class="language-html">&lt;input type="text" class="zak-input zak-form-control-success" value="Valid input"&gt;
+&lt;span class="zak-form-text zak-text-success"&gt;Input looks good!&lt;/span&gt;
+
+&lt;input type="text" class="zak-input zak-form-control-danger" value="Invalid"&gt;
+&lt;span class="zak-form-text zak-text-danger"&gt;This field has an error.&lt;/span&gt;
+
+&lt;input type="text" class="zak-input zak-form-control-warning" value="Check this"&gt;
+&lt;span class="zak-form-text zak-text-warning"&gt;Please review this value.&lt;/span&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Input Variants</h2>
+            <p>Four visual variants are supported: filled, outlined, underline, and ghost. Apply one with <code>.zak-input--filled</code>, <code>.zak-input--outlined</code>, <code>.zak-input--underline</code>, <code>.zak-input--ghost</code>, or the attribute <code>data-variant="filled"</code>.</p>
+
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="in-var-filled">Filled</label>
+                        <input type="text" id="in-var-filled" class="zak-input zak-input--filled" placeholder="Filled input">
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="in-var-outlined">Outlined</label>
+                        <input type="text" id="in-var-outlined" class="zak-input zak-input--outlined" placeholder="Outlined input">
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="in-var-underline">Underline</label>
+                        <input type="text" id="in-var-underline" class="zak-input zak-input--underline" placeholder="Underline input">
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="in-var-ghost">Ghost</label>
+                        <input type="text" id="in-var-ghost" class="zak-input zak-input--ghost" placeholder="Ghost input">
+                    </div>
+                </form>
+            </div>
+
+            <div class="docs-code-block">
+                <div class="docs-code-block__header">
+                    <span class="docs-code-block__lang">HTML</span>
+                    <button class="docs-copy-btn">Copy</button>
+                </div>
+                <pre><code class="language-html">&lt;input type="text" class="zak-input zak-input--filled" placeholder="Filled input"&gt;
+&lt;input type="text" class="zak-input zak-input--outlined" placeholder="Outlined input"&gt;
+&lt;input type="text" class="zak-input zak-input--underline" placeholder="Underline input"&gt;
+&lt;input type="text" class="zak-input zak-input--ghost" placeholder="Ghost input"&gt;
+
+&lt;!-- Or via attribute --&gt;
+&lt;input type="text" class="zak-input" data-variant="filled" placeholder="Filled input"&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.zak-input</code></td><td>Base input styling</td></tr>
+                        <tr><td><code>.zak-input-sm</code></td><td>Small size</td></tr>
+                        <tr><td><code>.zak-input-lg</code></td><td>Large size</td></tr>
+                        <tr><td><code>.zak-form-control-success</code></td><td>Success state</td></tr>
+                        <tr><td><code>.zak-form-control-danger</code></td><td>Error state</td></tr>
+                        <tr><td><code>.zak-form-control-warning</code></td><td>Warning state</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Every input must have a visible <code>&lt;label&gt;</code> associated via <code>for</code>/<code>id</code>.</li>
+                <li>Use <code>placeholder</code> only as a hint, never as a replacement for labels.</li>
+                <li>Set <code>autocomplete</code> attributes for common fields (email, name, password).</li>
+                <li>Disabled inputs should have <code>aria-disabled="true"</code> if they remain visible.</li>
+                <li>Use <code>aria-describedby</code> to link validation messages to inputs.</li>
+            </ul>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body>
+</html>

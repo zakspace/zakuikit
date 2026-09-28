@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit AI Avatar documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>AI Avatar - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/ai/ai-avatar/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="AI Avatar - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit AI Avatar documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/ai/ai-avatar/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Ai</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">AI Avatar</span>
+                </nav>
+        <h1>AI Avatar</h1>
+        <p class="docs-subtitle">AI avatar with sparkle icon, multiple sizes, gradient backgrounds, and status indicators for different processing states.</p>
+
+        <section class="zak-docs-section">
+            <h2>Sizes</h2>
+            <p>Avatars in five sizes from extra-small to extra-large.</p>
+            <div class="docs-preview">
+                <div style="display:flex;align-items:end;gap:0.75rem;flex-wrap:wrap">
+                    <div style="text-align:center"><div class="zak-ai-avatar zak-ai-avatar-xs"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></div><div style="font-size:0.6875rem;color:var(--zak-text-muted);margin-top:0.375rem">XS</div></div>
+                    <div style="text-align:center"><div class="zak-ai-avatar zak-ai-avatar-sm"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></div><div style="font-size:0.6875rem;color:var(--zak-text-muted);margin-top:0.375rem">SM</div></div>
+                    <div style="text-align:center"><div class="zak-ai-avatar zak-ai-avatar-md"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></div><div style="font-size:0.6875rem;color:var(--zak-text-muted);margin-top:0.375rem">MD</div></div>
+                    <div style="text-align:center"><div class="zak-ai-avatar zak-ai-avatar-lg"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></div><div style="font-size:0.6875rem;color:var(--zak-text-muted);margin-top:0.375rem">LG</div></div>
+                    <div style="text-align:center"><div class="zak-ai-avatar zak-ai-avatar-xl"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></div><div style="font-size:0.6875rem;color:var(--zak-text-muted);margin-top:0.375rem">XL</div></div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-ai-avatar zak-ai-avatar-xs"&gt;âœ¦&lt;/div&gt;
+&lt;div class="zak-ai-avatar zak-ai-avatar-sm"&gt;âœ¦&lt;/div&gt;
+&lt;div class="zak-ai-avatar zak-ai-avatar-md"&gt;âœ¦&lt;/div&gt;
+&lt;div class="zak-ai-avatar zak-ai-avatar-lg"&gt;âœ¦&lt;/div&gt;
+&lt;div class="zak-ai-avatar zak-ai-avatar-xl"&gt;âœ¦&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Gradient Variants</h2>
+            <p>Different gradient backgrounds for different AI models or contexts.</p>
+            <div class="docs-preview">
+                <div style="display:flex;gap:0.75rem;flex-wrap:wrap;align-items:center">
+                    <div class="zak-ai-avatar zak-ai-avatar-md"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></div>
+                    <div class="zak-ai-avatar zak-ai-avatar-md zak-ai-avatar-gradient-blue"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></div>
+                    <div class="zak-ai-avatar zak-ai-avatar-md zak-ai-avatar-gradient-green"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></div>
+                    <div class="zak-ai-avatar zak-ai-avatar-md zak-ai-avatar-gradient-orange"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></div>
+                    <div class="zak-ai-avatar zak-ai-avatar-md zak-ai-avatar-gradient-pink"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-ai-avatar zak-ai-avatar-md"&gt;...&lt;/div&gt;                    &lt;!-- Default purple --&gt;
+&lt;div class="zak-ai-avatar zak-ai-avatar-md zak-ai-avatar-gradient-blue"&gt;...&lt;/div&gt;
+&lt;div class="zak-ai-avatar zak-ai-avatar-md zak-ai-avatar-gradient-green"&gt;...&lt;/div&gt;
+&lt;div class="zak-ai-avatar zak-ai-avatar-md zak-ai-avatar-gradient-orange"&gt;...&lt;/div&gt;
+&lt;div class="zak-ai-avatar zak-ai-avatar-md zak-ai-avatar-gradient-pink"&gt;...&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Status Indicators</h2>
+            <p>Avatars with status dots indicating processing state.</p>
+            <div class="docs-preview">
+                <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center">
+                    <div style="text-align:center"><div class="zak-ai-avatar zak-ai-avatar-lg zak-ai-avatar-round" style="position:relative"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg><div class="zak-ai-avatar-status thinking"></div></div><div style="font-size:0.6875rem;color:var(--zak-text-muted);margin-top:0.375rem">Thinking</div></div>
+                    <div style="text-align:center"><div class="zak-ai-avatar zak-ai-avatar-lg zak-ai-avatar-round" style="position:relative"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg><div class="zak-ai-avatar-status generating"></div></div><div style="font-size:0.6875rem;color:var(--zak-text-muted);margin-top:0.375rem">Generating</div></div>
+                    <div style="text-align:center"><div class="zak-ai-avatar zak-ai-avatar-lg zak-ai-avatar-round" style="position:relative"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg><div class="zak-ai-avatar-status online"></div></div><div style="font-size:0.6875rem;color:var(--zak-text-muted);margin-top:0.375rem">Online</div></div>
+                    <div style="text-align:center"><div class="zak-ai-avatar zak-ai-avatar-lg zak-ai-avatar-round" style="position:relative"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg><div class="zak-ai-avatar-status offline"></div></div><div style="font-size:0.6875rem;color:var(--zak-text-muted);margin-top:0.375rem">Offline</div></div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-ai-avatar zak-ai-avatar-lg zak-ai-avatar-round" style="position:relative"&gt;
+    &lt;svg viewBox="0 0 24 24" fill="currentColor"&gt;...&lt;/svg&gt;
+    &lt;div class="zak-ai-avatar-status thinking"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Status classes: thinking, generating, online, offline --&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>In Conversation Context</h2>
+            <p>Avatars used alongside name and status in a chat-like layout.</p>
+            <div class="docs-preview">
+                <div style="max-width:300px">
+                    <div class="zak-ai-avatar-in-chat">
+                        <div class="zak-ai-avatar zak-ai-avatar-md"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></div>
+                        <div class="zak-ai-avatar-in-chat-info">
+                            <span class="zak-ai-avatar-in-chat-name">ZAK AI</span>
+                            <span class="zak-ai-avatar-in-chat-status">Online &middot; GPT-4</span>
+                        </div>
+                    </div>
+                    <div class="zak-ai-avatar-in-chat">
+                        <div class="zak-ai-avatar zak-ai-avatar-md zak-ai-avatar-gradient-blue"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></div>
+                        <div class="zak-ai-avatar-in-chat-info">
+                            <span class="zak-ai-avatar-in-chat-name">Code Assistant</span>
+                            <span class="zak-ai-avatar-in-chat-status">Thinking...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-ai-avatar-in-chat"&gt;
+    &lt;div class="zak-ai-avatar zak-ai-avatar-md"&gt;âœ¦&lt;/div&gt;
+    &lt;div class="zak-ai-avatar-in-chat-info"&gt;
+        &lt;span class="zak-ai-avatar-in-chat-name"&gt;ZAK AI&lt;/span&gt;
+        &lt;span class="zak-ai-avatar-in-chat-status"&gt;Online &amp;middot; GPT-4&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>CSS Classes</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>.zak-ai-avatar                 /* Base avatar */
+.zak-ai-avatar-xs             /* 1.5rem */
+.zak-ai-avatar-sm             /* 2rem */
+.zak-ai-avatar-md             /* 2.5rem (default) */
+.zak-ai-avatar-lg             /* 3.5rem */
+.zak-ai-avatar-xl             /* 5rem */
+.zak-ai-avatar-round          /* Circular shape */
+.zak-ai-avatar-ring           /* Outer ring glow */
+.zak-ai-avatar-gradient-blue  /* Blue gradient */
+.zak-ai-avatar-gradient-green /* Green gradient */
+.zak-ai-avatar-gradient-orange/* Orange gradient */
+.zak-ai-avatar-gradient-pink  /* Pink gradient */
+.zak-ai-avatar-status         /* Status indicator dot */
+.zak-ai-avatar-status.thinking/* Pulsing yellow */
+.zak-ai-avatar-status.generating/* Pulsing purple */
+.zak-ai-avatar-status.online  /* Solid green */
+.zak-ai-avatar-status.offline /* Gray */
+.zak-ai-avatar-group          /* Grouped avatars */
+.zak-ai-avatar-in-chat        /* Avatar + info layout */
+.zak-ai-avatar-in-chat-name   /* Name text */
+.zak-ai-avatar-in-chat-status /* Status text */</code></pre>
+        </div>
+        </section>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body>
+</html>

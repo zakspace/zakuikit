@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Data Grid documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Data Grid - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/tables/data-grid/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Data Grid - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Data Grid documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/tables/data-grid/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Tables &amp; DataGrid</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Data Grid</span>
+                </nav>
+        <h1>Data Grid</h1>
+        <p class="docs-subtitle">Data Grid provides an advanced table with sortable columns, row selection, pagination, sticky headers, alternating rows, and compact mode for displaying large datasets.</p>
+
+        <div class="zak-docs-section">
+            <h2>Full-Featured Grid</h2>
+            <p>Sortable headers, selectable rows, sticky header, alternating rows, and pagination.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
+                    <input type="text" class="zak-input" placeholder="Search grid..." id="dg-search" style="max-width: 16rem;">
+                    <div style="display: flex; gap: 0.5rem; align-items: center;">
+                        <span style="font-size: 0.75rem; color: var(--zak-text-muted);"><span id="dg-selected-count">0</span> selected</span>
+                        <button class="zak-btn zak-btn-sm zak-btn-outline" onclick="toggleCompact()">Compact</button>
+                    </div>
+                </div>
+                <div style="border: 1px solid var(--zak-border); border-radius: var(--zak-radius-md); overflow: hidden; max-height: 24rem; overflow-y: auto;">
+                    <table class="zak-datagrid" id="dg-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 40px;"><input type="checkbox" class="zak-checkbox" id="dg-select-all"></th>
+                                <th class="zak-datagrid-resize" data-sort="string">Name â†•</th>
+                                <th class="zak-datagrid-resize" data-sort="string">Email â†•</th>
+                                <th class="zak-datagrid-resize" data-sort="string">Role â†•</th>
+                                <th class="zak-datagrid-resize" data-sort="string">Status â†•</th>
+                                <th style="width: 100px;">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dg-body">
+                            <tr><td><input type="checkbox" class="zak-checkbox dg-row-check"></td><td>Alice Johnson</td><td>alice@example.com</td><td>Admin</td><td><span class="zak-badge zak-badge-success">Active</span></td><td><button class="zak-btn zak-btn-soft zak-btn-sm">Edit</button></td></tr>
+                            <tr><td><input type="checkbox" class="zak-checkbox dg-row-check"></td><td>Bob Smith</td><td>bob@example.com</td><td>Editor</td><td><span class="zak-badge zak-badge-success">Active</span></td><td><button class="zak-btn zak-btn-soft zak-btn-sm">Edit</button></td></tr>
+                            <tr><td><input type="checkbox" class="zak-checkbox dg-row-check"></td><td>Carol White</td><td>carol@example.com</td><td>Viewer</td><td><span class="zak-badge zak-badge-warning">Away</span></td><td><button class="zak-btn zak-btn-soft zak-btn-sm">Edit</button></td></tr>
+                            <tr><td><input type="checkbox" class="zak-checkbox dg-row-check"></td><td>David Brown</td><td>david@example.com</td><td>Admin</td><td><span class="zak-badge zak-badge-success">Active</span></td><td><button class="zak-btn zak-btn-soft zak-btn-sm">Edit</button></td></tr>
+                            <tr><td><input type="checkbox" class="zak-checkbox dg-row-check"></td><td>Eva Martinez</td><td>eva@example.com</td><td>Editor</td><td><span class="zak-badge zak-badge-danger">Inactive</span></td><td><button class="zak-btn zak-btn-soft zak-btn-sm">Edit</button></td></tr>
+                            <tr><td><input type="checkbox" class="zak-checkbox dg-row-check"></td><td>Frank Lee</td><td>frank@example.com</td><td>Viewer</td><td><span class="zak-badge zak-badge-success">Active</span></td><td><button class="zak-btn zak-btn-soft zak-btn-sm">Edit</button></td></tr>
+                            <tr><td><input type="checkbox" class="zak-checkbox dg-row-check"></td><td>Grace Kim</td><td>grace@example.com</td><td>Admin</td><td><span class="zak-badge zak-badge-success">Active</span></td><td><button class="zak-btn zak-btn-soft zak-btn-sm">Edit</button></td></tr>
+                            <tr><td><input type="checkbox" class="zak-checkbox dg-row-check"></td><td>Henry Davis</td><td>henry@example.com</td><td>Editor</td><td><span class="zak-badge zak-badge-warning">Away</span></td><td><button class="zak-btn zak-btn-soft zak-btn-sm">Edit</button></td></tr>
+                            <tr><td><input type="checkbox" class="zak-checkbox dg-row-check"></td><td>Iris Chen</td><td>iris@example.com</td><td>Viewer</td><td><span class="zak-badge zak-badge-success">Active</span></td><td><button class="zak-btn zak-btn-soft zak-btn-sm">Edit</button></td></tr>
+                            <tr><td><input type="checkbox" class="zak-checkbox dg-row-check"></td><td>Jack Wilson</td><td>jack@example.com</td><td>Editor</td><td><span class="zak-badge zak-badge-danger">Inactive</span></td><td><button class="zak-btn zak-btn-soft zak-btn-sm">Edit</button></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <nav class="zak-pagination" style="justify-content: center; margin-top: 1rem;" id="dg-pagination">
+                    <a href="#" class="zak-page-link" onclick="dgPagePrev(); return false;">‹</a>
+                    <a href="#" class="zak-page-item zak-page-active" onclick="dgGoPage(1); return false;">1</a>
+                    <a href="#" class="zak-page-item" onclick="dgGoPage(2); return false;">2</a>
+                    <a href="#" class="zak-page-link" onclick="dgPageNext(); return false;">›</a>
+                </nav>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Compact Mode</h2>
+            <p>Dense layout with smaller padding for analytical tables.</p>
+
+            <div class="docs-preview">
+                <div class="zak-table-wrapper">
+                    <table class="zak-datagrid zak-datagrid-compact">
+                        <thead><tr><th>Metric</th><th style="text-align:right;">Q1</th><th style="text-align:right;">Q2</th><th style="text-align:right;">Q3</th><th style="text-align:right;">Q4</th></tr></thead>
+                        <tbody>
+                            <tr><td>Revenue</td><td style="text-align:right;">$124K</td><td style="text-align:right;">$156K</td><td style="text-align:right;">$189K</td><td style="text-align:right;">$210K</td></tr>
+                            <tr><td>Expenses</td><td style="text-align:right;">$98K</td><td style="text-align:right;">$105K</td><td style="text-align:right;">$112K</td><td style="text-align:right;">$118K</td></tr>
+                            <tr><td>Profit</td><td style="text-align:right;">$26K</td><td style="text-align:right;">$51K</td><td style="text-align:right;">$77K</td><td style="text-align:right;">$92K</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Demo JavaScript</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span>JavaScript</span><button class="docs-copy-btn">Copy</button></div><pre><code>// Sorting
+document.querySelectorAll('#dg-table th[data-sort]').forEach(function (th) {
+  th.addEventListener('click', function () {
+    var tbody = document.getElementById('dg-body');
+    var rows = Array.from(tbody.rows);
+    var idx = Array.from(th.parentNode.children).indexOf(th);
+    var dir = th.dataset.dir === 'asc' ? 'desc' : 'asc';
+    th.dataset.dir = dir;
+    rows.sort(function (a, b) {
+      var av = a.children[idx].textContent.trim();
+      var bv = b.children[idx].textContent.trim();
+      return dir === 'asc' ? av.localeCompare(bv) : bv.localeCompare(av);
+    });
+    rows.forEach(function (r) { tbody.appendChild(r); });
+  });
+});
+
+// Select all / row selection
+document.getElementById('dg-select-all').addEventListener('change', function () {
+  document.querySelectorAll('.dg-row-check').forEach(function (cb) {
+    cb.checked = document.getElementById('dg-select-all').checked;
+    cb.closest('tr').classList.toggle('zak-row-selected', cb.checked);
+  });
+  updateSelectedCount();
+});
+document.querySelectorAll('.dg-row-check').forEach(function (cb) {
+  cb.addEventListener('change', function () {
+    cb.closest('tr').classList.toggle('zak-row-selected', cb.checked);
+    updateSelectedCount();
+  });
+});
+function updateSelectedCount() {
+  document.getElementById('dg-selected-count').textContent = document.querySelectorAll('.dg-row-check:checked').length;
+}
+
+// Search filter
+document.getElementById('dg-search').addEventListener('input', function () {
+  var q = this.value.toLowerCase();
+  document.querySelectorAll('#dg-body tr').forEach(function (row) {
+    row.style.display = row.textContent.toLowerCase().indexOf(q) !== -1 ? '' : 'none';
+  });
+});
+
+// Compact toggle
+function toggleCompact() {
+  document.getElementById('dg-table').classList.toggle('zak-datagrid-compact');
+}</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead><tr><th>Class</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>.zak-datagrid</code></td><td>Base data grid table</td></tr>
+                        <tr><td><code>.zak-datagrid-compact</code></td><td>Compact density mode</td></tr>
+                        <tr><td><code>.zak-datagrid-resize</code></td><td>Column resize handle</td></tr>
+                        <tr><td><code>.zak-row-selected</code></td><td>Selected row highlight</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    <script>
+    (function () {
+      var table = document.getElementById('dg-table');
+      var tbody = document.getElementById('dg-body');
+      var rowsSource = Array.prototype.slice.call(tbody.rows).map(function (r) { return r.cloneNode(true); });
+      var sorter = { col: -1, dir: 'asc' };
+      var page = 1;
+      var pageSize = 5;
+
+      window.updateSelectedCount = function () {
+        document.getElementById('dg-selected-count').textContent = tbody.querySelectorAll('.dg-row-check:checked').length;
+      };
+
+      function visibleRows() {
+        var q = (document.getElementById('dg-search').value || '').toLowerCase();
+        var list = rowsSource.filter(function (r) {
+          return q === '' || r.textContent.toLowerCase().indexOf(q) !== -1;
+        });
+        if (sorter.col >= 0) {
+          var dir = sorter.dir;
+          list = list.slice().sort(function (a, b) {
+            var av = a.cells[sorter.col].textContent.trim();
+            var bv = b.cells[sorter.col].textContent.trim();
+            return dir === 'asc' ? av.localeCompare(bv) : bv.localeCompare(av);
+          });
+        }
+        return list;
+      }
+
+      function render() {
+        var list = visibleRows();
+        var total = list.length;
+        var pages = Math.max(1, Math.ceil(total / pageSize));
+        if (page > pages) page = pages;
+        if (page < 1) page = 1;
+        var start = (page - 1) * pageSize;
+        var slice = list.slice(start, start + pageSize);
+        tbody.innerHTML = '';
+        slice.forEach(function (src) { tbody.appendChild(src.cloneNode(true)); });
+        var nav = document.getElementById('dg-pagination');
+        if (nav) {
+          var current = page;
+          nav.querySelectorAll('.zak-page-item').forEach(function (a) {
+            a.classList.toggle('zak-page-active', parseInt(a.textContent, 10) === current);
+          });
+        }
+        document.getElementById('dg-select-all').checked = false;
+        updateSelectedCount();
+      }
+
+      window.dgGoPage = function (n) { page = n; render(); };
+      window.dgPagePrev = function () { page = Math.max(1, page - 1); render(); };
+      window.dgPageNext = function () { page = Math.min(page + 1, Math.max(1, Math.ceil(visibleRows().length / pageSize))); render(); };
+      window.toggleCompact = function () {
+        document.getElementById('dg-table').classList.toggle('zak-datagrid-compact');
+      };
+
+      table.querySelectorAll('th[data-sort]').forEach(function (th) {
+        th.addEventListener('click', function () {
+          var col = Array.prototype.indexOf.call(th.parentNode.children, th);
+          if (sorter.col === col) {
+            sorter.dir = sorter.dir === 'asc' ? 'desc' : 'asc';
+          } else {
+            sorter.col = col;
+            sorter.dir = 'asc';
+          }
+          th.dataset.dir = sorter.dir;
+          table.querySelectorAll('th[data-sort]').forEach(function (t) { if (t !== th) delete t.dataset.dir; });
+          render();
+        });
+      });
+
+      document.getElementById('dg-select-all').addEventListener('change', function () {
+        var checked = this.checked;
+        tbody.querySelectorAll('.dg-row-check').forEach(function (cb) {
+          cb.checked = checked;
+          cb.closest('tr').classList.toggle('zak-row-selected', checked);
+        });
+        updateSelectedCount();
+      });
+
+      tbody.addEventListener('change', function (e) {
+        if (e.target.classList.contains('dg-row-check')) {
+          e.target.closest('tr').classList.toggle('zak-row-selected', e.target.checked);
+          var all = tbody.querySelectorAll('.dg-row-check').length;
+          var sel = tbody.querySelectorAll('.dg-row-check:checked').length;
+          document.getElementById('dg-select-all').checked = all > 0 && sel === all;
+          updateSelectedCount();
+        }
+      });
+
+      document.getElementById('dg-search').addEventListener('input', function () { render(); });
+
+      render();
+    })();
+    </script>
+    </body>
+</html>

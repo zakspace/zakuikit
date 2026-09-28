@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Progress Circle documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Progress Circle - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/feedback/progress-circle/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Progress Circle - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Progress Circle documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/feedback/progress-circle/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Feedback</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Progress Circle</span>
+                </nav>
+        <h1>Progress Circle</h1>
+        <p class="docs-subtitle">Circular progress indicators show task completion in a ring layout, ideal for dashboards and scores.</p>
+
+        <section class="zak-docs-section">
+            <h2>Basic Circular Progress</h2>
+            <p>A simple 75% ring built from an SVG with a track and value stroke.</p>
+            <div class="docs-preview">
+                <div class="zak-progress-circle">
+                    <svg viewBox="0 0 100 100" style="width:100%;height:100%;">
+                        <circle class="zak-progress-circle-track" cx="50" cy="50" r="45" fill="none" stroke-width="8"/>
+                        <circle class="zak-progress-circle-value" cx="50" cy="50" r="45" fill="none" stroke-width="8" stroke-dasharray="282.74" stroke-dashoffset="70.68"/>
+                    </svg>
+                    <span class="zak-progress-circle-label">75%</span>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-progress-circle"&gt;
+    &lt;svg viewBox="0 0 100 100" style="width:100%;height:100%;"&gt;
+        &lt;circle class="zak-progress-circle-track" cx="50" cy="50" r="45"
+                fill="none" stroke-width="8"/&gt;
+        &lt;circle class="zak-progress-circle-value" cx="50" cy="50" r="45"
+                fill="none" stroke-width="8"
+                stroke-dasharray="282.74" stroke-dashoffset="70.68"/&gt;
+    &lt;/svg&gt;
+    &lt;span class="zak-progress-circle-label"&gt;75%&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Circular Progress with Label / Percentage</h2>
+            <p>The label sits centered in the ring and can be a number, text, or both.</p>
+            <div class="docs-preview">
+                <div style="display:flex;gap:2rem;flex-wrap:wrap;align-items:center;">
+                    <div class="zak-progress-circle">
+                        <svg viewBox="0 0 100 100" style="width:100%;height:100%;">
+                            <circle class="zak-progress-circle-track" cx="50" cy="50" r="45" fill="none" stroke-width="8"/>
+                            <circle class="zak-progress-circle-value zak-progress-circle-success" cx="50" cy="50" r="45" fill="none" stroke-width="8" stroke-dasharray="282.74" stroke-dashoffset="28.27"/>
+                        </svg>
+                        <span class="zak-progress-circle-label">90%</span>
+                    </div>
+                    <div class="zak-progress-circle">
+                        <svg viewBox="0 0 100 100" style="width:100%;height:100%;">
+                            <circle class="zak-progress-circle-track" cx="50" cy="50" r="45" fill="none" stroke-width="8"/>
+                            <circle class="zak-progress-circle-value" cx="50" cy="50" r="45" fill="none" stroke-width="8" stroke-dasharray="282.74" stroke-dashoffset="141.37"/>
+                        </svg>
+                        <span class="zak-progress-circle-label" style="line-height:1.2;text-align:center;">3.5<br>hours</span>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-progress-circle"&gt;
+    &lt;svg viewBox="0 0 100 100" style="width:100%;height:100%;"&gt;
+        &lt;circle class="zak-progress-circle-track" cx="50" cy="50" r="45" fill="none" stroke-width="8"/&gt;
+        &lt;circle class="zak-progress-circle-value" cx="50" cy="50" r="45" fill="none" stroke-width="8"
+                stroke-dasharray="282.74" stroke-dashoffset="141.37"/&gt;
+    &lt;/svg&gt;
+    &lt;span class="zak-progress-circle-label"&gt;50%&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Circular Progress Sizes</h2>
+            <p>Resize with CSS overrides on the container width and height plus matching stroke and label sizes.</p>
+            <div class="docs-preview">
+                <div style="display:flex;gap:2rem;flex-wrap:wrap;align-items:center;">
+                    <div class="zak-progress-circle" style="width:2.5rem;height:2.5rem;">
+                        <svg viewBox="0 0 100 100" style="width:100%;height:100%;">
+                            <circle class="zak-progress-circle-track" cx="50" cy="50" r="45" fill="none" stroke-width="12"/>
+                            <circle class="zak-progress-circle-value" cx="50" cy="50" r="45" fill="none" stroke-width="12" stroke-dasharray="282.74" stroke-dashoffset="84.82"/>
+                        </svg>
+                        <span class="zak-progress-circle-label" style="font-size:0.55rem;">70%</span>
+                    </div>
+                    <div class="zak-progress-circle">
+                        <svg viewBox="0 0 100 100" style="width:100%;height:100%;">
+                            <circle class="zak-progress-circle-track" cx="50" cy="50" r="45" fill="none" stroke-width="8"/>
+                            <circle class="zak-progress-circle-value" cx="50" cy="50" r="45" fill="none" stroke-width="8" stroke-dasharray="282.74" stroke-dashoffset="84.82"/>
+                        </svg>
+                        <span class="zak-progress-circle-label">70%</span>
+                    </div>
+                    <div class="zak-progress-circle" style="width:8rem;height:8rem;">
+                        <svg viewBox="0 0 100 100" style="width:100%;height:100%;">
+                            <circle class="zak-progress-circle-track" cx="50" cy="50" r="45" fill="none" stroke-width="6"/>
+                            <circle class="zak-progress-circle-value" cx="50" cy="50" r="45" fill="none" stroke-width="6" stroke-dasharray="282.74" stroke-dashoffset="84.82"/>
+                        </svg>
+                        <span class="zak-progress-circle-label" style="font-size:1.25rem;">70%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;!-- Small --&gt;
+&lt;div class="zak-progress-circle" style="width:2.5rem;height:2.5rem;"&gt;
+    &lt;svg viewBox="0 0 100 100" style="width:100%;height:100%;"&gt;
+        &lt;circle class="zak-progress-circle-track" cx="50" cy="50" r="45" fill="none" stroke-width="12"/&gt;
+        &lt;circle class="zak-progress-circle-value" cx="50" cy="50" r="45" fill="none" stroke-width="12"
+                stroke-dasharray="282.74" stroke-dashoffset="84.82"/&gt;
+    &lt;/svg&gt;
+    &lt;span class="zak-progress-circle-label" style="font-size:0.55rem;"&gt;70%&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- Default --&gt;
+&lt;div class="zak-progress-circle"&gt;...&lt;/div&gt;
+
+&lt;!-- Large --&gt;
+&lt;div class="zak-progress-circle" style="width:8rem;height:8rem;"&gt;
+    &lt;span class="zak-progress-circle-label" style="font-size:1.25rem;"&gt;70%&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Circular Progress Color Variants</h2>
+            <p>Modifiers recolor the value stroke for semantic context.</p>
+            <div class="docs-preview">
+                <div style="display:flex;gap:2rem;flex-wrap:wrap;align-items:center;">
+                    <div class="zak-progress-circle">
+                        <svg viewBox="0 0 100 100" style="width:100%;height:100%;">
+                            <circle class="zak-progress-circle-track" cx="50" cy="50" r="45" fill="none" stroke-width="8"/>
+                            <circle class="zak-progress-circle-value" cx="50" cy="50" r="45" fill="none" stroke-width="8" stroke-dasharray="282.74" stroke-dashoffset="99"/>
+                        </svg>
+                        <span class="zak-progress-circle-label">65%</span>
+                    </div>
+                    <div class="zak-progress-circle zak-progress-circle-success">
+                        <svg viewBox="0 0 100 100" style="width:100%;height:100%;">
+                            <circle class="zak-progress-circle-track" cx="50" cy="50" r="45" fill="none" stroke-width="8"/>
+                            <circle class="zak-progress-circle-value" cx="50" cy="50" r="45" fill="none" stroke-width="8" stroke-dasharray="282.74" stroke-dashoffset="99"/>
+                        </svg>
+                        <span class="zak-progress-circle-label">65%</span>
+                    </div>
+                    <div class="zak-progress-circle zak-progress-circle-danger">
+                        <svg viewBox="0 0 100 100" style="width:100%;height:100%;">
+                            <circle class="zak-progress-circle-track" cx="50" cy="50" r="45" fill="none" stroke-width="8"/>
+                            <circle class="zak-progress-circle-value" cx="50" cy="50" r="45" fill="none" stroke-width="8" stroke-dasharray="282.74" stroke-dashoffset="99"/>
+                        </svg>
+                        <span class="zak-progress-circle-label">65%</span>
+                    </div>
+                    <div class="zak-progress-circle zak-progress-circle-warning">
+                        <svg viewBox="0 0 100 100" style="width:100%;height:100%;">
+                            <circle class="zak-progress-circle-track" cx="50" cy="50" r="45" fill="none" stroke-width="8"/>
+                            <circle class="zak-progress-circle-value" cx="50" cy="50" r="45" fill="none" stroke-width="8" stroke-dasharray="282.74" stroke-dashoffset="99"/>
+                        </svg>
+                        <span class="zak-progress-circle-label">65%</span>
+                    </div>
+                    <div class="zak-progress-circle zak-progress-circle-info">
+                        <svg viewBox="0 0 100 100" style="width:100%;height:100%;">
+                            <circle class="zak-progress-circle-track" cx="50" cy="50" r="45" fill="none" stroke-width="8"/>
+                            <circle class="zak-progress-circle-value" cx="50" cy="50" r="45" fill="none" stroke-width="8" stroke-dasharray="282.74" stroke-dashoffset="99"/>
+                        </svg>
+                        <span class="zak-progress-circle-label">65%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-progress-circle"&gt;...&lt;/div&gt;  &lt;!-- primary --&gt;
+&lt;div class="zak-progress-circle zak-progress-circle-success"&gt;...&lt;/div&gt;
+&lt;div class="zak-progress-circle zak-progress-circle-danger"&gt;...&lt;/div&gt;
+&lt;div class="zak-progress-circle zak-progress-circle-warning"&gt;...&lt;/div&gt;
+&lt;div class="zak-progress-circle zak-progress-circle-info"&gt;...&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Circular Progress with Icon</h2>
+            <p>Replace the numeric label with an icon inside the ring.</p>
+            <div class="docs-preview">
+                <div class="zak-progress-circle zak-progress-circle-success" style="width:6rem;height:6rem;">
+                    <svg viewBox="0 0 100 100" style="width:100%;height:100%;">
+                        <circle class="zak-progress-circle-track" cx="50" cy="50" r="45" fill="none" stroke-width="7"/>
+                        <circle class="zak-progress-circle-value" cx="50" cy="50" r="45" fill="none" stroke-width="7" stroke-dasharray="282.74"/>
+                    </svg>
+                    <span style="display:flex;align-items:center;justify-content:center;position:absolute;inset:0;">
+                        <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--zak-color-success);"><path d="M20 6L9 17l-5-5"/></svg>
+                    </span>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-progress-circle zak-progress-circle-success"&gt;
+    &lt;svg viewBox="0 0 100 100" style="width:100%;height:100%;"&gt;
+        &lt;circle class="zak-progress-circle-track" cx="50" cy="50" r="45" fill="none" stroke-width="7"/&gt;
+        &lt;circle class="zak-progress-circle-value" cx="50" cy="50" r="45" fill="none" stroke-width="7"
+                stroke-dasharray="282.74"/&gt;
+    &lt;/svg&gt;
+    &lt;span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;"&gt;
+        &lt;svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             style="color:var(--zak-color-success);"&gt;&lt;path d="M20 6L9 17l-5-5"/&gt;&lt;/svg&gt;
+    &lt;/span&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Animated Demo</h2>
+            <p>Click to animate the ring from 0 to 85%.</p>
+            <div class="docs-preview">
+                <div style="display:flex;flex-direction:column;align-items:center;gap:1rem;">
+                    <div class="zak-progress-circle zak-progress-circle-info" id="animated-circle" style="width:8rem;height:8rem;">
+                        <svg viewBox="0 0 100 100" style="width:100%;height:100%;">
+                            <circle class="zak-progress-circle-track" cx="50" cy="50" r="45" fill="none" stroke-width="7"/>
+                            <circle class="zak-progress-circle-value" id="animated-value" cx="50" cy="50" r="45" fill="none" stroke-width="7" stroke-dasharray="282.74" stroke-dashoffset="282.74"/>
+                        </svg>
+                        <span class="zak-progress-circle-label" id="animated-label" style="font-size:1.25rem;">0%</span>
+                    </div>
+                    <button class="zak-btn zak-btn-info" id="animate-btn">Animate to 85%</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>JavaScript</h2>
+            <p>Animate the ring by interpolating the stroke-dashoffset with <code>requestAnimationFrame</code>.</p>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>function animateCircle(circle, valueEl, labelEl, target, duration) {
+    var circumference = 282.74;
+    var start = 0;
+    var startTime = null;
+
+    function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        var progress = Math.min((timestamp - startTime) / duration, 1);
+        var current = start + (target - start) * progress;
+        valueEl.style.strokeDashoffset = circumference * (1 - current / 100);
+        labelEl.textContent = Math.round(current) + '%';
+        if (progress &lt; 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+}
+
+document.getElementById('animate-btn').addEventListener('click', function () {
+    document.getElementById('animated-circle').classList.add('zak-progress-circle-info');
+    animateCircle(
+        document.getElementById('animated-value'),
+        document.getElementById('animated-label'),
+        85, 1200
+    );
+});</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>CSS Classes &amp; Variables</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>.zak-progress-circle            /* Ring container */
+.zak-progress-circle-track       /* Background track stroke */
+.zak-progress-circle-value       /* Foreground value stroke */
+.zak-progress-circle-label       /* Centered label */
+.zak-progress-circle-success     /* Success stroke color */
+.zak-progress-circle-danger      /* Danger stroke color */
+.zak-progress-circle-warning     /* Warning stroke color */
+.zak-progress-circle-info        /* Info stroke color */
+
+/* Tip: circle circumference for r=45 */
+C = 2 * Math.PI * 45 = 282.74
+offset = C * (1 - percent / 100)</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>The SVG ring is decorative; provide the percentage as text in the label.</li>
+                <li>Add <code>role="progressbar"</code> with <code>aria-valuenow</code>, <code>aria-valuemin="0"</code>, and <code>aria-valuemax="100"</code>.</li>
+                <li>Animated rings should respect <code>prefers-reduced-motion</code>.</li>
+            </ul>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-progress-circle" role="progressbar"
+     aria-label="Completion" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"&gt;
+    &lt;svg viewBox="0 0 100 100" style="width:100%;height:100%;"&gt;...&lt;/svg&gt;
+    &lt;span class="zak-progress-circle-label"&gt;75%&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    <script>
+        function animateCircle(valueEl, labelEl, target, duration) {
+            var circumference = 282.74;
+            var startTime = null;
+            function step(timestamp) {
+                if (!startTime) startTime = timestamp;
+                var progress = Math.min((timestamp - startTime) / duration, 1);
+                var current = target * progress;
+                valueEl.style.strokeDashoffset = circumference * (1 - current / 100);
+                labelEl.textContent = Math.round(current) + '%';
+                if (progress < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+        }
+        document.getElementById('animate-btn').addEventListener('click', function () {
+            animateCircle(document.getElementById('animated-value'), document.getElementById('animated-label'), 85, 1200);
+        });
+    </script>
+</body></html>

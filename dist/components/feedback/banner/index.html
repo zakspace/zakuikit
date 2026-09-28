@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Banner documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Banner - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/feedback/banner/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Banner - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Banner documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/feedback/banner/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Feedback</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Banner</span>
+                </nav>
+        <h1>Banner</h1>
+        <p class="docs-subtitle">Banners are full-width messages placed at the top or bottom of a page to communicate important, persistent information.</p>
+
+        <section class="zak-docs-section">
+            <h2>Top Banner</h2>
+            <p>The default banner is centered at the top of the page and spans the full width.</p>
+            <div class="docs-preview">
+                <div class="zak-banner" style="width:100%;">
+                    Our new dashboard is live. <button class="zak-btn zak-btn-link zak-banner-action">Learn more</button>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-banner"&gt;
+    Our new dashboard is live.
+    &lt;button class="zak-btn zak-btn-link zak-banner-action"&gt;Learn more&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Bottom Banner</h2>
+            <p>Stick a banner to the bottom of the viewport for cookie consents or upgrade prompts.</p>
+            <div class="docs-preview">
+                <div class="zak-banner" style="width:100%;height:64px;">
+                    We use cookies to improve your experience.
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>/* Sticky bottom position */
+.zak-banner-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+&lt;div class="zak-banner zak-banner-bottom"&gt;
+    We use cookies to improve your experience.
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Banner with Action</h2>
+            <p>Include a prominent call to action using a styled link button.</p>
+            <div class="docs-preview">
+                <div class="zak-banner" style="width:100%;">
+                    Get 20% off your first order!
+                    <a href="#" class="zak-banner-action" style="font-weight:600;text-decoration:underline;">Shop now</a>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-banner"&gt;
+    Get 20% off your first order!
+    &lt;a href="#" class="zak-banner-action" style="font-weight:600;text-decoration:underline;"&gt;Shop now&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Banner Dismissible</h2>
+            <p>Add <code>.zak-banner-close</code> so users can dismiss the banner. The close button is positioned at the right edge.</p>
+            <div class="docs-preview">
+                <div class="zak-banner" id="dismiss-banner" style="width:100%;">
+                    Important: your password will expire in 7 days.
+                    <button class="zak-banner-close" aria-label="Dismiss banner">&times;</button>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-banner"&gt;
+    Important: your password will expire in 7 days.
+    &lt;button class="zak-banner-close" aria-label="Dismiss banner"&gt;&amp;times;&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+document.querySelectorAll('.zak-banner-close').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        this.closest('.zak-banner').remove();
+    });
+});
+&lt;/script&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Banner with Icon</h2>
+            <p>Layer an icon with the banner text to reinforce the message.</p>
+            <div class="docs-preview">
+                <div class="zak-banner" style="width:100%;">
+                    <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                    System maintenance is scheduled for Sunday at 2:00 AM.
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-banner"&gt;
+    &lt;svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;&lt;circle cx="12" cy="12" r="10"/&gt;&lt;path d="M12 16v-4M12 8h.01"/&gt;&lt;/svg&gt;
+    System maintenance is scheduled for Sunday at 2:00 AM.
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Info / Warning / Danger Banners</h2>
+            <p>Use the semantic modifiers to convey tone.</p>
+            <div class="docs-preview">
+                <div class="zak-stack" style="width:100%;">
+                    <div class="zak-banner">Info: A new update is available.</div>
+                    <div class="zak-banner zak-banner-warning">Warning: You are running low on storage space.</div>
+                    <div class="zak-banner zak-banner-danger">Danger: Your account has been suspended.</div>
+                    <div class="zak-banner zak-banner-success">Success: Your changes have been published.</div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-banner"&gt;Info: A new update is available.&lt;/div&gt;
+&lt;div class="zak-banner zak-banner-warning"&gt;Warning: Storage space is low.&lt;/div&gt;
+&lt;div class="zak-banner zak-banner-danger"&gt;Danger: Your account has been suspended.&lt;/div&gt;
+&lt;div class="zak-banner zak-banner-success"&gt;Success: Your changes have been published.&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Banner with Link</h2>
+            <p>A banner can carry a single inline link to related documentation or actions.</p>
+            <div class="docs-preview">
+                <div class="zak-banner" style="width:100%;">
+                    Enjoying ZAKUIKit? <a href="#" style="color:inherit;text-decoration:underline;font-weight:600;">Read the docs</a>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-banner"&gt;
+    Enjoying ZAKUIKit?
+    &lt;a href="#" style="color:inherit;text-decoration:underline;font-weight:600;"&gt;Read the docs&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>CSS Classes &amp; Variables</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>.zak-banner           /* Base banner container */
+.zak-banner-success    /* Success variant */
+.zak-banner-warning    /* Warning variant */
+.zak-banner-danger     /* Danger variant */
+.zak-banner-action     /* Inline action element */
+.zak-banner-close      /* Dismiss button */
+
+/* Add your own position helpers: */
+.zak-banner-top {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+}
+.zak-banner-bottom {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 900;
+}</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Banners are typically announced as regular content; use <code>role="status"</code> for non-urgent updates or <code>role="alert"</code> for critical ones.</li>
+                <li>Provide an <code>aria-label</code> on the close button so its purpose is clear.</li>
+                <li>When a banner is dismissed via JavaScript, move focus to the banner's triggering element or set focus to the main content.</li>
+                <li>Keep banner copy concise and actionable.</li>
+            </ul>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-banner zak-banner-danger" role="alert"&gt;
+    Your account is at risk.
+    &lt;button class="zak-banner-close" aria-label="Dismiss banner"&gt;&amp;times;&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    <script>
+        document.querySelectorAll('.zak-banner-close').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var banner = this.closest('.zak-banner');
+                if (banner) banner.remove();
+            });
+        });
+    </script>
+</body></html>

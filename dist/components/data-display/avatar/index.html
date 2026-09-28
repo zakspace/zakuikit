@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Avatar documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Avatar - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/data-display/avatar/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Avatar - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Avatar documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/data-display/avatar/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Data-Display</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Avatar</span>
+                </nav>
+        <h1>Avatar</h1>
+        <p class="docs-subtitle">Avatars represent a user or entity with an image, initials or an icon. They scale from extra-small to extra-large and support color variants, shapes and status indicators.</p>
+
+        <div class="zak-docs-section">
+            <h2>Image Avatar</h2>
+            <p>An image inside the avatar is cropped to the shape of the component.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: center;">
+                    <span class="zak-avatar"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%236366f1'/%3E%3Ctext x='20' y='26' font-family='Arial,sans-serif' font-size='15' fill='white' font-weight='bold' text-anchor='middle'%3EJA%3C/text%3E%3C/svg%3E" alt="Janet Fox"></span>
+                    <span class="zak-avatar"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%2310b981'/%3E%3Ctext x='20' y='26' font-family='Arial,sans-serif' font-size='15' fill='white' font-weight='bold' text-anchor='middle'%3EMK%3C/text%3E%3C/svg%3E" alt="Mark Kim"></span>
+                    <span class="zak-avatar"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%23f59e0b'/%3E%3Ctext x='20' y='26' font-family='Arial,sans-serif' font-size='15' fill='white' font-weight='bold' text-anchor='middle'%3ESR%3C/text%3E%3C/svg%3E" alt="Sara Reyes"></span>
+                    <span class="zak-avatar"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%238b5cf6'/%3E%3Ctext x='20' y='26' font-family='Arial,sans-serif' font-size='15' fill='white' font-weight='bold' text-anchor='middle'%3EAL%3C/text%3E%3C/svg%3E" alt="Alex Lee"></span>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;span class="zak-avatar"&gt;
+  &lt;img src="..." alt="Janet Fox"&gt;
+&lt;/span&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Text Initials Avatar</h2>
+            <p>When no image is available, the component renders initials on a contextual background.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: center;">
+                    <span class="zak-avatar">JB</span>
+                    <span class="zak-avatar zak-avatar-primary">PR</span>
+                    <span class="zak-avatar zak-avatar-success">OK</span>
+                    <span class="zak-avatar zak-avatar-warning">TR</span>
+                    <span class="zak-avatar zak-avatar-danger">ER</span>
+                    <span class="zak-avatar zak-avatar-info">IN</span>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;span class="zak-avatar"&gt;JB&lt;/span&gt;
+&lt;span class="zak-avatar zak-avatar-primary"&gt;PR&lt;/span&gt;
+&lt;span class="zak-avatar zak-avatar-success"&gt;OK&lt;/span&gt;
+&lt;span class="zak-avatar zak-avatar-warning"&gt;TR&lt;/span&gt;
+&lt;span class="zak-avatar zak-avatar-danger"&gt;ER&lt;/span&gt;
+&lt;span class="zak-avatar zak-avatar-info"&gt;IN&lt;/span&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Icon Avatar</h2>
+            <p>Use an icon inside an avatar for non-person entities such as teams or bots.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: center;">
+                    <span class="zak-avatar zak-avatar-primary"><svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span>
+                    <span class="zak-avatar zak-avatar-success"><svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+                    <span class="zak-avatar zak-avatar-warning"><svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+                    <span class="zak-avatar zak-avatar-danger"><svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;span class="zak-avatar zak-avatar-primary"&gt;
+  &lt;svg class="zak-icon zak-icon-sm"&gt;...&lt;/svg&gt;
+&lt;/span&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Avatar Sizes</h2>
+            <p>Avatars ship with six sizes from <code>.zak-avatar-xs</code> to <code>.zak-avatar-2xl</code>. Beyond that, set width/height manually.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: center;">
+                    <span class="zak-avatar zak-avatar-xs zak-avatar-primary">XS</span>
+                    <span class="zak-avatar zak-avatar-sm zak-avatar-primary">SM</span>
+                    <span class="zak-avatar zak-avatar-primary">MD</span>
+                    <span class="zak-avatar zak-avatar-lg zak-avatar-primary">LG</span>
+                    <span class="zak-avatar zak-avatar-xl zak-avatar-primary">XL</span>
+                    <span class="zak-avatar zak-avatar-2xl zak-avatar-primary">2X</span>
+                    <span class="zak-avatar zak-avatar-primary" style="width: 6rem; height: 6rem; font-size: var(--zak-font-size-3xl);">3X</span>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;span class="zak-avatar zak-avatar-xs"&gt;XS&lt;/span&gt;
+&lt;span class="zak-avatar zak-avatar-sm"&gt;SM&lt;/span&gt;
+&lt;span class="zak-avatar"&gt;MD&lt;/span&gt;
+&lt;span class="zak-avatar zak-avatar-lg"&gt;LG&lt;/span&gt;
+&lt;span class="zak-avatar zak-avatar-xl"&gt;XL&lt;/span&gt;
+&lt;span class="zak-avatar zak-avatar-2xl"&gt;2X&lt;/span&gt;
+
+&lt;!-- Beyond 2xl, extend manually: --&gt;
+&lt;span class="zak-avatar" style="width: 6rem; height: 6rem;"&gt;3X&lt;/span&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Avatar Shapes</h2>
+            <p>The default shape is a circle. Use <code>.zak-avatar-square</code> for a rounded square, or override <code>border-radius</code> inline for a true square.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; justify-content: center;">
+                    <span class="zak-avatar"><span class="zak-avatar zak-avatar-lg zak-avatar-warning" style="width:3rem;height:3rem;">A</span></span>
+                    <div style="text-align: center;">
+                        <span class="zak-avatar zak-avatar-lg zak-avatar-success zak-avatar-square">B</span>
+                        <div style="font-size: var(--zak-font-size-xs); color: var(--zak-text-muted); margin-top: 0.35rem;">Circle</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <span class="zak-avatar zak-avatar-lg zak-avatar-info zak-avatar-square">C</span>
+                        <div style="font-size: var(--zak-font-size-xs); color: var(--zak-text-muted); margin-top: 0.35rem;">Rounded (square class)</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <span class="zak-avatar zak-avatar-lg zak-avatar-danger" style="border-radius: 0.25rem;">D</span>
+                        <div style="font-size: var(--zak-font-size-xs); color: var(--zak-text-muted); margin-top: 0.35rem;">Square (inline style)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;!-- Circle (default) --&gt;
+&lt;span class="zak-avatar"&gt;A&lt;/span&gt;
+
+&lt;!-- Rounded square --&gt;
+&lt;span class="zak-avatar zak-avatar-square"&gt;B&lt;/span&gt;
+
+&lt;!-- True square --&gt;
+&lt;span class="zak-avatar" style="border-radius: 0.25rem;"&gt;C&lt;/span&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Avatar with Status Indicator</h2>
+            <p>Attach an online/offline/busy dot to an avatar with a small overlay dot. Adjust the dot color inline to reflect state.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; justify-content: center;">
+                    <div style="position: relative;">
+                        <span class="zak-avatar zak-avatar-xl"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%236366f1'/%3E%3Ctext x='20' y='26' font-family='Arial,sans-serif' font-size='15' fill='white' font-weight='bold' text-anchor='middle'%3EJA%3C/text%3E%3C/svg%3E" alt="Janet Fox"></span>
+                        <span style="position: absolute; bottom: 2px; right: 2px; width: 0.85rem; height: 0.85rem; border-radius: 50%; background: var(--zak-color-success); border: 2px solid var(--zak-surface);" aria-hidden="true"></span>
+                    </div>
+                    <div style="position: relative;">
+                        <span class="zak-avatar zak-avatar-xl"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%2310b981'/%3E%3Ctext x='20' y='26' font-family='Arial,sans-serif' font-size='15' fill='white' font-weight='bold' text-anchor='middle'%3EMK%3C/text%3E%3C/svg%3E" alt="Mark Kim"></span>
+                        <span style="position: absolute; bottom: 2px; right: 2px; width: 0.85rem; height: 0.85rem; border-radius: 50%; background: var(--zak-color-warning); border: 2px solid var(--zak-surface);" aria-hidden="true"></span>
+                    </div>
+                    <div style="position: relative;">
+                        <span class="zak-avatar zak-avatar-xl"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%23f59e0b'/%3E%3Ctext x='20' y='26' font-family='Arial,sans-serif' font-size='15' fill='white' font-weight='bold' text-anchor='middle'%3ESR%3C/text%3E%3C/svg%3E" alt="Sara Reyes"></span>
+                        <span style="position: absolute; bottom: 2px; right: 2px; width: 0.85rem; height: 0.85rem; border-radius: 50%; background: var(--zak-color-danger); border: 2px solid var(--zak-surface);" aria-hidden="true"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div style="position: relative;"&gt;
+  &lt;span class="zak-avatar zak-avatar-xl"&gt;&lt;img src="..." alt="Janet Fox"&gt;&lt;/span&gt;
+  &lt;span style="position: absolute; bottom: 2px; right: 2px; width: 0.85rem; height: 0.85rem; border-radius: 50%; background: var(--zak-color-success); border: 2px solid var(--zak-surface);"&gt;&lt;/span&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.zak-avatar</code></td><td>Base avatar (medium circle)</td></tr>
+                        <tr><td><code>.zak-avatar-xs</code></td><td>Extra small (1.5rem)</td></tr>
+                        <tr><td><code>.zak-avatar-sm</code></td><td>Small (2rem)</td></tr>
+                        <tr><td><code>.zak-avatar-md</code></td><td>Medium (2.5rem)</td></tr>
+                        <tr><td><code>.zak-avatar-lg</code></td><td>Large (3rem)</td></tr>
+                        <tr><td><code>.zak-avatar-xl</code></td><td>Extra large (4rem)</td></tr>
+                        <tr><td><code>.zak-avatar-2xl</code></td><td>2x extra large (5rem)</td></tr>
+                        <tr><td><code>.zak-avatar-square</code></td><td>Rounded square shape</td></tr>
+                        <tr><td><code>.zak-avatar-primary</code> / <code>-success</code> / <code>-warning</code> / <code>-danger</code> / <code>-info</code></td><td>Contextual colors</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Image avatars require meaningful <code>alt</code> text; decorative placeholders should use <code>alt=""</code>.</li>
+                <li>Initials avatars need an accessible name from context — add <code>aria-label</code> or pair with visible text.</li>
+                <li>Status dots must not be the only indicator; combine with text such as "Online" or an <code>aria-label</code>.</li>
+                <li>Avatars used as buttons/links need real focus states and a <code>role</code> or semantic element.</li>
+            </ul>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body></html>

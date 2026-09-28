@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>(function () { try { var t = localStorage.getItem('zak-docs-theme') || 'system'; if (t === 'system') { t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light'; } document.documentElement.setAttribute('data-theme', t); } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); } })();</script>
+  <meta name="description"
+    content="Get started with ZAKUIKit - Installation, quick start, theming, and component overview.">
+  <meta name="theme-color" content="#2563eb">
+  <title>Getting Started - ZAKUIKit</title>
+  <link rel="canonical" href="https://zakuikit.vercel.app/getting-started.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ZAKUIKit">
+  <meta property="og:title" content="Getting Started - ZAKUIKit">
+  <meta property="og:description"
+    content="Get started with ZAKUIKit - Installation, quick start, theming, and component overview.">
+  <meta property="og:url" content="https://zakuikit.vercel.app/getting-started.html">
+  <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="dist/css/zak.css">
+  <link rel="stylesheet" href="css/zak-docs.css">
+  <link rel="stylesheet" href="css/syntax-highlight.css">
+  <link rel="stylesheet" href="dist/icons/icons.css">
+  <link rel="icon" href="img/favicon.ico" sizes="16x16 32x32">
+  <link rel="icon" type="image/png" href="img/favicon.png" sizes="192x192">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232563eb'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='18' font-weight='bold' fill='white' text-anchor='middle'%3EZ%3C/text%3E%3C/svg%3E">
+</head>
+
+<body>
+  <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..."
+          aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12" />
+        <line x1="3" y1="6" x2="21" y2="6" />
+        <line x1="3" y1="18" x2="21" y2="18" />
+      </svg>
+    </button>
+    <a href="index.html" class="docs-header__logo">
+      <span class="docs-zak-logo">
+        <img src="img/logo.svg" alt="">
+      </span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="getting-started.html" class="docs-header__link docs-header__link--active">Getting Started</a>
+      <a href="components.html" class="docs-header__link">Components</a>
+      <a href="templates.html" class="docs-header__link">Templates</a>
+      <a href="icons.html" class="docs-header__link">Icons</a>
+      <a href="utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+
+  <!-- Sidebar -->
+  <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+
+  <!-- Main Content -->
+  <main class="docs-main">
+    <div class="docs-content">
+
+      <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html" class="docs-breadcrumb__link">Home</a>
+        <span class="docs-breadcrumb__separator">/</span>
+        <span class="docs-breadcrumb__current">Getting Started</span>
+      </nav>
+
+      <div class="docs-component-header">
+        <h1>Getting Started</h1>
+        <p class="docs-component-header__description">Everything you need to install, configure, and start building with
+          ZAKUIKit in minutes.</p>
+      </div>
+
+      <!-- Installation -->
+      <section id="installation">
+        <h2>Installation</h2>
+        <p>ZAKUIKit is a pure vanilla UI toolkit with zero dependencies. There are multiple ways to include it in your
+          project:</p>
+
+        <h3>Option 1: CDN (Recommended)</h3>
+        <p>Add ZAKUIKit directly from a CDN. No downloads or build tools needed.</p>
+        <div class="docs-code-block">
+          <div class="docs-code-block__header">
+            <span class="docs-code-block__lang">HTML</span>
+            <button type="button" class="docs-copy-btn" aria-label="Copy code">
+              <span class="docs-copy-btn__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg></span>
+              <span class="docs-copy-btn__text">Copy</span>
+            </button>
+          </div>
+          <pre><code class="language-html"><span class="token-comment">&lt;!-- ZAKUIKit CSS --&gt;</span>
+<span class="token-tag">&lt;link</span> <span class="token-attr">rel</span>=<span class="token-string">"stylesheet"</span> <span class="token-attr">href</span>=<span class="token-string">"https://cdn.example.com/zak-ui/v1.0/zak.min.css"</span><span class="token-tag">&gt;</span>
+
+<span class="token-comment">&lt;!-- ZAKUIKit Icons --&gt;</span>
+<span class="token-tag">&lt;link</span> <span class="token-attr">rel</span>=<span class="token-string">"stylesheet"</span> <span class="token-attr">href</span>=<span class="token-string">"https://cdn.example.com/zak-ui/v1.0/icons.min.css"</span><span class="token-tag">&gt;</span>
+
+<span class="token-comment">&lt;!-- ZAKUIKit JS (before closing &lt;/body&gt;) --&gt;</span>
+<span class="token-tag">&lt;script</span> <span class="token-attr">src</span>=<span class="token-string">"https://cdn.example.com/zak-ui/v1.0/zak.min.js"</span><span class="token-tag">&gt;&lt;/script&gt;</span></code></pre>
+        </div>
+
+        <h3>Option 2: Local Files</h3>
+        <p>Download the files and include them from your project's directory.</p>
+        <div class="docs-code-block">
+          <div class="docs-code-block__header">
+            <span class="docs-code-block__lang">HTML</span>
+            <button type="button" class="docs-copy-btn" aria-label="Copy code">
+              <span class="docs-copy-btn__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg></span>
+              <span class="docs-copy-btn__text">Copy</span>
+            </button>
+          </div>
+          <pre><code class="language-html"><span class="token-comment">&lt;!-- In your &lt;head&gt; --&gt;</span>
+<span class="token-tag">&lt;link</span> <span class="token-attr">rel</span>=<span class="token-string">"stylesheet"</span> <span class="token-attr">href</span>=<span class="token-string">"dist/css/zak.css"</span><span class="token-tag">&gt;</span>
+<span class="token-tag">&lt;link</span> <span class="token-attr">rel</span>=<span class="token-string">"stylesheet"</span> <span class="token-attr">href</span>=<span class="token-string">"dist/icons/icons.css"</span><span class="token-tag">&gt;</span>
+
+<span class="token-comment">&lt;!-- Before &lt;/body&gt; --&gt;</span>
+<span class="token-tag">&lt;script</span> <span class="token-attr">src</span>=<span class="token-string">"dist/js/zak.js"</span><span class="token-tag">&gt;&lt;/script&gt;</span></code></pre>
+        </div>
+
+        <h3>Option 3: NPM</h3>
+        <div class="docs-code-block">
+          <div class="docs-code-block__header">
+            <span class="docs-code-block__lang">bash</span>
+            <button type="button" class="docs-copy-btn" aria-label="Copy code">
+              <span class="docs-copy-btn__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg></span>
+              <span class="docs-copy-btn__text">Copy</span>
+            </button>
+          </div>
+          <pre><code class="language-bash">npm install zak-uikit</code></pre>
+        </div>
+      </section>
+
+      <!-- Quick Start -->
+      <section id="quick-start">
+        <h2>Quick Start</h2>
+        <p>Here is a complete, minimal HTML template you can save and open in your browser right now:</p>
+
+        <div class="docs-code-block">
+          <div class="docs-code-block__header">
+            <span class="docs-code-block__lang">HTML</span>
+            <button type="button" class="docs-copy-btn" aria-label="Copy code">
+              <span class="docs-copy-btn__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg></span>
+              <span class="docs-copy-btn__text">Copy</span>
+            </button>
+          </div>
+          <pre><code class="language-html"><span class="token-doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="token-tag">&lt;html</span> <span class="token-attr">lang</span>=<span class="token-string">"en"</span> <span class="token-attr">data-theme</span>=<span class="token-string">"light"</span><span class="token-tag">&gt;</span>
+<span class="token-tag">&lt;head&gt;</span>
+  <span class="token-tag">&lt;meta</span> <span class="token-attr">charset</span>=<span class="token-string">"UTF-8"</span><span class="token-tag">&gt;</span>
+  <span class="token-tag">&lt;meta</span> <span class="token-attr">name</span>=<span class="token-string">"viewport"</span> <span class="token-attr">content</span>=<span class="token-string">"width=device-width, initial-scale=1.0"</span><span class="token-tag">&gt;</span>
+  <span class="token-tag">&lt;title&gt;</span>My ZAKUIKit Page<span class="token-tag">&lt;/title&gt;</span>
+
+  <span class="token-comment">&lt;!-- ZAKUIKit Styles --&gt;</span>
+  <span class="token-tag">&lt;link</span> <span class="token-attr">rel</span>=<span class="token-string">"stylesheet"</span> <span class="token-attr">href</span>=<span class="token-string">"dist/css/zak.css"</span><span class="token-tag">&gt;</span>
+  <span class="token-tag">&lt;link</span> <span class="token-attr">rel</span>=<span class="token-string">"stylesheet"</span> <span class="token-attr">href</span>=<span class="token-string">"dist/icons/icons.css"</span><span class="token-tag">&gt;</span>
+<span class="token-tag">&lt;/head&gt;</span>
+<span class="token-tag">&lt;body&gt;</span>
+
+  <span class="token-comment">&lt;!-- Your content here --&gt;</span>
+  <span class="token-tag">&lt;div</span> <span class="token-attr">class</span>=<span class="token-string">"zak-container"</span><span class="token-tag">&gt;</span>
+    <span class="token-tag">&lt;h1&gt;</span>Hello, ZAKUIKit!<span class="token-tag">&lt;/h1&gt;</span>
+    <span class="token-tag">&lt;p&gt;</span>This page is styled with ZAKUIKit.<span class="token-tag">&lt;/p&gt;</span>
+
+    <span class="token-tag">&lt;button</span> <span class="token-attr">class</span>=<span class="token-string">"zak-btn zak-btn-primary zak-btn-lg"</span><span class="token-tag">&gt;</span>
+      Get Started
+    <span class="token-tag">&lt;/button&gt;</span>
+  <span class="token-tag">&lt;/div&gt;</span>
+
+  <span class="token-comment">&lt;!-- ZAKUIKit JS --&gt;</span>
+  <span class="token-tag">&lt;script</span> <span class="token-attr">src</span>=<span class="token-string">"dist/js/zak.js"</span><span class="token-tag">&gt;&lt;/script&gt;</span>
+<span class="token-tag">&lt;/body&gt;</span>
+<span class="token-tag">&lt;/html&gt;</span></code></pre>
+        </div>
+      </section>
+
+      <!-- Project Structure -->
+      <section id="project-structure">
+        <h2>Project Structure</h2>
+        <p>Here is the recommended directory layout when using ZAKUIKit locally:</p>
+
+        <div class="docs-code-block">
+          <div class="docs-code-block__header">
+            <span class="docs-code-block__lang">text</span>
+            <button type="button" class="docs-copy-btn" aria-label="Copy code">
+              <span class="docs-copy-btn__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg></span>
+              <span class="docs-copy-btn__text">Copy</span>
+            </button>
+          </div>
+          <pre><code>your-project/
+├── index.html
+├── dist/
+│   ├── css/
+│   │   └── zak.css            # Core stylesheet
+│   ├── js/
+│   │   └── zak.js             # Core JavaScript
+│   └── icons/
+│       ├── icons.css          # Icon CSS classes
+│       └── zak-icons.svg      # SVG icon sprite
+├── css/
+│   └── custom.css             # Your custom styles
+└── js/
+    └── app.js                 # Your application code</code></pre>
+        </div>
+      </section>
+
+      <!-- CSS Architecture -->
+      <section id="css-architecture">
+        <h2>CSS Architecture</h2>
+        <p>ZAKUIKit uses a token-driven CSS architecture. Every color, spacing value, radius, and shadow is defined as a
+          CSS custom property, making the entire system easily customizable.</p>
+
+        <h3>Design Tokens</h3>
+        <p>All design decisions are stored as CSS custom properties on the <code>:root</code> selector:</p>
+
+        <div class="docs-code-block">
+          <div class="docs-code-block__header">
+            <span class="docs-code-block__lang">CSS</span>
+            <button type="button" class="docs-copy-btn" aria-label="Copy code">
+              <span class="docs-copy-btn__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg></span>
+              <span class="docs-copy-btn__text">Copy</span>
+            </button>
+          </div>
+          <pre><code class="language-css"><span class="token-comment">/* Color tokens */</span>
+<span class="token-selector">:root</span> {
+  <span class="token-property">--zak-primary-500</span>: <span class="token-value">#3b82f6</span>;
+  <span class="token-property">--zak-success-500</span>: <span class="token-value">#22c55e</span>;
+  <span class="token-property">--zak-danger-500</span>: <span class="token-value">#ef4444</span>;
+
+  <span class="token-comment">/* Semantic aliases */</span>
+  <span class="token-property">--zak-color-primary</span>: <span class="token-value">var(--zak-primary-500)</span>;
+  <span class="token-property">--zak-color-success</span>: <span class="token-value">var(--zak-success-500)</span>;
+
+  <span class="token-comment">/* Layout tokens */</span>
+  <span class="token-property">--zak-radius</span>: <span class="token-value">8px</span>;
+  <span class="token-property">--zak-shadow</span>: <span class="token-value">0 1px 3px rgba(0,0,0,0.1)</span>;
+  <span class="token-property">--zak-space-4</span>: <span class="token-value">1rem</span>;
+}</code></pre>
+        </div>
+
+        <h3>Customizing Tokens</h3>
+        <p>Override any token by re-declaring it in your own stylesheet:</p>
+
+        <div class="docs-code-block">
+          <div class="docs-code-block__header">
+            <span class="docs-code-block__lang">CSS</span>
+            <button type="button" class="docs-copy-btn" aria-label="Copy code">
+              <span class="docs-copy-btn__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg></span>
+              <span class="docs-copy-btn__text">Copy</span>
+            </button>
+          </div>
+          <pre><code class="language-css"><span class="token-comment">/* custom.css — override ZAKUIKit tokens */</span>
+<span class="token-selector">:root</span> {
+  <span class="token-property">--zak-primary-500</span>: <span class="token-value">#8b5cf6</span>;  <span class="token-comment">/* Change primary to violet */</span>
+  <span class="token-property">--zak-radius</span>: <span class="token-value">12px</span>;             <span class="token-comment">/* Larger border radius */</span>
+  <span class="token-property">--zak-font</span>: <span class="token-value">'Inter', sans-serif</span>;  <span class="token-comment">/* Custom font */</span>
+}</code></pre>
+        </div>
+      </section>
+
+      <!-- JavaScript -->
+      <section id="javascript">
+        <h2>JavaScript</h2>
+        <p><code>zak.js</code> powers all interactive components — modals, drawers, dropdowns, tooltips, tabs, and more.
+          It uses two complementary approaches:</p>
+
+        <h3>Data Attributes (Declarative)</h3>
+        <p>Most components work with zero JavaScript by using <code>data-</code> attributes:</p>
+
+        <div class="docs-code-block">
+          <div class="docs-code-block__header">
+            <span class="docs-code-block__lang">HTML</span>
+            <button type="button" class="docs-copy-btn" aria-label="Copy code">
+              <span class="docs-copy-btn__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg></span>
+              <span class="docs-copy-btn__text">Copy</span>
+            </button>
+          </div>
+          <pre><code class="language-html"><span class="token-comment">&lt;!-- Modal triggered by data attribute --&gt;</span>
+<span class="token-tag">&lt;button</span> <span class="token-attr">data-zak-toggle</span>=<span class="token-string">"modal"</span> <span class="token-attr">data-zak-target</span>=<span class="token-string">"#myModal"</span><span class="token-tag">&gt;</span>
+  Open Modal
+<span class="token-tag">&lt;/button&gt;</span>
+
+<span class="token-tag">&lt;div</span> <span class="token-attr">id</span>=<span class="token-string">"myModal"</span> <span class="token-attr">class</span>=<span class="token-string">"zak-modal"</span><span class="token-tag">&gt;</span>
+  <span class="token-tag">&lt;div</span> <span class="token-attr">class</span>=<span class="token-string">"zak-modal-content"</span><span class="token-tag">&gt;</span>
+    Modal content here
+  <span class="token-tag">&lt;/div&gt;</span>
+<span class="token-tag">&lt;/div&gt;</span></code></pre>
+        </div>
+
+        <h3>Programmatic API</h3>
+        <p>For dynamic control, use the global <code>zak</code> object:</p>
+
+        <div class="docs-code-block">
+          <div class="docs-code-block__header">
+            <span class="docs-code-block__lang">JavaScript</span>
+            <button type="button" class="docs-copy-btn" aria-label="Copy code">
+              <span class="docs-copy-btn__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg></span>
+              <span class="docs-copy-btn__text">Copy</span>
+            </button>
+          </div>
+          <pre><code class="language-javascript"><span class="token-comment">// Show a modal programmatically</span>
+zak.modal.show(<span class="token-string">'#myModal'</span>);
+
+<span class="token-comment">// Toggle a drawer</span>
+zak.drawer.toggle(<span class="token-string">'#myDrawer'</span>);
+
+<span class="token-comment">// Show a toast notification</span>
+zak.toast.show({
+  <span class="token-property">type</span>: <span class="token-string">'success'</span>,
+  <span class="token-property">title</span>: <span class="token-string">'Saved!'</span>,
+  <span class="token-property">message</span>: <span class="token-string">'Your changes have been saved.'</span>
+});
+
+<span class="token-comment">// Theme switching</span>
+zak.theme.toggle();</code></pre>
+        </div>
+      </section>
+
+      <!-- Theming -->
+      <section id="theming">
+        <h2>Theming</h2>
+        <p>ZAKUIKit supports light, dark, and system-preference themes out of the box using the <code>data-theme</code>
+          attribute on the <code>&lt;html&gt;</code> element.</p>
+
+        <h3>Setup</h3>
+        <div class="docs-code-block">
+          <div class="docs-code-block__header">
+            <span class="docs-code-block__lang">HTML</span>
+            <button type="button" class="docs-copy-btn" aria-label="Copy code">
+              <span class="docs-copy-btn__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg></span>
+              <span class="docs-copy-btn__text">Copy</span>
+            </button>
+          </div>
+          <pre><code class="language-html"><span class="token-comment">&lt;!-- Light theme (default) --&gt;</span>
+<span class="token-tag">&lt;html</span> <span class="token-attr">data-theme</span>=<span class="token-string">"light"</span><span class="token-tag">&gt;</span>
+
+<span class="token-comment">&lt;!-- Dark theme --&gt;</span>
+<span class="token-tag">&lt;html</span> <span class="token-attr">data-theme</span>=<span class="token-string">"dark"</span><span class="token-tag">&gt;</span></code></pre>
+        </div>
+
+        <h3>Custom Theme Variables</h3>
+        <div class="docs-code-block">
+          <div class="docs-code-block__header">
+            <span class="docs-code-block__lang">CSS</span>
+            <button type="button" class="docs-copy-btn" aria-label="Copy code">
+              <span class="docs-copy-btn__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg></span>
+              <span class="docs-copy-btn__text">Copy</span>
+            </button>
+          </div>
+          <pre><code class="language-css"><span class="token-comment">/* Override dark mode colors */</span>
+<span class="token-selector">[data-theme="dark"]</span> {
+  <span class="token-property">--zak-bg</span>: <span class="token-value">#0f172a</span>;
+  <span class="token-property">--zak-surface</span>: <span class="token-value">#1e293b</span>;
+  <span class="token-property">--zak-text</span>: <span class="token-value">#f1f5f9</span>;
+  <span class="token-property">--zak-border</span>: <span class="token-value">#334155</span>;
+  <span class="token-property">--zak-color-primary</span>: <span class="token-value">var(--zak-primary-400)</span>;
+}</code></pre>
+        </div>
+      </section>
+
+      <!-- Components Overview -->
+      <section id="components-overview">
+        <h2>Components Overview</h2>
+        <p>ZAKUIKit ships with 140 component pages organized into 15 categories. Here is a summary:</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Components</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="dist/components/foundations/borders/index.html">foundations</a></td>
+              <td>7</td>
+              <td>borders, colors, icons, responsive, shadows, spacing, typography</td>
+            </tr>
+            <tr>
+              <td><a href="dist/components/layout/aspect-ratio/index.html">layout</a></td>
+              <td>8</td>
+              <td>aspect ratio, box, columns, container, flex, grid, row, stack</td>
+            </tr>
+            <tr>
+              <td><a href="dist/components/buttons/button/index.html">buttons</a></td>
+              <td>6</td>
+              <td>button, button group, button toolbar, floating action button, icon button, loading button</td>
+            </tr>
+            <tr>
+              <td><a href="dist/components/navigation/breadcrumb/index.html">navigation</a></td>
+              <td>8</td>
+              <td>breadcrumb, dropdown menu, nav menu, navbar, pagination, sidebar, stepper, tabs</td>
+            </tr>
+            <tr>
+              <td><a href="dist/components/forms/autocomplete/index.html">forms</a></td>
+              <td>22</td>
+              <td>autocomplete, checkbox, combobox, file upload, form, form field, form wizard, input, input group,
+                label, multi select, otp input, password input, radio, radio group, range, select, switch, tags input,
+                textarea, toggle, validation</td>
+            </tr>
+            <tr>
+              <td><a href="dist/components/pickers/calendar/index.html">pickers</a></td>
+              <td>9</td>
+              <td>calendar, cascader, color picker, date picker, date range picker, date time picker, month picker, time
+                picker, year picker</td>
+            </tr>
+            <tr>
+              <td><a href="dist/components/tables/advanced-data-grid/index.html">tables</a></td>
+              <td>6</td>
+              <td>advanced data grid, data grid, data table, search filter, table, tree table</td>
+            </tr>
+            <tr>
+              <td><a href="dist/components/media/audio/index.html">media</a></td>
+              <td>8</td>
+              <td>audio, carousel, image, image gallery, image preview, media object, slider, video</td>
+            </tr>
+            <tr>
+              <td><a href="dist/components/overlays/context-menu/index.html">overlays</a></td>
+              <td>7</td>
+              <td>context menu, drawer, dropdown, modal, offcanvas, popover, tooltip</td>
+            </tr>
+            <tr>
+              <td><a href="dist/components/feedback/alert/index.html">feedback</a></td>
+              <td>17</td>
+              <td>alert, banner, empty state, error state, loading, loading overlay, maintenance state, offline state,
+                progress, progress bar, progress circle, result, skeleton, snackbar, spinner, status indicator, toast
+              </td>
+            </tr>
+            <tr>
+              <td><a href="dist/components/data-display/activity-feed/index.html">data-display</a></td>
+              <td>13</td>
+              <td>activity feed, avatar, avatar group, badge, card, chip, list, list group, organization chart, rating,
+                stat, timeline, tree</td>
+            </tr>
+            <tr>
+              <td><a href="dist/components/data-grid/column-selector/index.html">data-grid</a></td>
+              <td>4</td>
+              <td>column selector, file manager, query builder, transfer</td>
+            </tr>
+            <tr>
+              <td><a href="dist/components/disclosure-expansion/accordion/index.html">disclosure-expansion</a></td>
+              <td>5</td>
+              <td>accordion, collapse, details, expandable panel, show more</td>
+            </tr>
+            <tr>
+              <td><a href="dist/components/data-visualization/charts/index.html">data-visualization</a></td>
+              <td>4</td>
+              <td>charts, dashboard widget, filter panel, kpi card</td>
+            </tr>
+            <tr>
+              <td><a href="dist/components/ai/ai-avatar/index.html">ai</a></td>
+              <td>14</td>
+              <td>ai avatar, ai button, ai command menu, ai input, ai prompt input, ai response, chat, chat message,
+                citation, conversation, prompt suggestions, streaming response, thinking indicator, token usage</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Browser Support -->
+      <section id="browser-support">
+        <h2>Browser Support</h2>
+        <p>ZAKUIKit supports all modern browsers. We use progressive enhancement and CSS custom properties as the
+          baseline, with graceful fallbacks for older engines. The minimum supported versions are:</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Browser</th>
+              <th>Minimum Version</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Chrome</td>
+              <td>80+</td>
+              <td><span class="zak-text-success">Full support</span></td>
+            </tr>
+            <tr>
+              <td>Firefox</td>
+              <td>78+</td>
+              <td><span class="zak-text-success">Full support</span></td>
+            </tr>
+            <tr>
+              <td>Safari</td>
+              <td>14+</td>
+              <td><span class="zak-text-success">Full support</span></td>
+            </tr>
+            <tr>
+              <td>Edge</td>
+              <td>80+</td>
+              <td><span class="zak-text-success">Full support</span></td>
+            </tr>
+            <tr>
+              <td>Opera</td>
+              <td>67+</td>
+              <td><span class="zak-text-success">Full support</span></td>
+            </tr>
+            <tr>
+              <td>Samsung Internet</td>
+              <td>13+</td>
+              <td><span class="zak-text-success">Full support</span></td>
+            </tr>
+            <tr>
+              <td>iOS Safari</td>
+              <td>14+</td>
+              <td><span class="zak-text-success">Full support</span></td>
+            </tr>
+            <tr>
+              <td>Chrome Android</td>
+              <td>80+</td>
+              <td><span class="zak-text-success">Full support</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Next Steps -->
+      <section id="next-steps">
+        <h2>Next Steps</h2>
+        <p>Now that you have ZAKUIKit installed, explore the rest of the documentation:</p>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-top:16px;">
+          <a href="dist/components/foundations/colors/index.html"
+            style="display:block;padding:20px;background:var(--docs-surface);border:1px solid var(--docs-border);border-radius:var(--docs-radius);text-decoration:none;color:var(--docs-text);transition:all var(--docs-transition);"
+            onmouseover="this.style.borderColor='var(--docs-accent)';this.style.transform='translateY(-2px)'"
+            onmouseout="this.style.borderColor='var(--docs-border)';this.style.transform='none'">
+            <strong>Colors &amp; Tokens</strong>
+            <p style="margin:4px 0 0;font-size:14px;color:var(--docs-text-muted);">Explore the full color palette and
+              design tokens.</p>
+          </a>
+          <a href="dist/components/buttons/button/index.html"
+            style="display:block;padding:20px;background:var(--docs-surface);border:1px solid var(--docs-border);border-radius:var(--docs-radius);text-decoration:none;color:var(--docs-text);transition:all var(--docs-transition);"
+            onmouseover="this.style.borderColor='var(--docs-accent)';this.style.transform='translateY(-2px)'"
+            onmouseout="this.style.borderColor='var(--docs-border)';this.style.transform='none'">
+            <strong>Buttons</strong>
+            <p style="margin:4px 0 0;font-size:14px;color:var(--docs-text-muted);">Primary, secondary, outline, soft,
+              and more.</p>
+          </a>
+          <a href="dist/components/forms/input/index.html"
+            style="display:block;padding:20px;background:var(--docs-surface);border:1px solid var(--docs-border);border-radius:var(--docs-radius);text-decoration:none;color:var(--docs-text);transition:all var(--docs-transition);"
+            onmouseover="this.style.borderColor='var(--docs-accent)';this.style.transform='translateY(-2px)'"
+            onmouseout="this.style.borderColor='var(--docs-border)';this.style.transform='none'">
+            <strong>Forms</strong>
+            <p style="margin:4px 0 0;font-size:14px;color:var(--docs-text-muted);">Input, select, checkbox, radio, and
+              validation.</p>
+          </a>
+          <a href="templates.html"
+            style="display:block;padding:20px;background:var(--docs-surface);border:1px solid var(--docs-border);border-radius:var(--docs-radius);text-decoration:none;color:var(--docs-text);transition:all var(--docs-transition);"
+            onmouseover="this.style.borderColor='var(--docs-accent)';this.style.transform='translateY(-2px)'"
+            onmouseout="this.style.borderColor='var(--docs-border)';this.style.transform='none'">
+            <strong>Templates</strong>
+            <p style="margin:4px 0 0;font-size:14px;color:var(--docs-text-muted);">Ready-to-use page templates and
+              layouts.</p>
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="dist/js/zak.js"></script>
+  <script src="js/docs.js"></script>
+</body>
+
+</html>

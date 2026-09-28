@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Expandable Panel documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Expandable Panel - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/disclosure-expansion/expandable-panel/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Expandable Panel - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Expandable Panel documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/disclosure-expansion/expandable-panel/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Disclosure</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Expandable Panel</span>
+                </nav>
+        <h1>Expandable Panel</h1>
+        <p class="docs-subtitle">An expandable panel is a self-contained card whose header toggles a body region. It is the ideal building block for settings groups, help sidebars and filter drawers.</p>
+
+        <section class="zak-docs-section">
+            <h2>Basic Expandable Panel</h2>
+            <p>A <code>.zak-expandable-panel</code> wraps a <code>.zak-expandable-panel-header</code> (the toggle) and a <code>.zak-expandable-panel-body</code> collapse target.</p>
+            <div class="docs-preview">
+                <div class="zak-expandable-panel zak-expandable-panel-active" data-zak-expandable>
+                    <button class="zak-expandable-panel-header" type="button" id="ep1Btn">Custom domains<svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
+                    <div class="zak-collapse-target zak-collapse-active" id="ep1Body">
+                        <div class="zak-expandable-panel-body" id="ep1Content">Wire your site to a custom domain for branding and TLS out of the box. Add up to 10 domains on the Pro plan.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-expandable-panel zak-expandable-panel-active" data-zak-expandable&gt;
+    &lt;button class="zak-expandable-panel-header" type="button"&gt;
+        Custom domains
+        &lt;svg class="zak-icon" ...&gt;&lt;/svg&gt;
+    &lt;/button&gt;
+    &lt;div class="zak-collapse-target zak-collapse-active"&gt;
+        &lt;div class="zak-expandable-panel-body"&gt;Wire your site...&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Expandable Panel with Rich Header</h2>
+            <p>Headers can hold badges, avatars or status indicators beside the title — the chevron always stays at the trailing edge.</p>
+            <div class="docs-preview">
+                <div class="zak-expandable-panel zak-expandable-panel-active" data-zak-expandable>
+                    <button class="zak-expandable-panel-header" type="button">
+                        <span style="display:flex; align-items:center; gap:8px;">Deployment<svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:1rem;height:1rem;color:var(--zak-color-success);"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m22 4-10 10.01-3-3"/></svg></span>
+                        <span class="zak-badge zak-badge-success" style="font-size:11px;">Live</span>
+                        <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="zak-collapse-target zak-collapse-active">
+                        <div class="zak-expandable-panel-body">Production build <code>#1842</code> went live 12 minutes ago. Success rate on the last deployment was 99.98%.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Expandable Panel in Card</h2>
+            <p>Drop expandable panels inside cards, list groups or layout stacks for grouped preferences.</p>
+            <div class="docs-preview">
+                <div class="zak-card" style="border:1px solid var(--zak-border,#e2e8f0); border-radius:12px; overflow:hidden;">
+                    <div class="zak-card-body" style="padding:20px;">
+                        <h3 style="margin:0 0 12px; font-size:16px; font-weight:600;">Notifications</h3>
+                        <div style="display:flex; flex-direction:column; gap:0.75rem;">
+                            <div class="zak-expandable-panel" data-zak-expandable>
+                                <button class="zak-expandable-panel-header" type="button">Email digest<svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
+                                <div class="zak-collapse-target"><div class="zak-expandable-panel-body">Receive a weekly summary every Monday morning covering mentions and activity in spaces you follow.</div></div>
+                            </div>
+                            <div class="zak-expandable-panel" data-zak-expandable>
+                                <button class="zak-expandable-panel-header" type="button">Mobile push<svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
+                                <div class="zak-collapse-target"><div class="zak-expandable-panel-body">Push notifications mirror your desktop activity. Choose per-workspace on the mobile app.</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Multiple Open Panels</h2>
+            <p>Standalone expandable panels are independent by nature — unlike accordions they never restrict siblings.</p>
+            <div class="docs-preview">
+                <div style="display:flex; flex-direction:column; gap:0.75rem;">
+                    <div class="zak-expandable-panel zak-expandable-panel-active" data-zak-expandable>
+                        <button class="zak-expandable-panel-header" type="button">Account settings<svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
+                        <div class="zak-collapse-target zak-collapse-active"><div class="zak-expandable-panel-body">Profile, name and contact information live under this section.</div></div>
+                    </div>
+                    <div class="zak-expandable-panel zak-expandable-panel-active" data-zak-expandable>
+                        <button class="zak-expandable-panel-header" type="button">Billing &amp; usage<svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
+                        <div class="zak-collapse-target zak-collapse-active"><div class="zak-expandable-panel-body">Invoices, seats and storage quotas. Upgrade when approaching the free tier limit.</div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Programmatic Control</h2>
+            <p>Drive panels from buttons elsewhere in the page with <code>zak.collapse.open/close</code>, or listen to open/close events.</p>
+            <div class="docs-preview">
+                <div style="display:flex; gap:0.5rem; margin-bottom:12px;">
+                    <button class="zak-btn zak-btn-sm zak-btn-primary" onclick="zak.collapse.open('#ep5Body')">Open</button>
+                    <button class="zak-btn zak-btn-sm zak-btn-secondary" onclick="zak.collapse.close('#ep5Body')">Close</button>
+                </div>
+                <div class="zak-expandable-panel zak-expandable-panel-active" data-zak-expandable>
+                    <button class="zak-expandable-panel-header" type="button">Programmatic panel<svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
+                    <div class="zak-collapse-target zak-collapse-active" id="ep5Body">
+                        <div class="zak-expandable-panel-body">Use the inline JavaScript buttons above and the <code>zak.collapse</code> API to toggle this panel.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;button onclick="zak.collapse.open('#ep5Body')"&gt;Open&lt;/button&gt;
+&lt;button onclick="zak.collapse.close('#ep5Body')"&gt;Close&lt;/button&gt;
+
+&lt;div class="zak-expandable-panel" data-zak-expandable&gt;
+    &lt;button class="zak-expandable-panel-header"&gt;...&lt;/button&gt;
+    &lt;div class="zak-collapse-target" id="ep5Body"&gt;
+        &lt;div class="zak-expandable-panel-body"&gt;...&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>CSS Classes &amp; Variables</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>/* Class Summary */
+.zak-expandable-panel        /* Self-contained card */
+.zak-expandable-panel-active /* Open state on the card */
+.zak-expandable-panel-header /* Full-width toggle row */
+.zak-expandable-panel-body   /* Toggleable content region */
+.zak-collapse-target         /* Height-animated wrapper */
+.zak-collapse-active         /* Expanded wrapper */
+
+/* Variables used */
+--zak-surface                /* Panel background */
+--zak-border                 /* Panel border */
+--zak-radius-lg              /* Rounded corners */
+--zak-transition-medium      /* Height animation */</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>JavaScript</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>// Data attributes (automatic)
+//   data-zak-expandable   bind header toggle & body collapse
+
+// The header toggles the first .zak-collapse-target sibling;
+// programmatic control goes through the collapse API:
+zak.collapse.open('#myBody');
+zak.collapse.close('#myBody');
+zak.collapse.toggle('#myBody');
+
+// Events on the body element
+body.addEventListener('zak:open', function () {});
+body.addEventListener('zak:close', function () {});
+body.addEventListener('zak:toggle', function (e) {
+    console.log('expanded?', e.detail.open);
+});</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>The header is a real <code>&lt;button&gt;</code> so it is keyboard focusable and announces expand/collapse via <code>aria-expanded</code>.</li>
+                <li>Wire <code>aria-controls</code> and <code>aria-labelledby</code> between header and body for screen readers.</li>
+                <li>Keep the header label concise; the body may hold any rich content.</li>
+                <li>Prefer a <code>&lt;details&gt;</code>/<code>&lt;summary&gt;</code> component when a no-JS fallback matters more than styling consistency.</li>
+            </ul>
+        </section>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body></html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Activity Feed documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Activity Feed - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/data-display/activity-feed/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Activity Feed - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Activity Feed documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/data-display/activity-feed/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Data-Display</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Activity Feed</span>
+                </nav>
+        <h1>Activity Feed</h1>
+        <p class="docs-subtitle">Activity feeds surface a chronological stream of user and system events. Combine avatars, icons, images, status indicators, and grouped sections.</p>
+
+        <div class="zak-docs-section">
+            <h2>Basic Activity Feed</h2>
+            <p>Use <code>.zak-activity-feed</code> with <code>.zak-activity-item</code> rows.</p>
+
+            <div class="docs-preview">
+                <ul class="zak-activity-feed" style="max-width: 30rem; margin: 0 auto; text-align: left; list-style: none;">
+                    <li class="zak-activity-item">
+                        <div class="zak-activity-content">
+                            <span class="zak-activity-text"><strong>Janet Fox</strong> created invoice <a href="#" style="text-decoration: none;">#1024</a></span>
+                            <span class="zak-activity-time">12 minutes ago</span>
+                        </div>
+                    </li>
+                    <li class="zak-activity-item">
+                        <div class="zak-activity-content">
+                            <span class="zak-activity-text"><strong>Mark Kim</strong> pushed 3 commits to <code>main</code></span>
+                            <span class="zak-activity-time">48 minutes ago</span>
+                        </div>
+                    </li>
+                    <li class="zak-activity-item">
+                        <div class="zak-activity-content">
+                            <span class="zak-activity-text"><strong>Sara Reyes</strong> commented on <a href="#" style="text-decoration: none;">#304</a></span>
+                            <span class="zak-activity-time">2 hours ago</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;ul class="zak-activity-feed"&gt;
+  &lt;li class="zak-activity-item"&gt;
+    &lt;div class="zak-activity-content"&gt;
+      &lt;span class="zak-activity-text"&gt;
+        &lt;strong&gt;Janet Fox&lt;/strong&gt; created invoice #1024
+      &lt;/span&gt;
+      &lt;span class="zak-activity-time"&gt;12 minutes ago&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>With Avatars</h2>
+            <p>Prefix each item with the actor's avatar.</p>
+
+            <div class="docs-preview">
+                <ul class="zak-activity-feed" style="max-width: 30rem; margin: 0 auto; text-align: left; list-style: none;">
+                    <li class="zak-activity-item">
+                        <span class="zak-avatar zak-avatar-2xl zak-avatar-primary" style="width: 2rem; height: 2rem; font-size: 0.75rem;">JA</span>
+                        <div class="zak-activity-content">
+                            <span class="zak-activity-text"><strong>Janet Fox</strong> uploaded a new design</span>
+                            <span class="zak-activity-time">Today, 09:32</span>
+                        </div>
+                    </li>
+                    <li class="zak-activity-item">
+                        <span class="zak-avatar zak-avatar-2xl zak-avatar-success" style="width: 2rem; height: 2rem; font-size: 0.75rem;">MK</span>
+                        <div class="zak-activity-content">
+                            <span class="zak-activity-text"><strong>Mark Kim</strong> deployed <code>v2.4.0</code> to production</span>
+                            <span class="zak-activity-time">Yesterday, 17:05</span>
+                        </div>
+                    </li>
+                    <li class="zak-activity-item">
+                        <span class="zak-avatar zak-avatar-2xl zak-avatar-warning" style="width: 2rem; height: 2rem; font-size: 0.75rem;">SR</span>
+                        <div class="zak-activity-content">
+                            <span class="zak-activity-text"><strong>Sara Reyes</strong> invited 3 team members</span>
+                            <span class="zak-activity-time">Yesterday, 14:11</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;li class="zak-activity-item"&gt;
+  &lt;span class="zak-avatar zak-avatar-2xl zak-avatar-primary"&gt;JA&lt;/span&gt;
+  &lt;div class="zak-activity-content"&gt;
+    &lt;span class="zak-activity-text"&gt;&lt;strong&gt;Janet Fox&lt;/strong&gt; uploaded a new design&lt;/span&gt;
+    &lt;span class="zak-activity-time"&gt;Today, 09:32&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/li&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>With Images</h2>
+            <p>Include inline preview images for media activity.</p>
+
+            <div class="docs-preview">
+                <ul class="zak-activity-feed" style="max-width: 30rem; margin: 0 auto; text-align: left; list-style: none;">
+                    <li class="zak-activity-item">
+                        <div class="zak-activity-content">
+                            <span class="zak-activity-text"><strong>Janet Fox</strong> added a photo to <strong>Launch assets</strong></span>
+                            <span class="zak-activity-time">Today, 10:20</span>
+                            <span class="zak-activity-thumb" style="display: block; margin-top: var(--zak-space-2); width: 5rem; height: 4rem; border-radius: var(--zak-radius-sm); overflow: hidden;">
+                                <img src="data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='200'%20height='160'%3E%3Cdefs%3E%3ClinearGradient%20id='g'%20x1='0'%20y1='0'%20x2='1'%20y2='1'%3E%3Cstop%20offset='0%25'%20stop-color='%234f46e5'/%3E%3Cstop%20offset='100%25'%20stop-color='%23a855f7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width='200'%20height='160'%20fill='url(%23g)'/%3E%3C/svg%3E" alt="Launch asset preview" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                            </span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-activity-content"&gt;
+  &lt;span class="zak-activity-text"&gt;&lt;strong&gt;Janet Fox&lt;/strong&gt; added a photo&lt;/span&gt;
+  &lt;span class="zak-activity-time"&gt;Today, 10:20&lt;/span&gt;
+  &lt;img src="preview.png" alt="Launch asset preview"
+       style="width: 5rem; height: 4rem; border-radius: var(--zak-radius-sm);"&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>With Actions</h2>
+            <p>Append actions like brief buttons or menus to an item.</p>
+
+            <div class="docs-preview">
+                <ul class="zak-activity-feed" style="max-width: 30rem; margin: 0 auto; text-align: left; list-style: none;">
+                    <li class="zak-activity-item">
+                        <div class="zak-activity-content">
+                            <span class="zak-activity-text"><strong>Noah Carter</strong> requested access to <strong>#billing</strong></span>
+                            <span class="zak-activity-time">5 minutes ago</span>
+                            <div style="display: flex; gap: var(--zak-space-2); margin-top: var(--zak-space-2);">
+                                <button class="zak-btn zak-btn-primary zak-btn-sm">Approve</button>
+                                <button class="zak-btn zak-btn-outline zak-btn-sm">Decline</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="zak-activity-item">
+                        <div class="zak-activity-content">
+                            <span class="zak-activity-text"><strong>Emma Foster</strong> mentioned you in <a href="#" style="text-decoration: none;">Design review</a></span>
+                            <span class="zak-activity-time">1 hour ago</span>
+                            <a href="#" class="zak-btn zak-btn-soft zak-btn-sm" style="margin-top: var(--zak-space-2);">View thread</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-activity-content"&gt;
+  &lt;span class="zak-activity-text"&gt;&lt;strong&gt;Noah Carter&lt;/strong&gt; requested access&lt;/span&gt;
+  &lt;span class="zak-activity-time"&gt;5 minutes ago&lt;/span&gt;
+  &lt;div style="display: flex; gap: 0.5rem;"&gt;
+    &lt;button class="zak-btn zak-btn-primary zak-btn-sm"&gt;Approve&lt;/button&gt;
+    &lt;button class="zak-btn zak-btn-outline zak-btn-sm"&gt;Decline&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Status Indicators</h2>
+            <p>Pair an icon or dot marker with the event to convey state.</p>
+
+            <div class="docs-preview">
+                <ul class="zak-activity-feed" style="max-width: 30rem; margin: 0 auto; text-align: left; list-style: none;">
+                    <li class="zak-activity-item">
+                        <span class="zak-badge zak-badge-success zak-badge-dot" style="margin-top: 0.3rem;" aria-label="Success"></span>
+                        <div class="zak-activity-content">
+                            <span class="zak-activity-text">Deployment <code>#182</code> completed</span>
+                            <span class="zak-activity-time">Today, 08:00</span>
+                        </div>
+                    </li>
+                    <li class="zak-activity-item">
+                        <span class="zak-badge zak-badge-warning zak-badge-dot" style="margin-top: 0.3rem;" aria-label="Warning"></span>
+                        <div class="zak-activity-content">
+                            <span class="zak-activity-text">Certificate expires in 7 days for <code>api.example.com</code></span>
+                            <span class="zak-activity-time">2 hours ago</span>
+                        </div>
+                    </li>
+                    <li class="zak-activity-item">
+                        <span class="zak-badge zak-badge-danger zak-badge-dot" style="margin-top: 0.3rem;" aria-label="Danger"></span>
+                        <div class="zak-activity-content">
+                            <span class="zak-activity-text">5 failed logins for <strong>Mark Kim</strong></span>
+                            <span class="zak-activity-time">3 hours ago</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;li class="zak-activity-item"&gt;
+  &lt;span class="zak-badge zak-badge-success zak-badge-dot"&gt;&lt;/span&gt;
+  &lt;div class="zak-activity-content"&gt;
+    &lt;span class="zak-activity-text"&gt;Deployment #182 completed&lt;/span&gt;
+    &lt;span class="zak-activity-time"&gt;Today, 08:00&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/li&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Grouped by Day</h2>
+            <p>Split the feed with header rows for time ranges.</p>
+
+            <div class="docs-preview">
+                <div style="max-width: 30rem; margin: 0 auto; text-align: left;">
+                    <h4 style="margin: 0 0 var(--zak-space-3); font-size: var(--zak-font-size-sm); color: var(--zak-text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Today</h4>
+                    <ul class="zak-activity-feed" style="list-style: none;">
+                        <li class="zak-activity-item">
+                            <div class="zak-activity-content">
+                                <span class="zak-activity-text"><strong>Janet Fox</strong> created <strong>Q3 roadmap</strong></span>
+                                <span class="zak-activity-time">08:42</span>
+                            </div>
+                        </li>
+                        <li class="zak-activity-item">
+                            <div class="zak-activity-content">
+                                <span class="zak-activity-text"><strong>Mark Kim</strong> merged <code>feat/dark-table</code></span>
+                                <span class="zak-activity-time">10:15</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <h4 style="margin: var(--zak-space-4) 0 var(--zak-space-3); font-size: var(--zak-font-size-sm); color: var(--zak-text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Yesterday</h4>
+                    <ul class="zak-activity-feed" style="list-style: none;">
+                        <li class="zak-activity-item">
+                            <div class="zak-activity-content">
+                                <span class="zak-activity-text"><strong>Sara Reyes</strong> exported the analytics report</span>
+                                <span class="zak-activity-time">16:20</span>
+                            </div>
+                        </li>
+                        <li class="zak-activity-item">
+                            <div class="zak-activity-content">
+                                <span class="zak-activity-text"><strong>System</strong> rotated API keys for <code>prod</code></span>
+                                <span class="zak-activity-time">02:00</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;h4&gt;Today&lt;/h4&gt;
+&lt;ul class="zak-activity-feed"&gt;
+  &lt;li class="zak-activity-item"&gt;...&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;Yesterday&lt;/h4&gt;
+&lt;ul class="zak-activity-feed"&gt;
+  &lt;li class="zak-activity-item"&gt;...&lt;/li&gt;
+&lt;/ul&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.zak-activity-feed</code></td><td>Root list with connecting track</td></tr>
+                        <tr><td><code>.zak-activity-item</code></td><td>Single feed row (flex with avatar/marker slot)</td></tr>
+                        <tr><td><code>.zak-activity-content</code></td><td>Text + time + optional extras</td></tr>
+                        <tr><td><code>.zak-activity-text</code></td><td>Main event description</td></tr>
+                        <tr><td><code>.zak-activity-time</code></td><td>Muted timestamp</td></tr>
+                        <tr><td><code>.zak-activity-thumb</code></td><td>Preview image block (optional)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Wrap items in a <code>&lt;ul&gt;</code> to preserve order for assistive tech.</li>
+                <li>Provide a text timestamp (<code>&lt;time&gt;</code> with <code>datetime</code> where possible) rather than only relative text.</li>
+                <li>Status dots need an <code>aria-label</code> or accompanying text so meaning isn't color-only.</li>
+                <li>Avatar/icon markers should be presentational (<code>aria-hidden</code>) when the text already identifies the actor.</li>
+                <li>Inline actions must stay reachable by keyboard and separated from feed text.</li>
+            </ul>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body></html>

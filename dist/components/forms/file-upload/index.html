@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit File Upload documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>File Upload - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/forms/file-upload/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="File Upload - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit File Upload documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/forms/file-upload/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+  <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+  <span class="docs-breadcrumb__separator">/</span>
+  <span class="docs-breadcrumb__current">Forms</span>
+  <span class="docs-breadcrumb__separator">/</span>
+  <span class="docs-breadcrumb__current">File Upload</span>
+</nav>
+        <h1>File Upload</h1>
+        <p class="docs-subtitle">File Upload components allow users to upload files via a standard input or a drag-and-drop zone with preview and progress support.</p>
+
+        <div class="zak-docs-section">
+            <h2>Basic File Input</h2>
+            <p>Standard file input with ZAKUIKit styling.</p>
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="fu-basic">Upload a file</label>
+                        <input type="file" id="fu-basic" class="zak-input zak-file-input">
+                    </div>
+                </form>
+            </div>
+            <div class="docs-code-block">
+                <div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div>
+                <pre><code class="language-html">&lt;input type="file" class="zak-input zak-file-input"&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Drag and Drop Zone</h2>
+            <p>A clickable and droppable zone for file uploads.</p>
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label">Upload files</label>
+                        <div class="zak-file-upload-dropzone" id="fu-dropzone" data-zak-fileupload="fu-drop-input" data-zak-fileupload-multiple>
+                            <svg class="zak-icon zak-icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+                            <p class="zak-file-upload-text">Drag and drop files here, or <strong>click to browse</strong></p>
+                            <span class="zak-form-text">PNG, JPG, PDF up to 10MB</span>
+                            <input type="file" id="fu-drop-input" multiple accept=".png,.jpg,.jpeg,.pdf" style="display:none;">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="docs-code-block">
+                <div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div>
+                <pre><code class="language-html">&lt;div class="zak-file-upload-dropzone" id="dropzone"&gt;
+  &lt;svg class="zak-icon zak-icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;
+    &lt;path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/&gt;
+    &lt;polyline points="17 8 12 3 7 8"/&gt;&lt;line x1="12" x2="12" y1="3" y2="15"/&gt;
+  &lt;/svg&gt;
+  &lt;p&gt;Drag and drop files here, or &lt;strong&gt;click to browse&lt;/strong&gt;&lt;/p&gt;
+  &lt;span class="zak-form-text"&gt;PNG, JPG, PDF up to 10MB&lt;/span&gt;
+  &lt;input type="file" multiple accept=".png,.jpg,.jpeg,.pdf" style="display:none;"&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>File Preview</h2>
+            <p>Display uploaded file information after selection.</p>
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="fu-preview">Upload image</label>
+                        <input type="file" id="fu-preview" class="zak-input zak-file-input" accept="image/*" onchange="showPreview(this, 'fu-preview-area')">
+                        <div id="fu-preview-area" class="zak-file-preview"></div>
+                    </div>
+                </form>
+            </div>
+            <div class="docs-code-block">
+                <div class="docs-code-block__header"><span>HTML + JS</span><button class="docs-copy-btn">Copy</button></div>
+                <pre><code class="language-html">&lt;input type="file" class="zak-input zak-file-input" accept="image/*"
+  onchange="showPreview(this, 'preview-area')"&gt;
+&lt;div id="preview-area" class="zak-file-preview"&gt;&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Accept Types</h2>
+            <p>Restrict file types using the accept attribute.</p>
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label">Images only</label>
+                        <input type="file" class="zak-input zak-file-input" accept="image/*">
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label">Documents only</label>
+                        <input type="file" class="zak-input zak-file-input" accept=".pdf,.doc,.docx,.txt">
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label">Any file (multiple)</label>
+                        <input type="file" class="zak-input zak-file-input" multiple>
+                    </div>
+                </form>
+            </div>
+            <div class="docs-code-block">
+                <div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div>
+                <pre><code class="language-html">&lt;input type="file" class="zak-input zak-file-input" accept="image/*"&gt;
+&lt;input type="file" class="zak-input zak-file-input" accept=".pdf,.doc,.docx,.txt"&gt;
+&lt;input type="file" class="zak-input zak-file-input" multiple&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Upload Progress</h2>
+            <p>Show upload progress using a progress bar.</p>
+            <div class="docs-preview">
+                <div class="zak-form">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label">document.pdf — 2.4 MB</label>
+                        <div class="zak-progress" style="height: 8px;">
+                            <div class="zak-progress-bar zak-bg-primary" style="width: 72%;" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <span class="zak-form-text">72% uploaded</span>
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label">photo.jpg — 1.8 MB</label>
+                        <div class="zak-progress" style="height: 8px;">
+                            <div class="zak-progress-bar zak-bg-success" style="width: 100%;" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <span class="zak-form-text zak-text-success">Upload complete</span>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block">
+                <div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div>
+                <pre><code class="language-html">&lt;div class="zak-progress" style="height: 8px;"&gt;
+  &lt;div class="zak-progress-bar zak-bg-primary" style="width: 72%;" role="progressbar"
+    aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;span class="zak-form-text"&gt;72% uploaded&lt;/span&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>JS Drag-and-Drop Demo</h2>
+            <p>Interactive drag-and-drop with click fallback.</p>
+            <div class="docs-code-block">
+                <div class="docs-code-block__header"><span>JavaScript</span><button class="docs-copy-btn">Copy</button></div>
+                <pre><code class="language-javascript">const dropzone = document.getElementById('dropzone');
+const fileInput = dropzone.querySelector('input[type="file"]');
+
+dropzone.addEventListener('click', () => fileInput.click());
+
+dropzone.addEventListener('dragover', (e) => {
+  e.preventDefault();
+  dropzone.classList.add('zak-file-upload-dropzone-active');
+});
+
+dropzone.addEventListener('dragleave', () => {
+  dropzone.classList.remove('zak-file-upload-dropzone-active');
+});
+
+dropzone.addEventListener('drop', (e) => {
+  e.preventDefault();
+  dropzone.classList.remove('zak-file-upload-dropzone-active');
+  const files = e.dataTransfer.files;
+  fileInput.files = files;
+  console.log('Files dropped:', files);
+});
+
+function showPreview(input, areaId) {
+  const area = document.getElementById(areaId);
+  area.innerHTML = '';
+  Array.from(input.files).forEach(file => {
+    const item = document.createElement('div');
+    item.className = 'zak-file-preview-item';
+    item.textContent = file.name + ' (' + (file.size / 1024).toFixed(1) + ' KB)';
+    area.appendChild(item);
+  });
+}</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead><tr><th>Class</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>.zak-file-input</code></td><td>Styled file input</td></tr>
+                        <tr><td><code>.zak-file-upload-dropzone</code></td><td>Drag-and-drop zone</td></tr>
+                        <tr><td><code>.zak-file-upload-dropzone-active</code></td><td>Active drag state</td></tr>
+                        <tr><td><code>.zak-file-upload-text</code></td><td>Dropzone text</td></tr>
+                        <tr><td><code>.zak-file-preview</code></td><td>File preview container</td></tr>
+                        <tr><td><code>.zak-file-preview-item</code></td><td>Individual preview item</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Always use a visible <code>&lt;label&gt;</code> for file inputs.</li>
+                <li>Ensure dropzone is keyboard accessible — support Enter and Space to trigger the file dialog.</li>
+                <li>Add <code>aria-label</code> to the dropzone if no visible label exists.</li>
+                <li>Announce upload status changes with <code>aria-live</code> regions.</li>
+                <li>Provide text alternatives for icon-only upload zones.</li>
+            </ul>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script><script>
+        function showPreview(input, areaId) {
+            var area = document.getElementById(areaId);
+            if (!area) return;
+            area.innerHTML = '';
+            Array.from(input.files).forEach(function(file) {
+                var item = document.createElement('div');
+                item.className = 'zak-file-preview-item';
+                item.textContent = file.name + ' (' + (file.size / 1024).toFixed(1) + ' KB)';
+                area.appendChild(item);
+            });
+        }
+    </script>
+</body>
+</html>

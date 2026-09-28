@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Floating Action Button (FAB) documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Floating Action Button (FAB) - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/buttons/floating-action-button/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Floating Action Button (FAB) - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Floating Action Button (FAB) documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/buttons/floating-action-button/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main">
+        <div class="docs-content">
+            <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Buttons</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Floating Action Button</span>
+                </nav>
+
+            <h1>Floating Action Button (FAB)</h1>
+            <p class="docs-subtitle">A Floating Action Button (FAB) is a circular button that floats above the UI, typically used for the primary action on a screen.</p>
+
+            <section class="zak-docs-section">
+                <h2>Basic</h2>
+                <p>A simple FAB positioned at the bottom-right corner of the viewport.</p>
+                <div class="docs-preview" style="position: relative; height: 200px; overflow: hidden;">
+                    <button class="zak-fab" style="position: absolute; bottom: 1rem; right: 1rem;">
+                        <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                    </button>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;button class="zak-fab"&gt;
+    &lt;svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;
+        &lt;path d="M12 5v14M5 12h14"/&gt;
+    &lt;/svg&gt;
+&lt;/button&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Colors</h2>
+                <p>FABs support all standard color variants.</p>
+                <div class="docs-preview">
+                    <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;">
+                        <button class="zak-fab zak-fab-primary" aria-label="Primary">
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                        </button>
+                        <button class="zak-fab zak-fab-secondary" aria-label="Secondary">
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                        </button>
+                        <button class="zak-fab zak-fab-success" aria-label="Success">
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                        </button>
+                        <button class="zak-fab zak-fab-danger" aria-label="Danger">
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                        </button>
+                        <button class="zak-fab zak-fab-warning" aria-label="Warning">
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0zM12 9v4M12 17h.01"/></svg>
+                        </button>
+                        <button class="zak-fab zak-fab-info" aria-label="Info">
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;button class="zak-fab zak-fab-primary" aria-label="Add"&gt;...&lt;/button&gt;
+&lt;button class="zak-fab zak-fab-secondary" aria-label="Add"&gt;...&lt;/button&gt;
+&lt;button class="zak-fab zak-fab-success" aria-label="Add"&gt;...&lt;/button&gt;
+&lt;button class="zak-fab zak-fab-danger" aria-label="Add"&gt;...&lt;/button&gt;
+&lt;button class="zak-fab zak-fab-warning" aria-label="Add"&gt;...&lt;/button&gt;
+&lt;button class="zak-fab zak-fab-info" aria-label="Add"&gt;...&lt;/button&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Sizes</h2>
+                <p>FABs come in three sizes for different contexts.</p>
+                <div class="docs-preview">
+                    <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-end;">
+                        <button class="zak-fab zak-fab-primary zak-fab-sm" aria-label="Small FAB">
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                        </button>
+                        <button class="zak-fab zak-fab-primary" aria-label="Default FAB">
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                        </button>
+                        <button class="zak-fab zak-fab-primary zak-fab-lg" aria-label="Large FAB">
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;button class="zak-fab zak-fab-primary zak-fab-sm" aria-label="Small"&gt;...&lt;/button&gt;
+&lt;button class="zak-fab zak-fab-primary" aria-label="Default"&gt;...&lt;/button&gt;
+&lt;button class="zak-fab zak-fab-primary zak-fab-lg" aria-label="Large"&gt;...&lt;/button&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>With Icon</h2>
+                <p>FABs can display different icons based on the action.</p>
+                <div class="docs-preview">
+                    <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;">
+                        <button class="zak-fab zak-fab-primary" aria-label="Add new item">
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                        </button>
+                        <button class="zak-fab zak-fab-secondary" aria-label="Edit">
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                        </button>
+                        <button class="zak-fab zak-fab-success" aria-label="Share">
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                        </button>
+                        <button class="zak-fab zak-fab-info" aria-label="Search">
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                        </button>
+                        <button class="zak-fab zak-fab-danger" aria-label="Delete">
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;button class="zak-fab zak-fab-primary" aria-label="Add new item"&gt;
+    &lt;svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;&lt;path d="M12 5v14M5 12h14"/&gt;&lt;/svg&gt;
+&lt;/button&gt;
+
+&lt;button class="zak-fab zak-fab-secondary" aria-label="Edit"&gt;
+    &lt;svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;&lt;path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/&gt;&lt;path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/&gt;&lt;/svg&gt;
+&lt;/button&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Extended FAB</h2>
+                <p>An extended FAB includes a text label alongside the icon for clearer communication.</p>
+                <div class="docs-preview">
+                    <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;">
+                        <button class="zak-fab zak-fab-primary zak-fab-extended">
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                            <span>New Post</span>
+                        </button>
+                        <button class="zak-fab zak-fab-success zak-fab-extended">
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/></svg>
+                            <span>Save Draft</span>
+                        </button>
+                        <button class="zak-fab zak-fab-danger zak-fab-extended">
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>
+                            <span>Delete All</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;button class="zak-fab zak-fab-primary zak-fab-extended"&gt;
+    &lt;svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;
+        &lt;path d="M12 5v14M5 12h14"/&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;New Post&lt;/span&gt;
+&lt;/button&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Positioning</h2>
+                <p>FABs can be positioned in any corner of the viewport.</p>
+                <div class="docs-preview" style="position: relative; height: 250px; overflow: hidden; border: 1px dashed var(--zak-border-color);">
+                    <div style="position: absolute; top: 0.5rem; left: 0.5rem; font-size: 0.75rem; color: var(--zak-text-muted);">top-left</div>
+                    <div style="position: absolute; top: 0.5rem; right: 0.5rem; font-size: 0.75rem; color: var(--zak-text-muted);">top-right</div>
+                    <div style="position: absolute; bottom: 0.5rem; left: 0.5rem; font-size: 0.75rem; color: var(--zak-text-muted);">bottom-left</div>
+                    <div style="position: absolute; bottom: 0.5rem; right: 0.5rem; font-size: 0.75rem; color: var(--zak-text-muted);">bottom-right</div>
+                    <button class="zak-fab zak-fab-primary zak-fab-sm" aria-label="Top left" style="position: absolute; top: 1.5rem; left: 1.5rem;">
+                        <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                    </button>
+                    <button class="zak-fab zak-fab-success zak-fab-sm" aria-label="Top right" style="position: absolute; top: 1.5rem; right: 1.5rem;">
+                        <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                    </button>
+                    <button class="zak-fab zak-fab-warning zak-fab-sm" aria-label="Bottom left" style="position: absolute; bottom: 1.5rem; left: 1.5rem;">
+                        <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                    </button>
+                    <button class="zak-fab zak-fab-info zak-fab-sm" aria-label="Bottom right" style="position: absolute; bottom: 1.5rem; right: 1.5rem;">
+                        <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                    </button>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;!-- Bottom Right (default) --&gt;
+&lt;button class="zak-fab zak-fab-primary" style="position: fixed; bottom: 2rem; right: 2rem;"&gt;...&lt;/button&gt;
+
+&lt;!-- Bottom Left --&gt;
+&lt;button class="zak-fab zak-fab-primary" style="position: fixed; bottom: 2rem; left: 2rem;"&gt;...&lt;/button&gt;
+
+&lt;!-- Top Right --&gt;
+&lt;button class="zak-fab zak-fab-primary" style="position: fixed; top: 2rem; right: 2rem;"&gt;...&lt;/button&gt;
+
+&lt;!-- Top Left --&gt;
+&lt;button class="zak-fab zak-fab-primary" style="position: fixed; top: 2rem; left: 2rem;"&gt;...&lt;/button&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Speed Dial</h2>
+                <p>A FAB with expanding action items that appear on click.</p>
+                <div class="docs-preview" style="position: relative; height: 300px; overflow: hidden;">
+                    <div class="zak-fab-speed-dial" id="speed-dial-demo" style="position: absolute; bottom: 1rem; right: 1rem; display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
+                        <div class="zak-fab-speed-dial-actions" style="display: flex; flex-direction: column; gap: 0.75rem; opacity: 0; transform: translateY(10px); transition: all 0.2s ease;">
+                            <button class="zak-fab zak-fab-sm zak-fab-secondary" aria-label="Edit" title="Edit" style="width: 40px; height: 40px;">
+                                <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                            </button>
+                            <button class="zak-fab zak-fab-sm zak-fab-success" aria-label="Share" title="Share" style="width: 40px; height: 40px;">
+                                <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                            </button>
+                            <button class="zak-fab zak-fab-sm zak-fab-info" aria-label="Copy" title="Copy" style="width: 40px; height: 40px;">
+                                <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                            </button>
+                            <button class="zak-fab zak-fab-sm zak-fab-danger" aria-label="Delete" title="Delete" style="width: 40px; height: 40px;">
+                                <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>
+                            </button>
+                        </div>
+                        <button class="zak-fab zak-fab-primary speed-dial-toggle" aria-label="Toggle actions" aria-expanded="false">
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-fab-speed-dial"&gt;
+    &lt;div class="zak-fab-speed-dial-actions"&gt;
+        &lt;button class="zak-fab zak-fab-sm zak-fab-secondary" aria-label="Edit"&gt;...&lt;/button&gt;
+        &lt;button class="zak-fab zak-fab-sm zak-fab-success" aria-label="Share"&gt;...&lt;/button&gt;
+        &lt;button class="zak-fab zak-fab-sm zak-fab-info" aria-label="Copy"&gt;...&lt;/button&gt;
+        &lt;button class="zak-fab zak-fab-sm zak-fab-danger" aria-label="Delete"&gt;...&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;button class="zak-fab zak-fab-primary speed-dial-toggle" aria-label="Toggle actions" aria-expanded="false"&gt;
+        &lt;svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;&lt;path d="M12 5v14M5 12h14"/&gt;&lt;/svg&gt;
+    &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>JavaScript</h2>
+                <p>Speed dial toggle and FAB interactions.</p>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>// Speed Dial Toggle
+document.querySelectorAll('.speed-dial-toggle').forEach(toggle =&gt; {
+    toggle.addEventListener('click', function() {
+        const container = this.closest('.zak-fab-speed-dial');
+        const actions = container.querySelector('.zak-fab-speed-dial-actions');
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+
+        if (isExpanded) {
+            actions.style.opacity = '0';
+            actions.style.transform = 'translateY(10px)';
+            this.setAttribute('aria-expanded', 'false');
+            this.querySelector('.zak-icon').style.transform = 'rotate(0deg)';
+        } else {
+            actions.style.opacity = '1';
+            actions.style.transform = 'translateY(0)';
+            this.setAttribute('aria-expanded', 'true');
+            this.querySelector('.zak-icon').style.transform = 'rotate(45deg)';
+        }
+    });
+});</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>CSS</h2>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>/* FAB Base */
+.zak-fab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000;
+}
+
+/* Sizes */
+.zak-fab-sm {
+    width: 40px;
+    height: 40px;
+    font-size: 0.875rem;
+}
+
+.zak-fab-lg {
+    width: 72px;
+    height: 72px;
+    font-size: 1.5rem;
+}
+
+/* Extended FAB */
+.zak-fab-extended {
+    width: auto;
+    min-width: 56px;
+    border-radius: 16px;
+    padding: 0 16px;
+    gap: 8px;
+}
+
+/* Color Variants */
+.zak-fab-primary { background: var(--zak-color-primary); color: #fff; }
+.zak-fab-secondary { background: var(--zak-color-secondary); color: #fff; }
+.zak-fab-success { background: var(--zak-color-success); color: #fff; }
+.zak-fab-danger { background: var(--zak-color-danger); color: #fff; }
+.zak-fab-warning { background: var(--zak-color-warning); color: #fff; }
+.zak-fab-info { background: var(--zak-color-info); color: #fff; }</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Accessibility</h2>
+                <ul>
+                    <li>Always provide an <code>aria-label</code> to describe the FAB's action.</li>
+                    <li>For speed dials, use <code>aria-expanded</code> on the toggle button.</li>
+                    <li>Ensure the FAB has sufficient focus styles for keyboard navigation.</li>
+                    <li>Consider adding <code>title</code> for native tooltip support on hover.</li>
+                    <li>For extended FABs, the text label serves as accessible name naturally.</li>
+                </ul>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;!-- Simple FAB --&gt;
+&lt;button class="zak-fab zak-fab-primary" aria-label="Create new post"&gt;
+    &lt;svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;...&lt;/svg&gt;
+&lt;/button&gt;
+
+&lt;!-- Extended FAB (text serves as label) --&gt;
+&lt;button class="zak-fab zak-fab-primary zak-fab-extended"&gt;
+    &lt;svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;...&lt;/svg&gt;
+    &lt;span&gt;New Post&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;!-- Speed Dial Toggle --&gt;
+&lt;button class="zak-fab zak-fab-primary speed-dial-toggle" aria-label="More actions" aria-expanded="false"&gt;...&lt;/button&gt;</code></pre>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    <script>
+    document.querySelectorAll('.speed-dial-toggle').forEach(toggle => {
+        toggle.addEventListener('click', function() {
+            const container = this.closest('.zak-fab-speed-dial');
+            const actions = container.querySelector('.zak-fab-speed-dial-actions');
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            if (isExpanded) {
+                actions.style.opacity = '0';
+                actions.style.transform = 'translateY(10px)';
+                this.setAttribute('aria-expanded', 'false');
+                this.querySelector('.zak-icon').style.transform = 'rotate(0deg)';
+            } else {
+                actions.style.opacity = '1';
+                actions.style.transform = 'translateY(0)';
+                this.setAttribute('aria-expanded', 'true');
+                this.querySelector('.zak-icon').style.transform = 'rotate(45deg)';
+            }
+        });
+    });
+    </script>
+</body>
+</html>

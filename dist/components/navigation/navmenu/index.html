@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Nav Menu documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Nav Menu - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/navigation/navmenu/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Nav Menu - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Nav Menu documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/navigation/navmenu/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main">
+        <div class="docs-content">
+            <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Navigation</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Nav Menu</span>
+                </nav>
+
+            <h1>Nav Menu</h1>
+            <p class="docs-subtitle">Nav menus provide structured lists of navigation links that can be laid out horizontally or vertically, with support for icons, dividers, headers, badges, and active states.</p>
+            <p>A nav menu is a list of navigation links. Use <code>.zak-nav-menu-horizontal</code> to lay the links out inline for top-level navigation; omit it for a vertical list suitable for sidebars. The component works with plain links, icons, badges, grouped headers, and divisional separators.</p>
+
+            <section class="zak-docs-section">
+                <h2>Horizontal Nav Menu</h2>
+                <p>A standard horizontal menu for top-level navigation.</p>
+                <div class="docs-preview">
+                    <nav class="zak-nav-menu zak-nav-menu-horizontal" aria-label="Horizontal navigation">
+                        <ul class="zak-nav-menu-list">
+                            <li class="zak-nav-menu-item"><a href="#" class="zak-nav-menu-link active">Home</a></li>
+                            <li class="zak-nav-menu-item"><a href="#" class="zak-nav-menu-link">Products</a></li>
+                            <li class="zak-nav-menu-item"><a href="#" class="zak-nav-menu-link">Resources</a></li>
+                            <li class="zak-nav-menu-item"><a href="#" class="zak-nav-menu-link">Pricing</a></li>
+                            <li class="zak-nav-menu-item"><a href="#" class="zak-nav-menu-link">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;nav class="zak-nav-menu zak-nav-menu-horizontal" aria-label="Horizontal navigation"&gt;
+    &lt;ul class="zak-nav-menu-list"&gt;
+        &lt;li class="zak-nav-menu-item"&gt;&lt;a href="#" class="zak-nav-menu-link active"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="zak-nav-menu-item"&gt;&lt;a href="#" class="zak-nav-menu-link"&gt;Products&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="zak-nav-menu-item"&gt;&lt;a href="#" class="zak-nav-menu-link"&gt;Resources&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="zak-nav-menu-item"&gt;&lt;a href="#" class="zak-nav-menu-link"&gt;Pricing&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Vertical Nav Menu</h2>
+                <p>A vertical navigation menu lists links top-to-bottom. Omit the horizontal modifier for this layout.</p>
+                <div class="docs-preview">
+                    <nav class="zak-nav-menu" aria-label="Vertical navigation" style="max-width: 280px;">
+                        <ul class="zak-nav-menu-list">
+                            <li class="zak-nav-menu-item"><a href="#" class="zak-nav-menu-link active">Dashboard</a></li>
+                            <li class="zak-nav-menu-item"><a href="#" class="zak-nav-menu-link">Analytics</a></li>
+                            <li class="zak-nav-menu-item"><a href="#" class="zak-nav-menu-link">E-Commerce</a></li>
+                            <li class="zak-nav-menu-item"><a href="#" class="zak-nav-menu-link">Projects</a></li>
+                            <li class="zak-nav-menu-item"><a href="#" class="zak-nav-menu-link">Team</a></li>
+                            <li class="zak-nav-menu-item"><a href="#" class="zak-nav-menu-link">Settings</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;nav class="zak-nav-menu" aria-label="Vertical navigation"&gt;
+    &lt;ul class="zak-nav-menu-list"&gt;
+        &lt;li class="zak-nav-menu-item"&gt;&lt;a href="#" class="zak-nav-menu-link active"&gt;Dashboard&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="zak-nav-menu-item"&gt;&lt;a href="#" class="zak-nav-menu-link"&gt;Analytics&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="zak-nav-menu-item"&gt;&lt;a href="#" class="zak-nav-menu-link"&gt;E-Commerce&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Vertical Nav with Nested Items</h2>
+                <p>Create multi-level vertical navigation with collapsible child items using the subnav classes.</p>
+                <div class="docs-preview">
+                    <nav class="zak-nav-menu" aria-label="Nested navigation" style="max-width: 280px;">
+                        <ul class="zak-nav-menu-list">
+                            <li class="zak-nav-menu-item"><a href="#" class="zak-nav-menu-link active">Dashboard</a></li>
+                            <li class="zak-nav-menu-subnav" id="demo-navmenu-project">
+                                <button class="zak-nav-menu-link zak-nav-menu-subnav-toggle" onclick="this.parentElement.classList.toggle('open')">
+                                    Projects
+                                    <svg class="zak-icon zak-icon-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+                                </button>
+                                <ul class="zak-nav-menu-subnav-list">
+                                    <li class="zak-nav-menu-item"><a href="#" class="zak-nav-menu-link">Website</a></li>
+                                    <li class="zak-nav-menu-item"><a href="#" class="zak-nav-menu-link">Mobile App</a></li>
+                                    <li class="zak-nav-menu-item"><a href="#" class="zak-nav-menu-link">API Service</a></li>
+                                </ul>
+                            </li>
+                            <li class="zak-nav-menu-subnav" id="demo-navmenu-settings">
+                                <button class="zak-nav-menu-link zak-nav-menu-subnav-toggle" onclick="this.parentElement.classList.toggle('open')">
+                                    Settings
+                                    <svg class="zak-icon zak-icon-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+                                </button>
+                                <ul class="zak-nav-menu-subnav-list">
+                                    <li class="zak-nav-menu-item"><a href="#" class="zak-nav-menu-link">General</a></li>
+                                    <li class="zak-nav-menu-item"><a href="#" class="zak-nav-menu-link">Security</a></li>
+                                </ul>
+                            </li>
+                            <li class="zak-nav-menu-item"><a href="#" class="zak-nav-menu-link">Reports</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;li class="zak-nav-menu-subnav" id="nav1"&gt;
+    &lt;button class="zak-nav-menu-link zak-nav-menu-subnav-toggle"
+        onclick="document.getElementById('nav1').classList.toggle('open')"&gt;
+        Projects
+        &lt;svg class="zak-icon zak-icon-chevron-right" viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
+    &lt;/button&gt;
+    &lt;ul class="zak-nav-menu-subnav-list"&gt;
+        &lt;li class="zak-nav-menu-item"&gt;&lt;a href="#" class="zak-nav-menu-link"&gt;Website&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="zak-nav-menu-item"&gt;&lt;a href="#" class="zak-nav-menu-link"&gt;Mobile App&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/li&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Nav Menu with Icons</h2>
+                <p>Add icons alongside menu links for better visual recognition.</p>
+                <div class="docs-preview">
+                    <nav class="zak-nav-menu" aria-label="Navigation with icons" style="max-width: 280px;">
+                        <ul class="zak-nav-menu-list">
+                            <li class="zak-nav-menu-item">
+                                <a href="#" class="zak-nav-menu-link active">
+                                    <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+                                    Dashboard
+                                </a>
+                            </li>
+                            <li class="zak-nav-menu-item">
+                                <a href="#" class="zak-nav-menu-link">
+                                    <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                                    Analytics
+                                </a>
+                            </li>
+                            <li class="zak-nav-menu-item">
+                                <a href="#" class="zak-nav-menu-link">
+                                    <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+                                    E-Commerce
+                                </a>
+                            </li>
+                            <li class="zak-nav-menu-item">
+                                <a href="#" class="zak-nav-menu-link">
+                                    <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                                    Projects
+                                </a>
+                            </li>
+                            <li class="zak-nav-menu-item">
+                                <a href="#" class="zak-nav-menu-link">
+                                    <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                                    Team
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;li class="zak-nav-menu-item"&gt;
+    &lt;a href="#" class="zak-nav-menu-link active"&gt;
+        &lt;svg class="zak-icon" viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
+        Dashboard
+    &lt;/a&gt;
+&lt;/li&gt;
+&lt;li class="zak-nav-menu-item"&gt;
+    &lt;a href="#" class="zak-nav-menu-link"&gt;
+        &lt;svg class="zak-icon" viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
+        Analytics
+    &lt;/a&gt;
+&lt;/li&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Nav Menu with Dividers</h2>
+                <p>Use dividers to visually separate groups of navigation links.</p>
+                <div class="docs-preview">
+                    <nav class="zak-nav-menu" aria-label="Menu with dividers" style="max-width: 280px;">
+                        <ul class="zak-nav-menu-list">
+                            <li class="zak-nav-menu-item"><a href="#" class="zak-nav-menu-link active">Dashboard</a></li>
+                            <li class="zak-nav-menu-item"><a href="#" class="zak-nav-menu-link">Analytics</a></li>
+                            <li class="zak-nav-menu-divider" role="separator"></li>
+                            <li class="zak-nav-menu-item"><a href="#" class="zak-nav-menu-link">E-Commerce</a></li>
+                            <li class="zak-nav-menu-item"><a href="#" class="zak-nav-menu-link">Projects</a></li>
+                            <li class="zak-nav-menu-divider" role="separator"></li>
+                            <li class="zak-nav-menu-item"><a href="#" class="zak-nav-menu-link">Settings</a></li>
+                            <li class="zak-nav-menu-item"><a href="#" class="zak-nav-menu-link">Help</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;ul class="zak-nav-menu-list"&gt;
+    &lt;li class="zak-nav-menu-item"&gt;&lt;a href="#" class="zak-nav-menu-link active"&gt;Dashboard&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="zak-nav-menu-item"&gt;&lt;a href="#" class="zak-nav-menu-link"&gt;Analytics&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="zak-nav-menu-divider" role="separator"&gt;&lt;/li&gt;
+    &lt;li class="zak-nav-menu-item"&gt;&lt;a href="#" class="zak-nav-menu-link"&gt;E-Commerce&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="zak-nav-menu-item"&gt;&lt;a href="#" class="zak-nav-menu-link"&gt;Projects&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="zak-nav-menu-divider" role="separator"&gt;&lt;/li&gt;
+    &lt;li class="zak-nav-menu-item"&gt;&lt;a href="#" class="zak-nav-menu-link"&gt;Settings&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Nav Menu with Headers</h2>
+                <p>Group related navigation links under labeled section headers.</p>
+                <div class="docs-preview">
+                    <nav class="zak-nav-menu" aria-label="Menu with headers" style="max-width: 280px;">
+                        <ul class="zak-nav-menu-list">
+                            <li class="zak-nav-menu-header">Main</li>
+                            <li class="zak-nav-menu-item"><a href="#" class="zak-nav-menu-link active">Dashboard</a></li>
+                            <li class="zak-nav-menu-item"><a href="#" class="zak-nav-menu-link">Analytics</a></li>
+                            <li class="zak-nav-menu-header">Workspace</li>
+                            <li class="zak-nav-menu-item"><a href="#" class="zak-nav-menu-link">Projects</a></li>
+                            <li class="zak-nav-menu-item"><a href="#" class="zak-nav-menu-link">Tasks</a></li>
+                            <li class="zak-nav-menu-item"><a href="#" class="zak-nav-menu-link">Team</a></li>
+                            <li class="zak-nav-menu-header">Account</li>
+                            <li class="zak-nav-menu-item"><a href="#" class="zak-nav-menu-link">Profile</a></li>
+                            <li class="zak-nav-menu-item"><a href="#" class="zak-nav-menu-link">Settings</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;ul class="zak-nav-menu-list"&gt;
+    &lt;li class="zak-nav-menu-header"&gt;Main&lt;/li&gt;
+    &lt;li class="zak-nav-menu-item"&gt;&lt;a href="#" class="zak-nav-menu-link active"&gt;Dashboard&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="zak-nav-menu-item"&gt;&lt;a href="#" class="zak-nav-menu-link"&gt;Analytics&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="zak-nav-menu-header"&gt;Workspace&lt;/li&gt;
+    &lt;li class="zak-nav-menu-item"&gt;&lt;a href="#" class="zak-nav-menu-link"&gt;Projects&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="zak-nav-menu-item"&gt;&lt;a href="#" class="zak-nav-menu-link"&gt;Tasks&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Nav Menu with Badges</h2>
+                <p>Add badges to navigation links for counts, status indicators, or labels.</p>
+                <div class="docs-preview">
+                    <nav class="zak-nav-menu" aria-label="Menu with badges" style="max-width: 280px;">
+                        <ul class="zak-nav-menu-list">
+                            <li class="zak-nav-menu-item"><a href="#" class="zak-nav-menu-link active">Dashboard</a></li>
+                            <li class="zak-nav-menu-item">
+                                <a href="#" class="zak-nav-menu-link">
+                                    Messages
+                                    <span class="zak-badge zak-badge-primary" style="margin-left: auto;">24</span>
+                                </a>
+                            </li>
+                            <li class="zak-nav-menu-item">
+                                <a href="#" class="zak-nav-menu-link">
+                                    Notifications
+                                    <span class="zak-badge zak-badge-danger" style="margin-left: auto;">5</span>
+                                </a>
+                            </li>
+                            <li class="zak-nav-menu-item"><a href="#" class="zak-nav-menu-link">Projects</a></li>
+                            <li class="zak-nav-menu-item">
+                                <a href="#" class="zak-nav-menu-link">
+                                    Tasks
+                                    <span class="zak-badge zak-badge-success" style="margin-left: auto;">New</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;li class="zak-nav-menu-item"&gt;
+    &lt;a href="#" class="zak-nav-menu-link"&gt;
+        Messages
+        &lt;span class="zak-badge zak-badge-primary" style="margin-left: auto;"&gt;24&lt;/span&gt;
+    &lt;/a&gt;
+&lt;/li&gt;
+&lt;li class="zak-nav-menu-item"&gt;
+    &lt;a href="#" class="zak-nav-menu-link"&gt;
+        Notifications
+        &lt;span class="zak-badge zak-badge-danger" style="margin-left: auto;"&gt;5&lt;/span&gt;
+    &lt;/a&gt;
+&lt;/li&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Nav Menu with Shortcuts</h2>
+                <p>Show keyboard shortcut hints next to navigation links.</p>
+                <div class="docs-preview">
+                    <nav class="zak-nav-menu" aria-label="Menu with shortcuts" style="max-width: 280px;">
+                        <ul class="zak-nav-menu-list">
+                            <li class="zak-nav-menu-item">
+                                <a href="#" class="zak-nav-menu-link active">
+                                    New File
+                                    <span class="zak-menu-shortcut">âŒ˜N</span>
+                                </a>
+                            </li>
+                            <li class="zak-nav-menu-item">
+                                <a href="#" class="zak-nav-menu-link">
+                                    Duplicate
+                                    <span class="zak-menu-shortcut">âŒ˜D</span>
+                                </a>
+                            </li>
+                            <li class="zak-nav-menu-item">
+                                <a href="#" class="zak-nav-menu-link">
+                                    Save
+                                    <span class="zak-menu-shortcut">âŒ˜S</span>
+                                </a>
+                            </li>
+                            <li class="zak-nav-menu-item">
+                                <a href="#" class="zak-nav-menu-link">
+                                    Export
+                                    <span class="zak-menu-shortcut">âŒ˜E</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;li class="zak-nav-menu-item"&gt;
+    &lt;a href="#" class="zak-nav-menu-link"&gt;
+        New File
+        &lt;span class="zak-menu-shortcut"&gt;âŒ˜N&lt;/span&gt;
+    &lt;/a&gt;
+&lt;/li&gt;
+&lt;li class="zak-nav-menu-item"&gt;
+    &lt;a href="#" class="zak-nav-menu-link"&gt;
+        Save
+        &lt;span class="zak-menu-shortcut"&gt;âŒ˜S&lt;/span&gt;
+    &lt;/a&gt;
+&lt;/li&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Nav Menu with Active State</h2>
+                <p>The active link is visually highlighted to indicate the current page.</p>
+                <div class="docs-preview">
+                    <nav class="zak-nav-menu" aria-label="Menu with active state" style="max-width: 280px;">
+                        <ul class="zak-nav-menu-list">
+                            <li class="zak-nav-menu-item"><a href="#" class="zak-nav-menu-link">Home</a></li>
+                            <li class="zak-nav-menu-item"><a href="#" class="zak-nav-menu-link active">Products</a></li>
+                            <li class="zak-nav-menu-item"><a href="#" class="zak-nav-menu-link">Resources</a></li>
+                            <li class="zak-nav-menu-item"><a href="#" class="zak-nav-menu-link">Pricing</a></li>
+                            <li class="zak-nav-menu-item"><a href="#" class="zak-nav-menu-link">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;li class="zak-nav-menu-item"&gt;&lt;a href="#" class="zak-nav-menu-link"&gt;Home&lt;/a&gt;&lt;/li&gt;
+&lt;li class="zak-nav-menu-item"&gt;&lt;a href="#" class="zak-nav-menu-link active"&gt;Products&lt;/a&gt;&lt;/li&gt;
+&lt;li class="zak-nav-menu-item"&gt;&lt;a href="#" class="zak-nav-menu-link"&gt;Resources&lt;/a&gt;&lt;/li&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>CSS Classes</h2>
+                <p>Nav menu styles are controlled through these CSS classes.</p>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>/* Menu Container */
+.zak-nav-menu                   /* Base vertical nav menu */
+.zak-nav-menu-horizontal        /* Horizontal layout */
+
+/* Menu Parts */
+.zak-nav-menu-list              /* List container */
+.zak-nav-menu-item              /* List item wrapper */
+
+/* Links */
+.zak-nav-menu-link              /* Menu link */
+.zak-nav-menu-link.active       /* Active/current state */
+
+/* Sections */
+.zak-nav-menu-header            /* Section header label */
+.zak-nav-menu-divider           /* Visual separator line */
+
+/* Nested / Subnav */
+.zak-nav-menu-subnav            /* Nested nav item wrapper */
+.zak-nav-menu-subnav-toggle     /* Toggle button for subnav */
+.zak-nav-menu-subnav-list       /* Nested list container */
+.zak-nav-menu-subnav.open       /* Expanded subnav state */
+
+/* Extras */
+.zak-menu-shortcut              /* Keyboard shortcut hint */</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>JavaScript</h2>
+                <p>Handle active link state changes with JavaScript.</p>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>// Handle navigation menu clicks
+document.querySelectorAll('.zak-nav-menu-link').forEach(link =&gt; {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        // Remove active from siblings
+        this.closest('.zak-nav-menu-list').querySelectorAll('.zak-nav-menu-link').forEach(l =&gt; {
+            l.classList.remove('active');
+        });
+        // Set active on clicked
+        this.classList.add('active');
+    });
+});
+
+// Toggle subnavs
+document.querySelectorAll('.zak-nav-menu-subnav-toggle').forEach(toggle =&gt; {
+    toggle.addEventListener('click', function() {
+        const subnav = this.closest('.zak-nav-menu-subnav');
+        const isOpen = subnav.classList.contains('open');
+        subnav.parentElement.querySelectorAll('.zak-nav-menu-subnav.open').forEach(s =&gt; {
+            if (s !== subnav) s.classList.remove('open');
+        });
+        if (!isOpen) subnav.classList.add('open');
+    });
+});</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Keyboard Navigation</h2>
+                <p>Support keyboard navigation with Tab and arrow keys inside the menu list.</p>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>var list = document.querySelector('.zak-nav-menu-list');
+var links = Array.prototype.slice.call(list.querySelectorAll('.zak-nav-menu-link'));
+var index = -1;
+list.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowDown') { e.preventDefault(); index = Math.min(index + 1, links.length - 1); links[index].focus(); }
+    if (e.key === 'ArrowUp') { e.preventDefault(); index = Math.max(index - 1, 0); links[index].focus(); }
+    if (e.key === 'Home') { e.preventDefault(); index = 0; links[index].focus(); }
+    if (e.key === 'End') { e.preventDefault(); index = links.length - 1; links[index].focus(); }
+});</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Accessibility</h2>
+                <p>Follow these accessibility best practices when using nav menus.</p>
+                <ul>
+                    <li>Use <code>&lt;nav&gt;</code> element with <code>aria-label</code> to identify the menu purpose.</li>
+                    <li>Mark the active link with <code>aria-current="page"</code> or <code>aria-current="true"</code>.</li>
+                    <li>Use proper list semantics (<code>&lt;ul&gt;</code>, <code>&lt;li&gt;</code>) for screen reader navigation.</li>
+                    <li>Ensure dividers use <code>role="separator"</code> for accessibility.</li>
+                    <li>Headers should be semantically marked or use <code>role="heading"</code>.</li>
+                    <li>Support keyboard navigation with <kbd>Tab</kbd> and arrow keys.</li>
+                </ul>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;nav class="zak-nav-menu zak-nav-menu-horizontal" aria-label="Main navigation"&gt;
+    &lt;ul class="zak-nav-menu-list"&gt;
+        &lt;li class="zak-nav-menu-item"&gt;
+            &lt;a href="#" class="zak-nav-menu-link active" aria-current="page"&gt;Home&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class="zak-nav-menu-item"&gt;
+            &lt;a href="#" class="zak-nav-menu-link"&gt;Products&lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body>
+</html>

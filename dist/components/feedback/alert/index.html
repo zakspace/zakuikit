@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Alert documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Alert - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/feedback/alert/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Alert - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Alert documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/feedback/alert/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Feedback</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Alert</span>
+                </nav>
+        <h1>Alert</h1>
+        <p class="docs-subtitle">Alerts display brief, important messages that attract user attention without interrupting their current task.</p>
+
+        <section class="zak-docs-section">
+            <h2>Basic Alert</h2>
+            <p>A default alert communicates a neutral notice with the primary color scheme.</p>
+            <div class="docs-preview">
+                <div class="zak-alert">
+                    <div class="zak-alert-content">This is a default alert message.</div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-alert"&gt;
+    &lt;div class="zak-alert-content"&gt;This is a default alert message.&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Color Variants</h2>
+            <p>Use semantic variants to convey the type of message: success, danger, warning, and info.</p>
+            <div class="docs-preview">
+                <div class="zak-stack" style="width:100%;">
+                    <div class="zak-alert zak-alert-success">
+                        <div class="zak-alert-content">Success: Your changes have been saved.</div>
+                    </div>
+                    <div class="zak-alert zak-alert-danger">
+                        <div class="zak-alert-content">Danger: There was a problem with your submission.</div>
+                    </div>
+                    <div class="zak-alert zak-alert-warning">
+                        <div class="zak-alert-content">Warning: Your session is about to expire.</div>
+                    </div>
+                    <div class="zak-alert zak-alert-info">
+                        <div class="zak-alert-content">Info: Version 2.4 is now available.</div>
+                    </div>
+                    <div class="zak-alert zak-alert-primary">
+                        <div class="zak-alert-content">Primary: Please review the updated terms.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-alert zak-alert-success"&gt;...&lt;/div&gt;
+&lt;div class="zak-alert zak-alert-danger"&gt;...&lt;/div&gt;
+&lt;div class="zak-alert zak-alert-warning"&gt;...&lt;/div&gt;
+&lt;div class="zak-alert zak-alert-info"&gt;...&lt;/div&gt;
+&lt;div class="zak-alert zak-alert-primary"&gt;...&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Alert with Icon</h2>
+            <p>Add an icon on the leading edge to make the alert more scannable.</p>
+            <div class="docs-preview">
+                <div class="zak-alert zak-alert-success">
+                    <span class="zak-alert-icon">
+                        <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                    </span>
+                    <div class="zak-alert-content">Your payment was processed successfully.</div>
+                </div>
+                <div class="zak-alert zak-alert-danger">
+                    <span class="zak-alert-icon">
+                        <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
+                    </span>
+                    <div class="zak-alert-content">Unable to connect to the server. Please retry.</div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-alert zak-alert-success"&gt;
+    &lt;span class="zak-alert-icon"&gt;
+        &lt;svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;&lt;path d="M20 6L9 17l-5-5"/&gt;&lt;/svg&gt;
+    &lt;/span&gt;
+    &lt;div class="zak-alert-content"&gt;Your payment was processed successfully.&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Alert with Title and Description</h2>
+            <p>Use a title for the headline and the content area for supporting detail.</p>
+            <div class="docs-preview">
+                <div class="zak-stack" style="width:100%;">
+                    <div class="zak-alert zak-alert-warning">
+                        <span class="zak-alert-icon">
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+                        </span>
+                        <div class="zak-alert-content">
+                            <div class="zak-alert-title">Browser not supported</div>
+                            Please upgrade to a modern browser for the best experience.
+                        </div>
+                    </div>
+                    <div class="zak-alert zak-alert-info">
+                        <span class="zak-alert-icon">
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                        </span>
+                        <div class="zak-alert-content">
+                            <div class="zak-alert-title">New feature</div>
+                            Dark mode is now available in your account settings.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-alert zak-alert-warning"&gt;
+    &lt;span class="zak-alert-icon"&gt;...&lt;/svg&gt;&lt;/span&gt;
+    &lt;div class="zak-alert-content"&gt;
+        &lt;div class="zak-alert-title"&gt;Browser not supported&lt;/div&gt;
+        Please upgrade to a modern browser.
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Alert with Close Button</h2>
+            <p>Add a dismiss button so users can remove the alert. The demo includes JavaScript to remove it from the DOM.</p>
+            <div class="docs-preview">
+                <div class="zak-alert zak-alert-primary zak-alert-dismissible" style="width:100%;" role="alert">
+                    <div class="zak-alert-content">This alert can be dismissed by clicking the close icon.</div>
+                    <button class="zak-alert-dismiss" aria-label="Close alert">&times;</button>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-alert zak-alert-primary" role="alert"&gt;
+    &lt;div class="zak-alert-content"&gt;This alert can be dismissed.&lt;/div&gt;
+    &lt;button class="zak-alert-dismiss" aria-label="Close alert"&gt;&amp;times;&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+document.querySelectorAll('.zak-alert-dismiss').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        this.closest('.zak-alert').remove();
+    });
+});
+&lt;/script&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Alert with Action Button</h2>
+            <p>Provide a primary action using a button inside the alert content.</p>
+            <div class="docs-preview">
+                <div class="zak-stack" style="width:100%;">
+                    <div class="zak-alert zak-alert-danger">
+                        <div class="zak-alert-content">
+                            Your billing information is out of date.
+                            <div style="margin-top:0.75rem;">
+                                <button class="zak-btn zak-btn-sm zak-btn-danger">Update Billing</button>
+                                <button class="zak-btn zak-btn-sm zak-btn-soft-danger">Remind me later</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-alert zak-alert-danger"&gt;
+    &lt;div class="zak-alert-content"&gt;
+        Your billing information is out of date.
+        &lt;div style="margin-top:0.75rem;"&gt;
+            &lt;button class="zak-btn zak-btn-sm zak-btn-danger"&gt;Update Billing&lt;/button&gt;
+            &lt;button class="zak-btn zak-btn-sm zak-btn-soft-danger"&gt;Remind me later&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Alert with Link</h2>
+            <p>Use an inline link for a secondary, contextual action.</p>
+            <div class="docs-preview">
+                <div class="zak-alert zak-alert-info" style="width:100%;">
+                    <div class="zak-alert-content">
+                        You can view the full changelog on the <a href="#" class="zak-link" style="color:inherit;text-decoration:underline;">documentation site</a>.
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-alert zak-alert-info"&gt;
+    &lt;div class="zak-alert-content"&gt;
+        You can view the full changelog on the
+        &lt;a href="#" style="color:inherit;text-decoration:underline;"&gt;documentation site&lt;/a&gt;.
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Outlined Alert</h2>
+            <p>Apply an outlined style with a transparent background for a lighter look.</p>
+            <div class="docs-preview">
+                <div class="zak-stack" style="width:100%;">
+                    <div class="zak-alert zak-alert-success" style="background-color:transparent;">
+                        <div class="zak-alert-content">Outlined success alert.</div>
+                    </div>
+                    <div class="zak-alert zak-alert-danger" style="background-color:transparent;">
+                        <div class="zak-alert-content">Outlined danger alert.</div>
+                    </div>
+                    <div class="zak-alert zak-alert-warning" style="background-color:transparent;">
+                        <div class="zak-alert-content">Outlined warning alert.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-alert zak-alert-success" style="background-color:transparent;"&gt;
+    &lt;div class="zak-alert-content"&gt;Outlined success alert.&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Filled Alert</h2>
+            <p>Use a strong filled background for maximum emphasis and contrast.</p>
+            <div class="docs-preview">
+                <div class="zak-stack" style="width:100%;">
+                    <div class="zak-alert zak-alert-success" style="background-color:var(--zak-color-success);color:#fff;border-color:var(--zak-color-success);">
+                        <div class="zak-alert-content">Filled success alert.</div>
+                    </div>
+                    <div class="zak-alert zak-alert-danger" style="background-color:var(--zak-color-danger);color:#fff;border-color:var(--zak-color-danger);">
+                        <div class="zak-alert-content">Filled danger alert.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-alert zak-alert-success" style="background-color:var(--zak-color-success);color:#fff;"&gt;
+    &lt;div class="zak-alert-content"&gt;Filled success alert.&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>JavaScript</h2>
+            <p>Controlled dismissal with a small script to remove alerts and announce them accessibly.</p>
+            <div class="docs-preview">
+                <div class="zak-alert zak-alert-warning" id="demo-alert" style="width:100%;" role="alert">
+                    <div class="zak-alert-content">Click "Dismiss Alert" below to remove this alert.</div>
+                    <button class="zak-alert-dismiss" aria-label="Close alert">&times;</button>
+                </div>
+                <button class="zak-btn zak-btn-outline-warning" id="reset-alert-btn">Reset Alert</button>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>// Dismiss an alert
+document.querySelectorAll('.zak-alert-dismiss').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        var alert = this.closest('.zak-alert');
+        alert.hidden = true;
+    });
+});</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>CSS Classes &amp; Variables</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>.zak-alert            /* Base alert container */
+.zak-alert-success     /* Success variant */
+.zak-alert-danger      /* Danger variant */
+.zak-alert-warning     /* Warning variant */
+.zak-alert-info        /* Info variant */
+.zak-alert-primary     /* Primary variant */
+.zak-alert-icon        /* Leading icon wrapper */
+.zak-alert-title       /* Bold title text */
+.zak-alert-content     /* Flexible content area */
+.zak-alert-dismiss     /* Close button */</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Use <code>role="alert"</code> for alerts that demand immediate attention so screen readers announce them.</li>
+                <li>Provide an <code>aria-label</code> on the dismiss button so the close action is announced by assistive technology.</li>
+                <li>Do not rely on color alone to convey meaning; pair color variants with text or an icon.</li>
+                <li>Ensure color contrast meets WCAG AA (4.5:1) for alert text.</li>
+            </ul>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-alert zak-alert-danger" role="alert"&gt;
+    &lt;div class="zak-alert-content"&gt;An error occurred.&lt;/div&gt;
+    &lt;button class="zak-alert-dismiss" aria-label="Dismiss alert"&gt;&amp;times;&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    <script>
+        document.querySelectorAll('.zak-alert-dismiss').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var alert = this.closest('.zak-alert');
+                if (alert) alert.remove();
+            });
+        });
+        document.getElementById('reset-alert-btn').addEventListener('click', function() {
+            var alert = document.getElementById('demo-alert');
+            if (alert) {
+                alert.hidden = false;
+                document.body.appendChild(alert);
+            }
+        });
+    </script>
+</body></html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Checkbox documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Checkbox - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/forms/checkbox/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Checkbox - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Checkbox documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/forms/checkbox/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+  <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+  <span class="docs-breadcrumb__separator">/</span>
+  <span class="docs-breadcrumb__current">Forms</span>
+  <span class="docs-breadcrumb__separator">/</span>
+  <span class="docs-breadcrumb__current">Checkbox</span>
+</nav>
+
+        <h1>Checkbox</h1>
+        <p class="docs-subtitle">Checkboxes allow users to select one or more options from a set. They are commonly used for settings, permissions, and agreements.</p>
+
+        <div class="zak-docs-section">
+            <h2>Basic Checkbox</h2>
+            <p>Simple checkbox with label.</p>
+
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-check">
+                        <input type="checkbox" id="cb-1" class="zak-form-check-input zak-checkbox" checked>
+                        <label class="zak-form-check-label" for="cb-1">I agree to the terms and conditions</label>
+                    </div>
+                    <div class="zak-form-check">
+                        <input type="checkbox" id="cb-2" class="zak-form-check-input zak-checkbox">
+                        <label class="zak-form-check-label" for="cb-2">Subscribe to newsletter</label>
+                    </div>
+                </form>
+            </div>
+
+            <div class="docs-code-block">
+                <div class="docs-code-block__header">
+                    <span class="docs-code-block__lang">HTML</span>
+                    <button class="docs-copy-btn">Copy</button>
+                </div>
+                <pre><code class="language-html">&lt;div class="zak-form-check"&gt;
+  &lt;input type="checkbox" id="terms" class="zak-form-check-input zak-checkbox" checked&gt;
+  &lt;label class="zak-form-check-label" for="terms"&gt;I agree to the terms and conditions&lt;/label&gt;
+&lt;/div&gt;
+
+&lt;div class="zak-form-check"&gt;
+  &lt;input type="checkbox" id="newsletter" class="zak-form-check-input zak-checkbox"&gt;
+  &lt;label class="zak-form-check-label" for="newsletter"&gt;Subscribe to newsletter&lt;/label&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Checked &amp; Disabled States</h2>
+            <p>Checkboxes can be checked, unchecked, or disabled.</p>
+
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-check">
+                        <input type="checkbox" id="cb-checked" class="zak-form-check-input zak-checkbox" checked>
+                        <label class="zak-form-check-label" for="cb-checked">Checked checkbox</label>
+                    </div>
+                    <div class="zak-form-check">
+                        <input type="checkbox" id="cb-unchecked" class="zak-form-check-input zak-checkbox">
+                        <label class="zak-form-check-label" for="cb-unchecked">Unchecked checkbox</label>
+                    </div>
+                    <div class="zak-form-check">
+                        <input type="checkbox" id="cb-disabled" class="zak-form-check-input zak-checkbox" disabled>
+                        <label class="zak-form-check-label" for="cb-disabled">Disabled checkbox</label>
+                    </div>
+                    <div class="zak-form-check">
+                        <input type="checkbox" id="cb-disabled-checked" class="zak-form-check-input zak-checkbox" checked disabled>
+                        <label class="zak-form-check-label" for="cb-disabled-checked">Disabled checked</label>
+                    </div>
+                </form>
+            </div>
+
+            <div class="docs-code-block">
+                <div class="docs-code-block__header">
+                    <span class="docs-code-block__lang">HTML</span>
+                    <button class="docs-copy-btn">Copy</button>
+                </div>
+                <pre><code class="language-html">&lt;div class="zak-form-check"&gt;
+  &lt;input type="checkbox" id="checked" class="zak-form-check-input zak-checkbox" checked&gt;
+  &lt;label class="zak-form-check-label" for="checked"&gt;Checked checkbox&lt;/label&gt;
+&lt;/div&gt;
+
+&lt;div class="zak-form-check"&gt;
+  &lt;input type="checkbox" id="disabled" class="zak-form-check-input zak-checkbox" disabled&gt;
+  &lt;label class="zak-form-check-label" for="disabled"&gt;Disabled checkbox&lt;/label&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Inline Checkboxes</h2>
+            <p>Display checkboxes horizontally.</p>
+
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-check-inline">
+                        <div class="zak-form-check">
+                            <input type="checkbox" id="inline-1" class="zak-form-check-input zak-checkbox" checked>
+                            <label class="zak-form-check-label" for="inline-1">Red</label>
+                        </div>
+                        <div class="zak-form-check">
+                            <input type="checkbox" id="inline-2" class="zak-form-check-input zak-checkbox">
+                            <label class="zak-form-check-label" for="inline-2">Green</label>
+                        </div>
+                        <div class="zak-form-check">
+                            <input type="checkbox" id="inline-3" class="zak-form-check-input zak-checkbox">
+                            <label class="zak-form-check-label" for="inline-3">Blue</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="docs-code-block">
+                <div class="docs-code-block__header">
+                    <span class="docs-code-block__lang">HTML</span>
+                    <button class="docs-copy-btn">Copy</button>
+                </div>
+                <pre><code class="language-html">&lt;div class="zak-form-check-inline"&gt;
+  &lt;div class="zak-form-check"&gt;
+    &lt;input type="checkbox" id="red" class="zak-form-check-input zak-checkbox" checked&gt;
+    &lt;label class="zak-form-check-label" for="red"&gt;Red&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div class="zak-form-check"&gt;
+    &lt;input type="checkbox" id="green" class="zak-form-check-input zak-checkbox"&gt;
+    &lt;label class="zak-form-check-label" for="green"&gt;Green&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div class="zak-form-check"&gt;
+    &lt;input type="checkbox" id="blue" class="zak-form-check-input zak-checkbox"&gt;
+    &lt;label class="zak-form-check-label" for="blue"&gt;Blue&lt;/label&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Card Checkbox</h2>
+            <p>Checkbox styled as a selectable card for richer UI.</p>
+
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-card-checkbox-row">
+                        <label class="zak-card-checkbox">
+                            <input type="checkbox" name="plan" value="free" checked>
+                            <div class="zak-card zak-card-bordered">
+                                <div class="zak-card-body">
+                                    <strong>Free Plan</strong>
+                                    <span class="zak-form-text">$0/month - 1 project</span>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="zak-card-checkbox">
+                            <input type="checkbox" name="plan" value="pro">
+                            <div class="zak-card zak-card-bordered">
+                                <div class="zak-card-body">
+                                    <strong>Pro Plan</strong>
+                                    <span class="zak-form-text">$29/month - 10 projects</span>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="zak-card-checkbox">
+                            <input type="checkbox" name="plan" value="enterprise">
+                            <div class="zak-card zak-card-bordered">
+                                <div class="zak-card-body">
+                                    <strong>Enterprise</strong>
+                                    <span class="zak-form-text">$99/month - Unlimited</span>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </form>
+            </div>
+
+            <div class="docs-code-block">
+                <div class="docs-code-block__header">
+                    <span class="docs-code-block__lang">HTML</span>
+                    <button class="docs-copy-btn">Copy</button>
+                </div>
+                <pre><code class="language-html">&lt;div class="zak-card-checkbox-row"&gt;
+  &lt;label class="zak-card-checkbox"&gt;
+    &lt;input type="checkbox" name="plan" value="free" checked&gt;
+    &lt;div class="zak-card zak-card-bordered"&gt;
+      &lt;div class="zak-card-body"&gt;
+        &lt;strong&gt;Free Plan&lt;/strong&gt;
+        &lt;span class="zak-form-text"&gt;$0/month - 1 project&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/label&gt;
+  &lt;label class="zak-card-checkbox"&gt;
+    &lt;input type="checkbox" name="plan" value="pro"&gt;
+    &lt;div class="zak-card zak-card-bordered"&gt;
+      &lt;div class="zak-card-body"&gt;
+        &lt;strong&gt;Pro Plan&lt;/strong&gt;
+        &lt;span class="zak-form-text"&gt;$29/month - 10 projects&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/label&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Custom Styled Checkbox</h2>
+            <p>Checkboxes with custom colors and styles.</p>
+
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-check">
+                        <input type="checkbox" id="cs-1" class="zak-form-check-input zak-checkbox zak-checkbox-success" checked>
+                        <label class="zak-form-check-label" for="cs-1">Success checkbox</label>
+                    </div>
+                    <div class="zak-form-check">
+                        <input type="checkbox" id="cs-2" class="zak-form-check-input zak-checkbox zak-checkbox-danger" checked>
+                        <label class="zak-form-check-label" for="cs-2">Danger checkbox</label>
+                    </div>
+                    <div class="zak-form-check">
+                        <input type="checkbox" id="cs-3" class="zak-form-check-input zak-checkbox zak-checkbox-warning" checked>
+                        <label class="zak-form-check-label" for="cs-3">Warning checkbox</label>
+                    </div>
+                </form>
+            </div>
+
+            <div class="docs-code-block">
+                <div class="docs-code-block__header">
+                    <span class="docs-code-block__lang">HTML</span>
+                    <button class="docs-copy-btn">Copy</button>
+                </div>
+                <pre><code class="language-html">&lt;div class="zak-form-check"&gt;
+  &lt;input type="checkbox" id="success" class="zak-form-check-input zak-checkbox zak-checkbox-success" checked&gt;
+  &lt;label class="zak-form-check-label" for="success"&gt;Success checkbox&lt;/label&gt;
+&lt;/div&gt;
+
+&lt;div class="zak-form-check"&gt;
+  &lt;input type="checkbox" id="danger" class="zak-form-check-input zak-checkbox zak-checkbox-danger" checked&gt;
+  &lt;label class="zak-form-check-label" for="danger"&gt;Danger checkbox&lt;/label&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.zak-form-check</code></td><td>Check container</td></tr>
+                        <tr><td><code>.zak-form-check-input</code></td><td>Base checkbox/radio input</td></tr>
+                        <tr><td><code>.zak-form-check-label</code></td><td>Label for checkbox</td></tr>
+                        <tr><td><code>.zak-checkbox</code></td><td>Checkbox specific styling</td></tr>
+                        <tr><td><code>.zak-form-check-inline</code></td><td>Inline layout</td></tr>
+                        <tr><td><code>.zak-card-checkbox</code></td><td>Card-style checkbox</td></tr>
+                        <tr><td><code>.zak-checkbox-success</code></td><td>Success color</td></tr>
+                        <tr><td><code>.zak-checkbox-danger</code></td><td>Danger color</td></tr>
+                        <tr><td><code>.zak-checkbox-warning</code></td><td>Warning color</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Each checkbox must have an associated <code>&lt;label&gt;</code> via <code>for</code>/<code>id</code>.</li>
+                <li>Use <code>aria-checked="true"</code> for custom-styled checkboxes that use <code>role="checkbox"</code>.</li>
+                <li>Group related checkboxes with <code>role="group"</code> and <code>aria-labelledby</code>.</li>
+                <li>Disabled checkboxes should have <code>aria-disabled="true"</code>.</li>
+                <li>Ensure visible focus indicators on keyboard navigation.</li>
+            </ul>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body>
+</html>

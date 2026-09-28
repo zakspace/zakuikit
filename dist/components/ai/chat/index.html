@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Chat documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Chat - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/ai/chat/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Chat - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Chat documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/ai/chat/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Ai</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Chat</span>
+                </nav>
+        <h1>Chat</h1>
+        <p class="docs-subtitle">Full AI chat interface container with message list, input area, sidebar for conversation history, and typing indicator.</p>
+
+        <section class="zak-docs-section">
+            <h2>Full Chat Interface</h2>
+            <p>Complete chat UI with sidebar, header, messages, and input area.</p>
+            <div class="docs-preview">
+                <div class="zak-ai-chat">
+                    <div class="zak-ai-chat-sidebar">
+                        <div class="zak-ai-chat-sidebar-header">
+                            <span class="zak-ai-chat-sidebar-title">Conversations</span>
+                            <button class="zak-ai-chat-sidebar-new"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M12 5v14M5 12h14"/></svg>New</button>
+                        </div>
+                        <div class="zak-ai-chat-sidebar-list">
+                            <div class="zak-ai-chat-sidebar-item active">React performance tips</div>
+                            <div class="zak-ai-chat-sidebar-item">API design patterns</div>
+                            <div class="zak-ai-chat-sidebar-item">CSS Grid layout help</div>
+                            <div class="zak-ai-chat-sidebar-item">TypeScript generics</div>
+                            <div class="zak-ai-chat-sidebar-item">Database optimization</div>
+                        </div>
+                    </div>
+                    <div class="zak-ai-chat-main">
+                        <div class="zak-ai-chat-header">
+                            <div class="zak-ai-chat-avatar"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></div>
+                            <div class="zak-ai-chat-header-info">
+                                <h3>ZAK AI Assistant</h3>
+                                <span>GPT-4 &middot; Online</span>
+                            </div>
+                        </div>
+                        <div class="zak-ai-chat-messages">
+                            <div class="zak-ai-chat-msg user">
+                                <div class="zak-ai-chat-msg-avatar">U</div>
+                                <div class="zak-ai-chat-msg-bubble">How can I optimize React component re-renders?</div>
+                            </div>
+                            <div class="zak-ai-chat-msg ai">
+                                <div class="zak-ai-chat-msg-avatar"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></div>
+                                <div class="zak-ai-chat-msg-bubble">Here are several strategies to optimize React re-renders:<br><br><strong>1. Memoization</strong> — Use <code>React.memo()</code> for components that render the same output given the same props.<br><br><strong>2. useMemo &amp; useCallback</strong> — Cache expensive calculations and stable function references.<br><br><strong>3. State colocation</strong> — Keep state as close to where it's used as possible.<br><br><strong>4. Virtualization</strong> — For long lists, only render visible items.</div>
+                            </div>
+                            <div class="zak-ai-chat-msg user">
+                                <div class="zak-ai-chat-msg-avatar">U</div>
+                                <div class="zak-ai-chat-msg-bubble">Can you show me a useMemo example?</div>
+                            </div>
+                            <div class="zak-ai-chat-msg ai">
+                                <div class="zak-ai-chat-msg-avatar"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></div>
+                                <div class="zak-ai-chat-msg-bubble">Here's a practical example:<pre style="margin:0.5rem 0;padding:0.5rem;background:rgba(0,0,0,0.06);border-radius:0.375rem;font-size:0.8125rem;overflow-x:auto"><code>const sorted = useMemo(() =&gt; {
+  return items.sort((a, b) =&gt; a.name.localeCompare(b.name));
+}, [items]);</code></pre>This only recalculates when <code>items</code> changes, not on every render.</div>
+                            </div>
+                            <div class="zak-ai-chat-msg ai" style="opacity:0.7">
+                                <div class="zak-ai-chat-msg-avatar"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></div>
+                                <div class="zak-ai-chat-typing">
+                                    <div class="zak-ai-chat-typing-dot"></div>
+                                    <div class="zak-ai-chat-typing-dot"></div>
+                                    <div class="zak-ai-chat-typing-dot"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="zak-ai-chat-input-area">
+                            <textarea rows="1" placeholder="Type a message..."></textarea>
+                            <button class="zak-ai-chat-input-send" aria-label="Send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-ai-chat"&gt;
+    &lt;div class="zak-ai-chat-sidebar"&gt;
+        &lt;div class="zak-ai-chat-sidebar-header"&gt;
+            &lt;span class="zak-ai-chat-sidebar-title"&gt;Conversations&lt;/span&gt;
+            &lt;button class="zak-ai-chat-sidebar-new"&gt;+ New&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class="zak-ai-chat-sidebar-list"&gt;
+            &lt;div class="zak-ai-chat-sidebar-item active"&gt;React tips&lt;/div&gt;
+            &lt;div class="zak-ai-chat-sidebar-item"&gt;API design&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="zak-ai-chat-main"&gt;
+        &lt;div class="zak-ai-chat-header"&gt;
+            &lt;div class="zak-ai-chat-avatar"&gt;âœ¦&lt;/div&gt;
+            &lt;div class="zak-ai-chat-header-info"&gt;
+                &lt;h3&gt;ZAK AI Assistant&lt;/h3&gt;
+                &lt;span&gt;GPT-4 &amp;middot; Online&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="zak-ai-chat-messages"&gt;
+            &lt;div class="zak-ai-chat-msg user"&gt;
+                &lt;div class="zak-ai-chat-msg-avatar"&gt;U&lt;/div&gt;
+                &lt;div class="zak-ai-chat-msg-bubble"&gt;Hello!&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="zak-ai-chat-msg ai"&gt;
+                &lt;div class="zak-ai-chat-msg-avatar"&gt;âœ¦&lt;/div&gt;
+                &lt;div class="zak-ai-chat-msg-bubble"&gt;Hi there!&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="zak-ai-chat-input-area"&gt;
+            &lt;textarea rows="1" placeholder="Type a message..."&gt;&lt;/textarea&gt;
+            &lt;button class="zak-ai-chat-input-send" aria-label="Send"&gt;â†’&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>CSS Classes</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>.zak-ai-chat                  /* Main chat container (flex row) */
+.zak-ai-chat-sidebar          /* Conversation list sidebar */
+.zak-ai-chat-sidebar-header   /* Sidebar header */
+.zak-ai-chat-sidebar-title    /* Sidebar title text */
+.zak-ai-chat-sidebar-list     /* Scrollable conversation list */
+.zak-ai-chat-sidebar-item     /* Individual conversation item */
+.zak-ai-chat-sidebar-new      /* New conversation button */
+.zak-ai-chat-main             /* Main chat area (flex column) */
+.zak-ai-chat-header           /* Chat header with avatar + info */
+.zak-ai-chat-avatar           /* AI avatar in header */
+.zak-ai-chat-header-info      /* Model name + status */
+.zak-ai-chat-messages         /* Scrollable message area */
+.zak-ai-chat-msg              /* Message row container */
+.zak-ai-chat-msg.user         /* User message (right-aligned) */
+.zak-ai-chat-msg.ai           /* AI message (left-aligned) */
+.zak-ai-chat-msg-avatar       /* Message avatar */
+.zak-ai-chat-msg-bubble       /* Message bubble */
+.zak-ai-chat-input-area       /* Input area footer */
+.zak-ai-chat-input-send       /* Send button */
+.zak-ai-chat-typing           /* Typing indicator dots */
+.zak-ai-chat-typing-dot       /* Individual bouncing dot */</code></pre>
+        </div>
+        </section>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body>
+</html>

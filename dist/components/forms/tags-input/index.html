@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Tags Input documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Tags Input - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/forms/tags-input/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Tags Input - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Tags Input documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/forms/tags-input/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Advanced</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Tags Input</span>
+                </nav>
+        <h1>Tags Input</h1>
+        <p class="docs-subtitle">Tags Input allows users to add and remove multiple values as tag chips. Supports autocomplete suggestions, max count limits, validation, color variants, and custom delimiters.</p>
+
+        <div class="zak-docs-section">
+            <h2>Basic Tags Input</h2>
+            <p>Type text and press Enter or comma to add a tag. Click the × to remove.</p>
+
+            <div class="docs-preview">
+                <div class="zak-tags-input" id="tags-basic" style="display: flex; flex-wrap: wrap; gap: 0.25rem; padding: 0.375rem 0.5rem; border: 1px solid var(--zak-border); border-radius: var(--zak-radius-md); min-height: 2.5rem; max-width: 32rem; cursor: text;" onclick="this.querySelector('input').focus()">
+                    <input type="text" class="zak-tags-input-field" placeholder="Add tags..." style="border: none; outline: none; flex: 1; min-width: 80px; box-shadow: none; padding: 0.125rem 0.25rem; background: transparent;">
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-tags-input" style="display: flex; flex-wrap: wrap; gap: 0.25rem; padding: 0.375rem 0.5rem; border: 1px solid var(--zak-border); border-radius: var(--zak-radius-md); min-height: 2.5rem; cursor: text;" onclick="this.querySelector('input').focus()"&gt;
+  &lt;input type="text" class="zak-tags-input-field" placeholder="Add tags..." style="border: none; outline: none; flex: 1; min-width: 80px; box-shadow: none;"&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>With Autocomplete Suggestions</h2>
+            <p>Show suggestions while typing to help users pick existing tags.</p>
+
+            <div class="docs-preview">
+                <div style="position: relative; max-width: 32rem;">
+                    <div class="zak-tags-input" id="tags-suggest" style="display: flex; flex-wrap: wrap; gap: 0.25rem; padding: 0.375rem 0.5rem; border: 1px solid var(--zak-border); border-radius: var(--zak-radius-md); min-height: 2.5rem; cursor: text;" onclick="this.querySelector('input').focus()">
+                        <input type="text" class="zak-tags-input-field" id="tags-suggest-input" placeholder="Add skills..." style="border: none; outline: none; flex: 1; min-width: 80px; box-shadow: none; padding: 0.125rem 0.25rem; background: transparent;">
+                    </div>
+                    <div class="zak-tags-suggestions" id="tags-suggest-dropdown" style="display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--zak-bg); border: 1px solid var(--zak-border); border-radius: var(--zak-radius-md); box-shadow: var(--zak-shadow-lg); z-index: 50; max-height: 10rem; overflow-y: auto; margin-top: 2px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Max Count</h2>
+            <p>Limit the number of tags a user can add.</p>
+
+            <div class="docs-preview">
+                <div class="zak-tags-input" id="tags-max" style="display: flex; flex-wrap: wrap; gap: 0.25rem; padding: 0.375rem 0.5rem; border: 1px solid var(--zak-border); border-radius: var(--zak-radius-md); min-height: 2.5rem; max-width: 32rem; cursor: text;" onclick="this.querySelector('input').focus()">
+                    <input type="text" class="zak-tags-input-field" id="tags-max-input" placeholder="Max 3 tags..." style="border: none; outline: none; flex: 1; min-width: 80px; box-shadow: none; padding: 0.125rem 0.25rem; background: transparent;">
+                </div>
+                <div style="font-size: 0.75rem; color: var(--zak-text-muted); margin-top: 0.25rem;">Maximum 3 tags allowed</div>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Validation</h2>
+            <p>Show error states for invalid tags.</p>
+
+            <div class="docs-preview">
+                <div class="zak-tags-input" id="tags-validate" style="display: flex; flex-wrap: wrap; gap: 0.25rem; padding: 0.375rem 0.5rem; border: 1px solid var(--zak-border); border-radius: var(--zak-radius-md); min-height: 2.5rem; max-width: 32rem; cursor: text;" onclick="this.querySelector('input').focus()">
+                    <input type="text" class="zak-tags-input-field" id="tags-validate-input" placeholder="Enter email tags..." style="border: none; outline: none; flex: 1; min-width: 80px; box-shadow: none; padding: 0.125rem 0.25rem; background: transparent;">
+                </div>
+                <div id="tags-validate-error" style="font-size: 0.75rem; color: var(--zak-text-danger); margin-top: 0.25rem;"></div>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Color Variants</h2>
+            <p>Tags can use different color schemes.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
+                    <span class="zak-badge">Default</span>
+                    <span class="zak-badge zak-badge-primary">Primary</span>
+                    <span class="zak-badge zak-badge-success">Success</span>
+                    <span class="zak-badge zak-badge-warning">Warning</span>
+                    <span class="zak-badge zak-badge-danger">Danger</span>
+                    <span class="zak-badge" style="background: #e0e7ff; color: #3730a3;">Indigo</span>
+                    <span class="zak-badge" style="background: #fce7f3; color: #9d174d;">Pink</span>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;span class="zak-badge"&gt;Default&lt;/span&gt;
+&lt;span class="zak-badge zak-badge-primary"&gt;Primary&lt;/span&gt;
+&lt;span class="zak-badge zak-badge-success"&gt;Success&lt;/span&gt;
+&lt;span class="zak-badge zak-badge-warning"&gt;Warning&lt;/span&gt;
+&lt;span class="zak-badge zak-badge-danger"&gt;Danger&lt;/span&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>With Delimiter</h2>
+            <p>Accept tags separated by commas, semicolons, or other delimiters.</p>
+
+            <div class="docs-preview">
+                <div class="zak-tags-input" id="tags-delimiter" style="display: flex; flex-wrap: wrap; gap: 0.25rem; padding: 0.375rem 0.5rem; border: 1px solid var(--zak-border); border-radius: var(--zak-radius-md); min-height: 2.5rem; max-width: 32rem; cursor: text;" onclick="this.querySelector('input').focus()">
+                    <input type="text" class="zak-tags-input-field" id="tags-delimiter-input" placeholder="Paste comma-separated values..." style="border: none; outline: none; flex: 1; min-width: 80px; box-shadow: none; padding: 0.125rem 0.25rem; background: transparent;">
+                </div>
+                <div style="font-size: 0.75rem; color: var(--zak-text-muted); margin-top: 0.25rem;">Separate tags with commas or press Enter</div>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Demo JavaScript</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span>JavaScript</span><button class="docs-copy-btn">Copy</button></div><pre><code>function initTagsInput(containerId, opts) {
+  opts = opts || {};
+  var container = document.getElementById(containerId);
+  var input = container.querySelector('.zak-tags-input-field');
+  var tags = [];
+
+  function renderTags() {
+    container.querySelectorAll('.zak-badge').forEach(function (b) { b.remove(); });
+    tags.forEach(function (tag, i) {
+      var badge = document.createElement('span');
+      badge.className = 'zak-badge' + (opts.color ? ' zak-badge-' + opts.color : '');
+      badge.innerHTML = tag + ' &lt;button style="background:none;border:none;cursor:pointer;padding:0;margin-left:4px;font-size:1rem;line-height:1;color:inherit;"&gt;&amp;times;&lt;/button&gt;';
+      badge.querySelector('button').addEventListener('click', function () {
+        tags.splice(i, 1);
+        renderTags();
+      });
+      container.insertBefore(badge, input);
+    });
+  }
+
+  input.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ',') &amp;&amp; input.value.trim()) {
+      e.preventDefault();
+      var val = input.value.trim().replace(/,/g, '');
+      if (opts.max &amp;&amp; tags.length >= opts.max) return;
+      if (opts.validate &amp;&amp; !opts.validate(val)) {
+        var err = document.getElementById(containerId + '-error');
+        if (err) err.textContent = 'Invalid: ' + val;
+        return;
+      }
+      if (tags.indexOf(val) === -1) { tags.push(val); renderTags(); }
+      input.value = '';
+    }
+    if (e.key === 'Backspace' &amp;&amp; !input.value &amp;&amp; tags.length) {
+      tags.pop();
+      renderTags();
+    }
+  });
+}
+
+initTagsInput('tags-basic');
+initTagsInput('tags-max', { max: 3 });
+initTagsInput('tags-validate', { validate: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); } });
+initTagsInput('tags-delimiter', { color: 'primary' });
+
+// Autocomplete suggestions
+(function () {
+  var skills = ['HTML','CSS','JavaScript','TypeScript','React','Vue','Angular','Node.js','Python','SQL','Docker'];
+  var container = document.getElementById('tags-suggest');
+  var input = document.getElementById('tags-suggest-input');
+  var dropdown = document.getElementById('tags-suggest-dropdown');
+  var tags = [];
+
+  function renderSuggestTags() {
+    container.querySelectorAll('.zak-badge').forEach(function (b) { b.remove(); });
+    tags.forEach(function (tag, i) {
+      var badge = document.createElement('span');
+      badge.className = 'zak-badge zak-badge-primary';
+      badge.innerHTML = tag + ' &lt;button style="background:none;border:none;cursor:pointer;padding:0;margin-left:4px;font-size:1rem;line-height:1;color:inherit;"&gt;&amp;times;&lt;/button&gt;';
+      badge.querySelector('button').addEventListener('click', function () { tags.splice(i, 1); renderSuggestTags(); });
+      container.insertBefore(badge, input);
+    });
+  }
+
+  input.addEventListener('input', function () {
+    var q = input.value.toLowerCase();
+    if (!q) { dropdown.style.display = 'none'; return; }
+    var filtered = skills.filter(function (s) { return s.toLowerCase().indexOf(q) !== -1 &amp;&amp; tags.indexOf(s) === -1; });
+    dropdown.innerHTML = filtered.length ? filtered.map(function (s) {
+      return '&lt;div style="padding:0.5rem 1rem;cursor:pointer;" onmouseover="this.style.background=\'var(--zak-bg-hover)\'" onmouseout="this.style.background=\'\'"&gt;' + s + '&lt;/div&gt;';
+    }).join('') : '&lt;div style="padding:0.5rem 1rem;color:var(--zak-text-muted);font-size:0.875rem;"&gt;No suggestions&lt;/div&gt;';
+    dropdown.style.display = 'block';
+    dropdown.querySelectorAll('div').forEach(function (item) {
+      item.addEventListener('click', function () {
+        tags.push(item.textContent);
+        renderSuggestTags();
+        input.value = '';
+        dropdown.style.display = 'none';
+      });
+    });
+  });
+
+  input.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter') &amp;&amp; input.value.trim()) {
+      e.preventDefault();
+      var val = input.value.trim();
+      if (tags.indexOf(val) === -1) { tags.push(val); renderSuggestTags(); }
+      input.value = '';
+      dropdown.style.display = 'none';
+    }
+  });
+
+  document.addEventListener('click', function (e) { if (!e.target.closest('#tags-suggest')) dropdown.style.display = 'none'; });
+})();</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead><tr><th>Class</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>.zak-tags-input</code></td><td>Tags input container</td></tr>
+                        <tr><td><code>.zak-tags-input-field</code></td><td>Hidden input field inside tags container</td></tr>
+                        <tr><td><code>.zak-badge</code></td><td>Individual tag chip</td></tr>
+                        <tr><td><code>.zak-badge-primary</code></td><td>Primary color variant</td></tr>
+                        <tr><td><code>.zak-badge-success</code></td><td>Success color variant</td></tr>
+                        <tr><td><code>.zak-badge-warning</code></td><td>Warning color variant</td></tr>
+                        <tr><td><code>.zak-badge-danger</code></td><td>Danger color variant</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    <script>/* ZAK_DEMO_LIVE */</script>
+<script>
+(function(){try{
+function initTagsInput(containerId, opts) {
+  opts = opts || {};
+  var container = document.getElementById(containerId);
+  var input = container.querySelector('.zak-tags-input-field');
+  var tags = [];
+
+  function renderTags() {
+    container.querySelectorAll('.zak-badge').forEach(function (b) { b.remove(); });
+    tags.forEach(function (tag, i) {
+      var badge = document.createElement('span');
+      badge.className = 'zak-badge' + (opts.color ? ' zak-badge-' + opts.color : '');
+      badge.innerHTML = tag + ' <button style="background:none;border:none;cursor:pointer;padding:0;margin-left:4px;font-size:1rem;line-height:1;color:inherit;">&times;</button>';
+      badge.querySelector('button').addEventListener('click', function () {
+        tags.splice(i, 1);
+        renderTags();
+      });
+      container.insertBefore(badge, input);
+    });
+  }
+
+  input.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ',') && input.value.trim()) {
+      e.preventDefault();
+      var val = input.value.trim().replace(/,/g, '');
+      if (opts.max && tags.length >= opts.max) return;
+      if (opts.validate && !opts.validate(val)) {
+        var err = document.getElementById(containerId + '-error');
+        if (err) err.textContent = 'Invalid: ' + val;
+        return;
+      }
+      if (tags.indexOf(val) === -1) { tags.push(val); renderTags(); }
+      input.value = '';
+    }
+    if (e.key === 'Backspace' && !input.value && tags.length) {
+      tags.pop();
+      renderTags();
+    }
+  });
+}
+
+initTagsInput('tags-basic');
+initTagsInput('tags-max', { max: 3 });
+initTagsInput('tags-validate', { validate: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); } });
+initTagsInput('tags-delimiter', { color: 'primary' });
+
+// Autocomplete suggestions
+(function () {
+  var skills = ['HTML','CSS','JavaScript','TypeScript','React','Vue','Angular','Node.js','Python','SQL','Docker'];
+  var container = document.getElementById('tags-suggest');
+  var input = document.getElementById('tags-suggest-input');
+  var dropdown = document.getElementById('tags-suggest-dropdown');
+  var tags = [];
+
+  function renderSuggestTags() {
+    container.querySelectorAll('.zak-badge').forEach(function (b) { b.remove(); });
+    tags.forEach(function (tag, i) {
+      var badge = document.createElement('span');
+      badge.className = 'zak-badge zak-badge-primary';
+      badge.innerHTML = tag + ' <button style="background:none;border:none;cursor:pointer;padding:0;margin-left:4px;font-size:1rem;line-height:1;color:inherit;">&times;</button>';
+      badge.querySelector('button').addEventListener('click', function () { tags.splice(i, 1); renderSuggestTags(); });
+      container.insertBefore(badge, input);
+    });
+  }
+
+  input.addEventListener('input', function () {
+    var q = input.value.toLowerCase();
+    if (!q) { dropdown.style.display = 'none'; return; }
+    var filtered = skills.filter(function (s) { return s.toLowerCase().indexOf(q) !== -1 && tags.indexOf(s) === -1; });
+    dropdown.innerHTML = filtered.length ? filtered.map(function (s) {
+      return '<div style="padding:0.5rem 1rem;cursor:pointer;" onmouseover="this.style.background=\'var(--zak-bg-hover)\'" onmouseout="this.style.background=\'\'">' + s + '</div>';
+    }).join('') : '<div style="padding:0.5rem 1rem;color:var(--zak-text-muted);font-size:0.875rem;">No suggestions</div>';
+    dropdown.style.display = 'block';
+    dropdown.querySelectorAll('div').forEach(function (item) {
+      item.addEventListener('click', function () {
+        tags.push(item.textContent);
+        renderSuggestTags();
+        input.value = '';
+        dropdown.style.display = 'none';
+      });
+    });
+  });
+
+  input.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter') && input.value.trim()) {
+      e.preventDefault();
+      var val = input.value.trim();
+      if (tags.indexOf(val) === -1) { tags.push(val); renderSuggestTags(); }
+      input.value = '';
+      dropdown.style.display = 'none';
+    }
+  });
+
+  document.addEventListener('click', function (e) { if (!e.target.closest('#tags-suggest')) dropdown.style.display = 'none'; });
+})();
+}catch(e){console.warn("zak-demo",e);}})();
+</script>
+</body>
+</html>

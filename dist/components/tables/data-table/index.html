@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Data Table documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Data Table - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/tables/data-table/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Data Table - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Data Table documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/tables/data-table/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Tables &amp; DataGrid</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Data Table</span>
+                </nav>
+        <h1>Data Table</h1>
+        <p class="docs-subtitle">Data tables layer sorting, selection, pagination, and filtering on top of the base table for exploring large datasets.</p>
+
+        <div class="zak-docs-section">
+            <h2>Sorting</h2>
+            <p>Make headers clickable to sort. The demo below toggles order per column via <code>.zak-docs-table.custom-sortable</code>; the placeholder markup uses <code>.zak-srt-heading</code> to mark sortable headers.</p>
+
+            <div class="docs-preview">
+                <div class="zak-table-wrapper">
+                    <table class="zak-table" id="sort-table">
+                        <thead>
+                            <tr>
+                                <th class="zak-srt-heading" data-sort-type="string" style="cursor: pointer;">
+                                    <span class="zak-srt-heading-label">Name</span>
+                                    <span class="zak-srt-heading-icon">↕</span>
+                                </th>
+                                <th class="zak-srt-heading" data-sort-type="number" style="cursor: pointer;">
+                                    <span class="zak-srt-heading-label">Revenue</span>
+                                    <span class="zak-srt-heading-icon">↕</span>
+                                </th>
+                                <th class="zak-srt-heading" data-sort-type="number" style="cursor: pointer;">
+                                    <span class="zak-srt-heading-label">Users</span>
+                                    <span class="zak-srt-heading-icon">↕</span>
+                                </th>
+                                <th>Growth</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Acme Corp</td><td data-value="1200">$1,200.00</td><td data-value="84">84</td><td><span class="zak-text-success">↑ 12%</span></td></tr>
+                            <tr><td>Globex Inc</td><td data-value="840">$840.00</td><td data-value="52">52</td><td><span class="zak-text-success">↑ 6%</span></td></tr>
+                            <tr><td>Initech</td><td data-value="2310">$2,310.00</td><td data-value="128">128</td><td><span class="zak-text-danger">↓ 3%</span></td></tr>
+                            <tr><td>Umbrella LLC</td><td data-value="430">$430.00</td><td data-value="31">31</td><td><span class="zak-text-success">↑ 9%</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;th class="zak-srt-heading" data-sort-type="string"&gt;
+  &lt;span class="zak-srt-heading-label"&gt;Name&lt;/span&gt;
+  &lt;span class="zak-srt-heading-icon"&gt;↕&lt;/span&gt;
+&lt;/th&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Selectable Rows</h2>
+            <p>Add a checkbox column and toggle <code>.zak-row-selected</code> on the row for visual selection.</p>
+
+            <div class="docs-preview">
+                <div class="zak-table-wrapper">
+                    <table class="zak-table" id="select-table">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" class="zak-checkbox" id="select-all"></th>
+                                <th>Task</th>
+                                <th>Assignee</th>
+                                <th>Priority</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><input type="checkbox" class="zak-checkbox row-check" data-row-group="select-table"></td><td>Design onboarding flow</td><td>Janet Fox</td><td><span class="zak-badge zak-badge-danger">High</span></td></tr>
+                            <tr><td><input type="checkbox" class="zak-checkbox row-check" data-row-group="select-table"></td><td>Refactor table utilities</td><td>Mark Kim</td><td><span class="zak-badge zak-badge-warning">Medium</span></td></tr>
+                            <tr><td><input type="checkbox" class="zak-checkbox row-check" data-row-group="select-table"></td><td>Write API docs</td><td>Sara Reyes</td><td><span class="zak-badge">Low</span></td></tr>
+                            <tr><td><input type="checkbox" class="zak-checkbox row-check" data-row-group="select-table"></td><td>Audit bundle size</td><td>Leo Brooks</td><td><span class="zak-badge zak-badge-warning">Medium</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;tr&gt;
+  &lt;td&gt;&lt;input type="checkbox" class="zak-checkbox"&gt;&lt;/td&gt;
+  &lt;td&gt;Design onboarding flow&lt;/td&gt;
+&lt;/tr&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Pagination</h2>
+            <p>Combine the table with <code>.zak-pagination</code> to page through results.</p>
+
+            <div class="docs-preview">
+                <div class="zak-table-wrapper">
+                    <table class="zak-table zak-table-hover">
+                        <thead>
+                            <tr><th>Order</th><th>Customer</th><th>Total</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>#00241</td><td>Olivia Bennett</td><td>$89.50</td></tr>
+                            <tr><td>#00242</td><td>Noah Carter</td><td>$24.99</td></tr>
+                            <tr><td>#00243</td><td>Emma Foster</td><td>$134.00</td></tr>
+                            <tr><td>#00244</td><td>Liam Hughes</td><td>$56.75</td></tr>
+                            <tr><td>#00245</td><td>Ava Mitchell</td><td>$71.20</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <nav class="zak-pagination" aria-label="Table pages" style="justify-content: center; margin-top: var(--zak-space-4);">
+                    <a href="#" class="zak-page-link" aria-label="Previous">‹</a>
+                    <a href="#" class="zak-page-item zak-page-active">1</a>
+                    <a href="#" class="zak-page-item">2</a>
+                    <a href="#" class="zak-page-item">3</a>
+                    <span class="zak-page-item zak-page-ellipsis">…</span>
+                    <a href="#" class="zak-page-item">8</a>
+                    <a href="#" class="zak-page-link" aria-label="Next">›</a>
+                </nav>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;nav class="zak-pagination" aria-label="Table pages"&gt;
+  &lt;a href="#" class="zak-page-link" aria-label="Previous"&gt;‹&lt;/a&gt;
+  &lt;a href="#" class="zak-page-item zak-page-active"&gt;1&lt;/a&gt;
+  &lt;a href="#" class="zak-page-item"&gt;2&lt;/a&gt;
+  &lt;a href="#" class="zak-page-item"&gt;3&lt;/a&gt;
+  &lt;span class="zak-page-item zak-page-ellipsis"&gt;…&lt;/span&gt;
+  &lt;a href="#" class="zak-page-link" aria-label="Next"&gt;›&lt;/a&gt;
+&lt;/nav&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Search and Filter</h2>
+            <p>Place a search input and filters above the table and filter rows client-side.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; flex-wrap: wrap; gap: var(--zak-space-3); align-items: center; justify-content: space-between; margin-bottom: var(--zak-space-4);">
+                    <input type="text" id="table-search" class="zak-input" placeholder="Search products..." style="max-width: 16rem;">
+                    <select id="table-filter" class="zak-select" style="max-width: 12rem;">
+                        <option value="all">All categories</option>
+                        <option value="accessories">Accessories</option>
+                        <option value="displays">Displays</option>
+                        <option value="input">Input</option>
+                    </select>
+                </div>
+                <div class="zak-table-wrapper">
+                    <table class="zak-table zak-table-hover" id="filter-table">
+                        <thead>
+                            <tr><th>Product</th><th>Category</th><th>Price</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr data-category="accessories"><td>Wireless Mouse</td><td>Accessories</td><td>$29</td></tr>
+                            <tr data-category="accessories"><td>USB-C Hub</td><td>Accessories</td><td>$49</td></tr>
+                            <tr data-category="displays"><td>27&quot; Monitor</td><td>Displays</td><td>$329</td></tr>
+                            <tr data-category="input"><td>Mechanical Keyboard</td><td>Input</td><td>$119</td></tr>
+                            <tr data-category="displays"><td>Portable Monitor</td><td>Displays</td><td>$199</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;input type="text" class="zak-input" placeholder="Search products..."&gt;
+&lt;select class="zak-select"&gt;
+  &lt;option value="all"&gt;All categories&lt;/option&gt;
+  &lt;option value="displays"&gt;Displays&lt;/option&gt;
+&lt;/select&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Column Visibility</h2>
+            <p>Toggle columns with a <code>.zak-dropdown</code> menu; checkboxes control show/hide.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--zak-space-4);">
+                    <span class="zak-text-muted" style="font-size: var(--zak-font-size-sm);">Columns</span>
+                    <div class="zak-dropdown">
+                        <button class="zak-btn zak-btn-outline zak-btn-sm" data-dropdown-trigger>
+                            <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg>
+                            Columns
+                        </button>
+                        <div class="zak-dropdown-menu">
+                            <label class="zak-dropdown-item column-toggle" style="cursor: pointer;"><input type="checkbox" class="zak-checkbox" checked data-col="col-name" style="margin-right: var(--zak-space-2);">Name</label>
+                            <label class="zak-dropdown-item column-toggle" style="cursor: pointer;"><input type="checkbox" class="zak-checkbox" checked data-col="col-role" style="margin-right: var(--zak-space-2);">Role</label>
+                            <label class="zak-dropdown-item column-toggle" style="cursor: pointer;"><input type="checkbox" class="zak-checkbox" checked data-col="col-status" style="margin-right: var(--zak-space-2);">Status</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="zak-table-wrapper">
+                    <table class="zak-table" id="colvis-table">
+                        <thead>
+                            <tr>
+                                <th id="col-name">Name</th>
+                                <th id="col-role">Role</th>
+                                <th id="col-status">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Janet Fox</td><td>Product Designer</td><td><span class="zak-badge zak-badge-success">Active</span></td></tr>
+                            <tr><td>Mark Kim</td><td>Frontend Engineer</td><td><span class="zak-badge">Away</span></td></tr>
+                            <tr><td>Sara Reyes</td><td>Data Analyst</td><td><span class="zak-badge zak-badge-danger">Inactive</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-dropdown"&gt;
+  &lt;button class="zak-btn zak-btn-outline zak-btn-sm" data-dropdown-trigger&gt;Columns&lt;/button&gt;
+  &lt;div class="zak-dropdown-menu"&gt;
+    &lt;label class="zak-dropdown-item"&gt;
+      &lt;input type="checkbox" class="zak-checkbox" checked data-col="col-name"&gt;
+      Name
+    &lt;/label&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Row Actions</h2>
+            <p>Keep row-level actions in the trailing column using ghost icon buttons.</p>
+
+            <div class="docs-preview">
+                <div class="zak-table-wrapper">
+                    <table class="zak-table zak-table-hover">
+                        <thead>
+                            <tr><th>User</th><th>Email</th><th style="width: 90px;">Actions</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Janet Fox</td>
+                                <td>janet@example.com</td>
+                                <td>
+                                    <button class="zak-btn zak-btn-soft zak-btn-sm" aria-label="Edit Janet Fox">
+                                        <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                                    </button>
+                                    <button class="zak-btn zak-btn-soft zak-btn-sm" aria-label="Delete Janet Fox">
+                                        <svg class="zak-icon zak-icon-sm zak-text-danger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Mark Kim</td>
+                                <td>mark@example.com</td>
+                                <td>
+                                    <button class="zak-btn zak-btn-soft zak-btn-sm" aria-label="Edit Mark Kim">
+                                        <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                                    </button>
+                                    <button class="zak-btn zak-btn-soft zak-btn-sm" aria-label="Delete Mark Kim">
+                                        <svg class="zak-icon zak-icon-sm zak-text-danger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Sara Reyes</td>
+                                <td>sara@example.com</td>
+                                <td>
+                                    <button class="zak-btn zak-btn-soft zak-btn-sm" aria-label="Edit Sara Reyes">
+                                        <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                                    </button>
+                                    <button class="zak-btn zak-btn-soft zak-btn-sm" aria-label="Delete Sara Reyes">
+                                        <svg class="zak-icon zak-icon-sm zak-text-danger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;td&gt;
+  &lt;button class="zak-btn zak-btn-soft zak-btn-sm" aria-label="Edit user"&gt;
+    &lt;svg class="zak-icon zak-icon-sm"&gt;...&lt;/svg&gt;
+  &lt;/button&gt;
+  &lt;button class="zak-btn zak-btn-soft zak-btn-sm" aria-label="Delete user"&gt;
+    &lt;svg class="zak-icon zak-icon-sm zak-text-danger"&gt;...&lt;/svg&gt;
+  &lt;/button&gt;
+&lt;/td&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Compact Mode</h2>
+            <p>Combine <code>.zak-table-sm</code> with right-aligned numeric columns for dense analytical tables.</p>
+
+            <div class="docs-preview">
+                <div class="zak-table-wrapper">
+                    <table class="zak-table zak-table-sm zak-table-hover">
+                        <thead>
+                            <tr>
+                                <th>Metric</th>
+                                <th style="text-align: right;">Jan</th>
+                                <th style="text-align: right;">Feb</th>
+                                <th style="text-align: right;">Mar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Page views</td><td data-value="12000" style="text-align: right;">12,000</td><td data-value="13600" style="text-align: right;">13,600</td><td data-value="15900" style="text-align: right;">15,900</td></tr>
+                            <tr><td>Sessions</td><td data-value="7800" style="text-align: right;">7,800</td><td data-value="8200" style="text-align: right;">8,200</td><td data-value="9100" style="text-align: right;">9,100</td></tr>
+                            <tr><td>Conversion</td><td data-value="2.4" style="text-align: right;">2.4%</td><td data-value="2.6" style="text-align: right;">2.6%</td><td data-value="2.9" style="text-align: right;">2.9%</td></tr>
+                            <tr><td>Bounce rate</td><td data-value="38" style="text-align: right;">38%</td><td data-value="36" style="text-align: right;">36%</td><td data-value="34" style="text-align: right;">34%</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;table class="zak-table zak-table-sm"&gt;
+  &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Metric&lt;/th&gt;&lt;th&gt;Jan&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;Page views&lt;/td&gt;&lt;td&gt;12,000&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Demo JavaScript</h2>
+            <p>The interactions above (sorting, row selection, search/filter, column visibility) are demo helpers that you can reuse or adapt.</p>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span>JavaScript</span><button class="docs-copy-btn">Copy</button></div><pre><code>// Sorting: toggle asc/desc on sortable headers
+document.querySelectorAll('#sort-table .zak-srt-heading').forEach(function (th) {
+  th.addEventListener('click', function () {
+    var tbody = document.querySelector('#sort-table tbody');
+    var rows = Array.prototype.slice.call(tbody.rows);
+    var index = Array.prototype.indexOf.call(th.parentNode.children, th);
+    var type = th.dataset.sortType;
+    var dir = th.dataset.dir === 'asc' ? 'desc' : 'asc';
+    th.dataset.dir = dir;
+    tbody.querySelectorAll('.zak-srt-icon').forEach(function (i) { i.textContent = '↕'; });
+    var icon = th.querySelector('.zak-srt-heading-icon');
+    icon.textContent = dir === 'asc' ? '↑' : '↓';
+    rows.sort(function (a, b) {
+      var av = type === 'number'
+        ? Number(a.children[index].dataset.value)
+        : a.children[index].textContent.trim();
+      var bv = type === 'number'
+        ? Number(b.children[index].dataset.value)
+        : b.children[index].textContent.trim();
+      if (av &lt; bv) return dir === 'asc' ? -1 : 1;
+      if (av &gt; bv) return dir === 'asc' ? 1 : -1;
+      return 0;
+    });
+    rows.forEach(function (row) { tbody.appendChild(row); });
+  });
+});
+
+// Selection: select-all toggles rows and .zak-row-selected
+document.querySelectorAll('thead input#select-all').forEach(function (head) {
+  head.addEventListener('change', function () {
+    var group = head.closest('#select-table').id;
+    var rows = document.querySelectorAll('#' + group + ' .row-check');
+    var trs = document.querySelectorAll('#' + group + ' tbody tr');
+    rows.forEach(function (cb, i) { cb.checked = head.checked; trs[i].classList.toggle('zak-row-selected', head.checked); });
+  });
+});
+document.querySelectorAll('.row-check').forEach(function (cb) {
+  cb.addEventListener('change', function () {
+    cb.closest('tr').classList.toggle('zak-row-selected', cb.checked);
+  });
+});
+
+// Search / filter
+var searchInput = document.getElementById('table-search');
+var filterSelect = document.getElementById('table-filter');
+var filterRows = document.querySelectorAll('#filter-table tbody tr');
+function applyFilter() {
+  var q = (searchInput.value || '').toLowerCase();
+  var cat = filterSelect.value;
+  filterRows.forEach(function (row) {
+    var text = row.textContent.toLowerCase();
+    var match = text.indexOf(q) !== -1 &amp;&amp; (cat === 'all' || row.dataset.category === cat);
+    row.style.display = match ? '' : 'none';
+  });
+}
+searchInput.addEventListener('input', applyFilter);
+filterSelect.addEventListener('change', applyFilter);
+
+// Column visibility: checkboxes show/hide th/td by index
+document.querySelectorAll('.column-toggle input').forEach(function (box) {
+  box.addEventListener('change', function () {
+    var table = document.getElementById('colvis-table');
+    var colId = box.dataset.col;
+    var index = Array.prototype.indexOf.call(
+      table.querySelectorAll('thead th'),
+      table.querySelector('#' + colId)
+    );
+    table.querySelectorAll('th, td').forEach(function (cell, i) {
+      var col = i % table.querySelectorAll('thead th').length;
+      if (col === index) cell.style.display = box.checked ? '' : 'none';
+    });
+  });
+});</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.zak-table</code></td><td>Base table styles (see Table)</td></tr>
+                        <tr><td><code>.zak-table-sm</code></td><td>Compact density for dense tables</td></tr>
+                        <tr><td><code>.zak-table-hover</code></td><td>Row hover highlight</td></tr>
+                        <tr><td><code>.zak-row-selected</code></td><td>Highlight for selected rows</td></tr>
+                        <tr><td><code>.zak-srt-heading</code></td><td>Marks a sortable header</td></tr>
+                        <tr><td><code>.zak-input</code></td><td>Search input above the table</td></tr>
+                        <tr><td><code>.zak-select</code></td><td>Filter dropdown above the table</td></tr>
+                        <tr><td><code>.zak-pagination</code></td><td>Page controls below the table</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Link checkboxes to rows with <code>aria-labelledby</code> pointing at the row's primary cell id.</li>
+                <li>Announce sort state to screen readers (e.g. <code>aria-sort="ascending"</code>) instead of only changing the arrow glyph.</li>
+                <li>Keep the search input labeled with a visible or <code>aria-label</code>.</li>
+                <li>Ensure row action buttons have descriptive <code>aria-label</code>s.</li>
+                <li>Hiding columns must not hide essential meaning; provide a way to reset visibility.</li>
+                <li>Pagination links should mark the current page with <code>aria-current="page"</code>.</li>
+            </ul>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    <script>
+        document.querySelectorAll('#sort-table .zak-srt-heading').forEach(function (th) {
+            th.addEventListener('click', function () {
+                var tbody = document.querySelector('#sort-table tbody');
+                var rows = Array.prototype.slice.call(tbody.rows);
+                var index = Array.prototype.indexOf.call(th.parentNode.children, th);
+                var type = th.dataset.sortType;
+                var dir = th.dataset.dir === 'asc' ? 'desc' : 'asc';
+                th.dataset.dir = dir;
+                var icon = th.querySelector('.zak-srt-heading-icon');
+                icon.textContent = dir === 'asc' ? '↑' : '↓';
+                rows.sort(function (a, b) {
+                    var av = type === 'number' ? Number(a.children[index].dataset.value) : a.children[index].textContent.trim();
+                    var bv = type === 'number' ? Number(b.children[index].dataset.value) : b.children[index].textContent.trim();
+                    if (av < bv) return dir === 'asc' ? -1 : 1;
+                    if (av > bv) return dir === 'asc' ? 1 : -1;
+                    return 0;
+                });
+                rows.forEach(function (row) { tbody.appendChild(row); });
+            });
+        });
+
+        var selectAll = document.getElementById('select-all');
+        if (selectAll) {
+            selectAll.addEventListener('change', function () {
+                var table = document.getElementById('select-table');
+                var cbs = table.querySelectorAll('.row-check');
+                var trs = table.querySelectorAll('tbody tr');
+                cbs.forEach(function (cb, i) { cb.checked = selectAll.checked; trs[i].classList.toggle('zak-row-selected', selectAll.checked); });
+            });
+        }
+        document.querySelectorAll('.row-check').forEach(function (cb) {
+            cb.addEventListener('change', function () {
+                cb.closest('tr').classList.toggle('zak-row-selected', cb.checked);
+            });
+        });
+
+        var searchInput = document.getElementById('table-search');
+        var filterSelect = document.getElementById('table-filter');
+        var filterRows = document.querySelectorAll('#filter-table tbody tr');
+        function applyFilter() {
+            var q = (searchInput.value || '').toLowerCase();
+            var cat = filterSelect.value;
+            filterRows.forEach(function (row) {
+                var match = row.textContent.toLowerCase().indexOf(q) !== -1 && (cat === 'all' || row.dataset.category === cat);
+                row.style.display = match ? '' : 'none';
+            });
+        }
+        if (searchInput && filterSelect) {
+            searchInput.addEventListener('input', applyFilter);
+            filterSelect.addEventListener('change', applyFilter);
+        }
+
+        document.querySelectorAll('.column-toggle input').forEach(function (box) {
+            box.addEventListener('change', function () {
+                var table = document.getElementById('colvis-table');
+                var index = Array.prototype.indexOf.call(table.querySelectorAll('thead th'), table.querySelector('#' + box.dataset.col));
+                var cols = table.querySelectorAll('thead th').length;
+                table.querySelectorAll('th, td').forEach(function (cell, i) {
+                    if (i % cols === index) cell.style.display = box.checked ? '' : 'none';
+                });
+            });
+        });
+    </script>
+</body></html>

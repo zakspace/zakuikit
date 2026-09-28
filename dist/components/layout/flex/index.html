@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Flex documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Flex - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/layout/flex/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Flex - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Flex documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/layout/flex/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main">
+        <div class="docs-content">
+            <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Layout</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Flex</span>
+                </nav>
+            <h1>Flex</h1>
+            <p class="docs-subtitle">Flexbox utility classes for one-dimensional layout — aligning and distributing space among items in a container.</p>
+
+            <section class="zak-docs-section">
+                <h2>Basic Flex</h2>
+                <p>Use <code>.zak-flex</code> to create a flex container. Children become flex items in a row by default.</p>
+                <div class="docs-preview">
+                    <div class="zak-flex" style="gap: 1rem;">
+                        <div style="background:var(--zak-primary-light);padding:1rem 2rem;border:1px dashed var(--zak-primary);text-align:center;color:var(--zak-primary);border-radius:var(--zak-radius);">Item 1</div>
+                        <div style="background:var(--zak-secondary-light);padding:1rem 2rem;border:1px dashed var(--zak-secondary);text-align:center;color:var(--zak-secondary);border-radius:var(--zak-radius);">Item 2</div>
+                        <div style="background:var(--zak-success-light);padding:1rem 2rem;border:1px dashed var(--zak-success);text-align:center;color:var(--zak-success);border-radius:var(--zak-radius);">Item 3</div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-flex" style="gap: 1rem;"&gt;
+  &lt;div&gt;Item 1&lt;/div&gt;
+  &lt;div&gt;Item 2&lt;/div&gt;
+  &lt;div&gt;Item 3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Direction</h2>
+                <p>Control the direction with <code>.zak-flex-row</code> and <code>.zak-flex-column</code>.</p>
+                <div class="docs-preview">
+                    <div style="display:flex;gap:2rem;flex-wrap:wrap;">
+                        <div style="flex:1;min-width:200px;">
+                            <p style="font-size:0.875rem;font-weight:600;margin-bottom:0.5rem;">.zak-flex-row</p>
+                            <div class="zak-flex zak-flex-row" style="gap:0.5rem;">
+                                <div style="background:var(--zak-primary-light);padding:0.75rem 1.5rem;border:1px dashed var(--zak-primary);text-align:center;color:var(--zak-primary);border-radius:var(--zak-radius);font-size:0.875rem;">1</div>
+                                <div style="background:var(--zak-primary-light);padding:0.75rem 1.5rem;border:1px dashed var(--zak-primary);text-align:center;color:var(--zak-primary);border-radius:var(--zak-radius);font-size:0.875rem;">2</div>
+                                <div style="background:var(--zak-primary-light);padding:0.75rem 1.5rem;border:1px dashed var(--zak-primary);text-align:center;color:var(--zak-primary);border-radius:var(--zak-radius);font-size:0.875rem;">3</div>
+                            </div>
+                        </div>
+                        <div style="flex:1;min-width:200px;">
+                            <p style="font-size:0.875rem;font-weight:600;margin-bottom:0.5rem;">.zak-flex-column</p>
+                            <div class="zak-flex zak-flex-column" style="gap:0.5rem;">
+                                <div style="background:var(--zak-secondary-light);padding:0.75rem 1.5rem;border:1px dashed var(--zak-secondary);text-align:center;color:var(--zak-secondary);border-radius:var(--zak-radius);font-size:0.875rem;">1</div>
+                                <div style="background:var(--zak-secondary-light);padding:0.75rem 1.5rem;border:1px dashed var(--zak-secondary);text-align:center;color:var(--zak-secondary);border-radius:var(--zak-radius);font-size:0.875rem;">2</div>
+                                <div style="background:var(--zak-secondary-light);padding:0.75rem 1.5rem;border:1px dashed var(--zak-secondary);text-align:center;color:var(--zak-secondary);border-radius:var(--zak-radius);font-size:0.875rem;">3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-flex zak-flex-row"&gt;...&lt;/div&gt;
+&lt;div class="zak-flex zak-flex-column"&gt;...&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Wrap</h2>
+                <p>Use <code>.zak-flex-wrap</code> to allow items to wrap onto multiple lines, or <code>.zak-flex-nowrap</code> to keep them on one line.</p>
+                <div class="docs-preview">
+                    <div class="zak-flex zak-flex-wrap" style="gap:0.5rem;">
+                        <div style="background:var(--zak-primary-light);padding:0.5rem 2rem;border:1px dashed var(--zak-primary);text-align:center;color:var(--zak-primary);border-radius:var(--zak-radius);font-size:0.875rem;">Wrap 1</div>
+                        <div style="background:var(--zak-primary-light);padding:0.5rem 2rem;border:1px dashed var(--zak-primary);text-align:center;color:var(--zak-primary);border-radius:var(--zak-radius);font-size:0.875rem;">Wrap 2</div>
+                        <div style="background:var(--zak-primary-light);padding:0.5rem 2rem;border:1px dashed var(--zak-primary);text-align:center;color:var(--zak-primary);border-radius:var(--zak-radius);font-size:0.875rem;">Wrap 3</div>
+                        <div style="background:var(--zak-primary-light);padding:0.5rem 2rem;border:1px dashed var(--zak-primary);text-align:center;color:var(--zak-primary);border-radius:var(--zak-radius);font-size:0.875rem;">Wrap 4</div>
+                        <div style="background:var(--zak-primary-light);padding:0.5rem 2rem;border:1px dashed var(--zak-primary);text-align:center;color:var(--zak-primary);border-radius:var(--zak-radius);font-size:0.875rem;">Wrap 5</div>
+                        <div style="background:var(--zak-primary-light);padding:0.5rem 2rem;border:1px dashed var(--zak-primary);text-align:center;color:var(--zak-primary);border-radius:var(--zak-radius);font-size:0.875rem;">Wrap 6</div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-flex zak-flex-wrap" style="gap: 0.5rem;"&gt;
+  &lt;div&gt;Wrap 1&lt;/div&gt;
+  ...
+&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Justify Content</h2>
+                <p>Use justify utilities to distribute items along the main axis.</p>
+                <div class="docs-preview">
+                    <div style="display:flex;flex-direction:column;gap:0.75rem;">
+                        <div>
+                            <p style="font-size:0.75rem;margin:0 0 0.25rem;color:var(--zak-text-muted);">justify-start</p>
+                            <div class="zak-flex zak-justify-start" style="gap:0.5rem;background:var(--zak-surface-alt);padding:0.5rem;border-radius:var(--zak-radius);">
+                                <div style="background:var(--zak-primary-light);padding:0.5rem 1rem;border:1px dashed var(--zak-primary);text-align:center;color:var(--zak-primary);border-radius:var(--zak-radius);font-size:0.75rem;">A</div>
+                                <div style="background:var(--zak-primary-light);padding:0.5rem 1rem;border:1px dashed var(--zak-primary);text-align:center;color:var(--zak-primary);border-radius:var(--zak-radius);font-size:0.75rem;">B</div>
+                            </div>
+                        </div>
+                        <div>
+                            <p style="font-size:0.75rem;margin:0 0 0.25rem;color:var(--zak-text-muted);">justify-center</p>
+                            <div class="zak-flex zak-justify-center" style="gap:0.5rem;background:var(--zak-surface-alt);padding:0.5rem;border-radius:var(--zak-radius);">
+                                <div style="background:var(--zak-secondary-light);padding:0.5rem 1rem;border:1px dashed var(--zak-secondary);text-align:center;color:var(--zak-secondary);border-radius:var(--zak-radius);font-size:0.75rem;">A</div>
+                                <div style="background:var(--zak-secondary-light);padding:0.5rem 1rem;border:1px dashed var(--zak-secondary);text-align:center;color:var(--zak-secondary);border-radius:var(--zak-radius);font-size:0.75rem;">B</div>
+                            </div>
+                        </div>
+                        <div>
+                            <p style="font-size:0.75rem;margin:0 0 0.25rem;color:var(--zak-text-muted);">justify-end</p>
+                            <div class="zak-flex zak-justify-end" style="gap:0.5rem;background:var(--zak-surface-alt);padding:0.5rem;border-radius:var(--zak-radius);">
+                                <div style="background:var(--zak-success-light);padding:0.5rem 1rem;border:1px dashed var(--zak-success);text-align:center;color:var(--zak-success);border-radius:var(--zak-radius);font-size:0.75rem;">A</div>
+                                <div style="background:var(--zak-success-light);padding:0.5rem 1rem;border:1px dashed var(--zak-success);text-align:center;color:var(--zak-success);border-radius:var(--zak-radius);font-size:0.75rem;">B</div>
+                            </div>
+                        </div>
+                        <div>
+                            <p style="font-size:0.75rem;margin:0 0 0.25rem;color:var(--zak-text-muted);">justify-between</p>
+                            <div class="zak-flex zak-justify-between" style="background:var(--zak-surface-alt);padding:0.5rem;border-radius:var(--zak-radius);">
+                                <div style="background:var(--zak-warning-light);padding:0.5rem 1rem;border:1px dashed var(--zak-warning);text-align:center;color:var(--zak-warning-dark,var(--zak-warning));border-radius:var(--zak-radius);font-size:0.75rem;">A</div>
+                                <div style="background:var(--zak-warning-light);padding:0.5rem 1rem;border:1px dashed var(--zak-warning);text-align:center;color:var(--zak-warning-dark,var(--zak-warning));border-radius:var(--zak-radius);font-size:0.75rem;">B</div>
+                            </div>
+                        </div>
+                        <div>
+                            <p style="font-size:0.75rem;margin:0 0 0.25rem;color:var(--zak-text-muted);">justify-evenly</p>
+                            <div class="zak-flex zak-justify-evenly" style="background:var(--zak-surface-alt);padding:0.5rem;border-radius:var(--zak-radius);">
+                                <div style="background:var(--zak-danger-light);padding:0.5rem 1rem;border:1px dashed var(--zak-danger);text-align:center;color:var(--zak-danger);border-radius:var(--zak-radius);font-size:0.75rem;">A</div>
+                                <div style="background:var(--zak-danger-light);padding:0.5rem 1rem;border:1px dashed var(--zak-danger);text-align:center;color:var(--zak-danger);border-radius:var(--zak-radius);font-size:0.75rem;">B</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-flex zak-justify-start"&gt;...&lt;/div&gt;
+&lt;div class="zak-flex zak-justify-center"&gt;...&lt;/div&gt;
+&lt;div class="zak-flex zak-justify-end"&gt;...&lt;/div&gt;
+&lt;div class="zak-flex zak-justify-between"&gt;...&lt;/div&gt;
+&lt;div class="zak-flex zak-justify-around"&gt;...&lt;/div&gt;
+&lt;div class="zak-flex zak-justify-evenly"&gt;...&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Align Items</h2>
+                <p>Use align utilities to control cross-axis alignment.</p>
+                <div class="docs-preview">
+                    <div style="display:flex;gap:2rem;flex-wrap:wrap;">
+                        <div style="flex:1;min-width:200px;">
+                            <p style="font-size:0.75rem;margin:0 0 0.25rem;color:var(--zak-text-muted);">align-start</p>
+                            <div class="zak-flex zak-align-start" style="gap:0.5rem;background:var(--zak-surface-alt);padding:0.5rem;border-radius:var(--zak-radius);min-height:100px;">
+                                <div style="background:var(--zak-primary-light);padding:0.5rem;border:1px dashed var(--zak-primary);text-align:center;color:var(--zak-primary);border-radius:var(--zak-radius);font-size:0.75rem;">Short</div>
+                                <div style="background:var(--zak-primary-light);padding:2rem 0.5rem;border:1px dashed var(--zak-primary);text-align:center;color:var(--zak-primary);border-radius:var(--zak-radius);font-size:0.75rem;">Tall</div>
+                            </div>
+                        </div>
+                        <div style="flex:1;min-width:200px;">
+                            <p style="font-size:0.75rem;margin:0 0 0.25rem;color:var(--zak-text-muted);">align-center</p>
+                            <div class="zak-flex zak-align-center" style="gap:0.5rem;background:var(--zak-surface-alt);padding:0.5rem;border-radius:var(--zak-radius);min-height:100px;">
+                                <div style="background:var(--zak-secondary-light);padding:0.5rem;border:1px dashed var(--zak-secondary);text-align:center;color:var(--zak-secondary);border-radius:var(--zak-radius);font-size:0.75rem;">Short</div>
+                                <div style="background:var(--zak-secondary-light);padding:2rem 0.5rem;border:1px dashed var(--zak-secondary);text-align:center;color:var(--zak-secondary);border-radius:var(--zak-radius);font-size:0.75rem;">Tall</div>
+                            </div>
+                        </div>
+                        <div style="flex:1;min-width:200px;">
+                            <p style="font-size:0.75rem;margin:0 0 0.25rem;color:var(--zak-text-muted);">align-end</p>
+                            <div class="zak-flex zak-align-end" style="gap:0.5rem;background:var(--zak-surface-alt);padding:0.5rem;border-radius:var(--zak-radius);min-height:100px;">
+                                <div style="background:var(--zak-success-light);padding:0.5rem;border:1px dashed var(--zak-success);text-align:center;color:var(--zak-success);border-radius:var(--zak-radius);font-size:0.75rem;">Short</div>
+                                <div style="background:var(--zak-success-light);padding:2rem 0.5rem;border:1px dashed var(--zak-success);text-align:center;color:var(--zak-success);border-radius:var(--zak-radius);font-size:0.75rem;">Tall</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-flex zak-align-start"&gt;...&lt;/div&gt;
+&lt;div class="zak-flex zak-align-center"&gt;...&lt;/div&gt;
+&lt;div class="zak-flex zak-align-end"&gt;...&lt;/div&gt;
+&lt;div class="zak-flex zak-align-stretch"&gt;...&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Gap</h2>
+                <p>Control spacing between flex items with gap utilities.</p>
+                <div class="docs-preview">
+                    <div class="zak-flex zak-gap-sm" style="margin-bottom:0.5rem;">
+                        <div style="background:var(--zak-primary-light);padding:0.5rem 1rem;border:1px dashed var(--zak-primary);text-align:center;color:var(--zak-primary);border-radius:var(--zak-radius);font-size:0.75rem;">gap-sm</div>
+                        <div style="background:var(--zak-primary-light);padding:0.5rem 1rem;border:1px dashed var(--zak-primary);text-align:center;color:var(--zak-primary);border-radius:var(--zak-radius);font-size:0.75rem;">gap-sm</div>
+                        <div style="background:var(--zak-primary-light);padding:0.5rem 1rem;border:1px dashed var(--zak-primary);text-align:center;color:var(--zak-primary);border-radius:var(--zak-radius);font-size:0.75rem;">gap-sm</div>
+                    </div>
+                    <div class="zak-flex zak-gap-lg">
+                        <div style="background:var(--zak-secondary-light);padding:0.5rem 1rem;border:1px dashed var(--zak-secondary);text-align:center;color:var(--zak-secondary);border-radius:var(--zak-radius);font-size:0.75rem;">gap-lg</div>
+                        <div style="background:var(--zak-secondary-light);padding:0.5rem 1rem;border:1px dashed var(--zak-secondary);text-align:center;color:var(--zak-secondary);border-radius:var(--zak-radius);font-size:0.75rem;">gap-lg</div>
+                        <div style="background:var(--zak-secondary-light);padding:0.5rem 1rem;border:1px dashed var(--zak-secondary);text-align:center;color:var(--zak-secondary);border-radius:var(--zak-radius);font-size:0.75rem;">gap-lg</div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-flex zak-gap-sm"&gt;...&lt;/div&gt;
+&lt;div class="zak-flex zak-gap-lg"&gt;...&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Fill, Shrink, and Grow</h2>
+                <p>Control how flex items grow and shrink within the container.</p>
+                <div class="docs-preview">
+                    <div class="zak-flex" style="gap:0.5rem;margin-bottom:0.75rem;">
+                        <div style="background:var(--zak-primary-light);padding:0.75rem;border:1px dashed var(--zak-primary);text-align:center;color:var(--zak-primary);border-radius:var(--zak-radius);font-size:0.75rem;" class="zak-flex-fill">flex-fill</div>
+                        <div style="background:var(--zak-primary-light);padding:0.75rem;border:1px dashed var(--zak-primary);text-align:center;color:var(--zak-primary);border-radius:var(--zak-radius);font-size:0.75rem;" class="zak-flex-fill">flex-fill</div>
+                        <div style="background:var(--zak-primary-light);padding:0.75rem;border:1px dashed var(--zak-primary);text-align:center;color:var(--zak-primary);border-radius:var(--zak-radius);font-size:0.75rem;" class="zak-flex-fill">flex-fill</div>
+                    </div>
+                    <div class="zak-flex" style="gap:0.5rem;">
+                        <div style="background:var(--zak-secondary-light);padding:0.75rem;border:1px dashed var(--zak-secondary);text-align:center;color:var(--zak-secondary);border-radius:var(--zak-radius);font-size:0.75rem;" class="zak-flex-grow-1">grow-1</div>
+                        <div style="background:var(--zak-secondary-light);padding:0.75rem;border:1px dashed var(--zak-secondary);text-align:center;color:var(--zak-secondary);border-radius:var(--zak-radius);font-size:0.75rem;" class="zak-flex-shrink-0">shrink-0</div>
+                        <div style="background:var(--zak-secondary-light);padding:0.75rem;border:1px dashed var(--zak-secondary);text-align:center;color:var(--zak-secondary);border-radius:var(--zak-radius);font-size:0.75rem;" class="zak-flex-grow-1">grow-1</div>
+                    </div>
+                </div>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-flex" style="gap: 0.5rem;"&gt;
+  &lt;div class="zak-flex-fill"&gt;Equal width&lt;/div&gt;
+  &lt;div class="zak-flex-fill"&gt;Equal width&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="zak-flex" style="gap: 0.5rem;"&gt;
+  &lt;div class="zak-flex-grow-1"&gt;Grows&lt;/div&gt;
+  &lt;div class="zak-flex-shrink-0"&gt;Fixed&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>CSS Reference</h2>
+                <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>.zak-flex { display: flex; }
+.zak-flex-row { flex-direction: row; }
+.zak-flex-column { flex-direction: column; }
+.zak-flex-wrap { flex-wrap: wrap; }
+.zak-flex-nowrap { flex-wrap: nowrap; }
+.zak-flex-fill { flex: 1 1 0%; }
+.zak-flex-grow-1 { flex-grow: 1; }
+.zak-flex-shrink-0 { flex-shrink: 0; }
+.zak-justify-start { justify-content: flex-start; }
+.zak-justify-center { justify-content: center; }
+.zak-justify-end { justify-content: flex-end; }
+.zak-justify-between { justify-content: space-between; }
+.zak-justify-around { justify-content: space-around; }
+.zak-justify-evenly { justify-content: space-evenly; }
+.zak-align-start { align-items: flex-start; }
+.zak-align-center { align-items: center; }
+.zak-align-end { align-items: flex-end; }
+.zak-align-stretch { align-items: stretch; }
+.zak-gap-sm { gap: 0.5rem; }
+.zak-gap-md { gap: 1rem; }
+.zak-gap-lg { gap: 1.5rem; }</code></pre>
+                </div>
+            </section>
+
+            <section class="zak-docs-section">
+                <h2>Accessibility</h2>
+                <ul>
+                    <li>Flex layout maintains DOM order for screen readers regardless of visual arrangement</li>
+                    <li>Avoid using <code>order</code> property to visually reorder items as it disconnects from reading order</li>
+                    <li>Ensure flex containers don't break keyboard navigation — test with Tab key</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body>
+</html>

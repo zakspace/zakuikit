@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>(function () { try { var t = localStorage.getItem('zak-docs-theme') || 'system'; if (t === 'system') { t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light'; } document.documentElement.setAttribute('data-theme', t); } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); } })();</script>
+  <meta name="description"
+    content="ZAKUIKit utility classes reference - Display, flexbox, grid, spacing, sizing, position, text, color, border, shadow, and more.">
+  <meta name="theme-color" content="#2563eb">
+  <title>Utilities Reference - ZAKUIKit</title>
+  <link rel="canonical" href="https://zakuikit.vercel.app/utilities.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ZAKUIKit">
+  <meta property="og:title" content="Utilities Reference - ZAKUIKit">
+  <meta property="og:description"
+    content="ZAKUIKit utility classes reference - Display, flexbox, grid, spacing, sizing, position, text, color, border, shadow, and more.">
+  <meta property="og:url" content="https://zakuikit.vercel.app/utilities.html">
+  <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="dist/css/zak.css">
+  <link rel="stylesheet" href="css/zak-docs.css">
+  <link rel="stylesheet" href="css/syntax-highlight.css">
+  <link rel="stylesheet" href="dist/icons/icons.css">
+  <link rel="icon" href="img/favicon.ico" sizes="16x16 32x32">
+  <link rel="icon" type="image/png" href="img/favicon.png" sizes="192x192">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232563eb'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='18' font-weight='bold' fill='white' text-anchor='middle'%3EZ%3C/text%3E%3C/svg%3E">
+
+</head>
+
+<body>
+  <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..."
+          aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12" />
+        <line x1="3" y1="6" x2="21" y2="6" />
+        <line x1="3" y1="18" x2="21" y2="18" />
+      </svg>
+    </button>
+    <a href="index.html" class="docs-header__logo">
+      <span class="docs-zak-logo">
+        <img src="img/logo.svg" alt="">
+      </span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="components.html" class="docs-header__link">Components</a>
+      <a href="templates.html" class="docs-header__link">Templates</a>
+      <a href="icons.html" class="docs-header__link">Icons</a>
+      <a href="utilities.html" class="docs-header__link docs-header__link--active">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+
+  <!-- Sidebar -->
+  <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+
+  <!-- Main Content -->
+  <main class="docs-main">
+    <div class="docs-content">
+
+      <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html" class="docs-breadcrumb__link">Home</a>
+        <span class="docs-breadcrumb__separator">/</span>
+        <span class="docs-breadcrumb__current">Utilities</span>
+      </nav>
+
+      <div class="docs-component-header">
+        <h1>Utilities Reference</h1>
+        <p class="docs-component-header__description">A comprehensive reference of all utility classes available in
+          ZAKUIKit. Use these for rapid prototyping and layout without writing custom CSS.</p>
+      </div>
+
+      <!-- Display -->
+      <section id="display" class="util-category">
+        <h3>Display</h3>
+        <p>Control the display property of elements.</p>
+        <div class="util-grid">
+          <div class="util-demo"><code>.d-none</code></div>
+          <div class="util-demo"><code>.d-block</code></div>
+          <div class="util-demo"><code>.d-flex</code></div>
+          <div class="util-demo"><code>.d-grid</code></div>
+          <div class="util-demo"><code>.d-inline</code></div>
+          <div class="util-demo"><code>.d-inline-flex</code></div>
+          <div class="util-demo"><code>.d-inline-block</code></div>
+        </div>
+        <p style="margin-top:8px;font-size:13px;color:var(--docs-text-muted);">Responsive variants:
+          <code>.d-sm-flex</code>, <code>.d-md-block</code>, <code>.d-lg-grid</code>, <code>.d-xl-flex</code>,
+          <code>.d-2xl-flex</code>
+        </p>
+        <div class="docs-code-block" style="margin-top:12px;">
+          <div class="docs-code-block__header">
+            <span class="docs-code-block__lang">HTML</span>
+            <button type="button" class="docs-copy-btn"><span class="docs-copy-btn__icon"><svg viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg></span><span class="docs-copy-btn__text">Copy</span></button>
+          </div>
+          <pre><code class="language-html">&lt;div class="zak-d-none"&gt;Hidden on all screens&lt;/div&gt;
+&lt;div class="zak-d-block"&gt;Block element&lt;/div&gt;
+&lt;div class="zak-d-flex"&gt;Flex container&lt;/div&gt;
+&lt;div class="zak-d-none zak-d-md-block"&gt;Visible only on md+ screens&lt;/div&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- Flexbox -->
+      <section id="flexbox" class="util-category">
+        <h3>Flexbox</h3>
+        <p>Flexbox layout utilities for alignment and distribution.</p>
+        <div class="util-grid">
+          <div class="util-demo"><code>.flex-row</code></div>
+          <div class="util-demo"><code>.flex-column</code></div>
+          <div class="util-demo"><code>.flex-fill</code></div>
+          <div class="util-demo"><code>.flex-grow-0</code></div>
+          <div class="util-demo"><code>.flex-grow-1</code></div>
+          <div class="util-demo"><code>.flex-shrink-0</code></div>
+          <div class="util-demo"><code>.flex-shrink-1</code></div>
+        </div>
+        <div class="util-grid" style="margin-top:8px;">
+          <div class="util-demo"><code>.justify-start</code></div>
+          <div class="util-demo"><code>.justify-center</code></div>
+          <div class="util-demo"><code>.justify-end</code></div>
+          <div class="util-demo"><code>.justify-between</code></div>
+          <div class="util-demo"><code>.justify-around</code></div>
+          <div class="util-demo"><code>.justify-evenly</code></div>
+        </div>
+        <div class="util-grid" style="margin-top:8px;">
+          <div class="util-demo"><code>.align-start</code></div>
+          <div class="util-demo"><code>.align-center</code></div>
+          <div class="util-demo"><code>.align-end</code></div>
+          <div class="util-demo"><code>.align-stretch</code></div>
+          <div class="util-demo"><code>.align-baseline</code></div>
+        </div>
+        <div class="docs-code-block" style="margin-top:12px;">
+          <div class="docs-code-block__header">
+            <span class="docs-code-block__lang">HTML</span>
+            <button type="button" class="docs-copy-btn"><span class="docs-copy-btn__icon"><svg viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg></span><span class="docs-copy-btn__text">Copy</span></button>
+          </div>
+          <pre><code class="language-html">&lt;div class="zak-d-flex zak-flex-row zak-justify-between zak-align-center"&gt;
+  &lt;span&gt;Left&lt;/span&gt;
+  &lt;span&gt;Center&lt;/span&gt;
+  &lt;span&gt;Right&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- Grid -->
+      <section id="grid" class="util-category">
+        <h3>Grid</h3>
+        <p>CSS Grid column utilities and gap helpers.</p>
+        <div class="util-grid">
+          <div class="util-demo"><code>.grid-cols-1</code></div>
+          <div class="util-demo"><code>.grid-cols-2</code></div>
+          <div class="util-demo"><code>.grid-cols-3</code></div>
+          <div class="util-demo"><code>.grid-cols-4</code></div>
+          <div class="util-demo"><code>.grid-cols-6</code></div>
+          <div class="util-demo"><code>.grid-cols-12</code></div>
+        </div>
+        <div class="util-grid" style="margin-top:8px;">
+          <div class="util-demo"><code>.gap-1</code></div>
+          <div class="util-demo"><code>.gap-2</code></div>
+          <div class="util-demo"><code>.gap-3</code></div>
+          <div class="util-demo"><code>.gap-4</code></div>
+          <div class="util-demo"><code>.gap-6</code></div>
+          <div class="util-demo"><code>.gap-8</code></div>
+        </div>
+        <div class="docs-code-block" style="margin-top:12px;">
+          <div class="docs-code-block__header">
+            <span class="docs-code-block__lang">HTML</span>
+            <button type="button" class="docs-copy-btn"><span class="docs-copy-btn__icon"><svg viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg></span><span class="docs-copy-btn__text">Copy</span></button>
+          </div>
+          <pre><code class="language-html">&lt;div class="zak-grid zak-grid-cols-3 zak-gap-4"&gt;
+  &lt;div&gt;Column 1&lt;/div&gt;
+  &lt;div&gt;Column 2&lt;/div&gt;
+  &lt;div&gt;Column 3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- Spacing -->
+      <section id="spacing" class="util-category">
+        <h3>Spacing</h3>
+        <p>Margin and padding utilities using the spacing scale.</p>
+        <h4>Margin</h4>
+        <div class="util-grid">
+          <div class="util-demo"><code>.m-0</code></div>
+          <div class="util-demo"><code>.m-1</code></div>
+          <div class="util-demo"><code>.m-2</code></div>
+          <div class="util-demo"><code>.m-3</code></div>
+          <div class="util-demo"><code>.m-4</code></div>
+          <div class="util-demo"><code>.m-5</code></div>
+          <div class="util-demo"><code>.mx-auto</code></div>
+        </div>
+        <h4 style="margin-top:16px;">Direction Variants</h4>
+        <div class="util-grid">
+          <div class="util-demo"><code>.mt-*</code></div>
+          <div class="util-demo"><code>.mr-*</code></div>
+          <div class="util-demo"><code>.mb-*</code></div>
+          <div class="util-demo"><code>.ml-*</code></div>
+          <div class="util-demo"><code>.mx-*</code></div>
+          <div class="util-demo"><code>.my-*</code></div>
+        </div>
+        <h4 style="margin-top:16px;">Padding</h4>
+        <div class="util-grid">
+          <div class="util-demo"><code>.p-0</code></div>
+          <div class="util-demo"><code>.p-1</code></div>
+          <div class="util-demo"><code>.p-2</code></div>
+          <div class="util-demo"><code>.p-3</code></div>
+          <div class="util-demo"><code>.p-4</code></div>
+          <div class="util-demo"><code>.p-5</code></div>
+          <div class="util-demo"><code>.px-*</code></div>
+          <div class="util-demo"><code>.py-*</code></div>
+        </div>
+        <div class="docs-code-block" style="margin-top:12px;">
+          <div class="docs-code-block__header">
+            <span class="docs-code-block__lang">HTML</span>
+            <button type="button" class="docs-copy-btn"><span class="docs-copy-btn__icon"><svg viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg></span><span class="docs-copy-btn__text">Copy</span></button>
+          </div>
+          <pre><code class="language-html">&lt;div class="zak-m-4"&gt;margin: 1rem&lt;/div&gt;
+&lt;div class="zak-mt-2 zak-mx-auto"&gt;margin-top: 0.5rem; margin-inline: auto&lt;/div&gt;
+&lt;div class="zak-p-3"&gt;padding: 0.75rem&lt;/div&gt;
+&lt;div class="zak-px-4 zak-py-2"&gt;padding-x: 1rem; padding-y: 0.5rem&lt;/div&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- Sizing -->
+      <section id="sizing" class="util-category">
+        <h3>Sizing</h3>
+        <p>Width and height utilities.</p>
+        <div class="util-grid">
+          <div class="util-demo"><code>.w-25</code></div>
+          <div class="util-demo"><code>.w-50</code></div>
+          <div class="util-demo"><code>.w-75</code></div>
+          <div class="util-demo"><code>.w-100</code></div>
+          <div class="util-demo"><code>.w-auto</code></div>
+          <div class="util-demo"><code>.w-fit</code></div>
+        </div>
+        <div class="util-grid" style="margin-top:8px;">
+          <div class="util-demo"><code>.h-25</code></div>
+          <div class="util-demo"><code>.h-50</code></div>
+          <div class="util-demo"><code>.h-75</code></div>
+          <div class="util-demo"><code>.h-100</code></div>
+          <div class="util-demo"><code>.vw-100</code></div>
+          <div class="util-demo"><code>.vh-100</code></div>
+          <div class="util-demo"><code>.min-vh-100</code></div>
+        </div>
+        <div class="docs-code-block" style="margin-top:12px;">
+          <div class="docs-code-block__header">
+            <span class="docs-code-block__lang">HTML</span>
+            <button type="button" class="docs-copy-btn"><span class="docs-copy-btn__icon"><svg viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg></span><span class="docs-copy-btn__text">Copy</span></button>
+          </div>
+          <pre><code class="language-html">&lt;div class="zak-w-50"&gt;50% width&lt;/div&gt;
+&lt;div class="zak-vh-100"&gt;Full viewport height&lt;/div&gt;
+&lt;div class="zak-min-vh-100"&gt;Minimum full viewport height&lt;/div&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- Position -->
+      <section id="position" class="util-category">
+        <h3>Position</h3>
+        <p>Position utilities for static, relative, absolute, fixed, and sticky positioning.</p>
+        <div class="util-grid">
+          <div class="util-demo"><code>.position-static</code></div>
+          <div class="util-demo"><code>.position-relative</code></div>
+          <div class="util-demo"><code>.position-absolute</code></div>
+          <div class="util-demo"><code>.position-fixed</code></div>
+          <div class="util-demo"><code>.position-sticky</code></div>
+        </div>
+        <div class="docs-code-block" style="margin-top:12px;">
+          <div class="docs-code-block__header">
+            <span class="docs-code-block__lang">HTML</span>
+            <button type="button" class="docs-copy-btn"><span class="docs-copy-btn__icon"><svg viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg></span><span class="docs-copy-btn__text">Copy</span></button>
+          </div>
+          <pre><code class="language-html">&lt;div class="zak-position-relative"&gt;
+  Parent
+  &lt;div class="zak-position-absolute"&gt;Floating child&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- Text -->
+      <section id="text" class="util-category">
+        <h3>Text</h3>
+        <p>Text alignment, transformation, weight, and size utilities.</p>
+        <div class="util-grid">
+          <div class="util-demo"><code>.text-start</code></div>
+          <div class="util-demo"><code>.text-center</code></div>
+          <div class="util-demo"><code>.text-end</code></div>
+          <div class="util-demo"><code>.text-lowercase</code></div>
+          <div class="util-demo"><code>.text-uppercase</code></div>
+          <div class="util-demo"><code>.text-capitalize</code></div>
+        </div>
+        <div class="util-grid" style="margin-top:8px;">
+          <div class="util-demo"><code>.font-weight-light</code></div>
+          <div class="util-demo"><code>.font-weight-normal</code></div>
+          <div class="util-demo"><code>.font-weight-medium</code></div>
+          <div class="util-demo"><code>.font-weight-semibold</code></div>
+          <div class="util-demo"><code>.font-weight-bold</code></div>
+        </div>
+        <div class="util-grid" style="margin-top:8px;">
+          <div class="util-demo"><code>.fs-xs</code></div>
+          <div class="util-demo"><code>.fs-sm</code></div>
+          <div class="util-demo"><code>.fs-base</code></div>
+          <div class="util-demo"><code>.fs-lg</code></div>
+          <div class="util-demo"><code>.fs-xl</code></div>
+          <div class="util-demo"><code>.fs-2xl</code></div>
+        </div>
+        <div class="docs-code-block" style="margin-top:12px;">
+          <div class="docs-code-block__header">
+            <span class="docs-code-block__lang">HTML</span>
+            <button type="button" class="docs-copy-btn"><span class="docs-copy-btn__icon"><svg viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg></span><span class="docs-copy-btn__text">Copy</span></button>
+          </div>
+          <pre><code class="language-html">&lt;p class="zak-text-center"&gt;Centered text&lt;/p&gt;
+&lt;p class="zak-text-uppercase zak-font-weight-bold"&gt;Bold uppercase&lt;/p&gt;
+&lt;span class="zak-fs-lg"&gt;Large text&lt;/span&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- Color -->
+      <section id="color" class="util-category">
+        <h3>Color</h3>
+        <p>Text and background color utilities using semantic color tokens.</p>
+        <div class="util-grid">
+          <div class="util-demo"><code>.text-primary</code></div>
+          <div class="util-demo"><code>.text-success</code></div>
+          <div class="util-demo"><code>.text-warning</code></div>
+          <div class="util-demo"><code>.text-danger</code></div>
+          <div class="util-demo"><code>.text-info</code></div>
+          <div class="util-demo"><code>.text-muted</code></div>
+        </div>
+        <div class="util-grid" style="margin-top:8px;">
+          <div class="util-demo"><code>.bg-primary</code></div>
+          <div class="util-demo"><code>.bg-success</code></div>
+          <div class="util-demo"><code>.bg-warning</code></div>
+          <div class="util-demo"><code>.bg-danger</code></div>
+          <div class="util-demo"><code>.bg-info</code></div>
+          <div class="util-demo"><code>.bg-light</code></div>
+          <div class="util-demo"><code>.bg-dark</code></div>
+        </div>
+        <div class="docs-code-block" style="margin-top:12px;">
+          <div class="docs-code-block__header">
+            <span class="docs-code-block__lang">HTML</span>
+            <button type="button" class="docs-copy-btn"><span class="docs-copy-btn__icon"><svg viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg></span><span class="docs-copy-btn__text">Copy</span></button>
+          </div>
+          <pre><code class="language-html">&lt;p class="zak-text-primary"&gt;Primary text color&lt;/p&gt;
+&lt;div class="zak-bg-success zak-p-3 zak-text-white"&gt;Success background&lt;/div&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- Border -->
+      <section id="border" class="util-category">
+        <h3>Border</h3>
+        <p>Border, border direction, width, radius, and color utilities.</p>
+        <div class="util-grid">
+          <div class="util-demo"><code>.border</code></div>
+          <div class="util-demo"><code>.border-top</code></div>
+          <div class="util-demo"><code>.border-end</code></div>
+          <div class="util-demo"><code>.border-bottom</code></div>
+          <div class="util-demo"><code>.border-start</code></div>
+          <div class="util-demo"><code>.border-0</code></div>
+        </div>
+        <div class="util-grid" style="margin-top:8px;">
+          <div class="util-demo"><code>.rounded</code></div>
+          <div class="util-demo"><code>.rounded-sm</code></div>
+          <div class="util-demo"><code>.rounded-lg</code></div>
+          <div class="util-demo"><code>.rounded-xl</code></div>
+          <div class="util-demo"><code>.rounded-pill</code></div>
+          <div class="util-demo"><code>.rounded-circle</code></div>
+          <div class="util-demo"><code>.rounded-0</code></div>
+        </div>
+        <div class="docs-code-block" style="margin-top:12px;">
+          <div class="docs-code-block__header">
+            <span class="docs-code-block__lang">HTML</span>
+            <button type="button" class="docs-copy-btn"><span class="docs-copy-btn__icon"><svg viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg></span><span class="docs-copy-btn__text">Copy</span></button>
+          </div>
+          <pre><code class="language-html">&lt;div class="zak-border zak-rounded-lg"&gt;Bordered card&lt;/div&gt;
+&lt;div class="zak-border zak-border-top zak-border-primary"&gt;Top border only&lt;/div&gt;
+&lt;span class="zak-rounded-pill zak-badge zak-badge-primary"&gt;Pill badge&lt;/span&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- Shadow -->
+      <section id="shadow" class="util-category">
+        <h3>Shadow</h3>
+        <p>Box shadow utilities for elevation.</p>
+        <div class="util-grid">
+          <div class="util-demo"><code>.shadow-sm</code></div>
+          <div class="util-demo"><code>.shadow</code></div>
+          <div class="util-demo"><code>.shadow-lg</code></div>
+          <div class="util-demo"><code>.shadow-xl</code></div>
+          <div class="util-demo"><code>.shadow-none</code></div>
+        </div>
+        <div class="docs-code-block" style="margin-top:12px;">
+          <div class="docs-code-block__header">
+            <span class="docs-code-block__lang">HTML</span>
+            <button type="button" class="docs-copy-btn"><span class="docs-copy-btn__icon"><svg viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg></span><span class="docs-copy-btn__text">Copy</span></button>
+          </div>
+          <pre><code class="language-html">&lt;div class="zak-shadow-lg zak-p-4"&gt;Elevated card&lt;/div&gt;
+&lt;div class="zak-shadow-xl zak-p-4"&gt;High elevation card&lt;/div&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- Overflow -->
+      <section id="overflow" class="util-category">
+        <h3>Overflow</h3>
+        <p>Control overflow behavior for clipped or scrollable content.</p>
+        <div class="util-grid">
+          <div class="util-demo"><code>.overflow-auto</code></div>
+          <div class="util-demo"><code>.overflow-hidden</code></div>
+          <div class="util-demo"><code>.overflow-visible</code></div>
+          <div class="util-demo"><code>.overflow-scroll</code></div>
+        </div>
+        <div class="docs-code-block" style="margin-top:12px;">
+          <div class="docs-code-block__header">
+            <span class="docs-code-block__lang">HTML</span>
+            <button type="button" class="docs-copy-btn"><span class="docs-copy-btn__icon"><svg viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg></span><span class="docs-copy-btn__text">Copy</span></button>
+          </div>
+          <pre><code class="language-html">&lt;div class="zak-overflow-auto" style="max-height:200px"&gt;
+  Scrollable content area...
+&lt;/div&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- Visibility -->
+      <section id="visibility" class="util-category">
+        <h3>Visibility</h3>
+        <p>Control element visibility and opacity.</p>
+        <div class="util-grid">
+          <div class="util-demo"><code>.visible</code></div>
+          <div class="util-demo"><code>.invisible</code></div>
+          <div class="util-demo"><code>.opacity-25</code></div>
+          <div class="util-demo"><code>.opacity-50</code></div>
+          <div class="util-demo"><code>.opacity-75</code></div>
+          <div class="util-demo"><code>.opacity-100</code></div>
+        </div>
+        <div class="docs-code-block" style="margin-top:12px;">
+          <div class="docs-code-block__header">
+            <span class="docs-code-block__lang">HTML</span>
+            <button type="button" class="docs-copy-btn"><span class="docs-copy-btn__icon"><svg viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg></span><span class="docs-copy-btn__text">Copy</span></button>
+          </div>
+          <pre><code class="language-html">&lt;div class="zak-invisible"&gt;Takes space but invisible&lt;/div&gt;
+&lt;div class="zak-opacity-50"&gt;50% opacity&lt;/div&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- Cursor -->
+      <section id="cursor" class="util-category">
+        <h3>Cursor</h3>
+        <p>Change the mouse cursor style.</p>
+        <div class="util-grid">
+          <div class="util-demo"><code>.cursor-pointer</code></div>
+          <div class="util-demo"><code>.cursor-grab</code></div>
+          <div class="util-demo"><code>.cursor-grabbing</code></div>
+          <div class="util-demo"><code>.cursor-not-allowed</code></div>
+          <div class="util-demo"><code>.cursor-wait</code></div>
+          <div class="util-demo"><code>.cursor-help</code></div>
+          <div class="util-demo"><code>.cursor-default</code></div>
+        </div>
+        <div class="docs-code-block" style="margin-top:12px;">
+          <div class="docs-code-block__header">
+            <span class="docs-code-block__lang">HTML</span>
+            <button type="button" class="docs-copy-btn"><span class="docs-copy-btn__icon"><svg viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg></span><span class="docs-copy-btn__text">Copy</span></button>
+          </div>
+          <pre><code class="language-html">&lt;button class="zak-cursor-pointer"&gt;Click me&lt;/button&gt;
+&lt;div class="zak-cursor-not-allowed"&gt;Disabled action&lt;/div&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- Float -->
+      <section id="float" class="util-category">
+        <h3>Float</h3>
+        <p>Float utilities for wrapping content.</p>
+        <div class="util-grid">
+          <div class="util-demo"><code>.float-start</code></div>
+          <div class="util-demo"><code>.float-end</code></div>
+          <div class="util-demo"><code>.float-none</code></div>
+        </div>
+        <div class="docs-code-block" style="margin-top:12px;">
+          <div class="docs-code-block__header">
+            <span class="docs-code-block__lang">HTML</span>
+            <button type="button" class="docs-copy-btn"><span class="docs-copy-btn__icon"><svg viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg></span><span class="docs-copy-btn__text">Copy</span></button>
+          </div>
+          <pre><code class="language-html">&lt;div class="zak-float-start"&gt;Floated left&lt;/div&gt;
+&lt;div class="zak-float-end"&gt;Floated right&lt;/div&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- Vertical Align -->
+      <section id="vertical-align" class="util-category">
+        <h3>Vertical Align</h3>
+        <p>Vertical alignment for inline and table-cell elements.</p>
+        <div class="util-grid">
+          <div class="util-demo"><code>.align-baseline</code></div>
+          <div class="util-demo"><code>.align-top</code></div>
+          <div class="util-demo"><code>.align-middle</code></div>
+          <div class="util-demo"><code>.align-bottom</code></div>
+        </div>
+        <div class="docs-code-block" style="margin-top:12px;">
+          <div class="docs-code-block__header">
+            <span class="docs-code-block__lang">HTML</span>
+            <button type="button" class="docs-copy-btn"><span class="docs-copy-btn__icon"><svg viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg></span><span class="docs-copy-btn__text">Copy</span></button>
+          </div>
+          <pre><code class="language-html">&lt;img src="avatar.png" class="zak-align-middle"&gt; Username</code></pre>
+        </div>
+      </section>
+
+      <!-- Z-index -->
+      <section id="zindex" class="util-category">
+        <h3>Z-Index</h3>
+        <p>Control the stacking order of elements.</p>
+        <div class="util-grid">
+          <div class="util-demo"><code>.z-0</code></div>
+          <div class="util-demo"><code>.z-1</code></div>
+          <div class="util-demo"><code>.z-2</code></div>
+          <div class="util-demo"><code>.z-3</code></div>
+        </div>
+        <div class="docs-code-block" style="margin-top:12px;">
+          <div class="docs-code-block__header">
+            <span class="docs-code-block__lang">HTML</span>
+            <button type="button" class="docs-copy-btn"><span class="docs-copy-btn__icon"><svg viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg></span><span class="docs-copy-btn__text">Copy</span></button>
+          </div>
+          <pre><code class="language-html">&lt;div class="zak-z-3 zak-position-fixed"&gt;On top of everything&lt;/div&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- Transition -->
+      <section id="transition" class="util-category">
+        <h3>Transition</h3>
+        <p>Transition timing utilities for animations and hover effects.</p>
+        <div class="util-grid">
+          <div class="util-demo"><code>.transition</code></div>
+          <div class="util-demo"><code>.transition-fast</code></div>
+          <div class="util-demo"><code>.transition-slow</code></div>
+          <div class="util-demo"><code>.transition-none</code></div>
+        </div>
+        <div class="docs-code-block" style="margin-top:12px;">
+          <div class="docs-code-block__header">
+            <span class="docs-code-block__lang">HTML</span>
+            <button type="button" class="docs-copy-btn"><span class="docs-copy-btn__icon"><svg viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg></span><span class="docs-copy-btn__text">Copy</span></button>
+          </div>
+          <pre><code class="language-html">&lt;button class="zak-btn zak-btn-primary zak-transition-fast"&gt;
+  Smooth hover
+&lt;/button&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- Responsive -->
+      <section id="responsive" class="util-category">
+        <h3>Responsive Breakpoints</h3>
+        <p>All utility classes support responsive prefixes. Add a breakpoint prefix to apply a utility at a specific
+          screen width and above.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Prefix</th>
+              <th>Min Width</th>
+              <th>Example</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>(none)</code></td>
+              <td>0px</td>
+              <td><code>.d-flex</code></td>
+              <td>Base (mobile first)</td>
+            </tr>
+            <tr>
+              <td><code>sm:</code></td>
+              <td>576px</td>
+              <td><code>.d-sm-flex</code></td>
+              <td>Small screens (landscape phones)</td>
+            </tr>
+            <tr>
+              <td><code>md:</code></td>
+              <td>768px</td>
+              <td><code>.d-md-flex</code></td>
+              <td>Medium screens (tablets)</td>
+            </tr>
+            <tr>
+              <td><code>lg:</code></td>
+              <td>992px</td>
+              <td><code>.d-lg-flex</code></td>
+              <td>Large screens (desktops)</td>
+            </tr>
+            <tr>
+              <td><code>xl:</code></td>
+              <td>1200px</td>
+              <td><code>.d-xl-flex</code></td>
+              <td>Extra large screens</td>
+            </tr>
+            <tr>
+              <td><code>2xl:</code></td>
+              <td>1400px</td>
+              <td><code>.d-2xl-flex</code></td>
+              <td>Ultra wide screens</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="docs-code-block" style="margin-top:12px;">
+          <div class="docs-code-block__header">
+            <span class="docs-code-block__lang">HTML</span>
+            <button type="button" class="docs-copy-btn"><span class="docs-copy-btn__icon"><svg viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg></span><span class="docs-copy-btn__text">Copy</span></button>
+          </div>
+          <pre><code class="language-html">&lt;!-- Hidden on mobile, visible on md+ --&gt;
+&lt;div class="zak-d-none zak-d-md-block"&gt;
+  Only visible on tablets and up
+&lt;/div&gt;
+
+&lt;!-- Responsive grid: 1 col on mobile, 2 on md, 3 on lg --&gt;
+&lt;div class="zak-grid zak-grid-cols-1 zak-grid-cols-md-2 zak-grid-cols-lg-3 zak-gap-4"&gt;
+  &lt;div&gt;Card 1&lt;/div&gt;
+  &lt;div&gt;Card 2&lt;/div&gt;
+  &lt;div&gt;Card 3&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Responsive text alignment --&gt;
+&lt;p class="zak-text-center zak-text-md-start"&gt;
+  Centered on mobile, left-aligned on desktop
+&lt;/p&gt;</code></pre>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="dist/js/zak.js"></script>
+  <script src="js/docs.js"></script>
+</body>
+
+</html>

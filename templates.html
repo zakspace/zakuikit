@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>(function () { try { var t = localStorage.getItem('zak-docs-theme') || 'system'; if (t === 'system') { t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light'; } document.documentElement.setAttribute('data-theme', t); } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); } })();</script>
+  <meta name="description"
+    content="ZAKUIKit templates - Ready-to-use page templates for dashboards, admin panels, login pages, e-commerce, and more.">
+  <meta name="theme-color" content="#2563eb">
+  <title>Templates - ZAKUIKit</title>
+  <link rel="canonical" href="https://zakuikit.vercel.app/templates.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ZAKUIKit">
+  <meta property="og:title" content="Templates - ZAKUIKit">
+  <meta property="og:description"
+    content="ZAKUIKit templates - Ready-to-use page templates for dashboards, admin panels, login pages, e-commerce, and more.">
+  <meta property="og:url" content="https://zakuikit.vercel.app/templates.html">
+  <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="dist/css/zak.css">
+  <link rel="stylesheet" href="css/zak-docs.css">
+  <link rel="stylesheet" href="css/syntax-highlight.css">
+  <link rel="stylesheet" href="dist/icons/icons.css">
+  <link rel="icon" href="img/favicon.ico" sizes="16x16 32x32">
+  <link rel="icon" type="image/png" href="img/favicon.png" sizes="192x192">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232563eb'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='18' font-weight='bold' fill='white' text-anchor='middle'%3EZ%3C/text%3E%3C/svg%3E">
+
+</head>
+
+<body>
+  <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..."
+          aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12" />
+        <line x1="3" y1="6" x2="21" y2="6" />
+        <line x1="3" y1="18" x2="21" y2="18" />
+      </svg>
+    </button>
+    <a href="index.html" class="docs-header__logo">
+      <span class="docs-zak-logo">
+        <img src="img/logo.svg" alt="">
+      </span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="components.html" class="docs-header__link">Components</a>
+      <a href="templates.html" class="docs-header__link docs-header__link--active">Templates</a>
+      <a href="icons.html" class="docs-header__link">Icons</a>
+      <a href="utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+
+  <!-- Sidebar -->
+  <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+
+  <!-- Main Content -->
+  <main class="docs-main">
+    <div class="docs-content">
+
+      <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html" class="docs-breadcrumb__link">Home</a>
+        <span class="docs-breadcrumb__separator">/</span>
+        <span class="docs-breadcrumb__current">Templates</span>
+      </nav>
+
+      <div class="docs-component-header">
+        <h1>Templates</h1>
+        <p class="docs-component-header__description">Ready-to-use page templates built with ZAKUIKit components. Each
+          template demonstrates real-world layouts and patterns you can copy and customize.</p>
+      </div>
+
+      <div class="tpl-grid">
+
+        <!-- Dashboard -->
+        <div class="tpl-card">
+          <div class="tpl-card__preview" style="background:linear-gradient(135deg,#1e40af,#3b82f6);">
+            <span class="tpl-card__preview-text">Dashboard</span>
+          </div>
+          <div class="tpl-card__body">
+            <h3 class="tpl-card__name">Dashboard</h3>
+            <p class="tpl-card__desc">Admin dashboard with sidebar navigation, stat cards, charts, data table, and
+              activity feed. Perfect for analytics and data-driven applications.</p>
+            <div class="tpl-card__meta">
+              <div class="tpl-card__badges">
+                <span class="tpl-card__badge">HTML</span>
+                <span class="tpl-card__badge">CSS</span>
+                <span class="tpl-card__badge">JS</span>
+              </div>
+              <a href="dist/examples/dashboards/" class="tpl-card__link">
+                Preview
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Admin Panel -->
+        <div class="tpl-card">
+          <div class="tpl-card__preview" style="background:linear-gradient(135deg,#1e293b,#475569);">
+            <span class="tpl-card__preview-text">Admin Panel</span>
+          </div>
+          <div class="tpl-card__body">
+            <h3 class="tpl-card__name">Admin Panel</h3>
+            <p class="tpl-card__desc">Full admin layout with collapsible sidebar navigation, top header bar, content
+              area with breadcrumbs, and responsive mobile drawer.</p>
+            <div class="tpl-card__meta">
+              <div class="tpl-card__badges">
+                <span class="tpl-card__badge">HTML</span>
+                <span class="tpl-card__badge">CSS</span>
+                <span class="tpl-card__badge">JS</span>
+              </div>
+              <a href="dist/examples/admin/" class="tpl-card__link">
+                Preview
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Login Page -->
+        <div class="tpl-card">
+          <div class="tpl-card__preview" style="background:linear-gradient(135deg,#7c3aed,#a78bfa);">
+            <span class="tpl-card__preview-text">Login Page</span>
+          </div>
+          <div class="tpl-card__body">
+            <h3 class="tpl-card__name">Login Page</h3>
+            <p class="tpl-card__desc">Authentication form template with login, register, and forgot password views.
+              Includes form validation, social login buttons, and remember me.</p>
+            <div class="tpl-card__meta">
+              <div class="tpl-card__badges">
+                <span class="tpl-card__badge">HTML</span>
+                <span class="tpl-card__badge">CSS</span>
+                <span class="tpl-card__badge">JS</span>
+              </div>
+              <a href="dist/examples/authentication/" class="tpl-card__link">
+                Preview
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- E-commerce -->
+        <div class="tpl-card">
+          <div class="tpl-card__preview" style="background:linear-gradient(135deg,#059669,#34d399);">
+            <span class="tpl-card__preview-text">E-commerce</span>
+          </div>
+          <div class="tpl-card__body">
+            <h3 class="tpl-card__name">E-commerce</h3>
+            <p class="tpl-card__desc">Product grid with filters, product detail view, shopping cart, and checkout flow.
+              Includes product cards with hover effects and quick actions.</p>
+            <div class="tpl-card__meta">
+              <div class="tpl-card__badges">
+                <span class="tpl-card__badge">HTML</span>
+                <span class="tpl-card__badge">CSS</span>
+                <span class="tpl-card__badge">JS</span>
+              </div>
+              <a href="dist/examples/ecommerce/" class="tpl-card__link">
+                Preview
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Landing Page -->
+        <div class="tpl-card">
+          <div class="tpl-card__preview" style="background:linear-gradient(135deg,#dc2626,#f87171);">
+            <span class="tpl-card__preview-text">Landing Page</span>
+          </div>
+          <div class="tpl-card__body">
+            <h3 class="tpl-card__name">Landing Page</h3>
+            <p class="tpl-card__desc">Marketing page with hero section, feature grid, pricing table, testimonials, FAQ
+              accordion, and call-to-action footer.</p>
+            <div class="tpl-card__meta">
+              <div class="tpl-card__badges">
+                <span class="tpl-card__badge">HTML</span>
+                <span class="tpl-card__badge">CSS</span>
+                <span class="tpl-card__badge">JS</span>
+              </div>
+              <a href="dist/examples/landing-pages/" class="tpl-card__link">
+                Preview
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Analytics -->
+        <div class="tpl-card">
+          <div class="tpl-card__preview" style="background:linear-gradient(135deg,#d97706,#fbbf24);">
+            <span class="tpl-card__preview-text">Analytics</span>
+          </div>
+          <div class="tpl-card__body">
+            <h3 class="tpl-card__name">Analytics</h3>
+            <p class="tpl-card__desc">Data visualization dashboard with KPI cards, line charts, bar charts, pie charts,
+              date range filter, and real-time data widgets.</p>
+            <div class="tpl-card__meta">
+              <div class="tpl-card__badges">
+                <span class="tpl-card__badge">HTML</span>
+                <span class="tpl-card__badge">CSS</span>
+                <span class="tpl-card__badge">JS</span>
+              </div>
+              <a href="dist/examples/analytics/" class="tpl-card__link">
+                Preview
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SaaS Dashboard -->
+        <div class="tpl-card">
+          <div class="tpl-card__preview" style="background:linear-gradient(135deg,#0891b2,#67e8f9);">
+            <span class="tpl-card__preview-text">SaaS Dashboard</span>
+          </div>
+          <div class="tpl-card__body">
+            <h3 class="tpl-card__name">SaaS Dashboard</h3>
+            <p class="tpl-card__desc">Modern SaaS application layout with sidebar, top bar, user management,
+              subscription billing, usage metrics, and settings panel.</p>
+            <div class="tpl-card__meta">
+              <div class="tpl-card__badges">
+                <span class="tpl-card__badge">HTML</span>
+                <span class="tpl-card__badge">CSS</span>
+                <span class="tpl-card__badge">JS</span>
+              </div>
+              <a href="dist/examples/saas/" class="tpl-card__link">
+                Preview
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form Wizard -->
+        <div class="tpl-card">
+          <div class="tpl-card__preview" style="background:linear-gradient(135deg,#be185d,#f472b6);">
+            <span class="tpl-card__preview-text">Form Wizard</span>
+          </div>
+          <div class="tpl-card__body">
+            <h3 class="tpl-card__name">Form Wizard</h3>
+            <p class="tpl-card__desc">Multi-step form template with progress stepper, validation on each step,
+              conditional fields, and summary review before submission.</p>
+            <div class="tpl-card__meta">
+              <div class="tpl-card__badges">
+                <span class="tpl-card__badge">HTML</span>
+                <span class="tpl-card__badge">CSS</span>
+                <span class="tpl-card__badge">JS</span>
+              </div>
+              <a href="dist/examples/forms/" class="tpl-card__link">
+                Preview
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="dist/js/zak.js"></script>
+  <script src="js/docs.js"></script>
+</body>
+
+</html>

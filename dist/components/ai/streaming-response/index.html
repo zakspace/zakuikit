@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Streaming Response documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Streaming Response - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/ai/streaming-response/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Streaming Response - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Streaming Response documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/ai/streaming-response/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Ai</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Streaming Response</span>
+                </nav>
+        <h1>Streaming Response</h1>
+        <p class="docs-subtitle">Animated streaming text with typewriter effect, blinking cursor, and progress indicators for real-time AI responses.</p>
+
+        <section class="zak-docs-section">
+            <h2>Typewriter Text</h2>
+            <p>Text with a blinking cursor that simulates live streaming.</p>
+            <div class="docs-preview">
+                <div style="max-width:600px;width:100%">
+                    <div class="zak-ai-stream" id="stream-text-demo">React Server Components represent a fundamental shift in how we think about rendering. They allow you to write components that run exclusively on the server, reducing the JavaScript bundle size sent to the client.<span class="zak-ai-stream-cursor"></span></div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-ai-stream"&gt;
+    Text content here...
+    &lt;span class="zak-ai-stream-cursor"&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+.zak-ai-stream::after {
+    content: '';
+    display: inline-block;
+    width: 2px;
+    height: 1.1em;
+    background: #6366f1;
+    animation: stream-blink 0.8s step-end infinite;
+}
+@keyframes stream-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+&lt;/style&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Streaming with Progress</h2>
+            <p>Streaming text with a progress bar indicator.</p>
+            <div class="docs-preview">
+                <div style="max-width:600px;width:100%">
+                    <div class="zak-ai-stream">The key benefits include reduced bundle size, direct server access, and automatic code splitting. This architecture is ideal for content-heavy applications.<span class="zak-ai-stream-cursor"></span></div>
+                    <div class="zak-ai-stream-progress">
+                        <div class="zak-ai-stream-dots">
+                            <div class="zak-ai-stream-dot"></div>
+                            <div class="zak-ai-stream-dot"></div>
+                            <div class="zak-ai-stream-dot"></div>
+                        </div>
+                        <span>Streaming response...</span>
+                        <div class="zak-ai-stream-progress-bar"><div class="zak-ai-stream-progress-fill"></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-ai-stream"&gt;
+    Streaming content...
+    &lt;span class="zak-ai-stream-cursor"&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="zak-ai-stream-progress"&gt;
+    &lt;div class="zak-ai-stream-dots"&gt;
+        &lt;div class="zak-ai-stream-dot"&gt;&lt;/div&gt;
+        &lt;div class="zak-ai-stream-dot"&gt;&lt;/div&gt;
+        &lt;div class="zak-ai-stream-dot"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;span&gt;Streaming response...&lt;/span&gt;
+    &lt;div class="zak-ai-stream-progress-bar"&gt;
+        &lt;div class="zak-ai-stream-progress-fill"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Partial Code Block</h2>
+            <p>Streaming code with syntax-highlighted partial output.</p>
+            <div class="docs-preview">
+                <div style="max-width:600px;width:100%">
+                    <div class="zak-ai-stream-code"><span class="stream-keyword">async function</span> <span class="stream-func">fetchData</span>(url) {
+  <span class="stream-keyword">const</span> response = <span class="stream-keyword">await</span> <span class="stream-func">fetch</span>(url);
+  <span class="stream-keyword">const</span> data = <span class="stream-keyword">await</span> response.<span class="stream-func">json</span>();
+  <span class="stream-keyword">return</span> data;<span class="zak-ai-stream-cursor"></span></div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-ai-stream-code"&gt;
+    &lt;span class="stream-keyword"&gt;async function&lt;/span&gt;
+    &lt;span class="stream-func"&gt;fetchData&lt;/span&gt;(url) {
+        &lt;span class="stream-keyword"&gt;const&lt;/span&gt; response = ...;
+        &lt;span class="zak-ai-stream-cursor"&gt;&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Streaming Complete</h2>
+            <p>Final state after streaming finishes, with a completion indicator.</p>
+            <div class="docs-preview">
+                <div style="max-width:600px;width:100%">
+                    <div class="zak-ai-stream-complete">React Server Components are a powerful addition to the React ecosystem. They enable better performance through reduced client-side JavaScript while maintaining the component model developers love. Consider using them for data-fetching components that don't need interactivity.</div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-ai-stream-complete"&gt;
+    Completed response text...
+&lt;/div&gt;
+
+&lt;style&gt;
+.zak-ai-stream-complete::after {
+    content: 'âœ“';
+    /* Green checkmark indicator */
+}
+&lt;/style&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>CSS Classes</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>.zak-ai-stream              /* Streaming text container with cursor */
+.zak-ai-stream-cursor       /* Blinking cursor element */
+.zak-ai-stream-progress     /* Progress indicator row */
+.zak-ai-stream-progress-bar /* Progress bar track */
+.zak-ai-stream-progress-fill/* Animated progress fill */
+.zak-ai-stream-dots         /* Bouncing dots container */
+.zak-ai-stream-dot          /* Individual bouncing dot */
+.zak-ai-stream-complete     /* Completed state (checkmark) */
+.zak-ai-stream-code         /* Streaming code block */
+.zak-ai-stream-line-anim    /* Line reveal animation */
+.zak-ai-stream-chars        /* Character-by-character animation */
+
+/* Key Animations */
+@keyframes stream-blink   { 0%,100%{opacity:1} 50%{opacity:0} }
+@keyframes stream-pulse   { 0%,100%{opacity:0.3} 30%{opacity:1} }
+@keyframes stream-progress{ 0%{width:10%} 50%{width:70%} 100%{width:100%} }</code></pre>
+        </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>JavaScript</h2>
+            <p>Typewriter animation for simulating streaming.</p>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>function typewriterStream(element, text, speed = 30) {
+    let i = 0;
+    const cursor = element.querySelector('.zak-ai-stream-cursor');
+    element.textContent = '';
+
+    const interval = setInterval(() =&gt; {
+        if (i &lt; text.length) {
+            element.insertBefore(
+                document.createTextNode(text.charAt(i)),
+                cursor
+            );
+            i++;
+        } else {
+            clearInterval(interval);
+        }
+    }, speed);
+}
+
+// Usage
+const el = document.getElementById('stream-text-demo');
+if (el) {
+    typewriterStream(el,
+        'React Server Components represent a fundamental shift...',
+        25
+    );
+}</code></pre>
+        </div>
+        </section>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body>
+</html>

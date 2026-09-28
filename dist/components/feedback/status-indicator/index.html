@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Status Indicator documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Status Indicator - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/feedback/status-indicator/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Status Indicator - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Status Indicator documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/feedback/status-indicator/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Feedback</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Status Indicator</span>
+                </nav>
+        <h1>Status Indicator</h1>
+        <p class="docs-subtitle">Status indicators pair a color dot with a text label to communicate state at a glance — online, offline, busy, away, and more.</p>
+
+        <section class="zak-docs-section">
+            <h2>Basic Status Indicator</h2>
+            <p>A colored dot beside a small text label.</p>
+            <div class="docs-preview">
+                <div style="display:flex;flex-direction:column;align-items:flex-start;gap:var(--zak-space-2);">
+                    <span class="zak-status-indicator zak-status-success"><span class="zak-status-dot"></span>Online</span>
+                    <span class="zak-status-indicator zak-status-warning"><span class="zak-status-dot"></span>Busy</span>
+                    <span class="zak-status-indicator zak-status-danger"><span class="zak-status-dot"></span>Offline</span>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;span class="zak-status-indicator zak-status-success"&gt;
+    &lt;span class="zak-status-dot"&gt;&lt;/span&gt;
+    Online
+&lt;/span&gt;
+&lt;span class="zak-status-indicator zak-status-warning"&gt;
+    &lt;span class="zak-status-dot"&gt;&lt;/span&gt;
+    Busy
+&lt;/span&gt;
+&lt;span class="zak-status-indicator zak-status-danger"&gt;
+    &lt;span class="zak-status-dot"&gt;&lt;/span&gt;
+    Offline
+&lt;/span&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Status with Text Label</h2>
+            <p>Use longer descriptive labels while keeping the dot color as the primary cue.</p>
+            <div class="docs-preview">
+                <div style="display:flex;flex-direction:column;align-items:flex-start;gap:var(--zak-space-2);">
+                    <span class="zak-status-indicator zak-status-primary"><span class="zak-status-dot"></span>All systems operational</span>
+                    <span class="zak-status-indicator zak-status-info"><span class="zak-status-dot"></span>Syncing in progress</span>
+                    <span class="zak-status-indicator zak-status-success"><span class="zak-status-dot"></span>Deployment complete</span>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;span class="zak-status-indicator zak-status-info"&gt;
+    &lt;span class="zak-status-dot"&gt;&lt;/span&gt;
+    Syncing in progress
+&lt;/span&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Status Colors</h2>
+            <p>All five color variants adjust both the dot and the label text.</p>
+            <div class="docs-preview">
+                <div style="display:flex;flex-direction:column;align-items:flex-start;gap:var(--zak-space-2);">
+                    <span class="zak-status-indicator zak-status-primary"><span class="zak-status-dot"></span>Primary</span>
+                    <span class="zak-status-indicator zak-status-success"><span class="zak-status-dot"></span>Success</span>
+                    <span class="zak-status-indicator zak-status-warning"><span class="zak-status-dot"></span>Warning</span>
+                    <span class="zak-status-indicator zak-status-danger"><span class="zak-status-dot"></span>Danger</span>
+                    <span class="zak-status-indicator zak-status-info"><span class="zak-status-dot"></span>Info</span>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;span class="zak-status-indicator zak-status-primary"&gt;&lt;span class="zak-status-dot"&gt;&lt;/span&gt;Primary&lt;/span&gt;
+&lt;span class="zak-status-indicator zak-status-success"&gt;&lt;span class="zak-status-dot"&gt;&lt;/span&gt;Success&lt;/span&gt;
+&lt;span class="zak-status-indicator zak-status-warning"&gt;&lt;span class="zak-status-dot"&gt;&lt;/span&gt;Warning&lt;/span&gt;
+&lt;span class="zak-status-indicator zak-status-danger"&gt;&lt;span class="zak-status-dot"&gt;&lt;/span&gt;Danger&lt;/span&gt;
+&lt;span class="zak-status-indicator zak-status-info"&gt;&lt;span class="zak-status-dot"&gt;&lt;/span&gt;Info&lt;/span&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Pulsing Indicator</h2>
+            <p>Add <code>zak-status-pulse</code> to draw attention to a live or pending state.</p>
+            <div class="docs-preview">
+                <div style="display:flex;flex-direction:column;align-items:flex-start;gap:var(--zak-space-2);">
+                    <span class="zak-status-indicator zak-status-success zak-status-pulse"><span class="zak-status-dot"></span>Recording live</span>
+                    <span class="zak-status-indicator zak-status-warning zak-status-pulse"><span class="zak-status-dot"></span>Processing payment</span>
+                    <span class="zak-status-indicator zak-status-danger zak-status-pulse"><span class="zak-status-dot"></span>Queued for retry</span>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;span class="zak-status-indicator zak-status-success zak-status-pulse"&gt;
+    &lt;span class="zak-status-dot"&gt;&lt;/span&gt;
+    Recording live
+&lt;/span&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Status Indicator in a List</h2>
+            <p>Combine with an avatar and name to show per-member state.</p>
+            <div class="docs-preview">
+                <div style="width:100%;max-width:26rem;border:1px solid var(--zak-border);border-radius:var(--zak-radius-md);">
+                    <div class="zak-stack" style="gap:var(--zak-space-2);padding:var(--zak-space-3);">
+                        <div style="display:flex;align-items:center;gap:var(--zak-space-2);">
+                            <div class="zak-avatar zak-avatar-sm" style="background:var(--zak-primary-200);color:var(--zak-color-primary);">AM</div>
+                            <div style="display:flex;flex-direction:column;">
+                                <span style="font-size:var(--zak-font-size-xs);font-weight:var(--zak-font-weight-medium);">Amira Haddad</span>
+                                <span class="zak-status-indicator zak-status-success"><span class="zak-status-dot"></span>Online</span>
+                            </div>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:var(--zak-space-2);">
+                            <div class="zak-avatar zak-avatar-sm" style="background:var(--zak-info-200);color:var(--zak-color-info);">JL</div>
+                            <div style="display:flex;flex-direction:column;">
+                                <span style="font-size:var(--zak-font-size-xs);font-weight:var(--zak-font-weight-medium);">Jules Laurent</span>
+                                <span class="zak-status-indicator zak-status-warning"><span class="zak-status-dot"></span>In a call</span>
+                            </div>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:var(--zak-space-2);">
+                            <div class="zak-avatar zak-avatar-sm" style="background:var(--zak-danger-200);color:var(--zak-color-danger);">KS</div>
+                            <div style="display:flex;flex-direction:column;">
+                                <span style="font-size:var(--zak-font-size-xs);font-weight:var(--zak-font-weight-medium);">Kenji Sato</span>
+                                <span class="zak-status-indicator zak-status-danger"><span class="zak-status-dot"></span>Offline</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div style="display:flex;align-items:center;gap:var(--zak-space-2);"&gt;
+    &lt;div class="zak-avatar zak-avatar-sm"&gt;AM&lt;/div&gt;
+    &lt;div style="display:flex;flex-direction:column;"&gt;
+        &lt;span&gt;Amira Haddad&lt;/span&gt;
+        &lt;span class="zak-status-indicator zak-status-success"&gt;
+            &lt;span class="zak-status-dot"&gt;&lt;/span&gt;
+            Online
+        &lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Status Indicator in a Table</h2>
+            <p>Use in table rows to convey record state.</p>
+            <div class="docs-preview">
+                <div style="width:100%;max-width:30rem;border:1px solid var(--zak-border);border-radius:var(--zak-radius-md);overflow:hidden;">
+                    <table style="width:100%;border-collapse:collapse;">
+                        <thead>
+                            <tr style="text-align:left;border-bottom:1px solid var(--zak-border);">
+                                <th style="padding:var(--zak-space-2);font-size:var(--zak-font-size-xs);">Service</th>
+                                <th style="padding:var(--zak-space-2);font-size:var(--zak-font-size-xs);">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom:1px solid var(--zak-border);">
+                                <td style="padding:var(--zak-space-2);font-size:var(--zak-font-size-xs);">API Gateway</td>
+                                <td style="padding:var(--zak-space-2);"><span class="zak-status-indicator zak-status-success"><span class="zak-status-dot"></span>Healthy</span></td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--zak-border);">
+                                <td style="padding:var(--zak-space-2);font-size:var(--zak-font-size-xs);">Auth Service</td>
+                                <td style="padding:var(--zak-space-2);"><span class="zak-status-indicator zak-status-warning"><span class="zak-status-dot"></span>Degraded</span></td>
+                            </tr>
+                            <tr>
+                                <td style="padding:var(--zak-space-2);font-size:var(--zak-font-size-xs);">Billing Worker</td>
+                                <td style="padding:var(--zak-space-2);"><span class="zak-status-indicator zak-status-danger"><span class="zak-status-dot"></span>Down</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;tr&gt;
+    &lt;td&gt;API Gateway&lt;/td&gt;
+    &lt;td&gt;&lt;span class="zak-status-indicator zak-status-success"&gt;
+        &lt;span class="zak-status-dot"&gt;&lt;/span&gt;Healthy
+    &lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Status as a Badge</h2>
+            <p>Pair the status indicator with the badge component for a compact chip.</p>
+            <div class="docs-preview">
+                <div style="display:flex;flex-direction:column;align-items:flex-start;gap:var(--zak-space-2);">
+                    <span class="zak-badge"><span class="zak-status-indicator zak-status-success"><span class="zak-status-dot"></span>Shipped</span></span>
+                    <span class="zak-badge"><span class="zak-status-indicator zak-status-warning"><span class="zak-status-dot"></span>Pending</span></span>
+                    <span class="zak-badge"><span class="zak-status-indicator zak-status-danger"><span class="zak-status-dot"></span>Cancelled</span></span>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;span class="zak-badge"&gt;
+    &lt;span class="zak-status-indicator zak-status-success"&gt;
+        &lt;span class="zak-status-dot"&gt;&lt;/span&gt;
+        Shipped
+    &lt;/span&gt;
+&lt;/span&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>CSS Classes &amp; Variables</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>.zak-status-indicator    /* Inline-flex row: dot + label */
+.zak-status-dot          /* 8px circular dot (neutral by default) */
+.zak-status-primary       /* Primary dot + label color */
+.zak-status-success       /* Success dot + label color */
+.zak-status-warning       /* Warning dot + label color */
+.zak-status-danger        /* Danger dot + label color */
+.zak-status-info          /* Info dot + label color */
+.zak-status-pulse         /* Pulsing dot animation (zak-pulse) */</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Never rely on color alone — always include a text label alongside the dot.</li>
+                <li>For dot-only usage, provide an equivalent accessible name, e.g. <code>role="status"</code> with visually hidden text.</li>
+                <li>When a live state changes, use <code>aria-live="polite"</code> to announce updates.</li>
+                <li>Keep labels consistent and familiar: Online, Busy, Offline, Away, Pending, Failed.</li>
+            </ul>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;span class="zak-status-indicator zak-status-success" role="status" aria-live="polite"&gt;
+    &lt;span class="zak-status-dot" aria-hidden="true"&gt;&lt;/span&gt;
+    &lt;span class="visually-hidden"&gt;Connected&lt;/span&gt;
+    &lt;span&gt;Online&lt;/span&gt;
+&lt;/span&gt;</code></pre>
+            </div>
+        </section>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body></html>

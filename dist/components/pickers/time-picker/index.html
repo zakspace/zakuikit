@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Time Picker documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Time Picker - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/pickers/time-picker/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Time Picker - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Time Picker documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/pickers/time-picker/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Pickers</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Time Picker</span>
+                </nav>
+        <h1>Time Picker</h1>
+        <p class="docs-subtitle">The Time Picker turns a text input into a stepper-based time selector. Use the up/down arrows to adjust hours and minutes, then confirm with <em>OK</em> or grab the current time with <em>Now</em>.</p>
+
+        <section class="zak-docs-section">
+            <h2>Basic Time Picker</h2>
+            <p>Focus or click the field to open the popup. Hours step one by one while minutes jump by five, matching quick-entry behavior.</p>
+            <div class="docs-preview">
+                <input type="text" class="zak-input" data-zak-timepicker placeholder="HH:MM" autocomplete="off">
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;input type="text" class="zak-input" data-zak-timepicker&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>In a Labeled Field</h2>
+            <p>Pair the input with a <code>&lt;label&gt;</code> and use the time picker inside a form. The value is written in 24-hour <code>HH:MM</code> form.</p>
+            <div class="docs-preview">
+                <div style="display:flex; flex-direction:column; gap:6px;">
+                    <label for="meetingTime" style="font-size:14px; font-weight:500; color:var(--zak-text,#1e293b);">Meeting time</label>
+                    <div style="display:flex; align-items:center; gap:12px;">
+                        <input type="text" id="meetingTime" class="zak-input" data-zak-timepicker placeholder="09:00" autocomplete="off">
+                        <button type="button" class="zak-btn" id="readTimeBtn">Read value</button>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;label for="meetingTime"&gt;Meeting time&lt;/label&gt;
+&lt;input type="text" id="meetingTime" class="zak-input" data-zak-timepicker&gt;
+
+&lt;script&gt;
+    document.getElementById('readTimeBtn').addEventListener('click', function () {
+        alert(document.getElementById('meetingTime').value || 'Not set yet');
+    });
+&lt;/script&gt;</code></pre>
+            </div>
+            <script>
+                var readTimeBtn = document.getElementById('readTimeBtn');
+                if (readTimeBtn) readTimeBtn.addEventListener('click', function () {
+                    alert(document.getElementById('meetingTime').value || 'Not set yet');
+                });
+            </script>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Change Event</h2>
+            <p>Every value write fires <code>zak:change</code> on the input with <code>hours</code>, <code>minutes</code> and the formatted <code>value</code>.</p>
+            <div class="docs-preview">
+                <input type="text" class="zak-input" data-zak-timepicker placeholder="HH:MM" autocomplete="off">
+                <p class="zak-event-log" id="timePickerLog">No time set yet.</p>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;input type="text" class="zak-input" id="reminder" data-zak-timepicker&gt;
+
+&lt;script&gt;
+    document.getElementById('reminder').addEventListener('zak:change', function (e) {
+        console.log(e.detail.hours, e.detail.minutes, e.detail.value);
+    });
+&lt;/script&gt;</code></pre>
+            </div>
+            <script>
+                var timePickerLog = document.getElementById('timePickerLog');
+                var timeInputs = document.querySelectorAll('[data-zak-timepicker]');
+                timeInputs.forEach(function (inp) {
+                    inp.addEventListener('zak:change', function (e) {
+                        if (timePickerLog) timePickerLog.textContent = 'Set to ' + e.detail.value + ' (' + e.detail.hours + ':' + e.detail.minutes + ')';
+                    });
+                });
+            </script>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>CSS Classes</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>.zak-timepicker                /* Wrapper injected around the input */
+.zak-timepicker-popup          /* Popup (hidden until active) */
+.zak-timepicker-header         /* Spinner columns + colon */
+.zak-timepicker-column         /* One vertical spinner group */
+.zak-timepicker-spin-up        /* Up arrow button */
+.zak-timepicker-spin-down      /* Down arrow button */
+.zak-timepicker-hour           /* Hour readout */
+.zak-timepicker-minute         /* Minute readout */
+.zak-timepicker-separator      /* Colon between the columns */
+.zak-timepicker-footer         /* Now + OK action row */
+
+/* Toggle class */
+.zak-timepicker-popup-active   /* Shows the popup */</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>JavaScript API</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>zak.timePicker.init()      // Bind all [data-zak-timepicker] inputs
+
+// Data attributes:
+data-zak-timepicker       // Enables the picker on an input
+data-zak-timepicker-format // Reserved format hint ('24h' default)
+
+// Event on the input:
+zak:change  // { hours, minutes, value: "HH:MM" }
+
+// Footer actions built into the popup:
+Now         // Fills current time from the clock
+OK          // Writes the value and closes the popup</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>All spinner arrows and footer buttons are native <code>&lt;button&gt;</code> elements; the readout is a <code>&lt;span&gt;</code> kept in sync.</li>
+                <li>Focusing the field opens the popup and clicking outside or pressing <kbd>Esc</kbd> dismisses it.</li>
+                <li>Keep the input inside a <code>&lt;label&gt;</code> or with an <code>aria-label</code> so the purpose is announced.</li>
+                <li>The <code>HH:MM</code> output is unambiguous across locales — format it for display rather than for the stored value.</li>
+            </ul>
+        </section>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body></html>

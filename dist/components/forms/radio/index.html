@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Radio documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Radio - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/forms/radio/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Radio - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Radio documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/forms/radio/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+  <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+  <span class="docs-breadcrumb__separator">/</span>
+  <span class="docs-breadcrumb__current">Forms</span>
+  <span class="docs-breadcrumb__separator">/</span>
+  <span class="docs-breadcrumb__current">Radio</span>
+</nav>
+
+        <h1>Radio</h1>
+        <p class="docs-subtitle">Radio buttons allow users to select exactly one option from a set. They are ideal for mutually exclusive choices.</p>
+
+        <div class="zak-docs-section">
+            <h2>Basic Radio</h2>
+            <p>Standard radio buttons with labels.</p>
+
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-check">
+                        <input type="radio" name="plan" id="r-basic-1" class="zak-form-check-input zak-radio" value="free" checked>
+                        <label class="zak-form-check-label" for="r-basic-1">Free Plan</label>
+                    </div>
+                    <div class="zak-form-check">
+                        <input type="radio" name="plan" id="r-basic-2" class="zak-form-check-input zak-radio" value="pro">
+                        <label class="zak-form-check-label" for="r-basic-2">Pro Plan</label>
+                    </div>
+                    <div class="zak-form-check">
+                        <input type="radio" name="plan" id="r-basic-3" class="zak-form-check-input zak-radio" value="enterprise">
+                        <label class="zak-form-check-label" for="r-basic-3">Enterprise Plan</label>
+                    </div>
+                </form>
+            </div>
+
+            <div class="docs-code-block">
+                <div class="docs-code-block__header">
+                    <span class="docs-code-block__lang">HTML</span>
+                    <button class="docs-copy-btn">Copy</button>
+                </div>
+                <pre><code class="language-html">&lt;div class="zak-form-check"&gt;
+  &lt;input type="radio" name="plan" id="free" class="zak-form-check-input zak-radio" value="free" checked&gt;
+  &lt;label class="zak-form-check-label" for="free"&gt;Free Plan&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class="zak-form-check"&gt;
+  &lt;input type="radio" name="plan" id="pro" class="zak-form-check-input zak-radio" value="pro"&gt;
+  &lt;label class="zak-form-check-label" for="pro"&gt;Pro Plan&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class="zak-form-check"&gt;
+  &lt;input type="radio" name="plan" id="enterprise" class="zak-form-check-input zak-radio" value="enterprise"&gt;
+  &lt;label class="zak-form-check-label" for="enterprise"&gt;Enterprise Plan&lt;/label&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Checked &amp; Disabled</h2>
+            <p>Radio states for selection and availability.</p>
+
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-check">
+                        <input type="radio" name="state" id="r-checked" class="zak-form-check-input zak-radio" checked>
+                        <label class="zak-form-check-label" for="r-checked">Selected option</label>
+                    </div>
+                    <div class="zak-form-check">
+                        <input type="radio" name="state" id="r-unchecked" class="zak-form-check-input zak-radio">
+                        <label class="zak-form-check-label" for="r-unchecked">Unselected option</label>
+                    </div>
+                    <div class="zak-form-check">
+                        <input type="radio" name="state" id="r-disabled" class="zak-form-check-input zak-radio" disabled>
+                        <label class="zak-form-check-label" for="r-disabled">Disabled option</label>
+                    </div>
+                </form>
+            </div>
+
+            <div class="docs-code-block">
+                <div class="docs-code-block__header">
+                    <span class="docs-code-block__lang">HTML</span>
+                    <button class="docs-copy-btn">Copy</button>
+                </div>
+                <pre><code class="language-html">&lt;div class="zak-form-check"&gt;
+  &lt;input type="radio" name="state" id="checked" class="zak-form-check-input zak-radio" checked&gt;
+  &lt;label class="zak-form-check-label" for="checked"&gt;Selected option&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class="zak-form-check"&gt;
+  &lt;input type="radio" name="state" id="disabled" class="zak-form-check-input zak-radio" disabled&gt;
+  &lt;label class="zak-form-check-label" for="disabled"&gt;Disabled option&lt;/label&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Inline Radios</h2>
+            <p>Display radio buttons horizontally.</p>
+
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-check-inline">
+                        <div class="zak-form-check">
+                            <input type="radio" name="size" id="r-sm" class="zak-form-check-input zak-radio" value="sm">
+                            <label class="zak-form-check-label" for="r-sm">Small</label>
+                        </div>
+                        <div class="zak-form-check">
+                            <input type="radio" name="size" id="r-md" class="zak-form-check-input zak-radio" value="md" checked>
+                            <label class="zak-form-check-label" for="r-md">Medium</label>
+                        </div>
+                        <div class="zak-form-check">
+                            <input type="radio" name="size" id="r-lg" class="zak-form-check-input zak-radio" value="lg">
+                            <label class="zak-form-check-label" for="r-lg">Large</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="docs-code-block">
+                <div class="docs-code-block__header">
+                    <span class="docs-code-block__lang">HTML</span>
+                    <button class="docs-copy-btn">Copy</button>
+                </div>
+                <pre><code class="language-html">&lt;div class="zak-form-check-inline"&gt;
+  &lt;div class="zak-form-check"&gt;
+    &lt;input type="radio" name="size" id="sm" class="zak-form-check-input zak-radio" value="sm"&gt;
+    &lt;label class="zak-form-check-label" for="sm"&gt;Small&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div class="zak-form-check"&gt;
+    &lt;input type="radio" name="size" id="md" class="zak-form-check-input zak-radio" value="md" checked&gt;
+    &lt;label class="zak-form-check-label" for="md"&gt;Medium&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div class="zak-form-check"&gt;
+    &lt;input type="radio" name="size" id="lg" class="zak-form-check-input zak-radio" value="lg"&gt;
+    &lt;label class="zak-form-check-label" for="lg"&gt;Large&lt;/label&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Card Radio</h2>
+            <p>Radio buttons styled as selectable cards.</p>
+
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-card-checkbox-row">
+                        <label class="zak-card-checkbox">
+                            <input type="radio" name="payment" value="card" checked>
+                            <div class="zak-card zak-card-bordered">
+                                <div class="zak-card-body">
+                                    <strong>Credit Card</strong>
+                                    <span class="zak-form-text">Visa, Mastercard, AMEX</span>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="zak-card-checkbox">
+                            <input type="radio" name="payment" value="paypal">
+                            <div class="zak-card zak-card-bordered">
+                                <div class="zak-card-body">
+                                    <strong>PayPal</strong>
+                                    <span class="zak-form-text">Pay with your PayPal account</span>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="zak-card-checkbox">
+                            <input type="radio" name="payment" value="bank">
+                            <div class="zak-card zak-card-bordered">
+                                <div class="zak-card-body">
+                                    <strong>Bank Transfer</strong>
+                                    <span class="zak-form-text">Direct bank transfer</span>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </form>
+            </div>
+
+            <div class="docs-code-block">
+                <div class="docs-code-block__header">
+                    <span class="docs-code-block__lang">HTML</span>
+                    <button class="docs-copy-btn">Copy</button>
+                </div>
+                <pre><code class="language-html">&lt;div class="zak-card-checkbox-row"&gt;
+  &lt;label class="zak-card-checkbox"&gt;
+    &lt;input type="radio" name="payment" value="card" checked&gt;
+    &lt;div class="zak-card zak-card-bordered"&gt;
+      &lt;div class="zak-card-body"&gt;
+        &lt;strong&gt;Credit Card&lt;/strong&gt;
+        &lt;span class="zak-form-text"&gt;Visa, Mastercard, AMEX&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/label&gt;
+  &lt;label class="zak-card-checkbox"&gt;
+    &lt;input type="radio" name="payment" value="paypal"&gt;
+    &lt;div class="zak-card zak-card-bordered"&gt;
+      &lt;div class="zak-card-body"&gt;
+        &lt;strong&gt;PayPal&lt;/strong&gt;
+        &lt;span class="zak-form-text"&gt;Pay with your PayPal account&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/label&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Button-style Radios</h2>
+            <p>Radio buttons styled as toggle buttons.</p>
+
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label">Select a size</label>
+                        <div class="zak-btn-group" role="radiogroup">
+                            <input type="radio" class="zak-btn-check" name="btn-size" id="btn-s" value="s">
+                            <label class="zak-btn zak-btn-outline" for="btn-s">S</label>
+                            <input type="radio" class="zak-btn-check" name="btn-size" id="btn-m" value="m" checked>
+                            <label class="zak-btn zak-btn-outline" for="btn-m">M</label>
+                            <input type="radio" class="zak-btn-check" name="btn-size" id="btn-l" value="l">
+                            <label class="zak-btn zak-btn-outline" for="btn-l">L</label>
+                            <input type="radio" class="zak-btn-check" name="btn-size" id="btn-xl" value="xl">
+                            <label class="zak-btn zak-btn-outline" for="btn-xl">XL</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="docs-code-block">
+                <div class="docs-code-block__header">
+                    <span class="docs-code-block__lang">HTML</span>
+                    <button class="docs-copy-btn">Copy</button>
+                </div>
+                <pre><code class="language-html">&lt;div class="zak-btn-group" role="radiogroup"&gt;
+  &lt;input type="radio" class="zak-btn-check" name="size" id="s" value="s"&gt;
+  &lt;label class="zak-btn zak-btn-outline" for="s"&gt;S&lt;/label&gt;
+  &lt;input type="radio" class="zak-btn-check" name="size" id="m" value="m" checked&gt;
+  &lt;label class="zak-btn zak-btn-outline" for="m"&gt;M&lt;/label&gt;
+  &lt;input type="radio" class="zak-btn-check" name="size" id="l" value="l"&gt;
+  &lt;label class="zak-btn zak-btn-outline" for="l"&gt;L&lt;/label&gt;
+  &lt;input type="radio" class="zak-btn-check" name="size" id="xl" value="xl"&gt;
+  &lt;label class="zak-btn zak-btn-outline" for="xl"&gt;XL&lt;/label&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.zak-form-check</code></td><td>Check container</td></tr>
+                        <tr><td><code>.zak-form-check-input</code></td><td>Base input</td></tr>
+                        <tr><td><code>.zak-radio</code></td><td>Radio-specific styling</td></tr>
+                        <tr><td><code>.zak-form-check-label</code></td><td>Label</td></tr>
+                        <tr><td><code>.zak-form-check-inline</code></td><td>Inline layout</td></tr>
+                        <tr><td><code>.zak-card-checkbox</code></td><td>Card-style radio</td></tr>
+                        <tr><td><code>.zak-btn-check</code></td><td>Button-style radio input</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>All radios in a group must share the same <code>name</code> attribute.</li>
+                <li>Each radio must have an associated <code>&lt;label&gt;</code> via <code>for</code>/<code>id</code>.</li>
+                <li>Use <code>role="radiogroup"</code> on container elements with <code>aria-labelledby</code>.</li>
+                <li>Only one radio in a group can be checked at a time.</li>
+                <li>Support keyboard navigation: arrow keys to move between options.</li>
+            </ul>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body>
+</html>

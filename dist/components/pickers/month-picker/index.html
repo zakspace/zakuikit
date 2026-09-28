@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Month Picker documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Month Picker - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/pickers/month-picker/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Month Picker - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Month Picker documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/pickers/month-picker/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Pickers</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Month Picker</span>
+                </nav>
+        <h1>Month Picker</h1>
+        <p class="docs-subtitle">The Month Picker selects a month without showing individual days. A 3&times;4 grid of month cells sits under a year navigator.</p>
+
+        <section class="zak-docs-section">
+            <h2>Basic Month Picker</h2>
+            <p>Click the field to open the grid. The current month is tinted with the primary color; your selection fills with a solid fill.</p>
+            <div class="docs-preview">
+                <div id="monthPicker1" class="zak-month-picker"></div>
+                <p class="zak-event-log" id="monthLog1">Pick a month.</p>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-month-picker"&gt;
+    &lt;button type="button" class="zak-month-field"&gt;
+        Select month
+    &lt;/button&gt;
+    &lt;div class="zak-month-popup"&gt;
+        &lt;div class="zak-calendar-header"&gt;
+            &lt;button class="zak-calendar-nav-btn"&gt;&amp;lt;&lt;/button&gt;
+            &lt;span class="zak-calendar-title"&gt;2026&lt;/span&gt;
+            &lt;button class="zak-calendar-nav-btn"&gt;&amp;gt;&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class="zak-month-grid"&gt;&lt;!-- Jan..Dec cells --&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Year Navigation</h2>
+            <p>The chevrons move the year backwards and forwards; the grid always shows the twelve months of the displayed year.</p>
+            <div class="docs-preview" id="monthPickerStatic"></div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-calendar-header"&gt;
+    &lt;button class="zak-calendar-nav-btn" id="prevYr"&gt;&amp;lt;&lt;/button&gt;
+    &lt;span class="zak-calendar-title" id="yearLabel"&gt;2026&lt;/span&gt;
+    &lt;button class="zak-calendar-nav-btn" id="nextYr"&gt;&amp;gt;&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+    var year = 2026;
+    prevYr.onclick = function () { year--; render(); };
+    nextYr.onclick = function () { year++; render(); };
+    function render() {
+        yearLabel.textContent = year;
+        // fill .zak-month-grid with 12 cells for `year`
+    }
+&lt;/script&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Disabled Months</h2>
+            <p>Months in the past or outside a contract window can be disabled so users never pick an invalid period.</p>
+            <div class="docs-preview" id="monthPickerDisabled"></div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>// Disable months before today during render:
+MONTHS.forEach(function (month, i) {
+    var cell = monthCell(month, i);
+    if (year === today.getFullYear() &amp;&amp; i &lt; today.getMonth()) {
+        cell.disabled = true;
+    }
+    return cell;
+});</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>CSS Classes</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>.zak-month-picker              /* Relative wrapper (field + popup) */
+.zak-month-field               /* Readable trigger */
+.zak-month-popup               /* Popup with grid (hidden until active) */
+.zak-month-grid                /* 3-by-4 month grid */
+.zak-month-cell                /* Single month button */
+.zak-month-cell.zak-selected   /* Chosen month */
+.zak-month-cell.zak-current    /* Current month (today's month) */
+.zak-month-cell:disabled       /* Unselectable months */
+
+// Reused:
+.zak-calendar-header, .zak-calendar-title, .zak-calendar-nav-btn
+
+// Toggle class:
+.zak-month-popup-active        /* Shows the popup */</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>JavaScript</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>// No library module — a tiny render loop is enough:
+
+var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun',
+              'Jul','Aug','Sep','Oct','Nov','Dec'];
+var selected = null;   // { year, month }
+
+function render() {
+    yearLabel.textContent = year;
+    grid.innerHTML = '';
+    MONTHS.forEach(function (name, i) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'zak-month-cell';
+        b.textContent = name;
+        var now = new Date();
+        if (year === now.getFullYear() &amp;&amp; i === now.getMonth()) b.classList.add('zak-current');
+        if (selected &amp;&amp; selected.year === year &amp;&amp; selected.month === i) b.classList.add('zak-selected');
+        b.addEventListener('click', function () {
+            selected = { year: year, month: i };
+            field.textContent = name + ' ' + year;
+            render();
+        });
+        grid.appendChild(b);
+    });
+}</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Each month is a native <code>&lt;button&gt;</code>, focusable and keyboard-usable; year chevrons follow the same pattern.</li>
+                <li>Update the trigger text on every pick — the year label and selection both announce a concrete value.</li>
+                <li>Disabled months must be <code>disabled</code>, not faded text, so they are skipped by assistive tech too.</li>
+                <li>Pair with a full Calendar when users also need day-level precision.</li>
+            </ul>
+        </section>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body></html>

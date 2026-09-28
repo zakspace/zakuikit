@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Calendar documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Calendar - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/pickers/calendar/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Calendar - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Calendar documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/pickers/calendar/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Pickers</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Calendar</span>
+                </nav>
+        <h1>Calendar</h1>
+        <p class="docs-subtitle">The Calendar is the standalone month view that powers the pickers. Style it with <code>.zak-calendar</code> classes and drive it with a few lines of plain JavaScript.</p>
+
+        <section class="zak-docs-section">
+            <h2>Selectable Calendar</h2>
+            <p>Click a day to mark it <code>zak-selected</code>. The current day carries <code>zak-today</code> and adjacent-month days get <code>zak-outside</code>.</p>
+            <div class="docs-preview" id="calDemo1"><div class="zak-calendar"></div></div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-calendar" id="calendar"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+    var view = new Date();           // month being shown
+    var selected = null;
+
+    function draw() {
+        var cal = document.getElementById('calendar');
+        var y = view.getFullYear(), m = view.getMonth();
+        cal.innerHTML =
+            '&lt;div class="zak-calendar-header"&gt;' +
+                '&lt;button class="zak-calendar-nav-btn" id="prev"&gt;&amp;lt;&lt;/button&gt;' +
+                '&lt;span class="zak-calendar-title"&gt;' + view.toLocaleString('en', { month: 'long', year: 'numeric' }) + '&lt;/span&gt;' +
+                '&lt;button class="zak-calendar-nav-btn" id="next"&gt;&amp;gt;&lt;/button&gt;' +
+            '&lt;/div&gt;' +
+            '&lt;div class="zak-calendar-grid"&gt;' +
+                ['Su','Mo','Tu','We','Th','Fr','Sa'].map(function (d) {
+                    return '&lt;span class="zak-calendar-weekday"&gt;' + d + '&lt;/span&gt;';
+                }).join('') +
+                buildDays() +
+            '&lt;/div&gt;';
+        document.getElementById('prev').onclick = function () { view.setMonth(view.getMonth() - 1); draw(); };
+        document.getElementById('next').onclick = function () { view.setMonth(view.getMonth() + 1); draw(); };
+    }
+
+    function buildDays() {
+        var y = view.getFullYear(), m = view.getMonth();
+        var first = new Date(y, m, 1);
+        var cells = '';
+        for (var i = first.getDay(); i &gt; 0; i--) {
+            var d = new Date(y, m, -i + 1);
+            cells += dayCell(d, true);
+        }
+        while (first.getMonth() === m) {
+            cells += dayCell(first, false);
+            first = new Date(y, m, first.getDate() + 1);
+        }
+        return cells;
+    }
+
+    function dayCell(date, outside) {
+        var cls = 'zak-calendar-day' + (outside ? ' zak-outside' : '');
+        if (!outside &amp;&amp; sameDay(date, new Date())) cls += ' zak-today';
+        if (selected &amp;&amp; sameDay(date, selected)) cls += ' zak-selected';
+        return '&lt;button class="' + cls + '" data-date="' + date.toISOString() + '"&gt;' + date.getDate() + '&lt;/button&gt;';
+    }
+
+    function sameDay(a, b) {
+        return a.toDateString() === b.toDateString();
+    }
+
+    document.getElementById('calendar').addEventListener('click', function (e) {
+        if (!e.target.classList.contains('zak-calendar-day')) return;
+        selected = new Date(e.target.getAttribute('data-date'));
+        draw();
+    });
+
+    draw();
+&lt;/script&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Range Selection</h2>
+            <p>Pick a start then an end day. Days in between get <code>zak-in-range</code>, and the endpoints get <code>zak-range-start</code> / <code>zak-range-end</code>.</p>
+            <div class="docs-preview">
+                <div id="rangeDemo" class="zak-calendar" data-zak-calendar-range style="display:inline-flex;"></div>
+                <p class="zak-event-log" id="rangeLog">Select a start and end date.</p>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-calendar" id="range"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+    var start = null, willDraw;
+    // Reuse the draw/buildDays helpers above and add:
+    function buildDays() {
+        // ...same grid build, then classify:
+        if (start &amp;&amp; end) {
+            if (d &gt; start &amp;&amp; d &lt; end) cls += ' zak-in-range';
+            if (sameDay(d, start)) cls += ' zak-range-start';
+            if (sameDay(d, end))   cls += ' zak-range-end';
+        }
+    }
+    // Click handler:
+    if (!start) { start = clicked; end = null; }
+    else {
+        if (clicked &lt; start) { end = start; start = clicked; }
+        else { end = clicked; }
+    }
+    draw();
+&lt;/script&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Disabled Days</h2>
+            <p>Disable unselectable days with the native <code>disabled</code> attribute; the styles dim them and drop the hover feedback.</p>
+            <div class="docs-preview" id="calDemo3"><div class="zak-calendar" id="calDemo3-cal"></div></div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;button class="zak-calendar-day" disabled&gt;5&lt;/button&gt;
+&lt;button class="zak-calendar-day" disabled&gt;6&lt;/button&gt;
+&lt;!-- weekends, past days, booked slots, etc. --&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Footer Actions</h2>
+            <p>Pair the grid with <code>zak-calendar-footer</code> for confirm / clear actions, as the pickers do.</p>
+            <div class="docs-preview">
+                <div class="zak-calendar" style="display:inline-flex;">
+                    <div class="zak-calendar-header">
+                        <button class="zak-calendar-nav-btn">&#8249;</button>
+                        <span class="zak-calendar-title">September 2026</span>
+                        <button class="zak-calendar-nav-btn">&#8250;</button>
+                    </div>
+                    <div class="zak-calendar-grid">
+                        <span class="zak-calendar-weekday">Su</span><span class="zak-calendar-weekday">Mo</span><span class="zak-calendar-weekday">Tu</span><span class="zak-calendar-weekday">We</span><span class="zak-calendar-weekday">Th</span><span class="zak-calendar-weekday">Fr</span><span class="zak-calendar-weekday">Sa</span>
+                        <span class="zak-calendar-day zak-outside">31</span><span class="zak-calendar-day">1</span><span class="zak-calendar-day">2</span><span class="zak-calendar-day">3</span><span class="zak-calendar-day">4</span><span class="zak-calendar-day">5</span><span class="zak-calendar-day">6</span>
+                        <span class="zak-calendar-day">7</span><span class="zak-calendar-day zak-today">8</span><span class="zak-calendar-day">9</span><span class="zak-calendar-day">10</span><span class="zak-calendar-day zak-selected">11</span><span class="zak-calendar-day">12</span><span class="zak-calendar-day">13</span>
+                        <span class="zak-calendar-day">14</span><span class="zak-calendar-day">15</span><span class="zak-calendar-day">16</span><span class="zak-calendar-day">17</span><span class="zak-calendar-day">18</span><span class="zak-calendar-day">19</span><span class="zak-calendar-day">20</span>
+                        <span class="zak-calendar-day">21</span><span class="zak-calendar-day">22</span><span class="zak-calendar-day">23</span><span class="zak-calendar-day">24</span><span class="zak-calendar-day">25</span><span class="zak-calendar-day">26</span><span class="zak-calendar-day">27</span>
+                        <span class="zak-calendar-day">28</span><span class="zak-calendar-day">29</span><span class="zak-calendar-day">30</span><span class="zak-calendar-day zak-outside">1</span><span class="zak-calendar-day zak-outside">2</span><span class="zak-calendar-day zak-outside">3</span><span class="zak-calendar-day zak-outside">4</span>
+                    </div>
+                    <div class="zak-calendar-footer">
+                        <button class="zak-btn zak-btn-sm">Clear</button>
+                        <button class="zak-btn zak-btn-primary zak-btn-sm">Apply</button>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-calendar"&gt;
+    &lt;div class="zak-calendar-header"&gt;&lt;!-- nav --&gt;&lt;/div&gt;
+    &lt;div class="zak-calendar-grid"&gt;&lt;!-- days --&gt;&lt;/div&gt;
+    &lt;div class="zak-calendar-footer"&gt;
+        &lt;button class="zak-btn zak-btn-sm"&gt;Clear&lt;/button&gt;
+        &lt;button class="zak-btn zak-btn-primary zak-btn-sm"&gt;Apply&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>CSS Classes</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>.zak-calendar            /* Card wrapping the month grid */
+.zak-calendar-header     /* Nav row: title + prev/next */
+.zak-calendar-title      /* "September 2026" label */
+.zak-calendar-nav        /* Nav button group */
+.zak-calendar-nav-btn    /* Prev / next chevron buttons */
+.zak-calendar-grid       /* 7-column day grid */
+.zak-calendar-weekday    /* Su..Sa column headers */
+.zak-calendar-day        /* Day cell (rendered as button) */
+.zak-calendar-day.zak-outside   /* Days from adjacent months */
+.zak-calendar-day.zak-today     /* Current day */
+.zak-calendar-day.zak-selected  /* Single selected day */
+.zak-calendar-day.zak-in-range  /* Days inside a range */
+.zak-calendar-day:disabled      /* Unselectable days */
+.zak-calendar-footer     /* Action row (Clear / Apply) */</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>JavaScript</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>// The calendar is presentational — no JS module ships with it.
+// Drive it with plain code: build the grid, read clicks, re-render.
+
+function formatDay(date) {              // "2026-09-08"
+    var y = date.getFullYear();
+    var m = ('0' + (date.getMonth() + 1)).slice(-2);
+    var d = ('0' + date.getDate()).slice(-2);
+    return y + '-' + m + '-' + d;
+}
+
+grid.addEventListener('click', function (e) {
+    if (!e.target.classList.contains('zak-calendar-day')) return;
+    var date = new Date(e.target.getAttribute('data-date'));
+    // ...store selection and redraw
+});
+
+// Keyboard note: within the grid listen for Enter/Space on buttons,
+// then mirror the click behavior so selection works without a mouse.</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Use real <code>&lt;button&gt;</code> elements for days so focus and Enter/Space activation work naturally.</li>
+                <li>Announce state changes with <code>aria-pressed</code> on selected days or an <code>aria-live</code> summary line.</li>
+                <li>Keep the title meaningful (month + year) and label disabled days — visually dimming alone is not enough.</li>
+                <li>For arrow-key navigation, implement roving tabindex over the day cells.</li>
+            </ul>
+        </section>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    <script>/* ZAK_DEMO_LIVE_CAL3 */
+(function(){
+  var cal=document.getElementById('calDemo3-cal');
+  if(!cal) return;
+  cal.__zakCal=true;
+  var view=new Date(), y=view.getFullYear(), m=view.getMonth();
+  var WEEK=['Su','Mo','Tu','We','Th','Fr','Sa'];
+  var booked=[3,4,10,11,17,18,24,25];
+  function build(){
+    var first=new Date(y,m,1), days=new Date(y,m+1,0).getDate(), out='';
+    out+='<div class="zak-calendar-header"><button type="button" class="zak-calendar-nav" data-nav="-1" aria-label="Previous month">\u2039</button><div class="zak-calendar-title">'+first.toLocaleString('en',{month:'long',year:'numeric'})+'</div><button type="button" class="zak-calendar-nav" data-nav="1" aria-label="Next month">\u203a</button></div>';
+    out+='<div class="zak-calendar-grid">'+WEEK.map(function(d){return '<div class="zak-calendar-weekday">'+d+'</div>';}).join('')+'</div>';
+    var g='<div class="zak-calendar-grid">';
+    var start=new Date(y,m,1-first.getDay());
+    for(var i=0;i<42;i++){
+      var d=new Date(start.getFullYear(),start.getMonth(),start.getDate()+i);
+      var outside=d.getMonth()!==m;
+      var dis=!outside&&booked.indexOf(d.getDate())!==-1;
+      g+='<button type="button" class="zak-calendar-day'+(outside?' zak-outside':'')+'"'+(dis?' disabled':'')+'>'+d.getDate()+'</button>';
+    }
+    g+='</div>';
+    cal.innerHTML=out+g;
+    cal.querySelectorAll('[data-nav]').forEach(function(b){b.addEventListener('click',function(){m+=parseInt(b.getAttribute('data-nav'),10);if(m<0){m=11;y--;}if(m>11){m=0;y++;}build();});});
+  }
+  build();
+})();
+</script>
+</body></html>

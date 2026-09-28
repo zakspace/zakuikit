@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit List Group documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>List Group - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/data-display/list-group/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="List Group - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit List Group documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/data-display/list-group/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Data-Display</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">List Group</span>
+                </nav>
+        <h1>List Group</h1>
+        <p class="docs-subtitle">List groups are a flexible and powerful component for displaying a series of content. They support links, buttons, badges, contextual states, and even rich custom content.</p>
+
+        <div class="zak-docs-section">
+            <h2>Basic List Group</h2>
+            <p>Use <code>.zak-list-group</code> with <code>.zak-list-item</code> children.</p>
+
+            <div class="docs-preview">
+                <ul class="zak-list-group" style="max-width: 24rem; margin: 0 auto; text-align: left;">
+                    <li class="zak-list-item">Dapibus ac facilisis in</li>
+                    <li class="zak-list-item">Morbi leo risus</li>
+                    <li class="zak-list-item">Porta ac consectetur ac</li>
+                    <li class="zak-list-item">Vestibulum at eros</li>
+                </ul>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;ul class="zak-list-group"&gt;
+  &lt;li class="zak-list-item"&gt;Dapibus ac facilisis in&lt;/li&gt;
+  &lt;li class="zak-list-item"&gt;Morbi leo risus&lt;/li&gt;
+  &lt;li class="zak-list-item"&gt;Porta ac consectetur ac&lt;/li&gt;
+&lt;/ul&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>List Group with Links</h2>
+            <p>Swap list items for links to make the whole row clickable.</p>
+
+            <div class="docs-preview">
+                <div class="zak-list-group" style="max-width: 24rem; margin: 0 auto; text-align: left;">
+                    <a href="#" class="zak-list-item" style="text-decoration: none;">Cras justo odio</a>
+                    <a href="#" class="zak-list-item" style="text-decoration: none;">Porta ac consectetur ac</a>
+                    <a href="#" class="zak-list-item" style="text-decoration: none;">Vestibulum at eros</a>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-list-group"&gt;
+  &lt;a href="#" class="zak-list-item"&gt;Cras justo odio&lt;/a&gt;
+  &lt;a href="#" class="zak-list-item"&gt;Porta ac consectetur ac&lt;/a&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>List Group with Buttons</h2>
+            <p>Use <code>&lt;button&gt;</code> elements when you need click behavior without navigation.</p>
+
+            <div class="docs-preview">
+                <div class="zak-list-group" style="max-width: 24rem; margin: 0 auto; text-align: left;">
+                    <button type="button" class="zak-list-item" style="width: 100%; text-align: left; background: none; border: 1px solid var(--zak-border); cursor: pointer;">Cras justo odio</button>
+                    <button type="button" class="zak-list-item" style="width: 100%; text-align: left; background: none; border: 1px solid var(--zak-border); cursor: pointer;">Dapibus ac facilisis in</button>
+                    <button type="button" class="zak-list-item" style="width: 100%; text-align: left; background: none; border: 1px solid var(--zak-border); cursor: pointer;">Morbi leo risus</button>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-list-group"&gt;
+  &lt;button type="button" class="zak-list-item"&gt;Cras justo odio&lt;/button&gt;
+  &lt;button type="button" class="zak-list-item"&gt;Dapibus ac facilisis in&lt;/button&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>List Group with Badges</h2>
+            <p>Add badges on the trailing edge for counts.</p>
+
+            <div class="docs-preview">
+                <ul class="zak-list-group" style="max-width: 24rem; margin: 0 auto; text-align: left;">
+                    <li class="zak-list-item"><span>Cras justo odio</span><span class="zak-badge zak-badge-primary" style="margin-left: auto;">14</span></li>
+                    <li class="zak-list-item"><span>Dapibus ac facilisis</span><span class="zak-badge" style="margin-left: auto;">2</span></li>
+                    <li class="zak-list-item"><span>Morbi leo risus</span><span class="zak-badge zak-badge-success" style="margin-left: auto;">1</span></li>
+                </ul>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;ul class="zak-list-group"&gt;
+  &lt;li class="zak-list-item"&gt;
+    &lt;span&gt;Cras justo odio&lt;/span&gt;
+    &lt;span class="zak-badge zak-badge-primary" style="margin-left: auto;"&gt;14&lt;/span&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Horizontal List Group</h2>
+            <p>Wrap items in a horizontal flex container with per-item gap overrides.</p>
+
+            <div class="docs-preview">
+                <div class="zak-list-group" style="max-width: 100%; flex-direction: row; justify-content: center;">
+                    <a href="#" class="zak-list-item" style="text-decoration: none; border-radius: 0.5rem 0 0 0.5rem;">Left</a>
+                    <a href="#" class="zak-list-item" style="text-decoration: none; border-radius: 0;">Middle</a>
+                    <a href="#" class="zak-list-item" style="text-decoration: none; border-radius: 0 0.5rem 0.5rem 0;">Right</a>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-list-group" style="flex-direction: row;"&gt;
+  &lt;a href="#" class="zak-list-item"&gt;Left&lt;/a&gt;
+  &lt;a href="#" class="zak-list-item"&gt;Middle&lt;/a&gt;
+  &lt;a href="#" class="zak-list-item"&gt;Right&lt;/a&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Flush List Group</h2>
+            <p>Remove the outer border and rounding to make items sit flush inside a container.</p>
+
+            <div class="docs-preview">
+                <div class="zak-card" style="max-width: 24rem; margin: 0 auto; padding: var(--zak-space-2);">
+                    <ul class="zak-list-group" style="text-align: left;">
+                        <li class="zak-list-item">Dapibus ac facilisis in</li>
+                        <li class="zak-list-item">Morbi leo risus</li>
+                        <li class="zak-list-item">Vestibulum at eros</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-card"&gt;
+  &lt;ul class="zak-list-group"&gt;
+    &lt;li class="zak-list-item"&gt;Dapibus ac facilisis in&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Contextual Classes</h2>
+            <p>Highlight active items with <code>.zak-list-item-active</code> or mute disabled items with <code>.zak-list-item-disabled</code>.</p>
+
+            <div class="docs-preview">
+                <ul class="zak-list-group" style="max-width: 24rem; margin: 0 auto; text-align: left;">
+                    <li class="zak-list-item"><span>Cras justo odio</span><span class="zak-badge zak-badge-primary" style="margin-left: auto;">14</span></li>
+                    <li class="zak-list-item zak-list-item-active"><span>Active item</span><span class="zak-badge zak-badge-primary" style="margin-left: auto;">2</span></li>
+                    <li class="zak-list-item"><span>Morbi leo risus</span><span class="zak-badge" style="margin-left: auto;">1</span></li>
+                </ul>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;ul class="zak-list-group"&gt;
+  &lt;li class="zak-list-item"&gt;&lt;span&gt;Cras justo odio&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="zak-list-item zak-list-item-active"&gt;Active item&lt;/li&gt;
+  &lt;li class="zak-list-item zak-list-item-disabled"&gt;Disabled item&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Status indicators on items --&gt;
+&lt;li class="zak-list-item"&gt;
+  &lt;span class="zak-badge zak-badge-danger zak-badge-dot"&gt;&lt;/span&gt; Unhealthy
+&lt;/li&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Custom Content</h2>
+            <p>Items are flexible rows — combine avatars, multi-line text and actions for richer content.</p>
+
+            <div class="docs-preview">
+                <div class="zak-list-group" style="max-width: 26rem; margin: 0 auto; text-align: left;">
+                    <a href="#" class="zak-list-item" style="text-decoration: none;">
+                        <span class="zak-avatar zak-avatar-sm zak-avatar-primary">JA</span>
+                        <div style="flex: 1;">
+                            <div style="font-weight: var(--zak-font-weight-semibold);">Janet Fox</div>
+                            <div style="font-size: var(--zak-font-size-xs); color: var(--zak-text-muted);">Product Designer</div>
+                        </div>
+                        <span class="zak-badge zak-badge-success">Online</span>
+                    </a>
+                    <a href="#" class="zak-list-item" style="text-decoration: none;">
+                        <span class="zak-avatar zak-avatar-sm zak-avatar-success">MK</span>
+                        <div style="flex: 1;">
+                            <div style="font-weight: var(--zak-font-weight-semibold);">Mark Kim</div>
+                            <div style="font-size: var(--zak-font-size-xs); color: var(--zak-text-muted);">Frontend Engineer</div>
+                        </div>
+                        <span class="zak-badge">Away</span>
+                    </a>
+                    <a href="#" class="zak-list-item" style="text-decoration: none;">
+                        <span class="zak-avatar zak-avatar-sm zak-avatar-warning">SR</span>
+                        <div style="flex: 1;">
+                            <div style="font-weight: var(--zak-font-weight-semibold);">Sara Reyes</div>
+                            <div style="font-size: var(--zak-font-size-xs); color: var(--zak-text-muted);">Data Analyst</div>
+                        </div>
+                        <span class="zak-badge zak-badge-danger">Offline</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;a href="#" class="zak-list-item"&gt;
+  &lt;span class="zak-avatar zak-avatar-sm zak-avatar-primary"&gt;JA&lt;/span&gt;
+  &lt;div style="flex: 1;"&gt;
+    &lt;div style="font-weight: var(--zak-font-weight-semibold);"&gt;Janet Fox&lt;/div&gt;
+    &lt;div style="font-size: var(--zak-font-size-xs); color: var(--zak-text-muted);"&gt;Product Designer&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;span class="zak-badge zak-badge-success"&gt;Online&lt;/span&gt;
+&lt;/a&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.zak-list-group</code></td><td>Vertical stack of bordered items with gaps</td></tr>
+                        <tr><td><code>.zak-list-item</code></td><td>Individual rounded, bordered row</td></tr>
+                        <tr><td><code>.zak-list-item-active</code></td><td>Active/current item highlight</td></tr>
+                        <tr><td><code>.zak-list-item-disabled</code></td><td>Disabled, non-interactive item</td></tr>
+                        <tr><td><code>.zak-badge</code></td><td>Trailing count/status badge (see Badge)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Use semantic list elements for non-interactive groups; switch to links/buttons for interactive rows.</li>
+                <li>Indicate the active item with <code>aria-current="true"</code> in addition to any visual highlight.</li>
+                <li>Disabled items should use <code>aria-disabled="true"</code> and remove any interactive handlers.</li>
+                <li>Interaction states must be visible on keyboard focus as well as on hover.</li>
+                <li>Ensure custom content inside an item does not create nested interactive elements.</li>
+            </ul>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body></html>

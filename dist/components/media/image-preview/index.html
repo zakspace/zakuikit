@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Image Preview documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Image Preview - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/media/image-preview/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Image Preview - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Image Preview documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/media/image-preview/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Media</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Image Preview</span>
+                </nav>
+        <h1>Image Preview</h1>
+        <p class="docs-subtitle">Image Preview provides interactive image inspection features: hover zoom, full-screen lightbox, and before/after comparison sliders.</p>
+
+        <div class="zak-docs-section">
+            <h2>Hover Zoom</h2>
+            <p>Scale the image on hover for a quick zoom effect. Cursor changes to a magnifier.</p>
+
+            <div class="docs-preview">
+                <div style="max-width: 350px; overflow: hidden; border-radius: 0.5rem; position: relative;">
+                    <a href="#" data-zak-lightbox="images/photo-1.svg" data-lightbox-caption="Hover to Zoom &mdash; click to preview" aria-label="Open image in lightbox">
+                        <img src="images/photo-1.svg" alt="Indigo mountain peaks" style="width:100%; height:220px; object-fit:cover; cursor:zoom-in; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                    </a>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-image-preview zak-image-preview-zoom"&gt;
+  &lt;img src="..." alt="..."&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Lightbox Preview</h2>
+            <p>Click an image to open it in a full-screen lightbox overlay. Close with the X button, clicking the backdrop, or pressing Escape.</p>
+
+            <div class="docs-preview">
+                <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                    <a href="#" data-zak-lightbox="images/photo-1.svg" data-lightbox-caption="Mountain peaks"><img src="images/photo-1.svg" alt="Mountain peaks" style="width:120px; height:90px; object-fit:cover; border-radius:.5rem; cursor:pointer; display:block;"></a>
+                    <a href="#" data-zak-lightbox="images/photo-2.svg" data-lightbox-caption="Forest valley"><img src="images/photo-2.svg" alt="Forest valley" style="width:120px; height:90px; object-fit:cover; border-radius:.5rem; cursor:pointer; display:block;"></a>
+                    <a href="#" data-zak-lightbox="images/photo-3.svg" data-lightbox-caption="Sunset dunes"><img src="images/photo-3.svg" alt="Sunset dunes" style="width:120px; height:90px; object-fit:cover; border-radius:.5rem; cursor:pointer; display:block;"></a>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-image-preview zak-image-preview-lightbox"&gt;
+  &lt;img src="..." alt="..." data-zak-lightbox&gt;
+&lt;/div&gt;</code></pre></div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span>JS</span><button class="docs-copy-btn">Copy</button></div><pre><code>function openLightbox(bg) {
+  const overlay = document.getElementById('lightbox-overlay');
+  overlay.querySelector('.zak-lightbox-img').style.background = bg;
+  overlay.classList.add('active');
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox-overlay').classList.remove('active');
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeLightbox();
+});</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Image Comparison (Before/After)</h2>
+            <p>Drag the slider handle to reveal a before/after comparison of two images.</p>
+
+            <div class="docs-preview">
+                <div class="zak-compare" data-zak-compare style="width:400px; max-width:100%; height:240px; border-radius:.5rem;">
+                    <img src="images/after.svg" alt="After adjustment">
+                    <img src="images/before.svg" alt="Before adjustment">
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-compare" data-zak-compare&gt;
+  &lt;div class="zak-compare-before"&gt;
+    &lt;img src="before.jpg" alt="Before"&gt;
+  &lt;/div&gt;
+  &lt;div class="zak-compare-after"&gt;
+    &lt;img src="after.jpg" alt="After"&gt;
+  &lt;/div&gt;
+  &lt;div class="zak-compare-handle"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span>JS</span><button class="docs-copy-btn">Copy</button></div><pre><code>const slider = document.getElementById('compareSlider');
+const after  = document.getElementById('compareAfter');
+const handle = document.getElementById('compareHandle');
+const knob   = document.getElementById('compareKnob');
+let dragging = false;
+
+function setPosition(x) {
+  const rect = slider.getBoundingClientRect();
+  let pct = ((x - rect.left) / rect.width) * 100;
+  pct = Math.max(0, Math.min(100, pct));
+  after.style.width = pct + '%';
+  handle.style.left = pct + '%';
+  knob.style.left   = pct + '%';
+}
+
+slider.addEventListener('mousedown', () => dragging = true);
+document.addEventListener('mouseup', () => dragging = false);
+document.addEventListener('mousemove', (e) => {
+  if (dragging) setPosition(e.clientX);
+});
+slider.addEventListener('touchstart', () => dragging = true);
+document.addEventListener('touchend', () => dragging = false);
+document.addEventListener('touchmove', (e) => {
+  if (dragging) setPosition(e.touches[0].clientX);
+});</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Caption Overlay</h2>
+            <p>Show a caption that fades in on hover.</p>
+
+            <div class="docs-preview">
+                <div style="position: relative; width: 350px; max-width: 100%; height: 220px; overflow: hidden; border-radius: 0.5rem;">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #ec4899, #f472b6); display: flex; align-items: center; justify-content: center; color: white;">Photo</div>
+                    <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: flex-end; padding: 1rem; opacity: 0; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0'">
+                        <div>
+                            <div style="color: white; font-weight: 600;">Mountain Lake</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 0.875rem;">Crystal clear waters at dawn</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-image-preview-caption"&gt;
+  &lt;img src="..." alt="..."&gt;
+  &lt;div class="zak-image-preview-caption-overlay"&gt;
+    &lt;strong&gt;Mountain Lake&lt;/strong&gt;
+    &lt;span&gt;Crystal clear waters at dawn&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.zak-image-preview</code></td><td>Base preview wrapper</td></tr>
+                        <tr><td><code>.zak-image-preview-zoom</code></td><td>Hover zoom effect</td></tr>
+                        <tr><td><code>.zak-image-preview-lightbox</code></td><td>Lightbox trigger</td></tr>
+                        <tr><td><code>.zak-compare</code></td><td>Before/after comparison container</td></tr>
+                        <tr><td><code>.zak-compare-before</code></td><td>Before layer</td></tr>
+                        <tr><td><code>.zak-compare-after</code></td><td>After layer (clipped)</td></tr>
+                        <tr><td><code>.zak-compare-handle</code></td><td>Draggable divider</td></tr>
+                        <tr><td><code>.zak-image-preview-caption</code></td><td>Image with hover caption</td></tr>
+                        <tr><td><code>.zak-image-preview-caption-overlay</code></td><td>Overlay content on hover</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Lightbox triggers must be keyboard-accessible: use <code>role="button"</code>, <code>tabindex="0"</code>, and listen for Enter/Space.</li>
+                <li>The lightbox overlay needs <code>role="dialog"</code>, <code>aria-modal="true"</code>, and focus trap.</li>
+                <li>Close button must be the first focusable element inside the lightbox and announce "Close image preview".</li>
+                <li>Before/after slider must be operable via keyboard with arrow keys and <code>role="slider"</code>.</li>
+                <li>Hover-only caption overlays must also work with keyboard focus: use <code>:focus-within</code> or <code>:focus-visible</code>.</li>
+            </ul>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <div id="lightbox-overlay" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.85); align-items:center; justify-content:center;" onclick="closeLightbox()">
+        <button style="position:absolute;top:1rem;right:1rem;background:none;border:none;color:white;font-size:2rem;cursor:pointer;z-index:10000;" onclick="closeLightbox()" aria-label="Close">&times;</button>
+        <div class="zak-lightbox-img" style="width:80%;max-width:700px;height:70%;border-radius:0.5rem;" onclick="event.stopPropagation()"></div>
+    </div>
+    <script>
+        function openLightbox(bg) {
+            const overlay = document.getElementById('lightbox-overlay');
+            overlay.querySelector('.zak-lightbox-img').style.background = bg;
+            overlay.style.display = 'flex';
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox-overlay').style.display = 'none';
+        }
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+
+        (function() {
+            const slider = document.getElementById('compareSlider');
+            const after  = document.getElementById('compareAfter');
+            const handle = document.getElementById('compareHandle');
+            const knob   = document.getElementById('compareKnob');
+            if (!slider || !after || !handle || !knob) return;
+            let dragging = false;
+            function setPosition(x) {
+                const rect = slider.getBoundingClientRect();
+                let pct = ((x - rect.left) / rect.width) * 100;
+                pct = Math.max(0, Math.min(100, pct));
+                after.style.width = pct + '%';
+                handle.style.left = pct + '%';
+                knob.style.left   = pct + '%';
+            }
+            slider.addEventListener('mousedown', () => dragging = true);
+            slider.addEventListener('touchstart', () => dragging = true, { passive: true });
+            document.addEventListener('mouseup', () => dragging = false);
+            document.addEventListener('touchend', () => dragging = false);
+            document.addEventListener('mousemove', (e) => { if (dragging) setPosition(e.clientX); });
+            document.addEventListener('touchmove', (e) => { if (dragging) setPosition(e.touches[0].clientX); }, { passive: true });
+        })();
+    </script>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body></html>

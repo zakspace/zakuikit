@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Validation documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Validation - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/forms/validation/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Validation - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Validation documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/forms/validation/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+  <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+  <span class="docs-breadcrumb__separator">/</span>
+  <span class="docs-breadcrumb__current">Forms</span>
+  <span class="docs-breadcrumb__separator">/</span>
+  <span class="docs-breadcrumb__current">Validation</span>
+</nav>
+        <h1>Validation</h1>
+        <p class="docs-subtitle">Form Validation provides visual feedback and error messaging for user input. ZAKUIKit supports inline validation, validation states, and summary-based validation.</p>
+
+        <div class="zak-docs-section">
+            <h2>Validation States</h2>
+            <p>Three validation states: success, error, and warning.</p>
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="val-suc">Valid Input</label>
+                        <input type="text" id="val-suc" class="zak-input zak-form-control-success" value="john@example.com" aria-invalid="false">
+                        <span class="zak-form-text zak-text-success">Email address is valid.</span>
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="val-err">Invalid Input</label>
+                        <input type="email" id="val-err" class="zak-input zak-form-control-danger" value="not-an-email" aria-invalid="true" aria-describedby="val-err-msg">
+                        <span class="zak-form-text zak-text-danger" id="val-err-msg">Please enter a valid email address.</span>
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="val-warn">Warning Input</label>
+                        <input type="text" id="val-warn" class="zak-input zak-form-control-warning" value="admin" aria-describedby="val-warn-msg">
+                        <span class="zak-form-text zak-text-warning" id="val-warn-msg">This username may be confusing for other users.</span>
+                    </div>
+                </form>
+            </div>
+            <div class="docs-code-block">
+                <div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div>
+                <pre><code class="language-html">&lt;div class="zak-form-group"&gt;
+  &lt;label class="zak-form-label" for="email"&gt;Email&lt;/label&gt;
+  &lt;input type="email" id="email"
+    class="zak-input zak-form-control-success"
+    value="john@example.com"
+    aria-invalid="false"&gt;
+  &lt;span class="zak-form-text zak-text-success"&gt;Email address is valid.&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class="zak-form-group"&gt;
+  &lt;label class="zak-form-label" for="email"&gt;Email&lt;/label&gt;
+  &lt;input type="email" id="email"
+    class="zak-input zak-form-control-danger"
+    value="not-an-email"
+    aria-invalid="true"
+    aria-describedby="email-error"&gt;
+  &lt;span class="zak-form-text zak-text-danger" id="email-error"&gt;
+    Please enter a valid email address.
+  &lt;/span&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Error Messages</h2>
+            <p>Clear error messages below inputs with icons.</p>
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label zak-form-label-required" for="err-name">Name</label>
+                        <input type="text" id="err-name" class="zak-input zak-form-control-danger" value="" placeholder="Enter your name" aria-invalid="true" aria-describedby="err-name-msg">
+                        <span class="zak-form-text zak-text-danger" id="err-name-msg">
+                            <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+                            Name is required.
+                        </span>
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label zak-form-label-required" for="err-email">Email</label>
+                        <input type="email" id="err-email" class="zak-input zak-form-control-danger" value="bad@" aria-invalid="true" aria-describedby="err-email-msg">
+                        <span class="zak-form-text zak-text-danger" id="err-email-msg">
+                            <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+                            Please enter a valid email address.
+                        </span>
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label zak-form-label-required" for="err-pass">Password</label>
+                        <input type="password" id="err-pass" class="zak-input zak-form-control-danger" value="123" aria-invalid="true" aria-describedby="err-pass-msg">
+                        <span class="zak-form-text zak-text-danger" id="err-pass-msg">
+                            <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+                            Password must be at least 8 characters.
+                        </span>
+                    </div>
+                    <div class="zak-form-group">
+                        <button type="submit" class="zak-btn zak-btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <div class="docs-code-block">
+                <div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div>
+                <pre><code class="language-html">&lt;div class="zak-form-group"&gt;
+  &lt;label class="zak-form-label zak-form-label-required" for="name"&gt;Name&lt;/label&gt;
+  &lt;input type="text" id="name"
+    class="zak-input zak-form-control-danger"
+    aria-invalid="true"
+    aria-describedby="name-error"&gt;
+  &lt;span class="zak-form-text zak-text-danger" id="name-error"&gt;
+    &lt;svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;
+      &lt;circle cx="12" cy="12" r="10"/&gt;&lt;line x1="12" x2="12" y1="8" y2="12"/&gt;&lt;line x1="12" x2="12.01" y1="16" y2="16"/&gt;
+    &lt;/svg&gt;
+    Name is required.
+  &lt;/span&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Success States</h2>
+            <p>Visual confirmation that fields are valid.</p>
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="suc-user">Username</label>
+                        <input type="text" id="suc-user" class="zak-input zak-form-control-success" value="johndoe" aria-describedby="suc-user-msg">
+                        <span class="zak-form-text zak-text-success" id="suc-user-msg">
+                            <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            Username is available!
+                        </span>
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="suc-email">Email</label>
+                        <input type="email" id="suc-email" class="zak-input zak-form-control-success" value="john@example.com" aria-describedby="suc-email-msg">
+                        <span class="zak-form-text zak-text-success" id="suc-email-msg">
+                            <svg class="zak-icon zak-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            Email is valid and available.
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Inline Validation</h2>
+            <p>Validate fields as the user types using JavaScript.</p>
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-form-group">
+                        <label class="zak-form-label" for="inline-email">Email (type to validate)</label>
+                        <input type="email" id="inline-email" class="zak-input" placeholder="you@example.com" oninput="validateInline(this, /^[^@]+@[^@]+\.[^@]+$/, 'valid-email', 'invalid-email')">
+                        <span class="zak-form-text zak-text-success" id="valid-email" style="display:none;">Email is valid!</span>
+                        <span class="zak-form-text zak-text-danger" id="invalid-email" style="display:none;">Please enter a valid email.</span>
+                    </div>
+                </form>
+            </div>
+            <div class="docs-code-block">
+                <div class="docs-code-block__header"><span>HTML + JS</span><button class="docs-copy-btn">Copy</button></div>
+                <pre><code class="language-html">&lt;input type="email" class="zak-input"
+  oninput="validateInline(this, /^[^@]+@[^@]+\.[^@]+$/, 'valid', 'invalid')"&gt;
+&lt;span class="zak-form-text zak-text-success" id="valid" style="display:none;"&gt;Email is valid!&lt;/span&gt;
+&lt;span class="zak-form-text zak-text-danger" id="invalid" style="display:none;"&gt;Please enter a valid email.&lt;/span&gt;</code></pre>
+            </div>
+            <div class="docs-code-block">
+                <div class="docs-code-block__header"><span>JavaScript</span><button class="docs-copy-btn">Copy</button></div>
+                <pre><code class="language-javascript">function validateInline(input, regex, validId, invalidId) {
+  const validEl = document.getElementById(validId);
+  const invalidEl = document.getElementById(invalidId);
+  const value = input.value.trim();
+  if (!value) {
+    validEl.style.display = 'none';
+    invalidEl.style.display = 'none';
+    input.classList.remove('zak-form-control-success', 'zak-form-control-danger');
+    return;
+  }
+  if (regex.test(value)) {
+    validEl.style.display = 'block';
+    invalidEl.style.display = 'none';
+    input.classList.add('zak-form-control-success');
+    input.classList.remove('zak-form-control-danger');
+  } else {
+    validEl.style.display = 'none';
+    invalidEl.style.display = 'block';
+    input.classList.add('zak-form-control-danger');
+    input.classList.remove('zak-form-control-success');
+  }
+}</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Validation Summary</h2>
+            <p>Display all validation errors in a summary block at the top of the form.</p>
+            <div class="docs-preview">
+                <form class="zak-form" onsubmit="return false;">
+                    <div class="zak-alert zak-alert-danger" role="alert" id="val-summary" style="display:none;">
+                        <strong>Please fix the following errors:</strong>
+                        <ul style="margin-top:0.5rem;padding-left:1.25rem;">
+                            <li>Name is required.</li>
+                            <li>Email is invalid.</li>
+                            <li>Password must be at least 8 characters.</li>
+                        </ul>
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label zak-form-label-required" for="vs-name">Name</label>
+                        <input type="text" id="vs-name" class="zak-input zak-form-control-danger" aria-invalid="true">
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label zak-form-label-required" for="vs-email">Email</label>
+                        <input type="email" id="vs-email" class="zak-input zak-form-control-danger" value="bad@" aria-invalid="true">
+                    </div>
+                    <div class="zak-form-group">
+                        <label class="zak-form-label zak-form-label-required" for="vs-pass">Password</label>
+                        <input type="password" id="vs-pass" class="zak-input zak-form-control-danger" value="123" aria-invalid="true">
+                    </div>
+                    <div class="zak-form-group">
+                        <button type="submit" class="zak-btn zak-btn-primary" onclick="document.getElementById('val-summary').style.display='block'">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <div class="docs-code-block">
+                <div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div>
+                <pre><code class="language-html">&lt;div class="zak-alert zak-alert-danger" role="alert"&gt;
+  &lt;strong&gt;Please fix the following errors:&lt;/strong&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Name is required.&lt;/li&gt;
+    &lt;li&gt;Email is invalid.&lt;/li&gt;
+    &lt;li&gt;Password must be at least 8 characters.&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Custom Validation Patterns</h2>
+            <p>Define regex patterns for custom field validation.</p>
+            <div class="docs-code-block">
+                <div class="docs-code-block__header"><span>JavaScript</span><button class="docs-copy-btn">Copy</button></div>
+                <pre><code class="language-javascript">const patterns = {
+  email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+  phone: /^\+?[\d\s-]{10,}$/,
+  url: /^https?:\/\/.+\..+/,
+  zip: /^\d{5}(-\d{4})?$/,
+  username: /^[a-zA-Z0-9_]{3,20}$/,
+  password: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+};
+
+function validateField(input, patternName) {
+  const pattern = patterns[patternName];
+  const value = input.value.trim();
+  const isValid = pattern ? pattern.test(value) : value.length > 0;
+  input.classList.toggle('zak-form-control-success', isValid && value.length > 0);
+  input.classList.toggle('zak-form-control-danger', !isValid && value.length > 0);
+  input.setAttribute('aria-invalid', !isValid ? 'true' : 'false');
+  return isValid;
+}</code></pre>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>CSS Classes Reference</h2>
+            <div class="zak-table-wrapper">
+                <table class="zak-table">
+                    <thead><tr><th>Class</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>.zak-form-control-success</code></td><td>Success state on input</td></tr>
+                        <tr><td><code>.zak-form-control-danger</code></td><td>Error state on input</td></tr>
+                        <tr><td><code>.zak-form-control-warning</code></td><td>Warning state on input</td></tr>
+                        <tr><td><code>.zak-text-success</code></td><td>Success text</td></tr>
+                        <tr><td><code>.zak-text-danger</code></td><td>Error text</td></tr>
+                        <tr><td><code>.zak-text-warning</code></td><td>Warning text</td></tr>
+                        <tr><td><code>.zak-form-text</code></td><td>Help/validation text</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Use <code>aria-invalid="true"</code> on fields with errors.</li>
+                <li>Link error messages to inputs via <code>aria-describedby</code>.</li>
+                <li>Use <code>role="alert"</code> for validation summary blocks.</li>
+                <li>Use <code>aria-live="polite"</code> for inline validation messages that update dynamically.</li>
+                <li>Ensure error messages are programmatically associated, not just visually positioned.</li>
+                <li>Don't rely solely on color to indicate validation state — use icons and text as well.</li>
+            </ul>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script><script>
+        function validateInline(input, regex, validId, invalidId) {
+            var validEl = document.getElementById(validId);
+            var invalidEl = document.getElementById(invalidId);
+            var value = input.value.trim();
+            if (!value) {
+                validEl.style.display = 'none';
+                invalidEl.style.display = 'none';
+                input.classList.remove('zak-form-control-success', 'zak-form-control-danger');
+                input.removeAttribute('aria-invalid');
+                return;
+            }
+            if (regex.test(value)) {
+                validEl.style.display = 'block';
+                invalidEl.style.display = 'none';
+                input.classList.add('zak-form-control-success');
+                input.classList.remove('zak-form-control-danger');
+                input.setAttribute('aria-invalid', 'false');
+            } else {
+                validEl.style.display = 'none';
+                invalidEl.style.display = 'block';
+                input.classList.add('zak-form-control-danger');
+                input.classList.remove('zak-form-control-success');
+                input.setAttribute('aria-invalid', 'true');
+            }
+        }
+    </script>
+</body>
+</html>

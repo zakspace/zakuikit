@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Show More documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Show More - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/disclosure-expansion/show-more/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Show More - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Show More documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/disclosure-expansion/show-more/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Disclosure</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Show More</span>
+                </nav>
+        <h1>Show More</h1>
+        <p class="docs-subtitle">The Show More component truncates long text to a fixed number of lines and appends a <em>Show more</em> / <em>Show less</em> button. No configuration beyond a line count is needed.</p>
+
+        <section class="zak-docs-section">
+            <h2>Basic Show More</h2>
+            <p>Drop <code>data-zak-showmore</code> on any text element. The value is the number of lines to show before truncating.</p>
+            <div class="docs-preview">
+                <p data-zak-showmore="3" class="zak-docs-show-more-demo">ZAKUIKit is a design system that bundles a component library, utility tokens and guidance. It gives every team the same building blocks, so screens stay consistent no matter who builds them. The Show More pattern clips long paragraphs to a few lines and lets people expand the rest on demand, keeping product pages tidy. In this demo the text is truncated at three rendered lines, and clicking the generated button toggles the remaining content. You can control the threshold with the attribute value, from one line up to as many as you like.</p>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;p data-zak-showmore="3"&gt;Long paragraph here...&lt;/p&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Adjusting the Line Count</h2>
+            <p>Set the number of visible lines by changing the attribute; the button still appears only when the text actually overflows.</p>
+            <div class="docs-preview">
+                <div style="display:flex; flex-direction:column; gap:1.5rem;">
+                    <div>
+                        <p style="margin:0 0 4px; font-size:12px; font-weight:600; color:var(--zak-text-muted,#64748b);">2 lines</p>
+                        <p data-zak-showmore="2" class="zak-docs-show-more-demo">Short previews help users scan a feed quickly. With two lines you show only the very start of the text, and the rest fades behind the toggle button. ZAKUIKit computes the truncation height from the measured line-height, so the behavior stays correct at any font size or density.</p>
+                    </div>
+                    <div>
+                        <p style="margin:0 0 4px; font-size:12px; font-weight:600; color:var(--zak-text-muted,#64748b);">5 lines</p>
+                        <p data-zak-showmore="5" class="zak-docs-show-more-demo">Five lines reveal more context before the fold. Use a larger threshold for summaries where the first sentence matters. A single line hides almost everything; more lines keep the preview readable while still condensing the noise on long cards or comment threads.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;p data-zak-showmore="2"&gt;Preview at two lines&lt;/p&gt;
+&lt;p data-zak-showmore="5"&gt;Preview at five lines&lt;/p&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>No Truncation For Short Text</h2>
+            <p>When the content fits within the limit, no button is appended and no clipping happens.</p>
+            <div class="docs-preview">
+                <p data-zak-showmore="3" class="zak-docs-show-more-demo">This single sentence is well under three lines, so nothing is clamped — the paragraph renders in full with no toggle below it.</p>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;p data-zak-showmore="3"&gt;Short content — stays untouched.&lt;/p&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Global API &amp; Events</h2>
+            <p>Call <code>zak.showMore.init()</code> after injecting new markup. The component fires <code>zak:open</code> and <code>zak:close</code> events on the text element.</p>
+            <div class="docs-preview">
+                <p data-zak-showmore="3" class="zak-docs-show-more-demo">Listen for the events to trigger analytics or lazy-load content that only matters once the full text is visible. The full original text is also stored on the element as <code>data-zak-showmore-full</code> before truncation runs.</p>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>// Re-init after AJAX-injected content
+zak.showMore.init();
+
+// React to expand/collapse
+document.querySelector('[data-zak-showmore]').addEventListener('zak:open', function () {
+    console.log('expanded');
+});</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>CSS Classes</h2>
+<div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>/* Injected by zak.showMore.init() */
+.zak-showmore-truncated      /* Applied once content overflows */
+.zak-showmore-expanded       /* Applied while fully open */
+.zak-showmore-btn            /* The generated toggle button */</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>JavaScript API</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>zak.showMore.init()          // Scans [data-zak-showmore] and binds buttons
+zak.showMore._truncate(el, lines)  // (internal) clamp an element
+
+Events on target element:
+  zak:open     // content expanded
+  zak:close    // content collapsed
+
+Data attributes:
+  data-zak-showmore          // number of visible lines (default 3)
+  data-zak-showmore-full     // original full text (set by init)</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>The generated button is a real <code>&lt;button&gt;</code>, so it is focusable and works with <kbd>Enter</kbd>/<kbd>Space</kbd>.</li>
+                <li>The button sits directly after the text, so the expand action reads in document order.</li>
+                <li>Consider pairing the text with a visually-hidden count (e.g. &ldquo;5 lines shown&rdquo;) when the preview length matters.</li>
+                <li>For large content, native <code>&lt;details&gt;</code> or an Expandable Panel is often a better semantic fit.</li>
+                <li>Never rely on the clipping alone — the original text remains fully in the DOM and readable by assistive tech.</li>
+            </ul>
+        </section>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body></html>

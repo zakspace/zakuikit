@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function () { try { var t = localStorage.getItem('zak-docs-theme') || 'system'; if (t === 'system') { t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light'; } document.documentElement.setAttribute('data-theme', t); } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); } })();</script>
+    <meta name="description"
+        content="ZAKUIKit Colors documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Colors - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/foundations/colors/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Colors - ZAKUIKit">
+    <meta property="og:description"
+        content="ZAKUIKit Colors documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/foundations/colors/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="docs-header">
+        <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12" />
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+        </button>
+        <a href="../../../../index.html" class="docs-header__logo">
+            <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+            <span>ZAKUIKit</span>
+        </a>
+        <nav class="docs-header__nav" aria-label="Primary navigation">
+            <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+            <a href="../../../../components.html"
+                class="docs-header__link docs-header__link--active">Components</a>
+            <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+            <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+            <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+        </nav>
+        <div class="docs-header__actions">
+            <div class="docs-header__search-btn-wrap">
+                <button type="button" class="docs-header__search-btn" aria-label="Open search">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                    <span>Search docs...</span>
+                    <kbd>?K</kbd>
+                </button>
+            </div>
+            <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+    <div class="docs-sidebar-overlay"></div>
+
+    <!-- Main Content -->
+    <main class="docs-main">
+        <div class="docs-content">
+
+            <!-- Breadcrumb -->
+            <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                <span class="docs-breadcrumb__separator">/</span>
+                <span class="docs-breadcrumb__current">Foundations</span>
+                <span class="docs-breadcrumb__separator">/</span>
+                <span class="docs-breadcrumb__current">Colors</span>
+            </nav>
+
+            <div class="docs-component-header">
+                <h1>Colors</h1>
+                <p class="docs-component-header__description">A complete color system with 10 shades (50–950) for each
+                    brand color, semantic aliases, and utility classes for text, background, border, and more.</p>
+            </div>
+
+            <section id="basic-example">
+                <h2>Basic Example</h2>
+                <p>ZAKUIKit provides nine color scales: primary, secondary, success, warning, danger, info, and neutral.
+                    Each scale contains 11 shades from <code>50</code> (lightest) to <code>950</code> (darkest). Click
+                    any swatch to copy its hex value.</p>
+
+                <div class="docs-preview">
+                    <div class="docs-preview__toolbar">
+                        <span>Primary palette</span>
+                        <div class="docs-preview__toolbar-actions">
+                            <button class="docs-copy-btn" data-code="#primary"><span class="docs-copy-btn__text">Copy
+                                    CSS</span></button>
+                        </div>
+                    </div>
+                    <div class="docs-preview__area" style="flex-direction:column; align-items:stretch;">
+                        <div class="docs-color-widget">
+                            <div class="docs-color-row">
+                                <div class="zak-d-flex docs-color-row">
+                                    <div class="docs-color-swatch docs-color-swatch--copy"
+                                        style="background:var(--zak-primary-50);color:#1e3a8a;"
+                                        title="Click to copy #eff6ff">
+                                        <span>50</span><span class="docs-color-hex">#eff6ff</span>
+                                    </div>
+                                    <div class="docs-color-swatch docs-color-swatch--copy"
+                                        style="background:var(--zak-primary-100);color:#1e3a8a;"
+                                        title="Click to copy #dbeafe">
+                                        <span>100</span><span class="docs-color-hex">#dbeafe</span>
+                                    </div>
+                                    <div class="docs-color-swatch docs-color-swatch--copy"
+                                        style="background:var(--zak-primary-200);color:#1e3a8a;"
+                                        title="Click to copy #bfdbfe">
+                                        <span>200</span><span class="docs-color-hex">#bfdbfe</span>
+                                    </div>
+                                    <div class="docs-color-swatch docs-color-swatch--copy"
+                                        style="background:var(--zak-primary-300);color:#1e3a8a;"
+                                        title="Click to copy #93c5fd">
+                                        <span>300</span><span class="docs-color-hex">#93c5fd</span>
+                                    </div>
+                                    <div class="docs-color-swatch docs-color-swatch--copy"
+                                        style="background:var(--zak-primary-400);color:#1e3a8a;"
+                                        title="Click to copy #60a5fa">
+                                        <span>400</span><span class="docs-color-hex">#60a5fa</span>
+                                    </div>
+                                    <div class="docs-color-swatch docs-color-swatch--copy"
+                                        style="background:var(--zak-primary-500);color:#ffffff;"
+                                        title="Click to copy #3b82f6">
+                                        <span>500</span><span class="docs-color-hex">#3b82f6</span>
+                                    </div>
+                                    <div class="docs-color-swatch docs-color-swatch--copy"
+                                        style="background:var(--zak-primary-600);color:#ffffff;"
+                                        title="Click to copy #2563eb">
+                                        <span>600</span><span class="docs-color-hex">#2563eb</span>
+                                    </div>
+                                    <div class="docs-color-swatch docs-color-swatch--copy"
+                                        style="background:var(--zak-primary-700);color:#ffffff;"
+                                        title="Click to copy #1d4ed8">
+                                        <span>700</span><span class="docs-color-hex">#1d4ed8</span>
+                                    </div>
+                                    <div class="docs-color-swatch docs-color-swatch--copy"
+                                        style="background:var(--zak-primary-800);color:#ffffff;"
+                                        title="Click to copy #1e40af">
+                                        <span>800</span><span class="docs-color-hex">#1e40af</span>
+                                    </div>
+                                    <div class="docs-color-swatch docs-color-swatch--copy"
+                                        style="background:var(--zak-primary-900);color:#ffffff;"
+                                        title="Click to copy #1e3a8a">
+                                        <span>900</span><span class="docs-color-hex">#1e3a8a</span>
+                                    </div>
+                                    <div class="docs-color-swatch docs-color-swatch--copy"
+                                        style="background:var(--zak-primary-950);color:#ffffff;"
+                                        title="Click to copy #172554">
+                                        <span>950</span><span class="docs-color-hex">#172554</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="docs-color-row">
+                                <div class="zak-d-flex docs-color-row">
+                                    <div class="docs-color-swatch docs-color-swatch--copy"
+                                        style="background:var(--zak-success-500);color:#ffffff;"
+                                        title="Click to copy #22c55e">
+                                        <span>Success</span><span class="docs-color-hex">#22c55e</span>
+                                    </div>
+                                    <div class="docs-color-swatch docs-color-swatch--copy"
+                                        style="background:var(--zak-warning-500);color:#ffffff;"
+                                        title="Click to copy #f59e0b">
+                                        <span>Warning</span><span class="docs-color-hex">#f59e0b</span>
+                                    </div>
+                                    <div class="docs-color-swatch docs-color-swatch--copy"
+                                        style="background:var(--zak-danger-500);color:#ffffff;"
+                                        title="Click to copy #ef4444">
+                                        <span>Danger</span><span class="docs-color-hex">#ef4444</span>
+                                    </div>
+                                    <div class="docs-color-swatch docs-color-swatch--copy"
+                                        style="background:var(--zak-info-500);color:#ffffff;"
+                                        title="Click to copy #06b6d4">
+                                        <span>Info</span><span class="docs-color-hex">#06b6d4</span>
+                                    </div>
+                                    <div class="docs-color-swatch docs-color-swatch--copy"
+                                        style="background:var(--zak-secondary-500);color:#ffffff;"
+                                        title="Click to copy #6b7280">
+                                        <span>Secondary</span><span class="docs-color-hex">#6b7280</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="docs-color-row docs-color-row--neutral">
+                            <div class="zak-d-flex docs-color-row">
+                                <div class="docs-color-swatch docs-color-swatch--copy"
+                                    style="background:var(--zak-neutral-50);color:#171717;"
+                                    title="Click to copy #fafafa">
+                                    <span>50</span><span class="docs-color-hex">#fafafa</span>
+                                </div>
+                                <div class="docs-color-swatch docs-color-swatch--copy"
+                                    style="background:var(--zak-neutral-100);color:#171717;"
+                                    title="Click to copy #f5f5f5">
+                                    <span>100</span><span class="docs-color-hex">#f5f5f5</span>
+                                </div>
+                                <div class="docs-color-swatch docs-color-swatch--copy"
+                                    style="background:var(--zak-neutral-200);color:#171717;"
+                                    title="Click to copy #e5e5e5">
+                                    <span>200</span><span class="docs-color-hex">#e5e5e5</span>
+                                </div>
+                                <div class="docs-color-swatch docs-color-swatch--copy"
+                                    style="background:var(--zak-neutral-300);color:#171717;"
+                                    title="Click to copy #d4d4d4">
+                                    <span>300</span><span class="docs-color-hex">#d4d4d4</span>
+                                </div>
+                                <div class="docs-color-swatch docs-color-swatch--copy"
+                                    style="background:var(--zak-neutral-400);color:#171717;"
+                                    title="Click to copy #a3a3a3">
+                                    <span>400</span><span class="docs-color-hex">#a3a3a3</span>
+                                </div>
+                                <div class="docs-color-swatch docs-color-swatch--copy"
+                                    style="background:var(--zak-neutral-500);color:#ffffff;"
+                                    title="Click to copy #737373">
+                                    <span>500</span><span class="docs-color-hex">#737373</span>
+                                </div>
+                                <div class="docs-color-swatch docs-color-swatch--copy"
+                                    style="background:var(--zak-neutral-600);color:#ffffff;"
+                                    title="Click to copy #525252">
+                                    <span>600</span><span class="docs-color-hex">#525252</span>
+                                </div>
+                                <div class="docs-color-swatch docs-color-swatch--copy"
+                                    style="background:var(--zak-neutral-700);color:#ffffff;"
+                                    title="Click to copy #404040">
+                                    <span>700</span><span class="docs-color-hex">#404040</span>
+                                </div>
+                                <div class="docs-color-swatch docs-color-swatch--copy"
+                                    style="background:var(--zak-neutral-800);color:#ffffff;"
+                                    title="Click to copy #262626">
+                                    <span>800</span><span class="docs-color-hex">#262626</span>
+                                </div>
+                                <div class="docs-color-swatch docs-color-swatch--copy"
+                                    style="background:var(--zak-neutral-900);color:#ffffff;"
+                                    title="Click to copy #171717">
+                                    <span>900</span><span class="docs-color-hex">#171717</span>
+                                </div>
+                                <div class="docs-color-swatch docs-color-swatch--copy"
+                                    style="background:var(--zak-neutral-950);color:#ffffff;"
+                                    title="Click to copy #0a0a0a">
+                                    <span>950</span><span class="docs-color-hex">#0a0a0a</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="docs-code-block">
+                    <div class="docs-code-block__header">
+                        <span class="docs-code-block__lang">html</span>
+                        <button class="docs-copy-btn"><svg class="docs-copy-btn__icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg><span class="docs-copy-btn__text">Copy</span></button>
+                    </div>
+                    <pre><code class="language-html">&lt;div class="zak-d-flex"&gt;
+  &lt;div class="docs-color-swatch" style="background:var(--zak-primary-500)"&gt;500&lt;/div&gt;
+  &lt;div class="docs-color-swatch" style="background:var(--zak-success-500)"&gt;Success&lt;/div&gt;
+  &lt;div class="docs-color-swatch" style="background:var(--zak-danger-500)"&gt;Danger&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section id="color-variables">
+                <h2>Color Variables</h2>
+                <p>Every color is exposed as a CSS custom property. Use these variables directly in your CSS to stay
+                    theme-aware.</p>
+
+                <div class="docs-code-block">
+                    <div class="docs-code-block__header">
+                        <span class="docs-code-block__lang">css</span>
+                        <button class="docs-copy-btn"><svg class="docs-copy-btn__icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg><span class="docs-copy-btn__text">Copy</span></button>
+                    </div>
+                    <pre><code class="language-css">/* Semantic aliases */
+--zak-color-primary: var(--zak-primary-500);
+--zak-color-secondary: var(--zak-secondary-500);
+--zak-color-success: var(--zak-success-500);
+--zak-color-warning: var(--zak-warning-500);
+--zak-color-danger: var(--zak-danger-500);
+--zak-color-info: var(--zak-info-500);
+
+/* Usage */
+.button-hero {
+  background-color: var(--zak-color-primary);
+  color: var(--zak-text-inverse);
+}</code></pre>
+                </div>
+
+                <h3>Variable reference</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Variable</th>
+                            <th>Default value</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>--zak-primary-500</code></td>
+                            <td>#3b82f6</td>
+                            <td>Primary brand color (blue)</td>
+                        </tr>
+                        <tr>
+                            <td><code>--zak-secondary-500</code></td>
+                            <td>#6b7280</td>
+                            <td>Secondary brand color (gray)</td>
+                        </tr>
+                        <tr>
+                            <td><code>--zak-success-500</code></td>
+                            <td>#22c55e</td>
+                            <td>Success / positive state</td>
+                        </tr>
+                        <tr>
+                            <td><code>--zak-warning-500</code></td>
+                            <td>#f59e0b</td>
+                            <td>Warning / caution state</td>
+                        </tr>
+                        <tr>
+                            <td><code>--zak-danger-500</code></td>
+                            <td>#ef4444</td>
+                            <td>Danger / error state</td>
+                        </tr>
+                        <tr>
+                            <td><code>--zak-info-500</code></td>
+                            <td>#06b6d4</td>
+                            <td>Informational state</td>
+                        </tr>
+                        <tr>
+                            <td><code>--zak-neutral-500</code></td>
+                            <td>#737373</td>
+                            <td>Neutral gray</td>
+                        </tr>
+                        <tr>
+                            <td><code>--zak-text</code></td>
+                            <td>#1e293b</td>
+                            <td>Primary text color</td>
+                        </tr>
+                        <tr>
+                            <td><code>--zak-text-muted</code></td>
+                            <td>#64748b</td>
+                            <td>Secondary text color</td>
+                        </tr>
+                        <tr>
+                            <td><code>--zak-border</code></td>
+                            <td>#e2e8f0</td>
+                            <td>Default border color</td>
+                        </tr>
+                        <tr>
+                            <td><code>--zak-bg</code></td>
+                            <td>#ffffff</td>
+                            <td>Page background</td>
+                        </tr>
+                        <tr>
+                            <td><code>--zak-surface</code></td>
+                            <td>#ffffff</td>
+                            <td>Card / surface background</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="usage">
+                <h2>Usage</h2>
+                <p>Color utility classes let you color text, backgrounds, and borders without writing CSS.</p>
+
+                <div class="docs-preview">
+                    <div class="docs-preview__toolbar">
+                        <span>Color utilities</span>
+                        <div class="docs-preview__toolbar-actions">
+                        </div>
+                    </div>
+                    <div class="docs-preview__area" style="flex-direction:column; align-items:flex-start; gap:12px;">
+                        <div>
+                            <span class="zak-text-primary">Primary text</span> Â·
+                            <span class="zak-text-success">Success text</span> Â·
+                            <span class="zak-text-danger">Danger text</span> Â·
+                            <span class="zak-text-warning">Warning text</span> Â·
+                            <span class="zak-text-info">Info text</span> Â·
+                            <span class="zak-text-muted">Muted text</span>
+                        </div>
+                        <div class="zak-d-flex" style="gap:8px;">
+                            <span class="zak-bg-primary" style="padding:6px 12px;">bg-primary</span>
+                            <span class="zak-bg-success" style="padding:6px 12px;">bg-success</span>
+                            <span class="zak-bg-danger" style="padding:6px 12px;">bg-danger</span>
+                        </div>
+                        <div class="zak-d-flex" style="gap:8px;">
+                            <span class="zak-border zak-border-primary" style="padding:6px 12px;">border-primary</span>
+                            <span class="zak-border zak-border-success" style="padding:6px 12px;">border-success</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="docs-code-block">
+                    <div class="docs-code-block__header">
+                        <span class="docs-code-block__lang">html</span>
+                        <button class="docs-copy-btn"><svg class="docs-copy-btn__icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg><span class="docs-copy-btn__text">Copy</span></button>
+                    </div>
+                    <pre><code class="language-html">&lt;p class="zak-text-primary"&gt;Primary text&lt;/p&gt;
+&lt;span class="zak-bg-success"&gt;Success background&lt;/span&gt;
+&lt;div class="zak-border zak-border-danger"&gt;Bordered box&lt;/div&gt;
+
+&lt;!-- Available text utilities --&gt;
+.zak-text-primary .zak-text-secondary .zak-text-success
+.zak-text-warning .zak-text-danger .zak-text-info
+.zak-text-muted .zak-text-subtle .zak-text-inverse
+
+&lt;!-- Available bg utilities --&gt;
+.zak-bg-primary .zak-bg-secondary .zak-bg-success
+.zak-bg-warning .zak-bg-danger .zak-bg-info</code></pre>
+                </div>
+            </section>
+
+            <section id="semantic-colors">
+                <h2>Semantic Colors</h2>
+                <p>Use semantic colors to communicate state consistently: success for positive outcomes, danger for
+                    errors, warning for cautions, and info for neutral guidance.</p>
+
+                <div class="docs-preview">
+                    <div class="docs-preview__toolbar">
+                        <span>Contextual usage</span>
+                        <div class="docs-preview__toolbar-actions">
+                        </div>
+                    </div>
+                    <div class="docs-preview__area" style="align-items:flex-start; justify-content:center;">
+                        <div class="zak-stack-3" style="max-width:420px; width:100%;">
+                            <div class="zak-border zak-border-success"
+                                style="padding:12px 16px; border-radius:var(--zak-radius-lg);">
+                                <strong class="zak-text-success">Success</strong> — Operation completed successfully.
+                            </div>
+                            <div class="zak-border zak-border-danger"
+                                style="padding:12px 16px; border-radius:var(--zak-radius-lg);">
+                                <strong class="zak-text-danger">Error</strong> — Something went wrong. Try again.
+                            </div>
+                            <div class="zak-border zak-border-warning"
+                                style="padding:12px 16px; border-radius:var(--zak-radius-lg);">
+                                <strong class="zak-text-warning">Warning</strong> — Your session will expire soon.
+                            </div>
+                            <div class="zak-border zak-border-info"
+                                style="padding:12px 16px; border-radius:var(--zak-radius-lg);">
+                                <strong class="zak-text-info">Info</strong> — A software update is available.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="docs-code-block">
+                    <div class="docs-code-block__header">
+                        <span class="docs-code-block__lang">html</span>
+                        <button class="docs-copy-btn"><svg class="docs-copy-btn__icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg><span class="docs-copy-btn__text">Copy</span></button>
+                    </div>
+                    <pre><code class="language-html">&lt;div class="zak-border zak-border-danger"&gt;
+  &lt;strong class="zak-text-danger"&gt;Error&lt;/strong&gt; — Something went wrong.
+&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section id="accessibility">
+                <h2>Color Accessibility</h2>
+                <p>All ZAKUIKit color combinations have been designed to meet WCAG AA contrast requirements. When
+                    combining text and background, always verify a minimum contrast ratio of <strong>4.5:1</strong> for
+                    normal text and <strong>3:1</strong> for large text (18pt+ / 14pt bold+).</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Combination</th>
+                            <th>Contrast ratio</th>
+                            <th>WCAG level</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>White text on <code>--zak-primary-600</code></td>
+                            <td>5.9:1</td>
+                            <td>AA</td>
+                            <td><span class="zak-text-success">Pass</span></td>
+                        </tr>
+                        <tr>
+                            <td>White text on <code>--zak-primary-700</code></td>
+                            <td>7.4:1</td>
+                            <td>AAA</td>
+                            <td><span class="zak-text-success">Pass</span></td>
+                        </tr>
+                        <tr>
+                            <td>Dark text on <code>--zak-primary-100</code></td>
+                            <td>10.2:1</td>
+                            <td>AAA</td>
+                            <td><span class="zak-text-success">Pass</span></td>
+                        </tr>
+                        <tr>
+                            <td>White text on <code>--zak-danger-600</code></td>
+                            <td>4.8:1</td>
+                            <td>AA</td>
+                            <td><span class="zak-text-success">Pass</span></td>
+                        </tr>
+                        <tr>
+                            <td>White text on <code>--zak-warning-500</code></td>
+                            <td>2.3:1</td>
+                            <td>—</td>
+                            <td><span class="zak-text-danger">Fail — use dark text instead</span></td>
+                        </tr>
+                        <tr>
+                            <td>Dark text on <code>--zak-warning-100</code></td>
+                            <td>11.4:1</td>
+                            <td>AAA</td>
+                            <td><span class="zak-text-success">Pass</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>--zak-text-muted</code> on white</td>
+                            <td>4.6:1</td>
+                            <td>AA</td>
+                            <td><span class="zak-text-success">Pass</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Best practices</h3>
+                <ul class="zak-list-disc">
+                    <li>Never rely on color alone to convey meaning — pair color with an icon, text, or label.</li>
+                    <li>Use <code>--zak-text-muted</code> sparingly for secondary content only.</li>
+                    <li>For error messages, combine color with a warning symbol and descriptive text.</li>
+                    <li>Always support <code>prefers-reduced-motion</code> and provide visible focus states.</li>
+                </ul>
+            </section>
+
+            <section id="dark-theme">
+                <h2>Dark Theme</h2>
+                <p>Semantic color aliases automatically adjust in dark mode. For example,
+                    <code>--zak-color-primary</code> brightens from <code>#3b82f6</code> to <code>#60a5fa</code> to
+                    maintain contrast on dark surfaces.</p>
+
+                <div class="docs-code-block">
+                    <div class="docs-code-block__header">
+                        <span class="docs-code-block__lang">css</span>
+                        <button class="docs-copy-btn"><svg class="docs-copy-btn__icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg><span class="docs-copy-btn__text">Copy</span></button>
+                    </div>
+                    <pre><code class="language-css">[data-theme="dark"] {
+  --zak-color-primary: var(--zak-primary-400);
+  --zak-color-secondary: var(--zak-secondary-400);
+  --zak-color-success: var(--zak-success-400);
+  --zak-color-warning: var(--zak-warning-400);
+  --zak-color-danger: var(--zak-danger-400);
+  --zak-color-info: var(--zak-info-400);
+}</code></pre>
+                </div>
+            </section>
+
+        </div>
+    </main>
+    <!-- Search Overlay -->
+    <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+        <div class="docs-search">
+            <div class="docs-search__input-wrap">
+                <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+                <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..."
+                    aria-label="Search">
+                <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+            </div>
+            <div class="docs-search__results"></div>
+            <div class="docs-search__footer">
+                <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+                <span>Press <kbd>ESC</kbd> to close</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+</body>
+
+</html>

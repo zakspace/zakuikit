@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Popover documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Popover - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/overlays/popover/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Popover - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Popover documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/overlays/popover/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Overlays</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Popover</span>
+                </nav>
+        <h1>Popover</h1>
+        <p class="docs-subtitle">Popovers are small floating panels anchored to a trigger. They pair rich content with a non-modal presence — perfect for quick actions, help hints and inline forms.</p>
+
+        <section class="zak-docs-section">
+            <h2>Basic Popover</h2>
+            <p>Link a trigger to its panel with <code>data-zak-popover="#id"</code>. The popover toggles on click and closes on outside clicks or <kbd>Escape</kbd>.</p>
+            <div class="docs-preview">
+                <div style="display:inline-block; position:relative;">
+                    <button class="zak-btn zak-btn-primary" data-zak-popover="#popoverBasic">More info</button>
+                    <div class="zak-popover" id="popoverBasic">
+                        <div class="zak-popover-header">About this project</div>
+                        <div class="zak-popover-body">ZAKUIKit is a modular design system that ships functional primitives with a clean API.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div style="display:inline-block; position:relative;"&gt;
+    &lt;button class="zak-btn zak-btn-primary" data-zak-popover="#popoverBasic"&gt;More info&lt;/button&gt;
+    &lt;div class="zak-popover" id="popoverBasic"&gt;
+        &lt;div class="zak-popover-header"&gt;About this project&lt;/div&gt;
+        &lt;div class="zak-popover-body"&gt;ZAKUIKit is a modular design system.&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Popover with Header</h2>
+            <p>Give the popover a <code>.zak-popover-header</code> for a bold title, and use <code>.zak-popover-body</code> for supporting text.</p>
+            <div class="docs-preview">
+                <div style="display:inline-block; position:relative;">
+                    <button class="zak-btn zak-btn-secondary" data-zak-popover="#popoverHeader">Storage</button>
+                    <div class="zak-popover" id="popoverHeader" style="min-width:18rem;">
+                        <div class="zak-popover-header">Storage usage</div>
+                        <div class="zak-popover-body">
+                            <div style="height:8px; border-radius:999px; background:var(--zak-border, #e2e8f0); overflow:hidden; margin:8px 0;">
+                                <div style="width:72%; height:100%; background:var(--zak-color-primary, #3b82f6);"></div>
+                            </div>
+                            <p style="margin:0;">7.2 GB of 10 GB used. Upgrade to a paid plan when you need more space.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Popover with Action</h2>
+            <p>Combine popovers with a footer of quick actions using <code>.zak-popover-footer</code>.</p>
+            <div class="docs-preview">
+                <div style="display:inline-block; position:relative;">
+                    <button class="zak-btn zak-btn-danger" data-zak-popover="#popoverActions">Delete page</button>
+                    <div class="zak-popover" id="popoverActions" style="min-width:18rem;">
+                        <div class="zak-popover-header">Delete page?</div>
+                        <div class="zak-popover-body">This action is permanent and cannot be undone. The page content will be removed from the workspace.</div>
+                        <div class="zak-popover-footer">
+                            <button class="zak-btn zak-btn-sm zak-btn-secondary" data-zak-popover-close>Cancel</button>
+                            <button class="zak-btn zak-btn-sm zak-btn-danger" data-zak-popover-close onclick="document.getElementById('popoverLog').textContent = 'Page deleted (demo).'">Delete</button>
+                        </div>
+                    </div>
+                </div>
+                <p id="popoverLog" style="margin:16px 0 0; font-size:13px; color:var(--zak-text-muted, #64748b);"></p>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Popover with Form</h2>
+            <p>Popovers can hold compact inline forms — an efficient pattern for rename, quick-edit and filter inputs.</p>
+            <div class="docs-preview">
+                <div style="display:inline-block; position:relative;">
+                    <button class="zak-btn zak-btn-outline-primary" data-zak-popover="#popoverForm">Rename</button>
+                    <div class="zak-popover" id="popoverForm" style="min-width:18rem;">
+                        <div class="zak-popover-header">Rename page</div>
+                        <div class="zak-popover-body">
+                            <div class="zak-form-group"><label class="zak-form-label" for="riname">Name</label><input type="text" class="zak-input" id="riname" value="Q3 Release Notes"></div>
+                        </div>
+                        <div class="zak-popover-footer">
+                            <button class="zak-btn zak-btn-sm zak-btn-secondary" data-zak-popover-close>Cancel</button>
+                            <button class="zak-btn zak-btn-sm zak-btn-primary" data-zak-popover-close>Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Placements</h2>
+            <p>Guide the popover with <code>data-zak-popover-placement</code>: <code>top</code>, <code>bottom</code>, <code>left</code>, or <code>right</code> (default <code>bottom</code>).</p>
+            <div class="docs-preview">
+                <div style="display:flex; flex-wrap:wrap; gap:1rem; align-items:center;">
+                    <div style="display:inline-block; position:relative;"><button class="zak-btn zak-btn-secondary" data-zak-popover="#popTop" data-zak-popover-placement="top">Top</button><div class="zak-popover" id="popTop"><div class="zak-popover-body">Placed above the trigger.</div></div></div>
+                    <div style="display:inline-block; position:relative;"><button class="zak-btn zak-btn-secondary" data-zak-popover="#popBottom" data-zak-popover-placement="bottom">Bottom</button><div class="zak-popover" id="popBottom"><div class="zak-popover-body">Placed below the trigger.</div></div></div>
+                    <div style="display:inline-block; position:relative;"><button class="zak-btn zak-btn-secondary" data-zak-popover="#popLeft" data-zak-popover-placement="left">Left</button><div class="zak-popover" id="popLeft"><div class="zak-popover-body">Placed to the left.</div></div></div>
+                    <div style="display:inline-block; position:relative;"><button class="zak-btn zak-btn-secondary" data-zak-popover="#popRight" data-zak-popover-placement="right">Right</button><div class="zak-popover" id="popRight"><div class="zak-popover-body">Placed to the right.</div></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>CSS Classes &amp; Variables</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>/* Class Summary */
+.zak-popover           /* Floating panel (hidden until active) */
+.zak-popover-active    /* Added by JS to show the popover */
+.zak-popover-header    /* Bold title row */
+.zak-popover-body      /* Main content */
+.zak-popover-footer    /* Action row */
+
+/* Variables used */
+--zak-surface          /* Panel background */
+--zak-border           /* Panel border */
+--zak-shadow-lg        /* Floating shadow */
+--zak-z-tooltip        /* Popover z-index (above content, below tooltips?) */
+--zak-radius-lg        /* Rounded corners */</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>JavaScript</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>// Data attributes (automatic)
+//   data-zak-popover="#id"       toggle the popover
+//   data-zak-popover-close       close the closest .zak-popover
+//   data-zak-popover-placement   "top" | "bottom" | "left" | "right"
+
+// Programmatic API
+zak.popover.open('#myPopover');
+zak.popover.close('#myPopover');
+zak.popover.toggle('#myPopover');
+
+// Options within a single call
+zak.popover.open('#myPopover', {
+    placement: 'top',
+    trigger: 'click'     // or 'hover' / 'focus'
+});
+
+// Events on the popover element
+pop.addEventListener('zak:open', function () { console.log('opened'); });
+pop.addEventListener('zak:close', function () { console.log('closed'); });</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Keep popovers compact — they are auxiliary by design and should never hide critical content.</li>
+                <li>Anchored popovers should use <code>role="dialog"</code> when they contain interactive controls, otherwise <code>role="tooltip"</code> or plain content.</li>
+                <li>The trigger keeps the sematic label; reflect the expanded state with <code>aria-expanded</code>.</li>
+                <li>Popovers close on outside click and <kbd>Escape</kbd>, and should not trap focus.</li>
+                <li>Avoid covering the trigger target when placing popovers with small screens; let the framework flip the placement.</li>
+            </ul>
+        </section>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body></html>

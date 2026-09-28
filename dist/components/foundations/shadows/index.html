@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function () { try { var t = localStorage.getItem('zak-docs-theme') || 'system'; if (t === 'system') { t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light'; } document.documentElement.setAttribute('data-theme', t); } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); } })();</script>
+    <meta name="description"
+        content="ZAKUIKit Shadows documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Shadows - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/foundations/shadows/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Shadows - ZAKUIKit">
+    <meta property="og:description"
+        content="ZAKUIKit Shadows documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/foundations/shadows/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="docs-header">
+        <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12" />
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+        </button>
+        <a href="../../../../index.html" class="docs-header__logo">
+            <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+            <span>ZAKUIKit</span>
+        </a>
+        <nav class="docs-header__nav" aria-label="Primary navigation">
+            <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+            <a href="../../../../components.html"
+                class="docs-header__link docs-header__link--active">Components</a>
+            <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+            <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+            <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+        </nav>
+        <div class="docs-header__actions">
+            <div class="docs-header__search-btn-wrap">
+                <button type="button" class="docs-header__search-btn" aria-label="Open search">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                    <span>Search docs...</span>
+                    <kbd>?K</kbd>
+                </button>
+            </div>
+            <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+    <div class="docs-sidebar-overlay"></div>
+
+    <!-- Main Content -->
+    <main class="docs-main">
+        <div class="docs-content">
+
+            <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                <span class="docs-breadcrumb__separator">/</span>
+                <span class="docs-breadcrumb__current">Foundations</span>
+                <span class="docs-breadcrumb__separator">/</span>
+                <span class="docs-breadcrumb__current">Shadows</span>
+            </nav>
+
+            <div class="docs-component-header">
+                <h1>Shadows</h1>
+                <p class="docs-component-header__description">A layered shadow scale to create depth, elevate
+                    interactive elements, and emphasize surfaces.</p>
+            </div>
+
+            <section id="shadow-scale">
+                <h2>Shadow Scale</h2>
+                <p>Apply any shadow with a single utility class, from none to extra large.</p>
+                <div class="docs-preview">
+                    <div class="docs-preview__toolbar">
+                        <span>Scale</span>
+                        <div class="docs-preview__toolbar-actions">
+                        </div>
+                    </div>
+                    <div class="docs-preview__area" style="gap:16px; flex-wrap:wrap;">
+                        <div class="docs-shadow-demo zak-shadow-none"><span>shadow-none</span></div>
+                        <div class="docs-shadow-demo zak-shadow-xs"><span>shadow-xs</span></div>
+                        <div class="docs-shadow-demo zak-shadow-sm"><span>shadow-sm</span></div>
+                        <div class="docs-shadow-demo zak-shadow-md"><span>shadow-md</span></div>
+                        <div class="docs-shadow-demo zak-shadow-lg"><span>shadow-lg</span></div>
+                        <div class="docs-shadow-demo zak-shadow-xl"><span>shadow-xl</span></div>
+                        <div class="docs-shadow-demo zak-shadow-2xl"><span>shadow-2xl</span></div>
+                        <div class="docs-shadow-demo zak-shadow-inner"><span>shadow-inner</span></div>
+                    </div>
+                </div>
+                <div class="docs-code-block">
+                    <div class="docs-code-block__header">
+                        <span class="docs-code-block__lang">css</span>
+                        <button class="docs-copy-btn"><svg class="docs-copy-btn__icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg><span class="docs-copy-btn__text">Copy</span></button>
+                    </div>
+                    <pre><code class="language-css">--zak-shadow-xs:    0 1px 2px 0 rgb(0 0 0 / 0.05);
+--zak-shadow-sm:    0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+--zak-shadow-md:    0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+--zak-shadow-lg:    0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+--zak-shadow-xl:    0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+--zak-shadow-2xl:   0 25px 50px -12px rgb(0 0 0 / 0.25);
+--zak-shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+--zak-shadow-none:  0 0 #0000;
+
+/* Utility classes */
+.zak-shadow-none .zak-shadow-xs .zak-shadow-sm .zak-shadow-md
+.zak-shadow-lg .zak-shadow-xl .zak-shadow-2xl .zak-shadow-inner</code></pre>
+                </div>
+            </section>
+
+            <section id="usage-examples">
+                <h2>Usage Examples</h2>
+                <p>Cards with progressively larger shadows to communicate hierarchy and elevation.</p>
+                <div class="docs-preview">
+                    <div class="docs-preview__toolbar">
+                        <span>Cards</span>
+                        <div class="docs-preview__toolbar-actions">
+                        </div>
+                    </div>
+                    <div class="docs-preview__area" style="align-items:flex-start; gap:16px; flex-wrap:wrap;">
+                        <div class="zak-shadow-sm"
+                            style="width:180px; padding:16px; border-radius:var(--docs-radius-lg); background:var(--docs-preview-bg);">
+                            <strong class="zak-h6">shadow-sm</strong>
+                            <p class="zak-text-muted" style="font-size:0.85rem;">Flat, subtle card for static content.
+                            </p>
+                        </div>
+                        <div class="zak-shadow-md"
+                            style="width:180px; padding:16px; border-radius:var(--docs-radius-lg); background:var(--docs-preview-bg);">
+                            <strong class="zak-h6">shadow-md</strong>
+                            <p class="zak-text-muted" style="font-size:0.85rem;">Default elevation for most surfaces.
+                            </p>
+                        </div>
+                        <div class="zak-shadow-xl"
+                            style="width:180px; padding:16px; border-radius:var(--docs-radius-lg); background:var(--docs-preview-bg);">
+                            <strong class="zak-h6">shadow-xl</strong>
+                            <p class="zak-text-muted" style="font-size:0.85rem;">High elevation for modals and popovers.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-block">
+                    <div class="docs-code-block__header">
+                        <span class="docs-code-block__lang">html</span>
+                        <button class="docs-copy-btn"><svg class="docs-copy-btn__icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg><span class="docs-copy-btn__text">Copy</span></button>
+                    </div>
+                    <pre><code class="language-html">&lt;div class="zak-shadow-sm"&gt;Flat content card&lt;/div&gt;
+&lt;div class="zak-shadow-md"&gt;Default elevation&lt;/div&gt;
+&lt;div class="zak-shadow-xl"&gt;Modal / popover&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section id="colored-shadows">
+                <h2>Colored Shadows</h2>
+                <p>Emphasize a card with a subtle colored shadow using the shadow as a starting point.</p>
+                <div class="docs-preview">
+                    <div class="docs-preview__toolbar">
+                        <span>Colored</span>
+                        <div class="docs-preview__toolbar-actions">
+                        </div>
+                    </div>
+                    <div class="docs-preview__area" style="align-items:flex-start; gap:16px; flex-wrap:wrap;">
+                        <div class="zak-shadow-md"
+                            style="width:170px; padding:16px; border-radius:var(--docs-radius-lg); background:var(--docs-preview-bg); box-shadow:0 10px 20px -5px rgba(59,130,246,0.4); border-top:3px solid var(--zak-primary-500);">
+                            <strong class="zak-text-primary">Primary</strong>
+                            <p class="zak-text-muted" style="font-size:0.85rem;">Branded highlight.</p>
+                        </div>
+                        <div class="zak-shadow-md"
+                            style="width:170px; padding:16px; border-radius:var(--docs-radius-lg); background:var(--docs-preview-bg); box-shadow:0 10px 20px -5px rgba(34,197,94,0.4); border-top:3px solid var(--zak-success-500);">
+                            <strong class="zak-text-success">Success</strong>
+                            <p class="zak-text-muted" style="font-size:0.85rem;">Positive emphasis.</p>
+                        </div>
+                        <div class="zak-shadow-md"
+                            style="width:170px; padding:16px; border-radius:var(--docs-radius-lg); background:var(--docs-preview-bg); box-shadow:0 10px 20px -5px rgba(239,68,68,0.4); border-top:3px solid var(--zak-danger-500);">
+                            <strong class="zak-text-danger">Danger</strong>
+                            <p class="zak-text-muted" style="font-size:0.85rem;">Warning emphasis.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-code-block">
+                    <div class="docs-code-block__header">
+                        <span class="docs-code-block__lang">css</span>
+                        <button class="docs-copy-btn"><svg class="docs-copy-btn__icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg><span class="docs-copy-btn__text">Copy</span></button>
+                    </div>
+                    <pre><code class="language-css">/* Combine a base shadow with a colored accent */
+.card-primary {
+  box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.4);
+  border-top: 3px solid var(--zak-primary-500);
+}
+.card-success {
+  box-shadow: 0 10px 20px -5px rgba(34, 197, 94, 0.4);
+  border-top: 3px solid var(--zak-success-500);
+}</code></pre>
+                </div>
+            </section>
+
+            <section id="hover-shadows">
+                <h2>Hover Shadows</h2>
+                <p>Create interactive elevation with a shadow that deepens on hover.</p>
+                <div class="docs-preview">
+                    <div class="docs-preview__toolbar">
+                        <span>Hover</span>
+                        <div class="docs-preview__toolbar-actions">
+                        </div>
+                    </div>
+                    <div class="docs-preview__area" style="gap:16px; flex-wrap:wrap;">
+                        <button class="zak-shadow-sm docs-hover-card"
+                            style="width:200px; padding:16px; border-radius:var(--docs-radius-lg); background:var(--docs-preview-bg); border:none; text-align:left; color:var(--docs-text);">
+                            <strong class="zak-h6">Hover me</strong>
+                            <p class="zak-text-muted" style="font-size:0.85rem;">Combines .zak-hover-lift with a shadow
+                                transition.</p>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="docs-code-block">
+                    <div class="docs-code-block__header">
+                        <span class="docs-code-block__lang">css</span>
+                        <button class="docs-copy-btn"><svg class="docs-copy-btn__icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg><span class="docs-copy-btn__text">Copy</span></button>
+                    </div>
+                    <pre><code class="language-css">/* Use the built-in helper, or write your own */
+.custom-card {
+  transition: box-shadow var(--zak-transition-base), transform var(--zak-transition-base);
+}
+.custom-card:hover {
+  box-shadow: var(--zak-shadow-xl);
+  transform: translateY(-4px);
+}
+
+/* Built-in helper classes */
+.zak-hover-lift:hover { transform: translateY(-2px); box-shadow: var(--zak-shadow-md); }
+.zak-hover-zoom:hover { transform: scale(1.05); }</code></pre>
+                </div>
+            </section>
+
+            <section id="accessibility">
+                <h2>Accessibility</h2>
+                <ul class="zak-list-disc">
+                    <li>Shadows should be purely decorative — never use shadow depth as the only indicator of
+                        interactivity; add hover/focus states.</li>
+                    <li>Ensure contrast between elevated surfaces and their background remains sufficient in light and
+                        dark themes.</li>
+                    <li>Consider <code>prefers-reduced-motion</code> — avoid animated shadow/transform transitions for
+                        users who prefer motion reduction.</li>
+                    <li>Floating elements (modals, dropdowns) need to remain distinguishable; combine shadow with a
+                        border or stronger elevation.</li>
+                </ul>
+            </section>
+
+        </div>
+    </main>
+    <!-- Search Overlay -->
+    <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+        <div class="docs-search">
+            <div class="docs-search__input-wrap">
+                <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+                <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..."
+                    aria-label="Search">
+                <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+            </div>
+            <div class="docs-search__results"></div>
+            <div class="docs-search__footer">
+                <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+                <span>Press <kbd>ESC</kbd> to close</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+</body>
+
+</html>

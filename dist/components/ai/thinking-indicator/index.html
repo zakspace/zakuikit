@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Thinking Indicator documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Thinking Indicator - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/ai/thinking-indicator/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Thinking Indicator - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Thinking Indicator documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/ai/thinking-indicator/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Ai</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Thinking Indicator</span>
+                </nav>
+        <h1>Thinking Indicator</h1>
+        <p class="docs-subtitle">Animated indicators showing AI processing states with bouncing dots, step progress, and elapsed time.</p>
+
+        <section class="zak-docs-section">
+            <h2>Bouncing Dots</h2>
+            <p>Classic animated dots that indicate the AI is processing.</p>
+            <div class="docs-preview">
+                <div class="zak-ai-thinking">
+                    <div class="zak-ai-thinking-dots">
+                        <div class="zak-ai-thinking-dot"></div>
+                        <div class="zak-ai-thinking-dot"></div>
+                        <div class="zak-ai-thinking-dot"></div>
+                    </div>
+                    <span class="zak-ai-thinking-text">Thinking...</span>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-ai-thinking"&gt;
+    &lt;div class="zak-ai-thinking-dots"&gt;
+        &lt;div class="zak-ai-thinking-dot"&gt;&lt;/div&gt;
+        &lt;div class="zak-ai-thinking-dot"&gt;&lt;/div&gt;
+        &lt;div class="zak-ai-thinking-dot"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;span class="zak-ai-thinking-text"&gt;Thinking...&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>With Spinner</h2>
+            <p>Spinner-based thinking indicator for longer operations.</p>
+            <div class="docs-preview">
+                <div style="display:flex;flex-direction:column;gap:0.75rem">
+                    <div class="zak-ai-thinking">
+                        <div class="zak-ai-thinking-spinner"></div>
+                        <span>Generating response...</span>
+                    </div>
+                    <div class="zak-ai-thinking">
+                        <div class="zak-ai-thinking-spinner"></div>
+                        <span>Analyzing your code...</span>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-ai-thinking"&gt;
+    &lt;div class="zak-ai-thinking-spinner"&gt;&lt;/div&gt;
+    &lt;span&gt;Generating response...&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>With Progress Bar</h2>
+            <p>Thinking indicator with an animated progress bar.</p>
+            <div class="docs-preview">
+                <div class="zak-ai-thinking" style="flex-wrap:wrap">
+                    <div class="zak-ai-thinking-dots">
+                        <div class="zak-ai-thinking-dot"></div>
+                        <div class="zak-ai-thinking-dot"></div>
+                        <div class="zak-ai-thinking-dot"></div>
+                    </div>
+                    <span class="zak-ai-thinking-text">Processing...</span>
+                    <div class="zak-ai-thinking-progress">
+                        <div class="zak-ai-thinking-progress-bar"><div class="zak-ai-thinking-progress-fill"></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-ai-thinking"&gt;
+    &lt;div class="zak-ai-thinking-dots"&gt;...&lt;/div&gt;
+    &lt;span class="zak-ai-thinking-text"&gt;Processing...&lt;/span&gt;
+    &lt;div class="zak-ai-thinking-progress"&gt;
+        &lt;div class="zak-ai-thinking-progress-bar"&gt;
+            &lt;div class="zak-ai-thinking-progress-fill"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Multi-Step Thinking</h2>
+            <p>Show individual processing steps with completion states.</p>
+            <div class="docs-preview">
+                <div class="zak-ai-thinking-steps">
+                    <div class="zak-ai-thinking-step done">
+                        <div class="zak-ai-thinking-step-icon">âœ“</div>
+                        <span>Searching documentation...</span>
+                        <span class="zak-ai-thinking-time">0.8s</span>
+                    </div>
+                    <div class="zak-ai-thinking-step done">
+                        <div class="zak-ai-thinking-step-icon">âœ“</div>
+                        <span>Analyzing context...</span>
+                        <span class="zak-ai-thinking-time">1.2s</span>
+                    </div>
+                    <div class="zak-ai-thinking-step active">
+                        <div class="zak-ai-thinking-step-icon"><div class="zak-ai-thinking-spinner" style="width:0.75rem;height:0.75rem;border-width:1.5px"></div></div>
+                        <span>Generating response...</span>
+                        <span class="zak-ai-thinking-time" id="think-elapsed">3.4s</span>
+                    </div>
+                    <div class="zak-ai-thinking-step pending">
+                        <div class="zak-ai-thinking-step-icon">4</div>
+                        <span>Formatting output...</span>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-ai-thinking-steps"&gt;
+    &lt;div class="zak-ai-thinking-step done"&gt;
+        &lt;div class="zak-ai-thinking-step-icon"&gt;âœ“&lt;/div&gt;
+        &lt;span&gt;Searching docs...&lt;/span&gt;
+        &lt;span class="zak-ai-thinking-time"&gt;0.8s&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="zak-ai-thinking-step active"&gt;
+        &lt;div class="zak-ai-thinking-step-icon"&gt;spinner&lt;/div&gt;
+        &lt;span&gt;Generating...&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="zak-ai-thinking-step pending"&gt;
+        &lt;div class="zak-ai-thinking-step-icon"&gt;4&lt;/div&gt;
+        &lt;span&gt;Formatting...&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Elaborate Thinking</h2>
+            <p>Thinking state with explanatory text and a left accent border.</p>
+            <div class="docs-preview">
+                <div style="max-width:500px;width:100%">
+                    <div class="zak-ai-thinking-elaborate">
+                        <div class="zak-ai-thinking-elaborate-label">
+                            <div class="zak-ai-thinking-dots">
+                                <div class="zak-ai-thinking-dot"></div>
+                                <div class="zak-ai-thinking-dot"></div>
+                                <div class="zak-ai-thinking-dot"></div>
+                            </div>
+                            Thinking
+                        </div>
+                        <div class="zak-ai-thinking-elaborate-text">I'm analyzing your React component to identify performance bottlenecks. This may take a moment as I review the render cycle and memoization patterns.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-ai-thinking-elaborate"&gt;
+    &lt;div class="zak-ai-thinking-elaborate-label"&gt;
+        &lt;div class="zak-ai-thinking-dots"&gt;...&lt;/div&gt;
+        Thinking
+    &lt;/div&gt;
+    &lt;div class="zak-ai-thinking-elaborate-text"&gt;
+        I'm analyzing your React component...
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>CSS Classes</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>.zak-ai-thinking                /* Base thinking indicator */
+.zak-ai-thinking-dots           /* Bouncing dots container */
+.zak-ai-thinking-dot            /* Individual bouncing dot */
+.zak-ai-thinking-spinner        /* Spinner circle */
+.zak-ai-thinking-text           /* Label text */
+.zak-ai-thinking-progress       /* Progress bar container */
+.zak-ai-thinking-progress-bar   /* Progress bar track */
+.zak-ai-thinking-progress-fill  /* Animated progress fill */
+.zak-ai-thinking-steps          /* Multi-step container */
+.zak-ai-thinking-step           /* Individual step row */
+.zak-ai-thinking-step.done      /* Completed step */
+.zak-ai-thinking-step.active    /* Currently processing step */
+.zak-ai-thinking-step.pending   /* Not yet started step */
+.zak-ai-thinking-step-icon      /* Step number/check icon */
+.zak-ai-thinking-time           /* Elapsed time text */
+.zak-ai-thinking-elaborate      /* Elaborate with description */
+.zak-ai-thinking-elaborate-label/* "Thinking" label */
+.zak-ai-thinking-elaborate-text /* Description text */
+
+/* Key Animations */
+@keyframes think-bounce  { 0%,100%{transform:translateY(0);opacity:0.4} 30%{transform:translateY(-6px);opacity:1} }
+@keyframes think-spin    { to{transform:rotate(360deg)} }
+@keyframes think-progress{ 0%{width:5%} 50%{width:65%} 100%{width:100%} }</code></pre>
+        </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>JavaScript</h2>
+            <p>Elapsed timer for the multi-step thinking indicator.</p>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>// Elapsed time counter
+const elapsed = document.getElementById('think-elapsed');
+if (elapsed) {
+    let seconds = 0;
+    const timer = setInterval(() =&gt; {
+        seconds += 0.1;
+        elapsed.textContent = seconds.toFixed(1) + 's';
+    }, 100);
+    // Stop after 5 seconds
+    setTimeout(() =&gt; clearInterval(timer), 5000);
+}
+
+// Advance thinking steps
+function advanceStep(container) {
+    const active = container.querySelector('.zak-ai-thinking-step.active');
+    const next = active?.nextElementSibling;
+    if (active) {
+        active.classList.remove('active');
+        active.classList.add('done');
+        active.querySelector('.zak-ai-thinking-step-icon').textContent = 'âœ“';
+    }
+    if (next) next.classList.add('active');
+}</code></pre>
+        </div>
+        </section>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body>
+</html>

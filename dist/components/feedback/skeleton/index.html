@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Skeleton documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Skeleton - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/feedback/skeleton/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Skeleton - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Skeleton documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/feedback/skeleton/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Feedback</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Skeleton</span>
+                </nav>
+        <h1>Skeleton</h1>
+        <p class="docs-subtitle">Skeleton loaders are placeholder shapes that shimmer while real content loads, reducing perceived latency.</p>
+
+        <section class="zak-docs-section">
+            <h2>Text Skeleton</h2>
+            <p>Line-height skeletons mimic paragraphs of text.</p>
+            <div class="docs-preview">
+                <div class="zak-stack" style="width:100%;max-width:22rem;">
+                    <span class="zak-skeleton zak-skeleton-lg"></span>
+                    <span class="zak-skeleton"></span>
+                    <span class="zak-skeleton zak-skeleton-sm" style="width:70%;"></span>
+                    <span class="zak-skeleton zak-skeleton-sm" style="width:40%;"></span>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-stack" style="max-width:22rem;"&gt;
+    &lt;span class="zak-skeleton zak-skeleton-lg"&gt;&lt;/span&gt;
+    &lt;span class="zak-skeleton"&gt;&lt;/span&gt;
+    &lt;span class="zak-skeleton zak-skeleton-sm" style="width:70%;"&gt;&lt;/span&gt;
+    &lt;span class="zak-skeleton zak-skeleton-sm" style="width:40%;"&gt;&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Circle Skeleton (Avatar)</h2>
+            <p>Use <code>.zak-skeleton-circle</code> for avatar placeholders.</p>
+            <div class="docs-preview">
+                <div style="display:flex;gap:1rem;align-items:center;">
+                    <div style="display:flex;gap:0.75rem;align-items:center;">
+                        <span class="zak-skeleton zak-skeleton-circle"></span>
+                        <div class="zak-stack" style="width:10rem;">
+                            <span class="zak-skeleton zak-skeleton-sm"></span>
+                            <span class="zak-skeleton zak-skeleton-sm" style="width:60%;"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div style="display:flex;gap:0.75rem;align-items:center;"&gt;
+    &lt;span class="zak-skeleton zak-skeleton-circle"&gt;&lt;/span&gt;
+    &lt;div class="zak-stack" style="width:10rem;"&gt;
+        &lt;span class="zak-skeleton zak-skeleton-sm"&gt;&lt;/span&gt;
+        &lt;span class="zak-skeleton zak-skeleton-sm" style="width:60%;"&gt;&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Rectangle Skeleton (Image)</h2>
+            <p>Set explicit dimensions to reserve space for images or media.</p>
+            <div class="docs-preview">
+                <span class="zak-skeleton" style="width:16rem;height:9rem;border-radius:var(--zak-radius-lg);"></span>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;span class="zak-skeleton" style="width:16rem;height:9rem;border-radius:var(--zak-radius-lg);"&gt;&lt;/span&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Skeleton Card</h2>
+            <p>A full card layout preview with image, title, and body lines.</p>
+            <div class="docs-preview">
+                <div class="zak-card" style="width:100%;max-width:20rem;padding:1rem;">
+                    <span class="zak-skeleton" style="width:100%;height:8rem;border-radius:var(--zak-radius-lg);"></span>
+                    <div class="zak-stack" style="margin-top:1rem;">
+                        <span class="zak-skeleton zak-skeleton-lg" style="width:70%;"></span>
+                        <span class="zak-skeleton zak-skeleton-sm"></span>
+                        <span class="zak-skeleton zak-skeleton-sm" style="width:80%;"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-card" style="max-width:20rem;padding:1rem;"&gt;
+    &lt;span class="zak-skeleton" style="width:100%;height:8rem;"&gt;&lt;/span&gt;
+    &lt;div class="zak-stack" style="margin-top:1rem;"&gt;
+        &lt;span class="zak-skeleton zak-skeleton-lg" style="width:70%;"&gt;&lt;/span&gt;
+        &lt;span class="zak-skeleton zak-skeleton-sm"&gt;&lt;/span&gt;
+        &lt;span class="zak-skeleton zak-skeleton-sm" style="width:80%;"&gt;&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Skeleton List</h2>
+            <p>Rows of avatars and lines approximate a loading list.</p>
+            <div class="docs-preview">
+                <div class="zak-stack" style="width:100%;max-width:22rem;">
+                    <div style="display:flex;gap:0.75rem;align-items:center;">
+                        <span class="zak-skeleton zak-skeleton-circle"></span>
+                        <div class="zak-stack" style="flex:1;">
+                            <span class="zak-skeleton zak-skeleton-sm"></span>
+                            <span class="zak-skeleton zak-skeleton-sm" style="width:50%;"></span>
+                        </div>
+                    </div>
+                    <div style="display:flex;gap:0.75rem;align-items:center;">
+                        <span class="zak-skeleton zak-skeleton-circle"></span>
+                        <div class="zak-stack" style="flex:1;">
+                            <span class="zak-skeleton zak-skeleton-sm"></span>
+                            <span class="zak-skeleton zak-skeleton-sm" style="width:50%;"></span>
+                        </div>
+                    </div>
+                    <div style="display:flex;gap:0.75rem;align-items:center;">
+                        <span class="zak-skeleton zak-skeleton-circle"></span>
+                        <div class="zak-stack" style="flex:1;">
+                            <span class="zak-skeleton zak-skeleton-sm"></span>
+                            <span class="zak-skeleton zak-skeleton-sm" style="width:50%;"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-stack"&gt;
+    &lt;div style="display:flex;gap:0.75rem;align-items:center;"&gt;
+        &lt;span class="zak-skeleton zak-skeleton-circle"&gt;&lt;/span&gt;
+        &lt;div class="zak-stack" style="flex:1;"&gt;
+            &lt;span class="zak-skeleton zak-skeleton-sm"&gt;&lt;/span&gt;
+            &lt;span class="zak-skeleton zak-skeleton-sm" style="width:50%;"&gt;&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Skeleton Table</h2>
+            <p>Rows of bars approximate a tabular layout.</p>
+            <div class="docs-preview">
+                <div class="zak-stack" style="width:100%;max-width:28rem;">
+                    <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:1rem;">
+                        <span class="zak-skeleton zak-skeleton-sm"></span>
+                        <span class="zak-skeleton zak-skeleton-sm"></span>
+                        <span class="zak-skeleton zak-skeleton-sm"></span>
+                    </div>
+                    <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:1rem;">
+                        <span class="zak-skeleton zak-skeleton-sm" style="height:0.75rem;"></span>
+                        <span class="zak-skeleton zak-skeleton-sm" style="height:0.75rem;"></span>
+                        <span class="zak-skeleton zak-skeleton-sm" style="height:0.75rem;"></span>
+                    </div>
+                    <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:1rem;">
+                        <span class="zak-skeleton zak-skeleton-sm" style="height:0.75rem;"></span>
+                        <span class="zak-skeleton zak-skeleton-sm" style="height:0.75rem;"></span>
+                        <span class="zak-skeleton zak-skeleton-sm" style="height:0.75rem;"></span>
+                    </div>
+                    <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:1rem;">
+                        <span class="zak-skeleton zak-skeleton-sm" style="height:0.75rem;"></span>
+                        <span class="zak-skeleton zak-skeleton-sm" style="height:0.75rem;"></span>
+                        <span class="zak-skeleton zak-skeleton-sm" style="height:0.75rem;"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-stack"&gt;
+    &lt;div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:1rem;"&gt;
+        &lt;span class="zak-skeleton zak-skeleton-sm"&gt;&lt;/span&gt;
+        &lt;span class="zak-skeleton zak-skeleton-sm"&gt;&lt;/span&gt;
+        &lt;span class="zak-skeleton zak-skeleton-sm"&gt;&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Skeleton with Animation</h2>
+            <p>The shimmer sweep runs automatically via <code>::after</code>. Pause it with a custom class if needed.</p>
+            <div class="docs-preview">
+                <div class="zak-stack" style="width:100%;max-width:22rem;">
+                    <span class="zak-skeleton zak-skeleton-lg"></span>
+                    <span class="zak-skeleton"></span>
+                    <span class="zak-skeleton" style="width:60%;"></span>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>/* Animation is built in via .zak-skeleton::after */
+.zak-skeleton {
+    position: relative;
+    overflow: hidden;
+}
+.zak-skeleton::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(90deg, transparent, var(--zak-surface-hover), transparent);
+    animation: zak-shimmer 1.5s infinite;
+}
+@keyframes zak-shimmer { 100% { transform: translateX(100%); } }
+
+/* Opt out of reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .zak-skeleton::after { animation: none; }
+}</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Skeleton with Custom Dimensions</h2>
+            <p>Control width, height, and radius inline for bespoke shapes.</p>
+            <div class="docs-preview">
+                <div style="display:flex;gap:1rem;align-items:flex-end;flex-wrap:wrap;">
+                    <span class="zak-skeleton" style="width:8rem;height:8rem;border-radius:var(--zak-radius-full);"></span>
+                    <span class="zak-skeleton" style="width:4rem;height:1.5rem;border-radius:var(--zak-radius-full);"></span>
+                    <span class="zak-skeleton" style="width:10rem;height:2rem;"></span>
+                    <span class="zak-skeleton" style="width:1rem;height:3rem;border-radius:var(--zak-radius-sm);"></span>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;!-- Circle --&gt;
+&lt;span class="zak-skeleton" style="width:8rem;height:8rem;border-radius:50%;"&gt;&lt;/span&gt;
+&lt;!-- Pill --&gt;
+&lt;span class="zak-skeleton" style="width:4rem;height:1.5rem;border-radius:999px;"&gt;&lt;/span&gt;
+&lt;!-- Bar --&gt;
+&lt;span class="zak-skeleton" style="width:10rem;height:2rem;"&gt;&lt;/span&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>CSS Classes &amp; Variables</h2>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>.zak-skeleton           /* Base block/bar */
+.zak-skeleton-circle     /* Circle shape (default 2.5rem) */
+.zak-skeleton-sm         /* 0.5rem height */
+.zak-skeleton-md         /* 0.75rem height */
+.zak-skeleton-lg         /* 1.25rem height */
+.zak-skeleton-xl         /* 2rem height */
+
+/* Sizing helpers can be combined with inline width/height */</code></pre>
+            </div>
+        </section>
+
+        <section class="zak-docs-section">
+            <h2>Accessibility</h2>
+            <ul>
+                <li>Mark the placeholder container with <code>aria-busy="true"</code> while data loads.</li>
+                <li>Add an <code>aria-label</code> such as "Loading" to the container for screen readers.</li>
+                <li>Do not leave skeletons visible for long periods; replace them as soon as content is available.</li>
+                <li>Respect <code>prefers-reduced-motion</code> by disabling the shimmer animation.</li>
+            </ul>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-stack" aria-busy="true" aria-label="Loading content"&gt;
+    &lt;span class="zak-skeleton zak-skeleton-lg"&gt;&lt;/span&gt;
+    &lt;span class="zak-skeleton"&gt;&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    </body></html>

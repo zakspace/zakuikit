@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('zak-docs-theme')||'system';if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <meta name="description"
+      content="ZAKUIKit Maintenance State documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Maintenance State - ZAKUIKit</title>
+    <link rel="canonical" href="https://zakuikit.vercel.app/dist/components/feedback/maintenance-state/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZAKUIKit">
+    <meta property="og:title" content="Maintenance State - ZAKUIKit">
+    <meta property="og:description" content="ZAKUIKit Maintenance State documentation - a modern, lightweight vanilla UI toolkit built with HTML, CSS and JavaScript. Live previews, code samples and usage guidance.">
+    <meta property="og:url" content="https://zakuikit.vercel.app/dist/components/feedback/maintenance-state/">
+    <meta property="og:image" content="https://zakuikit.vercel.app/img/logo.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../../../../dist/css/zak.css">
+    <link rel="stylesheet" href="../../../../css/zak-docs.css">
+    <link rel="stylesheet" href="../../../../css/syntax-highlight.css">
+    <link rel="stylesheet" href="../../../../dist/icons/icons.css">
+    <link rel="icon" href="../../../../img/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="../../../../img/favicon.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="../../../../img/favicon.svg">
+</head>
+<body>
+    <header class="docs-header">
+    <button type="button" class="docs-hamburger" aria-label="Toggle sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="../../../../index.html" class="docs-header__logo">
+      <span class="docs-zak-logo"><img src="../../../../img/logo.svg" alt=""></span>
+      <span>ZAKUIKit</span>
+    </a>
+    <nav class="docs-header__nav" aria-label="Primary navigation">
+      <a href="../../../../getting-started.html" class="docs-header__link">Getting Started</a>
+      <a href="../../../../components.html" class="docs-header__link docs-header__link--active">Components</a>
+      <a href="../../../../templates.html" class="docs-header__link">Templates</a>
+      <a href="../../../../icons.html" class="docs-header__link">Icons</a>
+      <a href="../../../../utilities.html" class="docs-header__link">Utilities</a>
+    </nav>
+    <div class="docs-header__actions">
+      <div class="docs-header__search-btn-wrap">
+        <button type="button" class="docs-header__search-btn" aria-label="Open search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search docs...</span>
+          <kbd>?K</kbd>
+        </button>
+      </div>
+      <button type="button" class="docs-theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+    <aside id="zak-docs-sidebar" class="docs-sidebar"></aside>
+
+  <div class="docs-sidebar-overlay"></div>
+    <main class="docs-main"><div class="docs-content">
+        <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+                    <a href="../../../../index.html" class="docs-breadcrumb__link">Home</a>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Loading-States</span>
+                    <span class="docs-breadcrumb__separator">/</span>
+                    <span class="docs-breadcrumb__current">Maintenance State</span>
+                </nav>
+        <h1>Maintenance State</h1>
+        <p class="docs-subtitle">Informs users that the application is temporarily unavailable for scheduled maintenance.</p>
+
+        <h2>Maintenance Page</h2>
+        <p>A full-page maintenance notification.</p>
+        <div class="docs-preview">
+            <div class="docs-preview">
+                <div class="zak-maintenance-state">
+                    <div class="zak-maintenance-state-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:64px;height:64px"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+                    </div>
+                    <h1 class="zak-maintenance-state-title">Scheduled Maintenance</h1>
+                    <p class="zak-maintenance-state-text">We're currently performing scheduled maintenance to improve your experience. We'll be back shortly.</p>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-maintenance-state"&gt;
+    &lt;div class="zak-maintenance-state-icon"&gt;
+        &lt;svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"&gt;
+            &lt;path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/&gt;
+        &lt;/svg&gt;
+    &lt;/div&gt;
+    &lt;h1 class="zak-maintenance-state-title"&gt;Scheduled Maintenance&lt;/h1&gt;
+    &lt;p class="zak-maintenance-state-text"&gt;We're currently performing scheduled maintenance.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <h2>Maintenance Banner</h2>
+        <p>A non-blocking banner for less critical maintenance notices.</p>
+        <div class="docs-preview">
+            <div class="docs-preview">
+                <div class="zak-maintenance-banner">
+                    <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:1rem;height:1rem"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    <span>Scheduled maintenance on Sep 15 from 2:00 AM to 4:00 AM UTC.</span>
+                    <button class="zak-maintenance-banner-close" onclick="this.parentElement.style.display='none'">&times;</button>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-maintenance-banner"&gt;
+    &lt;svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;
+        &lt;circle cx="12" cy="12" r="10"/&gt;
+        &lt;line x1="12" y1="8" x2="12" y2="12"/&gt;&lt;line x1="12" y1="16" x2="12.01" y2="16"/&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Scheduled maintenance on Sep 15 from 2:00 AM to 4:00 AM UTC.&lt;/span&gt;
+    &lt;button class="zak-maintenance-banner-close" onclick="this.parentElement.style.display='none'"&gt;&amp;times;&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <h2>Maintenance with Estimated Time</h2>
+        <p>Show an estimated time for when the service will be available again.</p>
+        <div class="docs-preview">
+            <div class="docs-preview">
+                <div class="zak-maintenance-state">
+                    <div class="zak-maintenance-state-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:64px;height:64px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <h1 class="zak-maintenance-state-title">We'll be right back</h1>
+                    <p class="zak-maintenance-state-text">We're upgrading our systems to serve you better. Expected to be back in approximately 45 minutes.</p>
+                    <div class="zak-maintenance-state-countdown" id="maintenanceCountdown">
+                        <div class="zak-maintenance-countdown-item">
+                            <span class="zak-maintenance-countdown-value" id="countdownMinutes">45</span>
+                            <span class="zak-maintenance-countdown-label">Minutes</span>
+                        </div>
+                        <div class="zak-maintenance-countdown-separator">:</div>
+                        <div class="zak-maintenance-countdown-item">
+                            <span class="zak-maintenance-countdown-value" id="countdownSeconds">00</span>
+                            <span class="zak-maintenance-countdown-label">Seconds</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-maintenance-state"&gt;
+    &lt;div class="zak-maintenance-state-icon"&gt;
+        &lt;svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"&gt;
+            &lt;circle cx="12" cy="12" r="10"/&gt;
+            &lt;polyline points="12 6 12 12 16 14"/&gt;
+        &lt;/svg&gt;
+    &lt;/div&gt;
+    &lt;h1 class="zak-maintenance-state-title"&gt;We'll be right back&lt;/h1&gt;
+    &lt;p class="zak-maintenance-state-text"&gt;Expected to be back in approximately 45 minutes.&lt;/p&gt;
+    &lt;div class="zak-maintenance-state-countdown"&gt;
+        &lt;div class="zak-maintenance-countdown-item"&gt;
+            &lt;span class="zak-maintenance-countdown-value"&gt;45&lt;/span&gt;
+            &lt;span class="zak-maintenance-countdown-label"&gt;Minutes&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class="zak-maintenance-countdown-separator"&gt;:&lt;/div&gt;
+        &lt;div class="zak-maintenance-countdown-item"&gt;
+            &lt;span class="zak-maintenance-countdown-value"&gt;00&lt;/span&gt;
+            &lt;span class="zak-maintenance-countdown-label"&gt;Seconds&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <h2>Maintenance with Contact Info</h2>
+        <p>Provide support contact information during maintenance.</p>
+        <div class="docs-preview">
+            <div class="docs-preview">
+                <div class="zak-maintenance-state">
+                    <div class="zak-maintenance-state-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:64px;height:64px"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+                    </div>
+                    <h1 class="zak-maintenance-state-title">Under Maintenance</h1>
+                    <p class="zak-maintenance-state-text">We're performing a major system upgrade. If you need immediate assistance, please contact our support team.</p>
+                    <div class="zak-maintenance-state-contact">
+                        <div class="zak-maintenance-contact-item">
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:1rem;height:1rem"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            <span>support@zakui.com</span>
+                        </div>
+                        <div class="zak-maintenance-contact-item">
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:1rem;height:1rem"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                            <span>+1 (555) 123-4567</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-maintenance-state"&gt;
+    &lt;div class="zak-maintenance-state-icon"&gt;...&lt;/div&gt;
+    &lt;h1 class="zak-maintenance-state-title"&gt;Under Maintenance&lt;/h1&gt;
+    &lt;p class="zak-maintenance-state-text"&gt;Please contact our support team for immediate assistance.&lt;/p&gt;
+    &lt;div class="zak-maintenance-state-contact"&gt;
+        &lt;div class="zak-maintenance-contact-item"&gt;
+            &lt;svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;
+                &lt;path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/&gt;
+                &lt;polyline points="22,6 12,13 2,6"/&gt;
+            &lt;/svg&gt;
+            &lt;span&gt;support@zakui.com&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class="zak-maintenance-contact-item"&gt;
+            &lt;svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;
+                &lt;path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72"/&gt;
+            &lt;/svg&gt;
+            &lt;span&gt;+1 (555) 123-4567&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <h2>Maintenance with Illustration</h2>
+        <p>Decorative gradient illustration for the maintenance page.</p>
+        <div class="docs-preview">
+            <div class="docs-preview">
+                <div class="zak-maintenance-state">
+                    <div class="zak-maintenance-state-illustration">
+                        <div style="width:140px;height:140px;border-radius:50%;background:linear-gradient(135deg,var(--zak-warning-light),var(--zak-danger-light));display:flex;align-items:center;justify-content:center">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--zak-warning)" stroke-width="1.5" style="width:64px;height:64px"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+                        </div>
+                    </div>
+                    <h1 class="zak-maintenance-state-title">System Maintenance</h1>
+                    <p class="zak-maintenance-state-text">We're making improvements to serve you better. Follow us on social media for real-time updates.</p>
+                    <div class="zak-maintenance-state-actions">
+                        <button class="zak-btn zak-btn-outline">
+                            <svg class="zak-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:1rem;height:1rem"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+                            Follow Updates
+                        </button>
+                        <button class="zak-btn zak-btn-soft">Subscribe to Alerts</button>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span><button class="docs-copy-btn">Copy</button></div><pre><code>&lt;div class="zak-maintenance-state"&gt;
+    &lt;div class="zak-maintenance-state-illustration"&gt;
+        &lt;div style="width:140px;height:140px;border-radius:50%;background:linear-gradient(135deg,var(--zak-warning-light),var(--zak-danger-light));display:flex;align-items:center;justify-content:center"&gt;
+            &lt;svg viewBox="0 0 24 24" fill="none" stroke="var(--zak-warning)" stroke-width="1.5"&gt;
+                &lt;path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/&gt;
+            &lt;/svg&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;h1 class="zak-maintenance-state-title"&gt;System Maintenance&lt;/h1&gt;
+    &lt;p class="zak-maintenance-state-text"&gt;Follow us on social media for real-time updates.&lt;/p&gt;
+    &lt;div class="zak-maintenance-state-actions"&gt;
+        &lt;button class="zak-btn zak-btn-outline"&gt;Follow Updates&lt;/button&gt;
+        &lt;button class="zak-btn zak-btn-soft"&gt;Subscribe to Alerts&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <h2>CSS Variables</h2>
+        <div class="docs-preview">
+            <div class="docs-code-block"><div class="docs-code-block__header"><span class="docs-code-block__lang">HTML</span></div><pre><code>:root {
+    --zak-maintenance-banner-bg: var(--zak-warning);
+    --zak-maintenance-banner-color: #000;
+    --zak-maintenance-countdown-bg: var(--zak-surface-alt);
+    --zak-maintenance-countdown-radius: 8px;
+    --zak-maintenance-countdown-value-size: 2rem;
+    --zak-maintenance-contact-gap: 1rem;
+}</code></pre>
+            </div>
+        </div>
+    </div></main>
+    <!-- Search Overlay -->
+  <div class="docs-search-overlay" role="dialog" aria-modal="true" aria-label="Search components">
+    <div class="docs-search">
+      <div class="docs-search__input-wrap">
+        <svg class="docs-search__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="docs-search__input" placeholder="Search components, utilities, foundations..." aria-label="Search">
+        <button type="button" class="docs-search__close" aria-label="Close search">ESC</button>
+      </div>
+      <div class="docs-search__results"></div>
+      <div class="docs-search__footer">
+        <span>Press <kbd>&#8593;</kbd><kbd>&#8595;</kbd> to navigate</span>
+        <span>Press <kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+    <script src="../../../../dist/js/zak.js"></script>
+    <script src="../../../../js/docs.js"></script>
+    <script>
+        (function() {
+            var totalSeconds = 45 * 60;
+            var minutesEl = document.getElementById('countdownMinutes');
+            var secondsEl = document.getElementById('countdownSeconds');
+            if (minutesEl && secondsEl) {
+                setInterval(function() {
+                    if (totalSeconds <= 0) return;
+                    totalSeconds--;
+                    var m = Math.floor(totalSeconds / 60);
+                    var s = totalSeconds % 60;
+                    minutesEl.textContent = m < 10 ? '0' + m : m;
+                    secondsEl.textContent = s < 10 ? '0' + s : s;
+                }, 1000);
+            }
+        })();
+    </script>
+</body></html>
