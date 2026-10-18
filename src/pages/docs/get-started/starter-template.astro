@@ -1,0 +1,364 @@
+---
+/**
+ * Get Started — Starter template. The copy-paste HTML page skeleton, plus a
+ * live rendering of the same markup wired to the real runtime.
+ */
+import DocsLayout from '../../../layouts/DocsLayout.astro';
+import CodeBlock, { type CodeTab } from '../../../components/CodeBlock.astro';
+import { guideHref } from '../../../data/getstarted';
+import { svgIcon } from '../../../data/icons';
+import type { TocItem } from '../../../layouts/DocsLayout.astro';
+
+const toc: TocItem[] = [
+  { id: 'template', label: 'The template' },
+  { id: 'example', label: 'Live example' },
+  { id: 'init-script', label: 'Init script' },
+  { id: 'notes', label: 'Notes' },
+];
+
+const templateTabs: CodeTab[] = [
+  {
+    label: 'index.html',
+    lang: 'html',
+    code: `<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#f6f7fb" data-theme-color />
+    <title>ZAKUIKit starter template</title>
+
+    <!-- Theme boot — runs before first paint so there is never a flash -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('zak-theme');
+          if (stored !== 'light' && stored !== 'dark') {
+            stored = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          }
+          document.documentElement.setAttribute('data-theme', stored);
+        } catch (error) {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      })();
+    </script>
+
+    <!-- The toolkit: one stylesheet, one script -->
+    <link rel="stylesheet" href="/zak.css" />
+    <script src="/zak.js" defer></script>
+  </head>
+  <body>
+    <header class="zak-navbar">
+      <a class="zak-navbar__brand" href="/">Acme Console</a>
+      <nav class="zak-navbar__nav">
+        <a class="zak-navbar__link is-active" href="#">Dashboard</a>
+        <a class="zak-navbar__link" href="#">Reports</a>
+      </nav>
+      <button class="zak-btn zak-btn--outline zak-btn--sm" style="margin-inline-start: auto" type="button" data-theme-toggle>
+        Switch theme
+      </button>
+    </header>
+
+    <main class="zak-container" style="padding-block: var(--zak-space-8)">
+      <h1>Starter page</h1>
+      <p>This page is built with plain ZAKUIKit classes — no framework, no bundler.</p>
+      <button class="zak-btn zak-btn--filled" type="button" data-greet>Say hello</button>
+    </main>
+
+    <script>
+      // Wire the toolkit's toast helper to a button.
+      document.querySelector('[data-greet]').addEventListener('click', function () {
+        ZakUI.toast('Hello from ZAKUIKit', 'success', { desc: 'Stylesheet and runtime are wired up.' });
+      });
+
+      // Minimal theme toggle — same data-theme contract as the docs site.
+      document.querySelector('[data-theme-toggle]').addEventListener('click', function () {
+        var root = document.documentElement;
+        var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem('zak-theme', next);
+      });
+    </script>
+  </body>
+</html>`,
+  },
+];
+
+const rocketI = svgIcon('rocket', 'zak-icon', 13);
+const infoI = svgIcon('info', 'zak-icon', 15);
+const arrowI = svgIcon('arrow-right', 'zak-icon', 13);
+
+/* Optional app-level bootstrap — theme tracking, controller auto-registration
+   and event delegation, layered on top of the self-initialising zak.js runtime. */
+const initTabs: CodeTab[] = [
+  {
+    label: 'app-init.js',
+    lang: 'js',
+    code: `/*! ZAKUIKit app bootstrap — theme detection, controller
+   auto-registration and event delegation. Copy this into your own init file
+   and load it after zak.js. Dependency-free vanilla JS. */
+(function () {
+  'use strict';
+  var STORAGE_KEY = 'zak-theme';
+  var root = document.documentElement;
+
+  /* 1 — Theme detection: stored choice wins, then the OS preference. */
+  function readStored() {
+    try {
+      var t = localStorage.getItem(STORAGE_KEY);
+      return t === 'light' || t === 'dark' ? t : null;
+    } catch (e) { return null; }
+  }
+  function applyTheme(theme, persist) {
+    root.setAttribute('data-theme', theme);
+    if (persist) { try { localStorage.setItem(STORAGE_KEY, theme); } catch (e) {} }
+    var meta = document.querySelector('[data-theme-color]');
+    if (meta) meta.setAttribute('content', theme === 'dark' ? '#070b14' : '#f6f7fb');
+    document.dispatchEvent(new CustomEvent('zak:theme', { detail: { theme: theme } }));
+  }
+  applyTheme(readStored() ||
+    (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'), false);
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
+    if (!readStored()) applyTheme(e.matches ? 'dark' : 'light', false);
+  });
+  document.addEventListener('click', function (event) {
+    var toggle = event.target.closest('[data-theme-toggle]');
+    if (!toggle) return;
+    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(next, true);
+    toggle.setAttribute('aria-pressed', String(next === 'dark'));
+  });
+
+  /* 2 — Component auto-registration: mount every [data-zak-component]
+     host once, including subtrees your app renders later. */
+  function registerComponents(scope) {
+    if (window.ZakUI && ZakUI.init) ZakUI.init(scope || document);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () { registerComponents(document); });
+  } else {
+    registerComponents(document);
+  }
+  new MutationObserver(function (mutations) {
+    mutations.forEach(function (m) {
+      m.addedNodes.forEach(function (node) {
+        if (node.nodeType === 1 && node.querySelector &&
+            node.querySelector('[data-zak-component]')) registerComponents(node);
+      });
+    });
+  }).observe(document.body, { childList: true, subtree: true });
+
+  /* 3 — Event delegation: one document-level router. Rendered HTML never
+     needs inline JS — actions are plain data attributes. */
+  var actions = {
+    toast: function (el) {
+      ZakUI.toast(el.getAttribute('data-zak-arg') || 'Done', 'success');
+    },
+    busy: function (el) {
+      new ZakUI.ZakButton(el).withLoading(function () {
+        return new Promise(function (r) {
+          setTimeout(r, Number(el.getAttribute('data-zak-arg') || 1500));
+        });
+      });
+    },
+    open: function (el) {
+      var d = document.querySelector(el.getAttribute('data-zak-arg') || '');
+      if (d instanceof HTMLDialogElement) new ZakUI.ZakModal(d).open();
+    },
+  };
+  document.addEventListener('click', function (event) {
+    var el = event.target.closest('[data-zak-action]');
+    if (!el) return;
+    var handler = actions[el.getAttribute('data-zak-action')];
+    if (handler) handler(el, event);
+  });
+
+  window.ZakApp = { actions: actions, registerComponents: registerComponents };
+})();`,
+  },
+  {
+    label: 'Markup hooks',
+    lang: 'html',
+    code: `<!-- Declarative hosts the auto-registrar mounts controllers on: -->
+<div data-zak-component="tabs">…</div>
+<dialog id="invite" data-zak-component="modal">…</dialog>
+
+<!-- Actions the delegated router handles — no inline JS anywhere: -->
+<button class="zak-btn zak-btn--filled" type="button"
+        data-zak-action="busy" data-zak-arg="2000">Save changes</button>
+
+<button class="zak-btn zak-btn--outline" type="button"
+        data-zak-action="open" data-zak-arg="#invite">Invite teammate</button>
+
+<button class="zak-btn zak-btn--ghost" type="button"
+        data-zak-action="toast" data-zak-arg="Archived">Archive</button>
+
+<button class="zak-btn zak-btn--ghost" type="button" data-theme-toggle>
+  Switch theme
+</button>`,
+  },
+];
+---
+
+<DocsLayout
+  title="Starter template"
+  desc="A complete ZAKUIKit starter page — theme boot, the toolkit files and a wired navbar, ready to copy."
+  activeCategory="get-started"
+  activeComponent="starter-template"
+  toc={toc}
+>
+  <header class="doc-header" id="overview">
+    <div class="doc-header__meta">
+      <span class="zak-badge zak-badge--primary">
+        <Fragment set:html={rocketI} />
+        Get Started
+      </span>
+      <span class="zak-badge zak-badge--info">Copy &amp; paste</span>
+    </div>
+    <h1 class="doc-header__title">Starter template</h1>
+    <p class="doc-header__desc">
+      Be sure your pages start from the same foundation: the theme boot script, the combined stylesheet,
+      the runtime and a working navbar. Copy this file and build from there.
+    </p>
+  </header>
+
+  <section class="doc-section" id="template">
+    <h2 class="doc-section__title">The template</h2>
+    <p class="doc-section__lead">
+      Everything a ZAKUIKit page needs in one file — save it as <code>index.html</code> next to your
+      copies of <code>zak.css</code> and <code>zak.js</code>.
+    </p>
+    <CodeBlock tabs={templateTabs} id="gs-starter" label="Starter template" />
+  </section>
+
+  <section class="doc-section" id="example">
+    <h2 class="doc-section__title">Live example</h2>
+    <p class="doc-section__lead">
+      The same markup, rendered by this page — the navbar, the toast button and the theme toggle are all
+      running on the real runtime.
+    </p>
+    <div class="doc-demo">
+      <div class="doc-demo__stage">
+        <span class="doc-demo__label">Live preview</span>
+        <div class="zak-box" style="width:100%;padding:0;overflow:hidden">
+          <header class="zak-navbar" style="position:static">
+            <a class="zak-navbar__brand" href={guideHref('starter-template')}>Acme Console</a>
+            <nav class="zak-navbar__nav">
+              <a class="zak-navbar__link is-active" href={guideHref('starter-template')}>Dashboard</a>
+              <a class="zak-navbar__link" href={guideHref('starter-template')}>Reports</a>
+            </nav>
+            <button
+              class="zak-btn zak-btn--outline zak-btn--sm"
+              style="margin-inline-start: auto"
+              type="button"
+              id="gs-starter-theme">
+              Switch theme
+            </button>
+          </header>
+          <div style="padding: var(--zak-space-6)">
+            <h2 style="margin: 0 0 var(--zak-space-2)">Starter page</h2>
+            <p style="margin: 0 0 var(--zak-space-4); color: var(--zak-text-secondary)">
+              This page is built with plain ZAKUIKit classes — no framework, no bundler.
+            </p>
+            <button class="zak-btn zak-btn--filled" type="button" id="gs-starter-greet">Say hello</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="doc-section" id="init-script">
+    <h2 class="doc-section__title">Optional app bootstrap</h2>
+    <p class="doc-section__lead">
+      The starter template above wires two buttons by hand. <code>zak.js</code> already
+      self-initialises every <code>[data-zak-component]</code> controller on load. The snippet
+      below is an <em>optional</em> app-level bootstrap you can copy into your own file to add
+      system-preference theme tracking, re-registration for subtrees rendered later, and a single
+      delegated listener for your app's own actions.
+    </p>
+    <CodeBlock tabs={initTabs} id="gs-init" label="App bootstrap script" />
+    <div class="doc-callout">
+      <Fragment set:html={infoI} />
+      <span>
+        <strong>Load order:</strong> the inline theme boot in <code>&lt;head&gt;</code>, then
+        <code>zak.css</code>, then <code>zak.js defer</code>, then your own
+        <code>app-init.js defer</code>. The runtime needs no setup call — the bootstrap only
+        adds app-level conveniences around it.
+      </span>
+    </div>
+  </section>
+
+  <section class="doc-section" id="notes">
+    <h2 class="doc-section__title">Notes</h2>
+    <div class="doc-callout">
+      <Fragment set:html={infoI} />
+      <span>
+        <strong>The theme boot script runs before first paint.</strong> Reading
+        <code>localStorage</code> and setting <code>data-theme</code> in the head is what keeps the
+        theme flash-free — copy it exactly as shown.
+      </span>
+    </div>
+    <div class="doc-callout">
+      <Fragment set:html={infoI} />
+      <span>
+        <strong>Keep <code>defer</code> on the runtime.</strong> The script initialises itself after
+        parsing, so it never blocks rendering — and markup declared above it is already wired when it
+        runs.
+      </span>
+    </div>
+    <div class="doc-callout">
+      <Fragment set:html={infoI} />
+      <span>
+        <strong><code>data-theme-color</code> keeps browser chrome in sync.</strong> The runtime and
+        the toggle sample the page background into the meta tag, so mobile address bars match the
+        active theme.
+      </span>
+    </div>
+  </section>
+
+  <nav class="doc-section" aria-label="Guide navigation">
+    <div class="cat-grid">
+      <a class="cat-card" href={guideHref('installation')}>
+        <span class="landing-stat__label">Previous guide</span>
+        <span class="cat-card__name">Installation</span>
+        <span class="cat-card__desc">Drop two files into a page — the combined stylesheet and the runtime script.</span>
+      </a>
+      <a class="cat-card" href={guideHref('javascript')}>
+        <span class="landing-stat__label">Next guide</span>
+        <span class="cat-card__name">
+          JavaScript <Fragment set:html={arrowI} />
+        </span>
+        <span class="cat-card__desc">The data-attribute contracts, the self-initialising runtime and the toast helper.</span>
+      </a>
+    </div>
+  </nav>
+<script is:inline>
+  // Live example — same wiring the template ships with.
+  (function () {
+    var greet = document.getElementById('gs-starter-greet');
+    if (greet) {
+      greet.addEventListener('click', function () {
+        if (!window.ZakUI) return;
+        window.ZakUI.toast('Hello from ZAKUIKit', 'success', {
+          desc: 'That toast came from the toolkit runtime.',
+        });
+      });
+    }
+
+    var toggle = document.getElementById('gs-starter-theme');
+    if (toggle) {
+      toggle.addEventListener('click', function () {
+        var root = document.documentElement;
+        var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        try {
+          localStorage.setItem('zak-theme', next);
+        } catch (error) {
+          /* private mode — theme still applies for this page view */
+        }
+      });
+    }
+  })();
+</script>
+</DocsLayout>

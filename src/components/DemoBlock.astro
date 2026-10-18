@@ -1,0 +1,18 @@
+---
+/**
+ * Demo dispatcher — preview + code card by default. Interactive playgrounds
+ * are opt-in via `playground: true` on the demo definition.
+ */
+import type { DemoDef } from '../demos/types';
+import DemoCard from './DemoCard.astro';
+import Playground from './Playground.astro';
+
+interface Props {
+  demo: DemoDef;
+  slug: string;
+}
+
+const { demo, slug } = Astro.props;
+---
+
+{demo.playground === true ? <Playground demo={demo} slug={slug} /> : <DemoCard demo={demo} slug={slug} />}

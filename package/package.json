@@ -1,0 +1,64 @@
+{
+  "name": "zakuikit",
+  "version": "2.2.0",
+  "description": "ZAKUIKit — enterprise design system in pure CSS + vanilla JS. 15 component categories, zero third-party dependencies, native light/dark theming via CSS custom properties and cascade layers.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": [
+    "./dist/*.css",
+    "./dist/css/*.css",
+    "./dist/zak.js",
+    "./dist/zak.min.js",
+    "./dist/zakuikit.mjs",
+    "./zak-init.js"
+  ],
+  "main": "./dist/zakuikit.mjs",
+  "module": "./dist/zakuikit.mjs",
+  "types": "./zakuikit.d.ts",
+  "unpkg": "./dist/zak.min.js",
+  "jsdelivr": "./dist/zak.min.js",
+  "exports": {
+    ".": {
+      "types": "./zakuikit.d.ts",
+      "import": "./dist/zakuikit.mjs",
+      "default": "./dist/zak.js"
+    },
+    "./css": "./dist/zak.css",
+    "./css/combined": "./dist/zak.css",
+    "./css/*": "./dist/css/*",
+    "./js": "./dist/zak.js",
+    "./js/min": "./dist/zak.min.js",
+    "./init": "./zak-init.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "zak-init.js",
+    "zakuikit.d.ts",
+    "README.md"
+  ],
+  "keywords": [
+    "design-system",
+    "ui-kit",
+    "component-library",
+    "css-custom-properties",
+    "cascade-layers",
+    "vanilla-js",
+    "zero-dependencies",
+    "dark-mode",
+    "accessibility",
+    "cdn"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zakui/zakuikit.git"
+  },
+  "homepage": "https://zak-ui.dev",
+  "docs": "https://zak-ui.dev/docs/get-started/installation/",
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

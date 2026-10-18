@@ -1,0 +1,126 @@
+---
+/**
+ * Docs overview — the catalogue index: every category with its component
+ * count, plus curated starting points.
+ */
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import { catalog, totalComponentCount } from '../../data/catalog';
+import { guidePages } from '../../data/getstarted';
+import { svgIcon } from '../../data/icons';
+import type { TocItem } from '../../layouts/DocsLayout.astro';
+
+const toc: TocItem[] = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'categories', label: 'Categories' },
+  { id: 'start', label: 'Start here' },
+];
+
+const startHere: Array<{ cat: string; comp: string; name: string; desc: string; icon: string }> = [
+  { cat: 'utilities', comp: 'colors', name: 'Color tokens', desc: 'The semantic surface, text and status tokens every component consumes.', icon: 'palette' },
+  { cat: 'buttons', comp: 'button', name: 'Button', desc: 'The core action element in six variants and five sizes.', icon: 'mouse-pointer' },
+  { cat: 'data-grid', comp: 'data-grid', name: 'Data Grid', desc: 'The enterprise grid: sorting, filtering, paging and selection.', icon: 'database' },
+  { cat: 'ai', comp: 'ai-prompt-input', name: 'AI Prompt Input', desc: 'Auto-growing composer with streaming and thinking states.', icon: 'sparkles' },
+];
+
+const sparkI = svgIcon('sparkles', 'zak-icon', 14);
+const rocketI = svgIcon('rocket', 'zak-icon', 14);
+const arrowI = svgIcon('arrow-right', 'zak-icon', 13);
+---
+
+<DocsLayout
+  title="Components"
+  desc={`Browse all ${totalComponentCount} ZAKUIKit components across ${catalog.length} categories — every page ships with a live preview, copy-ready code tabs, props API and accessibility guidance.`}
+  toc={toc}
+>
+  <header class="doc-header" id="overview">
+    <div class="doc-header__meta">
+      <span class="zak-badge zak-badge--primary">v2.1</span>
+      <span class="zak-badge zak-badge--info">{totalComponentCount} components</span>
+      <span class="zak-badge">{catalog.length} categories</span>
+    </div>
+    <h1 class="doc-header__title">Components</h1>
+    <p class="doc-header__desc">
+      Everything in the ZAKUIKit catalogue, organised into {catalog.length} categories. Components are
+      built from the same token layer, so they theme automatically, compose cleanly and stay consistent
+      from the first button to a fully streamed AI conversation.
+    </p>
+  </header>
+
+  <section class="doc-section">
+    <h2 class="doc-section__title">Overview</h2>
+    <p class="doc-p">
+      Each component page follows the same structure: a live preview of every prop, syntax-highlighted
+      HTML / CSS / JS tabs, a props API table, the design tokens the pattern consumes, and accessibility
+      guidance covering keyboard interaction and ARIA semantics.
+    </p>
+    <div class="doc-callout">
+      <Fragment set:html={sparkI} />
+      <span>
+        <strong>Search anywhere.</strong> Press <kbd class="zak-kbd">Ctrl</kbd> <kbd class="zak-kbd">K</kbd>
+        to jump between all {totalComponentCount} components, or filter the sidebar by name. The theme
+        toggle in the header persists your choice and follows your system preference by default.
+      </span>
+    </div>
+    <div class="doc-callout">
+      <Fragment set:html={rocketI} />
+      <span>
+        <strong>New to ZAKUIKit?</strong> Start with the
+        <a href="/docs/get-started/">Get Started guide</a> — installation, a copy-paste starter
+        template, the JavaScript contract and theming — then browse the catalogue below.
+      </span>
+    </div>
+  </section>
+
+  <section class="doc-section" id="categories">
+    <h2 class="doc-section__title">Categories</h2>
+    <p class="doc-section__lead">
+      Fifteen categories, from raw tokens to full AI interfaces. Counts match the component registry that
+      drives this site's build.
+    </p>
+    <div class="cat-grid">
+      {catalog.map((cat) => (
+        <a class="cat-card" href={`/docs/${cat.slug}/`}>
+          <span class="cat-card__name">
+            <Fragment set:html={svgIcon(cat.icon, 'zak-icon', 15)} />
+            {cat.name}
+            <span class="zak-badge zak-badge--counter">{cat.components.length}</span>
+          </span>
+          <span class="cat-card__desc">{cat.blurb}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="doc-section" id="start">
+    <h2 class="doc-section__title">Start here</h2>
+    <p class="doc-section__lead">
+      New to the design system? These pages cover the toolkit basics, the token language, the core
+      action element, the flagship data surface and the AI toolkit.
+    </p>
+    <div class="cat-grid">
+      <a class="cat-card" href="/docs/get-started/">
+        <span class="cat-card__name">
+          <Fragment set:html={svgIcon('rocket', 'zak-icon', 15)} />
+          Get Started
+        </span>
+        <span class="cat-card__desc">
+          Install the toolkit, grab the starter template and learn the data-attribute contract —{' '}
+          {guidePages.length} short guides.
+        </span>
+      </a>
+      {startHere.map((item) => (
+        <a class="cat-card" href={`/docs/${item.cat}/${item.comp}/`}>
+          <span class="cat-card__name">
+            <Fragment set:html={svgIcon(item.icon, 'zak-icon', 15)} />
+            {item.name}
+          </span>
+          <span class="cat-card__desc">{item.desc}</span>
+        </a>
+      ))}
+    </div>
+    <p class="doc-p" style="margin-block-start: var(--zak-space-5)">
+      Every component page links onward — use the previous / next links at the bottom to walk the whole
+      catalogue in order. <Fragment set:html={arrowI} />
+    </p>
+  </section>
+</DocsLayout>

@@ -1,0 +1,173 @@
+/* ==========================================================================
+   ZAKUIKit — Layout primitives
+   Container · Row/Columns · Layout Grid · Flex · Stack · Box · Section · Aspect
+   ========================================================================== */
+
+/* Container --------------------------------------------------------------- */
+.zak-container {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: var(--zak-space-5);
+}
+
+.zak-container--sm { max-width: 640px; }
+.zak-container--md { max-width: 768px; }
+.zak-container--lg { max-width: 1024px; }
+.zak-container--xl { max-width: 1280px; }
+.zak-container--fluid { max-width: none; }
+
+/* Row + 12-column grid ----------------------------------------------------- */
+.zak-row {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--zak-row-gap, var(--zak-space-4));
+}
+
+.zak-col-1 { grid-column: span 1; }
+.zak-col-2 { grid-column: span 2; }
+.zak-col-3 { grid-column: span 3; }
+.zak-col-4 { grid-column: span 4; }
+.zak-col-5 { grid-column: span 5; }
+.zak-col-6 { grid-column: span 6; }
+.zak-col-7 { grid-column: span 7; }
+.zak-col-8 { grid-column: span 8; }
+.zak-col-9 { grid-column: span 9; }
+.zak-col-10 { grid-column: span 10; }
+.zak-col-11 { grid-column: span 11; }
+.zak-col-12 { grid-column: span 12; }
+
+@media (max-width: 768px) {
+  .zak-col-sm-12 { grid-column: span 12; }
+  .zak-col-md-6 { grid-column: span 6; }
+}
+
+/* Layout grid — auto-fit tracks driven by --min ---------------------------- */
+.zak-lgrid {
+  display: grid;
+  gap: var(--grid-gap, var(--zak-space-4));
+  grid-template-columns: repeat(auto-fit, minmax(min(var(--zak-lgrid-min, 220px), 100%), 1fr));
+}
+
+.zak-lgrid--fill {
+  grid-template-columns: repeat(auto-fill, minmax(min(var(--zak-lgrid-min, 220px), 100%), 1fr));
+}
+
+.zak-lgrid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.zak-lgrid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.zak-lgrid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+@media (max-width: 768px) {
+  .zak-lgrid--2,
+  .zak-lgrid--3,
+  .zak-lgrid--4 { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Flex --------------------------------------------------------------------- */
+.zak-flex {
+  display: flex;
+  gap: var(--zak-space-3);
+  min-width: 0;
+}
+
+.zak-flex--col { flex-direction: column; }
+.zak-flex--row-reverse { flex-direction: row-reverse; }
+.zak-flex--wrap { flex-wrap: wrap; }
+.zak-flex--nowrap { flex-wrap: nowrap; }
+.zak-flex--center { align-items: center; justify-content: center; }
+.zak-flex--between { align-items: center; justify-content: space-between; }
+.zak-flex--start { align-items: flex-start; }
+.zak-flex--end { align-items: flex-end; }
+.zak-flex--inline { display: inline-flex; }
+.zak-flex--grow { flex: 1 1 auto; min-width: 0; }
+.zak-flex--none { flex: none; }
+
+/* Stack -------------------------------------------------------------------- */
+.zak-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap, var(--zak-space-4));
+}
+
+.zak-stack--xs { --gap: var(--zak-space-1); }
+.zak-stack--sm { --gap: var(--zak-space-2); }
+.zak-stack--md { --gap: var(--zak-space-4); }
+.zak-stack--lg { --gap: var(--zak-space-6); }
+.zak-stack--xl { --gap: var(--zak-space-9); }
+
+/* Direction — vertical is the default; --row lays children out horizontally. */
+.zak-stack--col { flex-direction: column; }
+.zak-stack--row { flex-direction: row; }
+.zak-stack--wrap { flex-wrap: wrap; }
+
+/* Box ---------------------------------------------------------------------- */
+.zak-box {
+  padding: var(--zak-space-5);
+  background: var(--zak-bg-surface);
+  border: 1px solid var(--zak-border-subtle);
+  border-radius: var(--zak-radius-lg);
+}
+
+.zak-box--sm { padding: var(--zak-space-3); }
+/* --md restates the default padding as an explicit, inspectable modifier. */
+.zak-box--md { padding: var(--zak-space-5); }
+.zak-box--lg { padding: var(--zak-space-7); }
+.zak-box--sunken { background: var(--zak-bg-sunken); }
+.zak-box--muted { background: var(--zak-bg-muted); }
+.zak-box--outline { background: transparent; border: 1px dashed var(--zak-border-color); }
+.zak-box--primary { background: var(--zak-primary-subtle); border-color: var(--zak-primary-subtle-border); }
+.zak-box--flat { border: 0; }
+.zak-box--glass {
+  background: var(--zak-glass-bg);
+  -webkit-backdrop-filter: var(--zak-backdrop-blur);
+  backdrop-filter: var(--zak-backdrop-blur);
+  border-color: var(--zak-glass-border);
+}
+
+/* Aspect ratio -------------------------------------------------------------- */
+.zak-aspect {
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--ratio, 16 / 9);
+  border-radius: var(--zak-radius-lg);
+  overflow: hidden;
+  background: var(--zak-bg-sunken);
+  border: 1px solid var(--zak-border-subtle);
+}
+
+.zak-aspect--1x1 { --ratio: 1 / 1; }
+.zak-aspect--4x3 { --ratio: 4 / 3; }
+.zak-aspect--3x2 { --ratio: 3 / 2; }
+.zak-aspect--16x9 { --ratio: 16 / 9; }
+.zak-aspect--21x9 { --ratio: 21 / 9; }
+.zak-aspect--9x16 { --ratio: 9 / 16; }
+
+.zak-aspect > * {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Container queries — a responsive "auto card" using @container -------------- */
+.zak-cq-zone {
+  container-type: inline-size;
+  container-name: zak-zone;
+  border: 1px dashed var(--zak-border-color);
+  border-radius: var(--zak-radius-lg);
+  padding: var(--zak-space-4);
+}
+
+.zak-cq-card {
+  display: grid;
+  gap: var(--zak-space-3);
+  grid-template-columns: 1fr;
+}
+
+@container zak-zone (min-width: 480px) {
+  .zak-cq-card {
+    grid-template-columns: 96px 1fr;
+    align-items: center;
+  }
+}

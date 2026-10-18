@@ -1,0 +1,149 @@
+---
+/**
+ * Interactive playground — live preview with control-driven re-rendering.
+ * The template source and control defaults are embedded as JSON; the same
+ * isomorphic renderer used at build time re-renders the preview in the
+ * browser (see scripts/playground.ts), so output is byte-identical.
+ */
+import { renderTemplate } from '../lib/template';
+import { inferControls, defaultVars, type ControlDef, type DemoDef } from '../demos/types';
+import { svgIcon } from '../data/icons';
+import { highlight } from '../lib/highlight';
+
+interface Props {
+  demo: DemoDef;
+  slug: string;
+}
+
+const { demo, slug } = Astro.props;
+
+const controls = inferControls(demo.tpl, demo.controls);
+const vars = defaultVars(controls);
+const preview = renderTemplate(demo.tpl, vars);
+const code = renderTemplate(demo.codeTpl ?? demo.tpl, vars);
+
+const configJson = JSON.stringify({
+  tpl: demo.tpl,
+  codeTpl: demo.codeTpl ?? null,
+  defaults: vars,
+}).replace(/</g, '\\u003c');
+
+const sparkI = svgIcon('sparkles', 'zak-icon', 14);
+const sunI = svgIcon('sun', 'zak-icon', 14);
+const resetI = svgIcon('refresh', 'zak-icon', 13);
+const copyI = svgIcon('copy', 'zak-icon', 13);
+
+function rangePct(control: ControlDef): number {
+  const min = control.min ?? 0;
+  const max = control.max ?? 100;
+  const value = typeof control.default === 'number' ? control.default : min;
+  return Math.round(((value - min) / (max - min)) * 100);
+}
+
+const htmlTabId = `pg-${slug}`;
+---
+
+<div class="doc-playground" data-playground>
+  <script is:inline type="application/json" data-playground-config set:html={configJson}></script>
+
+  <div class="doc-playground__bar">
+    <span class="doc-playground__title"><Fragment set:html={sparkI} /> Playground</span>
+    <div class="doc-playground__bar-actions">
+      <button
+        class="zak-btn zak-btn--ghost zak-btn--sm"
+        type="button"
+        data-playground-theme
+        aria-pressed="false"
+        aria-label="Preview the opposite theme"
+      >
+        <Fragment set:html={sunI} /> Theme
+      </button>
+      <button class="zak-btn zak-btn--ghost zak-btn--sm" type="button" data-playground-reset>
+        <Fragment set:html={resetI} /> Reset
+      </button>
+    </div>
+  </div>
+
+  <div class="doc-playground__grid">
+    <div class="doc-playground__controls">
+      {controls.length === 0 && (
+        <p class="doc-playground__hint">
+          No adjustable props on this pattern — use the theme toggle above to check the preview in
+          both themes.
+        </p>
+      )}
+      {controls.map((control) =>
+        control.type === 'select' ? (
+          <div class="doc-control">
+            <span class="doc-control__label"><span>{control.label ?? control.name}</span><code>{control.name}</code></span>
+            <select class="zak-select" data-control={control.name} aria-label={control.label ?? control.name}>
+              {(control.options ?? []).map((option) => (
+                <option value={option} selected={option === control.default}>{option === '' ? 'default' : option}</option>
+              ))}
+            </select>
+          </div>
+        ) : control.type === 'toggle' ? (
+          <div class="doc-control">
+            <span class="doc-control__label"><span>{control.label ?? control.name}</span><code>{control.name}</code></span>
+            <label class="zak-switch"><input type="checkbox" role="switch" data-control={control.name} checked={control.default === true} /></label>
+          </div>
+        ) : control.type === 'text' ? (
+          <div class="doc-control">
+            <span class="doc-control__label"><span>{control.label ?? control.name}</span><code>{control.name}</code></span>
+            <input class="zak-input" type="text" data-control={control.name} value={String(control.default)} />
+          </div>
+        ) : control.type === 'range' ? (
+          <div class="doc-control">
+            <span class="doc-control__label"><span>{control.label ?? control.name}</span><output class="doc-control__value" data-control-out={control.name}>{String(control.default)}</output></span>
+            <input
+              class="zak-range"
+              type="range"
+              data-control={control.name}
+              min={control.min ?? 0}
+              max={control.max ?? 100}
+              step={control.step ?? 1}
+              value={String(control.default)}
+              style={`--zak-range-fill:${rangePct(control)}%`}
+            />
+          </div>
+        ) : (
+          <div class="doc-control">
+            <span class="doc-control__label"><span>{control.label ?? control.name}</span><code>{control.name}</code></span>
+            <div class="doc-control__row">
+              <input type="color" data-control={control.name} value={String(control.default)} />
+              <output class="doc-control__value" data-control-out={control.name}>{String(control.default)}</output>
+            </div>
+          </div>
+        )
+      )}
+    </div>
+    <div class="doc-playground__stage">
+      <div class="demo-root doc-playground__preview-scope" data-playground-preview set:html={preview} />
+    </div>
+  </div>
+
+  <div class="doc-code doc-playground__code" data-code>
+    <div class="doc-code__tabs" role="tablist" aria-label="Code examples">
+      <button class="doc-code__tab is-active" type="button" role="tab" id={`${htmlTabId}-tab-html`} aria-selected="true" aria-controls={`${htmlTabId}-panel-html`} data-code-tab>HTML</button>
+      {demo.css && <button class="doc-code__tab" type="button" role="tab" id={`${htmlTabId}-tab-css`} aria-selected="false" aria-controls={`${htmlTabId}-panel-css`} tabindex="-1" data-code-tab>CSS</button>}
+      {demo.js && <button class="doc-code__tab" type="button" role="tab" id={`${htmlTabId}-tab-js`} aria-selected="false" aria-controls={`${htmlTabId}-panel-js`} tabindex="-1" data-code-tab>JS</button>}
+      <button class="doc-code__copy" type="button" data-copy aria-label="Copy code to clipboard">
+        <Fragment set:html={copyI} />
+        <span data-copy-label>Copy</span>
+      </button>
+    </div>
+    <div class="doc-code__panel is-active" role="tabpanel" id={`${htmlTabId}-panel-html`} aria-labelledby={`${htmlTabId}-tab-html`} data-code-panel tabindex="0">
+      <pre><code data-playground-html set:html={highlight(code, 'html')} /></pre>
+    </div>
+    {demo.css && (
+      <div class="doc-code__panel" role="tabpanel" id={`${htmlTabId}-panel-css`} aria-labelledby={`${htmlTabId}-tab-css`} data-code-panel tabindex="0">
+        <pre><code set:html={highlight(demo.css, 'css')} /></pre>
+      </div>
+    )}
+    {demo.js && (
+      <div class="doc-code__panel" role="tabpanel" id={`${htmlTabId}-panel-js`} aria-labelledby={`${htmlTabId}-tab-js`} data-code-panel tabindex="0">
+        <pre><code set:html={highlight(demo.js, 'js')} /></pre>
+      </div>
+    )}
+  </div>
+</div>

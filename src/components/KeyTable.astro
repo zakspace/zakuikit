@@ -1,0 +1,33 @@
+---
+/**
+ * Two-column reference table — used by the accessibility section for
+ * keyboard interactions and ARIA attributes.
+ */
+import { inlineCode } from '../lib/strings';
+
+interface Props {
+  head: [string, string];
+  rows: Array<[string, string]>;
+}
+
+const { head, rows } = Astro.props;
+---
+
+<div class="doc-table-wrap">
+  <table class="doc-table">
+    <thead>
+      <tr>
+        <th scope="col">{head[0]}</th>
+        <th scope="col">{head[1]}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {rows.map(([key, behavior]) => (
+        <tr>
+          <td><code>{key}</code></td>
+          <td set:html={inlineCode(behavior)} />
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

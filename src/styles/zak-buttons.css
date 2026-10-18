@@ -1,0 +1,306 @@
+/* ==========================================================================
+   ZAKUIKit — Buttons
+   Button · Icon Button · Button Group · Button Toolbar · Loading · FAB
+   ========================================================================== */
+
+.zak-btn {
+  --btn-bg: var(--zak-primary);
+  --btn-bg-hover: var(--zak-primary-hover);
+  --btn-fg: var(--zak-text-on-primary);
+  --btn-border: transparent;
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--zak-space-2);
+  padding: 0 var(--zak-space-4);
+  height: 2.375rem;
+  font-size: var(--zak-text-md);
+  font-weight: var(--zak-weight-semibold);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: var(--btn-fg);
+  background: var(--btn-bg);
+  border: 1px solid var(--btn-border);
+  border-radius: var(--zak-radius-md);
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background-color var(--zak-duration-fast) var(--zak-ease-standard),
+    border-color var(--zak-duration-fast) var(--zak-ease-standard),
+    color var(--zak-duration-fast) var(--zak-ease-standard),
+    box-shadow var(--zak-duration-fast) var(--zak-ease-standard),
+    transform var(--zak-duration-instant) var(--zak-ease-standard);
+}
+
+.zak-btn:hover {
+  background: var(--btn-bg-hover);
+  text-decoration: none;
+}
+
+.zak-btn:active {
+  transform: translateY(1px);
+}
+
+.zak-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--zak-focus-ring);
+}
+
+.zak-btn[disabled],
+.zak-btn[aria-disabled="true"],
+.zak-btn.is-disabled {
+  opacity: 0.48;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.zak-btn .zak-icon {
+  flex: none;
+}
+
+/* Variants ---------------------------------------------------------------- */
+.zak-btn--primary {
+  --btn-bg: var(--zak-primary);
+  --btn-bg-hover: var(--zak-primary-hover);
+  box-shadow: var(--zak-shadow-sm);
+}
+
+.zak-btn--secondary {
+  --btn-bg: var(--zak-bg-surface);
+  --btn-bg-hover: var(--zak-bg-hover);
+  --btn-fg: var(--zak-text-primary);
+  --btn-border: var(--zak-border-color);
+  box-shadow: var(--zak-shadow-sm);
+}
+
+.zak-btn--outline {
+  --btn-bg: transparent;
+  --btn-bg-hover: var(--zak-primary-subtle);
+  --btn-fg: var(--zak-primary-text);
+  --btn-border: var(--zak-primary-subtle-border);
+}
+
+.zak-btn--ghost {
+  --btn-bg: transparent;
+  --btn-bg-hover: var(--zak-bg-hover);
+  --btn-fg: var(--zak-text-secondary);
+}
+
+.zak-btn--ghost:hover { --btn-fg: var(--zak-text-primary); }
+
+.zak-btn--danger {
+  --btn-bg: var(--zak-danger);
+  --btn-bg-hover: color-mix(in srgb, var(--zak-danger) 86%, #000);
+  --btn-fg: #fff;
+}
+
+.zak-btn--success {
+  --btn-bg: var(--zak-success);
+  --btn-bg-hover: color-mix(in srgb, var(--zak-success) 86%, #000);
+  --btn-fg: #fff;
+}
+
+.zak-btn--link {
+  --btn-bg: transparent;
+  --btn-bg-hover: transparent;
+  --btn-fg: var(--zak-text-link);
+  height: auto;
+  padding: 0;
+  font-weight: var(--zak-weight-medium);
+}
+
+.zak-btn--link:hover { text-decoration: underline; text-underline-offset: 0.2em; }
+
+/* Filled / outlined / text / soft — the documented variant set. The legacy
+   primary / outline / ghost names above remain as aliases. */
+.zak-btn--filled {
+  --btn-bg: var(--zak-primary);
+  --btn-bg-hover: var(--zak-primary-hover);
+  box-shadow: var(--zak-shadow-sm);
+}
+
+.zak-btn--outlined {
+  --btn-bg: transparent;
+  --btn-bg-hover: var(--zak-primary-subtle);
+  --btn-fg: var(--zak-primary-text);
+  --btn-border: var(--zak-primary-subtle-border);
+}
+
+.zak-btn--text {
+  --btn-bg: transparent;
+  --btn-bg-hover: var(--zak-bg-hover);
+  --btn-fg: var(--zak-text-secondary);
+}
+
+.zak-btn--text:hover { --btn-fg: var(--zak-text-primary); }
+
+.zak-btn--soft {
+  --btn-bg: var(--zak-primary-subtle);
+  --btn-bg-hover: color-mix(in srgb, var(--zak-primary-subtle) 72%, var(--zak-primary) 28%);
+  --btn-fg: var(--zak-primary-text);
+  --btn-border: var(--zak-primary-subtle-border);
+}
+
+/* Sizes -------------------------------------------------------------------- */
+/* --md restates the default height so the size modifier is a real, inspectable
+   class (and passes the playground CSS-token audit). */
+.zak-btn--xs { height: 1.75rem; padding-inline: var(--zak-space-3); font-size: var(--zak-text-xs); border-radius: var(--zak-radius-sm); }
+.zak-btn--sm { height: 2rem; padding-inline: var(--zak-space-3); font-size: var(--zak-text-sm); }
+.zak-btn--md { height: 2.375rem; padding-inline: var(--zak-space-4); }
+.zak-btn--lg { height: 2.75rem; padding-inline: var(--zak-space-6); font-size: var(--zak-text-lg); }
+.zak-btn--xl { height: 3.25rem; padding-inline: var(--zak-space-7); font-size: var(--zak-text-xl); border-radius: var(--zak-radius-lg); }
+
+.zak-btn--block { width: 100%; }
+
+/* Icon button -------------------------------------------------------------- */
+.zak-btn--icon {
+  width: 2.375rem;
+  padding: 0;
+  border-radius: var(--zak-radius-md);
+}
+
+.zak-btn--icon.zak-btn--xs { width: 1.75rem; }
+.zak-btn--icon.zak-btn--sm { width: 2rem; }
+.zak-btn--icon.zak-btn--md { width: 2.375rem; }
+.zak-btn--icon.zak-btn--lg { width: 2.75rem; }
+.zak-btn--icon.zak-btn--round { border-radius: var(--zak-radius-full); }
+
+/* Loading state ------------------------------------------------------------ */
+.zak-btn.is-loading {
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.zak-btn__spinner {
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  border: 2px solid color-mix(in srgb, currentColor 30%, transparent);
+  border-top-color: currentColor;
+  animation: zak-spin 0.7s linear infinite;
+  flex: none;
+}
+
+@keyframes zak-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Button group -------------------------------------------------------------- */
+.zak-btn-group {
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.zak-btn-group > .zak-btn {
+  border-radius: 0;
+  margin-inline-start: -1px;
+}
+
+.zak-btn-group > .zak-btn:first-child {
+  border-start-start-radius: var(--zak-radius-md);
+  border-end-start-radius: var(--zak-radius-md);
+  margin-inline-start: 0;
+}
+
+.zak-btn-group > .zak-btn:last-child {
+  border-start-end-radius: var(--zak-radius-md);
+  border-end-end-radius: var(--zak-radius-md);
+}
+
+.zak-btn-group > .zak-btn:hover,
+.zak-btn-group > .zak-btn:focus-visible,
+.zak-btn-group > .zak-btn.is-active {
+  z-index: 1;
+}
+
+.zak-btn-group > .zak-btn.is-active {
+  --btn-bg: var(--zak-primary-subtle);
+  --btn-fg: var(--zak-primary-text);
+  --btn-border: var(--zak-primary-subtle-border);
+}
+
+/* Button toolbar ------------------------------------------------------------ */
+.zak-btn-toolbar {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--zak-space-1);
+  padding: var(--zak-space-1);
+  background: var(--zak-bg-surface);
+  border: 1px solid var(--zak-border-subtle);
+  border-radius: var(--zak-radius-lg);
+  box-shadow: var(--zak-shadow-sm);
+}
+
+.zak-btn-toolbar .zak-btn--icon {
+  --btn-bg: transparent;
+  --btn-bg-hover: var(--zak-bg-hover);
+  --btn-fg: var(--zak-text-secondary);
+  width: 2rem;
+  height: 2rem;
+}
+
+.zak-btn-toolbar .zak-btn--icon.is-active {
+  --btn-bg: var(--zak-primary-subtle);
+  --btn-fg: var(--zak-primary-text);
+}
+
+.zak-btn-toolbar .zak-divider--v {
+  height: 1.25rem;
+  align-self: center;
+}
+
+/* Toggle button (pressed state) --------------------------------------------- */
+.zak-toggle-btn {
+  --btn-bg: var(--zak-bg-surface);
+  --btn-bg-hover: var(--zak-bg-hover);
+  --btn-fg: var(--zak-text-secondary);
+  --btn-border: var(--zak-border-color);
+}
+
+.zak-toggle-btn[aria-pressed="true"] {
+  --btn-bg: var(--zak-primary-subtle);
+  --btn-fg: var(--zak-primary-text);
+  --btn-border: var(--zak-primary-subtle-border);
+}
+
+/* Floating action button ------------------------------------------------------ */
+.zak-fab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--zak-space-2);
+  height: 3.5rem;
+  min-width: 3.5rem;
+  padding-inline: var(--zak-space-5);
+  color: var(--zak-text-on-primary);
+  background: linear-gradient(135deg, var(--zak-primary-500), var(--zak-primary-700));
+  border-radius: var(--zak-radius-full);
+  box-shadow: var(--zak-shadow-xxl);
+  font-weight: var(--zak-weight-semibold);
+  cursor: pointer;
+  transition: transform var(--zak-duration-fast) var(--zak-ease-spring),
+    box-shadow var(--zak-duration-fast) var(--zak-ease-standard);
+}
+
+.zak-fab:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: var(--zak-shadow-xl), var(--zak-shadow-xxl);
+}
+
+.zak-fab:active { transform: translateY(0) scale(0.98); }
+
+.zak-fab--mini {
+  height: 2.75rem;
+  min-width: 2.75rem;
+  padding-inline: var(--zak-space-4);
+}
+
+.zak-fab--fixed {
+  position: fixed;
+  right: var(--zak-space-7);
+  bottom: var(--zak-space-7);
+  z-index: var(--zak-z-sticky);
+}

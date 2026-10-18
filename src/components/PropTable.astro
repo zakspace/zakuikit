@@ -1,0 +1,36 @@
+---
+/**
+ * Props / API table — property, type, default and description, with
+ * markdown-lite inline code in the description column.
+ */
+import { inlineCode } from '../lib/strings';
+import type { PropRow } from '../demos/types';
+
+interface Props {
+  rows: PropRow[];
+  head?: string[];
+}
+
+const {
+  rows,
+  head = ['Property', 'Type', 'Default', 'Description'],
+} = Astro.props;
+---
+
+<div class="doc-table-wrap">
+  <table class="doc-table">
+    <thead>
+      <tr>{head.map((th) => <th scope="col">{th}</th>)}</tr>
+    </thead>
+    <tbody>
+      {rows.map(([name, type, def, desc]) => (
+        <tr>
+          <td><code>{name}</code></td>
+          <td class="col-type">{type}</td>
+          <td class="col-default">{def}</td>
+          <td set:html={inlineCode(desc)} />
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

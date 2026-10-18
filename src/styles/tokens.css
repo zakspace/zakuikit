@@ -1,0 +1,349 @@
+/* ==========================================================================
+   ZAKUIKit — Design Tokens
+   Single source of truth for the entire design system.
+   Layer 1: raw palettes (theme-agnostic)
+   Layer 2: semantic tokens (resolved per theme via [data-theme])
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. RAW PALETTES — never referenced directly by components
+   -------------------------------------------------------------------------- */
+:root {
+  /* Brand — Indigo */
+  --zak-primary-50: #eef1ff;
+  --zak-primary-100: #e0e5ff;
+  --zak-primary-200: #c7cfff;
+  --zak-primary-300: #a5aeff;
+  --zak-primary-400: #8187fc;
+  --zak-primary-500: #6366f1;
+  --zak-primary-600: #4f46e5;
+  --zak-primary-700: #4338ca;
+  --zak-primary-800: #3730a3;
+  --zak-primary-900: #272457;
+
+  /* Secondary — Cyan */
+  --zak-secondary-100: #cffafe;
+  --zak-secondary-300: #67e8f9;
+  --zak-secondary-500: #06b6d4;
+  --zak-secondary-600: #0891b2;
+  --zak-secondary-700: #0e7490;
+  --zak-secondary-900: #164e63;
+
+  /* Neutral — Slate ramp (100–900) */
+  --zak-neutral-100: #f1f5f9;
+  --zak-neutral-200: #e2e8f0;
+  --zak-neutral-300: #cbd5e1;
+  --zak-neutral-400: #94a3b8;
+  --zak-neutral-500: #64748b;
+  --zak-neutral-600: #475569;
+  --zak-neutral-700: #334155;
+  --zak-neutral-800: #1e293b;
+  --zak-neutral-900: #0f172a;
+  --zak-neutral-950: #070b14;
+
+  /* Success — Emerald */
+  --zak-success-100: #d1fae5;
+  --zak-success-300: #6ee7b7;
+  --zak-success-500: #10b981;
+  --zak-success-600: #059669;
+  --zak-success-700: #047857;
+  --zak-success-900: #064e3b;
+
+  /* Warning — Amber */
+  --zak-warning-100: #fef3c7;
+  --zak-warning-300: #fcd34d;
+  --zak-warning-500: #f59e0b;
+  --zak-warning-600: #d97706;
+  --zak-warning-700: #b45309;
+  --zak-warning-900: #78350f;
+
+  /* Danger — Rose */
+  --zak-danger-100: #ffe4e6;
+  --zak-danger-300: #fda4af;
+  --zak-danger-500: #f43f5e;
+  --zak-danger-600: #e11d48;
+  --zak-danger-700: #be123c;
+  --zak-danger-900: #881337;
+
+  /* Info — Sky */
+  --zak-info-100: #e0f2fe;
+  --zak-info-300: #7dd3fc;
+  --zak-info-500: #0ea5e9;
+  --zak-info-600: #0284c7;
+  --zak-info-700: #0369a1;
+  --zak-info-900: #0c4a6e;
+}
+
+/* --------------------------------------------------------------------------
+   2. STRUCTURAL TOKENS — identical in every theme
+   -------------------------------------------------------------------------- */
+:root {
+  /* Spacing scale — 4px base */
+  --zak-space-1: 0.25rem;
+  --zak-space-2: 0.5rem;
+  --zak-space-3: 0.75rem;
+  --zak-space-4: 1rem;
+  --zak-space-5: 1.25rem;
+  --zak-space-6: 1.5rem;
+  --zak-space-7: 2rem;
+  --zak-space-8: 2.5rem;
+  --zak-space-9: 3rem;
+  --zak-space-10: 4rem;
+  --zak-space-11: 5rem;
+  --zak-space-12: 6rem;
+
+  /* Radius scale */
+  --zak-radius-sm: 0.25rem;
+  --zak-radius-md: 0.5rem;
+  --zak-radius-lg: 0.75rem;
+  --zak-radius-xl: 1rem;
+  --zak-radius-2xl: 1.25rem;
+  --zak-radius-full: 9999px;
+
+  /* Typography */
+  --zak-font-sans: "Segoe UI Variable Text", "Segoe UI", -apple-system, BlinkMacSystemFont,
+    "Inter", "Helvetica Neue", Arial, sans-serif;
+  --zak-font-mono: "Cascadia Code", "JetBrains Mono", "Fira Code", Consolas,
+    "SFMono-Regular", Menlo, monospace;
+
+  --zak-text-2xs: 0.6875rem;
+  --zak-text-xs: 0.75rem;
+  --zak-text-sm: 0.8125rem;
+  --zak-text-md: 0.875rem;
+  --zak-text-base: 0.9375rem;
+  --zak-text-lg: 1.0625rem;
+  --zak-text-xl: 1.25rem;
+  --zak-text-2xl: 1.5rem;
+  --zak-text-3xl: 1.875rem;
+  --zak-text-4xl: 2.25rem;
+  --zak-text-5xl: 3rem;
+
+  --zak-leading-tight: 1.25;
+  --zak-leading-snug: 1.4;
+  --zak-leading-normal: 1.6;
+  --zak-leading-relaxed: 1.75;
+
+  --zak-weight-regular: 400;
+  --zak-weight-medium: 500;
+  --zak-weight-semibold: 600;
+  --zak-weight-bold: 700;
+
+  /* Motion */
+  --zak-duration-instant: 80ms;
+  --zak-duration-fast: 140ms;
+  --zak-duration-base: 220ms;
+  --zak-duration-slow: 360ms;
+  --zak-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --zak-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --zak-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Elevation geometry (shadows resolved per theme) */
+  /* Z-index ladder */
+  --zak-z-base: 0;
+  --zak-z-sticky: 100;
+  --zak-z-dropdown: 1000;
+  --zak-z-drawer: 1040;
+  --zak-z-modal: 1050;
+  --zak-z-popover: 1060;
+  --zak-z-toast: 1080;
+  --zak-z-tooltip: 1090;
+
+  /* Breakpoints (documentation reference — media queries cannot read vars) */
+  --zak-bp-sm: 480px;
+  --zak-bp-md: 768px;
+  --zak-bp-lg: 1024px;
+  --zak-bp-xl: 1280px;
+  --zak-bp-2xl: 1536px;
+
+  /* Chart palette */
+  --zak-chart-1: var(--zak-primary-500);
+  --zak-chart-2: var(--zak-secondary-500);
+  --zak-chart-3: var(--zak-success-500);
+  --zak-chart-4: var(--zak-warning-500);
+  --zak-chart-5: var(--zak-danger-500);
+  --zak-chart-6: #a855f7;
+  --zak-chart-7: #f97316;
+  --zak-chart-grid: color-mix(in srgb, var(--zak-text-tertiary) 22%, transparent);
+}
+
+/* --------------------------------------------------------------------------
+   3. SEMANTIC TOKENS — LIGHT THEME (default)
+   Scoped to :root and [data-theme="light"] so any subtree can be forced light.
+   -------------------------------------------------------------------------- */
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+
+  /* Surfaces */
+  --zak-bg-app: #f6f7fb;
+  --zak-bg-surface: #ffffff;
+  --zak-bg-elevated: #ffffff;
+  --zak-bg-sunken: var(--zak-neutral-100);
+  --zak-bg-muted: rgba(15, 23, 42, 0.04);
+  --zak-bg-hover: rgba(15, 23, 42, 0.05);
+  --zak-bg-active: rgba(15, 23, 42, 0.08);
+  --zak-bg-inverse: var(--zak-neutral-900);
+
+  /* Text */
+  --zak-text-primary: #0f172a;
+  --zak-text-secondary: #43506b;
+  --zak-text-tertiary: #7c8aa5;
+  --zak-text-inverse: #f8fafc;
+  --zak-text-on-primary: #ffffff;
+  --zak-text-link: var(--zak-primary-600);
+
+  /* Borders */
+  --zak-border-color: rgba(15, 23, 42, 0.12);
+  --zak-border-subtle: rgba(15, 23, 42, 0.07);
+  --zak-border-strong: rgba(15, 23, 42, 0.24);
+  /* Double-ring focus outline — inner surface ring separates, outer brand ring marks */
+  --zak-focus-ring: 0 0 0 2px var(--zak-bg-surface), 0 0 0 5px rgba(79, 70, 229, 0.55);
+
+  /* Brand */
+  --zak-primary: var(--zak-primary-600);
+  --zak-primary-hover: var(--zak-primary-700);
+  --zak-primary-active: var(--zak-primary-800);
+  --zak-primary-text: var(--zak-primary-700);
+  --zak-primary-subtle: var(--zak-primary-50);
+  --zak-primary-subtle-border: rgba(99, 102, 241, 0.24);
+
+  /* Status — success */
+  --zak-success: var(--zak-success-600);
+  --zak-success-text: #047857;
+  --zak-success-subtle: #ecfdf5;
+  --zak-success-border: rgba(16, 185, 129, 0.28);
+  /* Status — warning */
+  --zak-warning: var(--zak-warning-600);
+  --zak-warning-text: #b45309;
+  --zak-warning-subtle: #fffbeb;
+  --zak-warning-border: rgba(245, 158, 11, 0.32);
+  /* Status — danger */
+  --zak-danger: var(--zak-danger-600);
+  --zak-danger-text: #be123c;
+  --zak-danger-subtle: #fff1f2;
+  --zak-danger-border: rgba(244, 63, 94, 0.28);
+  /* Status — info */
+  --zak-info: var(--zak-info-600);
+  --zak-info-text: #0369a1;
+  --zak-info-subtle: #f0f9ff;
+  --zak-info-border: rgba(14, 165, 233, 0.28);
+
+  /* Code */
+  --zak-code-bg: #0f172a;
+  --zak-code-text: #e2e8f0;
+  --zak-code-inline-bg: rgba(15, 23, 42, 0.06);
+  --zak-code-inline-text: #4338ca;
+
+  /* Shadows */
+  --zak-shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06), 0 1px 1px rgba(15, 23, 42, 0.04);
+  --zak-shadow-md: 0 2px 4px rgba(15, 23, 42, 0.06), 0 4px 10px rgba(15, 23, 42, 0.07);
+  --zak-shadow-lg: 0 8px 20px rgba(15, 23, 42, 0.1), 0 2px 6px rgba(15, 23, 42, 0.06);
+  --zak-shadow-xl: 0 18px 42px rgba(15, 23, 42, 0.16), 0 4px 12px rgba(15, 23, 42, 0.08);
+  --zak-shadow-inset: inset 0 1px 2px rgba(15, 23, 42, 0.06);
+  --zak-shadow-xxl: 0 28px 64px rgba(15, 23, 42, 0.22), 0 10px 20px rgba(79, 70, 229, 0.16);
+
+  /* Glassmorphism */
+  --zak-glass-bg: rgba(255, 255, 255, 0.72);
+  --zak-glass-border: rgba(255, 255, 255, 0.55);
+  --zak-glass-strong-bg: rgba(255, 255, 255, 0.86);
+  --zak-backdrop-blur: saturate(160%) blur(14px);
+
+  /* Overlay + misc */
+  --zak-overlay-bg: rgba(15, 23, 42, 0.44);
+  --zak-selection-bg: rgba(99, 102, 241, 0.24);
+  --zak-scrollbar-thumb: rgba(15, 23, 42, 0.22);
+  --zak-skeleton-base: rgba(15, 23, 42, 0.07);
+  --zak-skeleton-shine: rgba(15, 23, 42, 0.12);
+  --zak-checker-a: #ffffff;
+  --zak-checker-b: #eef1f6;
+}
+
+/* --------------------------------------------------------------------------
+   3b. SEMANTIC TOKENS — DARK THEME
+   -------------------------------------------------------------------------- */
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* Surfaces */
+  --zak-bg-app: #070b14;
+  --zak-bg-surface: #101827;
+  --zak-bg-elevated: #17203b;
+  --zak-bg-sunken: #0b1120;
+  --zak-bg-muted: rgba(226, 232, 240, 0.05);
+  --zak-bg-hover: rgba(226, 232, 240, 0.07);
+  --zak-bg-active: rgba(226, 232, 240, 0.11);
+  --zak-bg-inverse: #f1f5f9;
+
+  /* Text */
+  --zak-text-primary: #f1f5fb;
+  --zak-text-secondary: #a5b2cc;
+  --zak-text-tertiary: #6c7a99;
+  --zak-text-inverse: #0f172a;
+  --zak-text-on-primary: #ffffff;
+  --zak-text-link: #a5aeff;
+
+  /* Borders */
+  --zak-border-color: rgba(226, 232, 240, 0.14);
+  --zak-border-subtle: rgba(226, 232, 240, 0.08);
+  --zak-border-strong: rgba(226, 232, 240, 0.28);
+  /* Double-ring focus outline — inner surface ring separates, outer brand ring marks */
+  --zak-focus-ring: 0 0 0 2px var(--zak-bg-surface), 0 0 0 5px rgba(129, 135, 252, 0.65);
+
+  /* Brand */
+  --zak-primary: var(--zak-primary-500);
+  --zak-primary-hover: var(--zak-primary-400);
+  --zak-primary-active: var(--zak-primary-300);
+  --zak-primary-text: #a5aeff;
+  --zak-primary-subtle: rgba(99, 102, 241, 0.16);
+  --zak-primary-subtle-border: rgba(129, 135, 252, 0.36);
+
+  /* Status — success */
+  --zak-success: #34d399;
+  --zak-success-text: #6ee7b7;
+  --zak-success-subtle: rgba(16, 185, 129, 0.14);
+  --zak-success-border: rgba(52, 211, 153, 0.32);
+  /* Status — warning */
+  --zak-warning: #fbbf24;
+  --zak-warning-text: #fcd34d;
+  --zak-warning-subtle: rgba(245, 158, 11, 0.14);
+  --zak-warning-border: rgba(251, 191, 36, 0.32);
+  /* Status — danger */
+  --zak-danger: #fb7185;
+  --zak-danger-text: #fda4af;
+  --zak-danger-subtle: rgba(244, 63, 94, 0.15);
+  --zak-danger-border: rgba(251, 113, 133, 0.34);
+  /* Status — info */
+  --zak-info: #38bdf8;
+  --zak-info-text: #7dd3fc;
+  --zak-info-subtle: rgba(14, 165, 233, 0.14);
+  --zak-info-border: rgba(56, 189, 248, 0.32);
+
+  /* Code */
+  --zak-code-bg: #0b1120;
+  --zak-code-text: #dbe4f5;
+  --zak-code-inline-bg: rgba(226, 232, 240, 0.09);
+  --zak-code-inline-text: #a5aeff;
+
+  /* Shadows */
+  --zak-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --zak-shadow-md: 0 4px 10px rgba(0, 0, 0, 0.45);
+  --zak-shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.55);
+  --zak-shadow-xl: 0 24px 56px rgba(0, 0, 0, 0.62);
+  --zak-shadow-inset: inset 0 1px 2px rgba(0, 0, 0, 0.5);
+  --zak-shadow-xxl: 0 34px 72px rgba(0, 0, 0, 0.7), 0 12px 24px rgba(99, 102, 241, 0.34);
+
+  /* Glassmorphism */
+  --zak-glass-bg: rgba(16, 24, 39, 0.66);
+  --zak-glass-border: rgba(226, 232, 240, 0.12);
+  --zak-glass-strong-bg: rgba(16, 24, 39, 0.85);
+  --zak-backdrop-blur: saturate(150%) blur(16px);
+
+  /* Overlay + misc */
+  --zak-overlay-bg: rgba(2, 6, 18, 0.66);
+  --zak-selection-bg: rgba(129, 135, 252, 0.34);
+  --zak-scrollbar-thumb: rgba(226, 232, 240, 0.2);
+  --zak-skeleton-base: rgba(226, 232, 240, 0.07);
+  --zak-skeleton-shine: rgba(226, 232, 240, 0.14);
+  --zak-checker-a: #101827;
+  --zak-checker-b: #17203b;
+}

@@ -1,0 +1,351 @@
+---
+/**
+ * Get Started — Installation. Three consumption channels from one build:
+ * the jsDelivr CDN (recommended), self-hosted local files, and npm (modular ESM).
+ * All three consume the same two library artifacts — `zak.css` and `zak.js`.
+ */
+import DocsLayout from '../../../layouts/DocsLayout.astro';
+import CodeBlock, { type CodeTab } from '../../../components/CodeBlock.astro';
+import KeyTable from '../../../components/KeyTable.astro';
+import { guideHref } from '../../../data/getstarted';
+import { svgIcon } from '../../../data/icons';
+import type { TocItem } from '../../../layouts/DocsLayout.astro';
+
+const toc: TocItem[] = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'cdn', label: 'Option 1 · CDN' },
+  { id: 'local', label: 'Option 2 · Local files' },
+  { id: 'npm', label: 'Option 3 · npm' },
+  { id: 'contents', label: 'What the files contain' },
+  { id: 'verify', label: 'Verify' },
+];
+
+const CDN_BASE = 'https://cdn.jsdelivr.net/npm/zakuikit';
+
+/* --- Option 1: CDN (recommended) -------------------------------------------- */
+const cdnTabs: CodeTab[] = [
+  {
+    label: 'jsDelivr (minified)',
+    lang: 'html',
+    code: `<!-- 1. Theme boot — runs in <head> before first paint, so there is never a flash -->
+<script>
+  (function () {
+    var t = localStorage.getItem('zak-theme');
+    if (t !== 'light' && t !== 'dark')
+      t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+
+<!-- 2. Stylesheet — tokens + base + every component, one layered file -->
+<link rel="stylesheet"
+      href="${CDN_BASE}@latest/dist/zak.min.css" />
+
+<!-- 3. Runtime — self-initialising, exposes window.ZakUI -->
+<script src="${CDN_BASE}@latest/dist/zak.min.js" defer></\script>`,
+  },
+  {
+    label: 'Uncompressed',
+    lang: 'html',
+    code: `<!-- Development artifacts — identical content, unminified -->
+<link rel="stylesheet"
+      href="${CDN_BASE}@latest/dist/zak.css" />
+<script src="${CDN_BASE}@latest/dist/zak.js" defer></\script>
+
+<!-- The runtime self-initialises every [data-zak-*] contract on DOM ready;
+     no separate bootstrap file or setup call is required. -->`,
+  },
+  {
+    label: 'Pin & secure (SRI)',
+    lang: 'html',
+    code: `<!-- Pin the exact version and hash every CDN asset. jsDelivr serves the
+     hash on the x-sri response header; generate locally with:
+     openssl dgst -sha384 -binary dist/zak.min.js | openssl base64 -A -->
+<link rel="stylesheet"
+      href="${CDN_BASE}@2.2.0/dist/zak.min.css"
+      integrity="sha384-…" crossorigin="anonymous" />
+
+<script src="${CDN_BASE}@2.2.0/dist/zak.min.js"
+        integrity="sha384-…" crossorigin="anonymous" defer></\script>`,
+  },
+];
+
+/* --- Option 2: Local files --------------------------------------------------- */
+const localTabs: CodeTab[] = [
+  {
+    label: 'HTML',
+    lang: 'html',
+    code: `/* Copy the two artifacts from package/dist/ (or npm pack) beside your
+   own assets and serve them from your origin — no CDN, no build step. */
+
+<!-- Theme boot first, in <head>, so the first paint never flashes -->
+<script>
+  (function () {
+    var t = localStorage.getItem('zak-theme');
+    if (t !== 'light' && t !== 'dark')
+      t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+
+<!-- The complete toolkit: tokens + every component, one stylesheet -->
+<link rel="stylesheet" href="/assets/zak.css" />
+
+<!-- Behaviour runtimes — self-initialising, no setup call required -->
+<script src="/assets/zak.js" defer></\script>`,
+  },
+];
+
+/* --- Option 3: npm ----------------------------------------------------------- */
+const npmTabs: CodeTab[] = [
+  {
+    label: 'Install & import',
+    lang: 'js',
+    code: `// Terminal
+npm install zakuikit
+
+// Entry file — styles first, then the runtime.
+import 'zakuikit/css';
+import { init, toast, ZakButton, ZakModal } from 'zakuikit';
+
+// Optional: mount controllers on declarative hosts.
+// The data-attribute contracts self-initialise without this call.
+init(document); // finds [data-zak-component="modal" | "tabs" | "dropdown" | …]
+
+document.querySelector('#save')?.addEventListener('click', async () => {
+  const button = new ZakButton('#save');
+  await button.withLoading(saveRecord); // spinner + aria-busy, restored on settle
+  toast('Saved', 'success', { desc: '3 records updated.' });
+});`,
+  },
+  {
+    label: 'Granular CSS',
+    lang: 'js',
+    code: `// Ship only the categories you use — cascade order is tokens → base → components → utilities.
+import 'zakuikit/css/tokens.css';
+import 'zakuikit/css/base.css';
+import 'zakuikit/css/zak-buttons.css';
+import 'zakuikit/css/zak-forms.css';
+import 'zakuikit/css/zak-utilities.css'; // declare LAST so utilities override component defaults
+
+// Layered output: your own unlayered CSS always wins — no !important wars.
+// @layer zak.tokens, zak.base, zak.components, zak.utilities;`,
+  },
+];
+
+const fileRows = [
+  [
+    'dist/zak.css · dist/zak.min.css',
+    'tokens.css + base.css + the twelve component stylesheets + zak-utilities.css, combined and wrapped in @layer (tokens < base < components < utilities). One request, no imports. No documentation styles are included.',
+  ],
+  [
+    'dist/zak.js · dist/zak.min.js',
+    'Every behaviour runtime — overlays, behaviours, pickers, media, the data grid and AI patterns — compiled to one self-initialising IIFE that exposes window.ZakUI.',
+  ],
+  [
+    'dist/zakuikit.mjs',
+    'The ESM entry for bundlers: named exports (ZakButton, ZakModal, ZakTabs, toast, init, …) with tree-shakeable semantics and typed via zakuikit.d.ts.',
+  ],
+  [
+    'dist/css/*.css',
+    'One file per category (tokens, base, zak-buttons, zak-forms, zak-pickers, … plus zak-utilities) for granular imports via `zakuikit/css/<name>.css`. The combined artifacts are regenerated with `npm run standalone`.',
+  ],
+];
+
+const checkI = svgIcon('check-circle', 'zak-icon', 15);
+const infoI = svgIcon('info', 'zak-icon', 15);
+const rocketI = svgIcon('rocket', 'zak-icon', 13);
+const arrowI = svgIcon('arrow-right', 'zak-icon', 13);
+---
+
+<DocsLayout
+  title="Installation"
+  desc="Install ZAKUIKit from the jsDelivr CDN, by dropping two local files into a page, or with npm. Zero dependencies either way."
+  activeCategory="get-started"
+  activeComponent="installation"
+  toc={toc}
+>
+  <header class="doc-header" id="overview">
+    <div class="doc-header__meta">
+      <span class="zak-badge zak-badge--primary">
+        <Fragment set:html={rocketI} />
+        Get Started
+      </span>
+      <span class="zak-badge zak-badge--info">jsDelivr</span>
+      <span class="zak-badge zak-badge--info">npm</span>
+      <span class="zak-badge">Zero dependencies</span>
+    </div>
+    <h1 class="doc-header__title">Installation</h1>
+    <p class="doc-header__desc">
+      One build feeds every channel: the <strong>jsDelivr CDN</strong> for drop-in
+      <code>&lt;link&gt;</code> and <code>&lt;script&gt;</code> tags, plain file copies for
+      fully local pages, or <code>npm install zakuikit</code> for modular bundler imports. All
+      three consume the same two artifacts — <code>zak.css</code> and <code>zak.js</code>.
+    </p>
+  </header>
+
+  <section class="doc-section">
+    <h2 class="doc-section__title">Overview</h2>
+    <p class="doc-p">
+      All three channels consume the same two artifacts — a combined, cascade-layered
+      stylesheet (<code>zak.css</code>) and a self-initialising runtime (<code>zak.js</code>).
+      Nothing on the consuming side is compiled, and the toolkit pulls in
+      <strong>no third-party CSS or JS</strong>: no Tailwind, no Bootstrap, no framework
+      adapters — pure modern CSS custom properties and vanilla ES6 modules. Theming,
+      interactivity and tokens travel with the files.
+    </p>
+    <div class="doc-callout">
+      <Fragment set:html={infoI} />
+      <span>
+        <strong>Every page needs the theme boot</strong> — the four-line inline script shown
+        in Option 1. It sets <code>data-theme</code> before first paint, which is what
+        guarantees a flash-free (FOUC-free) light/dark switch on any channel.
+      </span>
+    </div>
+  </section>
+
+  <section class="doc-section" id="cdn">
+    <h2 class="doc-section__title">
+      Option 1 — CDN <span class="zak-badge zak-badge--success">Recommended</span>
+    </h2>
+    <p class="doc-section__lead">
+      Fastest way to start: two tags plus a boot snippet. jsDelivr serves the npm package
+      straight to the browser, minified or uncompressed — no install, no build step.
+    </p>
+    <CodeBlock tabs={cdnTabs} id="gs-cdn" label="jsDelivr CDN examples" />
+    <div class="doc-callout">
+      <Fragment set:html={infoI} />
+      <span>
+        <strong>Production pages should pin a version and add SRI.</strong>
+        <code>@latest</code> is convenient for demos; for real apps use
+        <code>zakuikit@2.2.0/dist/…</code> with an <code>integrity</code> hash and
+        <code>crossorigin="anonymous"</code>.
+      </span>
+    </div>
+  </section>
+
+  <section class="doc-section" id="local">
+    <h2 class="doc-section__title">Option 2 — Local files</h2>
+    <p class="doc-section__lead">
+      No CDN reach required: download <code>zak.css</code> and <code>zak.js</code>, copy them
+      beside your own assets and serve them from your origin. Two tags, no build step.
+    </p>
+    <CodeBlock tabs={localTabs} id="gs-local" label="Local file installation" />
+  </section>
+
+  <section class="doc-section" id="npm">
+    <h2 class="doc-section__title">Option 3 — npm</h2>
+    <p class="doc-section__lead">
+      For bundler-based apps: import the styles, take the named exports you need, and the
+      rest tree-shakes away. Granular per-category CSS is available too.
+    </p>
+    <p class="doc-p">
+      <code>npm install zakuikit</code> — then:
+    </p>
+    <CodeBlock tabs={npmTabs} id="gs-npm" label="npm installation examples" />
+    <div class="doc-callout">
+      <Fragment set:html={infoI} />
+      <span>
+        The package ships <code>dist/zakuikit.mjs</code> (ESM), <code>dist/zak.js</code>
+        (IIFE global) and granular <code>dist/css/*</code> stylesheets through a public
+        <code>exports</code> map — deep imports beyond those documented paths are not part of
+        the API.
+      </span>
+    </div>
+  </section>
+
+  <section class="doc-section" id="contents">
+    <h2 class="doc-section__title">What the files contain</h2>
+    <p class="doc-section__lead">
+      The package layout mirrors the source layout exactly — same cascade order, same modules.
+    </p>
+    <KeyTable head={['File', 'Contents']} rows={fileRows} />
+    <p class="doc-p" style="margin-block-start: var(--zak-space-5)">
+      Pages that only need static rendering can skip the script entirely — buttons, cards,
+      tables and the whole form layer are pure CSS. The runtime adds interactive behaviour:
+      overlays, disclosure, pickers, carousels, the data grid and the <code>ZakUI</code> API.
+    </p>
+  </section>
+
+  <section class="doc-section" id="verify">
+    <h2 class="doc-section__title">Verify the installation</h2>
+    <p class="doc-section__lead">
+      Run the runtime once to confirm both files are live. This button fires a real toast from the
+      bundled helper — exactly what you would paste into your own page:
+    </p>
+    <div class="doc-demo" style="margin-block-start: var(--zak-space-4)">
+      <div class="doc-demo__stage">
+        <span class="doc-demo__label">Live check</span>
+        <button class="zak-btn zak-btn--filled" type="button" id="gs-install-check">
+          <Fragment set:html={checkI} />
+          Fire a test toast
+        </button>
+      </div>
+    </div>
+    <CodeBlock
+      id="gs-install-verify"
+      label="Installation check"
+      tabs={[
+        {
+          label: 'HTML',
+          lang: 'html',
+          code: `<button class="zak-btn zak-btn--filled" type="button" onclick="ZakUI.toast('Syntax OK', 'success')">
+  Fire a test toast
+</button>`,
+        },
+        {
+          label: 'JavaScript',
+          lang: 'js',
+          code: `// Or wire it programmatically, anywhere after the runtime has loaded:
+document.querySelector('#save')?.addEventListener('click', () => {
+  ZakUI.toast('Saved', 'success', { desc: '3 records updated.' });
+});
+
+// CDN and npm expose the same surface — window.ZakUI or named imports.
+const modal = new ZakUI.ZakModal('#invite-dialog');
+modal.open();`,
+        },
+      ]}
+    />
+    <div class="doc-callout">
+      <Fragment set:html={infoI} />
+      <span>
+        Tones are <code>default</code>, <code>info</code>, <code>success</code>,
+        <code>warning</code> and <code>danger</code>. Toasts land in a shared
+        <code>aria-live="polite"</code> region. Controllers emit
+        <code>zak:open</code> / <code>zak:close</code> / <code>zak:select</code> events, so
+        app code can delegate against the API instead of patching internals.
+      </span>
+    </div>
+  </section>
+
+  <nav class="doc-section" aria-label="Guide navigation">
+    <div class="cat-grid">
+      <a class="cat-card" href={guideHref('introduction')}>
+        <span class="landing-stat__label">Previous guide</span>
+        <span class="cat-card__name">Introduction</span>
+        <span class="cat-card__desc">What ZAKUIKit is and how the toolkit is layered.</span>
+      </a>
+      <a class="cat-card" href={guideHref('starter-template')}>
+        <span class="landing-stat__label">Next guide</span>
+        <span class="cat-card__name">
+          Starter template <Fragment set:html={arrowI} />
+        </span>
+        <span class="cat-card__desc">A complete HTML page skeleton with theme boot and the runtime wired up.</span>
+      </a>
+    </div>
+  </nav>
+<script is:inline>
+  // Installation check — fires the toolkit's real toast helper.
+  (function () {
+    var button = document.getElementById('gs-install-check');
+    if (!button) return;
+    button.addEventListener('click', function () {
+      if (!window.ZakUI) return;
+      window.ZakUI.toast('ZAKUIKit is wired up', 'success', {
+        desc: 'Stylesheet and runtime are both live on this page.',
+      });
+    });
+  })();
+</script>
+</DocsLayout>

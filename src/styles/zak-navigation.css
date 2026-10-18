@@ -1,0 +1,696 @@
+/* ==========================================================================
+   ZAKUIKit — Navigation & Disclosure
+   Navbar · Sidebar · Menu · Dropdown Menu · Breadcrumb · Tabs · Stepper ·
+   Vertical nav · Anchor nav · Accordion · Collapse · Details · Show more
+   ========================================================================== */
+
+/* Navbar ---------------------------------------------------------------------- */
+.zak-navbar {
+  display: flex;
+  align-items: center;
+  gap: var(--zak-space-4);
+  padding: var(--zak-space-3) var(--zak-space-5);
+  background: var(--zak-glass-bg);
+  -webkit-backdrop-filter: var(--zak-backdrop-blur);
+  backdrop-filter: var(--zak-backdrop-blur);
+  border-block-end: 1px solid var(--zak-border-subtle);
+  position: sticky;
+  top: 0;
+  z-index: var(--zak-z-sticky);
+}
+
+.zak-navbar__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--zak-space-2);
+  font-weight: var(--zak-weight-bold);
+  font-size: var(--zak-text-lg);
+  letter-spacing: -0.02em;
+  color: var(--zak-text-primary);
+  text-decoration: none;
+}
+
+.zak-navbar__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--zak-space-1);
+  margin-inline-start: var(--zak-space-4);
+}
+
+.zak-navbar__link {
+  padding: var(--zak-space-2) var(--zak-space-3);
+  border-radius: var(--zak-radius-md);
+  font-size: var(--zak-text-md);
+  font-weight: var(--zak-weight-medium);
+  color: var(--zak-text-secondary);
+  text-decoration: none;
+  transition: color var(--zak-duration-fast), background-color var(--zak-duration-fast);
+}
+
+.zak-navbar__link:hover { background: var(--zak-bg-hover); color: var(--zak-text-primary); text-decoration: none; }
+.zak-navbar__link.is-active { color: var(--zak-primary-text); background: var(--zak-primary-subtle); }
+
+/* Responsive collapse --------------------------------------------------------------- */
+/* The navbar is its own layout context: under 48rem of available width — which covers any
+   narrow viewport, since the bar is a full-width block — `.zak-navbar__collapse` turns into
+   an absolutely-positioned menu and the toggler that reveals it appears. */
+.zak-navbar {
+  container-type: inline-size;
+  flex-wrap: wrap;
+  row-gap: var(--zak-space-2);
+}
+
+/* Everything that collapses: link row, search and utilities. */
+.zak-navbar__collapse {
+  display: flex;
+  align-items: center;
+  gap: var(--zak-space-1);
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* Global search sits at the inline end of the bar. */
+.zak-navbar__search {
+  margin-inline-start: auto;
+}
+
+/* Utility cluster (icon buttons, avatar). */
+.zak-navbar__extra {
+  display: flex;
+  align-items: center;
+  gap: var(--zak-space-2);
+}
+
+/* Hidden until the bar collapses. */
+.zak-navbar__toggle {
+  display: none;
+}
+
+@container (max-width: 48rem) {
+  .zak-navbar__toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-inline-start: auto;
+    order: 2;
+  }
+
+  .zak-navbar__collapse {
+    display: none;
+    order: 3;
+    flex: 1 1 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--zak-space-2);
+    padding: var(--zak-space-2);
+    background: var(--zak-bg-elevated);
+    border: 1px solid var(--zak-border-color);
+    border-radius: var(--zak-radius-lg);
+    box-shadow: var(--zak-shadow-lg);
+    position: absolute;
+    inset-inline: var(--zak-space-4);
+    inset-block-start: calc(100% - var(--zak-space-1));
+    z-index: var(--zak-z-dropdown);
+  }
+
+  .zak-navbar.is-open .zak-navbar__collapse { display: flex; }
+
+  .zak-navbar__nav {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    margin-inline-start: 0;
+  }
+
+  .zak-navbar__link { padding-block: var(--zak-space-3); }
+
+  /* Search lives inside the open menu, stretched to the panel width. */
+  .zak-navbar__search {
+    margin-inline-start: 0;
+    width: 100%;
+  }
+
+  .zak-navbar__search .zak-search {
+    display: block;
+    width: 100%;
+  }
+
+  .zak-navbar__extra { justify-content: flex-start; }
+}
+
+@media (max-width: 48rem) {
+  /* Anchors the collapsed menu for engines without container-query support. */
+  .zak-navbar { position: relative; }
+}
+
+/* Sidebar ----------------------------------------------------------------------- */
+.zak-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--zak-space-1);
+  padding: var(--zak-space-4);
+  font-size: var(--zak-text-md);
+}
+
+.zak-sidebar__section {
+  display: flex;
+  flex-direction: column;
+}
+
+.zak-sidebar__toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--zak-space-2);
+  width: 100%;
+  padding: var(--zak-space-2) var(--zak-space-3);
+  border-radius: var(--zak-radius-md);
+  font-size: var(--zak-text-sm);
+  font-weight: var(--zak-weight-semibold);
+  color: var(--zak-text-secondary);
+  text-align: left;
+  cursor: pointer;
+}
+
+.zak-sidebar__toggle:hover { background: var(--zak-bg-hover); color: var(--zak-text-primary); }
+.zak-sidebar__toggle .zak-icon:first-child { color: var(--zak-text-tertiary); }
+.zak-sidebar__toggle .zak-icon:last-child { margin-inline-start: auto; transition: transform var(--zak-duration-fast) var(--zak-ease-standard); }
+.zak-sidebar__toggle[aria-expanded="true"] .zak-icon:last-child { transform: rotate(180deg); }
+
+.zak-sidebar__links {
+  display: flex;
+  flex-direction: column;
+  padding-block: var(--zak-space-1);
+}
+
+.zak-sidebar__links[hidden] { display: none; }
+
+.zak-sidebar__link {
+  display: flex;
+  align-items: center;
+  gap: var(--zak-space-2);
+  padding: var(--zak-space-1) var(--zak-space-3);
+  margin-inline-start: var(--zak-space-4);
+  border-radius: var(--zak-radius-sm);
+  font-size: var(--zak-text-sm);
+  color: var(--zak-text-secondary);
+  text-decoration: none;
+  border-inline-start: 2px solid var(--zak-border-subtle);
+}
+
+.zak-sidebar__link:hover { color: var(--zak-text-primary); background: var(--zak-bg-hover); text-decoration: none; }
+
+.zak-sidebar__link.is-active {
+  color: var(--zak-primary-text);
+  background: var(--zak-primary-subtle);
+  border-inline-start-color: var(--zak-primary);
+  font-weight: var(--zak-weight-semibold);
+}
+
+.zak-sidebar__count {
+  margin-inline-start: auto;
+  font-size: var(--zak-text-2xs);
+  color: var(--zak-text-tertiary);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Menu (vertical / horizontal) -------------------------------------------------------- */
+.zak-menu {
+  list-style: none;
+  padding: var(--zak-space-1);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 12rem;
+  background: var(--zak-bg-surface);
+  border: 1px solid var(--zak-border-subtle);
+  border-radius: var(--zak-radius-lg);
+  box-shadow: var(--zak-shadow-md);
+}
+
+.zak-menu--h { flex-direction: row; align-items: center; }
+
+.zak-menu__item {
+  display: flex;
+  align-items: center;
+  gap: var(--zak-space-3);
+  padding: var(--zak-space-2) var(--zak-space-3);
+  border-radius: var(--zak-radius-md);
+  font-size: var(--zak-text-md);
+  color: var(--zak-text-secondary);
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.zak-menu__item:hover { background: var(--zak-bg-hover); color: var(--zak-text-primary); text-decoration: none; }
+.zak-menu__item.is-active { background: var(--zak-primary-subtle); color: var(--zak-primary-text); font-weight: var(--zak-weight-semibold); }
+.zak-menu__item .zak-icon { color: var(--zak-text-tertiary); flex: none; }
+.zak-menu__item .zak-badge,
+.zak-menu__item kbd { margin-inline-start: auto; }
+
+.zak-menu__label {
+  font-size: var(--zak-text-2xs);
+  font-weight: var(--zak-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--zak-text-tertiary);
+  padding: var(--zak-space-2) var(--zak-space-3) var(--zak-space-1);
+}
+
+.zak-menu__sep { height: 1px; background: var(--zak-border-subtle); margin: var(--zak-space-1) var(--zak-space-2); }
+
+/* Dropdown menu (anchored) -------------------------------------------------------------- */
+.zak-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.zak-dropdown__panel {
+  position: absolute;
+  top: calc(100% + var(--zak-space-2));
+  left: 0;
+  z-index: var(--zak-z-dropdown);
+  min-width: 12rem;
+  padding: var(--zak-space-1);
+  background: var(--zak-bg-elevated);
+  border: 1px solid var(--zak-border-color);
+  border-radius: var(--zak-radius-lg);
+  box-shadow: var(--zak-shadow-lg);
+  animation: zak-pop-in var(--zak-duration-fast) var(--zak-ease-out);
+}
+
+.zak-dropdown__panel--end { left: auto; right: 0; }
+
+/* Uniform item rhythm inside the floating panel: `--zak-space-1` padding on the
+   container, `--zak-space-2` on every row, so edge-to-edge spacing matches the
+   standalone Menu. */
+.zak-dropdown__panel .zak-menu__item { padding: var(--zak-space-2); }
+
+@keyframes zak-pop-in {
+  from { opacity: 0; transform: translateY(-4px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Breadcrumb --------------------------------------------------------------------------------- */
+.zak-breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--zak-space-1);
+  list-style: none;
+  padding: 0;
+  font-size: var(--zak-text-sm);
+}
+
+.zak-breadcrumb li {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--zak-space-1);
+  color: var(--zak-text-tertiary);
+}
+
+.zak-breadcrumb a { color: var(--zak-text-secondary); text-decoration: none; }
+.zak-breadcrumb a:hover { color: var(--zak-primary-text); text-decoration: none; }
+.zak-breadcrumb li:last-child { color: var(--zak-text-primary); font-weight: var(--zak-weight-medium); }
+.zak-breadcrumb .zak-icon { color: var(--zak-text-tertiary); opacity: 0.7; }
+
+/* Tabs ------------------------------------------------------------------------------------------ */
+.zak-tabs {
+  display: flex;
+  align-items: center;
+  gap: var(--zak-space-1);
+  border-block-end: 1px solid var(--zak-border-subtle);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.zak-tabs::-webkit-scrollbar { display: none; }
+
+.zak-tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--zak-space-2);
+  padding: var(--zak-space-2) var(--zak-space-4);
+  font-size: var(--zak-text-md);
+  font-weight: var(--zak-weight-medium);
+  color: var(--zak-text-secondary);
+  cursor: pointer;
+  white-space: nowrap;
+  border: 0;
+  background: none;
+}
+
+.zak-tab::after {
+  content: "";
+  position: absolute;
+  left: var(--zak-space-3);
+  right: var(--zak-space-3);
+  bottom: -1px;
+  height: 2px;
+  border-radius: var(--zak-radius-full);
+  background: transparent;
+  transition: background-color var(--zak-duration-fast);
+}
+
+.zak-tab:hover { color: var(--zak-text-primary); }
+.zak-tab.is-active { color: var(--zak-primary-text); }
+.zak-tab.is-active::after { background: var(--zak-primary); }
+.zak-tab .zak-badge { font-size: var(--zak-text-2xs); }
+
+.zak-tabs--pill {
+  border: 0;
+  gap: var(--zak-space-1);
+  padding: var(--zak-space-1);
+  background: var(--zak-bg-muted);
+  border-radius: var(--zak-radius-lg);
+  width: max-content;
+  max-width: 100%;
+}
+
+.zak-tabs--pill .zak-tab { border-radius: var(--zak-radius-md); padding: var(--zak-space-1) var(--zak-space-4); }
+.zak-tabs--pill .zak-tab::after { display: none; }
+.zak-tabs--pill .zak-tab.is-active {
+  background: var(--zak-bg-elevated);
+  color: var(--zak-text-primary);
+  box-shadow: var(--zak-shadow-sm);
+}
+
+/* Enclosed / filled: the whole strip sits in a bordered box; the active tab is
+   raised on a brand-subtle surface instead of drawing an underline. */
+.zak-tabs--enclosed {
+  border: 1px solid var(--zak-border-color);
+  border-radius: var(--zak-radius-lg);
+  padding: var(--zak-space-1);
+  background: var(--zak-bg-surface);
+  gap: var(--zak-space-1);
+}
+
+.zak-tabs--enclosed .zak-tab {
+  border-radius: var(--zak-radius-md);
+}
+
+.zak-tabs--enclosed .zak-tab::after { display: none; }
+
+.zak-tabs--enclosed .zak-tab:hover { background: var(--zak-bg-hover); }
+
+.zak-tabs--enclosed .zak-tab.is-active {
+  background: var(--zak-primary-subtle);
+  color: var(--zak-primary-text);
+  font-weight: var(--zak-weight-semibold);
+}
+
+/* Vertical: the strip stacks and the active indicator moves to the inline-end
+   edge, so it reads as a left-hand rail next to its panels. */
+.zak-tabs--v {
+  flex-direction: column;
+  align-items: stretch;
+  border-block-end: 0;
+  border-inline-end: 1px solid var(--zak-border-subtle);
+  overflow-x: visible;
+  width: max-content;
+  max-width: 100%;
+}
+
+.zak-tabs--v .zak-tab {
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.zak-tabs--v .zak-tab::after {
+  left: auto;
+  right: -1px;
+  top: var(--zak-space-2);
+  bottom: var(--zak-space-2);
+  width: 2px;
+  height: auto;
+}
+
+.zak-tab-panel { padding-block-start: var(--zak-space-4); }
+.zak-tab-panel[hidden] { display: none; }
+
+/* Stepper -------------------------------------------------------------------------------------------- */
+.zak-stepper {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  counter-reset: step;
+}
+
+.zak-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--zak-space-2);
+  position: relative;
+  text-align: center;
+  font-size: var(--zak-text-xs);
+  color: var(--zak-text-tertiary);
+}
+
+.zak-step::before {
+  content: "";
+  position: absolute;
+  top: 1rem;
+  left: calc(-50% + 1.6rem);
+  right: calc(50% + 1.6rem);
+  height: 2px;
+  background: var(--zak-border-subtle);
+}
+
+.zak-step:first-child::before { display: none; }
+
+.zak-step__dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--zak-bg-elevated);
+  border: 2px solid var(--zak-border-color);
+  font-size: var(--zak-text-sm);
+  font-weight: var(--zak-weight-semibold);
+  z-index: 1;
+}
+
+.zak-step--done { color: var(--zak-text-secondary); }
+.zak-step--done .zak-step__dot { background: var(--zak-success); border-color: var(--zak-success); color: #fff; }
+.zak-step--done::before { background: var(--zak-success); }
+
+.zak-step--active { color: var(--zak-text-primary); font-weight: var(--zak-weight-semibold); }
+.zak-step--active .zak-step__dot { background: var(--zak-primary); border-color: var(--zak-primary); color: var(--zak-text-on-primary); box-shadow: 0 0 0 4px var(--zak-primary-subtle); }
+
+.zak-stepper--v { flex-direction: column; align-items: stretch; gap: var(--zak-space-2); }
+.zak-stepper--v .zak-step { flex-direction: row; align-items: center; text-align: left; gap: var(--zak-space-3); }
+.zak-stepper--v .zak-step::before { display: none; }
+
+/* Vertical navigation ------------------------------------------------------------------------------------ */
+.zak-vnav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--zak-space-1);
+  padding: var(--zak-space-3);
+  background: var(--zak-bg-surface);
+  border: 1px solid var(--zak-border-subtle);
+  border-radius: var(--zak-radius-lg);
+  min-width: 13rem;
+}
+
+.zak-vnav__title {
+  font-size: var(--zak-text-2xs);
+  font-weight: var(--zak-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--zak-text-tertiary);
+  padding: var(--zak-space-2) var(--zak-space-3) var(--zak-space-1);
+}
+
+.zak-vnav__item {
+  display: flex;
+  align-items: center;
+  gap: var(--zak-space-3);
+  padding: var(--zak-space-2) var(--zak-space-3);
+  border-radius: var(--zak-radius-md);
+  color: var(--zak-text-secondary);
+  font-size: var(--zak-text-md);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.zak-vnav__item:hover { background: var(--zak-bg-hover); color: var(--zak-text-primary); text-decoration: none; }
+.zak-vnav__item.is-active { background: var(--zak-primary-subtle); color: var(--zak-primary-text); font-weight: var(--zak-weight-semibold); }
+.zak-vnav__item .zak-badge { margin-inline-start: auto; }
+
+/* Anchor navigation (in-page rail) ----------------------------------------------------------------------------- */
+.zak-anchor-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-inline-start: 1px solid var(--zak-border-subtle);
+  padding-inline-start: 0;
+}
+
+.zak-anchor-nav__link {
+  position: relative;
+  padding: var(--zak-space-1) var(--zak-space-3);
+  font-size: var(--zak-text-sm);
+  color: var(--zak-text-tertiary);
+  text-decoration: none;
+  border-inline-start: 2px solid transparent;
+  margin-inline-start: -1px;
+  transition: color var(--zak-duration-fast);
+}
+
+.zak-anchor-nav__link:hover { color: var(--zak-text-primary); text-decoration: none; }
+.zak-anchor-nav__link.is-active { color: var(--zak-primary-text); border-inline-start-color: var(--zak-primary); font-weight: var(--zak-weight-semibold); }
+
+/* ==========================================================================
+   Disclosure & Expansion
+   ========================================================================== */
+.zak-accordion {
+  border: 1px solid var(--zak-border-subtle);
+  border-radius: var(--zak-radius-lg);
+  background: var(--zak-bg-surface);
+  overflow: hidden;
+}
+
+.zak-accordion__item + .zak-accordion__item { border-block-start: 1px solid var(--zak-border-subtle); }
+
+.zak-accordion__trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--zak-space-3);
+  width: 100%;
+  padding: var(--zak-space-4) var(--zak-space-5);
+  font-size: var(--zak-text-md);
+  font-weight: var(--zak-weight-semibold);
+  color: var(--zak-text-primary);
+  text-align: left;
+  cursor: pointer;
+  transition: background-color var(--zak-duration-fast);
+}
+
+.zak-accordion__trigger:hover { background: var(--zak-bg-hover); }
+
+.zak-accordion__trigger .zak-icon {
+  margin-inline-start: auto;
+  color: var(--zak-text-tertiary);
+  transition: transform var(--zak-duration-base) var(--zak-ease-standard);
+  flex: none;
+}
+
+.zak-accordion__trigger[aria-expanded="true"] .zak-icon { transform: rotate(180deg); }
+
+.zak-accordion__panel {
+  padding: 0 var(--zak-space-5) var(--zak-space-5);
+  font-size: var(--zak-text-md);
+  color: var(--zak-text-secondary);
+}
+
+.zak-accordion__panel[hidden] { display: none; }
+
+.zak-collapse {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--zak-duration-base) var(--zak-ease-standard);
+}
+
+/* The grid child is the clip layer: it must carry no padding or border, because
+   those survive the 0fr row as a visible sliver. Padded content goes one level
+   deeper, in .zak-collapse__body. */
+.zak-collapse > * { overflow: hidden; min-height: 0; }
+
+.zak-collapse.is-open { grid-template-rows: 1fr; }
+
+/* Fully closed: the runtime sets [hidden] once the closing transition settles. */
+.zak-collapse[hidden] { display: none; }
+
+.zak-collapse__body { padding: var(--zak-space-2) var(--zak-space-5) var(--zak-space-5); }
+
+.zak-collapse-trigger .zak-icon { transition: transform var(--zak-duration-base) var(--zak-ease-standard); }
+.zak-collapse-trigger[aria-expanded="true"] .zak-icon { transform: rotate(180deg); }
+
+.zak-expandable {
+  border: 1px solid var(--zak-border-subtle);
+  border-radius: var(--zak-radius-lg);
+  background: var(--zak-bg-surface);
+  overflow: hidden;
+}
+
+.zak-expandable__head {
+  display: flex;
+  align-items: center;
+  gap: var(--zak-space-3);
+  padding: var(--zak-space-4) var(--zak-space-5);
+}
+
+.zak-expandable__head .zak-btn { margin-inline-start: auto; }
+
+.zak-details {
+  border: 1px solid var(--zak-border-subtle);
+  border-radius: var(--zak-radius-md);
+  background: var(--zak-bg-surface);
+}
+
+.zak-details > summary {
+  display: flex;
+  align-items: center;
+  gap: var(--zak-space-2);
+  padding: var(--zak-space-3) var(--zak-space-4);
+  cursor: pointer;
+  font-size: var(--zak-text-md);
+  font-weight: var(--zak-weight-medium);
+  list-style: none;
+}
+
+.zak-details > summary .zak-icon { transition: transform var(--zak-duration-fast); color: var(--zak-text-tertiary); }
+.zak-details[open] > summary .zak-icon { transform: rotate(90deg); }
+.zak-details > summary:hover { background: var(--zak-bg-hover); }
+
+.zak-details__body {
+  padding: 0 var(--zak-space-4) var(--zak-space-4);
+  font-size: var(--zak-text-sm);
+  color: var(--zak-text-secondary);
+}
+
+/* Show more / less ---------------------------------------------------------------------------------------------------- */
+.zak-showmore {
+  position: relative;
+  font-size: var(--zak-text-md);
+  color: var(--zak-text-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: var(--zak-space-2);
+  align-items: flex-start;
+}
+
+.zak-showmore__text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--lines, 3);
+  overflow: hidden;
+  transition: max-height var(--zak-duration-base) var(--zak-ease-standard);
+}
+
+.zak-showmore.is-open .zak-showmore__text {
+  -webkit-line-clamp: unset;
+}
+
+.zak-showmore__fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 2.4rem;
+  height: 2.5rem;
+  background: linear-gradient(to bottom, transparent, var(--zak-bg-surface));
+  pointer-events: none;
+}
+
+.zak-showmore.is-open .zak-showmore__fade { display: none; }
+
+.zak-showmore__toggle {
+  align-self: flex-start;
+}

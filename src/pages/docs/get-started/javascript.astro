@@ -1,0 +1,334 @@
+---
+/**
+ * Get Started — JavaScript. How the runtime loads, the trigger contract, the
+ * data-attribute inventory by area, and the toast helper with live buttons.
+ */
+import DocsLayout from '../../../layouts/DocsLayout.astro';
+import CodeBlock, { type CodeTab } from '../../../components/CodeBlock.astro';
+import KeyTable from '../../../components/KeyTable.astro';
+import { guideHref } from '../../../data/getstarted';
+import { svgIcon } from '../../../data/icons';
+import type { TocItem } from '../../../layouts/DocsLayout.astro';
+
+const toc: TocItem[] = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'loading', label: 'Loading the runtime' },
+  { id: 'contracts', label: 'Trigger contract' },
+  { id: 'controllers', label: 'Controller API' },
+  { id: 'attributes', label: 'Behaviour attributes' },
+  { id: 'toast', label: 'Toast helper' },
+];
+
+const loadTabs: CodeTab[] = [
+  {
+    label: 'Script tag',
+    lang: 'html',
+    code: `<!-- Self-initialising: every matching element is wired as soon as it loads -->
+<script src="/zak.js" defer></script>`,
+  },
+  {
+    label: 'Bundler',
+    lang: 'js',
+    code: `// Imported for side effects — the runtimes initialise themselves.
+import 'zakuikit';            // npm
+// import './vendor/zak.js';  // or the self-hosted bundle
+
+// The helper surface is then available.
+ZakUI.toast('Saved', 'success');`,
+  },
+  {
+    label: 'Dynamic markup',
+    lang: 'js',
+    code: `// Clicks and keys are delegated at the document level, so most behaviour
+// works on injected markup immediately. For element-scoped widgets
+// (pickers, carousels, the data grid), ask the runtimes to re-scan:
+document.dispatchEvent(new CustomEvent('zak:refresh'));`,
+  },
+];
+
+const contractRows = [
+  [
+    'data-zak-toggle="dropdown"',
+    'Marks a trigger that opens and closes a dropdown panel. Keyboard contract included.',
+  ],
+  [
+    'data-zak-target="#panel"',
+    'Resolves the panel for data-zak-toggle triggers — any CSS selector.',
+  ],
+  [
+    'data-zak-close',
+    'Closes the containing overlay: modal, drawer, dropdown or popover.',
+  ],
+  [
+    'data-zak-dismiss',
+    'Removes the containing dismissible element — alerts, banners, chips.',
+  ],
+];
+
+const areaRows = [
+  [
+    'data-zak-dropdown · data-zak-context',
+    'Dropdown panels and right-click context menus.',
+  ],
+  [
+    'data-zak-accordion="single"',
+    'Accordion groups — single-open mode, animated collapse.',
+  ],
+  [
+    'data-zak-tabs',
+    'Tab sets with roving focus, panels and active states.',
+  ],
+  [
+    'data-zak-tree',
+    'Expandable trees with single-branch focus.',
+  ],
+  [
+    'data-zak-rating',
+    'Star rating inputs with half-step display.',
+  ],
+  [
+    'data-zak-anchors',
+    'Scroll-spy anchor navigation (this site’s TOC rail uses it).',
+  ],
+  [
+    'data-zak-toggleable',
+    'Pressed-state toggle buttons for toolbars and filters.',
+  ],
+  [
+    'data-zak-table-sort · -select · -filter · -tree · -checkall',
+    'Sortable, selectable, filterable and hierarchical tables.',
+  ],
+  [
+    'data-zak-reveal · data-zak-chip',
+    'Password reveal affordance; removable chips.',
+  ],
+  [
+    'data-zak-carousel · -slider · -audio · -video',
+    'Media players and carousels with generated controls.',
+  ],
+  [
+    'data-zak-grid',
+    'The data grid — reads its columns and options from embedded JSON.',
+  ],
+  [
+    'data-zak-prompt',
+    'AI prompt composer with auto-grow, streaming and thinking states.',
+  ],
+  [
+    'data-zak-calendar · -time · -colorpicker',
+    'Pickers — month grids, week rows and time selects are generated at runtime.',
+  ],
+];
+
+const toastTabs: CodeTab[] = [
+  {
+    label: 'JavaScript',
+    lang: 'js',
+    code: `ZakUI.toast('Saved', 'success', { duration: 4000, desc: '3 records updated.' });
+
+// Signature
+ZakUI.toast(title, tone?, options?)
+//   tone:    'default' | 'info' | 'success' | 'warning' | 'danger'
+//   options: { duration?: number; desc?: string }`,
+  },
+];
+
+const controllerTabs: CodeTab[] = [
+  {
+    label: 'Named imports',
+    lang: 'js',
+    code: `// npm — modular imports resolve to dist/zakuikit.mjs
+import { init, toast, ZakButton, ZakModal, ZakDropdown, ZakTabs } from 'zakuikit';
+
+const invite = new ZakModal('#demo-modal');
+invite.onDismiss((event) => {
+  if (formIsDirty) event.preventDefault(); // veto Esc / backdrop dismissal
+});
+invite.open();
+
+// Every element or CSS selector works as the target.
+new ZakDropdown(document.querySelector('[data-zak-dropdown]')).toggle();
+new ZakTabs('#settings').select(2);`,
+  },
+  {
+    label: 'Global (CDN)',
+    lang: 'js',
+    code: `// CDN — the same classes live on window.ZakUI
+const button = new ZakUI.ZakButton('#save');
+await button.withLoading(saveRecord); // is-loading + aria-busy, restored on settle
+
+// Auto-registration: hosts declare, init() mounts.
+// <div data-zak-component="tabs"> … <dialog data-zak-component="modal">
+ZakUI.init(document); // idempotent per element`,
+  },
+  {
+    label: 'Events',
+    lang: 'js',
+    code: `// Controllers emit bubbling CustomEvents — delegate instead of patching.
+document.addEventListener('zak:select', (event) => {
+  console.log('tab', event.detail.index);        // ZakTabs
+});
+document.addEventListener('zak:open', (event) => {
+  if (event.target.id === 'demo-modal') track('modal-open');
+});
+// zak:close · zak:open on hosts; zak:theme on document from the boot script.`,
+  },
+];
+
+const rocketI = svgIcon('rocket', 'zak-icon', 13);
+const zapI = svgIcon('zap', 'zak-icon', 15);
+const bellI = svgIcon('bell', 'zak-icon', 15);
+const arrowI = svgIcon('arrow-right', 'zak-icon', 13);
+---
+
+<DocsLayout
+  title="JavaScript"
+  desc="How the ZAKUIKit runtime loads, the data-attribute trigger contract, every behaviour hook and the toast helper."
+  activeCategory="get-started"
+  activeComponent="javascript"
+  toc={toc}
+>
+  <header class="doc-header" id="overview">
+    <div class="doc-header__meta">
+      <span class="zak-badge zak-badge--primary">
+        <Fragment set:html={rocketI} />
+        Get Started
+      </span>
+      <span class="zak-badge zak-badge--info">data-zak-* contract</span>
+    </div>
+    <h1 class="doc-header__title">JavaScript</h1>
+    <p class="doc-header__desc">
+      ZAKUIKit is CSS-first: static markup needs no script at all. The runtime adds behaviour to the
+      patterns that need it — overlays, disclosure, pickers, tables, media, the data grid and AI — and
+      describes everything through data attributes instead of imperatively constructed widgets.
+    </p>
+  </header>
+
+  <section class="doc-section">
+    <h2 class="doc-section__title">Overview</h2>
+    <p class="doc-p">
+      Load one script and every interactive pattern on the page initialises itself — there is no
+      <code>new Component()</code> ceremony and no configuration object. Behaviour is declared in the
+      markup with <code>data-zak-*</code> attributes, the same way <code>data-bs-*</code> works in
+      Bootstrap.
+    </p>
+    <div class="doc-callout">
+      <Fragment set:html={zapI} />
+      <span>
+        <strong>What needs the runtime:</strong> modals, drawers, dropdowns, popovers, accordions,
+        tabs, pickers, carousels, media players, sortable or selectable tables, the data grid and the
+        AI prompt composer. Buttons, forms, cards, badges, tables and layout are pure CSS.
+      </span>
+    </div>
+  </section>
+
+  <section class="doc-section" id="loading">
+    <h2 class="doc-section__title">Loading the runtime</h2>
+    <p class="doc-section__lead">
+      The script self-initialises on load and re-scans on demand — the contract the docs previews
+      use to keep interactive components working.
+    </p>
+    <CodeBlock tabs={loadTabs} id="gs-js-load" label="Runtime loading examples" />
+  </section>
+
+  <section class="doc-section" id="contracts">
+    <h2 class="doc-section__title">Trigger contract</h2>
+    <p class="doc-section__lead">
+      Four attributes cover every show / hide interaction in the toolkit. Actions are delegated at the
+      document level, so they survive re-renders and injected markup with no bookkeeping.
+    </p>
+    <KeyTable head={['Attribute', 'Contract']} rows={contractRows} />
+  </section>
+
+  <section class="doc-section" id="controllers">
+    <h2 class="doc-section__title">Controller API</h2>
+    <p class="doc-section__lead">
+      Declaration covers 100% of the behaviour. When app code needs to drive a component — open a
+      modal after a fetch, flip a tab, run a spinner — the same patterns are available as named
+      vanilla-JS controller classes, on <code>window.ZakUI</code> or via npm imports.
+    </p>
+    <CodeBlock tabs={controllerTabs} id="gs-js-controllers" label="Controller API examples" />
+    <KeyTable
+      head={['Controller', 'Surface']}
+      rows={[
+        ['ZakButton', 'loading(on) · withLoading(task) · disabled(on) — spinner state machine.'],
+        ['ZakModal · ZakDrawer', 'open() · close() · toggle() · onDismiss(veto) — native <dialog> inside.'],
+        ['ZakDropdown', 'open(focusFirst) · close(returnFocus) · toggle() — honours the keyboard contract.'],
+        ['ZakTabs', 'select(index|el) · selectAndFocus(index) · selected.'],
+        ['ZakAccordion', 'open(i) · close(i) · toggle(i) — respects single-open groups.'],
+        ['ZakCollapse · ZakTooltip · ZakToast', 'grid-row collapse · programmatic bubbles · static show().'],
+      ]}
+    />
+  </section>
+
+  <section class="doc-section" id="attributes">
+    <h2 class="doc-section__title">Behaviour attributes</h2>
+    <p class="doc-section__lead">
+      Each attribute scopes one component family. Follow the links on each component page for the full
+      contract — this table is the map.
+    </p>
+    <KeyTable head={['Attribute', 'Powers']} rows={areaRows} />
+  </section>
+
+  <section class="doc-section" id="toast">
+    <h2 class="doc-section__title">Toast helper</h2>
+    <p class="doc-section__lead">
+      Toasts are created, not declared — <code>ZakUI.toast</code> is the toolkit's only global. It
+      stacks into a shared live region, auto-dismisses and pauses while hovered.
+    </p>
+    <div class="doc-demo">
+      <div class="doc-demo__stage">
+        <span class="doc-demo__label">Live preview</span>
+        <div style="display:flex;gap:var(--zak-space-3);flex-wrap:wrap;justify-content:center">
+          <button class="zak-btn zak-btn--filled zak-btn--sm" type="button" data-gs-toast="success">
+            <Fragment set:html={bellI} />
+            Success toast
+          </button>
+          <button class="zak-btn zak-btn--danger zak-btn--sm" type="button" data-gs-toast="danger">
+            Danger toast
+          </button>
+          <button class="zak-btn zak-btn--outline zak-btn--sm" type="button" data-gs-toast="default">
+            Default toast
+          </button>
+        </div>
+      </div>
+    </div>
+    <CodeBlock tabs={toastTabs} id="gs-js-toast" label="Toast helper usage" />
+  </section>
+
+  <nav class="doc-section" aria-label="Guide navigation">
+    <div class="cat-grid">
+      <a class="cat-card" href={guideHref('starter-template')}>
+        <span class="landing-stat__label">Previous guide</span>
+        <span class="cat-card__name">Starter template</span>
+        <span class="cat-card__desc">A complete HTML page skeleton plus the production init script.</span>
+      </a>
+      <a class="cat-card" href={guideHref('theming')}>
+        <span class="landing-stat__label">Next guide</span>
+        <span class="cat-card__name">
+          Theming <Fragment set:html={arrowI} />
+        </span>
+        <span class="cat-card__desc">Light and dark via data-theme, and the token layers that drive every component.</span>
+      </a>
+    </div>
+  </nav>
+<script is:inline>
+  // Toast demos — fire the toolkit's real helper with different tones.
+  (function () {
+    var messages = {
+      success: ['Saved successfully', { desc: '3 records updated.' }],
+      danger: ['Deployment failed', { desc: 'Check the pipeline log for details.' }],
+      default: ['New version available', { desc: 'Reload to pick up v2.1.' }],
+    };
+
+    document.querySelectorAll('[data-gs-toast]').forEach(function (button) {
+      button.addEventListener('click', function () {
+        if (!window.ZakUI) return;
+        var tone = button.getAttribute('data-gs-toast') || 'default';
+        var spec = messages[tone] || messages.default;
+        window.ZakUI.toast(spec[0], tone, spec[1]);
+      });
+    });
+  })();
+</script>
+</DocsLayout>

@@ -1,0 +1,247 @@
+/* ==========================================================================
+   ZAKUIKit — Utility layer (`zak.utilities`)
+   One-shot helper classes documented on the Utilities page: text size /
+   weight / alignment / color, surfaces, borders, radius, shadows, flex
+   helpers, gap, spacing, width and responsive display.
+
+   This layer is declared LAST in the cascade (tokens < base < components <
+   utilities), so a utility always wins over a component default — e.g.
+   `.zak-gap-4` overrides the `gap` that `.zak-flex` sets — without needing
+   `!important`. Moved out of base.css for that reason.
+   ========================================================================== */
+
+/* Text size — every step of the type scale, including sm · md · lg · xl · 2xl */
+.zak-text-2xs { font-size: var(--zak-text-2xs); }
+.zak-text-xs { font-size: var(--zak-text-xs); }
+.zak-text-sm { font-size: var(--zak-text-sm); }
+.zak-text-md { font-size: var(--zak-text-md); }
+.zak-text-base { font-size: var(--zak-text-base); }
+.zak-text-lg { font-size: var(--zak-text-lg); }
+.zak-text-xl { font-size: var(--zak-text-xl); }
+.zak-text-2xl { font-size: var(--zak-text-2xl); }
+.zak-text-3xl { font-size: var(--zak-text-3xl); }
+.zak-text-4xl { font-size: var(--zak-text-4xl); }
+.zak-text-5xl { font-size: var(--zak-text-5xl); }
+
+/* Fluid text — scales between breakpoints with clamp() */
+.zak-fluid-sm { font-size: clamp(0.8125rem, 0.78rem + 0.15vw, 0.9375rem); }
+.zak-fluid-lg { font-size: clamp(1.0625rem, 1rem + 0.35vw, 1.25rem); }
+.zak-fluid-xl { font-size: clamp(1.25rem, 1.1rem + 0.7vw, 1.75rem); }
+.zak-fluid-2xl { font-size: clamp(1.5rem, 1.28rem + 1.1vw, 2.25rem); }
+
+/* Weight, alignment, decoration, case */
+.zak-weight-normal { font-weight: var(--zak-weight-normal); }
+.zak-weight-medium { font-weight: var(--zak-weight-medium); }
+.zak-weight-semibold { font-weight: var(--zak-weight-semibold); }
+.zak-weight-bold { font-weight: var(--zak-weight-bold); }
+.zak-text-start { text-align: start; }
+.zak-text-center { text-align: center; }
+.zak-text-end { text-align: end; }
+.zak-text-underline { text-decoration: underline; text-underline-offset: 0.18em; }
+.zak-text-strike { text-decoration: line-through; }
+.zak-text-upper { text-transform: uppercase; letter-spacing: 0.04em; }
+.zak-text-lower { text-transform: lowercase; }
+.zak-leading-tight { line-height: var(--zak-leading-tight); }
+.zak-leading-normal { line-height: var(--zak-leading-normal); }
+.zak-leading-relaxed { line-height: var(--zak-leading-relaxed); }
+.zak-nowrap { white-space: nowrap; }
+.zak-break { overflow-wrap: anywhere; }
+
+/* Text color — semantic tokens */
+.zak-text-primary { color: var(--zak-text-primary); }
+.zak-text-secondary { color: var(--zak-text-secondary); }
+.zak-text-tertiary { color: var(--zak-text-tertiary); }
+.zak-text-inverse { color: var(--zak-text-inverse); }
+.zak-text-success { color: var(--zak-success-text, var(--zak-success)); }
+.zak-text-warning { color: var(--zak-warning-text, var(--zak-warning)); }
+.zak-text-danger { color: var(--zak-danger-text, var(--zak-danger)); }
+.zak-text-info { color: var(--zak-info-text, var(--zak-info)); }
+
+/* Background / surface */
+.zak-bg-app { background: var(--zak-bg-app); }
+.zak-bg-surface { background: var(--zak-bg-surface); }
+.zak-bg-elevated { background: var(--zak-bg-elevated); }
+.zak-bg-sunken { background: var(--zak-bg-sunken); }
+.zak-bg-primary-subtle { background: var(--zak-primary-subtle); }
+
+/* Border, radius, shadow */
+.zak-border { border: 1px solid var(--zak-border-color); }
+.zak-border-strong { border: 1px solid var(--zak-border-strong); }
+.zak-rounded-sm { border-radius: var(--zak-radius-sm); }
+.zak-rounded-md { border-radius: var(--zak-radius-md); }
+.zak-rounded-lg { border-radius: var(--zak-radius-lg); }
+.zak-rounded-xl { border-radius: var(--zak-radius-xl); }
+.zak-rounded-2xl { border-radius: var(--zak-radius-2xl); }
+.zak-rounded-full { border-radius: var(--zak-radius-full); }
+.zak-shadow-sm { box-shadow: var(--zak-shadow-sm); }
+.zak-shadow-md { box-shadow: var(--zak-shadow-md); }
+.zak-shadow-lg { box-shadow: var(--zak-shadow-lg); }
+.zak-shadow-xl { box-shadow: var(--zak-shadow-xl); }
+.zak-shadow-xxl { box-shadow: var(--zak-shadow-xxl); }
+
+/* Flex helpers (complement the .zak-flex primitives) */
+.zak-inline { display: inline; }
+.zak-inline-block { display: inline-block; }
+.zak-block { display: block; }
+.zak-items-start { align-items: flex-start; }
+.zak-items-center { align-items: center; }
+.zak-items-end { align-items: flex-end; }
+.zak-items-stretch { align-items: stretch; }
+.zak-justify-start { justify-content: flex-start; }
+.zak-justify-center { justify-content: center; }
+.zak-justify-end { justify-content: flex-end; }
+.zak-justify-between { justify-content: space-between; }
+.zak-gap-0 { gap: 0; }
+.zak-gap-1 { gap: var(--zak-space-1); }
+.zak-gap-2 { gap: var(--zak-space-2); }
+.zak-gap-3 { gap: var(--zak-space-3); }
+.zak-gap-4 { gap: var(--zak-space-4); }
+.zak-gap-5 { gap: var(--zak-space-5); }
+.zak-gap-6 { gap: var(--zak-space-6); }
+.zak-gap-8 { gap: var(--zak-space-8); }
+
+/* Margin — steps 0–6 on the spacing scale (0 · 4 · 8 · 12 · 16 · 24 · 32px).
+   Directional: t/b top·bottom, s/e inline-start/end, x/y both inline/block axes. */
+.zak-m-0 { margin: 0; }
+.zak-m-1 { margin: var(--zak-space-1); }
+.zak-m-2 { margin: var(--zak-space-2); }
+.zak-m-3 { margin: var(--zak-space-3); }
+.zak-m-4 { margin: var(--zak-space-4); }
+.zak-m-5 { margin: var(--zak-space-5); }
+.zak-m-6 { margin: var(--zak-space-6); }
+.zak-mt-0 { margin-block-start: 0; } .zak-mt-1 { margin-block-start: var(--zak-space-1); } .zak-mt-2 { margin-block-start: var(--zak-space-2); } .zak-mt-3 { margin-block-start: var(--zak-space-3); } .zak-mt-4 { margin-block-start: var(--zak-space-4); } .zak-mt-5 { margin-block-start: var(--zak-space-5); } .zak-mt-6 { margin-block-start: var(--zak-space-6); }
+.zak-mb-0 { margin-block-end: 0; } .zak-mb-1 { margin-block-end: var(--zak-space-1); } .zak-mb-2 { margin-block-end: var(--zak-space-2); } .zak-mb-3 { margin-block-end: var(--zak-space-3); } .zak-mb-4 { margin-block-end: var(--zak-space-4); } .zak-mb-5 { margin-block-end: var(--zak-space-5); } .zak-mb-6 { margin-block-end: var(--zak-space-6); }
+.zak-ms-0 { margin-inline-start: 0; } .zak-ms-1 { margin-inline-start: var(--zak-space-1); } .zak-ms-2 { margin-inline-start: var(--zak-space-2); } .zak-ms-3 { margin-inline-start: var(--zak-space-3); } .zak-ms-4 { margin-inline-start: var(--zak-space-4); } .zak-ms-auto { margin-inline-start: auto; }
+.zak-me-0 { margin-inline-end: 0; } .zak-me-1 { margin-inline-end: var(--zak-space-1); } .zak-me-2 { margin-inline-end: var(--zak-space-2); } .zak-me-3 { margin-inline-end: var(--zak-space-3); } .zak-me-4 { margin-inline-end: var(--zak-space-4); } .zak-me-auto { margin-inline-end: auto; }
+.zak-mx-0 { margin-inline: 0; } .zak-mx-1 { margin-inline: var(--zak-space-1); } .zak-mx-2 { margin-inline: var(--zak-space-2); } .zak-mx-3 { margin-inline: var(--zak-space-3); } .zak-mx-4 { margin-inline: var(--zak-space-4); } .zak-mx-auto { margin-inline: auto; }
+.zak-my-0 { margin-block: 0; } .zak-my-1 { margin-block: var(--zak-space-1); } .zak-my-2 { margin-block: var(--zak-space-2); } .zak-my-3 { margin-block: var(--zak-space-3); } .zak-my-4 { margin-block: var(--zak-space-4); } .zak-my-6 { margin-block: var(--zak-space-6); }
+
+/* Padding — steps 0–6 plus directional pt/pb/ps/pe/px/py */
+.zak-p-0 { padding: 0; }
+.zak-p-1 { padding: var(--zak-space-1); }
+.zak-p-2 { padding: var(--zak-space-2); }
+.zak-p-3 { padding: var(--zak-space-3); }
+.zak-p-4 { padding: var(--zak-space-4); }
+.zak-p-5 { padding: var(--zak-space-5); }
+.zak-p-6 { padding: var(--zak-space-6); }
+.zak-pt-1 { padding-block-start: var(--zak-space-1); } .zak-pt-2 { padding-block-start: var(--zak-space-2); } .zak-pt-3 { padding-block-start: var(--zak-space-3); } .zak-pt-4 { padding-block-start: var(--zak-space-4); }
+.zak-pb-1 { padding-block-end: var(--zak-space-1); } .zak-pb-2 { padding-block-end: var(--zak-space-2); } .zak-pb-3 { padding-block-end: var(--zak-space-3); } .zak-pb-4 { padding-block-end: var(--zak-space-4); }
+.zak-ps-1 { padding-inline-start: var(--zak-space-1); } .zak-ps-2 { padding-inline-start: var(--zak-space-2); } .zak-ps-3 { padding-inline-start: var(--zak-space-3); } .zak-ps-4 { padding-inline-start: var(--zak-space-4); }
+.zak-pe-1 { padding-inline-end: var(--zak-space-1); } .zak-pe-2 { padding-inline-end: var(--zak-space-2); } .zak-pe-3 { padding-inline-end: var(--zak-space-3); } .zak-pe-4 { padding-inline-end: var(--zak-space-4); }
+.zak-px-1 { padding-inline: var(--zak-space-1); } .zak-px-2 { padding-inline: var(--zak-space-2); } .zak-px-3 { padding-inline: var(--zak-space-3); } .zak-px-4 { padding-inline: var(--zak-space-4); }
+.zak-py-1 { padding-block: var(--zak-space-1); } .zak-py-2 { padding-block: var(--zak-space-2); } .zak-py-3 { padding-block: var(--zak-space-3); } .zak-py-4 { padding-block: var(--zak-space-4); }
+
+/* Width helpers */
+.zak-w-full { width: 100%; }
+.zak-w-auto { width: auto; }
+.zak-min-w-0 { min-width: 0; }
+.zak-max-w-sm { max-width: 640px; }
+.zak-max-w-md { max-width: 768px; }
+.zak-max-w-lg { max-width: 1024px; }
+.zak-max-w-xl { max-width: 1280px; }
+
+/* Sizing — width, height and min/max on top of the width helpers above */
+.zak-w-1-2 { width: 50%; }
+.zak-w-1-3 { width: 33.333%; }
+.zak-w-2-3 { width: 66.667%; }
+.zak-w-screen { width: 100vw; }
+.zak-h-full { height: 100%; }
+.zak-h-screen { height: 100vh; }
+.zak-h-auto { height: auto; }
+.zak-min-h-0 { min-height: 0; }
+.zak-max-h-screen { max-height: 100vh; }
+
+/* Display — d-* one-shot display switch */
+.zak-d-none { display: none; }
+.zak-d-block { display: block; }
+.zak-d-inline { display: inline; }
+.zak-d-inline-block { display: inline-block; }
+.zak-d-flex { display: flex; }
+.zak-d-inline-flex { display: inline-flex; }
+.zak-d-grid { display: grid; }
+.zak-d-inline-grid { display: inline-grid; }
+
+/* Flexbox — direction, wrap, grow/shrink and self alignment */
+.zak-flex-row { flex-direction: row; }
+.zak-flex-col { flex-direction: column; }
+.zak-flex-wrap { flex-wrap: wrap; }
+.zak-flex-nowrap { flex-wrap: nowrap; }
+.zak-flex-1 { flex: 1 1 0%; min-width: 0; }
+.zak-flex-auto { flex: 1 1 auto; }
+.zak-flex-none { flex: none; }
+.zak-grow { flex-grow: 1; }
+.zak-grow-0 { flex-grow: 0; }
+.zak-shrink { flex-shrink: 1; }
+.zak-shrink-0 { flex-shrink: 0; }
+.zak-self-start { align-self: flex-start; }
+.zak-self-center { align-self: center; }
+.zak-self-end { align-self: flex-end; }
+.zak-self-stretch { align-self: stretch; }
+.zak-content-start { align-content: flex-start; }
+.zak-content-center { align-content: center; }
+.zak-content-end { align-content: flex-end; }
+.zak-content-between { align-content: space-between; }
+
+/* Position — placement and edge offsets */
+.zak-position-static { position: static; }
+.zak-position-relative { position: relative; }
+.zak-position-absolute { position: absolute; }
+.zak-position-fixed { position: fixed; }
+.zak-position-sticky { position: sticky; }
+.zak-inset-0 { inset: 0; }
+.zak-inset-auto { inset: auto; }
+.zak-top-0 { top: 0; } .zak-bottom-0 { bottom: 0; }
+.zak-start-0 { inset-inline-start: 0; } .zak-end-0 { inset-inline-end: 0; }
+
+/* Overflow — scroll, clip and per-axis control */
+.zak-overflow-auto { overflow: auto; }
+.zak-overflow-hidden { overflow: hidden; }
+.zak-overflow-visible { overflow: visible; }
+.zak-overflow-scroll { overflow: scroll; }
+.zak-overflow-x-auto { overflow-x: auto; }
+.zak-overflow-y-auto { overflow-y: auto; }
+.zak-overflow-x-hidden { overflow-x: hidden; }
+.zak-overflow-y-hidden { overflow-y: hidden; }
+
+/* Cursor — pointer affordance */
+.zak-cursor-auto { cursor: auto; }
+.zak-cursor-default { cursor: default; }
+.zak-cursor-pointer { cursor: pointer; }
+.zak-cursor-text { cursor: text; }
+.zak-cursor-move { cursor: move; }
+.zak-cursor-grab { cursor: grab; }
+.zak-cursor-grabbing { cursor: grabbing; }
+.zak-cursor-not-allowed { cursor: not-allowed; }
+
+/* Responsive display — breakpoints sm 480 · md 768 · lg 1024 · xl 1280 · 2xl 1536.
+   `-up-` hides from the breakpoint and wider, `-down-` hides strictly below it. */
+@media (min-width: 480px) {
+  .zak-hidden-up-sm { display: none !important; }
+}
+@media (min-width: 768px) {
+  .zak-hidden-up-md { display: none !important; }
+}
+@media (min-width: 1024px) {
+  .zak-hidden-up-lg { display: none !important; }
+}
+@media (min-width: 1280px) {
+  .zak-hidden-up-xl { display: none !important; }
+}
+@media (min-width: 1536px) {
+  .zak-hidden-up-2xl { display: none !important; }
+}
+@media (max-width: 479.98px) {
+  .zak-hidden-down-sm { display: none !important; }
+}
+@media (max-width: 767.98px) {
+  .zak-hidden-down-md { display: none !important; }
+}
+@media (max-width: 1023.98px) {
+  .zak-hidden-down-lg { display: none !important; }
+}
+@media (max-width: 1279.98px) {
+  .zak-hidden-down-xl { display: none !important; }
+}
+@media (max-width: 1535.98px) {
+  .zak-hidden-down-2xl { display: none !important; }
+}

@@ -1,0 +1,94 @@
+---
+/**
+ * Documentation sidebar — every catalogue category as a collapsible section
+ * with its components, a filter field, badges for new/AI entries and an
+ * active-state indicator driven by the current route.
+ */
+import { catalog } from '../data/catalog';
+import { guideCategory, guidePages, guideHref } from '../data/getstarted';
+import { svgIcon } from '../data/icons';
+
+interface Props {
+  activeCategory?: string;
+  activeComponent?: string;
+}
+
+const { activeCategory, activeComponent } = Astro.props;
+
+const badgeClass: Record<string, string> = {
+  new: 'zak-badge--success',
+  ai: 'zak-badge--primary',
+  updated: 'zak-badge--info',
+};
+
+const badgeLabel: Record<string, string> = { new: 'New', ai: 'AI', updated: 'Updated' };
+---
+
+<aside class="docs-sidebar" data-docs-sidebar aria-label="Documentation navigation">
+  <div class="docs-nav-search">
+    <input
+      class="sbx-filter"
+      type="search"
+      placeholder={`Filter ${catalog.length} categories…`}
+      aria-label="Filter components"
+      data-docs-filter
+      autocomplete="off"
+    />
+  </div>
+
+  <nav aria-label="Documentation">
+    <div class="sbx-section" data-docs-section={guideCategory.slug}>
+      <button class="sbx-toggle" type="button" data-docs-section-toggle aria-expanded="true">
+        <Fragment set:html={svgIcon(guideCategory.icon, 'zak-icon', 15)} />
+        {guideCategory.name}
+        <span class="sbx-count">{guidePages.length}</span>
+        <Fragment set:html={svgIcon('chevron-down', 'zak-icon sbx-caret', 14)} />
+      </button>
+      <div class="sbx-links">
+        {guidePages.map((page) => {
+          const isActive = activeCategory === guideCategory.slug && activeComponent === page.slug;
+          return (
+            <a
+              class:list={['sbx-link', isActive && 'is-active']}
+              aria-current={isActive ? 'page' : undefined}
+              href={guideHref(page.slug)}
+              data-search={`${page.name} ${page.keywords}`.toLowerCase()}
+            >
+              <span>{page.name}</span>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+
+    {catalog.map((cat) => (
+      <div class="sbx-section" data-docs-section={cat.slug}>
+        <button class="sbx-toggle" type="button" data-docs-section-toggle aria-expanded="false">
+          <Fragment set:html={svgIcon(cat.icon, 'zak-icon', 15)} />
+          {cat.name}
+          <span class="sbx-count">{cat.components.length}</span>
+          <Fragment set:html={svgIcon('chevron-down', 'zak-icon sbx-caret', 14)} />
+        </button>
+        <div class="sbx-links">
+          {cat.components.map((comp) => {
+            const isActive = activeCategory === cat.slug && activeComponent === comp.slug;
+            return (
+              <a
+                class:list={['sbx-link', isActive && 'is-active']}
+                aria-current={isActive ? 'page' : undefined}
+                href={`/docs/${cat.slug}/${comp.slug}/`}
+                data-search={`${comp.name} ${comp.keywords}`.toLowerCase()}
+              >
+                <span>{comp.name}</span>
+                {comp.badge && (
+                  <span class:list={['zak-badge', badgeClass[comp.badge]]}>{badgeLabel[comp.badge]}</span>
+                )}
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    ))}
+    <p class="sbx-empty zak-hidden" data-docs-empty>No components match your filter.</p>
+  </nav>
+</aside>

@@ -1,0 +1,1322 @@
+/* ==========================================================================
+   ZAKUIKit — Forms
+   Field · Label · Input · Input Group · Textarea · Select · Multi Select ·
+   Checkbox · Radio · Switch · Range · File Upload · Search · Password ·
+   OTP · Autocomplete · Combobox · Tags · Wizard · Dynamic Form · Validation
+   ========================================================================== */
+
+/* Form scaffolding ---------------------------------------------------------- */
+.zak-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--zak-space-5);
+}
+
+.zak-fieldset {
+  border: 1px solid var(--zak-border-subtle);
+  border-radius: var(--zak-radius-lg);
+  padding: var(--zak-space-5);
+}
+
+.zak-fieldset__legend {
+  font-size: var(--zak-text-xs);
+  font-weight: var(--zak-weight-semibold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--zak-text-tertiary);
+  padding-inline: var(--zak-space-2);
+}
+
+.zak-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+  gap: var(--zak-space-5);
+}
+
+.zak-form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--zak-space-1);
+}
+
+@media (min-width: 640px) {
+  .zak-form-row--inline {
+    grid-template-columns: 160px 1fr;
+    align-items: center;
+    gap: var(--zak-space-4);
+  }
+}
+
+/* Field wrapper -------------------------------------------------------------- */
+.zak-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--zak-space-2);
+  min-width: 0;
+}
+
+.zak-field__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--zak-space-2);
+}
+
+.zak-label {
+  font-size: var(--zak-text-sm);
+  font-weight: var(--zak-weight-semibold);
+  color: var(--zak-text-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--zak-space-1);
+}
+
+.zak-label__req {
+  color: var(--zak-danger);
+  font-weight: var(--zak-weight-bold);
+}
+
+.zak-hint {
+  font-size: var(--zak-text-xs);
+  color: var(--zak-text-tertiary);
+  line-height: var(--zak-leading-snug);
+}
+
+.zak-msg {
+  display: flex;
+  align-items: center;
+  gap: var(--zak-space-1);
+  font-size: var(--zak-text-xs);
+  line-height: var(--zak-leading-snug);
+}
+
+.zak-msg--error { color: var(--zak-danger-text); }
+.zak-msg--success { color: var(--zak-success-text); }
+.zak-msg--warning { color: var(--zak-warning-text); }
+
+/* Inputs ---------------------------------------------------------------------- */
+.zak-input,
+.zak-textarea,
+.zak-select {
+  width: 100%;
+  font-size: var(--zak-text-md);
+  color: var(--zak-text-primary);
+  background: var(--zak-bg-surface);
+  border: 1px solid var(--zak-border-color);
+  border-radius: var(--zak-radius-md);
+  padding: 0 var(--zak-space-3);
+  height: 2.375rem;
+  transition: border-color var(--zak-duration-fast) var(--zak-ease-standard),
+    box-shadow var(--zak-duration-fast) var(--zak-ease-standard),
+    background-color var(--zak-duration-fast) var(--zak-ease-standard);
+}
+
+.zak-input::placeholder,
+.zak-textarea::placeholder {
+  color: var(--zak-text-tertiary);
+}
+
+.zak-input:hover:not(:disabled),
+.zak-textarea:hover:not(:disabled),
+.zak-select:hover:not(:disabled) {
+  border-color: var(--zak-border-strong);
+}
+
+.zak-input:focus-visible,
+.zak-textarea:focus-visible,
+.zak-select:focus-visible {
+  outline: none;
+  border-color: var(--zak-primary);
+  box-shadow: var(--zak-focus-ring);
+}
+
+.zak-input:disabled,
+.zak-textarea:disabled,
+.zak-select:disabled {
+  background: var(--zak-bg-muted);
+  color: var(--zak-text-tertiary);
+  cursor: not-allowed;
+}
+
+/* Shared control size modifiers — sm (32px) · md (38px) · lg (44px). */
+.zak-input--sm,
+.zak-select--sm {
+  height: 2rem;
+  font-size: var(--zak-text-sm);
+}
+.zak-input--lg,
+.zak-select--lg {
+  height: 2.75rem;
+  font-size: var(--zak-text-lg);
+}
+
+.zak-textarea {
+  height: auto;
+  min-height: 6rem;
+  padding: var(--zak-space-3);
+  resize: vertical;
+  line-height: var(--zak-leading-normal);
+}
+.zak-textarea--sm { font-size: var(--zak-text-sm); min-height: 4rem; }
+.zak-textarea--lg { font-size: var(--zak-text-lg); min-height: 8rem; }
+
+/* Select ---------------------------------------------------------------------- */
+.zak-select {
+  appearance: none;
+  padding-inline-end: var(--zak-space-8);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%237c8aa5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--zak-space-3) center;
+  cursor: pointer;
+}
+
+/* Field variants — the control surface responds to the wrapper modifier ------- */
+/* Set the variant on the .zak-field wrapper and every control surface follows
+   (input, textarea, select, search, OTP cells, tags, dropzone); the three core
+   controls also accept it directly — --filled / --outlined / --underline /
+   --ghost — Bootstrap-style control modifiers. */
+/* --filled: muted well, invisible border until focus. */
+.zak-field--filled :is(.zak-input, .zak-textarea, .zak-select, .zak-search input, .zak-otp input, .zak-tags, .zak-file),
+.zak-input--filled,
+.zak-textarea--filled,
+.zak-select--filled {
+  background-color: var(--zak-bg-muted);
+  border-color: transparent;
+}
+
+.zak-field--filled :is(.zak-input, .zak-textarea, .zak-select, .zak-search input, .zak-tags, .zak-file):hover:not(:disabled),
+.zak-input--filled:hover:not(:disabled),
+.zak-textarea--filled:hover:not(:disabled),
+.zak-select--filled:hover:not(:disabled) {
+  background-color: var(--zak-bg-hover);
+}
+
+.zak-field--filled :is(.zak-input, .zak-textarea, .zak-select, .zak-search input, .zak-otp input):focus-visible,
+.zak-field--filled :is(.zak-tags, .zak-file):focus-within,
+.zak-input--filled:focus-visible,
+.zak-textarea--filled:focus-visible,
+.zak-select--filled:focus-visible {
+  background-color: var(--zak-bg-surface);
+}
+
+/* --outlined: the default surface, restated explicitly so the modifier is a
+   real, inspectable class (and passes the playground CSS-token audit). */
+.zak-field--outlined :is(.zak-input, .zak-textarea, .zak-select, .zak-search input, .zak-otp input, .zak-tags, .zak-file),
+.zak-input--outlined,
+.zak-textarea--outlined,
+.zak-select--outlined {
+  background-color: var(--zak-bg-surface);
+}
+
+/* --underline: single bottom rule, zero radius, edge-to-edge text. */
+.zak-field--underline :is(.zak-input, .zak-textarea, .zak-select, .zak-search input, .zak-otp input, .zak-tags),
+.zak-input--underline,
+.zak-textarea--underline,
+.zak-select--underline {
+  background-color: transparent;
+  border: 0;
+  border-block-end: 1px solid var(--zak-border-strong);
+  border-radius: 0;
+  padding-inline: 0;
+}
+
+.zak-field--underline .zak-textarea,
+.zak-textarea--underline {
+  padding-block: var(--zak-space-2);
+}
+
+.zak-field--underline .zak-search input {
+  padding-inline: 2.4rem var(--zak-space-3);
+}
+
+.zak-field--underline .zak-select,
+.zak-select--underline {
+  padding-inline-end: var(--zak-space-6);
+  background-position: right 0 center;
+}
+
+.zak-field--underline :is(.zak-input, .zak-textarea, .zak-select, .zak-search input, .zak-otp input):focus-visible,
+.zak-field--underline .zak-tags:focus-within,
+.zak-input--underline:focus-visible,
+.zak-textarea--underline:focus-visible,
+.zak-select--underline:focus-visible {
+  outline: none;
+  border-color: transparent;
+  border-block-end-color: var(--zak-primary);
+  box-shadow: 0 1px 0 0 var(--zak-primary);
+}
+
+/* --ghost: no chrome at rest; surface appears on hover and focus only. */
+.zak-field--ghost :is(.zak-input, .zak-textarea, .zak-select, .zak-search input, .zak-otp input, .zak-tags, .zak-file),
+.zak-input--ghost,
+.zak-textarea--ghost,
+.zak-select--ghost {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.zak-field--ghost :is(.zak-input, .zak-textarea, .zak-select, .zak-search input, .zak-tags, .zak-file):hover:not(:disabled),
+.zak-input--ghost:hover:not(:disabled),
+.zak-textarea--ghost:hover:not(:disabled),
+.zak-select--ghost:hover:not(:disabled) {
+  background-color: var(--zak-bg-hover);
+}
+
+.zak-field--ghost :is(.zak-input, .zak-textarea, .zak-select, .zak-search input, .zak-otp input):focus-visible,
+.zak-field--ghost :is(.zak-tags, .zak-file):focus-within,
+.zak-input--ghost:focus-visible,
+.zak-textarea--ghost:focus-visible,
+.zak-select--ghost:focus-visible {
+  background-color: var(--zak-bg-surface);
+}
+
+/* Input group — one field surface with borderless segments --------------------- */
+/* The container owns the Form Field chrome (border, radius, focus ring); the
+   input, addons and buttons inside are transparent and borderless, so the
+   whole row reads as a single field. Variants: __addon (text), __addon--icon,
+   button / checkbox segments, --sm / --lg sizes, is-invalid / is-disabled. */
+.zak-input-group {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  background: var(--zak-bg-surface);
+  border: 1px solid var(--zak-border-color);
+  border-radius: var(--zak-radius-md);
+  transition: border-color var(--zak-duration-fast) var(--zak-ease-standard),
+    box-shadow var(--zak-duration-fast) var(--zak-ease-standard);
+}
+
+.zak-input-group:hover:not(.is-disabled) {
+  border-color: var(--zak-border-strong);
+}
+
+.zak-input-group:focus-within {
+  border-color: var(--zak-primary);
+  box-shadow: var(--zak-focus-ring);
+}
+
+/* Segments never draw their own surface inside the group. */
+.zak-input-group :is(.zak-input, .zak-select, .zak-textarea) {
+  border: 0;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.zak-input-group :is(.zak-input, .zak-textarea, .zak-select):focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+.zak-input-group > .zak-input,
+.zak-input-group > .zak-select {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin-inline-start: 0;
+}
+
+.zak-input-group > :first-child,
+.zak-input-group > :last-child {
+  border-radius: 0;
+}
+
+.zak-input-group__addon {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--zak-space-2);
+  padding-inline: var(--zak-space-3);
+  font-size: var(--zak-text-sm);
+  color: var(--zak-text-secondary);
+  background: var(--zak-bg-muted);
+  border-inline-end: 1px solid var(--zak-border-color);
+  border-radius: 0;
+  white-space: nowrap;
+}
+
+.zak-input-group > .zak-input-group__addon:last-child,
+.zak-input-group__addon--suffix {
+  border-inline-end: 0;
+  border-inline-start: 1px solid var(--zak-border-color);
+}
+
+.zak-input-group__addon .zak-icon {
+  color: var(--zak-text-tertiary);
+}
+
+/* Icon-only addon: square, centred, no gap padding bloat. */
+.zak-input-group__addon--icon {
+  justify-content: center;
+  min-width: 2.5rem;
+  padding-inline: var(--zak-space-2);
+}
+
+/* Sizes ------------------------------------------------ -------------------- */
+.zak-input-group--sm { font-size: var(--zak-text-sm); }
+.zak-input-group--sm > .zak-input { height: 2rem; }
+.zak-input-group--sm .zak-input-group__addon { min-width: 2rem; }
+
+.zak-input-group--lg > .zak-input { height: 2.75rem; font-size: var(--zak-text-lg); }
+.zak-input-group--lg .zak-input-group__addon { min-width: 3rem; }
+
+/* Button + checkbox / radio segments -------------------------------------- */
+.zak-input-group > :is(.zak-btn, .zak-check, .zak-radio) {
+  border-radius: 0;
+  flex: none;
+}
+
+.zak-input-group > .zak-btn:not(:first-child) {
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
+}
+
+.zak-input-group > .zak-btn:not(:last-child) {
+  border-start-end-radius: 0;
+  border-end-end-radius: 0;
+}
+
+.zak-input-group :is(.zak-check, .zak-radio) {
+  align-items: center;
+  padding-inline: var(--zak-space-3);
+  background: var(--zak-bg-muted);
+  border-inline-end: 1px solid var(--zak-border-color);
+  font-size: var(--zak-text-sm);
+}
+
+.zak-input-group :is(.zak-check, .zak-radio) input {
+  margin-block-start: 0;
+}
+
+/* States ------------------------------------------------------------------- */
+.zak-input-group.is-invalid {
+  border-color: var(--zak-danger);
+}
+
+.zak-input-group.is-invalid:focus-within {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--zak-danger) 28%, transparent);
+}
+
+.zak-input-group.is-disabled,
+.zak-input-group:has(.zak-input:disabled) {
+  background: var(--zak-bg-muted);
+  border-color: var(--zak-border-color);
+  cursor: not-allowed;
+}
+
+.zak-input-group:has(.zak-input:disabled) .zak-input-group__addon {
+  color: var(--zak-text-tertiary);
+}
+
+/* Input with leading icon --------------------------------------------------------- */
+.zak-input-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.zak-input-wrap .zak-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: var(--zak-space-3);
+  color: var(--zak-text-tertiary);
+  pointer-events: none;
+}
+
+.zak-input-wrap .zak-input {
+  padding-inline-start: 2.4rem;
+}
+
+.zak-input-wrap--suffix .zak-input {
+  padding-inline-start: var(--zak-space-3);
+  padding-inline-end: 2.4rem;
+}
+
+.zak-input-wrap--suffix .zak-icon {
+  left: auto;
+  right: var(--zak-space-3);
+}
+
+.zak-input-wrap__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: var(--zak-space-2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.85rem;
+  height: 1.85rem;
+  border-radius: var(--zak-radius-sm);
+  color: var(--zak-text-tertiary);
+}
+
+.zak-input-wrap__btn:hover {
+  background: var(--zak-bg-hover);
+  color: var(--zak-text-primary);
+}
+
+/* Checkbox & Radio ------------------------------------------------------------------ */
+.zak-check,
+.zak-radio {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--zak-space-2);
+  font-size: var(--zak-text-md);
+  cursor: pointer;
+  user-select: none;
+  line-height: 1.45;
+}
+
+.zak-check input,
+.zak-radio input {
+  appearance: none;
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: none;
+  margin-block-start: 0.1em;
+  background: var(--zak-bg-surface);
+  border: 1.5px solid var(--zak-border-strong);
+  transition: background-color var(--zak-duration-fast) var(--zak-ease-standard),
+    border-color var(--zak-duration-fast) var(--zak-ease-standard);
+  cursor: pointer;
+}
+
+.zak-check input {
+  border-radius: var(--zak-radius-sm);
+}
+
+.zak-radio input {
+  border-radius: 50%;
+}
+
+.zak-check input:hover,
+.zak-radio input:hover {
+  border-color: var(--zak-primary);
+}
+
+.zak-check input:checked,
+.zak-check input:indeterminate {
+  background-color: var(--zak-primary);
+  border-color: var(--zak-primary);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+  background-size: 0.78em;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.zak-check input:indeterminate {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.4' stroke-linecap='round'%3E%3Cpath d='M5 12h14'/%3E%3C/svg%3E");
+}
+
+.zak-radio input:checked {
+  border-color: var(--zak-primary);
+  border-width: 0.34em;
+}
+
+.zak-check input:focus-visible,
+.zak-radio input:focus-visible {
+  outline: none;
+  box-shadow: var(--zak-focus-ring);
+}
+
+.zak-check input:disabled,
+.zak-radio input:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.zak-check:has(input:disabled),
+.zak-radio:has(input:disabled) {
+  cursor: not-allowed;
+  color: var(--zak-text-tertiary);
+}
+
+.zak-check__label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.zak-check__desc {
+  font-size: var(--zak-text-xs);
+  color: var(--zak-text-tertiary);
+}
+
+/* Bare box — the custom-drawn control without a text label, used inside table
+   and data-grid cells where it must centre in the cell and stay compact. */
+.zak-check--bare,
+.zak-radio--bare {
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin-inline: auto;
+}
+
+.zak-check--bare input,
+.zak-radio--bare input {
+  margin-block-start: 0;
+}
+
+.zak-radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--zak-space-4);
+}
+
+.zak-radio-group--col {
+  flex-direction: column;
+  gap: var(--zak-space-2);
+}
+
+.zak-radio-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--zak-space-2);
+}
+
+.zak-radio-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--zak-space-1);
+  padding: var(--zak-space-3) var(--zak-space-4);
+  border: 1.5px solid var(--zak-border-color);
+  border-radius: var(--zak-radius-md);
+  cursor: pointer;
+  transition: border-color var(--zak-duration-fast) var(--zak-ease-standard),
+    background-color var(--zak-duration-fast) var(--zak-ease-standard);
+}
+
+.zak-radio-card:hover { border-color: var(--zak-border-strong); }
+
+.zak-radio-card input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.zak-radio-card__title {
+  font-weight: var(--zak-weight-semibold);
+  font-size: var(--zak-text-sm);
+}
+
+.zak-radio-card__desc {
+  font-size: var(--zak-text-xs);
+  color: var(--zak-text-tertiary);
+}
+
+.zak-radio-card:has(input:checked) {
+  border-color: var(--zak-primary);
+  background: var(--zak-primary-subtle);
+  box-shadow: var(--zak-focus-ring);
+}
+
+.zak-radio-card:has(input:focus-visible) {
+  box-shadow: var(--zak-focus-ring);
+}
+
+/* Switch ------------------------------------------------------------------------------- */
+.zak-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--zak-space-2);
+  cursor: pointer;
+  user-select: none;
+  font-size: var(--zak-text-md);
+}
+
+.zak-switch input {
+  appearance: none;
+  position: relative;
+  width: 2.3rem;
+  height: 1.3rem;
+  flex: none;
+  border-radius: var(--zak-radius-full);
+  background: var(--zak-neutral-300);
+  cursor: pointer;
+  transition: background-color var(--zak-duration-base) var(--zak-ease-standard);
+}
+
+[data-theme="dark"] .zak-switch input {
+  background: var(--zak-neutral-600);
+}
+
+.zak-switch input::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: calc(1.3rem - 4px);
+  height: calc(1.3rem - 4px);
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: var(--zak-shadow-sm);
+  transition: transform var(--zak-duration-base) var(--zak-ease-spring);
+}
+
+.zak-switch input:checked {
+  background: var(--zak-primary);
+}
+
+.zak-switch input:checked::after {
+  transform: translateX(1rem);
+}
+
+.zak-switch input:focus-visible {
+  outline: none;
+  box-shadow: var(--zak-focus-ring);
+}
+
+.zak-switch input:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.zak-switch--sm input { width: 1.8rem; height: 1.05rem; }
+.zak-switch--sm input::after { width: calc(1.05rem - 4px); height: calc(1.05rem - 4px); }
+.zak-switch--sm input:checked::after { transform: translateX(0.75rem); }
+
+.zak-switch__desc {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.zak-switch__desc small {
+  color: var(--zak-text-tertiary);
+  font-size: var(--zak-text-xs);
+}
+
+/* Range --------------------------------------------------------------------------------- */
+.zak-range {
+  appearance: none;
+  width: 100%;
+  height: 1.3rem;
+  background: transparent;
+  cursor: pointer;
+}
+
+.zak-range::-webkit-slider-runnable-track {
+  height: 0.35rem;
+  border-radius: var(--zak-radius-full);
+  background: linear-gradient(
+    to right,
+    var(--zak-primary) 0%,
+    var(--zak-primary) var(--zak-range-fill, 50%),
+    var(--zak-bg-active) var(--zak-range-fill, 50%)
+  );
+}
+
+.zak-range::-moz-range-track {
+  height: 0.35rem;
+  border-radius: var(--zak-radius-full);
+  background: var(--zak-bg-active);
+}
+
+.zak-range::-moz-range-progress {
+  height: 0.35rem;
+  border-radius: var(--zak-radius-full);
+  background: var(--zak-primary);
+}
+
+.zak-range::-webkit-slider-thumb {
+  appearance: none;
+  margin-top: -0.35rem;
+  width: 1.05rem;
+  height: 1.05rem;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--zak-primary);
+  box-shadow: var(--zak-shadow-sm);
+  transition: transform var(--zak-duration-fast) var(--zak-ease-spring);
+}
+
+.zak-range::-moz-range-thumb {
+  width: 1.05rem;
+  height: 1.05rem;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--zak-primary);
+  box-shadow: var(--zak-shadow-sm);
+}
+
+.zak-range:hover::-webkit-slider-thumb,
+.zak-range:active::-webkit-slider-thumb {
+  transform: scale(1.15);
+}
+
+.zak-range:focus-visible {
+  outline: none;
+}
+
+.zak-range:focus-visible::-webkit-slider-thumb {
+  box-shadow: var(--zak-focus-ring);
+}
+
+/* File upload ------------------------------------------------------------------------------ */
+.zak-file {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--zak-space-2);
+  padding: var(--zak-space-7) var(--zak-space-5);
+  text-align: center;
+  border: 1.5px dashed var(--zak-border-strong);
+  border-radius: var(--zak-radius-lg);
+  background: var(--zak-bg-muted);
+  cursor: pointer;
+  transition: border-color var(--zak-duration-fast) var(--zak-ease-standard),
+    background-color var(--zak-duration-fast) var(--zak-ease-standard);
+}
+
+.zak-file:hover,
+.zak-file.is-dragover {
+  border-color: var(--zak-primary);
+  background: var(--zak-primary-subtle);
+}
+
+.zak-file input[type="file"] {
+  display: none;
+}
+
+.zak-file__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--zak-radius-full);
+  background: var(--zak-primary-subtle);
+  color: var(--zak-primary-text);
+}
+
+.zak-file__title {
+  font-weight: var(--zak-weight-semibold);
+  font-size: var(--zak-text-md);
+}
+
+.zak-file__title em {
+  color: var(--zak-primary-text);
+  font-style: normal;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.zak-file__hint {
+  font-size: var(--zak-text-xs);
+  color: var(--zak-text-tertiary);
+}
+
+.zak-file-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--zak-space-2);
+  margin-block-start: var(--zak-space-2);
+}
+
+.zak-file-item {
+  display: flex;
+  align-items: center;
+  gap: var(--zak-space-3);
+  padding: var(--zak-space-2) var(--zak-space-3);
+  background: var(--zak-bg-surface);
+  border: 1px solid var(--zak-border-subtle);
+  border-radius: var(--zak-radius-md);
+  font-size: var(--zak-text-sm);
+}
+
+.zak-file-item__meta { flex: 1; min-width: 0; }
+.zak-file-item__name { font-weight: var(--zak-weight-medium); }
+.zak-file-item__size { font-size: var(--zak-text-xs); color: var(--zak-text-tertiary); }
+
+/* OTP --------------------------------------------------------------------------------------- */
+.zak-otp {
+  display: flex;
+  gap: var(--zak-space-2);
+}
+
+.zak-otp input {
+  width: 2.75rem;
+  height: 3.25rem;
+  text-align: center;
+  font-size: var(--zak-text-xl);
+  font-weight: var(--zak-weight-semibold);
+  font-family: var(--zak-font-mono);
+  color: var(--zak-text-primary);
+  background: var(--zak-bg-surface);
+  border: 1.5px solid var(--zak-border-color);
+  border-radius: var(--zak-radius-md);
+  transition: border-color var(--zak-duration-fast) var(--zak-ease-standard),
+    box-shadow var(--zak-duration-fast) var(--zak-ease-standard);
+}
+
+.zak-otp input:focus-visible {
+  outline: none;
+  border-color: var(--zak-primary);
+  box-shadow: var(--zak-focus-ring);
+}
+
+.zak-otp input.is-filled {
+  border-color: var(--zak-primary-subtle-border);
+  background: var(--zak-primary-subtle);
+}
+
+/* OTP size modifiers — sm · md (default) · lg. */
+.zak-otp--sm input { width: 2.25rem; height: 2.75rem; font-size: var(--zak-text-lg); }
+.zak-otp--lg input { width: 3.25rem; height: 3.75rem; font-size: var(--zak-text-2xl); }
+
+/* OTP validation — the whole group reflects the field state. */
+.zak-otp.is-invalid input { border-color: var(--zak-danger); }
+.zak-otp.is-valid input { border-color: var(--zak-success); }
+
+/* Autocomplete / Combobox ---------------------------------------------------------------------- */
+.zak-combo {
+  position: relative;
+  width: 100%;
+}
+
+.zak-combo__list {
+  position: absolute;
+  z-index: var(--zak-z-dropdown);
+  top: calc(100% + var(--zak-space-1));
+  left: 0;
+  right: 0;
+  max-height: 15rem;
+  overflow-y: auto;
+  padding: var(--zak-space-1);
+  background: var(--zak-bg-elevated);
+  border: 1px solid var(--zak-border-color);
+  border-radius: var(--zak-radius-md);
+  box-shadow: var(--zak-shadow-lg);
+}
+
+.zak-combo__item {
+  display: flex;
+  align-items: center;
+  gap: var(--zak-space-3);
+  width: 100%;
+  padding: var(--zak-space-2) var(--zak-space-3);
+  border-radius: var(--zak-radius-sm);
+  font-size: var(--zak-text-md);
+  color: var(--zak-text-primary);
+  cursor: pointer;
+  text-align: left;
+}
+
+/* Filtered-away options: display:flex above would defeat the [hidden] attribute. */
+.zak-combo__item[hidden] { display: none; }
+
+.zak-combo__item small {
+  color: var(--zak-text-tertiary);
+  font-size: var(--zak-text-xs);
+  margin-inline-start: auto;
+}
+
+.zak-combo__item[aria-selected="true"] {
+  /* The current value — a neutral selected surface, not the roving highlight. */
+  background: var(--zak-bg-muted);
+  color: var(--zak-text-primary);
+  font-weight: var(--zak-weight-medium);
+}
+
+.zak-combo__item:hover,
+.zak-combo__item.is-active {
+  background: var(--zak-primary-subtle);
+  color: var(--zak-primary-text);
+}
+
+.zak-combo__empty {
+  padding: var(--zak-space-3);
+  font-size: var(--zak-text-sm);
+  color: var(--zak-text-tertiary);
+  text-align: center;
+}
+
+/* Tags input -------------------------------------------------------------------------------------- */
+.zak-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--zak-space-1);
+  padding: var(--zak-space-1) var(--zak-space-2);
+  min-height: 2.375rem;
+  background: var(--zak-bg-surface);
+  border: 1px solid var(--zak-border-color);
+  border-radius: var(--zak-radius-md);
+  cursor: text;
+}
+
+.zak-tags:focus-within {
+  border-color: var(--zak-primary);
+  box-shadow: var(--zak-focus-ring);
+}
+
+.zak-tags__input {
+  flex: 1;
+  min-width: 6rem;
+  border: 0;
+  background: transparent;
+  outline: none;
+  font-size: var(--zak-text-md);
+  height: 1.9rem;
+  color: var(--zak-text-primary);
+}
+
+.zak-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--zak-space-1);
+  padding: 0.1rem var(--zak-space-1) 0.1rem var(--zak-space-2);
+  font-size: var(--zak-text-xs);
+  font-weight: var(--zak-weight-medium);
+  color: var(--zak-primary-text);
+  background: var(--zak-primary-subtle);
+  border: 1px solid var(--zak-primary-subtle-border);
+  border-radius: var(--zak-radius-full);
+  line-height: 1.6;
+}
+
+.zak-tag__x {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.05rem;
+  height: 1.05rem;
+  border-radius: 50%;
+  color: var(--zak-primary-text);
+  cursor: pointer;
+}
+
+.zak-tag__x:hover {
+  background: var(--zak-primary-subtle-border);
+}
+
+/* Validation ----------------------------------------------------------------------------------------- */
+.zak-input.is-invalid,
+.zak-textarea.is-invalid,
+.zak-select.is-invalid,
+.zak-tags.is-invalid {
+  border-color: var(--zak-danger);
+}
+
+.zak-input.is-invalid:focus-visible,
+.zak-textarea.is-invalid:focus-visible {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--zak-danger) 28%, transparent);
+}
+
+.zak-input.is-valid,
+.zak-textarea.is-valid {
+  border-color: var(--zak-success);
+}
+
+/* Validation state icons — drawn inside the control on the right edge so the
+   signal is not colour-only. The message row below still carries the text. */
+.zak-input.is-valid,
+.zak-input.is-invalid,
+.zak-textarea.is-valid,
+.zak-textarea.is-invalid,
+.zak-search:has(.is-valid) input,
+.zak-search:has(.is-invalid) input {
+  background-repeat: no-repeat;
+  background-size: 1.05rem 1.05rem;
+  background-position: right var(--zak-space-3) center;
+  padding-inline-end: var(--zak-space-8);
+}
+
+.zak-input.is-valid,
+.zak-textarea.is-valid {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%2310b981' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+}
+
+.zak-input.is-invalid,
+.zak-textarea.is-invalid {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23ef4444' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M12 8v4.5M12 16h.01'/%3E%3C/svg%3E");
+}
+
+/* Trailing-affix controls (password reveal) sit the icon left of the button. */
+.zak-input-wrap--suffix .zak-input.is-valid,
+.zak-input-wrap--suffix .zak-input.is-invalid {
+  background-position: right calc(var(--zak-space-3) + 1.75rem) center;
+}
+
+/* Selects keep their chevron — the state icon is layered to its left. */
+.zak-select.is-valid,
+.zak-select.is-invalid {
+  padding-inline-end: calc(var(--zak-space-3) * 4);
+  background-repeat: no-repeat;
+  background-size: 1.05rem 1.05rem, 1rem 1rem;
+  background-position: right var(--zak-space-8) center, right var(--zak-space-3) center;
+}
+
+.zak-select.is-valid {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%2310b981' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%237c8aa5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+}
+
+.zak-select.is-invalid {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23ef4444' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M12 8v4.5M12 16h.01'/%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%237c8aa5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+}
+
+/* Combobox trigger is a button that renders its own chevron — drop the
+   native-style background arrow so only one indicator shows. */
+.zak-combo .zak-select,
+.zak-combo button.zak-select {
+  background-image: none;
+  padding-inline-end: var(--zak-space-3);
+}
+
+/* Form wizard ------------------------------------------------------------------------------------------- */
+.zak-wizard__steps {
+  display: flex;
+  gap: var(--zak-space-2);
+  margin-bottom: var(--zak-space-5);
+}
+
+.zak-wizard__step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--zak-space-2);
+  font-size: var(--zak-text-xs);
+  color: var(--zak-text-tertiary);
+}
+
+/* Steps may be buttons so a rail is keyboard-navigable; the bar stays ::before */
+button.zak-wizard__step {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+}
+
+button.zak-wizard__step:hover { color: var(--zak-text-secondary); }
+
+button.zak-wizard__step:focus-visible {
+  outline: 2px solid var(--zak-primary);
+  outline-offset: 3px;
+  border-radius: var(--zak-radius-sm);
+}
+
+.zak-wizard__step::before {
+  content: "";
+  height: 0.3rem;
+  border-radius: var(--zak-radius-full);
+  background: var(--zak-bg-active);
+  transition: background-color var(--zak-duration-base) var(--zak-ease-standard);
+}
+
+.zak-wizard__step.is-active { color: var(--zak-primary-text); font-weight: var(--zak-weight-semibold); }
+.zak-wizard__step.is-active::before { background: var(--zak-primary); }
+.zak-wizard__step.is-done { color: var(--zak-text-secondary); }
+.zak-wizard__step.is-done::before { background: var(--zak-success); }
+
+.zak-wizard__actions {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--zak-space-3);
+  margin-block-start: var(--zak-space-5);
+}
+
+/* Panels are plain blocks; the class keeps layout when the runtime unhides one */
+.zak-wizard__panel[hidden] { display: none; }
+
+/* Dynamic form rows -------------------------------------------------------------------------------------- */
+.zak-repeater {
+  display: flex;
+  flex-direction: column;
+  gap: var(--zak-space-2);
+}
+
+.zak-repeater__row {
+  display: grid;
+  grid-template-columns: 2rem 1fr 1fr auto;
+  gap: var(--zak-space-2);
+  align-items: center;
+}
+
+@media (max-width: 640px) {
+  .zak-repeater__row { grid-template-columns: 1fr; }
+}
+
+.zak-repeater__handle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  color: var(--zak-text-tertiary);
+  cursor: grab;
+  border-radius: var(--zak-radius-sm);
+}
+
+.zak-repeater__handle:hover { background: var(--zak-bg-hover); }
+
+/* Drag-to-reorder affordance — the handle is the HTML5 drag source. */
+.zak-repeater__handle[draggable="true"] { cursor: grab; }
+.zak-repeater__handle[draggable="true"]:active { cursor: grabbing; }
+.zak-repeater__row--dragging {
+  opacity: 0.55;
+  border-radius: var(--zak-radius-md);
+  outline: 2px dashed var(--zak-primary);
+  outline-offset: 2px;
+}
+
+/* Multiselect ------------------------------------------------------------------------------------------- */
+.zak-multiselect {
+  position: relative;
+  width: 100%;
+}
+
+.zak-multiselect__field {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--zak-space-1);
+  min-height: 2.375rem;
+  padding: var(--zak-space-1) var(--zak-space-3);
+  background: var(--zak-bg-surface);
+  border: 1px solid var(--zak-border-color);
+  border-radius: var(--zak-radius-md);
+  cursor: pointer;
+  transition: border-color var(--zak-duration-fast) var(--zak-ease-standard),
+    box-shadow var(--zak-duration-fast) var(--zak-ease-standard);
+}
+
+.zak-multiselect__field:hover { border-color: var(--zak-border-strong); }
+.zak-multiselect.is-open .zak-multiselect__field,
+.zak-multiselect__field:focus-visible {
+  outline: none;
+  border-color: var(--zak-primary);
+  box-shadow: var(--zak-focus-ring);
+}
+
+.zak-multiselect__chips { display: contents; }
+
+.zak-multiselect__placeholder {
+  color: var(--zak-text-tertiary);
+  font-size: var(--zak-text-md);
+  flex: 1;
+}
+
+.zak-multiselect__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--zak-space-1);
+  padding: 2px var(--zak-space-1) 2px var(--zak-space-2);
+  border-radius: var(--zak-radius-full);
+  background: var(--zak-primary-subtle);
+  color: var(--zak-primary-text);
+  font-size: var(--zak-text-sm);
+}
+
+.zak-multiselect__chip-x {
+  display: inline-grid;
+  place-items: center;
+  width: 1rem;
+  height: 1rem;
+  padding: 0;
+  border: 0;
+  border-radius: var(--zak-radius-full);
+  background: transparent;
+  color: inherit;
+  font-size: 0.9rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.zak-multiselect__chip-x:hover { background: var(--zak-primary-subtle-border); }
+
+.zak-multiselect__count {
+  font-size: var(--zak-text-sm);
+  color: var(--zak-text-secondary);
+  margin-inline-start: auto;
+}
+
+.zak-multiselect__toggle {
+  margin-inline-start: auto;
+  display: inline-grid;
+  place-items: center;
+  color: var(--zak-text-tertiary);
+  transition: transform var(--zak-duration-fast) var(--zak-ease-standard);
+}
+.zak-multiselect.is-open .zak-multiselect__toggle { transform: rotate(180deg); }
+
+.zak-multiselect__panel {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-start: calc(100% + var(--zak-space-1));
+  z-index: var(--zak-z-dropdown, 30);
+  max-height: 16rem;
+  overflow: auto;
+  padding: var(--zak-space-1);
+  margin: 0;
+  list-style: none;
+  background: var(--zak-bg-elevated, var(--zak-bg-surface));
+  border: 1px solid var(--zak-border-color);
+  border-radius: var(--zak-radius-md);
+  box-shadow: var(--zak-shadow-lg);
+}
+
+.zak-multiselect__option {
+  display: flex;
+  align-items: center;
+  gap: var(--zak-space-2);
+  padding: var(--zak-space-2);
+  border-radius: var(--zak-radius-sm);
+  font-size: var(--zak-text-md);
+  cursor: pointer;
+}
+.zak-multiselect__option:hover { background: var(--zak-bg-hover); }
+.zak-multiselect__option input { margin: 0; }
+
+/* Search input --------------------------------------------------------------------------------------------- */
+.zak-search {
+  position: relative;
+  width: 100%;
+}
+
+.zak-search .zak-icon {
+  position: absolute;
+  left: var(--zak-space-3);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--zak-text-tertiary);
+  pointer-events: none;
+}
+
+.zak-search input {
+  width: 100%;
+  height: 2.375rem;
+  padding-inline: 2.4rem var(--zak-space-3);
+  background: var(--zak-bg-surface);
+  border: 1px solid var(--zak-border-color);
+  border-radius: var(--zak-radius-full);
+  font-size: var(--zak-text-md);
+  transition: border-color var(--zak-duration-fast) var(--zak-ease-standard),
+    box-shadow var(--zak-duration-fast) var(--zak-ease-standard);
+}
+
+.zak-search input:focus-visible {
+  outline: none;
+  border-color: var(--zak-primary);
+  box-shadow: var(--zak-focus-ring);
+}
+
+/* Inside a Form Field the search control takes the field surface, so every
+   labelled control reads the same; standalone it keeps the pill. */
+.zak-field .zak-search input,
+.zak-search--field input {
+  border-radius: var(--zak-radius-md);
+}
+
+.zak-search input:hover:not(:disabled) {
+  border-color: var(--zak-border-strong);
+}
+
+.zak-search kbd {
+  position: absolute;
+  right: var(--zak-space-3);
+  top: 50%;
+  transform: translateY(-50%);
+}

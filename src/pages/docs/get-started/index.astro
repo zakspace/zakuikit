@@ -1,0 +1,153 @@
+---
+/**
+ * Get Started — Introduction. Lives at the section root so /docs/get-started/
+ * is the natural entry point from the sidebar, the landing page and search.
+ */
+import DocsLayout from '../../../layouts/DocsLayout.astro';
+import CodeBlock, { type CodeTab } from '../../../components/CodeBlock.astro';
+import KeyTable from '../../../components/KeyTable.astro';
+import { guidePages, guideHref } from '../../../data/getstarted';
+import { totalComponentCount, catalog } from '../../../data/catalog';
+import { svgIcon } from '../../../data/icons';
+import type { TocItem } from '../../../layouts/DocsLayout.astro';
+
+const toc: TocItem[] = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'architecture', label: 'Architecture' },
+  { id: 'next', label: 'Where to go next' },
+];
+
+const layerRows = [
+  [
+    'Tokens',
+    'tokens.css — palette ramps plus the semantic layer (surfaces, text, borders, status, geometry) that every component consumes. Both colour schemes live here.',
+  ],
+  [
+    'Components',
+    'Plain CSS classes in the zak- namespace: zak-btn, zak-field, zak-card, zak-table, … Static markup renders with no JavaScript at all.',
+  ],
+  [
+    'Runtimes',
+    'Small dependency-free modules behind data-zak-* attributes — overlays, disclosure, tabs, pickers, tables, media, the data grid and AI patterns.',
+  ],
+  [
+    'Guides',
+      `This handbook: installation, a starter template, the JavaScript contract and theming — then a catalogue of ${totalComponentCount} components with live previews.`,
+  ],
+];
+
+const hello: CodeTab[] = [
+  {
+    label: 'HTML',
+    lang: 'html',
+    code: `<!-- Load the toolkit once per page -->
+<link rel="stylesheet" href="/zak.css" />
+<script src="/zak.js" defer></script>
+
+<!-- Then build with classes and behaviour attributes -->
+<button class="zak-btn zak-btn--filled" type="button" data-demo-save>
+  Save changes
+</button>`,
+  },
+  {
+    label: 'JavaScript',
+    lang: 'js',
+    code: `// The runtime self-initialises — there is no setup call.
+// Helpers live on window.ZakUI when you need them.
+document.querySelector('[data-demo-save]').addEventListener('click', () => {
+  ZakUI.toast('Saved', 'success', { desc: 'All changes are live.' });
+});`,
+  },
+];
+
+const rocketI = svgIcon('rocket', 'zak-icon', 13);
+const sparkI = svgIcon('sparkles', 'zak-icon', 15);
+const arrowI = svgIcon('arrow-right', 'zak-icon', 13);
+---
+
+<DocsLayout
+  title="Introduction"
+  desc={`Get started with ZAKUIKit — a dependency-free HTML, CSS and JavaScript toolkit with ${totalComponentCount} components across ${catalog.length} categories.`}
+  activeCategory="get-started"
+  activeComponent="introduction"
+  toc={toc}
+>
+  <header class="doc-header" id="overview">
+    <div class="doc-header__meta">
+      <span class="zak-badge zak-badge--primary">
+        <Fragment set:html={rocketI} />
+        Get Started
+      </span>
+      <span class="zak-badge zak-badge--info">{totalComponentCount} components</span>
+      <span class="zak-badge">v2.1</span>
+    </div>
+    <h1 class="doc-header__title">Introduction</h1>
+    <p class="doc-header__desc">
+      ZAKUIKit is a plain HTML, CSS and JavaScript toolkit for enterprise interfaces — design tokens,
+      {totalComponentCount} components and native ES modules, with zero dependencies and no build step
+      required to consume it. Add one stylesheet and one script to a page and every component is live.
+    </p>
+  </header>
+
+  <section class="doc-section">
+    <h2 class="doc-section__title">Overview</h2>
+    <p class="doc-p">
+      The toolkit works like Bootstrap: link the combined stylesheet, drop in the runtime script, then
+      compose with <code>zak-</code> classes and describe behaviour with
+      <code>data-zak-*</code> attributes. Under the hood everything is layered, so you
+      can adopt the whole catalogue or pick individual pieces — a single button, the form controls, or
+      the full data grid.
+    </p>
+    <div class="doc-callout">
+      <Fragment set:html={sparkI} />
+      <span>
+        <strong>The quickest path in:</strong> <a href={guideHref('installation')}>Installation</a> →
+        <a href={guideHref('starter-template')}>Starter template</a> →
+        <a href={guideHref('javascript')}>JavaScript</a>. Everything on this site — including the
+        previews on each component page — runs on the same files you download.
+      </span>
+    </div>
+  </section>
+
+  <section class="doc-section" id="architecture">
+    <h2 class="doc-section__title">How the toolkit is layered</h2>
+    <p class="doc-section__lead">Four layers, each useful on its own. Most pages only ever touch the first two.</p>
+    <KeyTable head={['Layer', 'What it gives you']} rows={layerRows} />
+
+    <h3 class="doc-section__subtitle">Hello, toolkit</h3>
+    <p class="doc-p">Two files in, an interactive component out:</p>
+    <CodeBlock tabs={hello} id="gs-hello" label="Getting started example" />
+  </section>
+
+  <section class="doc-section" id="next">
+    <h2 class="doc-section__title">Where to go next</h2>
+    <p class="doc-section__lead">
+      The guides cover everything from dropping the files in to re-branding the tokens.
+    </p>
+    <div class="cat-grid">
+      {guidePages
+        .filter((page) => page.slug !== 'introduction')
+        .map((page) => (
+          <a class="cat-card" href={guideHref(page.slug)}>
+            <span class="cat-card__name">
+              <Fragment set:html={svgIcon(page.icon, 'zak-icon', 15)} />
+              {page.name}
+            </span>
+            <span class="cat-card__desc">{page.desc}</span>
+          </a>
+        ))}
+    </div>
+  </section>
+
+  <nav class="doc-section" aria-label="Guide navigation">
+    <div class="cat-grid">
+      <a class="cat-card" href={guideHref('installation')}>
+        <span class="landing-stat__label">Next guide</span>
+        <span class="cat-card__name">
+          Installation <Fragment set:html={arrowI} />
+        </span>
+        <span class="cat-card__desc">{guidePages[1].desc}</span>
+      </a>
+    </div>
+  </nav>
+</DocsLayout>

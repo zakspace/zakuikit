@@ -1,0 +1,116 @@
+---
+/**
+ * Category page — one per catalogue category. Lists every component in the
+ * category with its status badges, and links through the catalogue order.
+ */
+import DocsLayout from '../../../layouts/DocsLayout.astro';
+import { catalog, type Category } from '../../../data/catalog';
+import { svgIcon } from '../../../data/icons';
+import type { TocItem } from '../../../layouts/DocsLayout.astro';
+
+export function getStaticPaths() {
+  return catalog.map((cat) => ({ params: { category: cat.slug }, props: { cat } }));
+}
+
+interface Props {
+  cat: Category;
+}
+
+const { cat } = Astro.props;
+
+const toc: TocItem[] = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'components', label: 'Components' },
+];
+
+const index = catalog.findIndex((entry) => entry.slug === cat.slug);
+const prevCat = index > 0 ? catalog[index - 1] : undefined;
+const nextCat = index < catalog.length - 1 ? catalog[index + 1] : undefined;
+
+const badgeClass: Record<string, string> = {
+  new: 'zak-badge--success',
+  ai: 'zak-badge--primary',
+  updated: 'zak-badge--info',
+};
+const badgeLabel: Record<string, string> = { new: 'New', ai: 'AI', updated: 'Updated' };
+
+const statusClass: Record<string, string> = {
+  stable: 'zak-badge--success',
+  beta: 'zak-badge--primary',
+  experimental: 'zak-badge--warning',
+};
+const statusLabel: Record<string, string> = {
+  stable: 'Stable',
+  beta: 'Beta',
+  experimental: 'Experimental',
+};
+
+const newCount = cat.components.filter((comp) => comp.badge === 'new').length;
+const aiCount = cat.components.filter((comp) => comp.badge === 'ai').length;
+const arrowI = svgIcon('arrow-right', 'zak-icon', 13);
+---
+
+<DocsLayout
+  title={cat.name}
+  desc={`${cat.name} — ${cat.blurb} ${cat.components.length} components with live previews, code tabs and accessibility guidance.`}
+  activeCategory={cat.slug}
+  toc={toc}
+>
+  <header class="doc-header" id="overview">
+    <div class="doc-header__meta">
+      <span class="zak-badge zak-badge--primary">
+        <Fragment set:html={svgIcon(cat.icon, 'zak-icon', 13)} />
+        {cat.name}
+      </span>
+      <span class="zak-badge zak-badge--info">{cat.components.length} components</span>
+      {newCount > 0 && <span class="zak-badge zak-badge--success">{newCount} new</span>}
+      {aiCount > 0 && <span class="zak-badge zak-badge--primary">{aiCount} AI</span>}
+    </div>
+    <h1 class="doc-header__title">{cat.name}</h1>
+    <p class="doc-header__desc">{cat.blurb}</p>
+  </header>
+
+  <section class="doc-section" id="components">
+    <h2 class="doc-section__title">Components in this category</h2>
+    <p class="doc-section__lead">
+      Every pattern shares the same structure: live preview, HTML / CSS / JS tabs, props API, design
+      tokens and accessibility guidance.
+    </p>
+    <div class="cat-grid">
+      {cat.components.map((comp) => (
+        <a class="cat-card" href={`/docs/${cat.slug}/${comp.slug}/`}>
+          <span class="cat-card__name">
+            {comp.name}
+            {comp.badge && (
+              <span class:list={['zak-badge', badgeClass[comp.badge]]}>{badgeLabel[comp.badge]}</span>
+            )}
+            {comp.status !== 'stable' && (
+              <span class:list={['zak-badge', statusClass[comp.status]]}>{statusLabel[comp.status]}</span>
+            )}
+          </span>
+          <span class="cat-card__desc">{comp.desc}</span>
+          <span class="landing-cat__count">Since v{comp.since} <Fragment set:html={arrowI} /></span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <nav class="doc-section" aria-label="Category navigation">
+    <div class="cat-grid">
+      {prevCat && (
+        <a class="cat-card" href={`/docs/${prevCat.slug}/`}>
+          <span class="landing-stat__label">Previous category</span>
+          <span class="cat-card__name">{prevCat.name}</span>
+          <span class="cat-card__desc">{prevCat.blurb}</span>
+        </a>
+      )}
+      {nextCat && (
+        <a class="cat-card" href={`/docs/${nextCat.slug}/`}>
+          <span class="landing-stat__label">Next category</span>
+          <span class="cat-card__name">{nextCat.name}</span>
+          <span class="cat-card__desc">{nextCat.blurb}</span>
+        </a>
+      )}
+    </div>
+  </nav>
+</DocsLayout>

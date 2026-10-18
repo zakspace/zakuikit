@@ -1,0 +1,185 @@
+---
+/**
+ * Landing page — hero, live component preview, the catalogue at a glance and
+ * a quick-start snippet. Rendered with the layout's `landing` flag so the
+ * sidebar and TOC rails are omitted.
+ */
+import DocsLayout from '../layouts/DocsLayout.astro';
+import CodeBlock, { type CodeTab } from '../components/CodeBlock.astro';
+import { catalog, totalComponentCount } from '../data/catalog';
+import { svgIcon } from '../data/icons';
+
+const stats = [
+  { num: String(totalComponentCount), label: 'Components' },
+  { num: String(catalog.length), label: 'Categories' },
+  { num: '2', label: 'Themes' },
+  { num: '0', label: 'Dependencies' },
+];
+
+const featured: Array<{ cat: string; comp: string; name: string; desc: string; icon: string }> = [
+  { cat: 'buttons', comp: 'button', name: 'Button', desc: 'Five variants, five sizes and every state.', icon: 'mouse-pointer' },
+  { cat: 'data-grid', comp: 'data-grid', name: 'Data Grid', desc: 'Sorting, filtering, paging and selection at scale.', icon: 'database' },
+  { cat: 'ai', comp: 'ai-prompt-input', name: 'AI Prompt Input', desc: 'Auto-growing composer with streaming responses.', icon: 'sparkles' },
+  { cat: 'overlays', comp: 'modal', name: 'Modal', desc: 'Native dialog with focus management and backdrops.', icon: 'window' },
+  { cat: 'feedback', comp: 'toast', name: 'Toast', desc: 'Stacking notifications with auto-dismiss.', icon: 'bell' },
+  { cat: 'data-visualization', comp: 'line-chart', name: 'Line Chart', desc: 'Inline SVG charts with zero dependencies.', icon: 'pie' },
+];
+
+const quickTabs: CodeTab[] = [
+  {
+    label: 'HTML',
+    lang: 'html',
+    code: `<!-- one combined stylesheet: tokens + every component -->
+<link rel="stylesheet" href="/zak.css" />
+
+<button class="zak-btn zak-btn--filled" data-save>Save changes</button>
+<span class="zak-badge zak-badge--success">Synced</span>`,
+  },
+  {
+    label: 'JavaScript',
+    lang: 'js',
+    code: `// One combined script — runtimes self-initialise, helpers live on ZakUI.
+// <script src="/zak.js" defer></script>
+
+document.querySelector('[data-save]')
+  ?.addEventListener('click', () => {
+    window.ZakUI.toast('Saved', 'success');
+  });`,
+  },
+];
+
+const sendI = svgIcon('send', 'zak-icon', 15);
+const sparkI = svgIcon('sparkles', 'zak-icon', 13);
+const githubI = svgIcon('github', 'zak-icon', 16);
+const arrowI = svgIcon('arrow-right', 'zak-icon', 13);
+---
+
+<DocsLayout
+  landing={true}
+  desc="ZAKUIKit — the enterprise design system: 167 accessible components, design tokens, native light/dark theming and zero runtime dependencies, documented with Astro."
+>
+  <section class="landing-hero">
+    <div class="landing-hero__inner">
+      <span class="landing-hero__pill">
+        <Fragment set:html={sparkI} />
+        v2.1 — {totalComponentCount} components · {catalog.length} categories · pure CSS
+      </span>
+      <h1 class="landing-hero__title">The enterprise design system that ships as <em>plain CSS</em></h1>
+      <p class="landing-hero__desc">
+        ZAKUIKit pairs a complete token layer with {totalComponentCount} accessible components — themed for
+        light and dark, rendered with inline SVG, and driven by native ES modules. No frameworks, no build
+        lock-in, no surprises in production.
+      </p>
+      <div class="landing-hero__actions">
+        <a class="zak-btn zak-btn--primary zak-btn--lg" href="/docs/get-started/">
+          Get started <Fragment set:html={arrowI} />
+        </a>
+        <a class="zak-btn zak-btn--outline zak-btn--lg" href="/docs/">Explore components</a>
+        <a
+          class="zak-btn zak-btn--ghost zak-btn--lg"
+          href="https://github.com/zakui/zakui"
+          target="_blank"
+          rel="noopener">
+          <Fragment set:html={githubI} /> GitHub
+        </a>
+      </div>
+    </div>
+
+    <div class="landing-stats">
+      {stats.map((stat) => (
+        <div>
+          <div class="landing-stat__num">{stat.num}</div>
+          <div class="landing-stat__label">{stat.label}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="docs-container" style="margin-block-start: var(--zak-space-10)">
+    <h2 class="doc-section__title">Everything, live — no JS framework</h2>
+    <p class="doc-p">
+      Every interactive pattern on this site runs on the same dependency-free modules that ship with the
+      design system. Try the switch, the buttons, or ask the assistant a question — this page has no
+      component runtime beyond what you see in the code tabs.
+    </p>
+
+    <div class="doc-demo" style="margin-block-start: var(--zak-space-5)">
+      <div class="doc-demo__stage doc-demo__stage--stretch">
+        <span class="doc-demo__label">Live preview</span>
+        <div style="display:flex;flex-wrap:wrap;gap:var(--zak-space-3);align-items:center;justify-content:center">
+          <button class="zak-btn zak-btn--primary" type="button">Primary</button>
+          <button class="zak-btn zak-btn--secondary" type="button">Secondary</button>
+          <button class="zak-btn zak-btn--outline" type="button">Outline</button>
+          <button class="zak-btn zak-btn--danger" type="button">Danger</button>
+          <span class="zak-badge zak-badge--success">Stable</span>
+          <span class="zak-badge zak-badge--warning">Beta</span>
+          <span class="zak-badge zak-badge--primary">AI</span>
+          <label class="zak-switch" style="margin-inline-start:var(--zak-space-2)">
+            <input type="checkbox" role="switch" checked />
+          </label>
+        </div>
+        <div class="zak-prompt" data-zak-prompt style="width:100%;max-width:36rem;margin-inline:auto">
+          <textarea
+            class="zak-prompt__input"
+            rows="2"
+            placeholder="Ask the assistant — try “summarize the token changes”…"
+            aria-label="Prompt"
+            data-zak-prompt-input></textarea>
+          <div class="zak-prompt__bar">
+            <span class="zak-prompt__hint">Enter to send · Shift+Enter for a new line</span>
+            <button class="zak-prompt__send" type="button" aria-label="Send prompt" data-zak-prompt-send>
+              <Fragment set:html={sendI} />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="docs-container" style="margin-block-start: var(--zak-space-10)">
+    <h2 class="doc-section__title">Featured components</h2>
+    <p class="doc-p">Start with the flagship patterns — each page carries a live preview, code tabs, props API and accessibility guidance.</p>
+    <div class="cat-grid" style="margin-block-start: var(--zak-space-5)">
+      {featured.map((item) => (
+        <a class="cat-card" href={`/docs/${item.cat}/${item.comp}/`}>
+          <span class="cat-card__name">
+            <Fragment set:html={svgIcon(item.icon, 'zak-icon', 15)} />
+            {item.name}
+          </span>
+          <span class="cat-card__desc">{item.desc}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="docs-container" style="margin-block-start: var(--zak-space-10)">
+    <h2 class="doc-section__title">The catalogue</h2>
+    <p class="doc-p">Fifteen categories, from raw tokens to full AI interfaces.</p>
+    <div class="landing-cats" style="margin-block-start: var(--zak-space-5)">
+      {catalog.map((cat) => (
+        <a class="landing-cat" href={`/docs/${cat.slug}/`}>
+          <span class="landing-cat__icon"><Fragment set:html={svgIcon(cat.icon, 'zak-icon', 17)} /></span>
+          <span class="landing-cat__name">{cat.name}</span>
+          <span class="landing-cat__desc">{cat.blurb}</span>
+          <span class="landing-cat__count">
+            {cat.components.length} components <Fragment set:html={arrowI} />
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="docs-container" style="margin-block-start: var(--zak-space-10)">
+    <h2 class="doc-section__title">Quick start</h2>
+    <p class="doc-p">
+      Load the tokens, add the component classes, drop in the behaviour module where you need it. The
+      Utilities pages explain the full token language.
+    </p>
+    <CodeBlock tabs={quickTabs} id="quickstart" label="Quick start examples" />
+    <p class="doc-p" style="margin-block-start: var(--zak-space-5)">
+      New to the toolkit? The <a href="/docs/get-started/">Get started guide</a> walks through
+      installation, a copy-paste starter template and the JavaScript contract — or browse the
+      <a href="/docs/">component index</a>.
+    </p>
+  </section>
+</DocsLayout>

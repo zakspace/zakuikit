@@ -1,0 +1,27 @@
+---
+/**
+ * 404 — friendly not-found page with routes back into the docs.
+ */
+import DocsLayout from '../layouts/DocsLayout.astro';
+import { svgIcon } from '../data/icons';
+
+const alertI = svgIcon('alert-circle', 'zak-icon', 30);
+---
+
+<DocsLayout
+  title="Page not found"
+  desc="The page you are looking for does not exist — browse all 167 ZAKUIKit components instead."
+>
+  <div class="zak-result" style="padding-block: var(--zak-space-10)">
+    <span class="zak-result__icon"><Fragment set:html={alertI} /></span>
+    <h1 class="zak-result__title">404 — page not found</h1>
+    <p class="zak-result__desc">
+      The page you are looking for has moved or never existed. The catalogue is the best place to
+      restart — or search from anywhere with <kbd class="zak-kbd">Ctrl</kbd> <kbd class="zak-kbd">K</kbd>.
+    </p>
+    <div class="zak-result__actions">
+      <a class="zak-btn zak-btn--primary" href="/docs/">Browse components</a>
+      <a class="zak-btn zak-btn--outline" href="/">Back to landing</a>
+    </div>
+  </div>
+</DocsLayout>

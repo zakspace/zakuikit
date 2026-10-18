@@ -1,0 +1,69 @@
+{
+  "name": "zakui",
+  "version": "1.0.0",
+  "description": "ZAKUI — Enterprise design system: 167+ components, native light/dark theming, zero dependencies. Pure CSS + Vanilla ES6 modules.",
+  "type": "module",
+  "main": "./dist/zak.js",
+  "module": "./dist/zakuikit.mjs",
+  "types": "./dist/zakuikit.d.ts",
+  "style": "./dist/zak.css",
+  "exports": {
+    ".": {
+      "types": "./dist/zakuikit.d.ts",
+      "import": "./dist/zakuikit.mjs",
+      "require": "./dist/zak.js",
+      "default": "./dist/zak.js"
+    },
+    "./css": "./dist/zak.css",
+    "./css/*": "./dist/css/*",
+    "./dist/zak.css": "./dist/zak.css",
+    "./dist/zak.min.css": "./dist/zak.min.css",
+    "./dist/zak.js": "./dist/zak.js",
+    "./dist/zak.min.js": "./dist/zak.min.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "astro dev",
+    "standalone": "node scripts/build-standalone.mjs",
+    "audit": "node scripts/audit-demos.mjs",
+    "build": "node scripts/build-standalone.mjs && astro build",
+    "preview": "astro preview",
+    "prepare": "npm run standalone"
+  },
+  "dependencies": {
+    "astro": "^5.1.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.27.7",
+    "vite": "^6.4.4"
+  },
+  "keywords": [
+    "design-system",
+    "ui-kit",
+    "css",
+    "vanilla-js",
+    "web-components",
+    "tokens",
+    "theming",
+    "accessible",
+    "enterprise"
+  ],
+  "author": "ZAKUIKit Contributors",
+  "license": "MIT",
+  "homepage": "https://zak-ui.dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zakui/zakuikit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zakui/zakuikit/issues"
+  },
+  "sideEffects": [
+    "*.css",
+    "src/scripts/**",
+    "dist/**",
+    "public/**"
+  ]
+}

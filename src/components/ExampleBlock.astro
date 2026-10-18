@@ -1,0 +1,43 @@
+---
+/**
+ * Example card — one documented variant of a component: heading, live preview
+ * and the exact copy-ready markup that produced it.
+ *
+ * Each card is standalone, so a reader can lift a single variant out of the
+ * page without unpicking the combined demo above it. Cards come from the
+ * optional `examples` array on a DemoDef.
+ */
+import type { ExampleDef } from '../demos/types';
+import CodeBlock, { type CodeTab } from './CodeBlock.astro';
+
+interface Props {
+  example: ExampleDef;
+  slug: string;
+  index: number;
+}
+
+const { example, slug, index } = Astro.props;
+
+const tabs: CodeTab[] = [
+  { label: 'HTML', lang: 'html', code: example.code ?? example.tpl },
+  ...(example.js ? [{ label: 'JS', lang: 'js' as const, code: example.js }] : []),
+];
+
+const stageClass =
+  example.stage === 'stretch'
+    ? 'doc-demo__stage--stretch'
+    : example.stage === 'center'
+      ? null
+      : 'doc-demo__stage--start';
+---
+
+<div class="doc-example">
+  <h3 class="doc-example__title" id={`example-${slug}-${index}`}>{example.title}</h3>
+  {example.desc && <p class="doc-example__desc">{example.desc}</p>}
+  <div class="doc-demo doc-demo--example">
+    <div class:list={['doc-demo__stage', stageClass]}>
+      <div class="demo-root" set:html={example.tpl} />
+    </div>
+    <CodeBlock tabs={tabs} label={`${example.title} code`} id={`code-${slug}-example-${index}`} />
+  </div>
+</div>

@@ -1,0 +1,57 @@
+---
+/**
+ * Command-style search dialog (Ctrl/Cmd + K). The full component index is
+ * embedded as JSON and filtered client-side by docs.ts — no network, no
+ * dependency.
+ */
+import { allComponents } from '../data/catalog';
+import { guideCategory, guidePages, guideHref } from '../data/getstarted';
+import { svgIcon } from '../data/icons';
+
+const index = [
+  ...allComponents.map((entry) => ({
+    n: entry.name,
+    s: entry.slug,
+    c: entry.category,
+    cn: entry.categoryName,
+    d: entry.desc,
+    k: entry.keywords,
+  })),
+  ...guidePages.map((page) => ({
+    n: page.name,
+    s: page.slug,
+    c: guideCategory.slug,
+    cn: guideCategory.name,
+    d: page.desc,
+    k: page.keywords,
+    u: guideHref(page.slug),
+  })),
+];
+
+const indexJson = JSON.stringify(index).replace(/</g, '\\u003c');
+---
+
+<dialog class="docs-search-dialog" data-docs-search aria-label="Search components">
+  <div class="docs-search__input-row">
+    <Fragment set:html={svgIcon('search', 'zak-icon', 17)} />
+    <input
+      class="docs-search__input"
+      type="text"
+      placeholder="Search components, tokens, guides…"
+      aria-label="Search"
+      aria-controls="docs-search-results"
+      autocomplete="off"
+      spellcheck="false"
+      data-docs-search-input
+    />
+    <kbd class="zak-kbd">Esc</kbd>
+  </div>
+  <div class="docs-search__results" id="docs-search-results" data-docs-search-results></div>
+  <div class="docs-search__foot">
+    <span><kbd class="zak-kbd">↑</kbd> <kbd class="zak-kbd">↓</kbd> navigate</span>
+    <span><kbd class="zak-kbd">↵</kbd> open</span>
+    <span><kbd class="zak-kbd">Esc</kbd> close</span>
+    <span style="margin-inline-start:auto">{index.length} pages indexed</span>
+  </div>
+  <script is:inline type="application/json" data-docs-search-index set:html={indexJson}></script>
+</dialog>

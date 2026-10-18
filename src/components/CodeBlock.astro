@@ -1,0 +1,59 @@
+---
+/**
+ * Code viewer — syntax-highlighted tabs with a copy affordance.
+ * Tab switching, keyboard navigation and copying are handled by docs.ts via
+ * the `data-code-*` hooks.
+ */
+import { highlight, type Lang } from '../lib/highlight';
+import { svgIcon } from '../data/icons';
+
+export interface CodeTab {
+  label: string;
+  lang: Lang;
+  code: string;
+}
+
+interface Props {
+  tabs: CodeTab[];
+  label?: string;
+  id?: string;
+}
+
+const { tabs, label = 'Code examples', id = 'code' } = Astro.props;
+const copyI = svgIcon('copy', 'zak-icon', 13);
+---
+
+<div class="doc-code" data-code>
+  <div class="doc-code__tabs" role="tablist" aria-label={label}>
+    {tabs.map((tab, index) => (
+      <button
+        class:list={['doc-code__tab', index === 0 && 'is-active']}
+        type="button"
+        role="tab"
+        id={`${id}-tab-${index}`}
+        aria-selected={index === 0}
+        aria-controls={`${id}-panel-${index}`}
+        tabindex={index === 0 ? 0 : -1}
+        data-code-tab
+      >
+        {tab.label}
+      </button>
+    ))}
+    <button class="doc-code__copy" type="button" data-copy aria-label="Copy code to clipboard">
+      <Fragment set:html={copyI} />
+      <span data-copy-label>Copy</span>
+    </button>
+  </div>
+  {tabs.map((tab, index) => (
+    <div
+      class:list={['doc-code__panel', index === 0 && 'is-active']}
+      role="tabpanel"
+      id={`${id}-panel-${index}`}
+      aria-labelledby={`${id}-tab-${index}`}
+      data-code-panel
+      tabindex="0"
+    >
+      <pre><code set:html={highlight(tab.code, tab.lang)} /></pre>
+    </div>
+  ))}
+</div>

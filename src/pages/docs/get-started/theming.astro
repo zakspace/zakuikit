@@ -1,0 +1,265 @@
+---
+/**
+ * Get Started — Theming. data-theme switching, the token layers and a live
+ * re-brand demo that proves the semantic layer drives every component.
+ */
+import DocsLayout from '../../../layouts/DocsLayout.astro';
+import CodeBlock, { type CodeTab } from '../../../components/CodeBlock.astro';
+import KeyTable from '../../../components/KeyTable.astro';
+import { guideHref } from '../../../data/getstarted';
+import { svgIcon } from '../../../data/icons';
+import type { TocItem } from '../../../layouts/DocsLayout.astro';
+
+const toc: TocItem[] = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'switching', label: 'Switching themes' },
+  { id: 'tokens', label: 'Token layers' },
+  { id: 'custom', label: 'Re-branding' },
+];
+
+const bootTabs: CodeTab[] = [
+  {
+    label: 'boot — no flash',
+    lang: 'html',
+    code: `<!-- In the head, before any stylesheet-dependent paint -->
+<script>
+  (function () {
+    try {
+      var stored = localStorage.getItem('zak-theme');
+      if (stored !== 'light' && stored !== 'dark') {
+        stored = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      document.documentElement.setAttribute('data-theme', stored);
+    } catch (error) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  })();
+</script>`,
+  },
+  {
+    label: 'toggle at runtime',
+    lang: 'js',
+    code: `// One attribute on <html> flips the entire design system.
+function setTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('zak-theme', theme);
+}
+
+var current = document.documentElement.getAttribute('data-theme');
+setTheme(current === 'dark' ? 'light' : 'dark');`,
+  },
+];
+
+const tokenRows = [
+  [
+    'Surfaces',
+    '--zak-bg-app · --zak-bg-surface · --zak-bg-elevated · --zak-bg-sunken',
+    'Page, card and raised layers.',
+  ],
+  [
+    'Text',
+    '--zak-text-primary · --zak-text-secondary · --zak-text-tertiary',
+    'Three emphasis levels plus inverse and link colours.',
+  ],
+  [
+    'Borders & focus',
+    '--zak-border-color · --zak-border-subtle · --zak-focus-ring',
+    'Dividers, input outlines and the focus ring.',
+  ],
+  [
+    'Status',
+    '--zak-success · --zak-warning · --zak-danger · --zak-info',
+    'Semantic status colours, each with -text and -subtle companions.',
+  ],
+  [
+    'Brand',
+    '--zak-primary · --zak-primary-hover · --zak-primary-active · --zak-primary-subtle',
+    'The brand ramp, re-pointed per theme.',
+  ],
+  [
+    'Geometry',
+    '--zak-space-* · --zak-radius-* · --zak-shadow-*',
+    'Spacing, corners and elevation — shared by both themes.',
+  ],
+  [
+    'Palette (raw)',
+    '--zak-primary-50…900 · --zak-neutral-* · --zak-success-*',
+    'The raw ramps every semantic token resolves against.',
+  ],
+];
+
+const brandTabs: CodeTab[] = [
+  {
+    label: 'CSS',
+    lang: 'css',
+    code: `/* Re-brand: point the semantic layer at a teal ramp — light theme */
+:root {
+  --zak-primary: #0d9488;
+  --zak-primary-hover: #0f766e;
+  --zak-primary-active: #115e59;
+  --zak-primary-text: #0f766e;
+  --zak-primary-subtle: #f0fdfa;
+  --zak-primary-subtle-border: rgba(13, 148, 136, 0.3);
+  --zak-text-link: #0f766e;
+  --zak-focus-ring: 0 0 0 3px rgba(13, 148, 136, 0.32);
+}
+
+/* Dark theme keeps its own values */
+[data-theme="dark"] {
+  --zak-primary: #2dd4bf;
+  --zak-primary-hover: #5eead4;
+  --zak-primary-active: #99f6e4;
+  --zak-primary-text: #5eead4;
+  --zak-text-link: #5eead4;
+}`,
+  },
+];
+
+const rocketI = svgIcon('rocket', 'zak-icon', 13);
+const sunI = svgIcon('sun', 'zak-icon', 15);
+const infoI = svgIcon('info', 'zak-icon', 15);
+const arrowI = svgIcon('arrow-right', 'zak-icon', 13);
+---
+
+<DocsLayout
+  title="Theming"
+  desc="Theme ZAKUIKit with data-theme and the token layer — light and dark are first-class, and one rule re-brands the system."
+  activeCategory="get-started"
+  activeComponent="theming"
+  toc={toc}
+>
+  <header class="doc-header" id="overview">
+    <div class="doc-header__meta">
+      <span class="zak-badge zak-badge--primary">
+        <Fragment set:html={rocketI} />
+        Get Started
+      </span>
+      <span class="zak-badge zak-badge--info">Light + dark</span>
+      <span class="zak-badge">data-theme</span>
+    </div>
+    <h1 class="doc-header__title">Theming</h1>
+    <p class="doc-header__desc">
+      Light and dark are first-class: every component consumes a semantic token layer, so switching
+      <code>data-theme</code> on the <code>&lt;html&gt;</code> element re-paints the entire system —
+      and no component CSS ever reads a raw colour value.
+    </p>
+  </header>
+
+  <section class="doc-section">
+    <h2 class="doc-section__title">Overview</h2>
+    <p class="doc-p">
+      Without any attribute the toolkit renders the light theme and declares
+      <code>color-scheme</code> so native controls, scrollbars and selection follow suit. Setting
+      <code>data-theme="dark"</code> swaps the semantic layer; nothing else changes.
+    </p>
+    <div class="doc-callout">
+      <Fragment set:html={infoI} />
+      <span>
+        <strong>Themes are scoped, not global.</strong> <code>data-theme</code> works on any
+        subtree — drop it on a panel, a card or a preview frame to render that region in the opposite
+        scheme. The live demos below do exactly that.
+      </span>
+    </div>
+  </section>
+
+  <section class="doc-section" id="switching">
+    <h2 class="doc-section__title">Switching themes</h2>
+    <p class="doc-section__lead">
+      Two snippets cover the whole lifecycle: a boot script that applies the stored preference before
+      first paint, and a toggle for run time.
+    </p>
+    <CodeBlock tabs={bootTabs} id="gs-theme-switch" label="Theme switching examples" />
+
+    <div class="doc-demo" style="margin-block-start: var(--zak-space-5)">
+      <div class="doc-demo__stage">
+        <span class="doc-demo__label">Scoped theming — identical markup under both themes</span>
+        <div style="display:flex;gap:var(--zak-space-4);flex-wrap:wrap;width:100%">
+          <div
+            data-theme="light"
+            class="zak-box"
+            style="flex:1;min-width:14rem;display:flex;flex-direction:column;gap:var(--zak-space-3)">
+            <span style="font-size:var(--zak-text-sm);font-weight:var(--zak-weight-semibold);color:var(--zak-text-secondary)">
+              data-theme="light"
+            </span>
+            <div style="display:flex;gap:var(--zak-space-2);align-items:center;flex-wrap:wrap">
+              <button class="zak-btn zak-btn--filled zak-btn--sm" type="button">Primary</button>
+              <span class="zak-badge zak-badge--success">Stable</span>
+            </div>
+            <input class="zak-input" value="Input field" readonly aria-label="Light theme input" />
+          </div>
+          <div
+            data-theme="dark"
+            class="zak-box"
+            style="flex:1;min-width:14rem;display:flex;flex-direction:column;gap:var(--zak-space-3)">
+            <span style="font-size:var(--zak-text-sm);font-weight:var(--zak-weight-semibold);color:var(--zak-text-secondary)">
+              data-theme="dark"
+            </span>
+            <div style="display:flex;gap:var(--zak-space-2);align-items:center;flex-wrap:wrap">
+              <button class="zak-btn zak-btn--filled zak-btn--sm" type="button">Primary</button>
+              <span class="zak-badge zak-badge--success">Stable</span>
+            </div>
+            <input class="zak-input" value="Input field" readonly aria-label="Dark theme input" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="doc-section" id="tokens">
+    <h2 class="doc-section__title">Token layers</h2>
+    <p class="doc-section__lead">
+      The semantic layer is the only contract components rely on. Palette ramps feed it; geometry
+      tokens sit beside it and rarely change between themes.
+    </p>
+    <KeyTable head={['Group', 'Examples', 'Role']} rows={tokenRows} />
+    <p class="doc-p" style="margin-block-start: var(--zak-space-5)">
+      The <a href="/docs/utilities/colors/">Utilities pages</a> list every token with its resolved
+      light and dark values.
+    </p>
+  </section>
+
+  <section class="doc-section" id="custom">
+    <h2 class="doc-section__title">Re-branding</h2>
+    <p class="doc-section__lead">
+      Because components only read semantic tokens, re-pointing them re-brands buttons, links, focus
+      rings, selection highlights, active pickers and the dark mode accent at once — in two blocks of
+      CSS.
+    </p>
+    <CodeBlock tabs={brandTabs} id="gs-theme-brand" label="Re-branding example" />
+    <div class="doc-demo" style="margin-block-start: var(--zak-space-5)">
+      <div class="doc-demo__stage">
+        <span class="doc-demo__label">Live preview — the teal override applied to a subtree</span>
+        <div
+          style="--zak-primary:#0d9488;--zak-primary-hover:#0f766e;--zak-primary-active:#115e59;--zak-primary-text:#0f766e;--zak-primary-subtle:#f0fdfa;--zak-primary-subtle-border:rgba(13,148,136,0.3);--zak-text-link:#0f766e;display:flex;gap:var(--zak-space-4);align-items:center;flex-wrap:wrap">
+          <button class="zak-btn zak-btn--filled" type="button">Teal filled button</button>
+          <button class="zak-btn zak-btn--outline" type="button">Teal outline</button>
+          <a href="/docs/utilities/colors/">Teal link</a>
+        </div>
+      </div>
+    </div>
+    <div class="doc-callout">
+      <Fragment set:html={infoI} />
+      <span>
+        The same override can be scoped to a subtree — a white-label panel or an embedded widget —
+        by setting the variables on any ancestor instead of <code>:root</code>.
+      </span>
+    </div>
+  </section>
+
+  <nav class="doc-section" aria-label="Guide navigation">
+    <div class="cat-grid">
+      <a class="cat-card" href={guideHref('javascript')}>
+        <span class="landing-stat__label">Previous guide</span>
+        <span class="cat-card__name">JavaScript</span>
+        <span class="cat-card__desc">The data-attribute contracts, the self-initialising runtime and the toast helper.</span>
+      </a>
+      <a class="cat-card" href="/docs/">
+        <span class="landing-stat__label">Next</span>
+        <span class="cat-card__name">
+          Browse components <Fragment set:html={arrowI} />
+        </span>
+        <span class="cat-card__desc">The full catalogue — every page ships a live preview, props API and accessibility guidance.</span>
+      </a>
+    </div>
+  </nav>
+</DocsLayout>

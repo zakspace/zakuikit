@@ -1,0 +1,68 @@
+---
+/**
+ * Top navigation bar — brand, search trigger, version badge, repo link,
+ * theme toggle and the mobile navigation button.
+ *
+ * `nav` gates the hamburger: the landing page renders no sidebar/scrim, so
+ * there is nothing for it to open there.
+ */
+import Logo from './Logo.astro';
+import { svgIcon } from '../data/icons';
+
+interface Props {
+  nav?: boolean;
+}
+const { nav = true } = Astro.props;
+---
+
+<header class="docs-header">
+  {nav && (
+    <button
+      class="zak-btn zak-btn--ghost zak-btn--icon zak-btn--sm docs-header__menu-btn"
+      type="button"
+      data-docs-menu
+      aria-label="Open navigation"
+      aria-expanded="false"
+    >
+      <Fragment set:html={svgIcon('menu', 'zak-icon', 18)} />
+    </button>
+  )}
+
+  <a class="docs-header__brand" href="/">
+    <span class="docs-header__logo"><Logo size={30} /></span>
+    <div class="zak-d-flex">
+    <span class="docs-header__brandprimary">ZAK</span>
+    <span class="docs-header__brandtext">UIKit</span> 
+    </div>
+  </a>
+
+  <button class="docs-header__search" type="button" data-docs-search-open aria-label="Search components">
+    <Fragment set:html={svgIcon('search', 'zak-icon', 15)} />
+    <span>Search components…</span>
+    <kbd class="zak-kbd">Ctrl</kbd>
+    <kbd class="zak-kbd">K</kbd>
+  </button>
+
+  <div class="docs-header__actions">
+    <span class="zak-badge zak-badge--primary">v2.1</span>
+    <a
+      class="zak-btn zak-btn--ghost zak-btn--icon zak-btn--sm"
+      href="https://github.com/zakui/zakui"
+      target="_blank"
+      rel="noopener"
+      aria-label="GitHub repository"
+    >
+      <Fragment set:html={svgIcon('github', 'zak-icon', 16)} />
+    </a>
+    <button
+      class="docs-theme-toggle"
+      type="button"
+      data-theme-toggle
+      aria-pressed="false"
+      aria-label="Toggle theme"
+    >
+      <Fragment set:html={svgIcon('sun', 'zak-icon icon-sun', 16)} />
+      <Fragment set:html={svgIcon('moon', 'zak-icon icon-moon', 16)} />
+    </button>
+  </div>
+</header>

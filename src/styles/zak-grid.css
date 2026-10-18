@@ -1,0 +1,426 @@
+/* ==========================================================================
+   ZAKUIKit — Data Grid
+   Grid shell · Toolbar · Filters · Selection · Bulk actions · Column menu ·
+   Row expansion · Grouping · Filter builder · Query builder · Saved filters
+   ========================================================================== */
+
+.zak-grid {
+  display: flex;
+  flex-direction: column;
+  background: var(--zak-bg-surface);
+  border: 1px solid var(--zak-border-subtle);
+  border-radius: var(--zak-radius-lg);
+  box-shadow: var(--zak-shadow-sm);
+  overflow: hidden;
+  max-width: 100%;
+}
+
+/* Toolbar ---------------------------------------------------------------------- */
+.zak-grid__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--zak-space-2);
+  padding: var(--zak-space-3) var(--zak-space-4);
+  border-block-end: 1px solid var(--zak-border-subtle);
+  background: var(--zak-bg-surface);
+}
+
+.zak-grid__search {
+  flex: 1 1 200px;
+  max-width: 300px;
+}
+
+.zak-grid__filters {
+  display: flex;
+  align-items: center;
+  gap: var(--zak-space-2);
+  flex-wrap: wrap;
+}
+
+.zak-grid__filters .zak-select {
+  width: auto;
+  min-width: 8.5rem;
+  height: 2rem;
+  font-size: var(--zak-text-sm);
+}
+
+.zak-grid__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--zak-space-2);
+  margin-inline-start: auto;
+}
+
+/* Bulk actions bar ------------------------------------------------------------------ */
+.zak-grid__bulk {
+  display: flex;
+  align-items: center;
+  gap: var(--zak-space-3);
+  padding: var(--zak-space-2) var(--zak-space-4);
+  background: var(--zak-primary-subtle);
+  border-block-end: 1px solid var(--zak-primary-subtle-border);
+  color: var(--zak-primary-text);
+  font-size: var(--zak-text-sm);
+  font-weight: var(--zak-weight-medium);
+  animation: zak-grid-bulk-in var(--zak-duration-base) var(--zak-ease-out);
+}
+
+@keyframes zak-grid-bulk-in {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.zak-grid__bulk .zak-btn { margin-inline-start: auto; }
+.zak-grid__bulk[hidden] { display: none; }
+
+/* Scroller + table --------------------------------------------------------------------- */
+.zak-grid__scroll {
+  overflow: auto;
+  max-height: var(--grid-max-height, none);
+  position: relative;
+}
+
+.zak-grid__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--zak-text-md);
+  min-width: 640px;
+}
+
+.zak-grid__table th {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  text-align: left;
+  font-size: var(--zak-text-xs);
+  font-weight: var(--zak-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--zak-text-tertiary);
+  background: var(--zak-bg-elevated);
+  border-block-end: 1px solid var(--zak-border-color);
+  padding: var(--zak-space-2) var(--zak-space-4);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.zak-grid__table td {
+  padding: var(--zak-space-3) var(--zak-space-4);
+  border-block-end: 1px solid var(--zak-border-subtle);
+}
+
+.zak-grid__table tbody tr { transition: background-color var(--zak-duration-instant); }
+.zak-grid__table tbody tr:hover td { background: var(--zak-bg-hover); }
+.zak-grid__table tbody tr.is-selected td { background: var(--zak-primary-subtle); }
+
+.zak-grid__table tbody tr.is-expanded td { background: var(--zak-bg-muted); }
+
+.zak-grid__table td.is-hidden,
+.zak-grid__table th.is-hidden { display: none; }
+
+.zak-grid__check {
+  width: 2.75rem;
+  text-align: center !important;
+}
+
+/* Row actions -------------------------------------------------------------------------------- */
+/* Trailing cell holding the per-row action buttons; stays glued to the inline end and never
+   wraps, so the action rail lines up across every row. */
+.zak-grid__row-actions {
+  width: 1%;
+  text-align: end !important;
+  white-space: nowrap;
+}
+
+.zak-grid__row-actions .zak-btn + .zak-btn {
+  margin-inline-start: var(--zak-space-1);
+}
+
+.zak-grid__action--danger {
+  color: var(--zak-danger-text);
+}
+
+.zak-grid__action--danger:hover {
+  color: var(--zak-danger-text);
+  background: var(--zak-danger-subtle);
+}
+
+/* Sortable header -------------------------------------------------------------------------- */
+.zak-grid__sort {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+}
+
+.zak-grid__sort:hover { color: var(--zak-text-primary); }
+
+.zak-grid__sort .zak-icon {
+  opacity: 0.35;
+  transition: opacity var(--zak-duration-fast), transform var(--zak-duration-fast);
+}
+
+.zak-grid__sort[data-dir] .zak-icon { opacity: 1; color: var(--zak-primary-text); }
+.zak-grid__sort[data-dir="desc"] .zak-icon { transform: rotate(180deg); }
+
+/* Resizable column ---------------------------------------------------------------------------- */
+.zak-grid__table th { position: sticky; }
+
+th.zak-grid__resizable { position: sticky; padding-inline-end: var(--zak-space-6); }
+
+.zak-grid__resizer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 5px;
+  height: 100%;
+  cursor: col-resize;
+  background: transparent;
+  transition: background-color var(--zak-duration-fast);
+}
+
+.zak-grid__resizer:hover,
+.zak-grid__resizer.is-active { background: var(--zak-primary); }
+
+/* Row detail (expansion) ------------------------------------------------------------------------- */
+.zak-grid__detail td {
+  background: var(--zak-bg-sunken);
+  padding: var(--zak-space-5) var(--zak-space-6) !important;
+  font-size: var(--zak-text-sm);
+}
+
+.zak-grid__detail-inner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--zak-space-4);
+}
+
+/* Group rows --------------------------------------------------------------------------------------- */
+.zak-grid__group td {
+  background: var(--zak-bg-muted);
+  font-weight: var(--zak-weight-semibold);
+  font-size: var(--zak-text-sm);
+  color: var(--zak-text-secondary);
+  padding-block: var(--zak-space-2) !important;
+}
+
+.zak-grid__group .zak-icon { color: var(--zak-text-tertiary); }
+
+/* Footer --------------------------------------------------------------------------------------------- */
+.zak-grid__footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--zak-space-3);
+  padding: var(--zak-space-3) var(--zak-space-4);
+  border-block-start: 1px solid var(--zak-border-subtle);
+  background: var(--zak-bg-surface);
+  font-size: var(--zak-text-sm);
+  color: var(--zak-text-secondary);
+}
+
+.zak-grid__count { margin-inline-end: auto; }
+.zak-grid__count strong { color: var(--zak-text-primary); }
+
+.zak-grid__pager {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--zak-space-2);
+}
+
+.zak-grid__pagesize {
+  display: flex;
+  align-items: center;
+  gap: var(--zak-space-2);
+  font-size: var(--zak-text-xs);
+}
+
+.zak-grid__pagesize .zak-select {
+  width: auto;
+  height: 1.9rem;
+  font-size: var(--zak-text-xs);
+  padding-inline: var(--zak-space-2) var(--zak-space-6);
+}
+
+/* Empty & loading states --------------------------------------------------------------------------------- */
+.zak-grid__empty {
+  padding: var(--zak-space-9) var(--zak-space-5);
+  text-align: center;
+  color: var(--zak-text-tertiary);
+  font-size: var(--zak-text-sm);
+}
+
+.zak-grid__loading {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: var(--zak-space-3);
+  background: var(--zak-overlay-bg);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  color: #fff;
+  font-size: var(--zak-text-sm);
+  z-index: 5;
+}
+
+.zak-grid__loading.is-visible { display: flex; }
+
+/* Column menu (popover) ------------------------------------------------------------------------------------- */
+.zak-grid__cols {
+  position: absolute;
+  right: var(--zak-space-4);
+  top: calc(100% - var(--zak-space-1));
+  z-index: var(--zak-z-popover);
+  width: 13.5rem;
+  padding: var(--zak-space-3);
+  background: var(--zak-bg-elevated);
+  border: 1px solid var(--zak-border-color);
+  border-radius: var(--zak-radius-md);
+  box-shadow: var(--zak-shadow-lg);
+  animation: zak-pop-in var(--zak-duration-fast) var(--zak-ease-out);
+}
+
+.zak-grid__toolbar { position: relative; }
+
+.zak-grid__cols-title {
+  font-size: var(--zak-text-2xs);
+  font-weight: var(--zak-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--zak-text-tertiary);
+  margin-block-end: var(--zak-space-2);
+}
+
+.zak-grid__cols label {
+  display: flex;
+  align-items: center;
+  gap: var(--zak-space-2);
+  padding: var(--zak-space-1) var(--zak-space-1);
+  font-size: var(--zak-text-sm);
+  border-radius: var(--zak-radius-sm);
+  cursor: pointer;
+}
+
+.zak-grid__cols label:hover { background: var(--zak-bg-hover); }
+
+/* Column reorder handles ------------------------------------------------------------------------------------------ */
+.zak-grid__table th[draggable="true"] { cursor: grab; }
+.zak-grid__table th[draggable="true"]:active { cursor: grabbing; }
+.zak-grid__table th.is-dragover { box-shadow: inset 3px 0 0 var(--zak-primary); }
+
+/* Virtual grid spacer ---------------------------------------------------------------------------------------------- */
+.zak-grid__vpad {
+  background: var(--zak-bg-sunken);
+  text-align: center;
+  color: var(--zak-text-tertiary);
+  font-size: var(--zak-text-xs);
+  padding: 0 !important;
+}
+
+/* Editable cells ----------------------------------------------------------------------------------------------------- */
+.zak-grid__table td[contenteditable="true"] {
+  outline: none;
+  border-radius: 0;
+}
+
+.zak-grid__table td[contenteditable="true"]:focus-visible {
+  background: var(--zak-primary-subtle);
+  box-shadow: inset 0 0 0 2px var(--zak-primary);
+}
+
+.zak-grid__cell-edit {
+  display: block;
+  width: 100%;
+  background: transparent;
+  border: 0;
+  outline: none;
+  font: inherit;
+  color: inherit;
+  padding: var(--zak-space-1);
+  border-radius: var(--zak-radius-sm);
+}
+
+.zak-grid__cell-edit:hover { background: var(--zak-bg-hover); }
+
+.zak-grid__table td.is-invalid,
+.zak-grid__table td.is-invalid:focus-visible {
+  background: var(--zak-danger-subtle);
+  box-shadow: inset 0 0 0 2px var(--zak-danger);
+}
+
+/* ==========================================================================
+   Filter builder · Query builder · Saved filters
+   ========================================================================== */
+.zak-filter-builder,
+.zak-qb {
+  display: flex;
+  flex-direction: column;
+  gap: var(--zak-space-2);
+  padding: var(--zak-space-3);
+  background: var(--zak-bg-surface);
+  border: 1px solid var(--zak-border-subtle);
+  border-radius: var(--zak-radius-lg);
+  font-size: var(--zak-text-sm);
+}
+
+.zak-filter-row {
+  display: flex;
+  align-items: center;
+  gap: var(--zak-space-2);
+  flex-wrap: wrap;
+  padding: var(--zak-space-1) var(--zak-space-2);
+  border-radius: var(--zak-radius-md);
+}
+
+.zak-filter-row:hover { background: var(--zak-bg-hover); }
+
+.zak-filter-row .zak-select { width: auto; height: 2rem; font-size: var(--zak-text-sm); }
+.zak-filter-row .zak-input { width: auto; min-width: 8rem; height: 2rem; font-size: var(--zak-text-sm); }
+
+.zak-filter-row__join {
+  font-size: var(--zak-text-2xs);
+  font-weight: var(--zak-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--zak-primary-text);
+  background: var(--zak-primary-subtle);
+  border-radius: var(--zak-radius-sm);
+  padding: 0.15rem var(--zak-space-2);
+  min-width: 3rem;
+  text-align: center;
+}
+
+.zak-qb__group {
+  border-inline-start: 2px solid var(--zak-primary-subtle-border);
+  padding-inline-start: var(--zak-space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--zak-space-2);
+  margin-inline-start: var(--zak-space-2);
+}
+
+.zak-qb__group-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--zak-space-2);
+  font-size: var(--zak-text-2xs);
+  font-weight: var(--zak-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--zak-text-tertiary);
+}
+
+.zak-saved-filters {
+  display: flex;
+  align-items: center;
+  gap: var(--zak-space-2);
+  flex-wrap: wrap;
+}

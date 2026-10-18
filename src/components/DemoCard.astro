@@ -1,0 +1,41 @@
+---
+/**
+ * Static demo card — the rendered preview plus its code tabs.
+ * Used for every component that opts out of the interactive playground.
+ */
+import { renderTemplate } from '../lib/template';
+import { inferControls, defaultVars, type DemoDef } from '../demos/types';
+import CodeBlock, { type CodeTab } from './CodeBlock.astro';
+
+interface Props {
+  demo: DemoDef;
+  slug: string;
+}
+
+const { demo, slug } = Astro.props;
+
+const vars = defaultVars(inferControls(demo.tpl, demo.controls));
+const preview = renderTemplate(demo.tpl, vars);
+const code = renderTemplate(demo.codeTpl ?? demo.tpl, vars);
+
+const tabs: CodeTab[] = [
+  { label: 'HTML', lang: 'html', code },
+  ...(demo.css ? [{ label: 'CSS', lang: 'css' as const, code: demo.css }] : []),
+  ...(demo.js ? [{ label: 'JS', lang: 'js' as const, code: demo.js }] : []),
+];
+---
+
+<div class="doc-demo">
+  <div
+    class:list={[
+      'doc-demo__stage',
+      demo.stage === 'start' && 'doc-demo__stage--start',
+      demo.stage === 'stretch' && 'doc-demo__stage--stretch',
+      demo.stage === 'grid' && 'doc-demo__stage--grid',
+    ]}
+    style={demo.stage === 'grid' && demo.stageMin ? `--demo-min:${demo.stageMin}px` : undefined}
+  >
+    <div class="demo-root" set:html={preview} />
+  </div>
+  <CodeBlock tabs={tabs} id={`code-${slug}`} />
+</div>

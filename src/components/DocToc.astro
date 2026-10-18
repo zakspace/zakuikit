@@ -1,0 +1,24 @@
+---
+/**
+ * "On this page" rail — anchor links kept in sync by the scroll-spy in docs.ts.
+ */
+export interface TocItem {
+  id: string;
+  label: string;
+}
+
+interface Props {
+  items: TocItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<aside class="docs-toc" aria-label="On this page">
+  <div class="docs-toc__title">On this page</div>
+  <nav class="docs-toc__nav" data-docs-toc>
+    {items.map((item) => (
+      <a class="docs-toc__link" href={`#${item.id}`} data-toc-link={item.id}>{item.label}</a>
+    ))}
+  </nav>
+</aside>
