@@ -641,7 +641,7 @@ function header(): string {
     `<a class="docs-header__brand" href="#top"><span class="docs-header__logo">${LOGO_SVG}</span> ZAKUIKit <small>ENTERPRISE</small></a>` +
     `<button class="docs-header__search" type="button" data-docs-search-open aria-label="Search components">${svgIcon('search', 'zak-icon', 15)}<span>Search components…</span><kbd class="zak-kbd">Ctrl</kbd><kbd class="zak-kbd">K</kbd></button>` +
     `<div class="docs-header__actions"><span class="zak-badge zak-badge--primary">v2.2</span>` +
-    `<a class="zak-btn zak-btn--ghost zak-btn--icon zak-btn--sm" href="https://github.com/zakui/zakuikit" target="_blank" rel="noopener" aria-label="GitHub repository">${svgIcon('github', 'zak-icon', 16)}</a>` +
+    `<a class="zak-btn zak-btn--ghost zak-btn--icon zak-btn--sm" href="https://github.com/zakspace/zakuikitkit" target="_blank" rel="noopener" aria-label="GitHub repository">${svgIcon('github', 'zak-icon', 16)}</a>` +
     `<button class="docs-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Toggle theme">${svgIcon('sun', 'zak-icon icon-sun', 16)}${svgIcon('moon', 'zak-icon icon-moon', 16)}</button>` +
     `</div></header>`;
 }
@@ -693,7 +693,7 @@ function searchDialog(): string {
 function footer(): string {
   return `<footer class="docs-footer"><span>© 2026 ZAKUIKit · pure CSS + native ES modules · zero third-party dependencies</span>` +
     `<span class="docs-footer__spacer"></span><a href="#${catId('layout')}">Components</a><a href="#${catId('utilities')}">Design tokens</a>` +
-    `<a href="https://github.com/zakui/zakuikit" target="_blank" rel="noopener">GitHub</a></footer>`;
+    `<a href="https://github.com/zakspace/zakuikitkit" target="_blank" rel="noopener">GitHub</a></footer>`;
 }
 
 /* --------------------------------------------------------------------------

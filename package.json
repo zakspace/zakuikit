@@ -55,10 +55,10 @@
   "homepage": "https://zak-ui.dev",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zakui/zakuikit.git"
+    "url": "https://github.com/zakspace/zakuikitkit.git"
   },
   "bugs": {
-    "url": "https://github.com/zakui/zakuikit/issues"
+    "url": "https://github.com/zakspace/zakuikitkit/issues"
   },
   "sideEffects": [
     "*.css",
